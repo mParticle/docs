@@ -1,0 +1,95 @@
+@import '../../styles/_colors';
+@import '../../styles/_fonts';
+
+.headings-toc + div.category-chooser, .table-of-contents + div.category-chooser {
+    margin-top: 50px;
+}
+
+.category-chooser {
+    box-sizing: border-box;
+    max-height: calc(~"100vh - 200px");
+    .category-header {
+        .active {
+            background-color: @mp-category-grey;
+        }
+    }
+    >.category-header > span {
+        display: block;
+        color: @mp-darkgrey-bodycopy-large;
+        height: 30px;
+        box-sizing: border-box;
+        line-height: 1.57;
+        padding-left: 15px;
+        font-family: 'Roboto';
+        font-size: 14px;
+        // margin-bottom: 20px;
+        border-bottom: 1px solid @mp-rule-light;
+    }
+    > .category-header > a {
+        font-family: 'Roboto';
+        font-weight: 500;
+    }
+
+    .category-wrapper>.link-wrapper, .category-wrapper {
+            margin-top: 6px;
+            .toc-link {
+                span {
+                    margin-right: 6px;
+                }
+                color: @mp-header-light-2;
+                font-family: 'Roboto';
+                font-size: 14px;
+            }
+    }
+
+    .category-wrapper a, .category-wrapper > span > span, > .category-header > a {
+        text-decoration: none;
+        display: inline-block;
+        box-sizing: border-box;
+        height: 34px;
+        border: transparent 1px;
+        color: @mp-darkgrey-bodycopy;
+        line-height: 34px;
+        font-weight: 500;
+        padding: 1px 14px;
+        &:not(.view-all):hover {
+            transition: all 0.3s ease;
+            color: @mp-darkgrey-bodycopy;
+        }
+        &.view-all:hover {
+            transition: all 0.3s ease;
+            background-color: @mp-category-grey !important;
+        }
+
+        &+a {
+            margin-top: 6px;
+        }
+    }
+    .category-wrapper > span > span {
+        font-family: 'Roboto';
+        font-weight: 500;
+        padding: 1px 6px;
+        cursor: default;
+    }
+    .link-wrapper:hover {
+        transition: all 0.3s ease;
+        background-color: @mp-grey;
+    }
+
+    .category-wrapper {
+        .categories {
+            margin-left: 16px;
+            .link-wrapper {
+                a {
+                    width: 100%;
+                }
+                &.active {
+                    background-color: @mp-grey;
+                    a {
+                        color: @mp-darkgrey-bodycopy;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+.absolute-centered() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.multi-line-ellipsis(@lines) {
+    -webkit-line-clamp: @lines;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+}
+
+.icon-background-image() {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+}
+
+.icon-image(@icon) {
+    .icon-background-image();
+    @color: "icon-@{icon}";
+    background-image: @icon;
+}
+
+.placeholder(@color, @opacity: 1) {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: @color;
+        opacity: @opacity;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: @color;
+        opacity: @opacity;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: @color;
+        opacity: @opacity;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        color: @color;
+        opacity: @opacity;
+    }
+}
+
+.animate-background-color(@color) {
+    transition: background-color .3s ease-in-out;
+
+    &:hover {
+        background-color: @color;
+    }
+}
+
+.gradient-animator(@background-gradient, @start-opacity, @end-opacity) {
+    &:before {
+        content: '';
+        background-image: @background-gradient;
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: @start-opacity;
+        z-index: -1;
+        transition: all .3s ease-in-out;
+    }
+
+    &:hover:before {
+        opacity: @end-opacity;
+    }
+}
+
+.gradient-animator-out(@background-gradient) {
+    .gradient-animator(@background-gradient, 1, 0);
+}
+
+.gradient-animator-in(@background-gradient) {
+    .gradient-animator(@background-gradient, 0, 1);
+}

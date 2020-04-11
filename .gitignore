@@ -1,0 +1,13 @@
+partners.json
+node_modules/
+public/
+.gatsby-context.js
+.DS_Store
+.idea
+current_documents.json
+update_documents.json
+settings.json
+.cache
+.vscode
+.vscode/settings.json
+latest_search_items.json

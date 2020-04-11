@@ -1,0 +1,9 @@
+[
+        ["/integrations/appboy", "integrations/braze/audience"],
+        ["/integrations/appboy/audience", "integrations/braze/audience"],
+        ["/integrations/appboy/event", "integrations/braze/event"],
+        ["/integrations/appboy/feed", "integrations/braze/feed"],
+        ["/integrations/krux/event", "integrations/salesforce-dmp/event"],
+        ["/integrations/krux", "integrations/salesforce-dmp/event"],
+        ["/integrations/impact-radius", "/integrations/impact/event"]
+]

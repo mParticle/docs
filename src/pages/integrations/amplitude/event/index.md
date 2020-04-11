@@ -1,0 +1,124 @@
+---
+title: Event
+---
+
+[Amplitude](https://amplitude.com/) provides product analytics that helps companies leverage cross-platform behavioral data to drive user growth.
+
+## Supported Features
+
+* Analytics
+* Data Export
+* Real-Time Dashboards
+* Retroactive Funnels
+
+## Prerequisites
+
+In order to activate mParticle's integration with Amplitude, you will need the Amplitude API Key for each app that you'd like to setup.  Your API key can be found on the Settings page of the Amplitude dashboard.
+
+## Data Processing Notes
+
+mParticle will forward User Identities and Attributes to Amplitude, even if there are no events in the batch.
+
+## Device/User ID Mapping
+
+Every event in Amplitude has a main Device ID field. mParticle populates this field as follows:
+
+* For Android, the Android ID (falling back to the Android Advertising ID if unavailable)
+* For iOS, the IDFA (falling back to the IDFV if unavailable)
+* For Roku, the Roku Advertising ID (falling back to the Roku Publisher ID if not available)
+* For FireTV, the Fire Advertising ID.
+
+Amplitude also has dedicated fields for particular Device IDs, such as IDFA and Android ID. These will be populated if the ID is available. See  [Field Mappings](#field-mappings), for more information.
+
+Amplitude requires either a Device ID or a User ID. User ID can be mapped as Email, Customer ID or mParticle ID. If no accepted identifiers are present, data will not be forwarded.
+
+## Forwarding Web Data
+
+By default, mParticle forwards web data to Amplitude client-side, by directly invoking Amplitude's Javascript methods. Optionally, you can choose to forward web data server-to-server in the [Connection Settings](#connection-settings). Note that if you choose this option, your incoming data must have your selected User ID to be forwarded.
+
+## Event Data Mapping
+
+### Screen Views
+
+mParticle will forward all screen views to Amplitude with the Amplitude Event Type set to "Viewed ScreenName", where `ScreenName` is the screen name passed to the `logScreen` SDK method (or the name of the screen's Activity class if you're using automatic screen tracking on Android).  
+
+### Session Forwarding
+
+mParticle will forward all session start and session end events to Amplitude with the Amplitude Event Type set to `session_start` and `session_end`.
+
+### eCommerce Event Forwarding
+
+mParticle will translate eCommerce events into Amplitude events by expanding the eCommerce event into multiple events per product by appending the event name with " - Item" , i.e. eCommerce - AddToCart - Item. This expansion applies to all eCommerce transactions; Add To Cart, Add To WishList, Checkout Purchase, etc. 
+
+#### eCommerce Field Mappings
+
+|Parameter | Amplitude field |  mParticle details | 
+|---|---|---
+Quantity | quantity | Item Quantity | 
+Revenue |  revenue | Item Revenue |
+Product ID|  productId | Product ID or SKU |
+Price | price | Item Price | 
+
+The TotalAmount attribute is not forwarded to Amplitude on a CommerceEvent.
+
+### Custom Event Forwarding
+
+Custom events logged via mParticle's `logEvent` SDK method and their attributes will be forwarded to Amplitude, with the event name passed to `logEvent` as the Amplitude Event Type. An event name **must** be specified or an error will be returned.
+
+### Attribution Custom Event Forwarding
+
+Attribution Custom events will be forwarded to Amplitude prefixed with the attribution provider in the event name.  For example, `[Tune] attribution`.  Event Attributes that are included with the event are forwarded to Amplitude in user_properties, also prefixed with the attribution provider.
+
+## Field Mappings
+
+|Parameter | Amplitude Field  | mParticle Details 
+|---|---|---
+Android ID | android_id | Passed if OS is Android 
+Android Advertising ID | adid | Passed if OS is Android 
+Application Version | app_version | Application Version
+Brand | device_brand | The device brand the user is on.  This is not passed for Apple devices. 
+Carrier | device_carrier | Device Carrier
+City | city | City the user is in; this is also included in User Properties 
+Country | Country the user is in; this is also included in User Properties | country
+Designated Market Area | DMA | If you wish to forward this property to Amplitude, you must set it as a custom user attribute, labeled `dma`. 
+Device ID | device_id | Set based on Operating System;  see [Device ID Mapping](#device-id-mapping)  
+Email | If the `Include Email in User Properties` setting is enabled, email is included in user_properties| email
+Event Properties | event_properties | All event attributes included with eCommerce, Custom and Screen View events.  See above for Attribution Custom Events.  
+Event Type | event_type | Described above for each supported event 
+IDFA | idfa | Passed if OS is iOS or tvOS
+Insert ID | insert_id | A unique id for the event derived from the event name and the event and session_start timestamps 
+IP Address | ip | IP address of the user
+Language | language | Language the user has set 
+Latitude | location_lat | Latitude of the user
+Library | library | A label for the source of data which is visible in the Amplitude dashboard. This will always be set to 'mParticle' 
+Longitude | location_lng | Longitude of the user 
+Manufacturer | device_manufacturer | Device Manufacturer 
+Model | device_model | Device Model 
+OS Name | os_name | iOS, tvOS, Android, Roku 
+OS Version | os_version |The version of the mobile OS or browser the user is on
+Platform | platform | iOS, Android, Apple TV, Web, Roku 
+Region | region | Region (or State) the user is in; this is also included in User Properties 
+Session Start Time | session_id | Session Start Timestamp 
+Time | time | Event Timestamp, in milliseconds 
+User ID | user_id | Set based on the value of the `User Identification` setting 
+User Properties | user_properties | All user attributes included with the event.  See above for Attribution Custom Events. 
+
+
+## Configuration Settings
+
+| Setting Name |  Data Type    | Default Value  | Description |
+| ---|---|---|---|
+| API Key | `string` | <unset> | Your app's Amplitude API Key.  You can find this on the "My Account" page of Amplitude's dashboard. |
+| Use Batch API Endpoint | `bool` | False | If enabled, the Amplitude batch API endpoint will be used. The endpoint has a higher rate limit but may have a slight delay in delivering events.
+
+## Connection Settings
+
+| Setting Name |  Data Type    | Default Value | Platform | Description |
+| ---|---|---|---|----
+| User Identification | `string` | customerId | All| To identify users, choose "Customer ID" to send Customer ID if provided, "Email" to send Email addresses if provided, or "MPID" to send mParticle ID. <br> You can map other IDs by using the Other, Other2, Other3, and Other4 fields by selecting these from the **User Identification** drop-down. These fields can be used to map Other IDs as  Customer IDs.  |
+| Include Email in User Properties | `bool` | False | All| If enabled, the email user identity will be forwarded in the Amplitude user_properties. |
+| Allow unset user attributes | `bool` | True | All| Allow user attributes to be removed in Amplitude using the $unset operation.
+| Prefix Attribution with Source | `bool` | True | All | If enabled, the attribution source name will be prefixed for attribution events.
+| Include UTM in User Properties | `bool` | default | Web| If enabled, Amplitude will find the standard UTM parameters from either the URL or the browser cookie and set them as user properties. |
+| Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, mParticle will not initialize the full Amplitude integration on the web client. Instead, web data will be forwarded to Amplitude via server-to-server API.
+| Instance Name | `string` | default | Web| The name of the client-side Amplitude instance to use. This should be unique for each Amplitude connection. |

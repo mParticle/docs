@@ -1,0 +1,1648 @@
+{
+    "project": {
+        "name": "mParticle Web SDK",
+        "description": "Web SDK for the mParticle platform",
+        "url": "https://github.com/mParticle/mparticle-sdk-javascript",
+        "logo": "https://static.mparticle.com/sdk/nuget_logo.png",
+        "path": "src/",
+        "version": "2.11.5"
+    },
+    "files": {
+        "src/consent.js": {
+            "name": "src/consent.js",
+            "modules": {},
+            "classes": {
+                "Consent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/helpers.js": {
+            "name": "src/helpers.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/identity.js": {
+            "name": "src/identity.js",
+            "modules": {},
+            "classes": {
+                "mParticle.Identity": 1,
+                "mParticle.Identity.getCurrentUser()": 1,
+                "mParticle.Identity.getCurrentUser().getCart()": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/mp-instance.js": {
+            "name": "src/mp-instance.js",
+            "modules": {},
+            "classes": {
+                "mParticle & mParticleInstance": 1,
+                "mParticle.Consent": 1,
+                "mParticle.eCommerce": 1,
+                "mParticle.eCommerce.Cart": 1
+            },
+            "fors": {
+                "mParticle.eCommerce": 1
+            },
+            "namespaces": {}
+        },
+        "src/mparticle-instance-manager.js": {
+            "name": "src/mparticle-instance-manager.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/persistence.js": {
+            "name": "src/persistence.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Consent": {
+            "name": "Consent",
+            "shortname": "Consent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/consent.js",
+            "line": 171,
+            "description": "Invoke these methods on a consent state object.\n<p>\nUsage: var consent = mParticle.Consent.createConsentState()\n<br>\nconsent.setGDPRCoonsentState()"
+        },
+        "mParticle.Identity": {
+            "name": "mParticle.Identity",
+            "shortname": "mParticle.Identity",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/identity.js",
+            "line": 227,
+            "description": "Invoke these methods on the mParticle.Identity object.\nExample: mParticle.Identity.getCurrentUser()."
+        },
+        "mParticle.Identity.getCurrentUser()": {
+            "name": "mParticle.Identity.getCurrentUser()",
+            "shortname": "mParticle.Identity.getCurrentUser()",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/identity.js",
+            "line": 762,
+            "description": "Invoke these methods on the mParticle.Identity.getCurrentUser() object.\nExample: mParticle.Identity.getCurrentUser().getAllUserAttributes()"
+        },
+        "mParticle.Identity.getCurrentUser().getCart()": {
+            "name": "mParticle.Identity.getCurrentUser().getCart()",
+            "shortname": "mParticle.Identity.getCurrentUser().getCart()",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/identity.js",
+            "line": 1227,
+            "description": "Invoke these methods on the mParticle.Identity.getCurrentUser().getCart() object.\nExample: mParticle.Identity.getCurrentUser().getCart().add(...);",
+            "deprecated": true
+        },
+        "mParticle & mParticleInstance": {
+            "name": "mParticle & mParticleInstance",
+            "shortname": "mParticle & mParticleInstance",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/mp-instance.js",
+            "line": 41,
+            "description": "<p>All of the following methods can be called on the primary mParticle class. In version 2.10.0, we introduced <a href=\"https://docs.mparticle.com/developers/sdk/web/multiple-instances/\">multiple instances</a>. If you are using multiple instances (self hosted environments only), you should call these methods on each instance.</p>\n<p>In current versions of mParticle, if your site has one instance, that instance name is 'default_instance'. Any methods called on mParticle on a site with one instance will be mapped to the `default_instance`.</p>\n<p>This is for simplicity and backwards compatibility. For example, calling mParticle.logPageView() automatically maps to mParticle.getInstance('default_instance').logPageView().</p>\n<p>If you have multiple instances, instances must first be initialized and then a method can be called on that instance. For example:</p>\n<code>\n mParticle.init('apiKey', config, 'another_instance');\n mParticle.getInstance('another_instance').logPageView();\n</code>"
+        },
+        "mParticle.Consent": {
+            "name": "mParticle.Consent",
+            "shortname": "mParticle.Consent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/mp-instance.js",
+            "line": 490,
+            "description": "Invoke these methods on the mParticle.Consent object.\nExample: mParticle.Consent.createConsentState()"
+        },
+        "mParticle.eCommerce": {
+            "name": "mParticle.eCommerce",
+            "shortname": "mParticle.eCommerce",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/mp-instance.js",
+            "line": 529,
+            "description": "Invoke these methods on the mParticle.eCommerce object.\nExample: mParticle.eCommerce.createImpresion(...)"
+        },
+        "mParticle.eCommerce.Cart": {
+            "name": "mParticle.eCommerce.Cart",
+            "shortname": "mParticle.eCommerce.Cart",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "src/mp-instance.js",
+            "line": 535,
+            "description": "Invoke these methods on the mParticle.eCommerce.Cart object.\nExample: mParticle.eCommerce.Cart.add(...)",
+            "deprecated": true
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "src/consent.js",
+            "line": 181,
+            "description": "Add a GDPR Consent State to the consent state object",
+            "itemtype": "method",
+            "name": "addGDPRConsentState",
+            "params": [
+                {
+                    "name": "purpose",
+                    "description": "[String] Data processing purpose that describes the type of processing done on the data subject’s data"
+                },
+                {
+                    "name": "gdprConsent",
+                    "description": "[Object] A GDPR consent object created via mParticle.Consent.createGDPRConsent(...)"
+                }
+            ],
+            "class": "Consent"
+        },
+        {
+            "file": "src/consent.js",
+            "line": 228,
+            "description": "Remove a GDPR Consent State to the consent state object",
+            "itemtype": "method",
+            "name": "removeGDPRConsentState",
+            "params": [
+                {
+                    "name": "purpose",
+                    "description": "[String] Data processing purpose that describes the type of processing done on the data subject’s data"
+                }
+            ],
+            "class": "Consent"
+        },
+        {
+            "file": "src/consent.js",
+            "line": 244,
+            "description": "Gets the GDPR Consent State",
+            "itemtype": "method",
+            "name": "getGDPRConsentState",
+            "return": {
+                "description": "A GDPR Consent State",
+                "type": "Object"
+            },
+            "class": "Consent"
+        },
+        {
+            "file": "src/consent.js",
+            "line": 255,
+            "description": "Sets a CCPA Consent state (has a single purpose of 'data_sale_opt_out')",
+            "itemtype": "method",
+            "name": "setCCPAConsentState",
+            "params": [
+                {
+                    "name": "ccpaConsent",
+                    "description": "CCPA Consent State",
+                    "type": "Object"
+                }
+            ],
+            "class": "Consent"
+        },
+        {
+            "file": "src/consent.js",
+            "line": 281,
+            "description": "Gets the CCPA Consent State",
+            "itemtype": "method",
+            "name": "getCCPAConsentStatensent",
+            "return": {
+                "description": "A CCPA Consent State",
+                "type": "Object"
+            },
+            "class": "Consent"
+        },
+        {
+            "file": "src/consent.js",
+            "line": 291,
+            "description": "Removes CCPA from the consent state object",
+            "itemtype": "method",
+            "name": "removeCCPAState",
+            "class": "Consent"
+        },
+        {
+            "file": "src/helpers.js",
+            "line": 37,
+            "description": "Returns a value between 1-100 inclusive.",
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 234,
+            "description": "Initiate a logout request to the mParticle server",
+            "itemtype": "method",
+            "name": "identify",
+            "params": [
+                {
+                    "name": "identityApiData",
+                    "description": "The identityApiData object as indicated [here](https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/README.md#1-customize-the-sdk)",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "A callback function that is called when the identify request completes",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 307,
+            "description": "Initiate a logout request to the mParticle server",
+            "itemtype": "method",
+            "name": "logout",
+            "params": [
+                {
+                    "name": "identityApiData",
+                    "description": "The identityApiData object as indicated [here](https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/README.md#1-customize-the-sdk)",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "A callback function that is called when the logout request completes",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 396,
+            "description": "Initiate a login request to the mParticle server",
+            "itemtype": "method",
+            "name": "login",
+            "params": [
+                {
+                    "name": "identityApiData",
+                    "description": "The identityApiData object as indicated [here](https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/README.md#1-customize-the-sdk)",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "A callback function that is called when the login request completes",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 469,
+            "description": "Initiate a modify request to the mParticle server",
+            "itemtype": "method",
+            "name": "modify",
+            "params": [
+                {
+                    "name": "identityApiData",
+                    "description": "The identityApiData object as indicated [here](https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/README.md#1-customize-the-sdk)",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "A callback function that is called when the modify request completes",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 546,
+            "description": "Returns a user object with methods to interact with the current user",
+            "itemtype": "method",
+            "name": "getCurrentUser",
+            "return": {
+                "description": "the current user object",
+                "type": "Object"
+            },
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 571,
+            "description": "Returns a the user object associated with the mpid parameter or 'null' if no such\nuser exists",
+            "itemtype": "method",
+            "name": "getUser",
+            "params": [
+                {
+                    "name": "mpid",
+                    "description": "of the desired user",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "the user for  mpid",
+                "type": "Object"
+            },
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 594,
+            "description": "Returns all users, including the current user and all previous users that are stored on the device.",
+            "itemtype": "method",
+            "name": "getUsers",
+            "return": {
+                "description": "array of users",
+                "type": "Array"
+            },
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 621,
+            "description": "Initiate an alias request to the mParticle server",
+            "itemtype": "method",
+            "name": "aliasUsers",
+            "params": [
+                {
+                    "name": "aliasRequest",
+                    "description": "object representing an AliasRequest",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "A callback function that is called when the aliasUsers request completes",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 693,
+            "description": "Create a default AliasRequest for 2 MParticleUsers. This will construct the request\n        using the sourceUser's firstSeenTime as the startTime, and its lastSeenTime as the endTime.\n        \n        In the unlikely scenario that the sourceUser does not have a firstSeenTime, which will only\n        be the case if they have not been the current user since this functionality was added, the \n        startTime will be populated with the earliest firstSeenTime out of any stored user. Similarly,\n        if the sourceUser does not have a lastSeenTime, the endTime will be populated with the current time\n        \n        There is a limit to how old the startTime can be, represented by the config field 'aliasMaxWindow', in days.\n        If the startTime falls before the limit, it will be adjusted to the oldest allowed startTime. \n        In rare cases, where the sourceUser's lastSeenTime also falls outside of the aliasMaxWindow limit, \n        after applying this adjustment it will be impossible to create an aliasRequest passes the aliasUsers() \n        validation that the startTime must be less than the endTime",
+            "class": "mParticle.Identity"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 770,
+            "description": "Get user identities for current user",
+            "itemtype": "method",
+            "name": "getUserIdentities",
+            "return": {
+                "description": "an object with userIdentities as its key",
+                "type": "Object"
+            },
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 796,
+            "description": "Get the MPID of the current user",
+            "itemtype": "method",
+            "name": "getMPID",
+            "return": {
+                "description": "the current user MPID as a string",
+                "type": "String"
+            },
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 804,
+            "description": "Sets a user tag",
+            "itemtype": "method",
+            "name": "setUserTag",
+            "params": [
+                {
+                    "name": "tagName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 817,
+            "description": "Removes a user tag",
+            "itemtype": "method",
+            "name": "removeUserTag",
+            "params": [
+                {
+                    "name": "tagName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 830,
+            "description": "Sets a user attribute",
+            "itemtype": "method",
+            "name": "setUserAttribute",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 912,
+            "description": "Set multiple user attributes",
+            "itemtype": "method",
+            "name": "setUserAttributes",
+            "params": [
+                {
+                    "name": "user",
+                    "description": "attribute object with keys of the attribute type, and value of the attribute value",
+                    "type": "Object"
+                }
+            ],
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 934,
+            "description": "Removes a specific user attribute",
+            "itemtype": "method",
+            "name": "removeUserAttribute",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 992,
+            "description": "Sets a list of user attributes",
+            "itemtype": "method",
+            "name": "setUserAttributeList",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "an array of values",
+                    "type": "Array"
+                }
+            ],
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1099,
+            "description": "Removes all user attributes",
+            "itemtype": "method",
+            "name": "removeAllUserAttributes",
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1132,
+            "description": "Returns all user attribute keys that have values that are arrays",
+            "itemtype": "method",
+            "name": "getUserAttributesLists",
+            "return": {
+                "description": "an object of only keys with array values. Example: { attr1: [1, 2, 3], attr2: ['a', 'b', 'c'] }",
+                "type": "Object"
+            },
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1153,
+            "description": "Returns all user attributes",
+            "itemtype": "method",
+            "name": "getAllUserAttributes",
+            "return": {
+                "description": "an object of all user attributes. Example: { attr1: 'value1', attr2: ['a', 'b', 'c'] }",
+                "type": "Object"
+            },
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1180,
+            "description": "Returns the cart object for the current user",
+            "itemtype": "method",
+            "name": "getCart",
+            "return": {
+                "description": "a cart object"
+            },
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1192,
+            "description": "Returns the Consent State stored locally for this user.",
+            "itemtype": "method",
+            "name": "getConsentState",
+            "return": {
+                "description": "a ConsentState object"
+            },
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1200,
+            "description": "Sets the Consent State stored locally for this user.",
+            "itemtype": "method",
+            "name": "setConsentState",
+            "params": [
+                {
+                    "name": "consent",
+                    "description": "state",
+                    "type": "Object"
+                }
+            ],
+            "class": "mParticle.Identity.getCurrentUser()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1235,
+            "description": "Adds a cart product to the user cart",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "product",
+                    "description": "the product",
+                    "type": "Object"
+                },
+                {
+                    "name": "logEvent",
+                    "description": "a boolean to log adding of the cart object. If blank, no logging occurs.",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "deprecated": true,
+            "class": "mParticle.Identity.getCurrentUser().getCart()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1303,
+            "description": "Removes a cart product from the current user cart",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "product",
+                    "description": "the product",
+                    "type": "Object"
+                },
+                {
+                    "name": "logEvent",
+                    "description": "a boolean to log adding of the cart object. If blank, no logging occurs.",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "deprecated": true,
+            "class": "mParticle.Identity.getCurrentUser().getCart()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1361,
+            "description": "Clears the user's cart",
+            "itemtype": "method",
+            "name": "clear",
+            "deprecated": true,
+            "class": "mParticle.Identity.getCurrentUser().getCart()"
+        },
+        {
+            "file": "src/identity.js",
+            "line": 1394,
+            "description": "Returns all cart products",
+            "itemtype": "method",
+            "name": "getCartProducts",
+            "return": {
+                "description": "array of cart products",
+                "type": "Array"
+            },
+            "deprecated": true,
+            "class": "mParticle.Identity.getCurrentUser().getCart()"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 128,
+            "description": "Resets the SDK to an uninitialized state and removes cookies/localStorage. You MUST call mParticle.init(apiKey, window.mParticle.config)\nbefore any other mParticle methods or the SDK will not function as intended.",
+            "itemtype": "method",
+            "name": "setLogLevel",
+            "params": [
+                {
+                    "name": "logLevel",
+                    "description": "verbose, warning, or none. By default, `warning` is chosen.",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 138,
+            "description": "Resets the SDK to an uninitialized state and removes cookies/localStorage. You MUST call mParticle.init(apiKey, window.mParticle.config)\nbefore any other mParticle methods or the SDK will not function as intended.",
+            "itemtype": "method",
+            "name": "reset",
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 172,
+            "description": "A callback method that is invoked after mParticle is initialized.",
+            "itemtype": "method",
+            "name": "ready",
+            "params": [
+                {
+                    "name": "function",
+                    "description": "A function to be called after mParticle is initialized",
+                    "type": "Function"
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 184,
+            "description": "Returns the mParticle SDK version number",
+            "itemtype": "method",
+            "name": "getVersion",
+            "return": {
+                "description": "mParticle SDK version number",
+                "type": "String"
+            },
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 192,
+            "description": "Sets the app version",
+            "itemtype": "method",
+            "name": "setAppVersion",
+            "params": [
+                {
+                    "name": "version",
+                    "description": "version number",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 201,
+            "description": "Gets the app name",
+            "itemtype": "method",
+            "name": "getAppName",
+            "return": {
+                "description": "App name",
+                "type": "String"
+            },
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 209,
+            "description": "Sets the app name",
+            "itemtype": "method",
+            "name": "setAppName",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "App Name",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 217,
+            "description": "Gets the app version",
+            "itemtype": "method",
+            "name": "getAppVersion",
+            "return": {
+                "description": "App version",
+                "type": "String"
+            },
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 225,
+            "description": "Stops tracking the location of the user",
+            "itemtype": "method",
+            "name": "stopTrackingLocation",
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 233,
+            "description": "Starts tracking the location of the user",
+            "itemtype": "method",
+            "name": "startTrackingLocation",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "A callback function that is called when the location is either allowed or rejected by the user. A position object of schema {coords: {latitude: number, longitude: number}} is passed to the callback",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 248,
+            "description": "Sets the position of the user",
+            "itemtype": "method",
+            "name": "setPosition",
+            "params": [
+                {
+                    "name": "lattitude",
+                    "description": "lattitude digit",
+                    "type": "Number"
+                },
+                {
+                    "name": "longitude",
+                    "description": "longitude digit",
+                    "type": "Number"
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 267,
+            "description": "Starts a new session",
+            "itemtype": "method",
+            "name": "startNewSession",
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 274,
+            "description": "Ends the current session",
+            "itemtype": "method",
+            "name": "endSession",
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 283,
+            "description": "Logs a Base Event to mParticle's servers",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "Base Event Object",
+                    "type": "Object"
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 311,
+            "description": "Logs an event to mParticle's servers",
+            "itemtype": "method",
+            "name": "logEvent",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": "The name of the event",
+                    "type": "String"
+                },
+                {
+                    "name": "eventType] The eventType as seen [here",
+                    "description": "(http://docs.mparticle.com/developers/sdk/web/event-tracking#event-type)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "eventInfo",
+                    "description": "Attributes for the event",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Additional customFlags",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 359,
+            "description": "Used to log custom errors",
+            "itemtype": "method",
+            "name": "logError",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The name of the error (string), or an object formed as follows {name: 'exampleName', message: 'exampleMessage', stack: 'exampleStack'}",
+                    "type": "String or Object"
+                },
+                {
+                    "name": "attrs",
+                    "description": "Custom attrs to be passed along with the error event; values must be string, number, or boolean",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 404,
+            "description": "Logs `click` events",
+            "itemtype": "method",
+            "name": "logLink",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector to add a 'click' event to (ex. #purchase-event)",
+                    "type": "String"
+                },
+                {
+                    "name": "eventName",
+                    "description": "The name of the event",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "eventType] The eventType as seen [here",
+                    "description": "(http://docs.mparticle.com/developers/sdk/javascript/event-tracking#event-type)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "eventInfo",
+                    "description": "Attributes for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 421,
+            "description": "Logs `submit` events",
+            "itemtype": "method",
+            "name": "logForm",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "The selector to add the event handler to (ex. #search-event)",
+                    "type": "String"
+                },
+                {
+                    "name": "eventName",
+                    "description": "The name of the event",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "eventType] The eventType as seen [here",
+                    "description": "(http://docs.mparticle.com/developers/sdk/javascript/event-tracking#event-type)",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "eventInfo",
+                    "description": "Attributes for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 438,
+            "description": "Logs a page view",
+            "itemtype": "method",
+            "name": "logPageView",
+            "params": [
+                {
+                    "name": "eventName",
+                    "description": "The name of the event. Defaults to 'PageView'.",
+                    "type": "String"
+                },
+                {
+                    "name": "attrs",
+                    "description": "Attributes for the event",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Custom flags for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 497,
+            "description": "Creates a CCPA Opt Out Consent State.",
+            "itemtype": "method",
+            "name": "createCCPAConsent",
+            "params": [
+                {
+                    "name": "optOut",
+                    "description": "true represents a \"data sale opt-out\", false represents the user declining a \"data sale opt-out\"",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "timestamp",
+                    "description": "Unix time (likely to be Date.now())",
+                    "type": "Number"
+                },
+                {
+                    "name": "consentDocument",
+                    "description": "document version or experience that the user may have consented to",
+                    "type": "String"
+                },
+                {
+                    "name": "location",
+                    "description": "location where the user gave consent",
+                    "type": "String"
+                },
+                {
+                    "name": "hardwareId",
+                    "description": "hardware ID for the device or browser used to give consent. This property exists only to provide additional context and is not used to identify users",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "CCPA Consent State",
+                "type": "Object"
+            },
+            "class": "mParticle.Consent"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 509,
+            "description": "Creates a GDPR Consent State.",
+            "itemtype": "method",
+            "name": "createGDPRConsent",
+            "params": [
+                {
+                    "name": "consent",
+                    "description": "true represents a \"data sale opt-out\", false represents the user declining a \"data sale opt-out\"",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "timestamp",
+                    "description": "Unix time (likely to be Date.now())",
+                    "type": "Number"
+                },
+                {
+                    "name": "consentDocument",
+                    "description": "document version or experience that the user may have consented to",
+                    "type": "String"
+                },
+                {
+                    "name": "location",
+                    "description": "location where the user gave consent",
+                    "type": "String"
+                },
+                {
+                    "name": "hardwareId",
+                    "description": "hardware ID for the device or browser used to give consent. This property exists only to provide additional context and is not used to identify users",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "GDPR Consent State",
+                "type": "Object"
+            },
+            "class": "mParticle.Consent"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 521,
+            "description": "Creates a Consent State Object, which can then be used to set CCPA states, add multiple GDPR states, as well as get and remove these privacy states.",
+            "itemtype": "method",
+            "name": "createConsentState",
+            "return": {
+                "description": "ConsentState object",
+                "type": "Object"
+            },
+            "class": "mParticle.Consent"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 542,
+            "description": "Adds a product to the cart",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "product",
+                    "description": "The product you want to add to the cart",
+                    "type": "Object"
+                },
+                {
+                    "name": "logEventBoolean",
+                    "description": "Option to log the event to mParticle's servers. If blank, no logging occurs.",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "deprecated": true,
+            "class": "mParticle.eCommerce.Cart"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 562,
+            "description": "Removes a product from the cart",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "product",
+                    "description": "The product you want to add to the cart",
+                    "type": "Object"
+                },
+                {
+                    "name": "logEventBoolean",
+                    "description": "Option to log the event to mParticle's servers. If blank, no logging occurs.",
+                    "type": "Boolean",
+                    "optional": true
+                }
+            ],
+            "deprecated": true,
+            "class": "mParticle.eCommerce.Cart"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 582,
+            "description": "Clears the cart",
+            "itemtype": "method",
+            "name": "clear",
+            "deprecated": true,
+            "class": "mParticle.eCommerce.Cart"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 599,
+            "description": "Sets the currency code",
+            "itemtype": "method",
+            "name": "setCurrencyCode",
+            "params": [
+                {
+                    "name": "code",
+                    "description": "The currency code",
+                    "type": "String"
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 620,
+            "description": "Creates a product",
+            "itemtype": "method",
+            "name": "createProduct",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "product name",
+                    "type": "String"
+                },
+                {
+                    "name": "sku",
+                    "description": "product sku",
+                    "type": "String"
+                },
+                {
+                    "name": "price",
+                    "description": "product price",
+                    "type": "Number"
+                },
+                {
+                    "name": "quantity",
+                    "description": "product quantity. If blank, defaults to 1.",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "variant",
+                    "description": "product variant",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "category",
+                    "description": "product category",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "brand",
+                    "description": "product brand",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "position",
+                    "description": "product position",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "coupon",
+                    "description": "product coupon",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "attributes",
+                    "description": "product attributes",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 660,
+            "description": "Creates a promotion",
+            "itemtype": "method",
+            "name": "createPromotion",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "a unique promotion id",
+                    "type": "String"
+                },
+                {
+                    "name": "creative",
+                    "description": "promotion creative",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "name",
+                    "description": "promotion name",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "position",
+                    "description": "promotion position",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 677,
+            "description": "Creates a product impression",
+            "itemtype": "method",
+            "name": "createImpression",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "impression name",
+                    "type": "String"
+                },
+                {
+                    "name": "product",
+                    "description": "the product for which an impression is being created",
+                    "type": "Object"
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 687,
+            "description": "Creates a transaction attributes object to be used with a checkout",
+            "itemtype": "method",
+            "name": "createTransactionAttributes",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "a unique transaction id",
+                    "type": "String or Number"
+                },
+                {
+                    "name": "affiliation",
+                    "description": "affilliation",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "couponCode",
+                    "description": "the coupon code for which you are creating transaction attributes",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "revenue",
+                    "description": "total revenue for the product being purchased",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "shipping",
+                    "description": "the shipping method",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "tax",
+                    "description": "the tax amount",
+                    "type": "Number",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 715,
+            "description": "Logs a checkout action",
+            "itemtype": "method",
+            "name": "logCheckout",
+            "params": [
+                {
+                    "name": "step",
+                    "description": "checkout step number",
+                    "type": "Number"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "attrs",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Custom flags for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 739,
+            "description": "Logs a product action",
+            "itemtype": "method",
+            "name": "logProductAction",
+            "params": [
+                {
+                    "name": "productActionType",
+                    "description": "product action type as found [here](https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/src/types.js#L206-L218)",
+                    "type": "Number"
+                },
+                {
+                    "name": "product",
+                    "description": "the product for which you are creating the product action",
+                    "type": "Object"
+                },
+                {
+                    "name": "attrs",
+                    "description": "attributes related to the product action",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Custom flags for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 773,
+            "description": "Logs a product purchase",
+            "itemtype": "method",
+            "name": "logPurchase",
+            "params": [
+                {
+                    "name": "transactionAttributes",
+                    "description": "transactionAttributes object",
+                    "type": "Object"
+                },
+                {
+                    "name": "product",
+                    "description": "the product being purchased",
+                    "type": "Object"
+                },
+                {
+                    "name": "clearCart",
+                    "description": "boolean to clear the cart after logging or not. Defaults to false",
+                    "type": "Boolean",
+                    "optional": true
+                },
+                {
+                    "name": "attrs",
+                    "description": "other attributes related to the product purchase",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Custom flags for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 814,
+            "description": "Logs a product promotion",
+            "itemtype": "method",
+            "name": "logPromotion",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "the promotion type as found [here](https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/src/types.js#L275-L279)",
+                    "type": "Number"
+                },
+                {
+                    "name": "promotion",
+                    "description": "promotion object",
+                    "type": "Object"
+                },
+                {
+                    "name": "attrs",
+                    "description": "boolean to clear the cart after logging or not",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Custom flags for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 838,
+            "description": "Logs a product impression",
+            "itemtype": "method",
+            "name": "logImpression",
+            "params": [
+                {
+                    "name": "impression",
+                    "description": "product impression object",
+                    "type": "Object"
+                },
+                {
+                    "name": "attrs",
+                    "description": "attributes related to the impression log",
+                    "type": "Object"
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Custom flags for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 860,
+            "description": "Logs a refund",
+            "itemtype": "method",
+            "name": "logRefund",
+            "params": [
+                {
+                    "name": "transactionAttributes",
+                    "description": "transaction attributes related to the refund",
+                    "type": "Object"
+                },
+                {
+                    "name": "product",
+                    "description": "product being refunded",
+                    "type": "Object"
+                },
+                {
+                    "name": "clearCart",
+                    "description": "boolean to clear the cart after refund is logged. Defaults to false.",
+                    "type": "Boolean",
+                    "optional": true
+                },
+                {
+                    "name": "attrs",
+                    "description": "attributes related to the refund",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customFlags",
+                    "description": "Custom flags for the event",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 901,
+            "description": "Sets a session attribute",
+            "itemtype": "method",
+            "name": "setSessionAttribute",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "key for session attribute",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "value for session attribute",
+                    "type": "String or Number"
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 953,
+            "description": "Set opt out of logging",
+            "itemtype": "method",
+            "name": "setOptOut",
+            "params": [
+                {
+                    "name": "isOptingOut",
+                    "description": "boolean to opt out or not. When set to true, opt out of logging.",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 983,
+            "description": "Set or remove the integration attributes for a given integration ID.\nIntegration attributes are keys and values specific to a given integration. For example,\nmany integrations have their own internal user/device ID. mParticle will store integration attributes\nfor a given device, and will be able to use these values for server-to-server communication to services.\nThis is often useful when used in combination with a server-to-server feed, allowing the feed to be enriched\nwith the necessary integration attributes to be properly forwarded to the given integration.",
+            "itemtype": "method",
+            "name": "setIntegrationAttribute",
+            "params": [
+                {
+                    "name": "integrationId",
+                    "description": "mParticle integration ID",
+                    "type": "Number"
+                },
+                {
+                    "name": "attrs",
+                    "description": "a map of attributes that will replace any current attributes. The keys are predefined by mParticle.\nPlease consult with the mParticle docs or your solutions consultant for the correct value. You may\nalso pass a null or empty map here to remove all of the attributes.",
+                    "type": "Object"
+                }
+            ],
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 1059,
+            "description": "Get integration attributes for a given integration ID.",
+            "itemtype": "method",
+            "name": "getIntegrationAttributes",
+            "params": [
+                {
+                    "name": "integrationId",
+                    "description": "mParticle integration ID",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "an object map of the integrationId's attributes",
+                "type": "Object"
+            },
+            "class": "mParticle.eCommerce"
+        },
+        {
+            "file": "src/mparticle-instance-manager.js",
+            "line": 42,
+            "description": "Initializes the mParticle instance. If no instanceName is provided, an instance name of `default_instance` will be used.\n<p>\nIf you'd like to initiate multiple mParticle instances, first review our <a href=\"https://docs.mparticle.com/developers/sdk/web/multiple-instances/\">doc site</a>, and ensure you pass a unique instance name as the third argument as shown below.",
+            "itemtype": "method",
+            "name": "init",
+            "params": [
+                {
+                    "name": "apiKey",
+                    "description": "your mParticle assigned API key",
+                    "type": "String"
+                },
+                {
+                    "name": "config",
+                    "description": "an options object for additional configuration",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "instanceName",
+                    "description": "If you are self hosting the JS SDK and working with multiple instances, you would pass an instanceName to `init`. This instance will be selected when invoking other methods. See the above link to the doc site for more info and examples.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "class": ""
+        },
+        {
+            "file": "src/persistence.js",
+            "line": 1083,
+            "description": "set the \"first seen\" time for a user. the time will only be set once for a given\nmpid after which subsequent calls will be ignored",
+            "class": ""
+        },
+        {
+            "file": "src/persistence.js",
+            "line": 1106,
+            "description": "returns the \"last seen\" time for a user. If the mpid represents the current user, the\nreturn value will always be the current time, otherwise it will be to stored \"last seen\"\ntime",
+            "class": ""
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nReturns a value between 1-100 inclusive.",
+            "line": " src/helpers.js:37"
+        },
+        {
+            "message": "Missing item type\nCreate a default AliasRequest for 2 MParticleUsers. This will construct the request\n        using the sourceUser's firstSeenTime as the startTime, and its lastSeenTime as the endTime.\n        \n        In the unlikely scenario that the sourceUser does not have a firstSeenTime, which will only\n        be the case if they have not been the current user since this functionality was added, the \n        startTime will be populated with the earliest firstSeenTime out of any stored user. Similarly,\n        if the sourceUser does not have a lastSeenTime, the endTime will be populated with the current time\n        \n        There is a limit to how old the startTime can be, represented by the config field 'aliasMaxWindow', in days.\n        If the startTime falls before the limit, it will be adjusted to the oldest allowed startTime. \n        In rare cases, where the sourceUser's lastSeenTime also falls outside of the aliasMaxWindow limit, \n        after applying this adjustment it will be impossible to create an aliasRequest passes the aliasUsers() \n        validation that the startTime must be less than the endTime",
+            "line": " src/identity.js:693"
+        },
+        {
+            "message": "Missing item type\nLogs a Base Event to mParticle's servers",
+            "line": " src/mp-instance.js:283"
+        },
+        {
+            "message": "Missing item type\nset the \"first seen\" time for a user. the time will only be set once for a given\nmpid after which subsequent calls will be ignored",
+            "line": " src/persistence.js:1083"
+        },
+        {
+            "message": "Missing item type\nreturns the \"last seen\" time for a user. If the mpid represents the current user, the\nreturn value will always be the current time, otherwise it will be to stored \"last seen\"\ntime",
+            "line": " src/persistence.js:1106"
+        }
+    ]
+}

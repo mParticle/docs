@@ -1,0 +1,44 @@
+@import "../../styles/_colors";
+@import "../../styles/_icons";
+@import "../../styles/_utils.less";
+
+.integration-filter {
+    width: 268px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    text-align: left;
+    background-color: @mp-darkgrey-bodycopy;
+    .top {
+        padding-left: 24px;
+        padding-right: 24px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        p.filter-by {
+            flex: 1;
+            color: @mp-header-light-2;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .up-arrow {
+            .icon-image(@icon-arrow-up-white);
+            width: 12px;
+            height: 14px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+    }
+    ul {
+        padding-left: 24px;
+        list-style-type: none;
+        li {
+            color: white;
+            &:hover {
+                color: @mp-mint;
+                cursor: pointer;
+            }
+        }
+    }
+}

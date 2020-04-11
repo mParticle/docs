@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#162D4B;}
+</style>
+<title>platform-s2s</title>
+<desc>Created with Sketch.</desc>
+<g id="platform-s2s" transform="translate(40.000000, 40.000000)">
+	<polygon id="Bounds-Copy" class="st0" points="-38,-38 -18,-38 -18,-18 -38,-18 	"/>
+	<g id="Icon-S2S-White" transform="translate(0.000000, 1.000000)">
+		<path id="Rectangle-2-Copy-2" class="st1" d="M-36-31h16v-5h-16V-31z M-36.2-38h16.4c1,0,1.8,0.9,1.8,2v5c0,1.1-0.8,2-1.8,2h-16.4
+			c-1,0-1.8-0.9-1.8-2v-5C-38-37.1-37.2-38-36.2-38z"/>
+		<ellipse id="Oval-Copy-2" class="st1" cx="-32.5" cy="-33.5" rx="1.5" ry="1.5"/>
+		<path id="Oval-2-Copy-2" class="st1" d="M-24-23c0-2.2-1.8-4-4-4s-4,1.8-4,4s1.8,4,4,4S-24-20.8-24-23z M-30-23c0-1.1,0.9-2,2-2
+			s2,0.9,2,2s-0.9,2-2,2S-30-21.9-30-23z"/>
+		<polygon id="Line-Copy-6" class="st1" points="-37.1,-24 -38,-24 -38,-22 -37.1,-22 -32.1,-22 -31.2,-22 -31.2,-24 -32.1,-24 		
+			"/>
+		<polygon id="Line-Copy-7" class="st1" points="-24.2,-24 -25,-24 -25,-22 -24.2,-22 -18.8,-22 -18,-22 -18,-24 -18.8,-24 		"/>
+		<polygon id="Line-Copy-8" class="st1" points="-29,-26.7 -29,-26 -27,-26 -27,-26.7 -27,-29.3 -27,-30 -29,-30 -29,-29.3 		"/>
+	</g>
+</g>
+</svg>

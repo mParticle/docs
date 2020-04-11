@@ -1,0 +1,21 @@
+name: Build public site
+
+on:
+  push:
+    branches: [ development ]
+  pull_request:
+    branches: [ development ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Site
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm install
+    - run: echo "{ \"buildDate\":"$(($(date +%s)*1000))"}" > settings.json
+    - run: npm run-script build

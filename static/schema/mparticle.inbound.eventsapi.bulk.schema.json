@@ -1,0 +1,9 @@
+{
+   "$id":"https://docs.mparticle.com/schema/mparticle.inbound.eventsapi.bulk.schema.json",
+   "$schema":"http://json-schema.org/draft-07/schema#",
+   "description":"mParticle Bulk Event Batch Schema",
+   "type":"array",
+   "items":{
+      "$ref":"https://docs.mparticle.com/schema/mparticle.inbound.eventsapi.schema.json"
+   }
+}

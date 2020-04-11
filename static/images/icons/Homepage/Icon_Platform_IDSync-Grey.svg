@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="36px" height="24px" viewBox="0 0 36 24" style="enable-background:new 0 0 36 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.9;}
+	.st1{fill:#CCCCCC;}
+	.st2{fill:#CCCCCC;enable-background:new    ;}
+	.st3{opacity:0.9;fill:#121212;enable-background:new    ;}
+	.st4{fill:#FFFFFF;}
+</style>
+<title>Platform_IDSync</title>
+<g>
+	<g>
+		<g id="Content">
+			<g class="st0">
+				<path class="st1" d="M19.2,13.2c-0.7,4.8-5.3,8.2-10.1,7.4C5.3,20,2.2,17,1.7,13.2L19.2,13.2 M20.7,11.9H0.2
+					c-0.1,5.6,4.4,10.4,10,10.4s10.4-4.4,10.5-10.1C20.7,12.1,20.7,12,20.7,11.9z"/>
+			</g>
+			<path class="st2" d="M15.3,11.9c0-5.7,4.6-10.3,10.2-10.3s10.2,4.6,10.2,10.2L15.3,11.9L15.3,11.9z"/>
+			<circle class="st3" cx="18" cy="11.9" r="10.2"/>
+			<path class="st4" d="M12.9,17.6h10.2c0-2.8-2.3-5.1-5.1-5.1S12.9,14.8,12.9,17.6z"/>
+			<circle class="st4" cx="18" cy="8.5" r="2.9"/>
+		</g>
+	</g>
+</g>
+</svg>

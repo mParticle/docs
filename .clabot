@@ -1,0 +1,5 @@
+{
+  "contributors": "https://script.google.com/macros/s/AKfycbyqT7DA9ariSAypEVboPisDMMHyM4lWEZnHibjansHPlsFEDhw/exec?checkContributor=",
+  "label": "cla-signed",
+  "message": "Thanks for the PR!\nWe require contributors to sign our [Contributor License Agreement](http://docs.mparticle.com/cla), and we don't seem to have you on file.\nPlease [sign the CLA](http://docs.mparticle.com/cla), and then simply comment below with `@cla-bot check` so we know you've signed.\nIf you have questions ping @mParticle/docs-admin."
+}

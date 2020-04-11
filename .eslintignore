@@ -1,0 +1,8 @@
+**/*.less
+**/*.md
+**/*.ico
+src/pages/fonts/**
+src/pages/images/**
+src/pages/**/*.html
+**/search.jsx
+src/pages/style-comp/index.jsx

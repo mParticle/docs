@@ -1,0 +1,360 @@
+@import "../../styles/_flex-mixin.less";
+@import "../../styles/_colors";
+@import "../../styles/_icons";
+@import "../../styles/_utils";
+@import "../../styles/_fonts";
+
+.developer.main-content {
+
+    >p {
+        margin: 0 0 39px 0;
+        max-width: 800px;
+
+    }
+
+    a.section {
+        .header:after {
+            content: ' ';
+            .icon-image(@icon-arrow-right-grey);
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            right: 13px;
+            top: 18px;
+        }
+
+        &:hover {
+            .header:after {
+                .icon-image(@icon-arrow-right-black);
+            }
+        }
+    }
+
+    a {
+        color: @mp-mint-med;
+    }
+    .flex-content {
+        .flexbox();
+        // width: ~"calc(100% + 36px)";
+        flex-wrap: wrap;
+
+        .section {
+            flex: 1;
+            margin: 0 30px 36px 0;
+            background-color: #f4f6f7;
+            min-height: 230px;
+            min-width: 240px;
+            border-radius: 1px;
+            box-sizing: border-box;
+            border: 1px solid #e9e9e9;
+
+            .header {
+                height: 60px;
+                border-bottom: 1px solid #e9e9e9;
+                font-weight: 700;
+                position: relative;
+                color: @mp-blue-black;
+                
+                span {
+                    position: relative;
+                    line-height: 60px;
+                    left: 72px;
+                }
+            }
+
+            &.client, &.server {
+                min-width: 450px;
+
+                .content {
+                    margin-left: 0;
+                    margin-top: 8px;
+                    max-height: 240px;
+                    .flexbox();
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    align-content: flex-start;
+                }
+                a {
+                    // display: block;
+                    padding-left: 62px;
+                }
+            }
+
+            .content {
+                margin: 24px 30px 20px 30px;
+                line-height: 1.63;
+                letter-spacing: 0.2px;
+                color: #555555;
+
+                a {
+                    text-align: left;
+                    line-height: 47px;
+                    width: 158px;
+                    box-sizing: border-box;
+                    height: 47px;
+                    position: relative;
+
+                    >span {
+                        vertical-align: middle;
+                        position: absolute;
+                    }
+
+                    .http-icon {
+                        .icon-image(@icon-dev-http);
+                        width: 24px;
+                        height: 24px;
+                        margin-left: -44px;
+                        top: 11.5px;
+                    }
+                    .python-icon {
+                        .icon-image(@icon-dev-python);
+                        width: 24px;
+                        height: 24px;
+                        margin-left: -44px;
+                        top: 11.5px;
+                    }
+                    .node-icon {
+                        .icon-image(@icon-dev-nodejs);
+                        width: 29px;
+                        height: 31px;
+                        margin-left: -48px;
+                        top: 8px;
+                    }
+                    .ruby-icon {
+                        .icon-image(@icon-dev-ruby);
+                        width: 27px;
+                        height: 27px;
+                        margin-left: -47px;
+                        top: 10px;
+                    }
+                }
+            }          
+
+            .header:before {
+                width: 41px;
+                height: 41px;
+                content: ' ';
+                position: absolute;
+                left: 18.5px;
+                top: 9.6px;
+            }
+            &.client .header:before {
+                .icon-image(@icon-dev-client);
+            }
+            &.server .header:before {
+                .icon-image(@icon-dev-server);
+            }
+            &.user .header:before {
+                .icon-image(@icon-dev-user);
+            }
+            &.platform .header:before {
+                .icon-image(@icon-dev-platform);
+            }
+            &.rules .header:before {
+                .icon-image(@icon-dev-rules);
+            }
+            &.partners .header:before {
+                .icon-image(@icon-dev-partner);
+            }
+            &.idsync .header:before {
+                .icon-image(@icon-dev-user);
+            }
+            &:hover {
+                box-shadow: 0.1px 1px 8px 0 rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    .partner {
+        position: relative;
+        top: -24px;
+
+        .header {
+            display: block;
+            font-weight: 700;
+            line-height: 60px;
+            border-bottom: 2px solid #f4f8f9;
+            color: @mp-blue-black;
+        }
+
+        a {
+            margin-right: 90px;
+        }
+    }
+    .dev-section.top {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: row;
+        h3 {
+            cursor: default;
+        }
+
+    }
+    .sdk-section, .events-section {
+        margin-right: 30px;
+        .dev-tile.section {
+            max-width: 234px; 
+        }
+    }
+
+    .section-margin {
+        margin-top: 30px;
+    }
+
+    .sdk-section, .events-section, .dev-tiles {
+        min-width: 250px;
+        h3 {
+            font-family: 'Graphik-Semibold', sans-serif;
+            color: @mp-darkgrey-bodycopy;
+            margin-top: 0;
+            margin-bottom: 22px;
+            margin-left: 11px;
+            font-size: 20px;
+        }
+        flex: 1;
+        .sdk-section-header, .event-section-header, .dev-tile-header {
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-end;
+            min-width: 149px;
+
+            .icon-sdk {
+                .icon-image(@icon-sdk);
+                width: 24px;
+                height: 28px;
+                position: relative;
+                bottom: 20px;
+            }
+            .icon-api {
+                .icon-image(@icon-api);
+                width: 24px;
+                height: 24px;
+                position: relative;
+                bottom: 22px;
+            }
+            border-bottom: 1px solid @mp-grey-light;
+        }
+        .dev-sdk-tiles, .dev-events-tiles, .dev-tiles {
+            margin-left: 35px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            .dev-tile {
+                margin-right: 10px;
+                flex: 1;
+                min-width: 40%;
+                .content {
+                    margin: 0;
+                    max-width: 234px;
+                    p {
+                        color: @mp-mint-med;
+                        font-weight: 500;
+                        margin-bottom: 0;
+                        margin-top: 12px;
+                    }
+                }
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-color: @mp-mint-med;
+                }
+            }
+        }
+    }
+    .dev-tiles {
+        display: flex;
+        flex-wrap: wrap;
+        h3 {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+        .dev-tile {
+            box-sizing: border-box;
+            // flex: 1;
+            // max-width: calc(100% / 3);
+            // min-width: 300px;
+            width: 370px;
+            margin-top: 5px;
+            padding-right: 30px;
+            .dev-tile-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-end;
+                padding-bottom: 12px;
+                .header-links:hover {
+                    color: @mp-darkgrey-bodycopy;
+                }
+                .icon-tile {
+                    .icon-image(@icon-arrow-right-mint);
+                    width: 16px;
+                    height: 14px;
+                    position: relative;
+                    bottom: 9px;
+                }
+            }
+            .dev-tile-content {
+                padding-left: 27px;
+                .content {
+                    p {
+                        font-weight: 500;
+                        font-family: 'Roboto';
+                        font-size: 14px;
+                        line-height: 1.57;
+                        color: @mp-mint-med;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 625px) {
+    .docs-content {
+        .developer {
+            .events-section {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .developer.main-content .flex-content {
+        min-width: 60%;
+
+        .section {
+            min-width: 60% !important;
+            margin-right: 0;
+
+            &.client, &.server {
+                .content {
+                    max-height: none;
+                }
+            }
+        }
+    }
+
+    .developer.main-content {
+        .partner a {
+            display: block;
+        }
+        .icon-sdk, .icon-api {
+            position: relative;
+            bottom: 10px !important;
+        }
+        .icon-tile {
+            bottom: 16px !important;
+        }
+        .dev-tile.section p {
+            margin: 12px 0 0 0 !important;
+        }
+    }
+}
+
+#developer-hub-title {
+    color: @mp-heading-black;
+}

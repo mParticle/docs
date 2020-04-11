@@ -1,0 +1,24 @@
+.tsd-page-toolbar {
+  background: #6bfacf;
+  height: 90px; }
+
+.tsd-page-title {
+  padding-top: 120px; }
+
+#tsd-filter {
+  vertical-align: text-bottom; }
+
+#tsd-search .title {
+  background-image: url(https://static.mparticle.com/sdk/nuget_logo.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  display: block;
+  position: absolute;
+  height: 40px;
+  top: 0;
+  left: 0;
+  right: 40px;
+  font-size: 2rem;
+  padding: 10px 70px;
+  margin: 10px 0; }

@@ -1,0 +1,386 @@
+swagger: "2.0"
+info: 
+  description: "mParticle Identity API"
+  title: "mParticle Identity API"
+  version: "1.0"
+schemes: 
+  - https
+host: identity.mparticle.com
+basePath: /v1
+paths: 
+  /identify: 
+    post: 
+      consumes: 
+        - application/json
+      description: "mParticle identity endpoint - used to create and/or request an mParticle identity."
+      parameters: 
+        - $ref: "#/parameters/AuthHeaderKey"
+        - $ref: "#/parameters/AuthHeaderDigest"
+        - $ref: "#/parameters/AuthHeaderDate"
+        - $ref: "#/parameters/IdentifyBodyRequest"
+        - $ref: "#/parameters/ReadOnly"
+        - $ref: "#/parameters/ReturnMatchedIds"
+      produces: 
+        - application/json
+      responses: 
+        200: 
+          $ref: "#/responses/IdentifySuccessResponse"
+        400: 
+          $ref: "#/responses/BadRequest"
+        401: 
+          $ref: "#/responses/Unauthorized"
+        429: 
+          $ref: "#/responses/TooManyRequests"
+          
+  /login: 
+    post: 
+      consumes: 
+        - application/json
+      description: "mParticle identity endpoint - used to create and/or request an mParticle identity."
+      parameters: 
+        - $ref: "#/parameters/AuthHeaderKey"
+        - $ref: "#/parameters/AuthHeaderDigest"
+        - $ref: "#/parameters/AuthHeaderDate"
+        - $ref: "#/parameters/IdentifyBodyRequest"
+        - $ref: "#/parameters/ReadOnly"
+        - $ref: "#/parameters/ReturnMatchedIds"
+      produces: 
+        - application/json
+      responses: 
+        200: 
+          $ref: "#/responses/IdentifySuccessResponse"
+        400: 
+          $ref: "#/responses/BadRequest"
+        401: 
+          $ref: "#/responses/Unauthorized"
+        429: 
+          $ref: "#/responses/TooManyRequests"
+          
+  /logout: 
+    post: 
+      consumes: 
+        - application/json
+      description: "mParticle identity endpoint - used to create and/or request an mParticle identity."
+      parameters: 
+        - $ref: "#/parameters/AuthHeaderKey"
+        - $ref: "#/parameters/AuthHeaderDigest"
+        - $ref: "#/parameters/AuthHeaderDate"
+        - $ref: "#/parameters/IdentifyBodyRequest"
+        - $ref: "#/parameters/ReadOnly"
+        - $ref: "#/parameters/ReturnMatchedIds"
+      produces: 
+        - application/json
+      responses: 
+        200: 
+          $ref: "#/responses/IdentifySuccessResponse"
+        400: 
+          $ref: "#/responses/BadRequest"
+        401: 
+          $ref: "#/responses/Unauthorized"
+        429: 
+          $ref: "#/responses/TooManyRequests"
+          
+  /{mpid}/modify: 
+    parameters:
+       - $ref: "#/parameters/Mpid"
+    post: 
+      consumes: 
+        - application/json
+      description: "mParticle modify endpoint - used to modify an existing user."
+      parameters: 
+        - $ref: "#/parameters/AuthHeaderKey"
+        - $ref: "#/parameters/AuthHeaderDigest"
+        - $ref: "#/parameters/AuthHeaderDate"
+        - $ref: "#/parameters/ModifyBodyRequest"
+      produces: 
+        - application/json
+      responses: 
+        200: 
+          $ref: "#/responses/ModifySuccessResponse"
+        400: 
+          $ref: "#/responses/BadRequest"
+        401: 
+          $ref: "#/responses/Unauthorized"
+        429: 
+          $ref: "#/responses/TooManyRequests"
+          
+responses:
+  IdentifySuccessResponse:
+    description: "IdentifyResponse containing the newly created or updated MPID."
+    schema: 
+      $ref: "#/definitions/IdentifySuccessResponse"
+
+  ModifySuccessResponse:
+      description: "IdentifyResponse containing the newly created or updated MPID."
+      schema: 
+        $ref: "#/definitions/ModifySuccessResponse"
+      
+  BadRequest:
+    description: "Bad request."
+    schema: 
+      $ref: "#/definitions/IdentityErrorResponse" 
+      
+  Unauthorized:
+    description: "Unauthorized."
+    
+  TooManyRequests:
+    description: "Too many requests. Reference Retry-After header and try again later."
+    headers: 
+      Retry-After: 
+        description: "Seconds to wait before retrying the request."
+        type: integer
+        
+securityDefinitions:
+  BasicSecurity:
+    type: basic
+    description: "Basic authorization with your workspace API key and secret."
+    
+  ApiKeyDigest:
+    type: apiKey
+    in: header
+    description: "API key digest auth - requires the x-mp-key, x-mp-signature, and Date headers."
+    name: x-mp-key
+    
+security:
+  - BasicSecurity: []
+  - ApiKeyDigest: []
+  
+parameters:
+  ReadOnly:
+    name: read_only
+    in: query
+    description: Perform this action as a read-only operation for debugging purposes.
+    required: false
+    type: boolean
+    
+  Mpid:
+    name: mpid
+    in: path
+    description: mParticle User Id
+    required: true
+    type: string
+    
+  AuthHeaderKey:
+    name: x-mp-key
+    in: header
+    description: "API key for your mParticle workspace. REQUIRED for digest auth."
+    type: string
+    
+  AuthHeaderDigest:
+    name: x-mp-signature
+    in: header
+    description: "HMAC-SHA256 digest of the concatenated and newline separated: HTTP method, date, path, and request body. REQUIRED for digest auth."
+    type: string
+    
+  AuthHeaderDate:
+    description: "Current Date. REQUIRED for digest auth."
+    in: header
+    name: Date
+    type: string
+    
+  IdentifyBodyRequest:
+    description: "IdentifyRequest used to create and update an Identity in the mParticle platform."
+    in: body
+    name: body
+    required: true
+    schema: 
+      $ref: "#/definitions/IdentifyRequest"  
+      
+  ModifyBodyRequest:
+    description: "ModifyRequest used to modify an existing identity."
+    in: body
+    name: body
+    required: true
+    schema: 
+      $ref: "#/definitions/ModifyRequest"    
+      
+  ReturnMatchedIds:
+    name: return_matches
+    in: query
+    description: Return the IDs used to perform the look-up in the response body.
+    required: false
+    type: boolean
+    
+definitions: 
+  IdentityBaseRequest:
+    properties:
+      client_sdk: 
+        $ref: "#/definitions/ClientSdk"
+      context: 
+        description: "Previous context string."
+        type: string
+      environment: 
+        description: "The environment to used to apply this change. (required)"
+        enum: 
+          - production
+          - development
+        type: string
+      request_id: 
+        type: string
+      request_timestamp_ms:
+        type: integer
+    required: 
+      - environment
+    type: object
+      
+  IdentifyRequest: 
+    type: object
+    allOf: 
+    - $ref: "#/definitions/IdentityBaseRequest"
+    - type: object
+      properties:
+        previous_mpid: 
+          type: string
+        known_identities: 
+          $ref: "#/definitions/Identities"
+          
+  ModifyRequest: 
+    type: object
+    allOf:
+    - $ref: "#/definitions/IdentityBaseRequest"
+    - type: object
+      properties:
+        identity_changes: 
+          items: 
+            $ref: "#/definitions/IdentityChange"
+          type: array
+      required: 
+      - identity_changes
+    
+  IdentifySuccessResponse: 
+    properties: 
+      context: 
+        description: "Base 64 string to store for the subsequent request."
+        type: string
+      matched_identities:
+        $ref: "#/definitions/Identities"
+      mpid: 
+        description: "The mParticle ID associated with this Identity."
+        type: string
+      is_ephemeral: 
+        description: "If true, the ID and its storage can be deleted by the client upon change of ID."
+        readOnly: true
+        type: boolean
+    type: object
+
+  ModifySuccessResponse: 
+    type: object
+    
+  Platform: 
+    enum:
+      - ios
+      - android
+      - web
+      - tvos
+      - roku
+      - alexa
+      - smart_tv
+      - fire
+      - xbox
+      - other
+    type: string
+    
+  ClientSdk: 
+    description: "Describes the client SDK originating the request."
+    properties: 
+      platform: 
+        $ref: "#/definitions/Platform"
+      sdk_vendor: 
+        type: string
+      sdk_version: 
+        type: string
+    type: object
+    
+  Identities: 
+    additionalProperties: false
+    properties: 
+      ios_idfa: 
+        type: string
+        description: "iOS advertising ID"
+      android_aaid: 
+        type: string
+        description: "Android advertising ID"
+      amp_id: 
+        type: string
+        description: "Accelerated Mobile Pages (AMP) ID"
+      android_uuid: 
+        type: string
+        description: "Legacy Android ID"
+      ios_idfv: 
+        type: string
+        description: "iOS vendor ID"
+      push_token: 
+        type: string
+        description: "iOS APNS push token, Android FCM Instance ID, or Fire push token"
+      roku_publisher_id: 
+        type: string
+        description: "Roku publisher ID"
+      roku_aid: 
+        type: string        
+        description: "Roku advertising ID"
+      customerid: 
+        type: string
+      email: 
+        type: string
+      facebook: 
+        type: string
+      facebookcustomaudienceid: 
+        type: string
+      google: 
+        type: string
+      microsoft: 
+        type: string
+      other:
+        type: string
+      twitter: 
+        type: string
+      yahoo: 
+        type: string
+      device_application_stamp: 
+        type: string
+    type: object
+  
+  IdentityChange:
+    type: object
+    required: [old_value, new_value, identity_type]
+    properties:
+      old_value:
+        type: string
+        description: "The previous value that was associated with this identity type, or null if this is a new id."
+      new_value:
+        type: string
+        description: "The new value to associate with this identity_type, or null to remove the value."
+      identity_type: 
+        type: string
+        enum: 
+          - ios_idfa
+          - android_aaid
+          - amp_id
+          - android_uuid
+          - ios_idfv
+          - push_token
+          - roku_publisher_id
+          - roku_aid
+          - customerid
+          - email
+          - facebook
+          - facebookcustomaudienceid
+          - google
+          - microsoft
+          - other
+          - twitter
+          - yahoo
+    
+  IdentityErrorResponse: 
+    description: "Indicates one or more errors occured during the request."
+    properties: 
+      errors: 
+        items: 
+          properties: 
+            code: 
+              type: string
+            message: 
+              type: string
+          type: object
+        type: array
+    type: object

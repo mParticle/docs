@@ -1,0 +1,7 @@
+com.mparticle.sdk
+com.mparticle.sdk.model
+com.mparticle.sdk.model.audienceprocessing
+com.mparticle.sdk.model.eventprocessing
+com.mparticle.sdk.model.eventprocessing.consent
+com.mparticle.sdk.model.eventprocessing.notification
+com.mparticle.sdk.model.registration

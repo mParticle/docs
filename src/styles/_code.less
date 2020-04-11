@@ -1,0 +1,222 @@
+// code stylings found at https://highlightjs.org/static/demo/
+// current style taken from Atom One Light
+
+// TEMPORARY - look at _prismcode.less to see what new class names are being used
+
+code {
+    border: solid 1px #f0f0f0;
+    color: @mp-code;
+    background-color: @mp-code-background;
+    border-color: #f0f0f0;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: 'Roboto Mono';
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+pre code {
+        display: block;
+        overflow-x: auto;
+        background-color: @mp-code-background;
+        padding: 15px 13px;
+
+        .copy {
+            .icon-image(@icon-copy-grey);
+            width: 14px;
+            height: 17px;
+        }
+
+        .token.keyword {
+            color: #a626a4;
+        }
+
+        .token.punctuation {
+
+        }
+
+        .token.string {
+            color: #50a14f;
+        }
+
+        .token.function {
+            color: #c18401;
+        }
+
+        .token.comment {
+            color: #a0a1a7;
+            font-style: italic;
+        }
+
+        .token.class-name {
+
+        }
+
+        .token.builtin {
+            color: #986801;
+        }
+
+        .hljs-string {
+            color: #50a14f;
+        }
+
+        
+        .hljs-keyword {
+            color: #a626a4;
+        }
+
+        .hljs-comment {
+            color: #a0a1a7;
+            font-style: italic;
+        }
+
+        // built-in not supported -> changed to function
+        .hljs-built_in {
+            color: #c18401;
+        }
+
+        .hljs-class {
+            .hljs-title {
+                color: #c18401;
+            }
+        }
+
+        .hljs-name, .hljs-section, .hljs-selector-tag, .hljs-deletion, .hljs-subst {
+            color: #e45649;
+        }
+
+        .hljs-title {
+            color: #4078f2;
+        }
+
+        .hjls-attr, .hljs-variable, .hljs-template-variable, .hljs-type, .hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-number {
+            color: #986801;
+        }
+        
+
+}
+
+// code block toggle styling
+.code-selector-block {
+    code {
+        display: none;
+    }
+
+    >input {
+        display: none;
+
+        &:checked+label {
+            border-bottom: 1px solid @mp-code-background;
+            font-weight: 700;
+        }
+        &:not(:checked)+label {
+            background-color: #fff;
+            &:hover {
+                background-color: @mp-grey;
+            }
+        }
+    }
+    >label {
+        display:inline-block;
+        height: 24px;
+        line-height: 24px;
+        font-size: 0.875em;
+        padding: 0 14px;
+        background-color: @mp-code-background;
+        border: 1px solid #f0f0f0;
+        position: relative;
+        top: 1px;
+
+        &~label {
+            border-left: 0;
+        }
+    }
+
+     input.code-toggle-ruby {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-ruby {
+                display: block;
+            }
+            & ~ pre>code.language-ruby {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-groovy {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-groovy {
+                display: block;
+            }
+            & ~ pre>code.language-groovy {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-swift {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-swift {
+                display: block;
+            }
+            & ~ pre>code.language-swift {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-objectivec {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-objectivec {
+                display: block;
+            }
+            & ~ pre>code.language-objectivec {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-java {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-java {
+                display: block;
+            }
+            & ~ pre>code.language-java {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-javascript {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-javascript {
+                display: block;
+            }
+            & ~ pre>code.language-javascript {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-kotlin {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-kotlin {
+                display: block;
+            }
+            & ~ pre>code.language-kotlin {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-json {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-json {
+                display: block;
+            }
+            & ~ pre>code.language-json {
+                display: block;
+            }
+        }
+    }
+}

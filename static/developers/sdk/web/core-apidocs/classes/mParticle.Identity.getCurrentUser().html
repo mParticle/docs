@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>mParticle.Identity.getCurrentUser() - mParticle Web SDK</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 2.11.5</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Consent.html">Consent</a></li>
+                                <li><a href="../classes/mParticle &amp; mParticleInstance.html">mParticle &amp; mParticleInstance</a></li>
+                                <li><a href="../classes/mParticle.Consent.html">mParticle.Consent</a></li>
+                                <li><a href="../classes/mParticle.eCommerce.html">mParticle.eCommerce</a></li>
+                                <li><a href="../classes/mParticle.eCommerce.Cart.html">mParticle.eCommerce.Cart</a></li>
+                                <li><a href="../classes/mParticle.Identity.html">mParticle.Identity</a></li>
+                                <li><a href="../classes/mParticle.Identity.getCurrentUser().html">mParticle.Identity.getCurrentUser()</a></li>
+                                <li><a href="../classes/mParticle.Identity.getCurrentUser().getCart().html">mParticle.Identity.getCurrentUser().getCart()</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>mParticle.Identity.getCurrentUser() Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/src_identity.js.html#l762"><code>src&#x2F;identity.js:762</code></a>
+        </div>
+
+
+</div>
+
+
+<div class="box intro">
+    <p>Invoke these methods on the mParticle.Identity.getCurrentUser() object.
+Example: mParticle.Identity.getCurrentUser().getAllUserAttributes()</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_getAllUserAttributes">getAllUserAttributes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getCart">getCart</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getConsentState">getConsentState</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getMPID">getMPID</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getUserAttributesLists">getUserAttributesLists</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getUserIdentities">getUserIdentities</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_removeAllUserAttributes">removeAllUserAttributes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_removeUserAttribute">removeUserAttribute</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_removeUserTag">removeUserTag</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setConsentState">setConsentState</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setUserAttribute">setUserAttribute</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setUserAttributeList">setUserAttributeList</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setUserAttributes">setUserAttributes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setUserTag">setUserTag</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_getAllUserAttributes" class="method item">
+    <h3 class="name"><code>getAllUserAttributes</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l1153"><code>src&#x2F;identity.js:1153</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns all user attributes</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Object</span>:
+                    <p>an object of all user attributes. Example: { attr1: 'value1', attr2: ['a', 'b', 'c'] }</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getCart" class="method item">
+    <h3 class="name"><code>getCart</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l1180"><code>src&#x2F;identity.js:1180</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns the cart object for the current user</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    <p>a cart object</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getConsentState" class="method item">
+    <h3 class="name"><code>getConsentState</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l1192"><code>src&#x2F;identity.js:1192</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns the Consent State stored locally for this user.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    <p>a ConsentState object</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getMPID" class="method item">
+    <h3 class="name"><code>getMPID</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l796"><code>src&#x2F;identity.js:796</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get the MPID of the current user</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">String</span>:
+                    <p>the current user MPID as a string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getUserAttributesLists" class="method item">
+    <h3 class="name"><code>getUserAttributesLists</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l1132"><code>src&#x2F;identity.js:1132</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns all user attribute keys that have values that are arrays</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Object</span>:
+                    <p>an object of only keys with array values. Example: { attr1: [1, 2, 3], attr2: ['a', 'b', 'c'] }</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getUserIdentities" class="method item">
+    <h3 class="name"><code>getUserIdentities</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l770"><code>src&#x2F;identity.js:770</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get user identities for current user</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Object</span>:
+                    <p>an object with userIdentities as its key</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_removeAllUserAttributes" class="method item">
+    <h3 class="name"><code>removeAllUserAttributes</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l1099"><code>src&#x2F;identity.js:1099</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Removes all user attributes</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_removeUserAttribute" class="method item">
+    <h3 class="name"><code>removeUserAttribute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l934"><code>src&#x2F;identity.js:934</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Removes a specific user attribute</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_removeUserTag" class="method item">
+    <h3 class="name"><code>removeUserTag</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>tagName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l817"><code>src&#x2F;identity.js:817</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Removes a user tag</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">tagName</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setConsentState" class="method item">
+    <h3 class="name"><code>setConsentState</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>consent</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l1200"><code>src&#x2F;identity.js:1200</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets the Consent State stored locally for this user.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">consent</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>state</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setUserAttribute" class="method item">
+    <h3 class="name"><code>setUserAttribute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l830"><code>src&#x2F;identity.js:830</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets a user attribute</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setUserAttributeList" class="method item">
+    <h3 class="name"><code>setUserAttributeList</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l992"><code>src&#x2F;identity.js:992</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets a list of user attributes</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Array</span>
+
+
+                    <div class="param-description">
+                        <p>an array of values</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setUserAttributes" class="method item">
+    <h3 class="name"><code>setUserAttributes</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>user</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l912"><code>src&#x2F;identity.js:912</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Set multiple user attributes</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">user</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>attribute object with keys of the attribute type, and value of the attribute value</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setUserTag" class="method item">
+    <h3 class="name"><code>setUserTag</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>tagName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_identity.js.html#l804"><code>src&#x2F;identity.js:804</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets a user tag</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">tagName</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

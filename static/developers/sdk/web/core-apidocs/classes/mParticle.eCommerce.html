@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>mParticle.eCommerce - mParticle Web SDK</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 2.11.5</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Consent.html">Consent</a></li>
+                                <li><a href="../classes/mParticle &amp; mParticleInstance.html">mParticle &amp; mParticleInstance</a></li>
+                                <li><a href="../classes/mParticle.Consent.html">mParticle.Consent</a></li>
+                                <li><a href="../classes/mParticle.eCommerce.html">mParticle.eCommerce</a></li>
+                                <li><a href="../classes/mParticle.eCommerce.Cart.html">mParticle.eCommerce.Cart</a></li>
+                                <li><a href="../classes/mParticle.Identity.html">mParticle.Identity</a></li>
+                                <li><a href="../classes/mParticle.Identity.getCurrentUser().html">mParticle.Identity.getCurrentUser()</a></li>
+                                <li><a href="../classes/mParticle.Identity.getCurrentUser().getCart().html">mParticle.Identity.getCurrentUser().getCart()</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>mParticle.eCommerce Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/src_mp-instance.js.html#l529"><code>src&#x2F;mp-instance.js:529</code></a>
+        </div>
+
+
+</div>
+
+
+<div class="box intro">
+    <p>Invoke these methods on the mParticle.eCommerce object.
+Example: mParticle.eCommerce.createImpresion(...)</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_createImpression">createImpression</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_createProduct">createProduct</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_createPromotion">createPromotion</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_createTransactionAttributes">createTransactionAttributes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_getIntegrationAttributes">getIntegrationAttributes</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_logCheckout">logCheckout</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_logImpression">logImpression</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_logProductAction">logProductAction</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_logPromotion">logPromotion</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_logPurchase">logPurchase</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_logRefund">logRefund</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setCurrencyCode">setCurrencyCode</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setIntegrationAttribute">setIntegrationAttribute</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setOptOut">setOptOut</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_setSessionAttribute">setSessionAttribute</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_createImpression" class="method item">
+    <h3 class="name"><code>createImpression</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>product</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l677"><code>src&#x2F;mp-instance.js:677</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Creates a product impression</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">name</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>impression name</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">product</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>the product for which an impression is being created</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_createProduct" class="method item">
+    <h3 class="name"><code>createProduct</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>sku</code>
+                </li>
+                <li class="arg">
+                        <code>price</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[quantity]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[variant]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[category]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[brand]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[position]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[coupon]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[attributes]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l620"><code>src&#x2F;mp-instance.js:620</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Creates a product</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">name</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>product name</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">sku</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>product sku</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">price</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>product price</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[quantity]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>product quantity. If blank, defaults to 1.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[variant]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>product variant</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[category]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>product category</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[brand]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>product brand</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[position]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>product position</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[coupon]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>product coupon</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[attributes]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>product attributes</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_createPromotion" class="method item">
+    <h3 class="name"><code>createPromotion</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[creative]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[name]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[position]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l660"><code>src&#x2F;mp-instance.js:660</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Creates a promotion</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>a unique promotion id</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[creative]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>promotion creative</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[name]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>promotion name</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[position]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>promotion position</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_createTransactionAttributes" class="method item">
+    <h3 class="name"><code>createTransactionAttributes</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[affiliation]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[couponCode]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[revenue]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[shipping]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[tax]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l687"><code>src&#x2F;mp-instance.js:687</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Creates a transaction attributes object to be used with a checkout</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                        <p>a unique transaction id</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[affiliation]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>affilliation</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[couponCode]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>the coupon code for which you are creating transaction attributes</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[revenue]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>total revenue for the product being purchased</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[shipping]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>the shipping method</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[tax]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>the tax amount</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_getIntegrationAttributes" class="method item">
+    <h3 class="name"><code>getIntegrationAttributes</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>integrationId</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l1059"><code>src&#x2F;mp-instance.js:1059</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get integration attributes for a given integration ID.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">integrationId</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>mParticle integration ID</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Object</span>:
+                    <p>an object map of the integrationId's attributes</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_logCheckout" class="method item">
+    <h3 class="name"><code>logCheckout</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>step</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+                <li class="arg">
+                        <code>attrs</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[customFlags]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l715"><code>src&#x2F;mp-instance.js:715</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Logs a checkout action</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">step</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>checkout step number</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">attrs</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[customFlags]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Custom flags for the event</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_logImpression" class="method item">
+    <h3 class="name"><code>logImpression</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>impression</code>
+                </li>
+                <li class="arg">
+                        <code>attrs</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[customFlags]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l838"><code>src&#x2F;mp-instance.js:838</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Logs a product impression</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">impression</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>product impression object</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">attrs</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>attributes related to the impression log</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[customFlags]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Custom flags for the event</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_logProductAction" class="method item">
+    <h3 class="name"><code>logProductAction</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>productActionType</code>
+                </li>
+                <li class="arg">
+                        <code>product</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[attrs]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[customFlags]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l739"><code>src&#x2F;mp-instance.js:739</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Logs a product action</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">productActionType</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>product action type as found <a href="https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/src/types.js#L206-L218">here</a></p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">product</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>the product for which you are creating the product action</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[attrs]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>attributes related to the product action</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[customFlags]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Custom flags for the event</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_logPromotion" class="method item">
+    <h3 class="name"><code>logPromotion</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>promotion</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[attrs]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[customFlags]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l814"><code>src&#x2F;mp-instance.js:814</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Logs a product promotion</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>the promotion type as found <a href="https://github.com/mParticle/mparticle-sdk-javascript/blob/master-v2/src/types.js#L275-L279">here</a></p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">promotion</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>promotion object</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[attrs]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>boolean to clear the cart after logging or not</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[customFlags]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Custom flags for the event</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_logPurchase" class="method item">
+    <h3 class="name"><code>logPurchase</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>transactionAttributes</code>
+                </li>
+                <li class="arg">
+                        <code>product</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[clearCart]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[attrs]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[customFlags]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l773"><code>src&#x2F;mp-instance.js:773</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Logs a product purchase</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">transactionAttributes</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>transactionAttributes object</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">product</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>the product being purchased</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[clearCart]</code>
+                        <span class="type">Boolean</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>boolean to clear the cart after logging or not. Defaults to false</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[attrs]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>other attributes related to the product purchase</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[customFlags]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Custom flags for the event</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_logRefund" class="method item">
+    <h3 class="name"><code>logRefund</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>transactionAttributes</code>
+                </li>
+                <li class="arg">
+                        <code>product</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[clearCart]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[attrs]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[customFlags]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l860"><code>src&#x2F;mp-instance.js:860</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Logs a refund</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">transactionAttributes</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>transaction attributes related to the refund</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">product</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>product being refunded</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[clearCart]</code>
+                        <span class="type">Boolean</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>boolean to clear the cart after refund is logged. Defaults to false.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[attrs]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>attributes related to the refund</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[customFlags]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Custom flags for the event</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setCurrencyCode" class="method item">
+    <h3 class="name"><code>setCurrencyCode</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>code</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l599"><code>src&#x2F;mp-instance.js:599</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets the currency code</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">code</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>The currency code</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setIntegrationAttribute" class="method item">
+    <h3 class="name"><code>setIntegrationAttribute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>integrationId</code>
+                </li>
+                <li class="arg">
+                        <code>attrs</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l983"><code>src&#x2F;mp-instance.js:983</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Set or remove the integration attributes for a given integration ID.
+Integration attributes are keys and values specific to a given integration. For example,
+many integrations have their own internal user/device ID. mParticle will store integration attributes
+for a given device, and will be able to use these values for server-to-server communication to services.
+This is often useful when used in combination with a server-to-server feed, allowing the feed to be enriched
+with the necessary integration attributes to be properly forwarded to the given integration.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">integrationId</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>mParticle integration ID</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">attrs</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>a map of attributes that will replace any current attributes. The keys are predefined by mParticle.
+Please consult with the mParticle docs or your solutions consultant for the correct value. You may
+also pass a null or empty map here to remove all of the attributes.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setOptOut" class="method item">
+    <h3 class="name"><code>setOptOut</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>isOptingOut</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l953"><code>src&#x2F;mp-instance.js:953</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Set opt out of logging</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">isOptingOut</code>
+                        <span class="type">Boolean</span>
+
+
+                    <div class="param-description">
+                        <p>boolean to opt out or not. When set to true, opt out of logging.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_setSessionAttribute" class="method item">
+    <h3 class="name"><code>setSessionAttribute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_mp-instance.js.html#l901"><code>src&#x2F;mp-instance.js:901</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets a session attribute</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <p>key for session attribute</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                        <p>value for session attribute</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+@import "./_code.less";
+@import "./_fonts.less";
+@import "./_markdown.less";
+@import "./_colors.less";
+@import "./_logos.less";
+
+html {
+    height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    body {
+        margin: 0;
+        font-size: 16px;
+
+        #___gatsby {
+
+            .docs-app, .docs-home {
+                position: relative;
+
+                .docs-content {
+                    position: relative;
+                }
+
+                .centered-fixed-width {
+                    max-width: 1280px;
+                }
+            }
+
+            button {
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        .not-found {
+            .docs-footer {
+                margin-top: 500px;
+            }
+        }
+    }
+}
+
+.docs-app {
+    a {
+        text-decoration: none;
+        &:not(.header-links) {
+            &:not(.docs-header-home-link) {
+                &:not(.toc-link) {
+                    &:not(.nav-flyout-link) {
+                        &:not(.result) {
+                            &:hover {
+                                text-decoration: underline !important;
+                                &:not(.footer-link) {
+                                    &:not(.dev-tile-header) {
+                                        &:not(.nav-flyout-link) {
+                                            color: @mp-mint-med !important;
+                                            h1, h2, h3, h4, h5, h6, p:not(.title), ul, ol, li, span {
+                                                color: @mp-mint-med !important;
+                                                transition: color 0.1s ease;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.result, &.docs-header-home-link {
+                                text-decoration: none !important;
+                            }
+                            &#docs-header {
+                                span {
+                                    text-decoration: none !important;
+                                    color: @mp-grey-dark !important;
+                                    transition: all 0.3s ease;
+                                }
+                                &:hover {
+                                    span {
+                                        transition: color 0.3s ease;
+                                        color: @mp-mint !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sdk-widget, .category-chooser, .table-of-contents {
+        a:hover {
+            text-decoration: none !important;
+        }
+    }
+}
+
+.docs-app img {
+    max-width: 90%;
+    margin: 10px;
+    border: 1px solid @mp-grey-light;
+    &[alt="large"] {
+        max-width: 70%;
+    }
+    &[alt="medium"] {
+        max-width: 55%;
+    }
+    &[alt="small"] {
+        max-width: 40%;
+    }
+    &[alt="no-border"] {
+        border: none;
+    }
+}
+
+@media (max-width: 600px) {
+    html body {
+        h1 {
+            font-size: 24px !important;
+            font-family: 'Graphik-Semibold' !important;
+            font-weight: 600 !important;
+            line-height: 1.67 !important;
+            margin-bottom: 20px !important;
+        }
+
+        h2 {
+            font-family: 'Graphik-Regular' !important;
+            font-size: 20px !important;
+            line-height: 26px !important;
+            color: @mp-darkgrey-bodycopy !important;
+        }
+
+        h3 {
+            font-family: 'Graphik-Semibold' !important;
+            font-size: 18px !important;
+            font-weight: 500 !important;
+            line-height: 1.11 !important;
+            color: @mp-darkgrey-bodycopy !important;
+            padding-top: 10px !important;
+        }
+
+        h4 {
+            font-family: 'Roboto' !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            line-height: 1.43 !important;
+            color: @mp-dark-mint !important;
+        }
+
+        h5 {
+            font-family: 'Graphik-Semibold' !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            line-height: 1.43 !important;
+            color: @mp-darkgrey-bodycopy !important;
+        }
+        h2, h3, h4, h5, p {
+            margin-top: 15px !important;
+            margin-bottom: 15px !important;
+        }
+    }
+}

@@ -1,0 +1,130 @@
+@import "../../styles/_colors";
+@import "../../styles/_icons";
+@import "../../styles/_utils.less";
+
+.headings-toc {
+
+    transition: all .3s ease;
+    // font-size: 0.5em;
+    padding-left: 0;
+    
+    ul {
+        margin: 0;
+        padding: 0;     
+    }
+
+    li {
+        padding-left: 50px;
+        list-style: none;
+        line-height: 34px;
+        display: block;
+        transition: background-color .3s ease;
+
+        &:hover {
+            background-color: @mp-mint-light;
+            transition: all 0.3s ease;
+        }
+        &.parent {
+            position: relative;
+            .icon {
+                position: absolute;
+                top: 11px;
+                left: 41px;
+                width: 10px;
+                height: 10px;
+                .icon-image(@icon-plus-grey);
+            }
+            &.active .icon {
+                .icon-image(@icon-dash-grey);
+            }
+            &.active.collapsed .icon {
+                .icon-image(@icon-plus-grey);
+            }
+            &.expanded .icon {
+                .icon-image(@icon-dash-grey);
+            }
+        }
+
+        &.active {
+            transition: all 0.3s ease;
+            background-color: @mp-dark-mint;
+            
+            >a {
+                color: #ffffff; 
+            }
+
+            &.child {
+                transition: all 0.3s ease;
+                background-color: #ffffff;
+                >a {
+                color: @mp-dark-mint;
+                font-family: 'Roboto';
+                }
+            }
+            span {
+                transition: all 0.3s ease;
+                color: @mp-dark-mint;
+            }
+            &.parent.collapsed ~ li.nested-child {
+                display: none;
+            }
+        }
+
+        &.child {
+            border-bottom: 1px solid #f0f0f0;
+
+            &:not(.active)>a {
+                color: #545c62;
+            }
+        }
+
+        >div {
+            text-decoration: none;
+            display: block;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            font-family: 'Roboto';
+            color: @mp-darkgrey-bodycopy;
+            // font-weight: normal;
+            font-size: 14px;
+        }
+
+        .heading-nav-element {
+            font-weight: 500;
+            color: @mp-header-light-2;
+            // white-space: normal;
+            cursor: pointer;
+
+            &.H1 { 
+                padding-left: 12px;
+            }
+            &.H3 {
+                font-weight: normal;
+                padding: 9px 12px 9px 24px;
+            }
+        }
+    }
+    .message-appear {
+        opacity: 0.01;
+        background-color: tomato;
+    }
+
+    .message-enter {
+        opacity: 1;
+        background-color: teal;
+    }
+    .message-enter-active {
+        opacity: 1;
+        transition: all 3000ms ease-out;
+        background-color: green;
+    }
+    .message-exit {
+        opacity: 1;
+        background-color: red;
+    }
+    .message-exit-active {
+        opacity: 0.01;
+        transition: all 3000ms ease-out;
+        background-color: yellow;
+    }
+}

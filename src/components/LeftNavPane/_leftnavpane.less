@@ -1,0 +1,81 @@
+@import "../../styles/_colors";
+
+.left-nav-pane {
+    float: left;
+    width: 270px;
+    margin-top: 44px;
+    padding: 16px 52px 16px 52px;
+    font-size: 0.875em;
+    z-index: 2;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    // max-height: calc(100vh - 160px);
+    
+    &.top {
+        top: 0;
+    }
+
+    &.float {
+        position: fixed;
+        top: 0;
+    }
+
+    .flyout-icon {
+        position: absolute;
+        display: none;
+        cursor: pointer;
+        font-size: 24px;
+        left: -80px;
+    }
+}
+
+.left-nav-pane + div {
+    margin-left: 374px;
+    border-left: 1px solid #f0f0f0;
+
+    &.markdown, &.main-content {
+        min-height: 900px;
+    }
+
+    .markdown, .main-content {
+        min-height: 900px;
+    }
+}
+
+@media (max-width: 900px) {
+    .left-nav-pane {
+        display: none;
+        transform: translateX(-400px);
+
+        .flyout-icon {
+            left: 420px;
+            display: none;
+        }
+
+        /* &.bottom {
+            .flyout-icon {
+                position: fixed;
+                left: 820px;
+                top: 60px;
+            }
+        }*/
+
+        &.toggled {
+            transform: translateX(0);
+            box-shadow: 0.1px 1px 5px 0 rgba(0, 0, 0, 0.15);
+
+            .flyout-icon {
+                left: -80px;
+            }
+        }
+
+        & + div {
+            margin-left: 0;
+            border: none;
+
+            .markdown {
+                // padding: 48px 16px 16px 50px;
+            }
+        }
+    }
+}
