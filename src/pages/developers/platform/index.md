@@ -1627,6 +1627,32 @@ Message | Description
 Calculated attribute name cannot be changed once the calculated attribute has been activated. | You can only update the name of a calculated attribute that has not been acitvated. |
 
 
+
+#### Activate a Calculated Attribute
+Use this endpoint to activate a calculated attribute. You must actiate the Calculated Attribute before it can be used elsewhere in the system. A calculated attribute can only be activated if you have not exceeded the maximum limit of active calculated attributes for your account.
+
+`POST /workspaces/1234/calculatedattributes/5678/activation`
+
+The request body is empty for this `POST`.
+
+```bash
+curl \
+  -X POST \
+  -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678/activation"
+```
+
+##### Response
+HTTP Code 204 -- Calculated Attribute was successfully deleted.
+
+##### Error Responses
+Message | Description
+| --- | ---
+You have reached the account limit on active calculated attributes. | To increase limit, contact your account representative or delete unneeded active calculated attributes. |
+No draft definition was found to activate. | You are attempting to activate a calculated attribute that has a invalid definition. |
+
+
+
 #### Get a Calculated Attribute Activation Status
 A calculated attribute's activation status tells you whether or not the calculated attribute has been activated and when and who activated it.
 
@@ -1649,29 +1675,6 @@ curl \
 }
 ```
 
-
-#### Create a Calculated Attribute Activation Status
-Use this endpoint to activate a calculated attribute. A calculated attribute can only be activated if you have not exceeded the maximum limit of active calculated attributes for your account.
-
-`POST /workspaces/1234/calculatedattributes/5678/activation`
-
-The request body is empty for this `POST`.
-
-```bash
-curl \
-  -X POST \
-  -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678/activation"
-```
-
-##### Response
-HTTP Code 204 -- Calculated Attribute was successfully deleted.
-
-##### Error Responses
-Message | Description
-| --- | ---
-You have reached the account limit on active calculated attributes. | To increase limit, contact your account representative or delete unneeded active calculated attributes. |
-No draft definition was found to activate. | You are attempting to activate a calculated attribute that has a invalid definition. |
 
 
 #### Delete a Calculated Attribute's Draft Definition
