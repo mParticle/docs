@@ -1629,7 +1629,7 @@ Calculated attribute name cannot be changed once the calculated attribute has be
 
 
 #### Activate a Calculated Attribute
-Use this endpoint to activate a calculated attribute. You must actiate the Calculated Attribute before it can be used elsewhere in the system. A calculated attribute can only be activated if you have not exceeded the maximum limit of active calculated attributes for your account.
+Use this endpoint to activate a calculated attribute. You must activate the Calculated Attribute before it can be used elsewhere in the system. A calculated attribute can only be activated if you have not exceeded the maximum limit of active calculated attributes for your account.
 
 `POST /workspaces/1234/calculatedattributes/5678/activation`
 
@@ -1643,7 +1643,7 @@ curl \
 ```
 
 ##### Response
-HTTP Code 204 -- Calculated Attribute was successfully deleted.
+HTTP Code 204 -- Calculated Attribute was successfully activated.
 
 ##### Error Responses
 Message | Description
