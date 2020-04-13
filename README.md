@@ -1,4 +1,4 @@
-# mParticle Doc Site 
+# mParticle Doc Site
 
 This is the repo for the [mParticle doc site](https://docs.mparticle.com/). You can contribute via submitting issues, or by contributing directly to the codebase itself. Read below to learn how to contribute.
 
@@ -22,7 +22,7 @@ mParticle requires that all contributers fill out mParticle's Contributor Licens
 
 ## Contributing
 
-<a name="branchguidelines"></a>
+<a name="branchguidelines"> </a>
 
 ### Branch Guidelines
 
