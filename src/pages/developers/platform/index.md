@@ -1035,10 +1035,10 @@ curl \
 
 A Calculated Attribute is a read-only value about a single user, providing granular insight into user behavior. These attributes are defined in mParticle and are computed automatically over time by using the raw data stream of events and user information.
 
-Please note that this endpoint does not require the `?accountId` query string parameter.
-
 <aside>The Calculated Attributes feature is currently available only upon request for early-access customers. If you're interested in using it prior to general availability, please let us know by asking your success manager.</aside>
 
+#### Version 2 API
+This API uses a different path than other Platform APIs. It can be accessed at `https://api.mparticle.com/platform/v2`. This API does not require the `?accountId` query string parameter.
 
 #### Get all Calculated Attributes
 
@@ -1048,7 +1048,7 @@ Please note that this endpoint does not require the `?accountId` query string pa
 curl \
   -X GET \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes?name=ca1"
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes?name=ca1"
 ~~~
 
 ##### Parameters
@@ -1131,7 +1131,7 @@ name | `string` | Optional parameter to filter by name.
 curl \
   -X HEAD \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes?name=ca1"
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes?name=ca1"
 ~~~
 
 ##### Parameters
@@ -1155,7 +1155,7 @@ The response body will be empty.
 curl \
   -X POST \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes" \
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes" \
   -d '{
     "name": "New Calculated Attribute",
     "draft_definition": {
@@ -1483,7 +1483,7 @@ Condition maximum value must be empty | A non-range condition has a value in the
 curl \
   -X GET \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes/5678"
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678"
 ```
 
 ##### Example Response
@@ -1570,7 +1570,7 @@ curl \
 curl \
   -X DELETE \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes/5678"
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678"
 ```
 
 ##### Response
@@ -1583,13 +1583,15 @@ The response body will be empty.
 
 #### Update a Calculated Attribute
 
+Use this endpoint to create or update a draft of your Calculated Attribute definition. The `active_definition` property cannot be updated. You can only rename a Calculated Attribute as long as it has never been activated. Once activated, the `name` field is read-only.
+
 `PUT /workspaces/1234/calculatedattributes/5678`
 
 ```bash
 curl \
   -X PUT \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes/5678" \
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678" \
   -d '{
     "name": "New Name",
     "draft_definition": {
@@ -1625,6 +1627,32 @@ Message | Description
 Calculated attribute name cannot be changed once the calculated attribute has been activated. | You can only update the name of a calculated attribute that has not been acitvated. |
 
 
+
+#### Activate a Calculated Attribute
+Use this endpoint to activate a calculated attribute. You must activate the Calculated Attribute before it can be used elsewhere in the system. A calculated attribute can only be activated if you have not exceeded the maximum limit of active calculated attributes for your account.
+
+`POST /workspaces/1234/calculatedattributes/5678/activation`
+
+The request body is empty for this `POST`.
+
+```bash
+curl \
+  -X POST \
+  -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678/activation"
+```
+
+##### Response
+HTTP Code 204 -- Calculated Attribute was successfully activated.
+
+##### Error Responses
+Message | Description
+| --- | ---
+You have reached the account limit on active calculated attributes. | To increase limit, contact your account representative or delete unneeded active calculated attributes. |
+No draft definition was found to activate. | You are attempting to activate a calculated attribute that has a invalid definition. |
+
+
+
 #### Get a Calculated Attribute Activation Status
 A calculated attribute's activation status tells you whether or not the calculated attribute has been activated and when and who activated it.
 
@@ -1634,7 +1662,7 @@ A calculated attribute's activation status tells you whether or not the calculat
 curl \
   -X GET \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes/5678/activation"
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678/activation"
 ```
 
 ##### Example Response
@@ -1648,29 +1676,6 @@ curl \
 ```
 
 
-#### Create a Calculated Attribute Activation Status
-Use this endpoint to activate a calculated attribute. A calculated attribute can only be activated if you have not exceeded the maximum limit of active calculated attributes for your account.
-
-`POST /workspaces/1234/calculatedattributes/5678/activation`
-
-The request body is empty for this `POST`.
-
-```bash
-curl \
-  -X POST \
-  -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes/5678/activation"
-```
-
-##### Response
-HTTP Code 204 -- Calculated Attribute was successfully deleted.
-
-##### Error Responses
-Message | Description
-| --- | ---
-You have reached the account limit on active calculated attributes. | To increase limit, contact your account representative or delete unneeded active calculated attributes. |
-No draft definition was found to activate. | You are attempting to activate a calculated attribute that has a invalid definition. |
-
 
 #### Delete a Calculated Attribute's Draft Definition
 Use this endpoint to discard a calculated attribute's draft definition.
@@ -1681,7 +1686,7 @@ Use this endpoint to discard a calculated attribute's draft definition.
 curl \
   -X DELETE \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes/5678/draft"
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678/draft"
 ```
 
 ##### Response
@@ -1701,7 +1706,7 @@ A calculated attribute's calculation status gives you the calcuation progress an
 curl \
   -X GET \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspaces/1234/calculatedattributes/5678/calculation"
+  "https://api.mparticle.com/platform/v2/workspaces/1234/calculatedattributes/5678/calculation"
 ```
 
 ##### Example Response
