@@ -12,7 +12,7 @@ There are two versions of this API that we support:
 
 Version  | Framework | API Endpoint
 ---  | --- | ---
-1.0  | [OpenGDPR](https://github.com/opengdpr/OpenDSR/tree/opengdpr_v1)  | https://opengdpr.mparticle.com/v1 
+1.0  | [OpenGDPR](https://github.com/opengdpr/OpenDSR/tree/opengdpr_v1)  | https://opengdpr.mparticle.com/v1
 2.0  | [OpenDSR](https://github.com/opengdpr/OpenDSR/) |  https://opendsr.mparticle.com/v2
 
 This is noted in the two endpoints supported below, and in the `api_version` field in many of the resources below.
@@ -41,7 +41,7 @@ https://opengdpr.mparticle.com/v1
 ```
 
 ## Authentication   
-The HTTP APIs are secured via basic authentication. Credentials are issued at the level of an mParticle Workspace. You can obtain credentials for your Workspace from the Workspace Settings screen.
+The HTTP APIs are secured via basic authentication. Credentials are issued at the level of an mParticle Workspace. You can obtain credentials for your Workspace from the Workspace Settings screen. Note that this authentication is for a single workspace and scopes the DSR to this workspace only.
 
 ![](/images/workspace-credentials.png)
 

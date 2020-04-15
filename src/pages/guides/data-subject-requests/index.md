@@ -50,7 +50,6 @@ Each DSR follows the same basic workflow:
 
 1. The Data Subject submits a DSR to the Data Controller.
 
-
 1. The Data Controller must log, authenticate and verify the request. If they choose to accept the request, the Data Controller forwards a request to mParticle in its role as a Data Processor. The request provides:
     * One or more identities for the Data Subject;
     * The type of request: "Erasure", "Access" or "Portability";
@@ -71,6 +70,9 @@ This workflow can be managed in mParticle UI or programmatically via the [OpenDS
 
 mParticle stores data against user profiles, each identified by an mParticle ID (MPID). To respond to DSRs, mParticle first matches identities in the DSR against observed user profiles. This is handled the same way as mParticle's regular IDSync process: provided identities are resolved to MPIDs to identify affected user data.
 
+All DSR requests are scoped to a single workspace by API authentication. If you need to apply a DSR to multiple workspaces, please submit it within each workspace.  
+
+
 ## Data Subject Request Settings
 To get started, enable GDPR and/or CCPA compliance features on your workspace from **Workspace Settings** > **Workspace** > **Regulation**. This will allow you to see the DSR UI. mParticle will honor all requests received via API even with these features disabled.
 
@@ -78,9 +80,7 @@ You have the option to include a copy of the live user profile in access/portabi
 
 <aside>To see these privacy pages you must be in a user role of "Compliance Admin" or "Compliance".</aside>
 
-
 ![](/images/privacy-settings.png)
-
 
 ### Develop a strategy for accepting Data Subject Requests
 
