@@ -30,7 +30,23 @@ const codeBlockLabels = {
     "cs": "Unity",
     "swift": "Swift",
     "kotlin": "Kotlin",
-    "json":"JSON"
+    "json":"JSON",
+    "nodesdk":"Node SDK",
+    "curl":"Curl"
+};
+
+/**
+ * We have:
+ * - SDKs
+ * - Languages
+ * - Labels
+ * 
+ * Different SDKs use the same language, so it can't be 1:1 as above
+ * so this object is used to overwrite the languages above
+ */
+const codeBlockToSyntaxHighlighter = {
+    "nodesdk":"javascript",
+    "curl":"bash"
 };
 
 const selectorMarker = ':::code-selector-block'
@@ -38,8 +54,9 @@ const openingBlockHTML = '<div class="code-selector-block">';
 const closingBlockHTML = '</div>';
 const singleLanguageBlockHTML = '<div class="code-selector-block no-selector">';
 
-function getCodeToggle(language, id, first) {
-    var tabLabel = codeBlockLabels[language] || language;
+function getCodeToggle(originalLanguage, id, first) {
+    var tabLabel = codeBlockLabels[originalLanguage] || language;
+    var language = codeBlockToSyntaxHighlighter[originalLanguage] || originalLanguage;
     var toggleId = `code-toggle-${language}-${id}`;
     var content = `<input class="code-toggle-${language}" id="${toggleId}" type="radio"`;
     content += ` name="code-toggle-${id}"`;
@@ -53,7 +70,6 @@ function getCodeToggle(language, id, first) {
   }
 
 let transformHTML = function(data, pluginOptions) {
-    //console.log(data);
     var y = true;
     const children = data && data.markdownAST && data.markdownAST.children;
     if (children) {
@@ -69,8 +85,10 @@ let transformHTML = function(data, pluginOptions) {
 
                 // Check subsequent blocks to verify that they are type 'code' and save their languages
                 while (++i < children.length) {
-                    if (children[i].type === 'code' && children[i].lang) {
-                        codeBlockLanguages.push(children[i].lang);
+                    let originalLang = children[i].lang;
+                    if (children[i].type === 'code' && originalLang) {
+                        codeBlockLanguages.push(originalLang);
+                        children[i].lang = codeBlockToSyntaxHighlighter[originalLang] || originalLang;
                     } else if (children[i].type === 'paragraph' && children[i].children) {
                         let childContent = children[i].children[0].value;
                         childContent = childContent && childContent.trim();
@@ -85,8 +103,8 @@ let transformHTML = function(data, pluginOptions) {
                         codeBlockLanguages = null;
                         break;
                     }
-                }
 
+                }
                 // Invalid formatting for code selector
                 if (!codeBlockLanguages) {
                     console.log('\nWARNING: Code selector block was not formatted correctly. Missing closing ":::" after this code block:\n');

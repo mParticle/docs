@@ -118,6 +118,11 @@ const TILES = [{
     route: 'platform'
 },
 {
+    title: 'Data Planning API',
+    content: 'The Data Planning API lets you programmatically define your data schema with Data Master',
+    route: 'dataplanning-api'
+},
+{
     title: 'Data Subject Request API',
     content: 'Submit data subject requests for GDPR and CCPA compliance via the OpenDSR API.',
     route: 'dsr-api'

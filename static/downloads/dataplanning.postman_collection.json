@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "eddb9cb3-5b91-4b60-a80b-373bf903f695",
+		"name": "Data Planning API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Generate JWT token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"client_id\": \"{{client_id}}\",\n    \"client_secret\": \"{{client_secret}}\",\n    \"audience\": \"https://api.mparticle.com\",\n    \"grant_type\": \"client_credentials\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sso.auth.mparticle.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"sso",
+						"auth",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all plans",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}",
+						"description": "Your JWT generated with your client_id and client_secret.",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v2",
+						"workspaces",
+						"{{workspace_id}}",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create plan",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}",
+						"description": "Your JWT generated with your client_id and client_secret.",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data_plan_id\": \"example_data_plan_6\",\n    \"data_plan_name\": \"Mobile Data Plan\",\n    \"data_plan_description\": \"This is an example data plan description.\",\n    \"data_plan_versions\": [\n        {\n            \"version\": 1,\n            \"data_plan_id\": \"mobile_data_plan\",\n            \"activated_environment\": \"none\",\n            \"version_document\": {\n                \"data_points\": [\n                    {\n                        \"description\": \"My first data point\",\n                        \"match\": {\n                            \"type\": \"custom_event\",\n                            \"criteria\": {\n                                \"event_name\": \"My Custom Event Name\",\n                                \"custom_event_type\": \"other\"\n                            }\n                        },\n                        \"validator\": {\n                            \"type\": \"json_schema\",\n                            \"definition\": {\n                                \"properties\": {\n                                    \"data\": {\n                                        \"additionalProperties\": true,\n                                        \"properties\": {\n                                            \"custom_attributes\": {\n                                                \"additionalProperties\": false,\n                                                \"properties\": {\n                                                    \"foo\": {\n                                                        \"type\": \"number\"\n                                                    }\n                                                },\n                                                \"required\": [\n                                                    \"foo\"\n                                                ]\n                                            }\n                                        },\n                                        \"required\": [\n                                            \"custom_attributes\"\n                                        ]\n                                    }\n                                }\n                            }\n                        }\n                    }\n                ]\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v2",
+						"workspaces",
+						"{{workspace_id}}",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get plan",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}",
+						"description": "Your JWT generated with your client_id and client_secret.",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/{{plan_id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v2",
+						"workspaces",
+						"{{workspace_id}}",
+						"plans",
+						"{{plan_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update plan",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}",
+						"description": "Your JWT generated with your client_id and client_secret.",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data_plan_description\": \"This is an updated description...\"\n}"
+				},
+				"url": {
+					"raw": "https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/{{plan_id}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v2",
+						"workspaces",
+						"{{workspace_id}}",
+						"plans",
+						"{{plan_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create plan version",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}",
+						"description": "Your JWT generated with your client_id and client_secret.",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"version\": 42,\n    \"version_document\": {\n        \"data_points\": [\n            {\n                \"description\": \"My first data point\",\n                \"match\": {\n                    \"type\": \"custom_event\",\n                    \"criteria\": {\n                        \"event_name\": \"My Custom Event Name\",\n                        \"custom_event_type\": \"other\"\n                    }\n                },\n                \"validator\": {\n                    \"type\": \"json_schema\",\n                    \"definition\": {\n                        \"properties\": {\n                            \"data\": {\n                                \"additionalProperties\": true,\n                                \"properties\": {\n                                    \"custom_attributes\": {\n                                        \"additionalProperties\": false,\n                                        \"properties\": {\n                                            \"foo\": {\n                                                \"type\": \"number\"\n                                            }\n                                        },\n                                        \"required\": [\"foo\"]\n                                    }\n                                },\n                                \"required\": [\n                                    \"custom_attributes\"\n                                ]\n                            }\n                        }\n                    }\n                }\n            }\n        ],\n        \"settings\": {\n            \"validation_actions\": {\n                \"event\": \"allow\",\n                \"event_attribute\": \"allow\",\n                \"user_attribute\": \"allow\"\n            }\n        }\n    },\n    \"activated_environment\": \"none\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/{{plan_id}}/versions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v2",
+						"workspaces",
+						"{{workspace_id}}",
+						"plans",
+						"{{plan_id}}",
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get plan version",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}",
+						"description": "Your JWT generated with your client_id and client_secret.",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/{{plan_id}}/versions/42",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v2",
+						"workspaces",
+						"{{workspace_id}}",
+						"plans",
+						"{{plan_id}}",
+						"versions",
+						"42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update plan version",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt_token}}",
+						"description": "Your JWT generated with your client_id and client_secret.",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"version\": 42,\n    \"version_document\": {\n        \"data_points\": [\n            {\n                \"description\": \"My first data point, updated\",\n                \"match\": {\n                    \"type\": \"custom_event\",\n                    \"criteria\": {\n                        \"event_name\": \"My Custom Event Name\",\n                        \"custom_event_type\": \"other\"\n                    }\n                },\n                \"validator\": {\n                    \"type\": \"json_schema\",\n                    \"definition\": {\n                        \"properties\": {\n                            \"data\": {\n                                \"additionalProperties\": true,\n                                \"properties\": {\n                                    \"custom_attributes\": {\n                                        \"additionalProperties\": false,\n                                        \"properties\": {\n                                            \"foo\": {\n                                                \"type\": \"number\"\n                                            }\n                                        },\n                                        \"required\": [\n                                            \"foo\"\n                                        ]\n                                    }\n                                },\n                                \"required\": [\n                                    \"custom_attributes\"\n                                ]\n                            }\n                        }\n                    }\n                }\n            }\n        ],\n        \"settings\": {\n            \"validation_actions\": {\n                \"event\": \"allow\",\n                \"event_attribute\": \"allow\",\n                \"user_attribute\": \"allow\"\n            }\n        }\n    },\n    \"activated_environment\": \"none\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/{{plan_id}}/versions/2",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mparticle",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v2",
+						"workspaces",
+						"{{workspace_id}}",
+						"plans",
+						"{{plan_id}}",
+						"versions",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7e24681a-e951-41cb-ab40-7365be95fc90",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0eb99026-4892-40b0-a82b-d48594a39922",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

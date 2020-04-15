@@ -104,6 +104,16 @@ A Data Plan is a set of expectations about the extent and shape of your data col
 - **Description**: an optional freeform field to describe the plan
 - **Data Points**: a list encompassing all of the data you expect to receive. Any event received that does not match a data point will result in a violation.
 
+#### Data Planning API
+
+Data Plans are underpinned by the [Data Planning API](/developers/dataplanning-api). Some example use cases you can achieve with the Data Planning API are:
+
+- Store your Data Plans in your source code, and use your own SDLC and approval processes to define your data model
+- Create, read, update and delete Data Plans
+- Integrate mParticle's suite of Data Planning tools to perform compile-time and runtime data quality verification
+
+Navigate to the [Data Planning API guide](/developers/dataplanning-api) for more information.
+
 ### Getting Started
 
 To drive value from Data Plans, you can follow a simple three step process:
@@ -143,7 +153,10 @@ Once your plan is validating data, violations reports can help you monitor your 
 
 ![](/images/dataplanning/monitor-dp.gif)
 
+
+
 ### Developer Guide
+
 
 Data Planning is supported by the following mParticle SDKs:
 

@@ -176,12 +176,34 @@ pre code {
         }
     }
 
+    input.code-toggle-nodesdk {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-javascript {
+                display: block;
+            }
+            & ~ pre>code.language-javascript {
+                display: block;
+            }
+        }
+    }
+
     input.code-toggle-java {
         &:checked {
             & ~ .gatsby-highlight>pre>code.language-java {
                 display: block;
             }
             & ~ pre>code.language-java {
+                display: block;
+            }
+        }
+    }
+
+    input.code-toggle-bash {
+        &:checked {
+            & ~ .gatsby-highlight>pre>code.language-bash {
+                display: block;
+            }
+            & ~ pre>code.language-bash {
                 display: block;
             }
         }

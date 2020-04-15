@@ -1,0 +1,422 @@
+openapi: 3.0.2
+info:
+  title: mParticle Data Planning API
+  version: 2.0.0
+servers:
+  - url: https://api.mparticle.com/platform/v2/workspaces/{workspace_id}/plans
+    variables:
+      workspace_id:
+        default: "0"
+        description: The Id of the worskspace that contains the targetted data plans
+security:
+  - bearerAuth: []
+
+paths:
+  /:
+    get:
+      description: Query all data plans
+      operationId: get plans
+      tags:
+        - Data Plan
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanListResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    post:
+      description: Create a data plan
+      operationId: create plan
+      tags:
+        - Data Plan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataPlan"
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanVersionResponse'
+        '400':
+          $ref: '#/components/responses/BadSchema'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /{plan_id}:
+    get:
+      description: Get a single plan
+      operationId: get plan
+      tags:
+        - Data Plan
+      parameters:
+        - $ref: "#/components/parameters/plan_id"
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    delete:
+      description: Delete a single plan
+      operationId: delete plan
+      tags:
+        - Data Plan
+      parameters:
+        - $ref: "#/components/parameters/plan_id"
+      responses:
+        '204':
+          description: Empty response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    patch:
+      description: Update a plan
+      operationId: update plan
+      tags:
+        - Data Plan
+      parameters:
+        - $ref: "#/components/parameters/plan_id"
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanResponse'
+        '400':
+          $ref: '#/components/responses/BadSchema'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /{plan_id}/versions/{plan_version}:
+    get:
+      description: Get a single plan version
+      operationId: get plan version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: "#/components/parameters/plan_id"
+        - $ref: "#/components/parameters/plan_version"
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanVersionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    patch:
+      description: Update a plan version
+      operationId: update plan version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: "#/components/parameters/plan_id"
+        - $ref: "#/components/parameters/plan_version"
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanVersionResponse'
+        '400':
+          $ref: '#/components/responses/BadSchema'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    delete:
+      description: Delete a plan version
+      operationId: delete plan version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: "#/components/parameters/plan_id"
+        - $ref: "#/components/parameters/plan_version"
+      responses:
+        '204':
+          description: Empty response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+  /{plan_id}/versions:
+    post:
+      description: Create a data plan version
+      operationId: create plan version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: "#/components/parameters/plan_id"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataPlanVersion"
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanVersionResponse'
+        '400':
+          $ref: '#/components/responses/BadSchema'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+components:
+  parameters:
+    plan_id:
+      name: plan_id
+      in: path
+      description: Slug ID of the data plan
+      required: true
+      schema:
+        type: string
+    plan_version:
+      name: plan_version
+      in: path
+      description: Version of the plan to fetch
+      required: true
+      schema:
+        type: integer
+    workspace_id:
+      name: workspace_id
+      in: path
+      description: Workspace ID
+      required: true
+      schema:
+        type: integer
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorList'
+    BadSchema:
+      description: Bad Schema
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: '#/components/schemas/SchemaErrorList'
+              - $ref: '#/components/schemas/ErrorList'
+    DataPlanListResponse:
+      description: Data plan list
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/DataPlan'
+    DataPlanResponse:
+      description: Data plan created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataPlan'
+    DataPlanVersionResponse:
+      description: Data plan version created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataPlanVersion'
+    Forbidden:
+      description: Forbidden
+    TooManyRequests:
+      description: Too Many Requests
+      headers:
+        Retry-After: 
+          description: Seconds to wait until the next request attempt
+          schema:
+            type: integer
+    Unauthorized:
+      description: Unauthorized
+  schemas:
+    ActivatedEnvironment:
+      type: string
+      enum:
+        - "none"
+        - "development"
+        - "production"
+    Criteria:
+      anyOf:
+        - $ref: "#/components/schemas/ScreenViewEventCriteria"       
+        - $ref: "#/components/schemas/CustomEventCriteria"
+        - $ref: "#/components/schemas/UserAttributeCriteria"
+    CustomEventCriteria:
+      properties:
+        event_name:
+          type: string
+        custom_event_type:
+          type: string
+          enum:
+            - "unknown"
+            - "navigation"
+            - "location"
+            - "search"
+            - "transaction"
+            - "user_content"
+            - "user_preference"
+            - "social"
+            - "other"
+            - "media"
+      required: ["event_name", "custom_event_type"]
+    DataPlan:
+      properties:
+        data_plan_id:
+          type: string
+        data_plan_name:
+          type: string
+        created_on:
+          type: string
+          format: date-time
+        created_by:
+          type: string
+        last_modified_on:
+          type: string
+          format: date-time
+        last_modified_by:
+          type: string
+        description:
+          type: string
+        data_plan_versions:
+          $ref: "#/components/schemas/DataPlanVersionList"
+    DataPlanVersion:
+      properties:
+        version:
+          type: integer
+        version_description:
+          type: string
+        created_on:
+          type: string
+          format: date-time
+        created_by:
+          type: string
+        last_modified_on:
+          type: string
+          format: date-time
+        last_modified_by:
+          type: string
+        version_document:
+          $ref: "#/components/schemas/VersionDocument"
+        activated_environment:
+          $ref: "#/components/schemas/ActivatedEnvironment"
+    DataPlanVersionList:
+      type: array
+      items:
+        $ref: "#/components/schemas/DataPlanVersion"
+    DataPoint:
+      properties:
+        description:
+          type: string
+        match:
+          $ref: "#/components/schemas/DataPointMatch"
+        validator:
+          $ref: "#/components/schemas/DataPointValidator"
+      required: ["match", "validator"]
+    DataPointMatch:
+      properties:
+        type:
+          $ref: "#/components/schemas/MatchType"
+        criteria:
+          $ref: "#/components/schemas/Criteria"
+      required: ["type", "criteria"]
+    DataPointValidator:
+      properties:
+        type:
+          type: string
+          default: "json_schema"
+          enum:
+            - "json_schema"
+        definition:
+          type: string
+          description: "This should be a valid JSON schema"
+          allOf:
+            - $ref: "schemas/base-schema.json"
+      required: ["type", "definition"]
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+    ErrorList:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Error'
+    MatchType:
+      type: string
+      enum:
+        - "unknown"
+        - "screen_view"
+        - "custom_event"
+        - "user_attributes"
+        - "user_identities"
+        - "product_action"
+        - "promotion_action"
+        - "product_impression"
+    SchemaError:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Error'
+      properties:
+        match_key:
+          type: string
+        value: 
+          type: string
+        schema_pointer:
+          type: string
+        event_pointer:
+          type: string
+        keyword:
+          type: string
+        error_type:
+          type: string
+      required:
+        - message
+        - match_key
+        - error_type
+    SchemaErrorList: 
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaError'
+    ScreenViewEventCriteria:
+      properties:
+        screen_name:
+          type: string
+      required: ["screen_name"]
+    UserAttributeCriteria:
+      type: object
+    VersionDocument:
+      properties:
+        data_points:
+          type: array
+          items:
+            $ref: "#/components/schemas/DataPoint"
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

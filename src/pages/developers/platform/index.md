@@ -131,8 +131,6 @@ Statis | Code | Method | Notes
 
 The mParticle REST API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin.
 
-
-
 ## REST Resources
 
 ### Accounts
@@ -805,6 +803,13 @@ curl \
 
 
 ##### Parameters
+
+Name | Type | Description
+|---|---|---
+workspace_id | `integer` | The name of the account you wish to configure.
+plan_id | `string` | The name of the service you wish to configure
+
+##### Properties
 
 Name | Type | Description
 |---|---|---
