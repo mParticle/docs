@@ -4,7 +4,7 @@ title: Default Service Limits
 
 mParticle imposes certain limits on incoming data in order to protect the performance of both the mParticle dashboard and your apps. This includes limits around the length of individual data points, such as event names, how fast mParticle can receive data, and how many unique data points a workspace or account can have. 
 
-The tables below list mParticle's Default Limits. Limits are not configurable unless otherwise specified.
+The tables below list mParticle's Default Limits. Enterprise customers should contact their Customer Success Manager for custom limits.
 
 mParticle can recieve data across many channels, and limits are not always enforced in the same way for each channel. Where appropriate, the details section of each table describes how limits affect SDK data - received from mParticle's native SDKs - and S2S or 'server-to-server' data. S2S data includes data received via the [Events API](/developers/server/http/), and from partner feeds.
 
@@ -36,8 +36,8 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Resource | Limits | Details |
 | -------- | ------ | ---| 
 | Unique event names and Screen Names per workspace | 1000 | New unique event names over the limit are dropped from incoming data. This limit is configurable, but proliferating unique event names usually indicate problems with your data and can impact performance of both the mParticle dashboard and your apps, therefore it will not be raised except where absolutely necessary. |
-| Average events per user within 24 hours | 150 | This is a soft limit, but mParticle reserves the right to restrict usage above this level to ensure platform quality of service.
-| Average events per user within 30 days | 175 | This is a soft limit, but mParticle reserves the right to restrict usage above this level to ensure platform quality of service.
+| Average events per user within 24 hours | 150 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
+| Average events per user within 30 days | 175 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
 
 ## Events and User Profile API
 
