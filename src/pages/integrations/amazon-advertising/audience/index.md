@@ -2,7 +2,7 @@
 title: Audience
 ---
 
-[Amazon  Advertising](https://advertising.amazon.com/") provides ad solutions to help you find, attract, and engage millions of Amazon customers at every stage of their journey.
+[Amazon  Advertising](https://advertising.amazon.com/) provides ad solutions to help you find, attract, and engage millions of Amazon customers at every stage of their journey.
 
 ## Prerequisites 
 
