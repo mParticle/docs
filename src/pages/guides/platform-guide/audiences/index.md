@@ -315,6 +315,10 @@ Deleting a test will delete all variations and any connections you have set up f
 
 You can download a calculated audience as a CSV file. This is useful if you want to troubleshoot your audience criteria, or if you want to share your audience data with a partner without an official mParticle Audience integration.
 
+Audience downloads take some time to prepare depending on the volume of users in the audience, ranging from a few minutes up to ~6 hours for extremely large audiences.
+
+Audience downloads are available on Real-time audiences only. To download a Lifetime audience, connect and send it to an infrastructure output like S3 and download it from there.
+
 ### Initiate a download
 
 You can initiate an Audience download, either from the main **Audiences** page:
