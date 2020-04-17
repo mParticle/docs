@@ -6,18 +6,21 @@ title: Event
 
 mParticle supports the full breadth of the latest [Optimizely X](https://developers.optimizely.com/overview/) platform by bundling the Optimizely SDKs.
 
+This integration allows you to send events tracked in mParticle to Optimizely to give further visibility into how the experiments you are running impact your engagement metrics. Use it to reduce the time it takes to evaluate an experiment by leveraging the events you already record with mParticle.
+
 ## Prerequisites
 
 In order to enable mParticle's integration with Optimizely, you will need your Optimizely **SDK Key**.
 
-Note: as noted on the Optimizely website, earlier versions of their SDK use a Project ID rather than an SDK Key to create a manager. Project IDs are still supported in 2.x backwards compatibility. The benefit of using an SDK Key is that you can retrieve datafiles for other environments and not just the primary environment as when you use a Project ID. See [Initialize a mobile SDK](https://docs.developers.optimizely.com/full-stack/docs/initialize-a-mobile-sdk) for clarification. 
+Note: as noted on the Optimizely website, earlier versions of their SDK use a Project ID rather than an SDK Key to create a manager. Project IDs are still supported in 2.x backwards compatibility. Versions 1.x and 2.x can use only a Project ID, while 3.0+ can use a Project ID or SDK key to instantiate the client with the datafile. The benefit of using an SDK Key is that you can retrieve datafiles for other environments and not just the primary environment as when you use a Project ID. See [Initialize a mobile SDK](https://docs.developers.optimizely.com/full-stack/docs/initialize-a-mobile-sdk) for clarification. 
+
+Optimizely does not accept PII, so while mParticle allows for email addresses to be used to identify users, an anonymous user ID is required to send with the mParticle events that are sent to Optimizely. Additionally, the user ID used for the mParticle event must be the same that is passed into the Optimizely activate call. Please see [Optimizely's documentation](https://docs.developers.optimizely.com/full-stack/docs/track-events) regarding user IDs and event tracking for more information.
 
 ### Web
 
-The mParticle Web SDK will automatically load the Optimizely Web Client SDK for your **SDK Key** once you've configured it in your mParticle dashboard. However, if you would like to load the Optimizely SDK yourself - you can do so and once enabled, our integration will look for `window.optimizely` and prevent additional loading if found. In this case, mParticle will still forward events to the Optimzely object that you loaded.
+The mParticle Web SDK will automatically load the Optimizely JavaScript snippet for your **SDK Key or Project ID** once you've configured it in your mParticle dashboard. If you would like to load the Optimizely snippet yourself you can do so and, once enabled, mParticle will look for `window.optimizely` to prevent duplicate loading. In either case, mParticle will still forward events to the Optimzely object that is loaded.
 
-You may choose to load Optimizely yourself to prevent "page flashing" in the case where an Optimizely experiment is expected to alter the UI immediately on load. You can [read more about this concern here](https://help.optimizely.com/Set_Up_Optimizely/Implement_the_one-line_snippet_for_Optimizely_X) and make the choice that's best for your setup.
-
+While allowing mParticle to automatic load Optimizely reduces the amount of code you need to write, you may choose to initialize Optimizely yourself to prevent "page flashing" in the case where an Optimizely experiment is expected to alter the UI immediately on load. You can [read more about this concern here](https://help.optimizely.com/Set_Up_Optimizely/Implement_the_one-line_snippet_for_Optimizely_X) and make the choice that's best for your setup.
 
 ### Adding the kit to your iOS or Android app
 
@@ -57,7 +60,7 @@ Reference the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/develope
 
 ## Initializing the Optimizely Client
 
-The mParticle integration will take care of initializing the Optimizely client for you with your configured SDK Key, or you can initialize it yourself. 
+The mParticle integration will take care of initializing the Optimizely client for you with your configured SDK Key or Project ID, or you can initialize it yourself. 
 
 ### Accessing the mParticle-Initialized Client
 
@@ -71,6 +74,10 @@ If you'd like to use the client that mParticle creates you can access it directl
 }];
 ~~~
 
+~~~swift
+let client = MParticle.sharedInstance()
+~~~
+
 ~~~java
 OptimizelyKit.getOptimizelyClient(new OptimizelyKit.OptimizelyClientListener() {
     @Override
@@ -80,7 +87,6 @@ OptimizelyKit.getOptimizelyClient(new OptimizelyKit.OptimizelyClientListener() {
 });
 
 ~~~
-
 :::
 
 ### Manually Initializing the Client
@@ -89,25 +95,40 @@ If you'd like to initialize the Optimizely client yourself you can do so, and te
 
 :::code-selector-block
 ~~~objectivec
-    // Create the builder and manager. Then set the datafile manager
-    OPTLYManagerBuilder *builder = [OPTLYManagerBuilder builderWithBlock:^(OPTLYManagerBuilder * _Nullable builder) {
-        builder.projectId = @"projectId"; //called sdk key in Optimizely console but projectID in their docs
-    }];
-    OPTLYManager *manager = [[OPTLYManager alloc] initWithBuilder:builder];
-    
-    // Synchronously initialize the client, then activate the client
-    OPTLYClient *client = [manager initialize];
-    // Get the reference to the kit and set client
+// Create the builder and manager. Then set the datafile manager
+OPTLYManagerBuilder *builder = [OPTLYManagerBuilder builderWithBlock:^(OPTLYManagerBuilder * _Nullable builder) {
+    builder.projectId = @"projectId"; //called sdk key in Optimizely console but projectID in their docs
+}];
+OPTLYManager *manager = [[OPTLYManager alloc] initWithBuilder:builder];
+
+// Synchronously initialize the client, then activate the client
+OPTLYClient *client = [manager initialize];
+// Get the reference to the kit and set client
+MPKitOptimizely.optimizelyClient = client;
+
+// Or, asynchronously initialize the client, then activate the client
+[manager initializeWithCallback:^(NSError * _Nullable error,
+                                  OPTLYClient * _Nullable client) {
+    //Get the reference to the kit and set client
     MPKitOptimizely.optimizelyClient = client;
     
-    // Or, asynchronously initialize the client, then activate the client
-    [manager initializeWithCallback:^(NSError * _Nullable error,
-                                      OPTLYClient * _Nullable client) {
-        //Get the reference to the kit and set client
-        MPKitOptimizely.optimizelyClient = client;
-        
-    }];
+}];
 
+~~~
+
+~~~swift
+let builder = OPTLYManagerBuilder(block: { builder in
+        builder?.projectId = "projectId"
+    })
+let manager = OPTLYManager(builder: builder)
+
+let client = manager.initialize()
+MPKitOptimizely.optimizelyClient = client
+
+manager.initialize(withCallback: { error, client in
+    MPKitOptimizely.optimizelyClient = client
+
+})
 ~~~
 
 ~~~java
@@ -123,7 +144,6 @@ optimizelyManager.initialize(this, new OptimizelyStartListener() {
 });
 
 ~~~
-
 :::
 
 [See Optimizely's docs for a more in-depth explanation](https://developers.optimizely.com/x/solutions/sdks-v1/reference/index.html?language=android&platform=mobile#initialization).
@@ -142,23 +162,35 @@ By default, mParticle will use the device application stamp if present. See belo
 
 :::code-selector-block
 ~~~objectivec
-    // Conditionally activate an experiment for the provided user
-    OPTLYVariation *variation = [MPKitOptimizely.optimizelyClient activate:@"my_experiment"
-                                                                    userId:[MParticle sharedInstance].identity.deviceApplicationStamp //or another appropriate id
-                                 ];
-    
-    if ([variation.variationKey isEqualToString:@"control"]) {
-        // Execute code for control variation
-    }
-    else if ([variation.variationKey isEqualToString:@"treatment"]) {
-        // Execute code for treatment variation
-    }
-    else {
-        // Execute default code
-    }
+// Conditionally activate an experiment for the provided user
+OPTLYVariation *variation = [MPKitOptimizely.optimizelyClient activate:@"my_experiment"
+                                                                userId:[MParticle sharedInstance].identity.deviceApplicationStamp //or another appropriate id
+                             ];
 
+if ([variation.variationKey isEqualToString:@"control"]) {
+    // Execute code for control variation
+}
+else if ([variation.variationKey isEqualToString:@"treatment"]) {
+    // Execute code for treatment variation
+}
+else {
+    // Execute default code
+}
 ~~~
- 
+
+~~~swift
+// Conditionally activate an experiment for the provided user
+let variation = MPKitOptimizely.optimizelyClient.activate("my_experiment", userId: MParticle.sharedInstance().identity.deviceApplicationStamp /*or another appropriate id */)
+
+if (variation?.variationKey == "control") {
+    // Execute code for control variation
+} else if (variation?.variationKey == "treatment") {
+    // Execute code for treatment variation
+} else {
+    // Execute default code
+}
+~~~
+
 ~~~java
 Variation variation = optimizelyClient.activate(experimentKey, MParticle.getInstance().Identity().getDeviceApplicationStamp());
 
@@ -172,7 +204,6 @@ if (variation != null) {
     // Execute default code
 }
 ~~~
-
 :::
 
 ### Web
@@ -248,6 +279,24 @@ event.transactionAttributes = attributes;
 [[MParticle sharedInstance] logCommerceEvent:event];
 ~~~
 
+~~~swift
+let product = MPProduct(name: "Foo name", sku: "Foo sku", quantity: NSNumber(value: 4), price: NSNumber(value: 100.00))
+let attributes = MPTransactionAttributes()
+attributes.transactionId = "foo-transaction-id"
+// mapped to Optimizely as 45000 cents
+attributes.revenue = NSNumber(value: 450.00)
+attributes.tax = NSNumber(value: 30.00)
+attributes.shipping = NSNumber(value: 30)
+
+let action = MPCommerceEventActionPurchase as? MPCommerceEventAction
+let event = MPCommerceEvent(action: action, product: product)
+
+// mapped to Optimizely as a custom event name
+event.addCustomFlag("custom revenue event name", withKey: MPKitOptimizelyEventName)
+event.transactionAttributes = attributes
+MParticle.sharedInstance().logCommerceEvent(event)
+~~~
+
 ~~~java
 Product product = new Product.Builder("Foo name", "Foo sku", 100.00)
         .quantity(4)
@@ -293,6 +342,13 @@ MPEvent *event = [[MPEvent alloc] initWithName:@"Foo conversion event"
              withKey:MPKitOptimizelyEventKeyValue];
 
 [[MParticle sharedInstance] logEvent:event];
+~~~
+
+~~~swift
+let client = MParticle.sharedInstance()
+var event: MPEvent?
+event.setValue(10, forKey: "MPKitOptimizelyEventKeyValue")
+client.logEvent(event)
 ~~~
 
 ~~~java
@@ -350,4 +406,3 @@ Setting Name| Data Type | Platform | Default Value | Description
 User ID| `enum` | iOS/Android | Device Application Stamp | The User Identity you would like to map to Optimizely's "userId" field. Supports Device Application Stamp, Customer ID, Email, or MPID.
 Event Interval | `integer` | iOS/Android | | The interval (seconds) at which Optimizely's SDK uploads events. Defaults to Optimizely's own SDK default if not set.
 Datafile Interval | `integer` | iOS/Android | | The interval (seconds) at which Optimizely's SDK attempts to update the cached datafile.  Defaults to Optimizely's own SDK default if not set.
-
