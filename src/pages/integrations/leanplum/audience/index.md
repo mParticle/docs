@@ -6,7 +6,7 @@ title: Audience
 
 ## Prerequisites
 
-2. Within Leanplum go to More -> Partner Integrations -> mParticle to get your App ID and API Key.
+1. Within Leanplum go to More -> Partner Integrations -> mParticle to get your App ID and API Key.
 2. Within mParticle, configure the Leanplum Audience Integration via the integrations directory using the App ID and API Key to complete your configuration.
 
 For additional information, see Leanplum's [audience](https://docs.leanplum.com/docs/mparticle-audience) documentation.
