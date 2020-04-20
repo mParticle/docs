@@ -357,6 +357,14 @@ batch.userIdentities(new UserIdentities()
         .email("example@foo.com")
 );
 
+// Set a Data Plan
+Context context = new Context();
+DataPlanContext dpContext = new DataPlanContext();
+dpContext.planId("mobile_data_plan");
+dpContext.planVersion(2);
+context.dataPlan(dpContext);
+batch.context(context);
+
 // create an event
 CustomEvent customEvent = new CustomEvent().data(
         new CustomEventData()
