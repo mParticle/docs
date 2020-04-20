@@ -50,6 +50,7 @@ source_request_id | string  | Both | optional | A value to uniquely identify thi
 user_attributes | Object map of string key-value pairs  | Both | optional | A JSON object of demographic information about the user that generated the app events.
 deleted_user_attributes  | string array | Both  | optional | An array of JSON strings describing previously provided user attributes which should be forgotten.
 user_identities | Object map of string key-value pairs  |Both  |optional | A JSON object of user ID information, such as email address and social IDs.
+partner_identities | Object map of string key-value pairs  |Both  |optional | A JSON object of partner identities.
 environment | enum string | Both | required | "production" or "development"
 context | object | Both | optional | Data planning and location information
 mpid | long | Both | optional | If known, this is the unique mParticle identifier for the user, calculated based on user and device identities in the batch, according to your [Identity Strategy](https://docs.mparticle.com/guides/idsync/introduction).
@@ -993,11 +994,9 @@ The properties with the prefix "$" are reserved attributes that drive specific b
 }
 ~~~
 
-
-
 ## `user_identities`
 
-~~~json     
+~~~json
 "user_identities":
 {
    "customer_id": "1234",
@@ -1017,8 +1016,32 @@ The properties with the prefix "$" are reserved attributes that drive specific b
    "other_id_9": "helpers9@example.com",
    "other_id_10": "helpers10@example.com"
 }
-
 ~~~
+
+## `partner_identities`
+
+Partner Identities are unique identifiers associated with a user, but specific to a partner system. They can be ingested by mParticle via Partner Feed or our S2S API, and can be sent to downstream connections associated with the given partner. A Partner Feed can _only_ send in their registered partner identity, whereas a S2S request can include _any_ partner identity.
+
+~~~json
+"partner_identities":
+{
+   "partner_id": "1234",
+}
+~~~
+
+<aside className='warning'>
+The incoming request can fail if:
+- A Partner Feed sends in a partner identity that is not associated with the partner.
+- An unregistered partner identity is sent.
+</aside>
+
+### Registering a new Partner Identity
+Before a partner's unique identity can be ingested, it must be registered with mParticle. Partners can register a new identity by either:
+  - Contacting mParticle.
+  - Updating your Firehose module, if applicable. For more information, see [Firehose -- Partner Identities](https://docs.mparticle.com/developers/partners/firehose/#partner-identities).
+
+The naming convention for these identities is as follows: `PartnerName_IdentityName`.
+An example for mParticle could be: `mParticle_mpid`
 
 ## `consent_state`
 
@@ -1164,6 +1187,9 @@ is_historical | string | If true, data was received via the [historical](/develo
     "microsoft": "helpers@mparticle.com",
     "alias": "helpers@mparticle.com",
     "other": "helpers@mparticle.com"
+  },
+  "partner_identities": {
+    "partner_id":"1234"
   },
   "events": [
     {
