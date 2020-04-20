@@ -49,5 +49,5 @@ Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---|
-Forward Email | `string` | | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (Email)"
-Forward Device ID | `string` | | If enabled, mParticle will forward the SHA-256 hash of that users' device IDs (IDFA for Apple OS or Google Advertising ID) to the audience "&lt;Audience Name&gt; (Device Id)".
+Forward emails | `bool` | True | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (Email)"
+Forward device IDs | `bool` | True | If enabled, mParticle will forward the SHA-256 hash of that users' device IDs (IDFA for Apple OS or Google Advertising ID) to the audience "&lt;Audience Name&gt; (Device Id)".
