@@ -51,7 +51,7 @@ You can also get started quickly with a Postman collection:
 
 ### Authentication
 
-Calls to the Data Planning API are authenticate via mParticle access token, which are based on the [JSON Web Token](https://jwt.io/) standard. If you're using [one of the helper SDKs](#helper-sdks), this is taken care of for you.
+Calls to the Data Planning API are authenticated via mParticle access token, which are based on the [JSON Web Token](https://jwt.io/) standard. If you're using [one of the helper SDKs](#helper-sdks), this is taken care of for you.
 
 <aside>Contact your account representative or email support@mparticle.com to be issued a client ID and secret, which are used to generate a JWT.</aside>
 
@@ -68,6 +68,7 @@ grant_type | `string` | Set to `client_credentials`
 
 ```bash
 $ curl --location --request POST 'https://sso.auth.mparticle.com/oauth/token' \
+--header 'Content-Type: application/json' \
 --data-raw '{
     "client_id": "{{client_id}}",
     "client_secret": "{{client_secret}}",
