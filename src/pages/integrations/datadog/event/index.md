@@ -4,6 +4,8 @@ title: Event
 
 [Datadog](https://www.datadoghq.com/) is a cloud-based monitoring service for IT, operations, and development teams.
 
+For more information about Datadog's mParticle integration see [here](https://docs.datadoghq.com/integrations/mparticle/#overview).
+
 ## Supported Features
 
 * Crash Reports
@@ -48,6 +50,5 @@ Common tags included with each metric (if present in the batch):
 | Setting Name | Data Type | Default Value | Description |
 | --- | --- | --- | --- |
 | API Key | `string` | <unset> | The Datadog API keys are unique to your organization, required by the Datadog Agent to submit metrics and events to Datadog |
-
-### Datadog mParticle Documentation
-For more information about Datadog's mParticle integration see [here](https://docs.datadoghq.com/integrations/mparticle/#overview).
+| Datadog Site | `string` | US | Specify which Datadog site your API key belongs to |
+  
