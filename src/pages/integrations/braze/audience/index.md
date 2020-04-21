@@ -10,18 +10,29 @@ mParticle audiences correspond to Braze's [Segments](https://www.braze.com/docs/
 
 In order to activate our Braze integration, you're going to need the [API key](https://www.braze.com/docs/developer_guide/platform_wide/app_group_configuration/#step-2-add-your-apps) for each app that you'd like to set up, which can be found by logging into your Braze account and navigating to your app's settings. You will also need to create an [App Group REST API Key](https://www.braze.com/docs/developer_guide/rest_api/basics/#app-group-rest-api-keys) in the Developer Console.
 
-## Data Center Location
+## Braze Instance
 
-Braze maintains several data clusters so, as part of the [Configuration Settings](#configuration-settings), you need to specify which cluster your data should be forwarded to. Generally, older Braze customers are in the `US 01 Cluster`, while newer customers are in `US 03 Cluster`. You can tell your data cluster from the URL of your Braze Dashboard:
+Braze maintains several instances. As part of the [Configuration Settings](#configuration-settings), you need to specify which one your data should be forwarded to.  You can tell your [Braze Instance](https://www.braze.com/docs/user_guide/administrative/access_braze/braze_instances/) from the URL of your Braze Dashboard.  
 
-| Cluster | Dashboard URL |
+| Instance | Dashboard URL |
 | ------   | ------  |
 | US 01 Cluster | https://dashboard-01.braze.com |
 | US 02 Cluster | https://dashboard-02.braze.com |
 | US 03 Cluster | https://dashboard-03.braze.com |
+| US 04 Cluster | https://dashboard-04.braze.com |
+| US 06 Cluster | https://dashboard-06.braze.com |
+| US 08 Cluster | https://dashboard-08.braze.com |
 | EU 01 Cluster | https://dashboard.braze.eu |
 
-Check with your Braze account manager if you are unsure which data cluster you are using.
+Check with your Braze account manager if you are unsure which Braze instance you are using.
+
+There is also the ability to specify a Custom instance, which allows you to specify separate endpoints for REST, SDK and Javascript. 
+
+<aside class="warning">
+<b>Important</b>: Your Custom Endpoint settings should be your URL's Authority. For example: <code>sdk.iad-01.braze.com</code>, <i>not</i> <code>https://sdk.iad-01.braze.com</code>.  
+  
+Using `https://` or a trailing `/` in your endpoint address will cause errors.
+</aside>
 
 ## User Identity Mapping
 
@@ -69,4 +80,4 @@ Create One User Attribute per Segment | `bool`| False | If enabled, mParticle wi
 App Group REST API Key | `string`| | The App Group REST API Key can be found in the developer console section of the Braze dashboard.
 External Identity Type | `enum` | Customer ID | The mParticle User Identity type to forward as an External ID to Braze.
 Email Identity Type | `enum` | Email | The mParticle User Identity Type to forward as the Email to Braze.
-Braze Instance | `enum` | United States | Specify which cluster your Braze data will be forwarded to. Please ensure you are contractually authorized to use the EU cluster if you select that option. If you choose 'Custom', you will need to provide separate endpoints for your SDK, Server, and Web data.
+Braze Instance | `enum` | US 03 Cluster | Specify which cluster your Braze data will be forwarded to. Please ensure you are contractually authorized to use the EU cluster if you select that option. If you choose 'Custom', you will need to provide separate endpoints for your SDK, Server, and Web data.

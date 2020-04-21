@@ -65,7 +65,7 @@ mParticle integrates with Braze to allow web push notifications to further engag
     ```
     mParticle hosts Braze's service worker in order to prevent unpredictable versioning issues. Do not use Braze's service-worker.js cdn.
 
-3. Set you Cloud Messaging Key
+3. Set your Cloud Messaging Key
     * In the [app settings tab of the Manage App Group Page](https://dashboard-01.braze.com/app_settings/app_settings) of Braze's dashboard, select your Web App and enter your Cloud Messaging Server Key in the field under the `Push Notifications` section.
 4. Configure Safari Push
     * [Generate a Safari Push Certificate following these "Registering with Apple" Instructions](https://developer.apple.com/library/mac/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/PushNotifications/PushNotifications.html#//apple_ref/doc/uid/TP40013225-CH3-SW33)
@@ -115,31 +115,33 @@ mParticle supports the ability to forward server-side events for the Roku platfo
 
 mParticle will always forward events if sent via the mParticle SDK, provided you have included the Braze kit, but will only forward events sent via the mParticle S2S API if the following conditions apply:
 
-1. The App Group REST API Key setting is specified
-2. Either your set External Identity Type, or a push token is specified
-3. Braze has [limits on the number of characters in a property key](https://www.braze.com/documentation/REST_API/#properties-object) - they must be less than or equal to 255 characters, with no leading dollar signs.  mParticle will remove the dollar sign ($) when forwarding property keys for user attributes, custom and e-commerce events.
+1. The App Group REST API Key setting is specified.
+2. Either your set External Identity Type, or a push token is specified.
+3. Braze has [limits on the number of characters in a property key](https://www.braze.com/docs/api/objects_filters/event_object/#event-properties-object) - they must be less than or equal to 255 characters, with no leading dollar signs.  mParticle will remove the dollar sign ($) when forwarding property keys for user attributes, custom and e-commerce events.
 
-## Data Center Location
+## Braze Instance
 
-Braze maintains several data clusters so, as part of the [Configuration Settings](#configuration-settings), you need to specify which cluster your data should be forwarded to. Generally, older Braze customers are in the `US 01 Cluster`, while newer customers are in `US 03 Cluster`. You can tell your Data Cluster from the URL of your Braze Dashboard:
+Braze maintains several instances.   As part of the [Configuration Settings](#configuration-settings), you need to specify which one your data should be forwarded to.  You can tell your [Braze Instance](https://www.braze.com/docs/user_guide/administrative/access_braze/braze_instances/) from the URL of your Braze Dashboard.  
 
-| Cluster | Dashboard URL |
+| Instance | Dashboard URL |
 | ------   | ------  |
-| US 01 Cluster | https://dashboard.braze.com |
+| US 01 Cluster | https://dashboard-01.braze.com |
 | US 02 Cluster | https://dashboard-02.braze.com |
 | US 03 Cluster | https://dashboard-03.braze.com |
+| US 04 Cluster | https://dashboard-04.braze.com |
+| US 06 Cluster | https://dashboard-06.braze.com |
+| US 08 Cluster | https://dashboard-08.braze.com |
 | EU 01 Cluster | https://dashboard.braze.eu |
 
-Check with your Braze account manager if you are unsure which data cluster you are using.
+Check with your Braze account manager if you are unsure which Braze instance you are using.
 
-It is also possible to set a 'Custom' location. For this option you will need to provide separate endpoints for your SDK, Server and Web data. Talk to your Braze account manager if you need to use custom endpoints.
+There is also the ability to specify a Custom instance, which allows you to specify separate endpoints for REST, SDK and Javascript. 
 
 <aside class="warning">
-<b>Important</b>: As noted in the <a href="https://www.braze.com/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/initial_sdk_setup/#step-5-specify-your-custom-endpoint-or-data-cluster">Braze documentation</a>, your Custpm Endpoint setting should be your URL's Authority. For example: <code>sdk.iad-01.braze.com</code>, <i>not</i> <code>https://sdk.iad-01.braze.com</code>. 
+<b>Important</b>: Your Custom Endpoint settings should be your URL's Authority. For example: <code>sdk.iad-01.braze.com</code>, <i>not</i> <code>https://sdk.iad-01.braze.com</code>.  
 
 Using `https://` or a trailing `/` in your endpoint address will cause errors.
 </aside>
-
 
 ## Prerequisites
 
@@ -207,7 +209,7 @@ By default, mParticle forwards all available user attributes to Braze, including
 | API Key | `string` | <unset> | Your app's API Key can be found in your Braze dashboard. |
 | External Identity Type | `enum` | Customer ID | The mParticle User Identity Type to forward as an External ID to Braze. |
 | Email Identity Type | `enum` | Email | The mParticle User Identity Type to forward as the Email to Braze. |
-|  Braze Instance | `enum` | United States | Specify which cluster your Braze data will be forwarded to. Please ensure you are contractually authorized to use the EU cluster if you select that option. If you choose 'Custom', you will need to provide separate endpoints for your SDK, Server, and Web data.
+|  Braze Instance | `enum` | US 03 Cluster | Specify which cluster your Braze data will be forwarded to. Please ensure you are contractually authorized to use the EU cluster if you select that option. If you choose 'Custom', you will need to provide separate endpoints for your SDK, Server, and Web data.
 
 
 ## Connection Settings
