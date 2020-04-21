@@ -97,7 +97,7 @@ Name | Type | Required | Description
 ~~~
 curl \
   -X GET \
-  -H "Authorization: Bearer <access token>"
+  -H "Authorization: Bearer <access token>" \
   "https://api.mparticle.com/userprofile/v1/<orgId>/<accountId>/<workspaceId>/<mpid>?fields=device_identities,user_identities,user_attributes,audience_memberships,attribution"
 ~~~
 
