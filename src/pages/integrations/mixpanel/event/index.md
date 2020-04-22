@@ -4,7 +4,7 @@ title: Event
 
 <a href="https://www.mixpanel.com" target="_blank">Mixpanel's</a> mission is to increase the rate of innovation. Companies use Mixpanel to analyze how & why users engage, convert, and retain in real-time on web, mobile, and IoT devices, and then use the data to improve their products.
 
-## Overview & Prerequisites
+## Overview and Prerequisites
  
 If you are new to setting up Mixpanel’s Mobile App Analytics, your best place to start is Mixpanel itself and the below are must-reads before proceeding:
 
