@@ -6,7 +6,7 @@ title: Audience
 
 ## Prerequisites 
 
-In order to enable the mParticle integration with Amazon Advertising, you will need the account credentials for an Amazon Advertising account that you will be using for the  Amazon Marketplace. The integration activation process in Audience Manager will prompt you to log into your Amazon Advertising account, and once logged in, mParticle will automatically retrieve the credentials that it needs to forward audience data to Amazon Advertising.
+To set up the mParticle integration with Amazon Advertising, use your Amazon Marketplace account credentials. These credentials are the same ones you use to log into the Amazon Seller Central. During the integration activation process in Audience Manager, the integration prompts you to log into your Amazon Advertising account, and once logged in, mParticle automatically retrieves the credentials that it needs to forward audience data to Amazon Advertising.
 
 ## User Identity Mapping
 
@@ -19,7 +19,7 @@ The Amazon Advertising Audience Integration uses Bulk Forwarding. Bulk Forwardin
 By default, mParticle uploads to Amazon Advertising whenever at least one of the following conditions is met:
 
 * 2 hours have passed since the last update
-* At least 1000000 bytes are in the queue
+* Bulk queue size limit is reached
 
 Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer Success Manager if you need to discuss upload frequency.
 
