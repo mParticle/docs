@@ -13,13 +13,13 @@ There are three different lenses we like to apply when thinking about data quali
 
 ### 1. Latency
 
-How long does it take for a message to travel from source to destination? The [Live Stream](https://app.mparticle.com/activity/livestream) is a debugging tool that helps you view data as it is received.
+How long does it take for a message to travel from source to destination? The [Live Stream](https://app.mparticle.com/dm/livestream) is a debugging tool that helps you view data as it is received.
 
    ![no-border](/images/latency.gif)
 
 ### 2. Accuracy
 
-Is mParticle receiving events that match your schema? Check the attributes and values of the events that you defined in your code against events in the [Live Stream](https://app.mparticle.com/activity/livestream).
+Is mParticle receiving events that match your schema? Check the attributes and values of the events that you defined in your code against events in the [Live Stream](https://app.mparticle.com/dm/livestream).
 
   ![no-border](/images/shape.png)
 
