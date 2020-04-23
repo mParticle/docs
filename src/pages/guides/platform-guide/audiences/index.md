@@ -27,11 +27,11 @@ In this example, because we want to target users that *look like* our highly eng
 
 The Audiences page is accessible from anywhere in the Dashboard via the left navigation. It displays a list of your audiences, separated into **Single Workspace** and **Multi Workspace**, with metrics for each audience:
 
-* Size
-* Adds (last 24 hours)
-* Drops (last 24 hours)
-* Volatility (change in audience size - last 24 hours)
-* Connected Outputs
+* Size: count of MPIDs in this audience
+* Adds (last 24 hours): number of additions to the audience
+* Drops (last 24 hours): number of drops to the audience
+* Volatility (last 24 hours): change in the audience calculated as: (adds + drops) / size
+* Connected Outputs: count of connected outputs
 * Created By
 * Last Updated
 * Status
@@ -48,7 +48,7 @@ Audience Manager allows you to define audiences from any user-associated data yo
 When you fully instrument your app using the mParticle SDK, you are sending data from your apps to the mParticle platform.  mParticle also has the ability to enrich that data stream with other data sources.  For example, in addition to sending your app data you may want to send in data that is not collected in the app and have the mParticle platform match the data based upon a user identifier, and then leverage the capabilities of Audience Builder to create audiences based upon this superset of data.  Examples of data sent server side might include CRM data, purchase / revenue data from other non-mobile channels, and so on.  Making sure all data is captured is important for audience creation as that is the first step.
 
 <aside class="notice">
-  If you need to send data via our Events API, please [contact our customer support team.](mailto:support@mparticle.com)
+  If you need to send data via our Events API, please <a href="mailto:support@mparticle.com"> contact our customer support team.</a>
 </aside>
 
 ### Define Use Case
@@ -88,7 +88,7 @@ To create an audience:
   ![](/images/Platform-Update-Audiences-Create-New-Audience-042019.png)
 
 3. Under **Inputs**, check all the Platforms and Feeds whose data you want to use to define the audience.
-4. Click the **Create** button. The screen refreshes with the new Audience added to the list of available of audiences and the **Audience Details** screen shown. Note that this screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the left-side, shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
+4. Click the **Create** button. The screen refreshes with the new Audience added to the list of audiences and the **Audience Details** screen shown. Note that this screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the left-side, shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
 
 ## Audience Criteria
 
@@ -172,7 +172,8 @@ Attribution criteria can be used to segment users who have installed your app fr
 1. Profile criteria: Select `Attribution` and then either `Install` or `Uninstall` to build criteria based on the `publisher` and `campaign` fields from an install [attribution event](../../../developers/server/json-reference/#attribution-custom-events) or uninstall attribution events. Like other profile based criteria, this is subject to profile retention limits.
 2. Event criteria: Select `Events`, `Attribution` and the event name to build criteria based on attribution events such as install, engagement or re-engagement events. Use the event name of `attribution` to target install attribution events. This allows you to select any information included with the event as `custom_attributes`.  Like other event criteria, this is subject to audience event retention limits.
 
-
+### Identity criteria
+Identity criteria allow you to segment users based on their stored identities to test existence of a given identity or write logic against the identity as a string. This criteria will still scope the audience based on the workspaces included; It will not automatically include all users in the [Identity Scope](../../idsync/components/#identity-scope). For example, if the identity scope is set at the account level and the account has 3 workspaces, an audience created in one workspace will only include users with activity in that workspace (and not the other two).
 
 ## Setup an Audience Output
 

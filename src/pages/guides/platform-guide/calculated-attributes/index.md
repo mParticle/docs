@@ -18,17 +18,19 @@ Calculated Attributes
 
 ### Structure
 
-Calculated attributes can be defined to track almost anything you want to calculate for an individual user.  A calculated attribute is composed of the following elements:
+Calculated attributes can be defined to track almost anything on an individual user.  A calculated attribute is composed of the following elements:
 
 * **Name**: a descriptive label for the calculated attribute. Once activated, the name may not be changed.
 * **Description**: an optional freeform field to describe the attribute.
 * **Calculation definition**: This defines the logic for computing the attribute: the calculation type, criteria and the date range.
 * **Status**: Calculated attributes are created in the `draft` status indicating that they are no being calculated. Once activated, calculated attributes are in the `active` status to indicate that they are being calculated and can be used across the mParticle platform and downstream.
 
-### Scope & Speed
+### Scope
 Calculated attributes are defined and calculated in the scope of a single workspace, which means they use data available within that workspace only. You may create calculated attributes with the same name in multiple workspaces.
 
-Once a calculated attribute is activated, the backfilling of existing data can take anywhere from 24 hours to several days, depending on the date range selected. When new data arrives it will either be processed immediately or with a delay, see the table Calculation Formats below for more information.
+
+### Initialization
+Once a calculated attribute is activated, the initialization of existing data can take anywhere from 24 hours to several days, depending on the date range selected and the amount of data to be processed.
 
 ## Calculations
 
@@ -45,7 +47,7 @@ Calculate the `count` of times an event has occurred. For example:
 
 ### Aggregation
 
-Calculate statistics about event attributes: `sum`, `minimum`, `maximum` and `average`.
+Calculate statistics about event attributes: `sum`, `minimum`, `maximum`, `average`, `most frequent` and `unique values count`.
 
 For example:
 
@@ -54,63 +56,74 @@ For example:
 * Average booking price.
 * Average order revenue in last 30 days.
 * Sum of minutes watched for movie play events.
+* Most frequent brand purchased
+* Count of unique show genres watched
 
 ### Occurrence
 
-Calculate the value or timestamp of the first or last observation of a specific event: `first value`, `first timestamp`, `last value` and `last timestamp`.
+Calculate the timestamp or an event value of the first or last observation of a matching event: `first value`, `first timestamp`, `last value` and `last timestamp`.
 
 For example:
 
-* First page visited
 * Last product category viewed
 * First purchase date
-* Last seen timestamp
+* Last session start timestamp
 * Last order amount
+* Last product category purchased
 
 ### List
-Calculate values based on the unique set of observed values for a specific event: `unique list`, `unique list count`, `most frequent`.
+Calculate the `unique list` of values for a specific event attribute:
 
 For example:
 
 * Unique game titles played
 * Unique product categories viewed in the last 30 days
-* Most frequently viewed blog posts
-* Favorite movies to watch
-* Most frequently purchased product categories in last 60 day
 
 ### Calculation Formats
-The following table defines the data types produced by each calculation. All timestamp values are in ISO 8601 format in the UTC timezone. Several calculations produce results with types that depend on the type of the event attribute selected, for example First Value.
+The following table defines the data types produced by each calculation. All timestamp values are in ISO 8601 format in the UTC timezone. Several calculations produce results with types that depend on the type of the event attribute selected, for example `First Value` will return a string if the event attribute selected is a string.
 
-Synchronous calculations are evaluated immediately and updated values are included in the outgoing event batch.
-Asynchronous calculations are evaluated with a delay and updated values are included in the *next* outgoing event batch.
-
-Group | Calculation Type  | Format | Example | Synchronous?
+Group | Calculation Type  | Format | Example | Speed
 ---| ---|---|--| ----
-Count | Count |  Numeric | `123` | Y*
-Aggregation | Sum | Numeric | `123.123` | Y*
-Aggregation | Minimum |Numeric | `123.123` | Y*
-Aggregation | Maximum |Numeric | `123.123` | Y*
-Aggregation | Average | Numeric | `123.123` | N
-Occurrence | First value | | Dynamic | `comedy` | N (until observed)
-Occurrence | Last value  | Dynamic | `action`| Y
-Occurrence | First timestamp | Timestamp | `2020-01-01T22:14:47.1051728Z` | N (until observed)
-Occurrence | Last timestamp  | Timestamp | `2020-01-10T22:14:47.1051728Z` | Y
-List | Unique List | Comma separated list of dynamic values; maximum of 100. | `"Item 1","Item 2","Item 3"` | Y*
-List | Unique Values Count | Numeric | `34` | N
-List | Most frequent  |Dynamic | `romance` | N
+Count | Count |  Numeric | `123` | Instant
+Aggregation | Sum | Numeric | `123.123` | Instant
+Aggregation | Minimum |Numeric | `123.123` | Instant
+Aggregation | Maximum |Numeric | `123.123` | Instant
+Aggregation | Average | Numeric | `123.123` | Delayed
+Aggregation | Most frequent  | Dynamic | `romance` | Delayed
+Aggregation | Unique Values Count | Numeric | `34` | Delayed
+Occurrence | First value | Dynamic | `comedy` | Delayed (until observed)
+Occurrence | Last value  | Dynamic | `action`| Instant
+Occurrence | First timestamp | Timestamp | `2020-01-01T22:14:47.1051728Z` | Delayed (until observed)
+Occurrence | Last timestamp  | Timestamp | `2020-01-10T22:14:47.1051728Z` | Instant
+List | Unique List | Comma separated list of dynamic values; maximum of 100. | `"Item 1","Item 2","Item 3"` | Instant
 
-\* Setting the date range to 'within the last' will produce asynchronous calculations.
+
+All calculation speeds here are *after* the values have been initialized. Setting the date range to 'within the last' will cause delayed calculations for all calculation types.
+
+## Delayed Forwarding
+
+![](/images/ca-delayed-flow.png)
+
+Calculations are either **instant** or **delayed**.  Instant calculations are evaluated immediately and updated values are included in the outgoing event batch.
+Delayed calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the *next* outgoing event batch **and** to outputs connected to a special feed input named "Calculated Attributes". As delayed values are computed, they will be sent downstream to any output connected to this input. This input will appear once you have activated a calculated attribute. When a new connection is made to this input the downstream system is synced by sending updated CA values for users who have not been seen since their delayed CAs were calculated.
+
+<aside>
+ Be mindful of which downstream systems are connected to the "Calculated Attributes" input to avoid unintentional increases in API calls.
+</aside>
+
+![](/images/ca-delayed-connection.png)
+
+You can control which downstream system receives these updates by connecting platforms to receive the delayed calculation updates. You can also filter out calculated attributes you do not wish to forward using the platform filters page.
 
 ## Date Range
 
-Calculated attributes can be setup to calculate over all data seen or over a specific time window. This allows you to limit calculations to a more relevant business window such as “unique list of product purchased in the last 30 days” or “total bookings made over the last year”.
+Calculated attributes can be setup to calculate over defined date range. This allows you to limit calculations to a more relevant business window such as “unique list of product purchased in the last 30 days” or “total bookings made over the last year”.
 
 The following date ranges are supported:
 
 * **Within the Last**: limit calculations to the window of X days or weeks ago to now.  For example, most frequent product categories viewed over the last 30 days. Using this date range will always produce
 * **Since**: limit calculations to the window of: a set start date to now. For example, number of orders made since Jan 1st of 2020.
-
-During early access, date range is limited to the audience retention period as set at your account level. Contact your success manager for more information.
+* **All Time**: Do not limit calculations by date range; use all available data.
 
 ## Create a Calculated Attribute
 
@@ -132,6 +145,27 @@ To create a Calculated Attribute:
       ![](/images/ca-builder.png)
 
 
+## Seeding
+Seeding allows you to pass in historic values for calculated attributes that mParticle will build upon as new data arrives, without passing in all the raw events. This allows you to seamlessly transition from your own calculations to mParticle's.  You can seed calculated attributes in both draft (recommended) and active states; the calculated attribute must exist before seeding it.
+
+Seeding requires two pieces of information:
+- the seed values: values required to calculate the attribute
+- the seed cut-off date: any data prior to this date is processed by your team into seed values, and mParticle only uses data on or after this date in CA calculation and combines the result with the seed values. This ensure accurate transition into mParticle platform and avoid duplications of data in calculating a CA.
+
+#### Workflow
+1. CA must be created in mParticle platform prior to sending any seed. The CA can be in either draft or active state. It's recommended that CA be activated after seeds for all users have been sent to mParticle. The reason is that once a CA is activated, mParticle will start calculating it, not knowing if there is a seed or not, and thus some users may show inaccurate CA values until seeds have been received.
+![](/images/ca-seeding-ui.png)
+2. Send seeds via the [Calculated Attributes Seeding API](../../../developers/ca-seeding-api/). Note that CA creation or update takes up to 5 min to be included in our cache, and thus if you send seeds immediately after CA creation or update, you may get NOT FOUND error.
+3. Once mParticle has received seeds, we will combine them with CA calculation results based on live data received after the cutoff date.
+
+#### Seeding Usage Notes
+1. After seeds have been sent to mParticle, any of the following changes will make the previously received seeds invalid and subsequently deleted from mParticle.
+   - CA name
+   - CA calculation type, e.g., from sum to count.
+   - Seeding cutoff date
+   - Deleting the CA
+2. If you need to update the seeds after already sending them to mParticle, simply send the updated seeds to mParticle again. We will overwrite previously received seeds.
+
 
 ## Activate a Calculated Attribute
 
@@ -152,41 +186,28 @@ Depending on the date range, volume of data in your workspace, and complexity of
 
 ## Using Calculated Attributes
 
-### Forwarding Calculated Attributes
+### Forwarding Calculated Attributes Downstream
 
 mParticle will enrich incoming batches with active calculated attributes for that user. Just like regular user attributes, you can restrict which outputs receive them, using the [data filters](../data-filter).
 
+<aside>
+If an active calculated attribute has the same name as a user attribute, only the calculated attribute will be sent downstream. You will see warnings in the UI when this occurs.
+</aside>
+
 ![](/images/ca-filter.png)
 
-### User Activity View & Profile API
+### Live Stream, User Activity View & Profile API
 
-Calculated attributes can be viewed alongside other user attributes in the [User Activity view](../activity/#user-activity), and are accessible via the [Profile API](../../../developers/profile-api/). Values will appear in UAV only once the calculations have completed for the user displayed.
+Calculated attributes can be viewed alongside other user attributes in the [Live Stream](../../../guides/data-master#live-stream), [User Activity view](../activity/#user-activity) and are accessible via the [Profile API](../../../developers/profile-api/).
 
 ![](/images/ca-uav.png)
 
+<aside>
+See a '-' value for a CA? This means it has been calculated but did not find any value to compute, either because the source data is empty or of the wrong data type (for example a sum operation on a string).
+</aside>
+
 ### Audiences
 
-Calculated attributes can be used in the Audience builder by selecting **User > Calculated Attributes**.
+Calculated attributes can be used in the Audience builder by selecting **User > Calculated Attributes**. They will show up as 'string' types at first and will automatically switch to the correct type as they are computed across many users.   
 
 ![](/images/ca-audiences.png)
-
-### Seeding
-Seeding allows you to pass in historic values for calculated attributes that mParticle will build upon as new data arrives. This allows you to seamlessly transition from your own calculations to mParticle's.  You can seed calculated attributes in both draft and active states; the calculated attribute must exist before seeding it.
-
-Seeding requires two pieces of information:
-- the seed values: values required to calculate the attribute
-- the seed cut-off date: any data prior to this date is processed by your team into seed values, and mParticle only uses data on or after this date in CA calculation and combines the result with the seed values. This ensure accurate transition into mParticle platform and avoid duplications of data in calculating a CA.
-
-#### Workflow
-1. CA must be created in mParticle platform prior to sending any seed. The CA can be in either draft or active state. It's recommended that CA be activated after seeds for all users have been sent to mParticle. The reason is that once a CA is activated, mParticle will start calculating it, not knowing if there is a seed or not, and thus some users may show inaccurate CA values until seeds have been received.
-![](/images/ca-seeding-ui.png)
-2. Send seeds via the [Calculated Attributes Seeding API](../../../developers/ca-seeding-api/). Note that CA creation or update takes up to 5 min to be included in our cache, and thus if you send seeds immediately after CA creation or update, you may get NOT FOUND error.
-3. Once mParticle has received seeds, we will combine them with CA calculation results based on data after the cutoff date going forward.
-
-#### Miscellaneous Usage Notes
-1. After seeds have been sent to mParticle, any of the following changes will make the previously received seeds invalid and subsequently deleted from mParticle.
-   - CA name
-   - CA calculation type, e.g., from sum to count.
-   - Seeding cutoff date
-   - Deleting the CA
-2. If you need to update the seeds after already sending them to mParticle, simply send the updated seeds to mParticle again. We will overwrite previously received seeds.
