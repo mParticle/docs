@@ -9,24 +9,26 @@ title: Feed
 1. Set up a SessionM feed configuration in mParticle in order to generate API key/secret values.
 2. Contact your SessionM customer success team to initiate the install of the mParticle integration
 3. Define a list of SessionM profile attributes to send to mParticle and provide to SessionM
-4. Once installation is complete, both Tags and profile attributes will be sent to mParticle when updated
+4. Once installation is complete,  both Tags and profile attributes will be sent to mParticle when updated
 
 ## Supported Event Types
 
-SessionM will send Custom Events of type other to mParticle as defined below.  Additional events can be setup in SessionM
+SessionM will send Custom Events of type Other to mParticle as defined below.  Additional events and event attributes can be setup in SessionM.
 
 | Event | Event Attributes
 | ---|---|
-| tag | `tag`, `TTL` |
+| tag | `tag` |
 
 ### Event Attributes
 
 | Attribute Name | Description |
 |---|---|
 | tag | The tag value will be unique per customer, and setup in SessionM |
-| TTL | Time to Live timestamp |
 
 ### User Attributes
+
+User Attributes will be custom based on your SessionM account. You can send up to 10 user attributes, which will be formatted as `SessionM_attribute`. Below are some common examples of SessionM User Attributes.
+
 | User Attribute | Type | Description
 | ---|---|---|
 | SessionM_loyalty_opt_in | Boolean | Whether or not the customer has opted into the SessionM Loyalty Platform
