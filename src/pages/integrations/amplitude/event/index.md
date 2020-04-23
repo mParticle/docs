@@ -122,3 +122,4 @@ User Properties | user_properties | All user attributes included with the event.
 | Include UTM in User Properties | `bool` | default | Web| If enabled, Amplitude will find the standard UTM parameters from either the URL or the browser cookie and set them as user properties. |
 | Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, mParticle will not initialize the full Amplitude integration on the web client. Instead, web data will be forwarded to Amplitude via server-to-server API.
 | Instance Name | `string` | default | Web| The name of the client-side Amplitude instance to use. This should be unique for each Amplitude connection. |
+| Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. |
