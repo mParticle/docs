@@ -53,7 +53,7 @@ mParticle will forward event data to Amazon Kinisis Firehose as base64 encoded J
     "Record": {
         "Data": {
            
-           {"events":[{"data":{"event_name":"Level_Acheived"},"event_type":"custom_event"}],"unique_id":"abc123123","message_id":"521e0ae1-164d-  4495-8e41-95be88fa7e42","message_type":"events","schema_version":1,"device_info":{"ios_advertising_id":"68b7032b-1c2d-4533-92b8-3fb143ebeadf","android_advertising_id":"f9f1b997-f228-415f-99e1-ed7c223e238d","limit_ad_tracking":false,"is_dst":false},"application_info":{"application_version":"1.3","package":"test-app-id-550854415"}}
+           "events":[{"data":{"event_name":"Level_Acheived"},"event_type":"custom_event"}],"unique_id":"abc123123","message_id":"521e0ae1-164d-  4495-8e41-95be88fa7e42","message_type":"events","schema_version":1,"device_info":{"ios_advertising_id":"68b7032b-1c2d-4533-92b8-3fb143ebeadf","android_advertising_id":"f9f1b997-f228-415f-99e1-ed7c223e238d","limit_ad_tracking":false,"is_dst":false},"application_info":{"application_version":"1.3","package":"test-app-id-550854415"}}
         }
     }
 }
