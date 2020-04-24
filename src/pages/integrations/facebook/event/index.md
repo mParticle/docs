@@ -30,7 +30,7 @@ In order to enable mParticle's Facebook event integration, you'll need the follo
 * The iOS/tvOS and Android integrations forward App, App State Transition, Commerce, Screen View and Session Start events.  
 * The Web integration forwards App, Commerce, and Screen View events.
 
-mParticle's Facebook integration supports [custom mappings](/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for Facebook. mParticle provides mappings for the following Facebook event types:
+mParticle's Facebook integration supports [custom mappings](/guides/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for Facebook. mParticle provides mappings for the following Facebook event types:
 
 * Achieved Level
 * Ad Click
