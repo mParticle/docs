@@ -4,7 +4,7 @@ title: Event
 
 [Kafka](https://kafka.apache.org/) is used for building real-time data pipelines and streaming apps. It is horizontally scalable, fault-tolerant, wicked fast, and runs in production in thousands of companies.
 
-## Prerequisites 
+## Prerequisites
 
 To enable the Kafka integration, you will need a list of comma-separated bootstrap servers that identify an initial subset of servers, "brokers," in the Kafka cluster. You will also need to provide the name of the Kafka topic stream to publish to.
 
@@ -23,7 +23,7 @@ The cluster of brokers is managed by an additional Zookeeper server that handles
 
 mParticle will only transmit data to Kafka encrypted over TLS. Brokers must use a certificate issued by a globally trusted certificate authority and containing a CN (common name) or SAN (subject alternative name) that matches the hostname.
 
-Username and password authentication is optional. 
+Username and password authentication is optional.
 
 If no username is provided, the Kafka security protocol used is SSL.
 
@@ -66,13 +66,13 @@ KafkaServer {
 };
 ~~~
 
-The `KafkaServer` block in `jaas.conf` is in addition to another `Client` block, stored within the file and containing credentials for use with the Zookeeper server that manages brokers in the cluster. 
+The `KafkaServer` block in `jaas.conf` is in addition to another `Client` block, stored within the file and containing credentials for use with the Zookeeper server that manages brokers in the cluster.
 
-The `username` and `password` keys are used by the broker as login credentials for login into other brokers. Note that these should _not_ be used as the `User Name` and `Password` in the [Configuration Settings](#configuration-settings). 
+The `username` and `password` keys are used by the broker as login credentials for login into other brokers. Note that these should _not_ be used as the `User Name` and `Password` in the [Configuration Settings](#configuration-settings).
 
 The `user_xxxxxx` keys identifies valid accounts and passwords pairs for logging into the broker itself. The  `User Name` and `Password` in the [Configuration Settings](#configuration-settings) must match one of the pairs with the `user_` prefix. For example, a valid user in the above example is either `admin` or `mparticle`.
 
-To avoid placing username and password information in configuration files, you can write a custom login module or use the SCRAM mechanisms to store credentials within the Zookeeper server. 
+To avoid placing username and password information in configuration files, you can write a custom login module or use the SCRAM mechanisms to store credentials within the Zookeeper server.
 
 ### Without username and password
 
@@ -99,34 +99,15 @@ More information about the general structure of the `jaas.conf` file can be foun
 
 ## Data processing notes
 
-* The Kafka integration accepts data from all platform types.
+* The Kafka integration accepts data from all platform types and identities.
 * Kafka topics are divided into partitions. Ordering is only guaranteed within a partition. Events forwarded to a Kafka topic are assigned an mParticle user ID as the partitioning key so that each user's events are sent to the same partition and are received in order. In the rare case that an event does not have a user ID, the event is forwarded to a random partition.
-
-## Supported Identities
-
-mParticle forwards the following identifiers to Kafka, where available:
-
-* Android ID
-* GAID (Google Advertising ID)
-* IDFA (iOS Advertising ID)
-* IDFV (iOS Vendor ID)
-* Customer ID
-* Email address
-* Facebook Audience ID
-* Facebook ID
-* Google ID
-* Microsoft ID
-* mParticle ID
-* Twitter ID
-* Yahoo ID
-* Other (and Other2, Other3, and Other4)
 
 ## Supported events
 
 mParticle forwards the following event types to Kafka:
 
 * App Event
-* Application State Transition  
+* Application State Transition
 * Breadcrumb
 * Commerce Event
 * Crash Report
@@ -148,7 +129,7 @@ mParticle forwards data to Kafka as event batches in our standard outgoing [JSON
 
 ## Configuration Settings
 
-Setting Name | Data Type | Default Value | Description 
+Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Kafka Bootstrap Servers | `string` | <unset> | This is a comma-separated list of Kafka bootstrap servers. |
 | Topic Name | `string` | <unset> | This is your Kafka topic.	 |
@@ -158,7 +139,7 @@ Setting Name | Data Type | Default Value | Description
 
 ## Connection Settings
 
-Setting Name | Data Type | Default Value | Description 
+Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |

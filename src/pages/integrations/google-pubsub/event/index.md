@@ -16,31 +16,14 @@ You must grant Pub/Sub Publisher access for your topic to `mparticle-gcp-clientf
 
 ## Data Processing Notes
 
-Google Pub/Sub accepts data from all platform types.
-
-mParticle forwards the following identifiers to Google Pub/Sub, where available:
-
-* Android ID
-* GAID (Google Advertising ID)
-* IDFA (iOS Advertising ID)
-* IDFV (iOS Vendor ID)
-* Customer ID
-* Email address
-* Facebook Audience ID
-* Facebook ID
-* Google ID
-* Microsoft ID
-* mParticle ID
-* Twitter ID
-* Yahoo ID
-* Other
+Google Pub/Sub accepts data from all platform types and identities.
 
 ## Supported Events
 
 mParticle forwards the following event types to Google Pub/Sub:
 
 * App Event
-* Application State Transition  
+* Application State Transition
 * Breadcrumb
 * Commerce Event
 * Crash Report
