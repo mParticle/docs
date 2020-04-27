@@ -6,10 +6,15 @@ title: Event
 
 mParticle’s Branch S2S integration supports the following platforms:
 
+* Alexa
 * Android
+* Fire TV
 * iOS
+* Roku
+* Smart TV
 * tvOS
 * Web
+* XBox
 * Custom and unbound inputs
 
 ## Which Branch integration should I use?
@@ -55,9 +60,12 @@ Branch will not accept data more than 24 hours old.
 ### Device IDs  
 
 * Android ID
-* GAID (Google Advertising ID)
-* IDFB (Apple Vendor ID)
-* IDFA (Apple Advertising ID)  
+* Google Advertising ID (GAID)
+* Apple Advertising ID (IDFA)
+* Apple Vendor ID (IDFV)
+* Fire Advertising ID
+* Microsoft Advertising ID
+* Roku Advertising ID
 
 ### User IDs  
 
@@ -70,7 +78,7 @@ mParticle forwards the following event types to Branch:
 * Commerce Event
 * Custom Event  
 * Screen View
-
+* Session Start - these events can be filtered out for the following platforms - iOS, Android, Web and custom and unbound inputs.
 
 ## Configuration Settings
 
@@ -82,5 +90,5 @@ mParticle forwards the following event types to Branch:
 ## Connection Settings
 
 | Setting Name |  Data Type | Default Value | Description |
-| ---|---|---|---|---
+| ---|---|---|---|
 | Forward screen view messages | `bool` |  | If enabled, all screen view messages will be forwarded to Branch as separate events. |
