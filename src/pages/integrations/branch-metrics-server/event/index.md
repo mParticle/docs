@@ -78,7 +78,7 @@ mParticle forwards the following event types to Branch:
 * Commerce Event
 * Custom Event  
 * Screen View
-* Session Start - these events can be filtered out for the following platforms - iOS, Android, Web and custom and unbound inputs.
+* Session Start
 
 ## Configuration Settings
 
