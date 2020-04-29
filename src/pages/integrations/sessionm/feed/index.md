@@ -27,7 +27,7 @@ SessionM will send Custom Events of type Other to mParticle as defined below.  A
 
 ### User Attributes
 
-User Attributes will be custom based on your SessionM account. You can send up to 10 user attributes, which will be formatted as `SessionM_attribute`. Below are some common examples of SessionM User Attributes.
+User Attributes will be custom based on your SessionM account. All attributes sent to mParticle will be formatted as `SessionM_attribute`. Below are some common examples of SessionM User Attributes.
 
 | User Attribute | Type | Description
 | ---|---|---|
