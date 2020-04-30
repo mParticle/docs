@@ -6,7 +6,7 @@ title: Audience
 
 ## Prerequisites
 
-In order to enable the mParticle integration with Facebook, you will need the account credentials for a Facebook account that you will be using for Ads Management. The integration activation process in Audience Manager will prompt you to log into your Facebook account, and once logged in, mParticle will automatically retrieve the credentials that it needs to forward audience data to Facebook.
+In order to enable the mParticle integration with Facebook, you will need the account credentials for a Facebook account that you will be using for Ads Management. The integration activation process in Audience Manager will prompt you to log into your Facebook account, and once logged in, mParticle will automatically retrieve the credentials that it needs to forward audience data to Facebook. Please note you will need to be an admin on the Facebook account in order to configure the audience output in mParticle.
 
 ## Activate the Integration
 
