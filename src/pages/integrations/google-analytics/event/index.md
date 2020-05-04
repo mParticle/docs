@@ -62,12 +62,16 @@ One of the most important decisions to make when setting up your Google Analytic
 
 There are two basic options for generating Client ID. The default is to have mParticle generate a `cid` for you. If you select this option, mParticle will generate a UUIDv4 for each device based on device and application metadata. This option is recommended if your app is not already being tracked in Google Analytics.
 
-Alternatively, you can choose to use one of your `Other` identity types as the `cid`, by selecting it in the [Configuration Settings](#configuration-settings). If you choose this option, you must ensure that the value you set for this identity type is a valid UUIDv4.
+Alternatively, you can choose to use one of your `Other` identity types as the `cid`, by selecting it in the [Configuration Settings](#configuration-settings). If you choose this option, you must ensure that one of the following is true:
+
+* The identity value is a valid UUIDv4. For example, `"cbc600a1-6b77-4fc5-bf20-ce9bbd2c1850"`.
+* The identity value is a valid legacy CID and the **Allow Legacy CID Format** connection setting is enabled. The legacy CID format is `"X.Y"`, where X and Y are 32-bit integers. For example, `"54026365.42793867"`.
 
 mParticle uses the following rules to set `cid`:
 
 * If your **Client ID Type** is set to `Default`, mParticle will generate a default `cid` based on device and app metadata.
 * If your **Client ID Type** is one of your `Other` types, mParticle will do one of the following depending on the identity value for the user.
+  * If the **Allow Legacy CID Format** connection setting is enabled, mParticle will check whether the passed in `cid` is in the correct legacy format. If it is, the `cid` will be sent through as-is.
   * If the value of your chosen identity type is present AND a valid UUIDv4, mParticle will use that value as the `cid`.
   * If the value of your chosen identity type is present BUT NOT a valid UUIDv4, mParticle will generate a deterministic UUIDv4 based on the value provided.
   * If the value of your chosen identity type is not present, mParticle will generate a default `cid` based on device and app metadata.
@@ -346,6 +350,7 @@ $gclid| gclid | Google AdWords ID |
 | Send User IP Address | `bool` | False | All| If enabled, the user's IP address will be forwarded. |
 | Enable Enhanced Ecommerce | `bool` | False | All| Use this setting if you have enhanced ecommerce enabled in your Google Analytics account |
 | Send Advertising IDs | `bool` | True | All| Enable this setting if you want mParticle to send Google Ad IDs and IDFAs to Google Analytics. |
+| Allow Legacy CID Format | `bool` | False | All | Allow the legacy CID format to be sent through as-is. The legacy format being "X.Y", where X and Y are 32-bit integers.
 | Late Event Action | `string` | Send | All| Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |
 | Custom dimensions | `Custom Field` | <unset> | All| Allows you to map your mParticle custom dimensions to the corresponding custom dimensions setup in Google Analytics. |
 | Custom metrics | `Custom Field` | <unset> | All| Allows you to map your mParticle custom metrics to the corresponding custom metrics setup in Google Analytics. |
