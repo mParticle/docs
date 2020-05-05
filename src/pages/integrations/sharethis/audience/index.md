@@ -15,9 +15,8 @@ The ShareThis audience integration works in conjunction with the ShareThis feed 
 
 ### Device Identities
 
-* Android ID
-* Google Advertising ID (GAID)
 * Apple Advertising ID (IDFA)
+* Google Advertising ID (GAID)
 
 ## Settings
 
