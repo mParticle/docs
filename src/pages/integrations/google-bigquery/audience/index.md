@@ -86,3 +86,4 @@ Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer
 | Send External Audience Name as Column	| `bool` | `false` |If enabled, a column that has the value of the external audience name will be added to all new tables.
 | Send Anonymous Users | `bool` | `false` |	If enabled, users that are only identified by their mParticle ID will be sent.
 | Send User Attributes | `bool` | `false` |	If enabled, user attribute values will be forwarded.
+| Use Dataset Default Expiration | `bool` | `false` | If enabled, BigQuery tables will use the dataset's default expiration. Otherwise, tables will not expire.
