@@ -64,7 +64,11 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target '<Your Target>' do
-    pod 'mParticle-Adobe'
+    # To send media data to Adobe, you must use CocoaPods since their SDKs do not support Carthage
+    pod 'mParticle-Adobe/AdobeMedia'
+    
+    # Otherwise uncomment below for the previous non-media Adobe integration, you can integrate via Carthage or CocoaPods
+    # pod 'mParticle-Adobe/Adobe'
 end
 ~~~
 
