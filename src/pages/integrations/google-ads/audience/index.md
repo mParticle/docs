@@ -51,5 +51,6 @@ Forward IDFAs | `bool` | `true` | If enabled, and the user's IDFA is available, 
 Forward AAIDs | `bool` | `true` | If enabled, and the user's AAID is available, it will be added to the audience "&lt;Audience Name&gt; (AAID)" |
 iOS AppID | `string` | | A string that uniquely represents the iOS Application from which the data was collected to the Adwords API |
 Android AppID | `string` | | A string that uniquely represents the Android Application from which the data was collected to the Adwords API |
+External Email Identity Type | `enum` | Email | The mParticle User Identity type to forward as an Email to Google Ads
 
 
