@@ -83,6 +83,7 @@ Facebook Application ID | `string` | | The App ID found on your Facebook applica
 Is Audience Value Based | `bool` | False | If enabled, the audiences created in Facebook will be value-based.
 User Attribute Representing Value | `string` | | The user attribute to be used as the basis for setting value in Facebook. Only non-negative numbers will be forwarded to Facebook. This setting only applies to value-based audiences.
 Allow Zero Values | `bool` | False | If enabled, user data either missing the above user attribute, or having a user attribute value of zero, will be forwarded to Facebook. This setting only applies to value based audiences.
-Customer File Source | enum | UNSELECTED | Indicates whether the information was collected directly from customers, provided by partners or a combination of the two. Starting July 2, 2018, Facebook requires this setting on all new audiences created. |
+Customer File Source | `enum` | UNSELECTED | Indicates whether the information was collected directly from customers, provided by partners or a combination of the two. Starting July 2, 2018, Facebook requires this setting on all new audiences created. |
+External Email Identity Type | `enum` | Email | The mParticle User Identity type to forward as an External Email to Facebook. |
 
 <aside class="notice">The Facebook Application ID setting is required if you enable the Forward Facebook IDs setting.</aside>
