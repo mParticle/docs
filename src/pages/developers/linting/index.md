@@ -203,6 +203,7 @@ If you haven't already done so, download your data plan from the mParticle platf
         "dataPlanVersionFile": "./plan.json"
     }
 }
+```
 
 #### 3. Setup `.eslintrc` file
 
