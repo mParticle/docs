@@ -293,8 +293,9 @@ Required| Google Analytic Attribute Name | Google Analytic Parameter | mParticle
 
 ### User / Event Timing
 
-App developers can measure how long an event takes and log it by the `logEvent` method and passing in "eventLength" parameter.
+Mobile app and web developers can measure how long an event takes. On mobile this is done by passing in "eventLength" parameter to `logEvent`. On web, you will need to pass in a custom flag of 'Google.UserTiming'.
 
+#### Mobile
 mParticle's SDK Method | Google Analytic's SDK Method
 --------------- | ----------------------
 logEvent with eventLength passed in | GAIDictionaryBuilder.createTimingWithCategory:interval:name:label:
@@ -315,6 +316,36 @@ Since mParticle sends the data as two different hit types, two URLs are sent. Fo
 **Timing hit:** https://<i></i>www.<i></i>google-analytics.<i></i>com/collect?utc=Navigation&utt=1914&utv=Update+Profile&ht=1390489491362&cid=2d3636353934303434&ul=en-us&sr=1280x736&an=My+Test+App+1&av=1.4&aid=MyBundle&aiid=com.my.installer.demo&tid=UA-1234565-1&t=timing&v=1&qt=380&z=9e5b1042-1a4a-49af-a247-da89951878b4
 
 The ‘ec’ for the event hit types matches the ‘utc’ in timing hit type, ‘ea’ will match ‘utv’, and ‘el’ will match ‘utl’.
+
+#### Web
+On web, a user timing event is sent to Google Analytics when a custom flag of 'Google.UserTiming' is provided. The mapping to Google Analytics is as follows:
+
+ Google Analytics Attribute Name | Google Analytics Parameter | mParticle Event |
+------------- | ----------------- | -----------------
+User Timing Category | utc | Custom flag 'Google.Category'; otherwise EventType | 
+User Timing Time | utt | Custom flag 'Google.UserTiming' |
+User Timing Value | utv | EventName (not required on Commerce events, as the mParticle SDK sets defaults for Commerce Event EventNames) |
+User Timing Label | utl | Custom flag of 'Google.Label' (Optional) | 
+
+Similar to mobile, when you send a User Timing event, a regular event hit is sent as well. The following is an example that shows how an event logged to mParticle will map to both hit types:
+```
+const customAttributes = {};
+const customFlags = {
+  'Google.UserTiming': 1914, // required for user timing events
+  'Google.Category': 'Profile' // defaults to the EventType if not provided
+  'Google.Label': 'Foo-label', // optional
+}
+
+mParticle.logEvent('Update Profile', mParticle.EventType.Navigation, customAttributes, customFlags);
+```
+will map the following query parameter values to Google Analytics:
+
+ GA User Timing Event Parameter | GA Event Parameter | Value |
+------------- | ----------------- | -----------------
+utc | ec | 'Profile' (would default to 'Navigation' in this example if Google.Category was not included) | 
+utt | -- | 1914 |
+utv | ea | 'Update Profile' | 
+utl | el | 'Foo-label' | 
 
 ### Campaign User Attribute Mapping
 
