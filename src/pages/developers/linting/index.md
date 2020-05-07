@@ -197,6 +197,13 @@ To get started, ensure you have a data plan downloaded and referenced properly i
 
 If you haven't already done so, download your data plan from the mParticle platform and save it to a file in your source repository. Reference this in the `mp.config.json`file to tell the linter where to find the data plan file.
 
+```
+{
+    "planningConfig": {
+        "dataPlanVersionFile": "./plan.json"
+    }
+}
+
 #### 3. Setup `.eslintrc` file
 
 Inside your `.eslintrc` file, add `@mparticle/eslint-plugin` to the `plugins` array, and `plugin:@mparticle/data-planning` to the `extends` array:

@@ -78,8 +78,7 @@ The CLI is configured via an `mp.config.json` file in the root of your project's
         "clientSecret": "XXXXXXXXX"
     },
     "planningConfig": {
-        "dataPlanFile": "./path/to/data_plan.json",  //relative or absolute
-        "versionNumber": 2
+        "dataPlanVersionFile": "./path/to/dataPlanVersionFile.json",   //relative or absolute
     }
 }
 ```
@@ -98,9 +97,9 @@ This contains settings that would pertain to your account credentials and applic
 
 These are configurations pertaining to your project's Data Master resources, such as data plans and versions. `planningConfig` is required if you use our data plan linting tools, which you can learn more about [here](/developers/linting/).
 
--   `dataPlanFile`: Your current data plan file (must be used with `versionNumber` below)
 -   `dataPlanVersionFile`: Your current data plan version (used in place of `dataPlanFile` and `versionNumber`)
 -   `dataPlanId`: The ID of your current Data Plan
+-   `dataPlanFile`: Your current data plan file (must be used with `versionNumber` below)
 -   `versionNumber`: The Current Version Number for your Data Plan (must be used with `dataPlanFile`)
 
 ## Workflow
