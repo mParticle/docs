@@ -35,11 +35,11 @@ The Data Planning HTTP API can be used from one of mParticle's helper SDKs. Thes
 - [mParticle CLI](/developers/cli/)
 - [Data Planning Node SDK](https://github.com/mParticle/data-planning-node)
 
-## Swagger
+## Open API
 
-You can use the Swagger file below to generate helper SDKs (using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) or [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)) for the Data Planning API:
+You can use the Open API specification (also known as Swagger) below to generate helper SDKs (using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) or [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)) for the Data Planning API:
 
-[Data Planning Swagger](/downloads/dataplanning-swagger.yaml)
+[Data Planning Open API Spec](/downloads/mparticle.dataplanning.oas.yaml)
 
 ## Postman
 

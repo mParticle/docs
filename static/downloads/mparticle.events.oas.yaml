@@ -1,0 +1,1249 @@
+openapi: 3.0.3
+info:
+  description: This is the mParticle Event Server
+  version: 1.0.0
+  title: mParticle
+  termsOfService: 'http://www.mparticle.com'
+  contact:
+    email: support@mparticle.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'https://s2s.mparticle.com/v2'
+    description: mParticle Events API Server
+security:
+  - basic: []
+tags:
+  - name: events
+    description: Send your data to the mParticle platform.
+paths:
+  /events:
+    post:
+      tags:
+        - events
+      summary: Send events to mParticle
+      description: ''
+      operationId: uploadEvents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Batch'
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request - malformed JSON or required fields missing.
+          content:
+            application/json:
+              examples:
+                badrequest:
+                  value:
+                    errors:
+                      - code: BAD_REQUEST
+                        message: Required event field "event_type" is missing or empty.
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - authentication missing or invalid
+        '403':
+          description: Forbidden - API key/secret are present but not valid
+        '429':
+          description: Too many requests - rate limiting is being applied
+        '503':
+          description: Service unavailable - the message should be retried after a back off
+  /bulkevents:
+    post:
+      tags:
+        - events
+      summary: Send events to mParticle
+      description: ''
+      operationId: bulkUploadEvents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkBatch'
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request - malformed JSON or required fields missing.
+          content:
+            application/json:
+              examples:
+                badrequest:
+                  value:
+                    errors:
+                      - code: BAD_REQUEST
+                        message: Required event field "event_type" is missing or empty.
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '401':
+          description: Unauthorized - authentication missing or invalid
+        '403':
+          description: Forbidden - API key/secret are present but not valid
+        '429':
+          description: Too many requests - rate limiting is being applied
+        '503':
+          description: Service unavailable - the message should be retried after a back off
+
+components:
+  schemas:
+    ApiErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              message:
+                type: string
+    BulkBatch:
+      type: array
+      items:
+        $ref: "#/components/schemas/Batch"
+    Batch:
+      properties:
+        source_request_id:
+          type: string
+        batch_context:
+          "$ref": "#/components/schemas/BatchContext"
+        events:
+          type: array
+          description: Provide a list of event objects - such as CustomEvent, ScreenViewEvent, or CommerceEvent
+          items:
+            "$ref": "#/components/schemas/BaseEvent"
+        device_info:
+          "$ref": "#/components/schemas/DeviceInformation"
+        application_info:
+          "$ref": "#/components/schemas/ApplicationInformation"
+        user_attributes:
+          type: object
+          additionalProperties:
+            type: object
+        deleted_user_attributes:
+          type: array
+          items:
+            type: string
+        user_identities:
+          type: object
+          properties:
+            other:
+              type: string
+            customer_id:
+              type: string
+            facebook:
+              type: string
+            twitter:
+              type: string
+            google:
+              type: string
+            microsoft:
+              type: string
+            yahoo:
+              type: string
+            email:
+              type: string
+            alias:
+              type: string
+            facebook_custom_audience_id:
+              type: string
+            other_id_2:
+              type: string
+            other_id_3:
+              type: string
+            other_id_4:
+              type: string
+            other_id_5:
+              type: string
+            other_id_6:
+              type: string
+            other_id_7:
+              type: string
+            other_id_8:
+              type: string
+            other_id_9:
+              type: string
+            other_id_10:
+              type: string
+            mobile_number:
+              type: string
+            phone_number_2:
+              type: string
+            phone_number_3:
+              type: string
+          additionalProperties: false
+        environment:
+          type: string
+          default: production
+          enum:
+          - unknown
+          - development
+          - production
+        api_key:
+          type: string
+        api_keys:
+          type: array
+          items:
+            type: string
+        ip:
+          type: string
+        integration_attributes:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: string
+        partner_identity:
+          type: string
+        source_info:
+          "$ref": "#/components/schemas/SourceInformation"
+        mp_deviceid:
+          type: string
+        attribution_info:
+          "$ref": "#/components/schemas/AttributionInfo"
+        timestamp_unixtime_ms:
+          type: integer
+          format: "int64"
+        batch_id:
+          type: integer
+          format: "int64"
+        mpid:
+          type: integer
+          format: "int64"
+        sdk_version:
+          type: string
+        consent_state:
+          "$ref": "#/components/schemas/ConsentState"
+        job_id:
+          type: string
+      additionalProperties: false
+      required:
+      - environment
+    CustomEvent:
+      type: object
+      properties:
+        data:
+          "$ref": "#/components/schemas/CustomEventData"
+        event_type:
+          type: string
+          default: custom_event
+          enum:
+            - custom_event
+      additionalProperties: false
+    EventType:
+      type: string
+      enum:
+        - session_start
+        - session_end
+        - screen_view
+        - custom_event
+        - crash_report
+        - opt_out
+        - first_run
+        - pre_attribution
+        - push_registration
+        - application_state_transition
+        - push_message
+        - network_performance
+        - breadcrumb
+        - profile
+        - push_reaction
+        - commerce_event
+        - user_attribute_change
+        - user_identity_change
+        - uninstall
+    BatchContext:
+      properties:
+        data_plan:
+          "$ref": "#/components/schemas/DataPlanContext"
+    DataPlanContext:
+      properties:
+        plan_id: 
+          type: string
+        plan_version:
+          type: integer
+      required:
+        - plan_id
+    BaseEvent:
+      properties:
+        data:
+          "$ref": "#/components/schemas/CommonEventData"
+        event_type:
+          "$ref": "#/components/schemas/EventType"          
+    CustomEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - type: object
+          properties:
+            custom_event_type:
+              type: string
+              default: other
+              enum:
+                - navigation
+                - location
+                - search
+                - transaction
+                - user_content
+                - user_preference
+                - social
+                - other
+            event_name:
+              type: string
+            custom_flags:
+              type: object
+              additionalProperties:
+                type: string
+          required:
+            - custom_event_type
+            - event_name
+    ApplicationInformation:
+      properties:
+        application_name:
+          type: string
+        application_version:
+          type: string
+        application_build_number:
+          type: string
+        install_referrer:
+          type: string
+        package:
+          type: string
+        os:
+          type: string
+          default: Unknown
+          enum:
+            - Unknown
+            - IOS
+            - Android
+            - WindowsPhone
+            - MobileWeb
+            - UnityIOS
+            - UnityAndroid
+            - Desktop
+            - TVOS
+            - Roku
+            - OutOfBand
+            - Alexa
+            - SmartTV
+            - FireTV
+            - Xbox
+        apple_search_ads_attributes:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: string
+      additionalProperties: false
+    ApplicationStateTransitionEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            successfully_closed:
+              type: boolean
+            is_first_run:
+              type: boolean
+            is_upgrade:
+              type: boolean
+            push_notification_payload:
+              type: string
+            launch_referral:
+              type: string
+            application_transition_type:
+              type: string
+              enum:
+              - application_initialized
+              - application_exit
+              - application_background
+              - application_foreground
+          required:
+          - is_first_run
+          - is_upgrade
+          - application_transition_type      
+    ApplicationStateTransitionEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/ApplicationStateTransitionEventData"
+        event_type:
+          type: string
+          default: application_state_transition
+          enum:
+          - application_state_transition
+      additionalProperties: false
+    AttributionInfo:
+      properties:
+        service_provider:
+          type: string
+        publisher:
+          type: string
+        campaign:
+          type: string
+      required:
+      - service_provider
+      - publisher
+      - campaign
+      additionalProperties: false
+    BreadcrumbEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/BreadcrumbEventData"
+        event_type:
+          type: string
+          default: breadcrumb
+          enum:
+          - breadcrumb
+      additionalProperties: false
+    BreadcrumbEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            session_number:
+              type: integer
+            label:
+              type: string
+          required:
+          - label
+    CommerceEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/CommerceEventData"
+        event_type:
+          type: string
+          default: commerce_event
+          enum:
+            - commerce_event
+      additionalProperties: false
+    CommerceEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            product_action:
+              "$ref": "#/components/schemas/ProductAction"
+            promotion_action:
+              "$ref": "#/components/schemas/PromotionAction"
+            product_impressions:
+              type: array
+              items:
+                "$ref": "#/components/schemas/ProductImpression"
+            shopping_cart:
+              "$ref": "#/components/schemas/ShoppingCart"
+            currency_code:
+              type: string
+            screen_name:
+              type: string
+            is_non_interactive:
+              type: boolean
+            event_name:
+              type: string
+            custom_event_type:
+              type: string
+              readOnly: true
+              enum:
+                - add_to_cart
+                - remove_from_cart
+                - checkout
+                - checkout_option
+                - click
+                - view_detail
+                - purchase
+                - refund
+                - promotion_view
+                - promotion_click
+                - add_to_wishlist
+                - remove_from_wishlist
+                - impression
+            custom_flags:
+              type: object
+              additionalProperties:
+                type: string
+    CommonEventData:
+      properties:
+        timestamp_unixtime_ms:
+          type: integer
+        event_id:
+          type: integer
+          format: "int64"
+          readOnly: true
+        source_message_id:
+          type: string
+        session_id:
+          type: integer
+          format: "int64"
+        session_uuid:
+          type: string
+        session_start_unixtime_ms:
+          type: integer
+        event_start_unixtime_ms:
+          type: integer
+        custom_attributes:
+          type: object
+          additionalProperties:
+            type: string
+        location:
+          $ref: "#/components/schemas/GeoLocation"
+        device_current_state:
+          $ref: "#/components/schemas/DeviceCurrentState"
+        is_goal_defined:
+          type: boolean
+        lifetime_value_change:
+          type: boolean
+        lifetime_value_attribute_name:
+          type: string
+        data_connection_type:
+          type: string
+        event_num:
+          type: integer
+        view_controller:
+          type: string
+        is_main_thread:
+          type: boolean
+        canonical_name:
+          type: string
+        event_system_notification_info:
+          "$ref": "#/components/schemas/EventSystemNotificationInfo"
+    ConsentState:
+      properties:
+        gdpr:
+          "$ref": "#/components/schemas/GDPRConsentState"
+      required:
+      - gdpr
+      additionalProperties: false
+    CrashReportEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            breadcrumbs:
+              type: array
+              items:
+                type: string
+            class_name:
+              type: string
+            severity:
+              type: string
+            message:
+              type: string
+            stack_trace:
+              type: string
+            exception_handled:
+              type: boolean
+            topmost_context:
+              type: string
+            pl_crash_report_file_base64:
+              type: string
+            ios_image_base_address:
+              type: integer
+            ios_image_size:
+              type: integer
+            session_number:
+              type: integer
+    CrashReportEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/CrashReportEventData"
+        event_type:
+          type: string
+          default: crash_report
+          enum:
+          - crash_report
+    DeviceCurrentState:
+      properties:
+        time_since_start_ms:
+          type: integer
+        battery_level:
+          type: number
+        data_connection_type:
+          type: string
+        data_connection_type_detail:
+          type: string
+        gps_state:
+          type: boolean
+        total_system_memory_usage_bytes:
+          type: integer
+        disk_space_free_bytes:
+          type: integer
+        external_disk_space_free_bytes:
+          type: integer
+        cpu:
+          type: string
+        system_memory_available_bytes:
+          type: number
+        system_memory_low:
+          type: boolean
+        system_memory_threshold_bytes:
+          type: number
+        application_memory_available_bytes:
+          type: number
+        application_memory_max_bytes:
+          type: number
+        application_memory_total_bytes:
+          type: number
+        device_orientation:
+          type: string
+          enum:
+          - portrait
+          - portrait_upside_down
+          - landscape
+          - LandscapeLeft
+          - LandscapeRight
+          - FaceUp
+          - FaceDown
+          - Square
+        status_bar_orientation:
+          type: string
+          enum:
+          - portrait
+          - portrait_upside_down
+          - landscape
+          - LandscapeLeft
+          - LandscapeRight
+          - FaceUp
+          - FaceDown
+          - Square
+      additionalProperties: false
+    DeviceInformation:
+      properties:
+        brand:
+          type: string
+        product:
+          type: string
+        device:
+          type: string
+        android_uuid:
+          type: string
+        device_manufacturer:
+          type: string
+        platform:
+          type: string
+          enum:
+          - iOS
+          - Android
+          - web
+          - desktop
+          - tvOS
+          - roku
+          - out_of_band
+          - smart_tv
+          - xbox
+        os_version:
+          type: string
+        device_model:
+          type: string
+        screen_height:
+          type: integer
+        screen_width:
+          type: integer
+        screen_dpi:
+          type: integer
+        device_country:
+          type: string
+        locale_language:
+          type: string
+        locale_country:
+          type: string
+        network_country:
+          type: string
+        network_carrier:
+          type: string
+        network_code:
+          type: string
+        network_mobile_country_code:
+          type: string
+        timezone_offset:
+          type: integer
+        build_identifier:
+          type: string
+        http_header_user_agent:
+          type: string
+        ios_advertising_id:
+          type: string
+        push_token:
+          type: string
+        cpu_architecture:
+          type: string
+        is_tablet:
+          type: boolean
+        push_notification_sound_enabled:
+          type: boolean
+        push_notification_vibrate_enabled:
+          type: boolean
+        radio_access_technology:
+          type: string
+        supports_telephony:
+          type: boolean
+        has_nfc:
+          type: boolean
+        bluetooth_enabled:
+          type: boolean
+        bluetooth_version:
+          type: string
+        ios_idfv:
+          type: string
+        android_advertising_id:
+          type: string
+        build_version_release:
+          type: string
+        limit_ad_tracking:
+          type: boolean
+        amp_id:
+          type: string
+        is_dst:
+          type: boolean
+        roku_advertising_id:
+          type: string
+        roku_publisher_id:
+          type: string
+        microsoft_advertising_id:
+          type: string
+        microsoft_publisher_id:
+          type: string
+        fire_advertising_id:
+          type: string
+      additionalProperties: false
+    EventSystemNotificationInfo:
+      readOnly: true
+      properties:
+        type:
+          type: string
+          enum:
+          - gdpr_change
+      required:
+      - type
+    GDPRConsentState:
+      properties:
+        regulation:
+          type: string
+        document:
+          type: string
+        consented:
+          type: boolean
+        timestamp_unixtime_ms:
+          type: integer
+        location:
+          type: string
+        hardware_id:
+          type: string
+      required:
+      - regulation
+      - document
+      - consented
+      - timestamp_unixtime_ms
+      - location
+      - hardware_id
+      additionalProperties: false
+    GeoLocation:
+      properties:
+        latitude:
+          type: number
+        longitude:
+          type: number
+        accuracy:
+          type: number
+      required:
+      - latitude
+      - longitude
+      additionalProperties: false
+    NetworkPerformanceEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            http_verb:
+              type: string
+            url:
+              type: string
+            time_elapsed:
+              type: integer
+            bytes_in:
+              type: integer
+            bytes_out:
+              type: integer
+            response_code:
+              type: integer
+            data:
+              type: string
+          required:
+          - url
+          - response_code
+    NetworkPerformanceEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/NetworkPerformanceEventData"
+        event_type:
+          type: string
+          default: network_performance
+          enum:
+          - network_performance
+    OptOutEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            is_opted_out:
+              type: boolean
+          required:
+          - is_opted_out
+    OptOutEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/OptOutEventData"
+        event_type:
+          type: string
+          default: opt_out
+          enum:
+          - opt_out
+    Product:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        brand:
+          type: string
+        category:
+          type: string
+        variant:
+          type: string
+        position:
+          type: integer
+        price:
+          type: number
+        quantity:
+          type: number
+        coupon_code:
+          type: string
+        added_to_cart_time_ms:
+          type: integer
+        total_product_amount:
+          type: number
+        custom_attributes:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+      - id
+      - name
+      - brand
+      - category
+      - variant
+      - position
+      - price
+      - quantity
+      - coupon_code
+      - added_to_cart_time_ms
+      - total_product_amount
+      - custom_attributes
+    ProductAction:
+      properties:
+        action:
+          type: string
+          enum:
+          - add_to_cart
+          - remove_from_cart
+          - checkout
+          - checkout_option
+          - click
+          - view_detail
+          - purchase
+          - refund
+          - add_to_wishlist
+          - remove_from_wish_list
+        checkout_step:
+          type: integer
+        checkout_options:
+          type: string
+        product_action_list:
+          type: string
+        product_list_source:
+          type: string
+        transaction_id:
+          type: string
+        affiliation:
+          type: string
+        total_amount:
+          type: number
+        tax_amount:
+          type: number
+        shipping_amount:
+          type: number
+        coupon_code:
+          type: string
+        products:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Product"
+      required:
+      - action
+      - checkout_step
+      - checkout_options
+      - product_action_list
+      - product_list_source
+      - transaction_id
+      - affiliation
+      - total_amount
+      - tax_amount
+      - shipping_amount
+      - coupon_code
+      - products
+      additionalProperties: false
+    ProductImpression:
+      properties:
+        product_impression_list:
+          type: string
+        products:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Product"
+      required:
+      - product_impression_list
+      - products
+      additionalProperties: false
+    ProfileEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            previous_mpid:
+              type: integer
+            current_mpid:
+              type: integer
+            profile_event_type:
+              type: string
+              enum:
+              - signup
+              - login
+              - logout
+              - update
+              - delete
+          required:
+          - previous_mpid
+          - current_mpid
+          - profile_event_type
+    ProfileEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/ProfileEventData"
+        event_type:
+          type: string
+          default: profile
+          enum:
+          - profile
+    Promotion:
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        creative:
+          type: string
+        position:
+          type: string
+      required:
+      - id
+      - name
+      - creative
+      - position
+      additionalProperties: false
+    PromotionAction:
+      properties:
+        action:
+          type: string
+          enum:
+          - view
+          - click
+        promotions:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Promotion"
+      required:
+      - action
+      - promotions
+      additionalProperties: false
+    PushMessageEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            push_message_token:
+              type: string
+            push_message_type:
+              type: string
+              enum:
+              - sent
+              - received
+              - action
+            message:
+              type: string
+            network:
+              type: string
+            push_notification_payload:
+              type: string
+            application_state:
+              type: string
+              enum:
+                - not_running
+                - background
+                - foreground
+            action_identifier:
+              type: string
+            push_message_behavior:
+              type: string
+              enum:
+              - Received
+              - DirectOpen
+              - Read
+              - InfluencedOpen
+              - Displayed
+          required:
+          - push_message_token
+          - push_message_type
+          - push_notification_payload
+    PushMessageEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/PushMessageEventData"
+        event_type:
+          type: string
+          default: push_message
+          enum:
+          - push_message
+    PushRegistrationEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            register:
+              type: boolean
+            registration_token:
+              type: string
+          required:
+          - register
+          - registration_token
+    PushRegistrationEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/PushRegistrationEventData"
+        event_type:
+          type: string
+          default: push_registration
+          enum:
+          - push_registration
+    ScreenViewEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            screen_name:
+              type: string
+            activity_type:
+              type: string
+            custom_flags:
+              type: object
+              additionalProperties:
+                type: string
+          required:
+          - screen_name
+    ScreenViewEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/ScreenViewEventData"
+        event_type:
+          type: string
+          default: screen_view
+          enum:
+          - screen_view
+    SessionEndEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            session_duration_ms:
+              type: integer
+          required:
+          - session_duration_ms
+    SessionEndEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/SessionEndEventData"
+        event_type:
+          type: string
+          default: session_end
+          enum:
+          - session_end
+    SessionStartEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            session_id:
+              type: integer
+          required:
+          - session_id
+    SessionStartEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/SessionStartEventData"
+        event_type:
+          type: string
+          default: session_start
+          enum:
+          - session_start
+    ShoppingCart:
+      properties:
+        products:
+          type: array
+          items:
+            "$ref": "#/components/schemas/Product"
+      required:
+      - products
+      additionalProperties: false
+    SourceInformation:
+      readOnly: true
+      properties:
+        channel:
+          type: string
+          enum:
+          - native
+          - javascript
+          - pixel
+          - desktop
+          - partner
+          - server_to_server
+        partner:
+          type: string
+        replay_request_id:
+          type: string
+        replay_job_id:
+          type: string
+        is_historical:
+          type: boolean
+      
+      additionalProperties: false
+    UserAttributeChangeEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            user_attribute_name:
+              type: string
+            new:
+              type: object
+            old:
+              type: object
+            deleted:
+              type: boolean
+            is_new_attribute:
+              type: boolean
+          required:
+          - user_attribute_name
+          - new
+          - old
+          - deleted
+          - is_new_attribute
+    UserAttributeChangeEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/UserAttributeChangeEventData"
+        event_type:
+          type: string
+          default: user_attribute_change
+          enum:
+          - user_attribute_change
+    IdentityType:
+      type: string
+      enum:
+      - other
+      - customer_id
+      - facebook
+      - twitter
+      - google
+      - microsoft
+      - yahoo
+      - email
+      - alias
+      - facebook_custom_audience_id
+      - other_id_2
+      - other_id_3
+      - other_id_4
+      - other_id_5
+      - other_id_6
+      - other_id_7
+      - other_id_8
+      - other_id_9
+      - other_id_10
+      - mobile_number
+      - phone_number_2
+      - phone_number_3
+    UserIdentity:
+      properties:
+        identity_type:
+          "$ref": "#/components/schemas/IdentityType"
+        identity:
+          type: string
+        timestamp_unixtime_ms:
+          type: integer
+        created_this_batch:
+          type: boolean
+      required:
+      - identity_type
+      - identity
+      - timestamp_unixtime_ms
+      - created_this_batch
+      additionalProperties: false
+    UserIdentityChangeEventData:
+      allOf:
+        - $ref: "#/components/schemas/CommonEventData"
+        - 
+          type: object
+          properties:
+            new:
+              "$ref": "#/components/schemas/UserIdentity"
+            old:
+              "$ref": "#/components/schemas/UserIdentity"
+          required:
+          - new
+          - old
+    UserIdentityChangeEvent:
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/UserIdentityChangeEventData"
+        event_type:
+          type: string
+          default: user_identity_change
+          enum:
+          - user_identity_change

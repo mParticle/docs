@@ -177,6 +177,31 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '429':
           $ref: '#/components/responses/TooManyRequests'
+  /validate:
+    post:
+      description: Validate an event batch against a Data Plan document
+      operationId: validate plan document
+      tags:
+        - Data Plan Document
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                batch: true
+                document:
+                  $ref: "#/components/schemas/DataPlanVersion"
+      responses:
+        '200': true
+        '400':
+          $ref: '#/components/responses/BadSchema'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
 
 components:
   parameters:
@@ -297,6 +322,35 @@ components:
           type: string
         data_plan_versions:
           $ref: "#/components/schemas/DataPlanVersionList"
+    DataPlanTransformation:
+      properties:
+        transformation_id:
+          type: integer
+        transformation_name:
+          type: string
+        description:
+          type: string
+        error_pointer:
+          type: [string, null]
+        schema_keywords:
+          type: [array, null]
+          items:
+            type: string
+        validation_error_types:
+          type: [array, null]
+          items:
+            $ref: "#/components/schemas/ValidationErrorType"
+        json_patch:
+          $ref: "#/components/schemas/JSONPatch"
+      required: ["transformation_id", "transformation_name", "json_patch"]
+    DataPlanTransformationErrorType:
+      enum:
+        - invalid
+        - valid
+    DataPlanTransformationStatus:
+      enum:
+        - success
+        - failure
     DataPlanVersion:
       properties:
         version:
@@ -329,6 +383,10 @@ components:
           $ref: "#/components/schemas/DataPointMatch"
         validator:
           $ref: "#/components/schemas/DataPointValidator"
+        active_transformation_ids:
+          type: array
+          items:
+            type: integer
       required: ["match", "validator"]
     DataPointMatch:
       properties:
@@ -363,6 +421,47 @@ components:
           items:
             oneOf:
               - $ref: '#/components/schemas/Error'
+    ExecutedTransformation:
+      properties:
+        transformation_id:
+          type: int
+        transformation_status:
+          "$ref": "#/components/schemas/DataPlanTransformationStatus"
+        transformation_error_type:
+          "$ref": "#/components/schemas/DataPlanTransformationErrorType"
+        transformation_error_message:
+          type: string
+    JSONPatch:
+      type: array
+      items:
+        oneOf:
+          -
+            properties:
+              op:
+                const: remove
+              path:
+                type: string
+            required: [op, path]
+            additionalProperties: false
+          -
+            properties:
+              op:
+                enum: [add, replace, test]
+              path:
+                type: string
+              value: true
+            required: [op, path, value]
+            additionalProperties: false
+          -
+            properties:
+              op:
+                enum: [move, copy]
+              path:
+                type: string
+              from:
+                type: string
+            required: [op, path, from]
+            additionalProperties: false
     MatchType:
       type: string
       enum:
@@ -409,12 +508,26 @@ components:
       required: ["screen_name"]
     UserAttributeCriteria:
       type: object
+    ValidationErrorType:
+      enum:
+        - unknown
+        - unplanned
+        - missing_required
+        - invalid_value
     VersionDocument:
       properties:
         data_points:
           type: array
           items:
             $ref: "#/components/schemas/DataPoint"
+        transformations:
+          type: [array, null]
+          items:
+            $ref: "#/components/schemas/DataPlanTransformation"
+        active_transformation_ids:
+          type: array
+          items:
+            type: integer
   securitySchemes:
     bearerAuth:
       type: http

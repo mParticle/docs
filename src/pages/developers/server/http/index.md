@@ -17,6 +17,12 @@ Our HTTP endpoint is: `https://s2s.mparticle.com`. If you are using a non-US dat
 
 Please reference [the JSON reference](/developers/server/json-reference/) for the precise API schema.
 
+## Open API
+
+You can use the Open API specification (also known as Swagger) below to generate helper SDKs (using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) or [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)) for the Data Planning API:
+
+[Events API Open API Spec](/downloads/mparticle.events.oas.yaml)
+
 ## Paths   
 
 ### `/v2/events`
