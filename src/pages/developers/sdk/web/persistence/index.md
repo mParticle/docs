@@ -21,7 +21,7 @@ The following data points are kept in persistence. To save space, keys will only
 | `serverSettings` | object | Server settings to be sent to mParticle with each logging attempt |
 | `devToken` | string | Client token |
 | `mpid` | string | mParticle unique identifier |
-| `clientId` | string | A unique identifier mParticle uses to generate the mpid |
+| `clientId` | string | A unique identifier mParticle uses to generate the MPID |
 | `deviceId` | string | A unique identifier for the browser being used |
 | `cartProducts` | array | Products in the customer cart - this is always stored in `localStorage` |
 | `dateLastEventSent` | number | Time of the last logged event |

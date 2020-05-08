@@ -129,7 +129,7 @@ While the OpenDSR framework allows for hashed IDs, and requires an `identity_for
 
 mParticle Identity/Device Type | API Format / OpenDSR | Notes
 --| --- | ---
-`mPID` | `mpid` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`MPID` | `mpid` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
 `customer_id` | `controller_customer_id` | -
 `email` | `email` | -
 `android_advertising_id` | `android_advertising_id` | -
