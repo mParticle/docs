@@ -59,7 +59,7 @@ A successful POST request to the token endpoint will result in a JSON response a
 ~~~
 {
   "access_token": "YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-",
-  "expires_in" : 86400,
+  "expires_in" : 28800,
   "token_type": "Bearer"
 }
 ~~~
@@ -68,7 +68,7 @@ Subsequent requests to the API can now be authorized by setting the Authorizatio
 
 `Authorization: Bearer YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-`
 
-Tokens cannot be revoked, but will expire every 24 hours. The initial token request can take between 1 and 3 seconds, so it is recommended that you cache the token and refresh it only when necessary.
+Tokens cannot be revoked, but will expire every 8 hours. The initial token request can take between 1 and 3 seconds, so it is recommended that you cache the token and refresh it only when necessary.
 
 
 ## Versioning
