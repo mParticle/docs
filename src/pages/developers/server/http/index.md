@@ -19,7 +19,7 @@ Please reference [the JSON reference](/developers/server/json-reference/) for th
 
 ## Open API
 
-You can use the Open API specification (also known as Swagger) below to generate helper SDKs (using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) or [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)) for the Data Planning API:
+You can use the Open API specification (also known as Swagger) below to generate helper SDKs (using [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) or [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator)) for the Events API:
 
 [Events API Open API Spec](/downloads/mparticle.events.oas.yaml)
 
