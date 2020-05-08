@@ -41,7 +41,9 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 App Key | `string` | | Airship generated string identifying the app setup. Used in the application bundle.
 App Secret |`string` | | Airship generated string identifying the app setup secret. Used in the application bundle.
-App Master Secret | `string` | | Airship generated string used for Events API access. This should never be shared or placed in an application bundle.
+App Master Secret (deprecated) | `string` | | Airship generated string used for Events API access. This should never be shared or placed in an application bundle. This setting is replaced by 'Token'.
+Token | `string` | | Airship generated string identifying the Bearer token.
+Domain | `enum` | US | The Airship site your credentials belong to, either 'US' or 'EU'.
 
 ## Connection Settings
 
