@@ -76,8 +76,8 @@ The web SDK evaluates the `window.mParticle.config` object for configuration upo
 | `logLevel` | String | `warning`| Sets the amount of logging in the console. `verbose` provides warnings, errors, and information. `warning` provides warnings and errors, and `none` disables all logging. See [Custom-Logger](/developers/sdk/web/custom-logger/) to customize further.
 | `sessionTimeout` | Number | `30` | Session timeout - an inactivity timeout in minutes after which a session will expire
 | `useCookieStorage` | Boolean | `false` | Flag to set the persistence storage to cookies. Defaults to `false` (the SDK will use local storage).
+| `maxCookieSize` | Number | `3000` | The number of characters in the cookie string to limit the size of the mParticle cookie. When a cookie extends beyond this, the SDK will remove older users and retain the most recent users. Depending on your usage of UI, UA, this number could vary widely.
 | `cookieDomain` | String | See description | When `useCookieStorage` is enabled, sets the cookie domain to use (ex: `foo.example.com`). Defaults to the root first-party domain where the mParticle web SDK is executing (ex: `.example.com`).
-| `maxProducts` | Number | `20` | Maximum products - Maximum number of products allowed in the cart, any additional items will not be added.
 | `customFlags` | Object | `null`| Custom flags - several integrations require custom flags on initialization.
 | `workspaceToken` | String | See description | The workspace token is used to scope persistent storage in cases where multiple instances of the mParticle SDK are present on the same domain. The mParticle SDK snippet will provide the value for your workspace based on the provided web API key.
 | `requiredWebviewBridgeName` | String | See description | The name of the iOS/Android Webview bridge. Since Webview bridge version 2, this field has been required. Defaults to the `workspaceToken`.
