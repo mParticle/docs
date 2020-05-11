@@ -45,7 +45,7 @@ For a Device ID audience, mParticle forwards the Apple Advertising Identifier (I
 
 | Setting Name| Data Type | Default Value | Description |
 |-------------|----------|----------------|-----------------|
-Membership Lifespan | `int`| 30 | The number of days that users remain as part of an audience list after they're added, if they take no further action that renews their membership. A minimum of 30 and a maximum of 540 days are accepted. |
+Membership Lifespan | `int`| 30 | The number of days that users remain as part of an audience list after they're added, if they take no further action that renews their membership. A minimum of 0 and a maximum of 540 days are accepted, or enter 10000 to indicate no expiration. |
 Forward Emails | `bool` | `true` | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (Email)" |
 Forward IDFAs | `bool` | `true` | If enabled, and the user's IDFA is available, it will be added to the audience "&lt;Audience Name&gt; (IDFA)" |
 Forward AAIDs | `bool` | `true` | If enabled, and the user's AAID is available, it will be added to the audience "&lt;Audience Name&gt; (AAID)" |
