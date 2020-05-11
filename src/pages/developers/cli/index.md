@@ -141,7 +141,7 @@ $ mp [COMMAND]:[SUBCOMMAND] --workspaceID=XXXX --clientId=XXXXX --clientSecret=X
 
 To integrate with various services, we recommend adding an `mp.config.json` file to the root of your project. This will allow you to set various properties related to your mParticle account as well as other project settings, such as your data plan directory.
 
-_For more information on [mp.config.json](/developers/mpconfig)._
+_For more information on [mp.config.json](/developers/cli#configuration)._
 
 For example, to authenticate, make sure the following is in your `mp.config.json` file:
 
