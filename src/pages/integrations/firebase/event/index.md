@@ -26,7 +26,7 @@ Unlike Android, the Firebase iOS SDK supports runtime initialization, so the Fir
 
 - **Option 2**: Otherwise, if a Firebase instance has been manually included in your app, data will be automatically forwarded to that instance - mParticle will not create an additional instance. In this case, the Firebase credentials configured in your mParticle workspace are ignored, but all other controls such as data filtering and user-filtering are available as expected to protect the flow of event data. 
 
-Regardless of the approach you would like to take, you will need to follow the Firebase docs to create a Firebase project and download your `GoogleService-Info.plist` configuration file. You can then choose to either include the plist directly in your app, or copy the required settings into the mParticle dashboard.
+Regardless of the approach you would like to take, you will need to follow the Firebase docs to create a Firebase project and download your `GoogleService-Info.plist` configuration file. You must then include the plist directly in your app.
 
 [Please see Firebase's iOS setup guide here](https://firebase.google.com/docs/ios/setup).
 
