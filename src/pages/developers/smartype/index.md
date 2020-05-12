@@ -1,4 +1,4 @@
-<img src="../../../../static/images/dataplanning/tools/smartype-logo.svg" width="280">
+<img src="/images/smartype-logo.svg" width="280">
 
 ### Executive Summary
 Smartype is a powerful and modern tool that allows you to get the most 'bang for your buck' out of the time you spend organizing and defining the structure of your data.
