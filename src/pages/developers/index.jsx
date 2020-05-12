@@ -113,66 +113,66 @@ const EVENTS = [{
 }];
 
 const TILES = [
-{
-    title: 'Data Planning API',
-    content: 'The Data Planning API lets you programmatically define your data schema with Data Master',
-    route: 'dataplanning-api'
-},
-{
-    title: 'Data Subject Request API',
-    content: 'Submit data subject requests for GDPR and CCPA compliance via the OpenDSR API.',
-    route: 'dsr-api'
-},
-{
-    title: 'IDSync',
-    content: 'The IDSync API allows you to manage user identities',
-    route: 'idsync/'
-},
-{
-    title: 'Rules',
-    content: 'mParticle rules allow you to cleanse and transform data before it\'s sent to each output.',
-    route: 'rules'
-},
-{
-    title: 'Profile API',
-    content: 'The Profile API allows you to access user profiles at scale to power personalized experiences.',
-    route: 'profile-api'
-},
-{
-    title: 'Partners',
-    content: 'Become a partner - use mParticle\'s partner APIs to make your platform available as a data Input or Output.',
-    route: 'partners/'
-},
-{
-    title: 'Smartype',
-    content: 'Smartype is a code-generation framework to manage your data plans as code.',
-    route: 'smartype'
-},
-{
-    title: 'Smartype Linting',
-    content: 'Provides a set of tools to lint your code against your data plan.',
-    route: 'linting'
-},
-{
-    title: 'Calculated Attributes API',
-    content: 'Send seeds for your calculated attributes.',
-    route: 'ca-seeding-api/'
-},
-{
-    title: 'mParticle CLI',
-    content: 'The mParticle Command Line Interface (CLI) allows developers to access mParticle services via a terminal environment of their choice.',
-    route: 'cli'
-},
-{
-    title: 'Data Residency',
-    content: 'Process your data in a non-US region.',
-    route: 'data-residency/'
-},
-{
-    title: 'Platform API',
-    content: 'The mParticle platform API allows you to programmatically update your mParticle inputs, outputs, filters and more.',
-    route: 'platform'
-}
+    {
+        title: 'Data Planning API',
+        content: 'The Data Planning API lets you programmatically define your data schema with Data Master',
+        route: 'dataplanning-api'
+    },
+    {
+        title: 'Data Subject Request API',
+        content: 'Submit data subject requests for GDPR and CCPA compliance via the OpenDSR API.',
+        route: 'dsr-api'
+    },
+    {
+        title: 'IDSync',
+        content: 'The IDSync API allows you to manage user identities',
+        route: 'idsync/'
+    },
+    {
+        title: 'Rules',
+        content: 'mParticle rules allow you to cleanse and transform data before it\'s sent to each output.',
+        route: 'rules'
+    },
+    {
+        title: 'Profile API',
+        content: 'The Profile API allows you to access user profiles at scale to power personalized experiences.',
+        route: 'profile-api'
+    },
+    {
+        title: 'Partners',
+        content: 'Become a partner - use mParticle\'s partner APIs to make your platform available as a data Input or Output.',
+        route: 'partners/'
+    },
+    {
+        title: 'Smartype',
+        content: 'Smartype is a code-generation framework to manage your data plans as code.',
+        route: 'smartype'
+    },
+    {
+        title: 'Smartype Linting',
+        content: 'Provides a set of tools to lint your code against your data plan.',
+        route: 'linting'
+    },
+    {
+        title: 'Calculated Attributes API',
+        content: 'Send seeds for your calculated attributes.',
+        route: 'ca-seeding-api/'
+    },
+    {
+        title: 'mParticle CLI',
+        content: 'The mParticle Command Line Interface (CLI) allows developers to access mParticle services via a terminal environment of their choice.',
+        route: 'cli'
+    },
+    {
+        title: 'Data Residency',
+        content: 'Process your data in a non-US region.',
+        route: 'data-residency/'
+    },
+    {
+        title: 'Platform API',
+        content: 'The mParticle platform API allows you to programmatically update your mParticle inputs, outputs, filters and more.',
+        route: 'platform'
+    }
 ];
 
 const MEDIA = {
