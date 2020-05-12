@@ -112,11 +112,7 @@ const EVENTS = [{
     route: 'ruby'
 }];
 
-const TILES = [{
-    title: 'Platform API',
-    content: 'The mParticle platform API allows you to programmatically update your mParticle inputs, outputs, filters and more.',
-    route: 'platform'
-},
+const TILES = [
 {
     title: 'Data Planning API',
     content: 'The Data Planning API lets you programmatically define your data schema with Data Master',
@@ -148,12 +144,17 @@ const TILES = [{
     route: 'partners/'
 },
 {
-    title: 'Data Residency',
-    content: 'Process your data in a non-US region.',
-    route: 'data-residency/'
+    title: 'Smartype',
+    content: 'Smartype is a code-generation framework to manage your data plans as code.',
+    route: 'smartype'
 },
 {
-    title: 'Calculated Attribute Seeding API',
+    title: 'Smartype Linting',
+    content: 'Provides a set of tools to lint your code against your data plan.',
+    route: 'linting'
+},
+{
+    title: 'Calculated Attributes API',
     content: 'Send seeds for your calculated attributes.',
     route: 'ca-seeding-api/'
 },
@@ -163,9 +164,14 @@ const TILES = [{
     route: 'cli'
 },
 {
-    title: 'Linting (beta)',
-    content: 'Provides a set of tools to lint your code against your data plan.',
-    route: 'linting'
+    title: 'Data Residency',
+    content: 'Process your data in a non-US region.',
+    route: 'data-residency/'
+},
+{
+    title: 'Platform API',
+    content: 'The mParticle platform API allows you to programmatically update your mParticle inputs, outputs, filters and more.',
+    route: 'platform'
 }
 ];
 

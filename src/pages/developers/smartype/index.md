@@ -1,167 +1,189 @@
-<img src="/images/smartype-logo.svg" width="280">
+---
+title: Smartype
+---
 
-### Executive Summary
-Smartype is a powerful and modern tool that allows you to get the most 'bang for your buck' out of the time you spend organizing and defining the structure of your data.
+## Overview
 
-It reduces friction, increases efficiency, and completely eliminates the chance of many common Data Quality mistakes occurring.
+Smartype is a powerful code generation tool, built for mParticle's [Data Master](/guides/data-master), that allows you to turn your Data Plans into useable, type-safe code.
 
-### Motivation
+It aims to completely eliminate an entire class of data quality bugs 🐛 by generating statically-typed data models based on the popular [JSON schema](https://json-schema.org/) standard.
 
-#### Before Smartype
-Prior to Smartype, a common process for collecting data might look like the following:
+- Smartype is built to translate [mParticle Data Plans](/guides/data-master/#data-plans) into type-safe models  
+- It gives you auto-complete for your data model in your IDE of choice  
+- It's open source and extensible via a plugin system   
 
-1. A Product manager defines requirements for what the data should look like, perhaps in an Excel spreadsheet
+### Example
 
-2. For each of the app properties, an Engineer needs to work on updating the source code to send the desired data
+The following JSON schema describes a coffee order with a few required parameters:
+- item: An string value with a predefined set of allowed values
+- quantity: A numeric value indicating how many coffees were ordered
+- milk: A boolean value indicating if you want milk in your coffee
 
-3. For each data point, the Engineer edits the event names and properties from the spreadsheet into the source code
+Smartype does the following with this:
+- Consumes the JSON schema and generates Kotlin `data` classes
+- Uses [Kotlin Multiplatform](https://kotlinlang.org/docs/reference/multiplatform.html) to translate that Kotlin code into other languages and generate consumable binaries
+- Surfaces an API to send and receive these "messages", which can be consumed by any analytics provider or your own system
 
-4. Because nobody's perfect, there's a chance the Engineer may make a typo, or incorrectly send a variable of a different type than is expected
+![](/images/example.jpg)
 
-5. If this does occur, bad data will be sent to downstream systems, at which point the issue is harder and more complicated to address
+## Supported SDKs
 
-6. Repeat all of the above each time your data requirements change
+Smartype supports the following SDKs and language environments today:
 
-7. Repeat the above steps for each integration to which you want to send data
+1. Any JVM environment:
+    - [mParticle Android SDK](/developers/sdk/android/getting-started/)
+    - [mParticle Java SDK](https://github.com/mParticle/mparticle-java-events-sdk)
+2. [mParticle Apple SDK](https://docs.mparticle.com/developers/sdk/ios/getting-started/)
+3. Web support is in alpha and will be released soon in coordination with the release of Kotlin 1.4, which has a redesign Javascript backend for more optimized Javascript code generation.
 
-#### After Smartype
+## mParticle Data Plans
 
-1. Rather than using an unstructured Excel spreadsheet, the Product Manager defines what the data should look like using a definitive "single source of truth"
+Smartype is designed to work with mParticle Data Plans. If you haven't yet created a Data Plan, you'll need to do so and download your data plan to work with Smartype.
 
-2. By running Smartype, a set of Data Objects is created that encompass all the requirements that were defined in Step 1.
+### Create a Data Plan
 
-3. The engineer can quickly and seamlessly integrate these models into the source code, gaining compile-time type-safety and autocomplete
+- [See the documentation](/guides/data-master/#data-plans) for how to create your Data Plan in mParticle.
+- You can also [reference the Data Planning API](/developers/dataplanning-api/) for a deeper look into the contents of a Data Plans as well as how to programmatically maintain them.
 
-4. Because Smartype encapsulates both the structure of the data and the constant strings used to upload the data, the Engineer can't make typos, and the Product Manager does not need to spend time making sure the instrumentation was implemented correctly
+### Download a Data Plan
 
-5. If the requirements for the collected data change, it's simply a matter of re-running the generator. If the structure of the data has changed such that the old implmentation is no longer valid, compiler errors will lead the engineer to see exactly where the code needs to be updated.
+Once you've created your Data Plan(s), we suggest you download them and *commit them to source control*. That way you can generate Smartype models in your CI system and development environment.
 
-6. For changes that only affect the uploaded data and not the interfaces exposed to the app source code, this process can be set up to automatically push new app versions to TestFlight/HockeyApp for acceptance testing, or even to automatically publish to the App Store / Google Play
+There are a few ways to acquire a data plan:
 
-### Installing
-Download the latest smartype.jar file from the [releases](https://github.com/mparticle/smartype/releases) page
+- [Via the mParticle UI](https://app.mparticle.com/dm/plans/) by navigating to your data plans, selecting a version, and selecting *Download Plan Version* from the overflow menu option near the top-right of the page.
+- [Via the mParticle CLI](/developers/cli)
+- [Via the Data Planning REST API](/developers/dataplanning-api/)
 
-### Configuring
-The next step is to run the Smartype configuration wizard, which will ask you a series of questions and then create a Smartype configuration file.
+## Workflow
+
+Smartype is shipped as a CLI tool, and so your typical workflow could be:
+
+1. Programmatically or manually download your data plan 
+2. Run Smartype to generate your libraries
+3. Incorporate and use those libraries in any number of environments
+
+## Smartype CLI Usage
+
+Smartype is deployed as an executable jar CLI, and you can download the latest release from the [Github releases](https://github.com/mparticle/smartype/releases) page.
+
+The CLI provides two key commands:
+
+- `init`: Initialize a configuration file that's used by Smartype to generate code.
+- `generate`: Generates strongly-type libraries based on your data model
+
+### Smartype `init`
+
+Smartype `init`  will ask you a series of questions and then create a Smartype configuration file.
 
 ```bash
 java -jar smartype.jar init
 ```
 
-### Running Smartype
-Once you have set up your configuration and schema file, you need to run Smartype as follows to actually create the generated objects:
+### Smartype `generate`
+
+Smartype `generate` will read your configuration file and output binaries that are ready for consumption in an application.
 
 ```bash
-java -jar smartype.jar generate --smartype-config-file smartype.config.json
+java -jar smartype.jar generate
 ```
 
-### Integrating Generated Code
+## Integrating Generated Code
 
 To use the objects created by Smartype, you'll want to add the generated code to your projects. You will also want to initialize Smartype when the app starts up, and register any receivers that you would like to get notified for each message that gets logged.
 
 The following code snippets use the mParticle receiver as an example, but receivers can be created to wrap any interface to which you want to send data, including for your own inhouse processing.
 
-#### iOS
+### iOS
 
-> Requirements: Xcode 11.3.1
+<aside>Smartype currently requires Xcode 11.3.1 or earlier and Carthage to be installed</aside>
 
-To use Smartype on iOS, start by adding Smartype.framework to your Xcode project.
 
-Next, initialize Smartype in your application's `didFinishLaunchingWithOptions:` method:
+Smartype `generate` will create a "fat" dynamic framework that you can include directly with your projects.
 
-```swift
+- To use Smartype on iOS, start by adding `Smartype.framework` to your Xcode project
+- Next, import and initialize Smartype prior to use, and register any receivers
+- The `SmartypeApi` object will surface a series of methods which each represent the top-level items in your schema
+- Pass the fully constructed objects into your `SmartypeApi` instance for all receivers 
+
+```swift    
 import Smartype
-import mParticle_Apple_SDK
 
-// [...]
+...
 
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-    // Create a SmartypeApi object, specifying which receivers should be hooked up
-    let api = SmartypeApi(receivers: [MParticleReceiver()])
+let api = SmartypeApi(receivers: [MParticleReceiver(), self])
 
-    // Initialize the mParticle SDK, which handles actually processing the data sent to the mParticle Receiver
-    let options = MParticleOptions.init(
-        key: "REPLACE WITH APP KEY",
-        secret: "REPLACE WITH APP SECRET")
-    options.dataPlanId = api.dataPlanId
-    options.dataPlanVersion = api.dataPlanVersion as NSNumber
-    options.logLevel = MPILogLevel.verbose
-    MParticle.sharedInstance().start(with: options)
-    
-    // Send data to Smartype
-    let emailBounces = api.emailBounces()
-    let customAttributes = EmailBouncesDataCustomAttributes.init(
-        campaignName: "a campaign name",
-        campaignId: 5,
-        subject: "a subject")
-    emailBounces.data = EmailBouncesData.init(customAttributes: customAttributes)
-    
-    api.send(message: emailBounces)
-    
-    let screenView = api.home()
-    screenView.data = HomeData()
-    
-    api.send(message: screenView)
-    
-    let chooseItem = api.chooseItem()
-    let chooseCustomAttributes = ChooseItemDataCustomAttributes
-        .init(quantity: 5,
-              milk: true,
-              item: .espresso
-    )
-    chooseItem.data = ChooseItemData.init(customAttributes: chooseCustomAttributes)
-    api.send(message: chooseItem)
-    
-    return true
-}
+let options = MParticleOptions.init(
+            key: "REPLACE WITH KEY",
+            secret: "REPLACE WITH SECRET")
+//SmartypeApi surfaces the data plan ID and version of the underlying models
+options.dataPlanId = api.dataPlanId
+options.dataPlanVersion = api.dataPlanVersion as NSNumber
+
+let chooseCustomAttributes = ChooseItemDataCustomAttributes
+    .init(quantity: 5,
+          milk: true,
+          item: .cortado
+)
+let itemData = ChooseItemData.init(customAttributes: chooseCustomAttributes)
+
+//Smartype surfaces all mParticle "Data Points" as factory methods
+let chooseItem = api.chooseItem(data: itemData)
+api.send(message: chooseItem)
 ```
 
-#### Android
+### Android
 
-Add Smartype to your project's build.gradle.kts:
+Smartype `generate` will create an `aar` file that you can include directly with your projects.
+
+#### 1. Add dependencies
+
+- Start by adding the generated `smartype.aar` to your project
+- Add the `com.mparticle:smartype-mparticle` receiver dependency
 
 ```kotlin
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    // N.B.: We don't recommend using the fully-open wildcard syntax below, see the releases pages for the latest versions
-    implementation("com.mparticle:smartype:+")
-    implementation("com.mparticle:android-core:+")
+    //include the generated aar in your project
+    implementation fileTree(dir: 'libs', include: ['**/*.aar'])
+    //add the mParticle receiver, which will automatically pull in mParticle as a dependency
+    implementation "com.mparticle:smartype-mparticle:1.0.2"
 }
 ```
 
-Initialize Smartype in your activity's `onCreate` method:
+#### 2. Implement the API
+
+- Import and initialize Smartype prior to use, and register your receivers
+- The `SmartypeApi` object will surface a series of methods which each represent the top-level items in your schema
+- Pass the fully constructed objects into your `SmartypeApi` instance for all receivers 
 
 ```kotlin
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-    setSupportActionBar(toolbar)
+val api = SmartypeApi(listOf(MParticleReceiver(), this))
 
-    // Create a SmartypeApi object, specifying which receivers should be hooked up
-    val api = SmartypeApi(listOf(MParticleReceiver()))
+val options = MParticleOptions.builder(this)
+    .credentials("REPLACE WITH KEY", "REPLACE WITH SECRET")
+    //SmartypeApi surfaces the data plan ID and version of the underlying models
+    .dataplan(api.dataPlanId, api.dataPlanVersion)
+    .build()
 
-    // Initialize the mParticle SDK, which handles actually processing the data
-    MParticle.start(MParticleOptions.builder(this)
-        .dataplan(api.dataPlanId, api.dataPlanVersion)
-        .credentials("REPLACE WITH APP KEY","REPLACE WITH APP SECRET")
-        .build()
-    )
-
-    fab.setOnClickListener {
-    	// Send data to Smartype
-        val chooseItem = api.chooseItem()
-        val attributes = ChooseItemDataCustomAttributes(
-            5.0,
-            true,
-            ChooseItemDataCustomAttributesItem.CORTADO
+val message = api.chooseItem(
+    ChooseItemData(
+        ChooseItemDataCustomAttributes(
+            quantity = 5.0,
+            milk = true,
+            item = ChooseItemDataCustomAttributesItem.CORTADO
         )
-        chooseItem.data = ChooseItemData(attributes)
-        api.send(chooseItem)
-    }
-
-}
+    )
+)
+//the message object will now be sent to mParticle's SDK
+api.send(message)
 ```
+
+### Source Code and Example Projects
+
+- [Check out the Github repo to dive into the code](https://github.com/mParticle/smartype/)
+- [See example applications](https://github.com/mParticle/smartype/tree/master/examples)
+
+### Feedback and Questions
+
+Smartype is in active development as a beta product and we need your help to make it better. For any questions or feedback, please send a note to [developers@mparticle.com](mailto:developers@mparticle.com)
