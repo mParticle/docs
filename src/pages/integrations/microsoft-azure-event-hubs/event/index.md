@@ -26,7 +26,7 @@ The event data will be forwarded as raw JSON objects.  Please refer to the [JSON
 ## Connection Settings
 
 | Setting Name |  Data Type  | Default Value | Description |
-| ---|---|---|---|---
+| ---|---|---|---|
 | Shared Access Policy Name | string |  | This is the name assigned to the Shared Access Policy. The policy must have Send permissions to the Event Hub that will be receiving data from mParticle | 
 | Shared Access Policy Primary Key | string |  | The Primary Key for the Shared Access Policy |
 | Event Hub Name | string |  | This is the unique name for the Event Hub that will receive data from mParticle.
@@ -37,8 +37,11 @@ The event data will be forwarded as raw JSON objects.  Please refer to the [JSON
 | Send Network Performance Events | `bool` | True | If enabled, network performance events will be forwarded. |
 | Send Custom Events | `bool` | True | If enabled, custom app events will be forwarded. |
 | Send Push Registrations and Receipts | `bool` | True | If enabled, push registration and receipt notifications will be forwarded. |
-| Send as Batch | `bool` | True | If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device. If disabled, mParticle will POST each event to you individually, as it is received. |
+| Send as Batch | `bool` | True | If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device. If disabled, mParticle will POST each event to you individually, as it is received. |  
 | Include Location Information | `bool` | True | If enabled, location data will be forwarded with event data whenever possible. |
-| Include User Identities | `bool` | True | If enabled, user identity information will be forwarded with event batches. |
-| Send Profile Change Events | `bool` | True | If enabled, mParticle will forward ID profile events, such as user sign ups, logins, logouts, updates, and deletes. |
+| Send Profile Change Events | `bool` | True | If enabled, mParticle will forward ID profile events, such as user sign ups, logins, logouts, updates, and deletes. |  
 | Send Commerce Events | `bool` | True | If enabled, commerce events will be forwarded. |
+| Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
+| Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
+| Send Batches without Events | `bool` | True | All | If enabled, batches with no events will be forwarded. |
+| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
