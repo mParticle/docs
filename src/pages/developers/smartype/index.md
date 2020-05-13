@@ -63,9 +63,38 @@ Smartype is shipped as a CLI tool, and so your typical workflow could be:
 2. Run Smartype to generate your libraries
 3. Incorporate and use those libraries in any number of environments
 
-## Smartype CLI Usage
+## Getting Started
 
-Smartype is deployed as an executable jar CLI, and you can download the latest release from the [Github releases](https://github.com/mparticle/smartype/releases) page.
+Smartype is deployed as an executable Java-based CLI. It has several commands which are documented in the sections below.
+
+### Download the CLI
+
+#### Via NPM
+
+You can use [mvnx](https://github.com/mvnx/mvnx) to automate the download and execution of Smartype:
+
+```sh
+# First install the mvnx package, which downloads and runs jar executables from Maven Central
+npm install -g mvnx
+# Then run either init or generate directly
+mvnx com.mparticle:smartype-generator init
+```
+
+#### Direct Download
+
+You can also download the latest release from the [Github releases](https://github.com/mparticle/smartype/releases) page, and then execute it:
+
+```sh
+java -jar smartype-generator.jar
+```
+
+### Requirements 
+
+You will need to ensure that a Java SDK is available on your PATH, you can do this by:
+1. If you don't have one installed, [download the free JDK](https://jdk.java.net/14/)
+2. Set your `JAVA_HOME` environment variable via `export JAVA_HOME=~/path/to/jdk/home` replacing the path with the `home` directory of the downloaded JDK (or an existing JDK already present in your environment)
+
+## CLI Commands
 
 The CLI provides two key commands:
 
@@ -77,6 +106,10 @@ The CLI provides two key commands:
 Smartype `init`  will ask you a series of questions and then create a Smartype configuration file.
 
 ```bash
+# With mvnx:
+mvnx com:mparticle:smartype-generator init
+
+# Or directly execute the pre-downloaded jar
 java -jar smartype.jar init
 ```
 
@@ -85,6 +118,10 @@ java -jar smartype.jar init
 Smartype `generate` will read your configuration file and output binaries that are ready for consumption in an application.
 
 ```bash
+# With mvnx:
+mvnx com:mparticle:smartype-generator generate
+
+# Or directly execute the pre-downloaded jar
 java -jar smartype.jar generate
 ```
 
@@ -96,13 +133,30 @@ The following code snippets use the mParticle receiver as an example, but receiv
 
 ### iOS
 
-<aside>Smartype currently requires Xcode 11.3.1 or earlier and Carthage to be installed</aside>
+#### Requirements
+
+Smartype currently requires Xcode 11.3.1 or earlier and Carthage to be installed.
+
+#### 1. Run `generate`
+
+The following command will generate an iOS "fat" framework containing all architectures. You can customize the output directory of the framework via Smartype `init`
+
+```bash
+# With mvnx:
+mvnx com:mparticle:smartype-generator generate
+
+# Or directly execute the pre-downloaded jar
+java -jar smartype.jar generate
+```
+
+#### 2. Add the Framework
+
+Smartype `generate` will create a "fat" dynamic framework that you can include directly with your projects. To use Smartype on iOS, start by adding `Smartype.framework` to your Xcode project
 
 
-Smartype `generate` will create a "fat" dynamic framework that you can include directly with your projects.
+#### 3. Implement the API
 
-- To use Smartype on iOS, start by adding `Smartype.framework` to your Xcode project
-- Next, import and initialize Smartype prior to use, and register any receivers
+- Import and initialize Smartype prior to use, and register any receivers. 
 - The `SmartypeApi` object will surface a series of methods which each represent the top-level items in your schema
 - Pass the fully constructed objects into your `SmartypeApi` instance for all receivers 
 
@@ -135,12 +189,28 @@ api.send(message: chooseItem)
 
 ### Android
 
-Smartype `generate` will create an `aar` file that you can include directly with your projects.
+For Android apps, Smartype `generate` will create an `aar` file that you can include directly with your projects.
 
-#### 1. Add dependencies
+#### Requirements
+
+To generate an Android library, set your `ANDROID_SDK_ROOT` environment variable via `export ANDROID_SDK_ROOT=/Users/<REPLACE>/Library/Android/sdk` replacing the path with your user directory or to wherever an Android SDK is available on your machine
+
+#### 1. Run `generate`
+
+The following command will generate an `aar`. You can customize the output directory of the aar via Smartype `init`
+
+```bash
+# With mvnx:
+mvnx com:mparticle:smartype-generator generate
+
+# Or directly execute the pre-downloaded jar
+java -jar smartype.jar generate
+```
+
+#### 2. Add dependencies
 
 - Start by adding the generated `smartype.aar` to your project
-- Add the `com.mparticle:smartype-mparticle` receiver dependency
+- Add the `com.mparticle:smartype-mparticle` receiver Maven Central dependency
 
 ```kotlin
 dependencies {
@@ -151,7 +221,7 @@ dependencies {
 }
 ```
 
-#### 2. Implement the API
+#### 3. Implement the API
 
 - Import and initialize Smartype prior to use, and register your receivers
 - The `SmartypeApi` object will surface a series of methods which each represent the top-level items in your schema
