@@ -19,7 +19,7 @@ $ npm install -g @mparticle/cli
 $ mp [COMMAND]
 running command...
 $ mp (-v|--version|version)
-@mparticle/cli/1.0.3 darwin-x64 node-v10.15.3
+@mparticle/cli/1.X.X darwin-x64 node-v10.XX.X
 $ mp --help [COMMAND]
 USAGE
   $ mp COMMAND
@@ -31,7 +31,7 @@ To verify your installation and version, use the `mp --version`
 
 ```shell
 $ mp --version
-@mparticle/cli/1.0.3 darwin-x64 node-v10.15.3
+@mparticle/cli/1.X.X darwin-x64 node-v10.XX.X
 ```
 
 ### Getting Started
@@ -43,7 +43,7 @@ $ mp help
 mParticle Command Line Interface
 
 VERSION
-  @mparticle/cli/1.0.3 darwin-x64 node-v10.15.3
+  @mparticle/cli/1.X.X darwin-x64 node-v10.XX.X
 
 USAGE
   $ mp [COMMAND]
