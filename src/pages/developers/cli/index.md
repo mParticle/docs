@@ -2,6 +2,10 @@
 title: mParticle Command Line Interface
 ---
 
+[![npm version](http://img.shields.io/npm/v/@mparticle/cli.svg?style=flat)](https://www.npmjs.com/package/@mparticle/cli 'View this project on npm')
+[![GitHub version](https://badge.fury.io/gh/mParticle%2Fmparticle-cli.svg)](https://badge.fury.io/gh/mParticle%2Fmparticle-cli)
+[![Build Status](https://travis-ci.com/mParticle/mparticle-cli.svg?branch=master)](https://travis-ci.com/mParticle/mparticle-cli)
+
 ## Overview
 
 The mParticle Command Line Interface (CLI) can be used to communicate with various mParticle services and functions through simple terminal commands.
