@@ -144,17 +144,18 @@ If your Airship configuration is for Web only, enter an App Key, and enable the 
 | App Key | `string` |  | <unset> | Airship generated string identifying the app setup. Used in the application bundle. |
 | App Secret | `string` | <unset> | Airship generated string identifying the app setup secret. Used in the application bundle, and only used for Mobile configurations. |
 | App Master Secret (deprecated) | `string` | <unset> | Airship generated string used for Events API access. This should never be shared or placed in an application bundle, and only used for Mobile configurations. This setting is replaced by 'token' in Connection Settings |
-| This App Key is for Web only in my Airship Setup | `boolean` | false | If enabled, this configuration will only be used for Web configurations. |
+| Domain | `enum` | US | The Airship site your credentials belong to, either 'US' or 'EU'. |
+| App Key is for Web | `boolean` | false | If enabled, this configuration will only be used for Web configurations. |
 
 ## Connection Settings
 
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
-| Notification Icon Name | `string` | Application Icon | Android| Name of the drawable resource to use for the notification icon, for examlpe, ic_notification. |
+| Token | `string` | <unset> | All | Airship generated string identifying the Bearer token. |
+| Notification Icon Name | `string` | Application Icon | Android| Name of the drawable resource to use for the notification icon, for example, ic_notification. |
 | Notification Accent Color | `string` | System default | Android| Accent color to be used when constructing the notification, for example, #ff0000. |
+| Named User ID Type | `string` | <unset> | All | Set to "None," "Other," "Hashed e-mail address," or "Customer ID" to define which identity to send to Airship. If a request does not include the Named User ID Type it will be dropped. Airship will return an error if 'Other' is selected but the 'Other' identity is not present in the event batch |
 | Event Names that map to User Tags | `Custom Field` | <unset> | All| Define the mapping of mParticle event names to the corresponding Airship tags. |
 | Event Attributes that map to User Tags | `Custom Field` | <unset> | All| Define the mapping of mParticle event attributes to the corresponding Airship tags. |
 | Enable Tags | `bool` | True | All| If enabled, tags will be sent to Airship. |
 | Send all user attributes as tags | `bool` | False | All| If enabled, all user tags and user attributes will be forwarded to Airship as tags.  If not enabled, only user tags will be forwarded to Airship.  This setting is dependent on the value of the 'Enable Tags' setting. |
-| Token | `string` | <unset> | All | Airship generated string identifying the Bearer token. |
-| Named User ID Type | `string` | <unset> | All | Set to "None," "Other," "Hashed e-mail address," or "Customer ID" to define which identity to send to Airship. If a request does not include the Named User ID Type it will be dropped. Airship will return an error if 'Other' is selected but the 'Other' identity is not present in the event batch |
