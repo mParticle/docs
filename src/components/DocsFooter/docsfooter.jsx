@@ -37,6 +37,10 @@ export default () => (
                         rel='noopener noreferrer'
                         target='_blank'>
                         Privacy Policy
+                    </a><br />
+                    <a
+                        className='footer-link ot-sdk-show-settings'>
+                        Cookie Policy
                     </a>
                 </span>
             </div>

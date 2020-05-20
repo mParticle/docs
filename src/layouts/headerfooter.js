@@ -33,12 +33,14 @@ const platforms = [
     }
 ];
 
+/*
 const piwikKeys = {
     prod: 'dbf97949-25c3-42c7-8d0e-29c1ae76b93c',
     dev: 'de515d4d-9f61-41a0-ae17-14140d3e36cd'
 };
 
 const activeKey = activeEnv === 'production' ? piwikKeys.prod : piwikKeys.dev;
+*/
 
 const legacyRedirects = {
     '#activity': '/platform-guide/activity/',
@@ -175,6 +177,7 @@ class RootTemplate extends React.Component {
                 <Helmet>
                     <title>{title}</title>
                     <meta name='description' content={description} />
+                    {/*
                     <script type='text/javascript'>
                         {`
                             (function(window, document, script, dataLayer, id) {
@@ -188,6 +191,10 @@ class RootTemplate extends React.Component {
                         {`<iframe src="//mparticle.containers.piwik.pro/${activeKey}/noscript.html" height="0" width="0" style="display:none;visibility:hidden"></iframe>
                         `}
                     </noscript>
+                    */}
+                    <script>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl${activeEnv === 'development' ? '+\'&gtm_auth=PGKiH3iSuvp87PPnfS2BDw&gtm_preview=env-16&gtm_cookies_win=x\'' : ''};f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M3CFQ8D');`}</script>
+                    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charSet="UTF-8" data-domain-script={`1142f80e-497b-42e1-b63d-30e44eff76b3${activeEnv === 'development' ? '-test' : ''}`} />
+                    <script type="text/javascript">{`function OptanonWrapper() { window.dataLayer.push({ event: "OneTrustGroupsUpdated" })};`}</script>`
                 </Helmet>
                 <DocsHeader
                     location={this.props.location} />
