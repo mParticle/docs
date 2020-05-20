@@ -189,12 +189,13 @@ To add an audience output:
 
 2. Click **+ Add {partner} to Setup** and, from the popup dialog, select **Output Audience**.
 
-   ![medium](/images/Platform-Update-Audience-Add-Adobe-042019.png)
+   ![connect output](/images/audience-connect-output.png)
 
 
 3. Complete the **Configuration Settings** dialog. Each partner will require slightly different information. Some require an API Key/Secret/Token, others require you to log in from mParticle using Oauth. See the [Integrations Center](/integrations/) for details for your integration. Give the configuration a name and click **Save**.
 
-   ![small](/images/Platform-Update-Audience-Configuration-Settings-042019.png).
+   ![connect output 2](/images/audience-facebook-configuration.png)
+
 
    You can update your configurations at any time by navigating to **Setup > Outputs**, and selecting **Audience Configurations**.
 
