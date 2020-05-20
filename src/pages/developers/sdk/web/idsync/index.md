@@ -242,17 +242,26 @@ mParticle.Identity.aliasUsers({
 
 See the table below for the supported user identity types strings:
 
-| IdentityType    |   Description
-|---|---|
-| `customerid`     | If you have an internal ID for your customer |
-| `email`          | The user's email address |
-| `other`          | Any other identifier that can contribute to user identification |
-| `other2`          | Any other identifier that can contribute to user identification |
-| `other3`          | Any other identifier that can contribute to user identification |
-| `other4`          | Any other identifier that can contribute to user identification |
-| `facebook`        | The user's Facebook ID |
+| IdentityType               | Description                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| `customerid`               | If you have an internal ID for your customer                                   |
+| `email`                    | The user's email address                                                       |
+| `other`                    | Any other identifier that can contribute to user identification                |
+| `other2`                   | Any other identifier that can contribute to user identification                |
+| `other3`                   | Any other identifier that can contribute to user identification                |
+| `other4`                   | Any other identifier that can contribute to user identification                |
+| `other5`                   | Any other identifier that can contribute to user identification                |
+| `other6`                   | Any other identifier that can contribute to user identification                |
+| `other7`                   | Any other identifier that can contribute to user identification                |
+| `other8`                   | Any other identifier that can contribute to user identification                |
+| `other9`                   | Any other identifier that can contribute to user identification                |
+| `other10`                  | Any other identifier that can contribute to user identification                |
+| `mobile_number`            | The user's mobile number                                                       |
+| `phone_number_2`           | Any other phone number for the user                                            |
+| `phone_number_3`           | Any other phone number for the user                                            |
+| `facebook`                 | The user's Facebook ID                                                         |
 | `facebookcustomaudienceid` | The user's Facebook App User ID that can be retrieved through the Facebook SDK |
-| `google`         | The user's Google ID |
-| `twitter`        | The user's Twitter ID |
-| `microsoft`      | The user's Microsoft ID |
-| `yahoo`         | The user's Yahoo ID |
+| `google`                   | The user's Google ID                                                           |
+| `twitter`                  | The user's Twitter ID                                                          |
+| `microsoft`                | The user's Microsoft ID                                                        |
+| `yahoo`                    | The user's Yahoo ID                                                            |
