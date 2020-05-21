@@ -150,12 +150,13 @@ Files can be sorted into folders in several ways according to how you set **Stor
 * **None** - files will not be stored in date folders
 * **Store data in folders by the event time** - each file will be sorted into a folder according to the timestamp of the first event in the batch
 * **Store data in folders by upload time** - each file will be sorted into a folder according to the upload time of the batch
+* **Store Data in folders by first event time or upload time if no events** - each file will be sorted into a folder according to the timestamp of the first event in the batch, or the upload time of the batch if there are no events
 
 Note that files will be sorted into folders depending on when when the events occurred, or were received by mParticle, but the files themselves are named according to the time the file is created. If there is a delay in forwarding, it is possible that the file and folder timestamps will not match. File/folder timestamp mismatches do not indicate an error.
 
 
 <aside>
-If you see an option for <code>Unselected</code> displayed in the drop-down (or it is selected the first time you use this option). You will be required to change it from this selection. If you do not use another option and try to save with <code>Unselected</code> as your choice, the following message displays, <br><br>"Store Dta in Folders by Date must be set to a value other than 'UNSELECTED'." <br><br>and you will be required to choose another option for this setting.
+If you see an option for <code>Unselected</code> displayed in the drop-down (or it is selected the first time you use this option). You will be required to change it from this selection. If you do not use another option and try to save with <code>Unselected</code> as your choice, the following message displays, <br><br>"Store Data in Folders by Date must be set to a value other than 'UNSELECTED'." <br><br>and you will be required to choose another option for this setting.
 </aside>
 
 ## Configuration Settings
@@ -188,7 +189,7 @@ If you see an option for <code>Unselected</code> displayed in the drop-down (or 
 | Include User Identities | `bool` | True | All| If enabled, user identity information will be forwarded with event batches. |
 | Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
-| Store Data In Folders By Date | `bool` | False | All| If enabled, your data will be stored in an S3 folder according to the chosen method. |
+| Store Data In Folders By Date | `enum` | UNSELECTED | All| If enabled, your data will be stored in an S3 folder according to the chosen method. |
 | Use Compression | `bool` | False | All| If enabled, your data will be compressed in gzip format. |
 | Include Consent State | `bool` | False | All| If enabled, Consent State will be forwarded. See the JSON API reference [here](/developers/server/json-reference/#consent_state) for more detail. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
