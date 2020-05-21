@@ -71,40 +71,53 @@ Simply use `npm install -g @mparticle/cli` to upgrade to the latest version.
 
 ## Configuration
 
-The CLI is configured via an `mp.config.json` file in the root of your project's local file system.
+To perform commands on the CLI, you pass in flags such as authentication credentials or record identifiers. Some of these parameters can be added to an optional configuration file, `mp.config.json`, to be shared between commands or other mParticle applications.
 
-```json
-// mp.config.json
-{
-    "global": {
-        "workspaceId": "XXXXX",
-        "clientId": "XXXXXX",
-        "clientSecret": "XXXXXXXXX"
-    },
-    "planningConfig": {
-        "dataPlanVersionFile": "./path/to/dataPlanVersionFile.json",   //relative or absolute
-    }
-}
+The CLI will automatically search in the current working directory for a valid json filed named `mp.config.file`.
+
+Alternatively, a json file can be passed in with the `--config=/path/to/config` flag.
+
+For example, if you need to store configs for multiple projects, you could store them in a central location and pass in either a relative or absolute path to the cli:
+
+```bash
+$> mp planning:data-plan-versions:fetch --config=~/.myconfigs/custom.config.json
 ```
 
-This configuration file can also share settings between the CLI and other mParticle projects, such as our linting plugins.
+It is recommended to have a single `mp.config.json` file at the root of your project and always run the CLI from the root.  If you are using our data planning linters, you must name your file `mp.config.json` and keep it at the root of your folder.
+
+### Example mp.config.json file
+
+```json
+{
+  "global": {
+    "workspaceId": "XXXXX",
+    "clientId": "XXXXXX",
+    "clientSecret": "XXXXXXXXX"
+  },
+  "planningConfig": {
+    "dataPlanVersionFile": "./path/to/dataPlanVersionFile.json"
+  }
+}
+```
 
 ### global
 
 This contains settings that would pertain to your account credentials and application.
 
--   `workspaceId`: The workspace identifier for your team's workspace
--   `clientId`: A unique Client Identification string provided by your Customer Success Manager
--   `clientSecret`: A secret key provided by your Customer Success Manager
+- `workspaceId`: The workspace identifier for your team's workspace
+- `clientId`: A unique Client Identification string provided by your Customer Success Manager
+- `clientSecret`: A secret key provided by your Customer Success Manager
+
+It is recommended that you always have these three credentials in your configuration as they are used by other Platform API services, such as Data Planning
 
 ### planningConfig
 
-These are configurations pertaining to your project's Data Master resources, such as data plans and versions. `planningConfig` is required if you use our data plan linting tools, which you can learn more about [here](/developers/linting/).
+These are configurations pertaining to your project's Data Master resources, such as data plans and data plan versions. `planningConfig` is required if you use our data plan linting tools, which you can learn more about [here](/developers/linting/). Note that from the UI under Data Master/Plans, the json you download is a specific `data plan version`.
 
--   `dataPlanVersionFile`: Your current data plan version (used in place of `dataPlanFile` and `versionNumber`)
--   `dataPlanId`: The ID of your current Data Plan
--   `dataPlanFile`: Your current data plan file (must be used with `versionNumber` below)
--   `versionNumber`: The Current Version Number for your Data Plan (must be used with `dataPlanFile`)
+ - `dataPlanVersionFile`: A relative or absolute path file to your desired data plan version (used in place of `dataPlanFile` and `versionNumber`)
+ - `dataPlanId`: The ID of your current Data Plan
+ - `dataPlanFile`: A relative or absolute path to your data plan file (must be used with `versionNumber` below)
+ - `versionNumber`: The Current Version Number for your Data Plan (must be used with `dataPlanFile`)
 
 ## Workflow
 
@@ -130,8 +143,8 @@ Both of these methods will internally generate a bearer token on your behalf, as
 
 Credentials Required:
 
--   Workspace ID: [Managing Workspace](/guides/platform-guide/workspaces/#managing-workspaces)
--   Client ID & Client Secret: Please [contact our support team](mailto:support@mparticle.com) for access to your Client ID and Client Secret.
+- Workspace ID: [Managing Workspace](/guides/platform-guide/workspaces/#managing-workspaces)
+- Client ID & Client Secret: In [Managing Workspace](/guides/platform-guide/workspaces/#managing-workspaces), after you click on the specific workspace, there will be a pop up with a Key and Secret. Fill this in as your Client ID and Client Secret.
 
 ### via CLI
 
@@ -152,13 +165,15 @@ For example, to authenticate, make sure the following is in your `mp.config.json
 ```json
 // mp.config.json
 {
-    "global": {
-        "workspaceId": "XXXXX",
-        "clientId": "XXXXXX",
-        "clientSecret": "XXXXXXXXX"
-    }
+  "global": {
+    "workspaceId": "XXXXX",
+    "clientId": "XXXXXX",
+    "clientSecret": "XXXXXXXXX"
+  }
 }
 ```
+
+This configuration file can then be referenced via the cli flag `--config`. Additionally, the cli will search your current working directory for `mp.config.json`.
 
 ## Services
 
