@@ -515,7 +515,8 @@ Now, a product variable forwarded to Adobe will look like:
 | Hier Variables | `Custom Field` | <unset> | All| Mapping of your application's screen view attributes to Adobe hier variables |
 | Product Incrementors | `Custom Field` | <unset> | All| Mapping of your application's custom event names to Adobe product incrementor event numbers |
 | Merchandising Variables| `Custom Field` | <unset> | All| Mapping of your application's event attributes to Adobe product merchandising |
-| Page Specific Product Actions | `Custom Field` | <unset> | iOS, Android | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction`. This is mostly useful for Promotion or Impression events. |
+| Page Specific Product Actions (deprecated) | `Custom Field` | <unset> | iOS, Android | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction`. This is mostly useful for Promotion or Impression events. |
+| Forward as Track State Events | `Custom Field` | <unset> | iOS, Android | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction`. This is mostly useful for Promotion or Impression events. |
 | Attach pageName to non-page view event logging | `bool` | `false` | Web | Attach pageName to non-page view event logging. |
 | Set Global Window Object |  `bool` | `true` | Web | Set the instance of AppMeasurement created by this connection to the global window.s object.
 | Set trackExternalLinks |  `bool` | `false` | Web | Automatically track all exit links.
