@@ -24,11 +24,14 @@ In order to enable mParticle's Facebook event integration, you'll need the follo
 
 * For iOS/tvOS and Android platforms, you'll need your app's Facebook Application ID and Application Secret
 * For the Web platform, you'll need your Facebook Pixel ID
+* For server-to-server Web connections, you'll need your Facebook Pixel ID and Facebook Marketing API Access Token
 
 ## Event Data Mapping
 
-* The iOS/tvOS and Android integrations forward App, App State Transition, Commerce, Screen View and Session Start events.  
-* The Web integration forwards App, Commerce, and Screen View events.
+* The iOS/tvOS and Android integrations forward App, App State Transition, Commerce, Screen View, and Session Start events.
+* The Web integration forwards App, Commerce, Screen View, and Session Start / End events.
+
+### Custom Mappings
 
 mParticle's Facebook integration supports [custom mappings](/guides/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for Facebook. mParticle provides mappings for the following Facebook event types:
 
@@ -40,9 +43,16 @@ mParticle's Facebook integration supports [custom mappings](/guides/platform-gui
 * Added to Wishlist
 * Completed Registration
 * Completed Tutorial
+* Contact
+* Customize Product
+* Donate
+* Find Location
 * Initiated Checkout
+* Lead
+* Page View
 * Purchased
 * Rated
+* Schedule
 * Searched
 * Spent Credits
 * Start Trial
@@ -101,6 +111,8 @@ mp.logProductEvent(MPProduct.Event.ADD_TO_CART, product);
 
 Purchase events logged through mParticle's eCommerce SDK methods will be forwarded to Facebook using Facebook's "Purchased" pre-defined event name.
 
+<aside>For server-to-server Web connections, Facebook requires Purchase events to have valid values for both "value" and "currency". If either of these is invalid or not set, mParticle will log an error to the System Alerts page.</aside>
+
 ### Custom Events
 
 All custom app events, which are logged via mParticle's `logEvent` SDK method, will be forwarded to Facebook as custom app events, using the event name passed to mParticle's `logEvent` SDK method.
@@ -123,22 +135,50 @@ mp.logEvent("battledAnOrc");
 ~~~
 :::
 
-
-
 ### Screen Views
 
 Screen views are forwarded as follows based on platform:
 
-* **iOS/tvOS** and **Android** platforms - mParticle will forward screen views as a 'Viewed Content' event, with the screen name mapped to the 'Content ID' attribute. 
+* **iOS/tvOS** and **Android** platforms - mParticle will forward screen views as a 'Viewed Content' event, with the screen name mapped to the 'Content ID' attribute.
 * **Web** platform - mParticle will forward screen views as a 'PageView' event.
+
+### Web Server-to-Server Fields
+
+There are several fields only accepted by server-to-server Web connections. These fields and the mParticle fields they are set from are listed below:
+
+**Event Fields**
+
+| Facebook Field Name | Description | mParticle Field |
+| --- | --- | --- |
+| `event_source_url` | The browser URL where the event happened. | `Facebook.EventSourceUrl` [custom flag](/developers/server/json-reference/#custom_flags) |
+| `opt_out` | A flag that indicates Facebook should not use this event for ads delivery optimization. | [CCPA Opt Out Status](https://docs.mparticle.com/guides/consent-management/) |
+| Custom Data Fields | Additional data used for ads delivery optimization. | [Custom attributes](https://docs.mparticle.com/developers/server/json-reference/#common-event-data-node-properties)* |
+
+*Custom data fields can also be set via custom mappings or E-Commerce event fields. See the relevant sections for more details.
+
+**User Fields**
+
+| Facebook Field Name | Description | mParticle Field |
+| --- | --- | --- |
+| `fbp` | Facebook Browser ID | `Facebook.BrowserId` [custom flag](/developers/server/json-reference/#custom_flags) |
+| `fbc` | Facebook Click ID | `Facebook.ClickId` [custom flag](/developers/server/json-reference/#custom_flags) |
+
+
+## Configuration Settings
+
+| Setting Name | Data Type | Default Value | Description |
+| --- | --- | --- | --- |
+| Access Token | `string` | <unset> | The Facebook Access Token used to make Marketing API calls. Required for Web |
 
 ## Connection Settings
 
-| Setting Name |  Data Type    | Default Value | Platform | Description |
-| ---|---|---|---|---
+| Setting Name | Data Type | Default Value | Platform | Description |
+| --- |--- | --- | --- | --- |
+| Send Purchase Product Data | `bool` | False | All | If enabled, additional product data will be forwarded for purchase events |
 | Facebook Application ID | `string` | <unset> | iOS, Android, tvOS| The App ID found on your Facebook application's dashboard |
 | Facebook Application Secret | `string` | <unset> | iOS, Android, tvOS| The App Secret found on your Facebook application's dashboard |
-| Pixel ID | `string` | <unset> | Web| Facebook Pixel ID |
-| Send Activate On | `string` | ast | iOS, Android, tvOS| Specifies whether to send Facebook activate and deactivate messages based on mParticle application state transition messages or session start messages |
-| Limit Event and Data Usage | `bool` | False | iOS, Android, tvOS| Sets whether data sent to Facebook should be restricted from being used for purposes other than analytics and conversions, such as targeting ads |
-
+| Send Activate On | `string` | ast | iOS, Android, tvOS | Specifies whether to send Facebook activate and deactivate messages based on mParticle application state transition messages or session start messages |
+| Limit Event and Data Usage | `bool` | False | iOS, Android, tvOS | Sets whether data sent to Facebook should be restricted from being used for purposes other than analytics and conversions, such as targeting ads |
+| Pixel ID | `string` | <unset> | Web | Facebook Pixel ID |
+| Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side |
+| External User Identity Type | `string` | Customer ID | Web | Hash of the User Identity to send to Facebook as External ID |
