@@ -69,6 +69,19 @@ Custom events logged via mParticle's `logEvent` SDK method and their attributes 
 
 Attribution Custom events will be forwarded to Amplitude prefixed with the attribution provider in the event name.  For example, `[Tune] attribution`.  Event Attributes that are included with the event are forwarded to Amplitude in user_properties, also prefixed with the attribution provider.
 
+### Application State Transition Forwarding
+
+If the `Send Application State Transitions` setting is enabled, Application State Transition events will be forwarded to Amplitude as follows:
+
+| Application State Transition | Amplitude event type |
+|-|-|
+| initialized, is_first_run = true | Install |
+| initialized, is_upgrade = true | Upgrade |
+| initialized | Application Initialized |
+| exit | Application Exit |
+| background | Application Background |
+| foreground | Application Foreground |
+
 ## Field Mappings
 
 |Parameter | Amplitude Field  | mParticle Details 
@@ -120,6 +133,7 @@ User Properties | user_properties | All user attributes included with the event.
 | Allow unset user attributes | `bool` | True | All| Allow user attributes to be removed in Amplitude using the $unset operation.
 | Prefix Attribution with Source | `bool` | True | All | If enabled, the attribution source name will be prefixed for attribution events.
 | Include UTM in User Properties | `bool` | default | Web| If enabled, Amplitude will find the standard UTM parameters from either the URL or the browser cookie and set them as user properties. |
-| Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, mParticle will not initialize the full Amplitude integration on the web client. Instead, web data will be forwarded to Amplitude via server-to-server API.
+| Forward Web Requests Server Side |  `bool` | False | Web | If enabled, mParticle will not initialize the full Amplitude integration on the web client. Instead, web data will be forwarded to Amplitude via server-to-server API.
 | Instance Name | `string` | default | Web| The name of the client-side Amplitude instance to use. This should be unique for each Amplitude connection. |
 | Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. |
+| Send Application State Transitions | `bool` | False | All | If enabled, application state transitions will be forwarded to Amplitude
