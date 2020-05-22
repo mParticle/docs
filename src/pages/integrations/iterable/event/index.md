@@ -129,11 +129,15 @@ dependencies {
 
 To learn more about mParticle Kits and how to incorporate them when setting up mParticle's SDK, please review the mParticle Kit documentation:
 - [iOS](/developers/sdk/ios/kits)
-- [Android](developers/sdk/android/kits/)
+- [Android](developers/sdk/android/kits)
 
-### Push notifications
+#### Push notifications
 
-The Iterable Kit is configured to automatically receive push registrations, display incoming push notifications, and track push opens. To setup these capabilities, you'll need to create a push integration in the Iterable UI and provide the name of the integration in the mParticle SDK configuration. See the [Create Push Integrations](/integrations/iterable/event/#3-create-push-integrations) section for more details.
+If your app includes the Iterable mParticle Kit, mParticle passes Iterable push notifications to the Kit for display. However, for this to work, you must first [set up a mobile app and push integration](/integrations/iterable/event/#3-create-push-integrations) (with associated push credentials) in Iterable.
+
+See mParticle's Push Notification documentation for more details:
+* [iOS](/developers/sdk/ios/push-notifications)
+* [Android](/developers/sdk/android/push-notifications)
 
 ## Configuration Settings
 
