@@ -53,6 +53,7 @@ mParticle will forward the following identifiers to Iterable where available:
 * Apple Vendor ID (IDFV)
 * Google Advertising ID (GAID)
 * Android ID
+* mParticle ID
 
 ## Supported Event Types
 
@@ -76,28 +77,63 @@ The Iterable integration allows you to map a custom event to Iterable's [Update 
 
 ## Iterable Kit Integration
 
-mParticle also supports an Iterable Kit integration, which you can use to access Iterable's Deep Linking features. To use this integration, you need to include the Iterable kit in your installation of the mParticle SDK. The kit integration handles only Deep Linking. All other data is still sent server-to-server. The source code for each kit is available on Github:
+Iterable's client-side mParticle Kit enables the following features:
+- User registration with email, Customer ID or MPID
+- Push notifications
+- Rich push notifications (media and action buttons)
+- Client-side event tracking
+- Deep linking
+- In-app messages
+- Mobile Inbox
 
+The Kit automatically handles user registration, push notifications, client-side event tracking, basic in-app messaging, and deep linking by mapping mParticle’s APIs to analogous Iterable APIs. To learn more about these API mappings, you can review the source code:
 - [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-iterable)
 - [Android](https://github.com/mparticle-integrations/mparticle-android-integration-iterable)
 
-To add the Iterable Kit to your iOS or Android app, see the Cocoapods and Gradle examples below, and reference the [Apple SDK](/developers/sdk/ios/getting-started/) and [Android SDK](/developers/sdk/android/getting-started/) guides to read more about kits.
+### Adding the Kit to Your App
 
+#### iOS
+
+To install Iterable's mParticle Kit for iOS:
+- For CocoaPods, add the following dependency to your Podfile:
 :::code-selector-block
-~~~objectivec
-//Sample Podfile
-target '<Your Target>' do
-    pod 'mParticle-iterable', '~> 6'
-end
-~~~
+~~~ruby
+# Sample Podfile
 
-~~~java
-//Sample build.gradle
-dependencies {
-    compile 'com.mparticle:android-iterable-kit:4+'
-}
-~~~   
+pod 'mParticle-iterable', '~> 7.15.10'
+~~~
 :::
+
+- For Carthage, add the following dependency to your Cartfile:
+:::code-selector-block
+~~~
+# Sample Cartfile
+
+github "Iterable/mparticle-apple-integration-iterable" ~> 7.15.10
+~~~
+:::
+
+
+#### Android
+
+To install Iterable's mParticle Kit for Android, add the mParticle Kit dependency to your `build.gradle` file:
+:::code-selector-block
+~~~groovy
+// Sample build.gradle
+
+dependencies {
+    compile 'com.mparticle:android-iterable-kit:5.14.+'
+}
+~~~
+:::
+
+To learn more about mParticle Kits and how to incorporate them when setting up mParticle's SDK, please review the mParticle Kit documentation:
+- [iOS](/developers/sdk/ios/kits)
+- [Android](developers/sdk/android/kits/)
+
+### Push notifications
+
+The Iterable Kit is configured to automatically receive push registrations, display incoming push notifications, and track push opens. To setup these capabilities, you'll need to create a push integration in the Iterable UI and provide the name of the integration in the mParticle SDK configuration. See the [Create Push Integrations](/integrations/iterable/event/#3-create-push-integrations) section for more details.
 
 ## Configuration Settings
 
