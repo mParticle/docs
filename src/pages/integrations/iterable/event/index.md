@@ -131,13 +131,49 @@ To learn more about mParticle Kits and how to incorporate them when setting up m
 - [iOS](/developers/sdk/ios/kits)
 - [Android](developers/sdk/android/kits)
 
-#### Push notifications
+#### Push Notifications
 
 If your app includes the Iterable mParticle Kit, mParticle passes Iterable push notifications to the Kit for display. However, for this to work, you must first [set up a mobile app and push integration](/integrations/iterable/event/#3-create-push-integrations) (with associated push credentials) in Iterable.
 
 See mParticle's Push Notification documentation for more details:
 * [iOS](/developers/sdk/ios/push-notifications)
 * [Android](/developers/sdk/android/push-notifications)
+
+Additional setup:
+* For iOS, pass `UNUserNotificationCenterDelegate` calls to mParticle
+* For Android, add mParticle’s `InstanceIdService`, `MPReceiver`, `MPService` to AndroidManifest.xml
+
+#### Rich Push Notifications
+
+For rich push notification support on iOS, you need to set up a Notification Service Extension. Please refer to the Iterable support documentation on [Advanced iOS Push Notifications](https://support.iterable.com/hc/en-us/articles/360035451931-Advanced-iOS-Push-Notifications-#adding-a-push-notification-extension).
+
+On Android, rich push notifications are automatically supported with the Iterable Kit installed.
+
+#### In-App Notifications
+
+In-app notifications are handled automatically by the bundled Iterable SDK. For more details and customization options, please refer to the Iterable documentation:
+* [In-App Messages on iOS](https://support.iterable.com/hc/en-us/articles/360035536791)
+* [In-App Messages on Android](https://support.iterable.com/hc/en-us/articles/360035537231)
+
+#### Additional Configuration
+
+To handle deep links and custom actions from push notifications and in-app messages, you may need to define a urlDelegate (on iOS) or a urlHandler (on Android) on the `IterableConfig` object.
+
+Whenever you need to pass custom configuration for the Iterable SDK, use the Kit API:
+
+##### iOS
+~~~swift
+    let config = IterableConfig()
+    config.urlDelegate = self
+    MPKitIterable.setCustomConfig(config)
+~~~
+
+##### Android
+~~~java
+    IterableConfig.Builder configBuilder = new IterableConfig.Builder()
+        .setUrlHandler(this);
+    IterableKit.setCustomConfig(configBuilder.build());
+~~~
 
 ## Configuration Settings
 
