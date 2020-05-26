@@ -42,4 +42,4 @@ For additional information, see Leanplum's [audience](https://docs.leanplum.com/
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | App ID | `string` | <unset> | Your app ID issued by Leanplum.
-| API Key | `string` | <unset> | Your API key issued by Leanplum.
+| Secret | `string` | <unset> | Your app secret issued by Leanplum.
