@@ -14,7 +14,7 @@ When you add the integration from the Directory, sign into your Google Ads accou
 
 To send Device ID audiences you will need to provide a unique App ID of the apps for which you collected the ID data:
 * For iOS, the App ID is the 9 digit string that appears at the end of an App Store URL
-* For Android, the ID string is the application's package name 
+* For Android, the ID string is the application's package name
 
 See [Google's Adwords appId reference](https://developers.google.com/adwords/api/docs/reference/v201802/AdwordsUserListService.CrmBasedUserList#appid) for more on the App ID requirement.
 
@@ -22,7 +22,11 @@ See [Google's Adwords appId reference](https://developers.google.com/adwords/api
 
 ### Email
 
-Note that Google Ads can only make use of email addresses that are associated with a Google account, and only addresses ending in `@gmail.com` can be used for Gmail targeting lists. mParticle sends addresses to Google Ads as SHA-256 hashed values. 
+Note that Google Ads can only make use of email addresses that are associated with a Google account, and only addresses ending in `@gmail.com` can be used for Gmail targeting lists. mParticle sends addresses to Google Ads as SHA-256 hashed values.
+
+### Phone Numbers
+
+For a Phone Number audience, mParticle forwards all 3 phone number identities as well as the `$Mobile` user attribute. mParticle sends phone numbers to Google Ads as SHA-256 hashed values.
 
 ### Device ID
 
@@ -30,7 +34,7 @@ For a Device ID audience, mParticle forwards the Apple Advertising Identifier (I
 
 ## Data Processing Notes
 
-* mParticle names User Lists in Google Ads based on the External Name of the audience and the identity type. For example, if you connect an audience named `Remarketing` to Ads and check all three identity types, mParticle will create three audiences called `Remarketing (Email)`, `Remarketing (IDFA)`, and `Remarketing (AAID)`.
+* mParticle names User Lists in Google Ads based on the External Name of the audience and the identity type. For example, if you connect an audience named `Remarketing` to Ads and check all three identity types, mParticle will create four audiences called `Remarketing (Email)`, `Remarketing (Phone)`, `Remarketing (IDFA)`, and `Remarketing (AAID)`.
 * Google Ads usually takes between 6 and 12 hours to populate a list with new members, although it can take longer, up to 48 hours. You are likely to see a status of 'In Progress' on lists that have been updated by mParticle in that time frame.
 * For privacy purposes, Google Ads displays the membership size of a list as `0` if it is below 1000 and also rounds the size to two significant digits - i.e. `13540` becomes `13000`, so the numbers in your mParticle audience will not match your list size in Google Ads.
 * Google Ads requires at least 5000 members to start serving ads to an audience.
@@ -47,10 +51,9 @@ For a Device ID audience, mParticle forwards the Apple Advertising Identifier (I
 |-------------|----------|----------------|-----------------|
 Membership Lifespan | `int`| 30 | The number of days that users remain as part of an audience list after they're added, if they take no further action that renews their membership. A minimum of 0 and a maximum of 540 days are accepted, or enter 10000 to indicate no expiration. |
 Forward Emails | `bool` | `true` | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (Email)" |
+Forward Phone Numbers | `bool` | `true` | If enabled, and any of the user's phone numbers are available, the SHA-256 hash of those phone numbers will be added to the audience "&lt;Audience Name&gt; (Phone)" |
 Forward IDFAs | `bool` | `true` | If enabled, and the user's IDFA is available, it will be added to the audience "&lt;Audience Name&gt; (IDFA)" |
 Forward AAIDs | `bool` | `true` | If enabled, and the user's AAID is available, it will be added to the audience "&lt;Audience Name&gt; (AAID)" |
 iOS AppID | `string` | | A string that uniquely represents the iOS Application from which the data was collected to the Adwords API |
 Android AppID | `string` | | A string that uniquely represents the Android Application from which the data was collected to the Adwords API |
-External Email Identity Type | `enum` | Email | The mParticle User Identity type to forward as an Email to Google Ads
-
-
+External Email Identity Type | `enum` | Email | The mParticle User Identity type to forward as an Email to Google Ads  |
