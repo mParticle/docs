@@ -20,7 +20,7 @@ ShareThis will send user identities and user attributes via event-less requests 
 ### Device Identities
 
 * Apple Advertising ID (IDFA)
-* Google Advertising ID (GAID
+* Google Advertising ID (GAID)
 
 ### User Attributes
 | User Attribute | Type | Description
