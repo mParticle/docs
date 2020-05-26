@@ -86,7 +86,7 @@ Iterable's client-side mParticle Kit enables the following features:
 - In-app messages
 - Mobile Inbox
 
-The Kit automatically handles user registration, push notifications, client-side event tracking, basic in-app messaging, and deep linking by mapping mParticle’s APIs to analogous Iterable APIs. To learn more about these API mappings, you can review the source code:
+The Kit automatically handles user registration, push notifications, basic in-app messaging, and deep linking by mapping mParticle’s APIs to analogous Iterable APIs. To learn more about these API mappings, you can review the source code:
 - [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-iterable)
 - [Android](https://github.com/mparticle-integrations/mparticle-android-integration-iterable)
 
