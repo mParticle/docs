@@ -51,6 +51,7 @@ user_attributes | Object map of string key-value pairs  | Both | optional | A JS
 deleted_user_attributes  | string array | Both  | optional | An array of JSON strings describing previously provided user attributes which should be forgotten.
 user_identities | Object map of string key-value pairs  |Both  |optional | A JSON object of user ID information, such as email address and social IDs.
 partner_identities | Object map of string key-value pairs  |Both  |optional | A JSON object of partner identities.
+integration_attributes | Object maps of string key-value pairs, indexed by module |Both  |optional | A JSON object of integration attributes by module.
 environment | enum string | Both | required | "production" or "development"
 context | object | Both | optional | Data planning and location information
 mpid | long | Both | optional | If known, this is the unique mParticle identifier for the user, calculated based on user and device identities in the batch, according to your [Identity Strategy](https://docs.mparticle.com/guides/idsync/introduction).
@@ -1035,13 +1036,27 @@ The incoming request can fail if:
 - An unregistered partner identity is sent.
 </aside>
 
-### Registering a new Partner Identity
+#### Registering a new Partner Identity
 Before a partner's unique identity can be ingested, it must be registered with mParticle. Partners can register a new identity by either:
   - Contacting mParticle.
   - Updating your Firehose module, if applicable. For more information, see [Firehose -- Partner Identities](https://docs.mparticle.com/developers/partners/firehose/#partner-identities).
 
 The naming convention for these identities is as follows: `PartnerName_IdentityName`.
 An example for mParticle could be: `mParticle_mpid`
+
+## `integration_attributes`
+Integration attributes are unique values associated with a given user, for a given integration. They are generally required for the integration to function properly.
+
+The JSON blob is indexed by `Module ID`, meaning each integration can have its own values:
+~~~json
+"integration_attributes": {
+  "123": {
+    "someIntegrationAttribute":"value"
+  }
+}
+~~~
+
+In order to find out a given integration's ID, you can check the corresponding `URL` from the [mParticle Directory](https://app.mparticle.com/directory).
 
 ## `consent_state`
 
@@ -1190,6 +1205,11 @@ is_historical | string | If true, data was received via the [historical](/develo
   },
   "partner_identities": {
     "partner_id":"1234"
+  },
+  "integration_attributes": {
+    "123": {
+     	"key":"value"
+    }
   },
   "events": [
     {

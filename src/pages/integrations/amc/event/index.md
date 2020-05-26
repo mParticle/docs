@@ -93,13 +93,15 @@ mParticle's Adobe Analytics integration supports Adobe's Marketing Cloud ID Serv
 
 ## Identity Mapping
 
-This integration requires that data be attached to a Marketing Cloud ID (MID). For native integrations, the embedded kit interfaces continually with Adobe's Marketing Cloud ID Service to retrieve an MID for the user and to keep Adobe's record up to date with all available identifiers. On web, this is done by directly invoking Adobe's `visitorAPI.js`.
+This integration requires that data be attached to a Marketing Cloud ID (MID), which is used to send data server-side via Adobe's [Data Insertion API](https://github.com/AdobeDocs/analytics-1.4-apis/blob/master/docs/data-insertion-api/index.md).
 
-This MID is used to send data server-side via Adobe's [Data Insertion API](https://github.com/AdobeDocs/analytics-1.4-apis/blob/master/docs/data-insertion-api/index.md). mParticle will store the MID for each device on the user profile, so data that arrives in mParticle missing this ID can still be enriched with the correct MID and forwarded to Adobe accurately.
+For web and native integrations, mParticle will store the MID for each device in the user's profile. This allows for us to enrich future data with the MID, should it be omitted.
 
 ### Retrieve MID for the current user
 
-In addition to forwarding the MID to mParticle, the Adobe Marketing Cloud Kit also allows you to directly access the current user's MID from your code:
+Depending on the OS, the MID is retrieved in different ways.
+
+For iOS and Android, the embedded `Adobe Marketing Cloud Kit` is able to both retrieve the user's MID, as well as keep Adobe's record up-to-date with all available identifiers.
 
 :::code-selector-block
 ~~~objectivec
@@ -119,7 +121,11 @@ if (adobe != null) {
 ~~~
 :::
 
-On Web, you can retrieve the MID by accessing Adobe's `visitorAPI.js` directly. Since multiple instances can be active on a page at once, you will need to [get an instance](https://marketing.adobe.com/resources/help/en_US/mcvid/mcvid_getinstance.html) using the appropriate Marketing Cloud Organization ID and use the [getMarketingCloudVisitorID() method](https://marketing.adobe.com/resources/help/en_US/mcvid/mcvid-getmcvid.html).
+On Web, you can retrieve the MID by accessing Adobe's `visitorAPI.js` directly. Since multiple instances can be active on a page at once, you will need to [get an instance](https://marketing.adobe.com/resources/help/en_US/mcvid/mcvid_getinstance.html) using the appropriate Marketing Cloud Organization ID and use the [getMarketingCloudVisitorID() method](https://docs.adobe.com/content/help/en/id-service/using/id-service-api/methods/getmcvid.html).
+
+For other OSs -- such as Roku -- the MID will either need to:
+- already be resident within the given user's profile, such that enrichment can occur in the backend.
+- be manually populated via the `integration_attributes` field. For S2S requests, the [JSON Reference Docs](https://docs.mparticle.com/developers/server/json-reference/#integration_attributes) will have more information.
 
 ## Data Mapping
 
