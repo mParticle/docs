@@ -40,7 +40,8 @@ Google Cloud Storage accepts data from all platform types. All event types are s
 | Include User Identities | `bool` | True | All| If enabled, user identity information will be forwarded with event batches. |
 | Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
-| Store Data In Folders By Date | `bool` | False | All| If enabled, data will be stored in a folder by date. |
+| Store Data In Folders By Date (deprecated) | `bool` | False | All| If enabled, data will be stored in a folder by date. |
+| Store Data In Folders By Date | `string` | UNSELECTED | All | If enabled, your data will be stored in a cloud folder according to the chosen method. |
 | Use Compression | `bool` | False | All| If enabled, data will be compressed in gzip format. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
