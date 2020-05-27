@@ -4,7 +4,7 @@ title: Approved Sub-Processors
 
 By default, customers' mParticle instances are hosted and store data in the United States.
 
-Other locations (Australia, EEA) are available at customer request pursuant to our agreement with that customer.
+Other locations (Australia, European Economic Area) are available at customer request pursuant to our agreement with that customer.
 
 The following tables represent the approved sub-processors and their locations for mParticle within each hosting region:
 <br><br>
@@ -24,7 +24,7 @@ The following tables represent the approved sub-processors and their locations f
 | Amazon AWS | The mParticle stack is built and hosted entirely on AWS | Australia |
 | SumoLogic | Provides Error log aggregation | Australia |
 
-<b>European Union:</b>
+<b>European Economic Area:</b>
 
 | Name | Processing | Location |
 | ---- | ---------- | -------- |
