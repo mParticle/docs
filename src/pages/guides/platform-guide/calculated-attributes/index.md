@@ -208,6 +208,7 @@ See a '-' value for a CA? This means it has been calculated but did not find any
 
 ### Audiences
 
-Calculated attributes can be used in the Audience builder by selecting **User > Calculated Attributes**. They will show up as 'string' types at first and will automatically switch to the correct type as they are computed across many users.   
+Calculated attributes can be used in the Audience builder by selecting **User > Calculated Attributes**. They will show up as 'string' types at first and will automatically switch to the correct type as they are computed across many users.  You can build audience criteria with a calculated attribute that is calculating and when the attribute values are completed for each user, their audience membership will be updated.
+
 
 ![](/images/ca-audiences.png)

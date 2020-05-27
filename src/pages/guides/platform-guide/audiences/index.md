@@ -319,7 +319,7 @@ You can download a calculated audience as a CSV file. This is useful if you want
 
 Audience downloads take some time to prepare depending on the volume of users in the audience, ranging from a few minutes up to ~6 hours for extremely large audiences.
 
-Audience downloads are available on Real-time audiences only. To download a Lifetime audience, connect and send it to an infrastructure output like S3 and download it from there.
+Audience downloads are available on Real-time audiences only. To download a Lifetime audience, connect and send it to an infrastructure output, like Amazon S3 via a Kinesis connection, and download it from there.
 
 ### Initiate a download
 
