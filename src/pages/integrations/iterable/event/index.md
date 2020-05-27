@@ -82,7 +82,7 @@ Iterable's client-side mParticle Kit enables the following features:
 - Push notifications
 - Rich push notifications (media and action buttons)
 - Client-side event tracking
-- Deep linking
+- Deeplinking
 - In-app messages
 - Mobile Inbox
 
@@ -150,7 +150,7 @@ In-app notifications are handled automatically by the bundled Iterable SDK. For 
 
 #### Additional Configuration
 
-To handle deep links and custom actions from push notifications and in-app messages, you may need to define a urlDelegate (on iOS) or a urlHandler (on Android) on the `IterableConfig` object.
+To handle deeplinks and custom actions from push notifications and in-app messages, you may need to define a urlDelegate (on iOS) or a urlHandler (on Android) on the `IterableConfig` object.
 
 Whenever you need to pass custom configuration for the Iterable SDK, use the Kit API:
 
