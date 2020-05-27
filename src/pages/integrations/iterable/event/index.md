@@ -4,9 +4,9 @@ title: Event
 
 Iterable is a multi-channel growth marketing and user engagement platform that powers marketing, transactional, and lifecycle campaigns on email, web and mobile.  Iterable requires your application to be collecting email addresses.  This can be done by calling the `setUserIdentity` SDK method.
 
-There are two components to the Iterable event integration. All event forwarding is handled server-side by mParticle. To support Iterable's deeplinking capabilities, you must also include the Iterable Kit as part of your mParticle SDK installation. The embedded kit handles only deeplinking. Even if the kit is included, all event data is forwarded server-side.
+In order to support Iterable's features such as deeplinking, push notifications, in-app notifications, and more, you must also include the Iterable Kit as part of your mParticle SDK installation. See [Iterable Kit Integration](/integrations/iterable/event/#iterable-kit-integration) for the Kit's full feature list and installation instructions.
 
-The Iterable integration supports Android, iOS and Web data.
+The Iterable integration supports Android, iOS and Web data. All event data is forwarded server-side, even if the Iterable Kit is installed.
 
 ## Prerequisites
 
@@ -53,6 +53,7 @@ mParticle will forward the following identifiers to Iterable where available:
 * Apple Vendor ID (IDFV)
 * Google Advertising ID (GAID)
 * Android ID
+* mParticle ID
 
 ## Supported Event Types
 
@@ -76,28 +77,96 @@ The Iterable integration allows you to map a custom event to Iterable's [Update 
 
 ## Iterable Kit Integration
 
-mParticle also supports an Iterable Kit integration, which you can use to access Iterable's Deep Linking features. To use this integration, you need to include the Iterable kit in your installation of the mParticle SDK. The kit integration handles only Deep Linking. All other data is still sent server-to-server. The source code for each kit is available on Github:
+Iterable's client-side mParticle Kit enables the following features:
+- User registration with email, Customer ID or MPID
+- Push notifications
+- Rich push notifications (media and action buttons)
+- Client-side event tracking
+- Deeplinking
+- In-app messages
+- Mobile Inbox
 
+The Kit automatically handles user registration, push notifications, basic in-app messaging, and deeplinking by mapping mParticle’s APIs to analogous Iterable APIs. To learn more about these API mappings, you can review the source code:
 - [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-iterable)
 - [Android](https://github.com/mparticle-integrations/mparticle-android-integration-iterable)
 
-To add the Iterable Kit to your iOS or Android app, see the Cocoapods and Gradle examples below, and reference the [Apple SDK](/developers/sdk/ios/getting-started/) and [Android SDK](/developers/sdk/android/getting-started/) guides to read more about kits.
+### Adding the Kit to Your App
 
-:::code-selector-block
-~~~objectivec
-//Sample Podfile
-target '<Your Target>' do
-    pod 'mParticle-iterable', '~> 6'
-end
+#### iOS
+
+To install the Iterable Kit for iOS:
+- For CocoaPods, add the following dependency to your Podfile:
+~~~ruby
+# Sample Podfile
+
+pod 'mParticle-iterable', '~> 7.15.10'
 ~~~
 
-~~~java
-//Sample build.gradle
+- For Carthage, add the following dependency to your Cartfile:
+~~~
+# Sample Cartfile
+
+github "Iterable/mparticle-apple-integration-iterable" ~> 7.15.10
+~~~
+
+#### Android
+
+To install the Iterable Kit for Android, add the Kit dependency to your `build.gradle` file:
+~~~groovy
+// Sample build.gradle
+
 dependencies {
-    compile 'com.mparticle:android-iterable-kit:4+'
+    compile 'com.mparticle:android-iterable-kit:5.14.+'
 }
-~~~   
-:::
+~~~
+
+To learn more about mParticle Kits and how to incorporate them when setting up mParticle's SDK, please review the mParticle Kit documentation:
+- [iOS](/developers/sdk/ios/kits)
+- [Android](/developers/sdk/android/kits)
+
+#### Push Notifications
+
+If your app includes the Iterable mParticle Kit, mParticle passes Iterable push notifications to the Kit for display. However, for this to work, you must first [set up a mobile app and push integration](/integrations/iterable/event/#3-create-push-integrations) (with associated push credentials) in Iterable.
+
+See mParticle's Push Notification documentation for more details:
+* [iOS](/developers/sdk/ios/push-notifications)
+* [Android](/developers/sdk/android/push-notifications)
+
+Additional setup:
+* For iOS, pass `UNUserNotificationCenterDelegate` calls to mParticle
+* For Android, add mParticle’s `InstanceIdService`, `MPReceiver`, `MPService` to AndroidManifest.xml
+
+#### Rich Push Notifications
+
+For rich push notification support on iOS, you need to set up a Notification Service Extension. Please refer to the Iterable support documentation on [Advanced iOS Push Notifications](https://support.iterable.com/hc/en-us/articles/360035451931-Advanced-iOS-Push-Notifications-#adding-a-push-notification-extension).
+
+On Android, rich push notifications are automatically supported with the Iterable Kit installed.
+
+#### In-App Notifications
+
+In-app notifications are handled automatically by the bundled Iterable SDK. For more details and customization options, please refer to the Iterable documentation:
+* [In-App Messages on iOS](https://support.iterable.com/hc/en-us/articles/360035536791)
+* [In-App Messages on Android](https://support.iterable.com/hc/en-us/articles/360035537231)
+
+#### Additional Configuration
+
+To handle deeplinks and custom actions from push notifications and in-app messages, you may need to define a urlDelegate (on iOS) or a urlHandler (on Android) on the `IterableConfig` object.
+
+Whenever you need to pass custom configuration for the Iterable SDK, use the Kit API:
+
+##### iOS
+~~~swift
+    let config = IterableConfig()
+    config.urlDelegate = self
+    MPKitIterable.setCustomConfig(config)
+~~~
+
+##### Android
+~~~java
+    IterableConfig.Builder configBuilder = new IterableConfig.Builder()
+        .setUrlHandler(this);
+    IterableKit.setCustomConfig(configBuilder.build());
+~~~
 
 ## Configuration Settings
 

@@ -55,6 +55,7 @@ The following Kit integrations can receive Push Notifications:
 * [Leanplum](/integrations/leanplum/event/#kit-integration)
 * [Localytics](/integrations/localytics/event/#push-notifications)
 * [Urban Airship](/integrations/urbanairship/event/#3-push-notifications)
+* [Iterable](/integrations/iterable/event/#iterable-kit-integration)
 
 Push Notifications from any of these partners will be displayed by the relevant kit instance. Note that you will need to upload your APNs Push SSL certificate to any providers you use for Push Notifications. See the docs for each integration for details.
 
