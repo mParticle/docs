@@ -220,7 +220,7 @@ const Home = (props) => (
                                 </p>
                                 <OffsiteButton
                                     text='Explore Demo Now'
-                                    url='https://demo.mparticle.com' />
+                                    url='https://demo.mparticle.com/?utm_source=docs' />
                             </div>
                         </div>
                     </div>
