@@ -1072,7 +1072,9 @@ name | `string` | Optional parameter to filter by name.
         "event_name": "Purchase",
         "attribute_name": "Total Amount",
         "event_type": "commerce_event",
-        "custom_event_type": "purchase"
+        "custom_event_type": "purchase",
+        "attribute_category": "product_attribute",
+        "use_product_quantity": true
       },
       "conditions": [
         {
@@ -1103,7 +1105,9 @@ name | `string` | Optional parameter to filter by name.
         "event_name": "Purchase",
         "attribute_name": "Total Amount",
         "event_type": "commerce_event",
-        "custom_event_type": "purchase"
+        "custom_event_type": "purchase",
+        "attribute_category": "product_attribute",
+        "use_product_quantity": true
       },
       "conditions": null,
       "calculation_type": "sum",
@@ -1162,7 +1166,9 @@ curl \
         "event_name": "Add To Cart",
         "attribute_name": null,
         "event_type": "commerce_event",
-        "custom_event_type": "add_to_cart"
+        "custom_event_type": "add_to_cart",
+        "attribute_category": "product_attribute",
+        "use_product_quantity": true
       },
       "conditions": [],
       "calculation_type": "count",
@@ -1285,6 +1291,21 @@ curl \
                 "consent_denied",
                 null
               ]
+            },
+            "attribute_category": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "event_attribute",
+                "product_attribute",
+                "promotion_attribute",
+                null
+              ]
+            },
+            "use_product_quantity": {
+              "type": "bool",
             },
             "conditions": {
               "type": "array",
