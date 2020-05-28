@@ -429,17 +429,26 @@ See the table below and the complete [API reference](/developers/sdk/ios/appledo
 
 | MPUserIdentity    |   Description
 |---|---|
-| `MPUserIdentityCustomerId`     | If you have an internal ID for your customer |
-| `MPUserIdentityEmail`          | The user's email address |
-| `MPUserIdentityOther`          | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther2`          | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther3`          | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther4`          | Any other identifier that can contribute to user identification |
-| `MPUserIdentityFacebook`        | The user's Facebook ID |
-| `MPUserIdentityFacebookCustomAudienceId` | The user's Facebook App User ID that can be retrieved through the Facebook SDK |
-| `MPUserIdentityGoogle`         | The user's Google ID |
-| `MPUserIdentityTwitter`        | The user's Twitter ID |
-| `MPUserIdentityMicrosoft`      | The user's Microsoft ID |
-| `MPUserIdentityYahoo`         | The user's Yahoo ID |
+| `MPUserIdentityCustomerId`                 | If you have an internal ID for your customer |
+| `MPUserIdentityEmail`                      | The user's email address |
+| `MPUserIdentityOther`                      | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther2`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther3`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther4`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther5`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther6`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther7`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther8`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther9`                     | Any other identifier that can contribute to user identification |
+| `MPUserIdentityOther10`                    | Any other identifier that can contribute to user identification |
+| `MPUserIdentityMobileNumber`               | The user's mobile number |
+| `MPUserIdentityPhoneNumber2`               | Any other phone number for the user |
+| `MPUserIdentityPhoneNumber3`               | Any other phone number for the user |
+| `MPUserIdentityFacebook`                   | The user's Facebook ID |
+| `MPUserIdentityFacebookCustomAudienceId`   | The user's Facebook App User ID that can be retrieved through the Facebook SDK |
+| `MPUserIdentityGoogle`                     | The user's Google ID |
+| `MPUserIdentityTwitter`                    | The user's Twitter ID |
+| `MPUserIdentityMicrosoft`                  | The user's Microsoft ID |
+| `MPUserIdentityYahoo`                      | The user's Yahoo ID |
 
 
