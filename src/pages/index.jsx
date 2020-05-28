@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { routePropTypes } from '../utils/routes';
 import HeaderFooterLayout from '../layouts/headerfooter';
+import OffsiteButton from '../components/OffsiteButton/offsiteButton';
 import './_home.less';
 
 const DOMORETILESROW = [
@@ -217,9 +218,9 @@ const Home = (props) => (
                                     can do more with your data without the
                                     hassle of complex integrations.
                                 </p>
-                                <Link to='general/what-is-mparticle/'>
-                                    <span className='view-all'>Take a tour</span>
-                                </Link>
+                                <OffsiteButton
+                                    text='Explore Demo Now'
+                                    url='https://demo.mparticle.com' />
                             </div>
                         </div>
                     </div>

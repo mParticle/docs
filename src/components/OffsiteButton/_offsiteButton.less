@@ -1,0 +1,34 @@
+@import '../../styles/_colors';
+@import '../../styles/_icons';
+@import '../../styles/_utils.less';
+
+.offsite-button {
+  width: 180px;
+  height: 48px;
+  background-color: @mp-mint;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: normal;
+  color: @mp-darkgrey-bodycopy;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  align-items: center;
+  border: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: @mp-mint-light;
+  }
+
+  .icon {
+    .icon-image(@icon-arrow-diagonal-up-right-black);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+  }
+}
