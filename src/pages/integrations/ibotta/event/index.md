@@ -14,9 +14,17 @@ The Ibotta integration supports the iOS and Android platform.
 
 To set up the Ibotta integration, you will need your Ibotta API Key.
 
-## Supported User Identities
+## Supported Identities
 
-mParticle will forward the following IDs to Ibotta:
+### User Identities
+
+mParticle will forward the following User IDs to Ibotta:
+
+* Email Address
+
+### Device Identities
+
+mParticle will forward the following Device IDs to Ibotta:
 
 * GAID (Google Advertising ID)
 * IDFA (Apple Advertising ID)
