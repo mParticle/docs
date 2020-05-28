@@ -375,19 +375,25 @@ MParticle.getInstance()?.Identity()?.removeIdentityStateListener(listener)
 
 See the table below and the complete [API reference](https://docs.mparticle.com/developers/sdk/android/javadocs/com/mparticle/MParticle.IdentityType.html) for supported user identity types:
 
-| IdentityType    |   Description
-|---|---|
-| `CustomerId`     | If you have an internal ID for your customer |
-| `Email`          | The user's email address |
-| `Other`          | Any other identifier that can contribute to user identification |
-| `Other2`          | Any other identifier that can contribute to user identification |
-| `Other3`          | Any other identifier that can contribute to user identification |
-| `Other4`          | Any other identifier that can contribute to user identification |
-| `Facebook`        | The user's Facebook ID |
+| IdentityType               | Description                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| `CustomerId`               | If you have an internal ID for your customer                                   |
+| `Email`                    | The user's email address                                                       |
+| `Other`                    | Any other identifier that can contribute to user identification                |
+| `Other2`                   | Any other identifier that can contribute to user identification                |
+| `Other3`                   | Any other identifier that can contribute to user identification                |
+| `Other4`                   | Any other identifier that can contribute to user identification                |
+| `Other5`                   | Any other identifier that can contribute to user identification                |
+| `Other6`                   | Any other identifier that can contribute to user identification                |
+| `Other8`                   | Any other identifier that can contribute to user identification                |
+| `Other8`                   | Any other identifier that can contribute to user identification                |
+| `Other9`                   | Any other identifier that can contribute to user identification                |
+| `Other10`                  | Any other identifier that can contribute to user identification                |
+| `MobileNumber`             | The user's mobile number                                                       |
+| `PhoneNumber2`             | Any other phone number for the user                                            |
+| `PhoneNumber3`             | Any other phone number for the user                                            |
 | `FacebookCustomAudienceId` | The user's Facebook App User ID that can be retrieved through the Facebook SDK |
-| `Google`         | The user's Google ID |
-| `Twitter`        | The user's Twitter ID |
-| `Microsoft`      | The user's Microsoft ID |
-| `Yahoo`         | The user's Yahoo ID |
-
-
+| `Google`                   | The user's Google ID                                                           |
+| `Twitter`                  | The user's Twitter ID                                                          |
+| `Microsoft`                | The user's Microsoft ID                                                        |
+| `Yahoo`                    | The user's Yahoo ID      
