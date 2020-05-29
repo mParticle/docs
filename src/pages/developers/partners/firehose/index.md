@@ -130,7 +130,7 @@ All users and data in the mParticle platform are associated with a set of device
 
 If you mark any of these IDs as `required`, only users and their associated data that **contain at least 1** of these IDs will be sent to your integration.
 
-You can also easily configure that mParticle hash each of these identities in the outgoing payload, using the `encoding` field. Supported encoding types: `RAW`, `MD5`, `SHA1`, and `SHA256`
+You can also easily configure that mParticle hash each of these identities in the outgoing payload, using the `encoding` field. Supported encoding types: `RAW`, `MD5`, `SHA1`, and `SHA256`, and all hashed values are lowercased before hashing.
 
 #### Partner Identities
 
