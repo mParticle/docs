@@ -100,7 +100,7 @@ List | Unique List | Comma separated list of dynamic values; maximum of 100. | `
 
 All calculation speeds here are *after* the values have been initialized. Setting the date range to 'within the last' will cause delayed calculations for all calculation types.
 
-## Delayed Forwarding
+## Forwarding
 
 ![](/images/ca-delayed-flow.png)
 
@@ -124,6 +124,10 @@ The following date ranges are supported:
 * **Within the Last**: limit calculations to the window of X days or weeks ago to now.  For example, most frequent product categories viewed over the last 30 days. Using this date range will always produce
 * **Since**: limit calculations to the window of: a set start date to now. For example, number of orders made since Jan 1st of 2020.
 * **All Time**: Do not limit calculations by date range; use all available data.
+
+<aside>
+Date ranges that include large volumes of data (eg All Time) may take some time to initialize before updated values appear.
+</aside>
 
 ## Create a Calculated Attribute
 
