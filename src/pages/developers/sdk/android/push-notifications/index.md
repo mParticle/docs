@@ -212,12 +212,12 @@ MParticle.getInstance().logNotificationOpened(intentObject);
 
 The following Kit integrations can receive Push Notifications:
 
-* [Braze (formerly Appboy)](/integrations/braze/event/#kit-integration)
+* [Braze](/integrations/braze/event/#kit-integration)
+* [Iterable](/integrations/iterable/event/)
 * [Kahuna](/integrations/kahuna/event/)
 * [Leanplum](/integrations/leanplum/event/#kit-integration)
 * [Localytics](/integrations/localytics/event/#push-notifications)
 * [Urban Airship](/integrations/urbanairship/event/#3-push-notifications)
-* [Iterable](/integrations/iterable/event/#iterable-kit-integration)
 
 Push Notifications from any of these partners will be displayed by the relevant kit instance. Note that you will need to provide your Server Key to the partner in order to send Push Notifications. See the docs for each integration for further details.
 

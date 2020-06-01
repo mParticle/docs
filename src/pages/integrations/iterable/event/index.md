@@ -2,47 +2,35 @@
 title: Event
 ---
 
+
+[Iterable](https://www.iterable.com) makes consumer growth marketing and user engagement simple. With Iterable, marketers send the right message, to the right device, at the right time.
+
 Iterable is a multi-channel growth marketing and user engagement platform that powers marketing, transactional, and lifecycle campaigns on email, web and mobile.  Iterable requires your application to be collecting email addresses.  This can be done by calling the `setUserIdentity` SDK method.
 
 In order to support Iterable's features such as deeplinking, push notifications, in-app notifications, and more, you must also include the Iterable Kit as part of your mParticle SDK installation. See [Iterable Kit Integration](/integrations/iterable/event/#iterable-kit-integration) for the Kit's full feature list and installation instructions.
 
 The Iterable integration supports Android, iOS and Web data. All event data is forwarded server-side, even if the Iterable Kit is installed.
 
+
+## Data Processing Notes
+Iterable will not accept data more than 24 hours old.
+
 ## Prerequisites
 
 In order to forward events to Iterable, you must have an account with Iterable.
 
-### 1. Sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login)
-
-### 2. Create your Iterable API keys
-
-a. Select Integrations -> API Keys from the left navigation menu.
-
-![Iterable APIKEYS](/images/iterable-apikeys1.png)
-
-b. Click the Create New API Key button
-
-c. Select to create a key of type Standard
-
-d. Click Create
-
-![Iterable Create API Keys](/images/iterable-create-apikeys1.png)
-
-d. Save the value in the Key column of the table.  This value is need to configure Iterable in the mParticle Service Integration.
-
-![Iterable Key listing](/images/iterable-keys-list1.png)
+1. Sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login)
+2. Create your Iterable API keys by selecting Integrations -> API Keys
+3. Click the Create New API Key button
+4. Select to create a key of type [Mobile](https://support.iterable.com/hc/en-us/articles/360035018152-Iterable-s-iOS-SDK-#_5-create-a-mobile-api-key-in-iterable)
+5. Click Create
+6. Save the value in the Key column of the table.  This value is needed to configure Iterable in mParticle.
 
 ### 3. Create Push Integrations
-If you will be sending push registration events, you will need to provide the Iterable Push Integration names as part of the mParticle configuration.  This can be done from the Iterable platform.  
+If you will be sending push registration events, you will need to provide the Iterable Push Integration names as part of the mParticle configuration.  This can be done from the Iterable platform:
 
-a. Select Push Integrations -> Mobile Push from the left navigation menu.  
-b. Click Add Push Integration and enter the push integration name and platform.  
-c. Depending on the platform selected, you will need to enter additional parameters:
-
-* For GCM, you will need to enter your API Key
-* For APNS and APNS Sandbox, you will need to enter your app certificate.
-
-![Iterable Push Integration](/images/iterable-create-push-integration1.png)
+* [Setting up iOS Push Notifications](https://support.iterable.com/hc/en-us/articles/115000315806#_4-create-a-mobile-app-in-iterable)
+* [Setting up Android Push Notifications](https://support.iterable.com/hc/en-us/articles/115000331943#_2-create-a-mobile-app-in-iterable)
 
 ## Supported User Identities
 

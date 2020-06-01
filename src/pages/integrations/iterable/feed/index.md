@@ -2,7 +2,7 @@
 title: Feed
 ---
 
-Iterable makes consumer growth marketing and user engagement simple. With Iterable, marketers send the right message, to the right device, at the right time.
+[Iterable](https://www.iterable.com) makes consumer growth marketing and user engagement simple. With Iterable, marketers send the right message, to the right device, at the right time.
 
 ## Input Data Details
 
