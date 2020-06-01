@@ -42,18 +42,22 @@ One of the key features of Mixpanel is funnel tracking, this feature requires a 
 
 mParticle manages this process using its [IDSync feature](/guides/idsync/introduction). IDSync gives you granular control over how user profiles are managed. To support IDSync, mParticle maintains a hierarchy of different ID types.
 
-In Mixpanel, users have only one primary ID: the `Distinct ID`. A traditional Mixpanel implementation, using the Mixpanel SDK, manages sign-up funnels by using the following process:
+A traditional Mixpanel implementation, using the Mixpanel SDK, manages sign-up funnels by using the following process:
 
 1. When a user first downloads your app, the `Distinct ID` is set using a [default anonymous device id](https://help.mixpanel.com/hc/en-us/articles/115004509426) (Apple Advertising ID for iOS, a random GUID for Android, a Cookie ID for Web).
-1. When the user creates an account, a one-time `Alias` method is called with the new User ID. The `Alias` method ties the original Distinct ID (an anonymous device ID) and the new Distinct ID (a unique User ID) together in Mixpanel. 
+2. When you know the identity of the current user, typically after log-in or sign-up, you call Mixpanel's `identify` method. Mixpanel recommends against using identify for anonymous visitors to your site. 
 
-**If this process is not followed correctly, funnel tracking won't be possible, as Mixpanel will see the two Distinct IDs as two completely separate users.**
+If your project has Mixpanel's [ID Merge](https://help.mixpanel.com/hc/en-us/articles/360039133851#enable-id-merge) feature enabled, the call to `identify` will connect pre- and post-authentication events when appropriate.
+
+If your project does not have ID Merge enabled, `identify` will change the user's local distinct_id to the unique ID you pass. Events tracked prior to authentication will not be connected to the same user identity. If ID Merge is disabled,  Alias can be used to tie the original Distinct ID (an anonymous device ID) and the new Distinct ID (a unique User ID) together in Mixpanel. 
+
+**If this process is not followed correctly, funnel tracking won’t be possible, as Mixpanel will see the two Distinct IDs as two completely separate users.**
 
 If you wish to use Mixpanel's funnel tracking features, you have two options for implementing with mParticle:
 
 ### Option 1 - Use mParticle ID as the Distinct ID
 
-_This option is recommended for new implementations._ This option bypasses Mixpanel's Alias feature completely, and lets your Mixpanel user profiles mirror those maintained by mParticle. This option lets your mParticle Identity strategy take care of aliasing for you, before your data ever reaches Mixpanel. 
+_This option is recommended for new implementations._ This option lets your Mixpanel user profiles mirror those maintained by mParticle. This option lets your mParticle Identity strategy take care of aliasing for you, before your data ever reaches Mixpanel. 
 
 For this to work, you need to have selected an Identity Strategy that supports funnel tracking, such as the [Profile Conversion Strategy](http://docs.mparticle.com/guides/idsync/profile-conversion-strategy). If you use the Profile Conversion Strategy and mParticle's `Customer ID` as your logged-in ID type, a sign-up flow works as follows:
 
@@ -65,13 +69,13 @@ To use this option, set the **External Identity Type** to `mParticle ID` in the 
 ### Option 2 - use mParticle's 'Alias' identity type
 
 <aside>
-This approach requires specific client-side code to support your Mixpanel integration.
+This approach requires specific client-side code to support your Mixpanel integration. You should only use this option if you are not using an [mParticle Identity Strategy](https://docs.mparticle.com/guides/idsync) that supports [user continuity](https://docs.mparticle.com/guides/idsync/use-cases/#user-continuity) and are also not using Mixpanel's ID Merge feature.
 </aside>
 
-To use this option, you must set the **External Identity Type** in the [Configuration Settings](#configuration-settings) to the Identity Type you are using to identify known users. For most apps this will be `Customer ID` or `Email`, but you can also choose an `Other` identity type. Using Customer ID as an example, the sign-up flow works as follows:
+To use this option, you must set the **External Identity Type** in the [Configuration Settings](#configuration-settings) to the Identity Type you are using to identify known users in mParticle. For most apps this will be `Customer ID` or `Email`, but you can also choose an `Other` identity type. Using Customer ID as an example, the sign-up flow works as follows:
 
 1. When a user first downloads your app, your chosen External Identity Type will not yet be available, so mParticle will fall back to forwarding event data to Mixpanel with a device ID mapped to the Distinct ID.
-2. When the user creates an account, and the Customer ID becomes available, you must _FIRST_ set the value as mParticle's `alias` identity type. This is a mostly-deprecated identity type now used only to support Mixpanel. 
+2. When the user creates an account, and the Customer ID becomes available, you must _FIRST_ set the value as mParticle's `alias` identity type. The `alias` identity type in mParticle is only used to support this particular configuration with Mixpanel. 
 
  :::code-selector-block
  ~~~java
