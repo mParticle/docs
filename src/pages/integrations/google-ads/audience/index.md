@@ -4,7 +4,7 @@ title: Audience
 
 Track purchases, signups and conversions from [Google Ads](https://ads.google.com/) and create [Customer Match](https://support.google.com/adwords/answer/6379332?hl=en-GB&ref_topic=6296507) lists for targeting.
 
-This integration utilizes Google's [Remarketing and Audience Targeting API](https://developers.google.com/Ads/api/docs/guides/remarketing).
+This integration utilizes Google's [Remarketing and Audience Targeting API](https://developers.google.com/adwords/api/docs/guides/remarketing).
 
 ## Prerequisites
 
