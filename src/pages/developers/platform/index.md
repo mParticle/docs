@@ -2105,6 +2105,9 @@ ScreenViewAttribute | An attribute of a screen view. |
 UserIdentity | A user identity type. |
 Commerce | A commerce event. |
 CommerceAttribute | An attribute of a commerce event. |
+All_User_Attributes | Used to toggle on/off all user attributes. |
+All_Workspace_User_Attributes | Used to toggle on/off all workspace level user attributes. |
+All_Account_User_Attributes | Used to toggle on/off all account level user attributes, if this feature is enabled. |
 
 ##### Supported User Identity Types
 
