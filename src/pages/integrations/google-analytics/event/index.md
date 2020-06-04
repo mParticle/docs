@@ -202,7 +202,7 @@ You can associate Google Analytics custom flags with an event via the [Custom Fl
 
 mParticle Custom Flag | Google Analytics Parameter
 --------------------- | --------------------------
-Google.Category | ec 
+Google.Category | ec
 Google.HitType | t
 Google.Label | el
 Google.NonInteraction | in
@@ -242,9 +242,9 @@ mParticle maps logged events to Google Analytic's event structure as follows:
  Google Analytics's Event Field| mParticle Event |
 ----------------- | -------------------------
 Event Category| Google.Category custom flag if present, mParticle SDK **$Category** attribute if present, otherwise EventType. |
-Event Action| EventName 
-Event Label| Google.Label custom flag if present, mParticle SDK **label** attribute if present, otherwise it is not sent with the event | 
-Event Value| Google.Value custom flag if present, mParticle SDK **value** attribute if present. If the event value is not an integer then mParticle will disregard and not forward to Google Analytics.| 
+Event Action| EventName
+Event Label| Google.Label custom flag if present, mParticle SDK **label** attribute if present, otherwise it is not sent with the event |
+Event Value| Google.Value custom flag if present, mParticle SDK **value** attribute if present. If the event value is not an integer then mParticle will disregard and not forward to Google Analytics.|
 
 ### Screen Tracking
 
@@ -304,10 +304,10 @@ On a logged event, if eventLength is > 0, mParticle will forward the event to Go
 
  Google Analytics Attribute Name | Google Analytics Parameter | mParticle Event |
 ------------- | ----------------- | -----------------
-User Timing Category | utc | Category attribute whenever present; otherwise EventType | 
+User Timing Category | utc | Category attribute whenever present; otherwise EventType |
 User Timing Time | utt | Set as the value of eventLength |
-User Timing Value | utv | EventName | 
-User Timing Label | utl | Only set if the label attribute is sent with the event | 
+User Timing Value | utv | EventName |
+User Timing Label | utl | Only set if the label attribute is sent with the event |
 
 Since mParticle sends the data as two different hit types, two URLs are sent. For example, an event called "Update Profile" with eventLength = 1914 ms will trigger the following two URLs being sent to Google Analytics.
 
@@ -322,10 +322,10 @@ On web, a user timing event is sent to Google Analytics when a custom flag of 'G
 
  Google Analytics Attribute Name | Google Analytics Parameter | mParticle Event |
 ------------- | ----------------- | -----------------
-User Timing Category | utc | Custom flag 'Google.Category'; otherwise EventType | 
+User Timing Category | utc | Custom flag 'Google.Category'; otherwise EventType |
 User Timing Time | utt | Custom flag 'Google.UserTiming' |
 User Timing Value | utv | EventName (not required on Commerce events, as the mParticle SDK sets defaults for Commerce Event EventNames) |
-User Timing Label | utl | Custom flag of 'Google.Label' (Optional) | 
+User Timing Label | utl | Custom flag of 'Google.Label' (Optional) |
 
 Similar to mobile, when you send a User Timing event, a regular event hit is sent as well. The following is an example that shows how an event logged to mParticle will map to both hit types:
 ```
@@ -342,23 +342,23 @@ will map the following query parameter values to Google Analytics:
 
  GA User Timing Event Parameter | GA Event Parameter | Value |
 ------------- | ----------------- | -----------------
-utc | ec | 'Profile' (would default to 'Navigation' in this example if Google.Category was not included) | 
+utc | ec | 'Profile' (would default to 'Navigation' in this example if Google.Category was not included) |
 utt | -- | 1914 |
-utv | ea | 'Update Profile' | 
-utl | el | 'Foo-label' | 
+utv | ea | 'Update Profile' |
+utl | el | 'Foo-label' |
 
 ### Campaign User Attribute Mapping
 
 To handle Campaign Parameters, mParticle will forward user attributes to Google Analytics as noted below.
 
-User Attribute | Google Analytics Mapping | Description | 
+User Attribute | Google Analytics Mapping | Description |
 |---|---|---|
  $utm_content | cc | Campaign Content |
  $campaign_id | ci | Campaign ID |
  $utm_term | ck | Campaign Keyword |
  $utm_medium | cm | Campaign Medium	|
  $utm_campaign | cn | Campaign Name |
-$utm_source | cs | Campaign Source | 
+$utm_source | cs | Campaign Source |
 $gclid| gclid | Google AdWords ID |
 
 
@@ -380,7 +380,7 @@ $gclid| gclid | Google AdWords ID |
 | Hash Customer ID | `bool` | False | All| If true, a hashed Customer ID, when available, will be forwarded as User ID |
 | Send User IP Address | `bool` | False | All| If enabled, the user's IP address will be forwarded. |
 | Enable Enhanced Ecommerce | `bool` | False | All| Use this setting if you have enhanced ecommerce enabled in your Google Analytics account |
-| Send Advertising IDs | `bool` | True | All| Enable this setting if you want mParticle to send Google Ad IDs and IDFAs to Google Analytics. |
+| Send Advertising IDs | `bool` | True | All| Enable this setting if you want mParticle to send Google Ad IDs, IDFAs, and Microsoft Ad IDs to Google Analytics. |
 | Allow Legacy CID Format | `bool` | False | All | Allow the legacy CID format to be sent through as-is. The legacy format being "X.Y", where X and Y are 32-bit integers.
 | Late Event Action | `string` | Send | All| Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |
 | Custom dimensions | `Custom Field` | <unset> | All| Allows you to map your mParticle custom dimensions to the corresponding custom dimensions setup in Google Analytics. |
