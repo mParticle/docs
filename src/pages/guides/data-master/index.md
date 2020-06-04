@@ -98,11 +98,11 @@ For Data Points, the stats view shows two important groups of statistics for a s
 
 A Data Plan is a set of expectations about the extent and shape of your data collected with mParticle. A plan is composed of the following elements:
 
-- **Name**: a descriptive label for the plan. Keep in mind several teams may reference this name and share the plan if you choose. Plans may be renamed after they are created.
-- **ID**: a URL-safe slug. **This value will never change** and is automatically generated based on the original plan name. This ID will be used by your teams to refer to the plan in their code, as they send data into mParticle.
-- **Version**: an integer value. You can freely create new versions of a plan as you evolve your schema.
-- **Description**: an optional freeform field to describe the plan
-- **Data Points**: a list encompassing all of the data you expect to receive. Any event received that does not match a data point will result in a violation.
+- **Name**: a descriptive label for the plan. Keep in mind several teams may reference this name and share the plan. Plans may be renamed after they are created.
+- **ID**: a URL-safe slug. **This value will never change** and is automatically generated based on the original plan name. The ID will be used by your teams to refer to the plan in their code when they send data into mParticle.
+- **Version (Optional)**: an integer value. You can create new versions of a plan as you evolve your schema. When the version is omitted the latest active version in an environment will be chosen.
+- **Description (Optional)**: an optional freeform field to describe the plan
+- **Data Points**: a list encompassing all of the data (events, event attributes, user attributes, and user identites) you expect to receive.
 
 #### Data Planning API
 
@@ -116,15 +116,19 @@ Navigate to the [Data Planning API guide](/developers/dataplanning-api) for more
 
 ### Getting Started
 
-To drive value from Data Plans, you can follow a simple three step process:
+To start using Data Plans, you can follow these steps:
 
 1. **Create** a Data Plan that captures your expectations for incoming data.
-1. **Activate** your plan to start verifying incoming data against your expectations. Note that you will need a developer to complete this step.
+1. **Activate** your plan to start verifying incoming data against your expectations. 
+1. **Validate** your incoming data with the expectations you've defined in your plan. You'll need a developer to complete this step.
 1. **Monitor** your event stream over time to measure and continuously improve the quality of your data.
+1. **Update** your data plan as the data you collect changes over time.
+
+
 
 #### Step 1: Create your plan
 
-As you use plans, you may find it better to adhere to a single plan or create multiple plans. You can choose to have all of your feeds and inputs share the same plan, or create a unique plan for every individual client-side and server-side input. A few common cases could be:
+As you use plans, you may find it better to adhere to a single plan or to create multiple plans. You can choose to have all of your feeds and inputs share the same plan, or create a unique plan for every individual client-side and server-side input. A few common cases could be:
 
 - Your web app(s) may have slight variations to data collection as compared to your mobile app(s).
 - You have a specific server-side feed that collects a different set of data from your client-side inputs. You may wish to ensure that each feed sticks only to its intended Data Points.
@@ -145,18 +149,9 @@ To start verifying incoming data against your plan, you first need to first acti
 
 Now that your plan is active, you need to ensure that incoming data is tagged with your plan's id. Check out our [Developer Guide](#developer-guide) to learn how to complete this step.
 
-#### Step 3: Monitor your plan
+#### Step 3: Validate incoming data with your plan
 
-Once your plan is validating data, violations reports can help you monitor your data quality.
-
-<aside class="warning">It can take up to 20 minutes for new violations to be reflected in reports.</aside>
-
-![](/images/dataplanning/monitor-dp.gif)
-
-
-
-### Developer Guide
-
+Tagging data requires a small code change. In order to enforce a plan, data must be tagged with a plan ID and an environment. You can optionally tag data with a version to pin your validation against a specific plan version. 
 
 Data Planning is supported by the following mParticle SDKs:
 
@@ -176,11 +171,19 @@ Data Planning is supported by the following mParticle SDKs:
   <td>v5.12.0 or later</td>
   <td><a href="https://github.com/mParticle/mparticle-android-sdk" target="_blank">Github</a></td>
 </tr>
+<tr>
+  <td>Python</td>
+  <td>v0.10.8 or later</td>
+  <td><a href="https://github.com/mParticle/mparticle-python-sdk" target="_blank">Github</a></td>
+</tr>
+<tr>
+  <td>Java</td>
+  <td>v2.2.0 or later</td>
+  <td><a href="https://github.com/mParticle/mparticle-java-events-sdk" target="_blank">Github</a></td>
+</tr>
 </table>
 
-In order to enforce a plan, data must be tagged with a plan ID, version, and environment. This requirement ensures that you are always validating against the exact plan that you intend:
-
-- **Plan ID**: This is the "slugified" form of your Data Plan name. You can find it during plan creation, and at the plan listing page.
+- **Plan ID**: This is the "slugified" form of your Data Plan name. You can find it during plan creation, and on the plan listing page.
 - **Plan Version (optional)**: The plan version that the data should conform to. If omitted, mParticle will use the latest active version for your environment.
 - **Environment** (`development` or `production`): The environment of your data. mParticle will use this to look for plans that are activated in the given environment.
 
@@ -188,7 +191,7 @@ Navigate to the your [plan listing page](https://app.mparticle.com/dm/plans) to 
 
 ![](/images/dataplanning/planlist.png)
 
-Include the plan ID, version, and environment in all batches sent to mParticle. For client-side SDKs, you must provide this metadata on initialization of the SDK. For the [Events API](/developers/server/json-reference/#context), you must include it in every request body.
+Include the plan ID and environment in all batches sent to mParticle. For client-side SDKs, you must provide this metadata on initialization of the SDK. For the [Events API](/developers/server/json-reference/#context), you must include it in every request body. You can optionally add a plan version to pin your validation against a specific version.
 
 :::code-selector-block
 ```json
@@ -243,6 +246,27 @@ window.mParticle = {
 Now that you have tagged incoming data, you can use Live Stream to view violations in real-time.
 
 ![](/images/dataplanning/overview.png)
+
+
+#### Step 4: Monitor your plan
+
+Once your plan is validating data, violations reports can help you monitor your data quality.
+
+<aside class="warning">It can take up to 20 minutes for new violations to be reflected in reports.</aside>
+
+![](/images/dataplanning/monitor-dp.gif)
+
+#### Step 5: Update your plan
+
+Your data needs will change over time and plans can be easily updated to reflect new implementations.
+
+Smaller changes can be made directly to an existing plan version. Updates to active data plans will go live immediately. You just need to update the plan in the UI and save your changes.
+
+For larger changes, we recommend creating a new plan version. Creating a new plan version allows you to track changes over time and to revert back to older versions if necessary.
+
+![](/images/dataplanning/clone_version.png)
+
+<aside>If you've pinned your SDK or Events API payload to a plan version you'll have to update your code to point to the new plan version. If you have omitted the plan version in your implementation, mParticle will automatically find the latest version that is active in development or production.</aside>
 
 ### FAQ
 
