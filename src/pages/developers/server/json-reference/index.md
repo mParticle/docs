@@ -1015,7 +1015,10 @@ The properties with the prefix "$" are reserved attributes that drive specific b
    "other_id_7": "helpers7@example.com",
    "other_id_8": "helpers8@example.com",
    "other_id_9": "helpers9@example.com",
-   "other_id_10": "helpers10@example.com"
+   "other_id_10": "helpers10@example.com",
+   "mobile_number": "800-555-1111",
+   "phone_number_2": "800-555-2222",
+   "phone_number_3": "800-555-3333",
 }
 ~~~
 
