@@ -234,6 +234,7 @@ By default, mParticle forwards all available user attributes to Braze, including
 | Braze SDK Collect IDFA? | `bool` | False | iOS, tvOS| Informs the Braze Kit whether to collect IDFA. |
 | Braze SDK Disable Automatic Location Tracking| `bool` | False | iOS, tvOS | Informs the Braze Kit whether to disable automatic location tracking at app startup time |
 | Include Enriched User Attributes | `bool` | True | iOS, tvOS| If enabled, mParticle will forward enriched user attributes from the existing user profile. |
+| Enable type detection for custom/user attributes | `bool` | False | All but Web | By default, all platforms (except for web) send attributes as strings unless there are special Braze reserved user attributes. Checking this will force attributes to be sent as parsed data types where possible|
 | Forward Screen View Messages | `bool` | False | All| If enabled, all screen view messages will be forwarded to Braze as separate events. |
 | Forward Session Events | `bool` | False | All| If enabled, all session start and end events will be forwarded to Braze as separate events. Session IDs will also be sent with events when populated. |
 | Soft Push Custom Event Name | `string` | <unset> | Web | The custom event name that shows up in your Braze dashboard when priming your user for push notifications. Braze recommends "prime-for-push". When filled in, users will be sent a Braze In-App message on session load
