@@ -198,7 +198,7 @@ const DevContent = (props) => (
                                 key={`${sdk.title}${sdk.route}`}
                                 data={{
                                     ...sdk,
-                                    route: `/quickstart/${sdk.route}`
+                                    route: `quickstart/${sdk.route}`
                                 }} />
                         ))}
                     </div>
@@ -214,7 +214,7 @@ const DevContent = (props) => (
                                 key={`${sdk.title}${sdk.route}`}
                                 data={{
                                     ...sdk,
-                                    route: `/sdk/${sdk.route}/`
+                                    route: `sdk/${sdk.route}/`
                                 }} />
                         ))}
                     </div>
@@ -230,7 +230,7 @@ const DevContent = (props) => (
                                 key={`${event.route}${event.title}`}
                                 data={{
                                     ...event,
-                                    route: `/server/${event.route}/`
+                                    route: `server/${event.route}/`
                                 }} />
                         ))}
                     </div>
@@ -245,14 +245,14 @@ const DevContent = (props) => (
                             <span className='icon-tile' />
                             <Link
                                 className='header-links'
-                                to={`developers/${event.route}`}>
+                                to={`${event.route}`}>
                                 <h3>{event.title}</h3>
                             </Link>
                         </div>
                         <div className='dev-tile-content'>
                             <p>{event.content}</p>
                             <Link
-                                to={`developers/${event.route}/`}
+                                to={`${event.route}/`}
                                 className='learn-more'>
                                 <div className='content'>
                                     <span id='learn-more'>Learn More</span>
@@ -272,7 +272,7 @@ const DevContent = (props) => (
                     <div className='dev-tile-content'>
                         <p>{MEDIA.content}</p>
                         <Link
-                            to={'developers/sdk/android/media/'}
+                            to={'sdk/android/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>Android</span>
@@ -280,7 +280,7 @@ const DevContent = (props) => (
                         </Link>
                         <p />
                         <Link
-                            to={'developers/sdk/ios/media/'}
+                            to={'sdk/ios/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>iOS</span>
@@ -288,7 +288,7 @@ const DevContent = (props) => (
                         </Link>
                         <p />
                         <Link
-                            to={'developers/sdk/web/media/'}
+                            to={'sdk/web/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>Web</span>
