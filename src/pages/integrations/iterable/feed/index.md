@@ -6,7 +6,7 @@ title: Feed
 
 ## Input Data Details
 
-The following types of data can be configured to be sent from Iterable to mParticle. See [Iterable's documentation](https://support.iterable.com/hc/en-us/articles/208013936) for more info about these events.
+The following types of data can be configured to be sent from Iterable to mParticle. See [Iterable's documentation](https://support.iterable.com/hc/en-us/articles/208013936) for more info about these events.  Additional events will be processed if added by Iterable.
 
 | Event | mParticle Event Name  |
 | ---------------|-------------|
@@ -15,14 +15,24 @@ The following types of data can be configured to be sent from Iterable to mParti
 | Email Click | emailClick |
 | Email Complaint | emailComplaint |
 | Email Open | emailOpen |
+| Email Send Skip | emailSendSkip |
 | Email Subscribe | emailSubscribe |
 | Email UnSubscribe | emailUnSubscribe |
+| Hosted Unsubscribe Click | hostedUnsubscribeClick |
+| In-App Click | inAppClick |
+| In-App Open | inAppOpen |
+| In-App Send | inAppSend |
+| In-App Send Skip | inAppSendSkip |
 | Push Bounce | pushBounce |
-| Push Uninstall | pushUninstall |
 | Push Send | pushSend |
+| Push Send Skip | pushSendSkip |
+| Push Uninstall | pushUninstall |
 | SMS Bounce | smsBounce |
 | SMS Received | smsReceived |
 | SMS Send | smsSend |
+| SMS Send Skip | smsSendSkip |
+| Web Push Send | webPushSend |
+| Web Push Send Skip | webPushSendSkip | 
 
 'Push Open' events are not supported
 
