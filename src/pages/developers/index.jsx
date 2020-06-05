@@ -245,7 +245,7 @@ const DevContent = (props) => (
                             <span className='icon-tile' />
                             <Link
                                 className='header-links'
-                                to={`${event.route}`}>
+                                to={`developers/${event.route}`}>
                                 <h3>{event.title}</h3>
                             </Link>
                         </div>
