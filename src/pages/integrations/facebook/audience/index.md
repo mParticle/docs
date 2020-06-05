@@ -17,14 +17,25 @@ In order to enable the mParticle integration with Facebook, you will need the ac
 
 ## User Identity Mapping
 
-Depending on the Configuration Settings that you select [see Connection Settings](#connection-settings), Facebook will use one or more of the following IDs to match users:
+Depending on the Connection Settings that you select [see Connection Settings](#connection-settings), Facebook will use one or more of the following IDs to match users:
 
 * Email address
 * Facebook ID
 * Device IDs (IDFA for Apple OS, Google Ad ID for Android)
-* Phone numbers
+* Phone numbers (derived from both identity values and the `$Mobile` user attribute)
 
-In accordance with Facebook's requirements, all Email, Device ID, and Phone values are forwarded as SHA256 hashes.
+If `Enable Multi-Key Audience` and `Match on User Attributes` are both enabled, Facebook will also match on the following fields for the multi-key audience:
+
+* First Name
+* Last Name
+* First Initial
+* City
+* State
+* Zipcode
+* Country
+* Gender
+
+In accordance with Facebook's requirements, all identifiers except for Facebook ID are forwarded as SHA256 hashes.
 
 ## Value-Based Audiences
 
@@ -73,12 +84,13 @@ Facebook AccessToken | `string` | | The Facebook access token used to make Graph
 
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
-Forward Emails | `bool` | True | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (email)"
-Forward Facebook IDs |  `bool` | True | If enabled, the user's Facebook ID is available, and the Facebook Application ID property is set, it will be added to the audience "&lt;Audience Name&gt; (fb id)"
-Forward IDFAs |  `bool` | True | If enabled, and the user's IDFA is available, it will be added to the audience "&lt;Audience Name&gt; (IDFA/GAID)"
-Forward Google Advertising IDs |  `bool` | True | If enabled, and the user's Google Advertising ID is available, it will be added to the audience "&lt;Audience Name&gt; (IDFA/GAID)"
-Forward Phones |  `bool` | True | If enabled, and the user's phone number is available, it will be added to the audience "&lt;Audience Name&gt; (phone)"
-Enable Multi-Key Audience |  `bool` | False | If enabled, all selected identities will also be sent to a single audience for higher match rates
+Forward Emails | `bool` | True | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (email)".
+Forward Facebook IDs |  `bool` | True | If enabled, the user's Facebook ID is available, and the Facebook Application ID property is set, it will be added to the audience "&lt;Audience Name&gt; (fb id)".
+Forward IDFAs |  `bool` | True | If enabled, and the user's IDFA is available, it will be added to the audience "&lt;Audience Name&gt; (IDFA/GAID)".
+Forward Google Advertising IDs |  `bool` | True | If enabled, and the user's Google Advertising ID is available, it will be added to the audience "&lt;Audience Name&gt; (IDFA/GAID)".
+Forward Phones |  `bool` | True | If enabled, and the user's phone number is available, it will be added to the audience "&lt;Audience Name&gt; (phone)".
+Enable Multi-Key Audience |  `bool` | False | If enabled, all selected identities will also be sent to a single audience for higher match rates.
+Match on User Attributes | `bool` | False | If enabled, mParticle will send all possible user attribute values to Facebook for multi-key matching. See [user identity matching](#user-identity-matching) for more details.
 Facebook Application ID | `string` | | The App ID found on your Facebook application's dashboard.
 Is Audience Value Based | `bool` | False | If enabled, the audiences created in Facebook will be value-based.
 User Attribute Representing Value | `string` | | The user attribute to be used as the basis for setting value in Facebook. Only non-negative numbers will be forwarded to Facebook. This setting only applies to value-based audiences.
