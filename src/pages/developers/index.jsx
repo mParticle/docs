@@ -252,7 +252,7 @@ const DevContent = (props) => (
                         <div className='dev-tile-content'>
                             <p>{event.content}</p>
                             <Link
-                                to={`${event.route}/`}
+                                to={`developers/${event.route}/`}
                                 className='learn-more'>
                                 <div className='content'>
                                     <span id='learn-more'>Learn More</span>
@@ -272,7 +272,7 @@ const DevContent = (props) => (
                     <div className='dev-tile-content'>
                         <p>{MEDIA.content}</p>
                         <Link
-                            to={'sdk/android/media/'}
+                            to={'developers/sdk/android/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>Android</span>
@@ -280,7 +280,7 @@ const DevContent = (props) => (
                         </Link>
                         <p />
                         <Link
-                            to={'sdk/ios/media/'}
+                            to={'developers/sdk/ios/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>iOS</span>
@@ -288,7 +288,7 @@ const DevContent = (props) => (
                         </Link>
                         <p />
                         <Link
-                            to={'sdk/web/media/'}
+                            to={'developers/sdk/web/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>Web</span>
