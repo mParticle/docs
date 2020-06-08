@@ -26,4 +26,4 @@ ShareThis will send user identities and user attributes via event-less requests 
 | User Attribute | Type | Description
 |---|---|---|
 | sharethis_user_segment_ids | `Array` | ShareThis audience identifiers that signify the user’s interest/intent 
-| sharethis_user_location | `String` | Attributes that show location of user’s browsing activity using ISO 2-character code 
+| sharethis_user_locations | `Array` | Attributes that show locations of user’s browsing activity using ISO 2-character codes 
