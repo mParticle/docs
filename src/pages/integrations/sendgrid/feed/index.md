@@ -6,7 +6,7 @@ SendGrid helps marketers deliver transactional and marketing email through one r
 
 ## Input Data Details
 
-The following types of data can be configured to be sent from SendGrid to mParticle.  See [SendGrid's documentation](https://sendgrid.com/docs/API_Reference/Webhooks/event.html#-Event-Types) for more info about these events.
+The following types of data can be configured to be sent from SendGrid to mParticle.  See [SendGrid's documentation](https://sendgrid.com/docs/for-developers/tracking-events/event/) for more info about these events.
 
 * processed
 * dropped
@@ -57,4 +57,4 @@ Configure the SendGrid Input:
     * Environment
 5.  Click **Create**
 6.  Copy the Webhook URL.
-7.  Follow these instructions to configure the Webhook in [SendGrid](https://sendgrid.com/docs/API_Reference/Webhooks/event.html#-Setup)
+7.  Follow these instructions to configure the Webhook in [SendGrid](https://sendgrid.com/docs/for-developers/tracking-events/getting-started-event-webhook/)
