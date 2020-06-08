@@ -261,8 +261,8 @@ To log page views for single-page web applications, you'll need to use our custo
 ~~~javascript
 mParticle.logPageView(
 	"Product Detail Page",
-	{page: window.location.toString()},
-	{"Google.Page": window.location.pathname.toString(),
+	{ page: window.location.pathname },
+	{"Google.Page": window.location.pathname,
          "Google.Title": "The title of the page"}
 );
 ~~~
