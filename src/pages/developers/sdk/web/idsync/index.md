@@ -221,7 +221,7 @@ If your organization uses [Profile Link](/guides/idsync/profile-link-strategy/) 
 // Basic - Call alias as the result of a successful login
 var identityCallback = function(result) { 
     // Copy attributes from previous user to current user
-    result.getUser().setUserAttributes(result.getPreviousUser().getUserAttributes());
+    result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
 
     // Create and send the alias request
     var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
