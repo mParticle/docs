@@ -117,7 +117,7 @@ Now that you have created an audience, it's time to add to the audience definiti
 The audience system automatically detects the data type (string, date, numeric) of your event and user attributes after enough data has been received. If low data volumes have been sent in or it is incorrectly detected, you can change the type by pressing the icon in the attribute field. This can be very helpful when testing new events or attributes with low data volumes.
 </aside>
 
-### Event and Profile Criteria
+### Criteria Types: Events and Profiles
 The audience builder allows you to build criteria based on two sources of data:
 1. **Events**: Criteria that checks for specific events and their properties. These criteria are subject to the audience event retention policy of your account. Within the `new criteria` option in the audience builder, the following options create event-based  criteria:
 - `Events`: access custom events
@@ -133,6 +133,24 @@ The audience builder allows you to build criteria based on two sources of data:
 - `Users`: access user profile information such as user attributes, calculated attributes, current audience memberships, consent state, location, etc.
 - `Attribution`: access user install and uninstall information to build criteria based on the attributed `campaign` and `publisher`.
 
+### User Profile Criteria
+As mentioned above, you can build audience criteria based on user attributes from the user profiles. These attributes can be of any data type including: numbers, strings, dates, lists, booleans, etc.
+
+To build an audience criteria based on a user's profile information, press the **add criteria** button and select **Users** to view options for user based criteria:
+
+- Audience membership
+- Calculated attributes
+- Consent
+- Device, OS, Carrier
+- First seen
+- User and device identities
+- User attributes
+- User attribute lists
+
+
+![](/images/audience-user-criteria.png)
+
+
 ### String Matching Criteria
 
 When building audiences based on string attributes, several matching rules can be applied. All matches are case insensitive.
@@ -142,6 +160,7 @@ When building audiences based on string attributes, several matching rules can b
 * **Exact Match / Does Not Match** - Entire string must match, no substrings. For example, "blue", will match "blue", but not "blue shirt".
 
 * **Pattern** - Wildcard style matching. `*` represents any number of characters, `?` represents any single character. For example, "bl?e" or "b\*e" would both match "blue".
+
 
 ### Date and Time Matching Criteria
 
