@@ -168,7 +168,7 @@ There are several fields only accepted by server-to-server Web connections. Thes
 
 | Setting Name | Data Type | Default Value | Description |
 | --- | --- | --- | --- |
-| Access Token | `string` | <unset> | The Facebook Access Token used to make Marketing API calls. Required for Web |
+| Access Token | `string` | <unset> | The Facebook Access Token used to make Marketing API calls. Required for Web. Facebook recommends using a [System User Access Token](https://developers.facebook.com/docs/marketing-api/system-users). |
 
 ## Connection Settings
 
