@@ -3,7 +3,7 @@ title: Profile Isolation Strategy (Premium)
 order: 6
 ---
 
-<aside>IDSync is a premium feature, currently in beta release. You may not have access to the tools and strategies documented in this section. Reach out to your Customer Success Manager for more information.</aside>
+<aside>IDSync is a premium feature.  You may not have access to the tools and strategies documented in this section. Reach out to your Customer Success Manager for more information.</aside>
 
 | **Unique IDs** | **Login IDs** | **On New Known User** | **On Logout** |
 | --- | --- | --- | --- |
