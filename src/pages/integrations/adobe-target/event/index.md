@@ -4,7 +4,7 @@ title: Event
 
 Adobe Target lets you optimize every experience every time with A/B testing. Learn more about Adobe Target [here](https://www.adobe.com/marketing/target.html), and see below for how mParticle's integration works.
 
-## Adobe Traget Overview and Prerequisites
+## Adobe Target Overview and Prerequisites
 
 Currently mParticle supports Adobe Target v1.8. Note that you must host your instance of Adobe Target's `at.js` file and load it before you load mParticle's dynamic loading script. This is because Adobe Target's `at.js` file is customized to each client and contains customized initialization code. Additionally, there are optional global functions such as `targetPageParams`, `targetPageParamsAll`, and `targetGlobalSettings` which can all be edited and included in the at.js script when edited in Adobe Target's Dashboard at `Setup > Implementation > Edit at.js Settings > Code Settings > Library Header`
 
