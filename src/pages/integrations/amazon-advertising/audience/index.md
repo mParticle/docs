@@ -31,3 +31,4 @@ Advertiser ID	| `string` | <unset> | Your Amazon Advertising account's Advertisi
 Region | `string` | North America | The region where the target Amazon Marketplace is located
 Marketplace Profile	Name | `string` | <unset> | The name of the advertiser profile for the target marketplace
 Profile Name | `string` | <unset> | The name of the Amazon user linked to the Amazon Advertising account
+
