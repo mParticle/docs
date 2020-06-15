@@ -25,7 +25,7 @@ You can login to your mParticle instance in region-specific data centers at the 
 </tr>
 </table>
 
-Interested in data residency outside of US or Australia? [Contact us](https://www.mparticle.com/contact).
+Interested in data residency outside of these regions? [Contact us](https://www.mparticle.com/contact).
 
 ## Sending data into mParticle
 
