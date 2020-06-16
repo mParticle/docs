@@ -292,7 +292,3 @@ mediaSession.mediaEventListener = { (event: MPMediaEvent) -> Void in
     }
 }
 ```
-
-## API Reference
-
-Visit the complete [API Reference](/developers/sdk/web/media-apidocs/index.html) for a deep dive into the Media SDK
