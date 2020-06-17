@@ -1,207 +1,209 @@
+// @prefix defined in gatsby-config - gatsby-plugin-less options
+// leading slash '/' will be included via @prefix
+@image-prefix: '@{prefix}images';
 
-@icon-home-dev: url("/images/icons/dev-documentation.svg");
-@icon-home-integrations: url("/images/icons/integrations-center.svg");
-@icon-home-platform: url("/images/icons/icon-faq.svg");
-@icon-home-1: url("/images/icons/icon-home-1.svg");
-@icon-home-2: url("/images/icons/icon-home-2.svg");
-@icon-home-3: url("/images/icons/icon-home-3.svg");
+@icon-home-dev: url('@{image-prefix}/icons/dev-documentation.svg');
+@icon-home-integrations: url('@{image-prefix}/icons/integrations-center.svg');
+@icon-home-platform: url('@{image-prefix}/icons/icon-faq.svg');
+@icon-home-1: url('@{image-prefix}/icons/icon-home-1.svg');
+@icon-home-2: url('@{image-prefix}/icons/icon-home-2.svg');
+@icon-home-3: url('@{image-prefix}/icons/icon-home-3.svg');
 
 // Homepage icons
-@icon-home-uav: url("/images/icons/Homepage/Icon-UAV-Grey.svg");
-@icon-home-identity: url("/images/icons/Homepage/Icon_Platform_IDSync-Grey.svg");
-@icon-home-rules: url("/images/icons/Homepage/Icon_Platform_Rules-Grey.svg");
-@icon-home-audience: url("/images/icons/Homepage/Icon_Audience-Grey.svg");
-@icon-home-privacy: url("/images/icons/Homepage/Icon-GDPR-Grey.svg");
-@icon-home-api: url("/images/icons/Homepage/Icon_API-Grey.svg");
-@icon-home-dm: url("/images/icons/Homepage/Icon-DataMaster.svg");
+@icon-home-uav: url('@{image-prefix}/icons/Homepage/Icon-UAV-Grey.svg');
+@icon-home-identity: url('@{image-prefix}/icons/Homepage/Icon_Platform_IDSync-Grey.svg');
+@icon-home-rules: url('@{image-prefix}/icons/Homepage/Icon_Platform_Rules-Grey.svg');
+@icon-home-audience: url('@{image-prefix}/icons/Homepage/Icon_Audience-Grey.svg');
+@icon-home-privacy: url('@{image-prefix}/icons/Homepage/Icon-GDPR-Grey.svg');
+@icon-home-api: url('@{image-prefix}/icons/Homepage/Icon_API-Grey.svg');
+@icon-home-dm: url('@{image-prefix}/icons/Homepage/Icon-DataMaster.svg');
 
 // Platform icons
-@icon-platform-appletv: url("/images/icons/PlatformIcons/icon-appletv-grey.svg");
-@icon-platform-android: url("/images/icons/PlatformIcons/icon-android-grey.svg");
-@icon-platform-ios: url("/images/icons/PlatformIcons/icon-ios-grey.svg");
-@icon-platform-javascript: url("/images/icons/PlatformIcons/icon-javascript-grey.svg");
-@icon-platform-roku: url("/images/icons/PlatformIcons/icon-roku-grey.svg");
-@icon-platform-cordova: url("/images/icons/PlatformIcons/platform-cordova-grey.svg");
-@icon-platform-xamarin: url("/images/icons/PlatformIcons/platform-xamarin-grey.svg");
-@icon-platform-unity: url("/images/icons/PlatformIcons/platform-unity-grey.svg");
-@icon-platform-amp: url("/images/icons/PlatformIcons/icon-amp-grey.svg");
-@icon-platform-react: url("/images/icons/PlatformIcons/icon-react-grey.svg");
-@icon-platform-uwp: url("/images/icons/PlatformIcons/uwp-logo.png");
-@icon-platform-xbox: url("/images/icons/PlatformIcons/xbox-logo.svg");
-@icon-platform-fire-tv: url("/images/icons/PlatformIcons/fire-logo.svg");
-@icon-platform-alexa: url("/images/icons/PlatformIcons/alexa-icon.svg");
+@icon-platform-appletv: url('@{image-prefix}/icons/PlatformIcons/icon-appletv-grey.svg');
+@icon-platform-android: url('@{image-prefix}/icons/PlatformIcons/icon-android-grey.svg');
+@icon-platform-ios: url('@{image-prefix}/icons/PlatformIcons/icon-ios-grey.svg');
+@icon-platform-javascript: url('@{image-prefix}/icons/PlatformIcons/icon-javascript-grey.svg');
+@icon-platform-roku: url('@{image-prefix}/icons/PlatformIcons/icon-roku-grey.svg');
+@icon-platform-cordova: url('@{image-prefix}/icons/PlatformIcons/platform-cordova-grey.svg');
+@icon-platform-xamarin: url('@{image-prefix}/icons/PlatformIcons/platform-xamarin-grey.svg');
+@icon-platform-unity: url('@{image-prefix}/icons/PlatformIcons/platform-unity-grey.svg');
+@icon-platform-amp: url('@{image-prefix}/icons/PlatformIcons/icon-amp-grey.svg');
+@icon-platform-react: url('@{image-prefix}/icons/PlatformIcons/icon-react-grey.svg');
+@icon-platform-uwp: url('@{image-prefix}/icons/PlatformIcons/uwp-logo.png');
+@icon-platform-xbox: url('@{image-prefix}/icons/PlatformIcons/xbox-logo.svg');
+@icon-platform-fire-tv: url('@{image-prefix}/icons/PlatformIcons/fire-logo.svg');
+@icon-platform-alexa: url('@{image-prefix}/icons/PlatformIcons/alexa-icon.svg');
 
 // Provider icons
-// @logo-provider-applift: url("/images/ProviderImages/applift.png");
-// @logo-provider-branch: url("/images/ProviderImages/BranchMetrics.png");
-// @logo-provider-fiksu: url("/images/ProviderImages/fiksu.png");
+// @logo-provider-applift: url("@{image-prefix}/ProviderImages/applift.png");
+// @logo-provider-branch: url("@{image-prefix}/ProviderImages/BranchMetrics.png");
+// @logo-provider-fiksu: url("@{image-prefix}/ProviderImages/fiksu.png");
 
 // Developer icons
-@icon-dev-client: url("/images/icons/icon-client.svg");
-@icon-dev-server: url("/images/icons/icon-server.svg");
-@icon-dev-user: url("/images/icons/icon-user-api.svg");
-@icon-dev-platform: url("/images/icons/icon-platform.svg");
-@icon-dev-rules: url("/images/icons/icon-rules.svg");
-@icon-dev-partner: url("/images/icons/icon-partner-guide.svg");
+@icon-dev-client: url('@{image-prefix}/icons/icon-client.svg');
+@icon-dev-server: url('@{image-prefix}/icons/icon-server.svg');
+@icon-dev-user: url('@{image-prefix}/icons/icon-user-api.svg');
+@icon-dev-platform: url('@{image-prefix}/icons/icon-platform.svg');
+@icon-dev-rules: url('@{image-prefix}/icons/icon-rules.svg');
+@icon-dev-partner: url('@{image-prefix}/icons/icon-partner-guide.svg');
 
-@icon-dev-http: url("/images/icons/http-grey.svg");
-@icon-dev-nodejs: url("/images/icons/nodejs-grey.svg");
-@icon-dev-ruby: url("/images/icons/ruby-grey.svg");
-@icon-dev-python: url("/images/icons/python-grey.svg");
-@icon-dev-github: url("/images/icons/github-icon.svg");
-@icon-edit-black: url("/images/icons/icon-edit-black.svg");
+@icon-dev-http: url('@{image-prefix}/icons/http-grey.svg');
+@icon-dev-nodejs: url('@{image-prefix}/icons/nodejs-grey.svg');
+@icon-dev-ruby: url('@{image-prefix}/icons/ruby-grey.svg');
+@icon-dev-python: url('@{image-prefix}/icons/python-grey.svg');
+@icon-dev-github: url('@{image-prefix}/icons/github-icon.svg');
+@icon-edit-black: url('@{image-prefix}/icons/icon-edit-black.svg');
 
 // Arrows
-@icon-dropdown-pink: url("/images/icons/icon-dropdown-pink.svg");
-@icon-dropdown-white: url("/images/icons/icon-dropdown-white.svg");
-@icon-dash-white: url("/images/icons/icon-dash-white.svg");
-@icon-dash-grey: url("/images/icons/icon-dash-grey.svg");
+@icon-dropdown-pink: url('@{image-prefix}/icons/icon-dropdown-pink.svg');
+@icon-dropdown-white: url('@{image-prefix}/icons/icon-dropdown-white.svg');
+@icon-dash-white: url('@{image-prefix}/icons/icon-dash-white.svg');
+@icon-dash-grey: url('@{image-prefix}/icons/icon-dash-grey.svg');
 
 // Misc icons
-@icon-back-to-top: url("/images/icons/back-to-top.svg");
-@icon-back-to-top-hover: url("/images/icons/back-to-top-hover.svg");
-@icon-breadcrumb-slash: url("/images/icons/slash_sm.svg");
+@icon-back-to-top: url('@{image-prefix}/icons/back-to-top.svg');
+@icon-back-to-top-hover: url('@{image-prefix}/icons/back-to-top-hover.svg');
+@icon-breadcrumb-slash: url('@{image-prefix}/icons/slash_sm.svg');
 
-@icon-close-grey: url("/images/icons/icon-close-grey.svg");
-@icon-close-white: url("/images/icons/icon-close-white.svg");
-@icon-close-black: url("/images/icons/icon-close-black.svg");
-@icon-expand-grey: url("/images/icons/icon-expand-grey.svg");
-@icon-collapse-pink: url("/images/icons/icon-collapse-pink.svg");
-@icon-mobile-menu: url("/images/icons/icon-mobile-menu.svg");
+@icon-close-grey: url('@{image-prefix}/icons/icon-close-grey.svg');
+@icon-close-white: url('@{image-prefix}/icons/icon-close-white.svg');
+@icon-close-black: url('@{image-prefix}/icons/icon-close-black.svg');
+@icon-expand-grey: url('@{image-prefix}/icons/icon-expand-grey.svg');
+@icon-collapse-pink: url('@{image-prefix}/icons/icon-collapse-pink.svg');
+@icon-mobile-menu: url('@{image-prefix}/icons/icon-mobile-menu.svg');
 
-@icon-arrow-right-black: url("/images/icons/arrow-right-24px-blueblack.svg");
-@icon-arrow-mint-med: url("/images/icons/arrow-mint-med.svg");
-@icon-arrow-right-grey: url("/images/icons/icon-arrow-right-grey.svg");
-@icon-arrow-right-mint: url("/images/icons/icon-arrow-right-mint.svg");
-@icon-arrow-up-black: url("/images/icons/icon-arrow-up-black.svg");
-@icon-arrow-up-white: url("/images/icons/icon-arrow-up-white.svg");
-@icon-arrow-diagonal-up-right-black: url("/images/icons/icon-arrow-diagonal-up-right-black.svg");
-@icon-arrow-down-black: url("/images/icons/icon-arrow-down-black.svg");
+@icon-arrow-right-black: url('@{image-prefix}/icons/arrow-right-24px-blueblack.svg');
+@icon-arrow-mint-med: url('@{image-prefix}/icons/arrow-mint-med.svg');
+@icon-arrow-right-grey: url('@{image-prefix}/icons/icon-arrow-right-grey.svg');
+@icon-arrow-right-mint: url('@{image-prefix}/icons/icon-arrow-right-mint.svg');
+@icon-arrow-up-black: url('@{image-prefix}/icons/icon-arrow-up-black.svg');
+@icon-arrow-up-white: url('@{image-prefix}/icons/icon-arrow-up-white.svg');
+@icon-arrow-diagonal-up-right-black: url('@{image-prefix}/icons/icon-arrow-diagonal-up-right-black.svg');
+@icon-arrow-down-black: url('@{image-prefix}/icons/icon-arrow-down-black.svg');
 
-@icon-search: url("/images/icons/icon-search-grey.svg");
-@icon-search-black: url("/images/icons/icon-search-black.svg");
-@icon-search-hover: url("/images/icons/icon-search-hover.svg");
+@icon-search: url('@{image-prefix}/icons/icon-search-grey.svg');
+@icon-search-black: url('@{image-prefix}/icons/icon-search-black.svg');
+@icon-search-hover: url('@{image-prefix}/icons/icon-search-hover.svg');
 
-@icon-mparticle-header: url("/images/mparticle_logo_ko.svg");
-@icon-new-mparticle-header: url("/images/mp-Logo-White.svg");
-@icon-up-arrow: url("/images/icons/up-arrow.svg");
-@icon-plus-mint-med: url("/images/icons/icon-plus-mint-med.svg");
-@icon-plus-grey: url("/images/icons/icon-plus-grey.svg");
-@icon-plus-black: url("/images/icons/icon-plus-black.svg");
-@icon-plus-white: url("/images/icons/icon-plus-white.svg");
+@icon-mparticle-header: url('@{image-prefix}/mparticle_logo_ko.svg');
+@icon-new-mparticle-header: url('@{image-prefix}/mp-Logo-White.svg');
+@icon-up-arrow: url('@{image-prefix}/icons/up-arrow.svg');
+@icon-plus-mint-med: url('@{image-prefix}/icons/icon-plus-mint-med.svg');
+@icon-plus-grey: url('@{image-prefix}/icons/icon-plus-grey.svg');
+@icon-plus-black: url('@{image-prefix}/icons/icon-plus-black.svg');
+@icon-plus-white: url('@{image-prefix}/icons/icon-plus-white.svg');
 
-@icon-sdk: url("/images/icons/icon-sdk.svg");
-@icon-api: url("/images/icons/icon-api.svg");
+@icon-sdk: url('@{image-prefix}/icons/icon-sdk.svg');
+@icon-api: url('@{image-prefix}/icons/icon-api.svg');
 
-@icon-guide: url("/images/icons/icon-guide.svg");
-@icon-in-depth: url("/images/icons/icon-in-depth.svg");
-@icon-faq: url("/images/icons/icon-faq.svg");
-@icon-copy-grey: url("/images/icons/icon-copy-grey");
+@icon-guide: url('@{image-prefix}/icons/icon-guide.svg');
+@icon-in-depth: url('@{image-prefix}/icons/icon-in-depth.svg');
+@icon-faq: url('@{image-prefix}/icons/icon-faq.svg');
+@icon-copy-grey: url('@{image-prefix}/icons/icon-copy-grey');
 
 // Landing icons
-@icon-landing-add-audience: url("/images/icons/icon-landing-add-audience.svg");
-@icon-landing-capture-data: url("/images/icons/icon-landing-capture-data.svg");
-@icon-landing-connect-audience: url("/images/icons/icon-landing-connect-audience.svg");
-@icon-landing-connect-event: url("/images/icons/icon-landing-connect-event.svg");
-@icon-landing-create-input: url("/images/icons/icon-landing-create-input.svg");
-@icon-landing-data-transformation: url("/images/icons/icon-landing-data-transformation.svg");
-@icon-landing-events: url("/images/icons/icon-events.svg");
-@icon-landing-get-started: url("/images/icons/icon-get-started.svg");
-@icon-landing-inputs: url("/images/icons/icon-inputs.svg");
+@icon-landing-add-audience: url('@{image-prefix}/icons/icon-landing-add-audience.svg');
+@icon-landing-capture-data: url('@{image-prefix}/icons/icon-landing-capture-data.svg');
+@icon-landing-connect-audience: url('@{image-prefix}/icons/icon-landing-connect-audience.svg');
+@icon-landing-connect-event: url('@{image-prefix}/icons/icon-landing-connect-event.svg');
+@icon-landing-create-input: url('@{image-prefix}/icons/icon-landing-create-input.svg');
+@icon-landing-data-transformation: url('@{image-prefix}/icons/icon-landing-data-transformation.svg');
+@icon-landing-events: url('@{image-prefix}/icons/icon-events.svg');
+@icon-landing-get-started: url('@{image-prefix}/icons/icon-get-started.svg');
+@icon-landing-inputs: url('@{image-prefix}/icons/icon-inputs.svg');
 
-@icon-copy-grey: url("/images/icons/icon-copy-grey.svg");
-@icon-copy-mint: url("/images/icons/icon-copy-mint.svg");
-@icon-hamburger: url("/images/icons/icon-hamburger.svg");
-
+@icon-copy-grey: url('@{image-prefix}/icons/icon-copy-grey.svg');
+@icon-copy-mint: url('@{image-prefix}/icons/icon-copy-mint.svg');
+@icon-hamburger: url('@{image-prefix}/icons/icon-hamburger.svg');
 
 .android-icon {
-    .icon-image(@icon-platform-android);
-    width: 20px;
-    height: 24px;
-    margin-left: -40px;
-    top: 11px;
+  .icon-image(@icon-platform-android);
+  width: 20px;
+  height: 24px;
+  margin-left: -40px;
+  top: 11px;
 }
 .tvos-icon {
-    .icon-image(@icon-platform-ios);
-    width: 19px;
-    height: 22px;
-    margin-left: -40px;
-    top: 10px;
+  .icon-image(@icon-platform-ios);
+  width: 19px;
+  height: 22px;
+  margin-left: -40px;
+  top: 10px;
 }
 .js-icon {
-    .icon-image(@icon-platform-javascript);
-    width: 24px;
-    height: 24px;
-    margin-left: -42px;
-    top: 11px;
+  .icon-image(@icon-platform-javascript);
+  width: 24px;
+  height: 24px;
+  margin-left: -42px;
+  top: 11px;
 }
 .unity-icon {
-    .icon-image(@icon-platform-unity);
-    width: 20px;
-    height: 20px;
-    margin-left: -42px;
-    top: 12px;
+  .icon-image(@icon-platform-unity);
+  width: 20px;
+  height: 20px;
+  margin-left: -42px;
+  top: 12px;
 }
 .react-native-icon {
-    .icon-image(@icon-platform-react);
-    width: 22px;
-    height: 20px;
-    margin-left: -42px;
-    top: 13px;
+  .icon-image(@icon-platform-react);
+  width: 22px;
+  height: 20px;
+  margin-left: -42px;
+  top: 13px;
 }
 .amp-icon {
-    .icon-image(@icon-platform-amp);
-    width: 24px;
-    height: 24px;
-    margin-left: -42px;
-    top: 11px;
+  .icon-image(@icon-platform-amp);
+  width: 24px;
+  height: 24px;
+  margin-left: -42px;
+  top: 11px;
 }
 .roku-icon {
-    .icon-image(@icon-platform-roku);
-    width: 20px;
-    height: 24px;
-    margin-left: -40px;
-    top: 11px;
+  .icon-image(@icon-platform-roku);
+  width: 20px;
+  height: 24px;
+  margin-left: -40px;
+  top: 11px;
 }
 .cordova-icon {
-    .icon-image(@icon-platform-cordova);
-    width: 20px;
-    height: 20px;
-    margin-left: -40px;
-    top: 13px;
+  .icon-image(@icon-platform-cordova);
+  width: 20px;
+  height: 20px;
+  margin-left: -40px;
+  top: 13px;
 }
 .xamarin-icon {
-    .icon-image(@icon-platform-xamarin);
-    width: 20px;
-    height: 20px;
-    margin-left: -40px;
-    top: 13px;
+  .icon-image(@icon-platform-xamarin);
+  width: 20px;
+  height: 20px;
+  margin-left: -40px;
+  top: 13px;
 }
 .uwp-icon {
-    .icon-image(@icon-platform-uwp);
-    width: 20px;
-    height: 20px;
-    margin-left: -40px;
-    top: 13px;
+  .icon-image(@icon-platform-uwp);
+  width: 20px;
+  height: 20px;
+  margin-left: -40px;
+  top: 13px;
 }
 .xbox-icon {
-    .icon-image(@icon-platform-xbox);
-    width: 20px;
-    height: 20px;
-    margin-left: -40px;
-    top: 13px;
+  .icon-image(@icon-platform-xbox);
+  width: 20px;
+  height: 20px;
+  margin-left: -40px;
+  top: 13px;
 }
 .amazon-icon {
-    .icon-image(@icon-platform-fire-tv);
-    width: 20px;
-    height: 20px;
-    margin-left: -40px;
-    top: 13px;
+  .icon-image(@icon-platform-fire-tv);
+  width: 20px;
+  height: 20px;
+  margin-left: -40px;
+  top: 13px;
 }
 .alexa-icon {
-    .icon-image(@icon-platform-alexa);
-    width: 20px;
-    height: 20px;
-    margin-left: -40px;
-    top: 13px;
+  .icon-image(@icon-platform-alexa);
+  width: 20px;
+  height: 20px;
+  margin-left: -40px;
+  top: 13px;
 }

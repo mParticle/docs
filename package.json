@@ -43,6 +43,7 @@
     "react-responsive": "^6.1.2",
     "react-transition-group": "^2.9.0",
     "strip-markdown": "^3.1.1",
+    "unist-util-visit": "^2.0.2",
     "uuid": "^3.3.3",
     "whatwg-fetch": "2.0.3"
   },
@@ -62,7 +63,7 @@
     "develop": "npm run update-partners && gatsby develop",
     "clean": "gatsby clean",
     "update-partners": "node scripts/updatePartners",
-    "build": "npm run lint && npm run update-partners && ACTIVE_ENV=development gatsby build",
+    "build": "npm run lint && npm run update-partners && ACTIVE_ENV=development gatsby build --prefix-paths",
     "production-build": "npm run lint && npm run update-partners && ACTIVE_ENV=production gatsby build",
     "lint": "eslint \"src\\components\\**\" \"src\\pages\\**\" \"src\\utils\\**\""
   }

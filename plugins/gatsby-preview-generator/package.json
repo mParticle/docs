@@ -1,0 +1,6 @@
+{
+  "name": "gatsby-preview-generator",
+  "dependencies": {
+    "unist-util-visit": "^2.0.2"
+  }
+}

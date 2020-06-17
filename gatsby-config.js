@@ -1,6 +1,12 @@
-let activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development'
+let activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || 'development';
+let preview = process.env.PREVIEW || false;
+let pathPrefix = process.env.PATH_PREFIX || '';
+let imagePathPrefix = pathPrefix ? pathPrefix.replace(/\/?$/, '/') : '/';
 
-console.log(`Using environment config: '${activeEnv}'`)
+if (pathPrefix) {
+  console.log('Generating paths prefix: ', pathPrefix);
+}
+console.log(`Using environment config: '${activeEnv}'`);
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -8,6 +14,7 @@ require("dotenv").config({
 
 
 module.exports = {
+  pathPrefix,
   siteMetadata: {
     title: `mParticle Documentation`,
     siteUrl: `https://docs.mparticle.com`
@@ -29,7 +36,14 @@ module.exports = {
       }
     },
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-less`,
+    {
+      resolve: `gatsby-plugin-less`,
+      options: {
+        modifyVars: {
+          '@prefix': imagePathPrefix,
+        },
+      }
+    },
     // {
     //   resolve: `@mparticle/gatsby-plugin-mparticle`,
     //   options: {
@@ -54,6 +68,12 @@ module.exports = {
       options: {
         'pedantic': false, // pedantic does something different?  At least requires escaping '_' in the middle of words like session\_duration\_ms to avoid <em> tagging
         plugins: [
+          {
+            resolve: `gatsby-preview-generator`,
+            options: {
+              pathPrefix,
+            },
+          },
           `gatsby-plugin-markdown-code-selector`, // custom plugin in plugins folder
           'gatsby-remark-a11y-emoji', // emojis
           {
