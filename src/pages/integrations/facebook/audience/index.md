@@ -97,5 +97,6 @@ User Attribute Representing Value | `string` | | The user attribute to be used a
 Allow Zero Values | `bool` | False | If enabled, user data either missing the above user attribute, or having a user attribute value of zero, will be forwarded to Facebook. This setting only applies to value based audiences.
 Customer File Source | `enum` | UNSELECTED | Indicates whether the information was collected directly from customers, provided by partners or a combination of the two. Starting July 2, 2018, Facebook requires this setting on all new audiences created. |
 External Email Identity Type | `enum` | Email | The mParticle User Identity type to forward as an External Email to Facebook. |
+Multi-Key External ID Type | `enum` | None | The user identity to be sent to Facebook as the external identity. Note: this identity's value will have whitespace trimmed, be converted to lowercase, and be hashed prior to sending to Facebook. |
 
 <aside class="notice">The Facebook Application ID setting is required if you enable the Forward Facebook IDs setting.</aside>
