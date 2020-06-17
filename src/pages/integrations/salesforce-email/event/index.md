@@ -181,7 +181,7 @@ Application Name|Text  | Yes | If you want **Application Name** to be sent, add 
 Application Version|Text  | Yes |If you want **Application Version** to be sent, add this field.
 Event Attribute Name 1-N|Text  | Yes | Add fields for any **event attributes** that you send to mParticle that you want to send to Salesforce Marketing Cloud.
 
-<aside>**Note:** All user and event attribute names that contain [special characters](https://help.salesforce.com/articleView?id=mc_es_data_extensions_name_restricted_characters.htm&type=5) will have those characters replaced by `-` instead. The values of those attributes are unmodified. For example, if you have an attribute named "user.favorite_color", it will be transformed to be "user-favorite-color".<aside>
+<aside>**Note:** All user and event attribute names that contain [special characters](https://help.salesforce.com/articleView?id=mc_es_data_extensions_name_restricted_characters.htm&type=5) will have those characters replaced by `-` instead. The values of those attributes are unmodified. For example, if you have an attribute named "user.favorite_color", it will be transformed to be "user-favorite-color".</aside>
 
 #### Commerce Events - Product Action
 

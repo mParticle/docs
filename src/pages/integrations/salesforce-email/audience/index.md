@@ -39,6 +39,10 @@ You can optionally forward additional subscriber data to Salesforce, stored in a
 
 This same process is used for the Event integration and supports the same fields. Follow the setup instructions [here](/integrations/salesforce-email/event/#subscriber-data-extension-setup) and refer to the list of possible fields [here](/integrations/salesforce-email/event/#subscriber-data-extension-fields).
 
+<aside>
+This integration will send <strong>all user attributes</strong> (not just the ones selected) from the included workspaces when forwarding user attributes on an audience connection.
+</aside>
+
 ## Data Processing Notes
 
 Users must have your selected Subscriber Key identity for data to be forwarded to Salesforce. For example, if you choose ‘Customer ID’, and your users do not have a Customer ID, no data will be sent to Salesforce.

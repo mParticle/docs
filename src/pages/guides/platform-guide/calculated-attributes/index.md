@@ -9,12 +9,11 @@ order: 4.1
 
 A Calculated Attribute (CA) is a read-only value about a single user, providing granular insight into user behavior. These attributes are defined in mParticle and are computed automatically over time by using the raw data stream of events and user information.
 
-Calculated Attributes
+Calculated Attributes:
 
-* Help Marketers, Product Managers and Data Scientists better understand customer behavior and interactions with their brand.
-* Enable data-driven product and content personalization via our Profile API.
-* Can be forwarded to product & business analytics to uncover predictive analytics.
-* Build audiences for marketing campaigns with Calculated Attributes and improve marketing campaign efficiency.
+* Enable personalized campaigns and targeting with an always-on understanding of the customer behavior
+* Help Marketers, Product Managers and Data Scientists better understand customer behavior and interactions with their brand
+* Standardize the calculated values across the entire marketing and analytics stack, across platforms and tools
 
 ### Structure
 
