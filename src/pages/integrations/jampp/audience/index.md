@@ -2,7 +2,8 @@
 title: Audience
 ---
 
-[Jampp](http://jampp.com), is the growth platform of choice for on-demand apps worldwide. We unlock programmatic advertising to drive incremental performance. A demand-side platform (DSP) at heart, Jampp leverages unique contextual and behavioral signals to deliver customers and in-app purchases through programmatic user acquisition and retargeting.
+[Jampp](http://jampp.com) is the growth platform of choice for on-demand apps worldwide. We unlock programmatic advertising to drive incremental performance.
+
 
 ## Prerequisites
 

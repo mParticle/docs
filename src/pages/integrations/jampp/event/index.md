@@ -2,7 +2,7 @@
 title: Event
 ---
 
-[Jampp](http://jampp.com) is the growth platform of choice for on-demand apps worldwide. We unlock programmatic advertising to drive incremental performance. A demand-side platform (DSP) at heart, Jampp leverages unique contextual and behavioral signals to deliver customers and in-app purchases through programmatic user acquisition and retargeting.
+[Jampp](http://jampp.com) is the growth platform of choice for on-demand apps worldwide. We unlock programmatic advertising to drive incremental performance.
 
 The Jampp event integration supports the iOS and Android platforms. Jampp will not accept data over 24 hours old.
 
