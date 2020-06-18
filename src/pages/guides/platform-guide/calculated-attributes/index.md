@@ -103,8 +103,8 @@ All calculation speeds here are *after* the values have been initialized. Settin
 
 ![](/images/ca-delayed-flow.png)
 
-Calculations are either **instant** or **delayed**.  Instant calculations are evaluated immediately and updated values are included in the outgoing event batch.
-Delayed calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the *next* outgoing event batch **and** to outputs connected to a special feed input named "Calculated Attributes". As delayed values are computed, they will be sent downstream to any output connected to this input. This input will appear once you have activated a calculated attribute. When a new connection is made to this input the downstream system is synced by sending updated CA values for users who have not been seen since their delayed CAs were calculated.
+Calculations are either **instant** or **delayed**.  Instant calculations are evaluated immediately and updated values are included in the very same outgoing event batch.
+Delayed calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the *next* outgoing event batch **and** to outputs connected to a special feed input named "Calculated Attributes". As delayed values are computed, they will be sent downstream to any output connected to this input. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their delayed CAs were calculated will be sent.
 
 <aside>
  Be mindful of which downstream systems are connected to the "Calculated Attributes" input to avoid unintentional increases in API calls.
