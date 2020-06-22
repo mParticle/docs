@@ -28,4 +28,4 @@ mParticle's User Roles are:
 * **Audiences Only** - Can view and manage Audiences. Cannot view other areas of the mParticle platform. Note that this means Audiences Only users can connect audiences to existing Outputs, but cannot add and configure new Audience Outputs
 * **Compliance** - Can view and manage the [Requests Page](/guides/data-subject-requests/#managing-data-subject-requests-in-the-mparticle-dashboard). Has Read Only access in other parts of the dashboard
 * **Admin & Compliance** - All admin permissions, plus can view and manage the [Requests Page](/guides/data-subject-requests/#managing-data-subject-requests-in-the-mparticle-dashboard)
-* **Support Access** - All Admin permissions except for user management capabilities.  This role should be used to delegate access to an mParticle support representitive while troubleshooting a ticket.  This role has access to PII within the account.
+* **Support Access** - All Admin permissions except for user management capabilities.  This role should be used to delegate access to an mParticle support representative while troubleshooting a ticket.  This role has access to end-user PII within the account.
