@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { navigate } from 'gatsby';
+import { navigate } from '@reach/router';
 import { addGlobalEventListener, removeGlobalEventListener } from '../../utils/misc';
 
 import './_headingstoc.less';

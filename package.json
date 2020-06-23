@@ -48,6 +48,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "axios": "^0.19.2",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "2.2.0",
@@ -62,8 +63,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "npm run update-partners && gatsby develop",
     "clean": "gatsby clean",
+    "serve": "gatsby serve",
     "update-partners": "node scripts/updatePartners",
     "build": "npm run lint && npm run update-partners && ACTIVE_ENV=development gatsby build --prefix-paths",
+    "github:comment": "node scripts/githubComments",
     "production-build": "npm run lint && npm run update-partners && ACTIVE_ENV=production gatsby build",
     "lint": "eslint \"src\\components\\**\" \"src\\pages\\**\" \"src\\utils\\**\""
   }
