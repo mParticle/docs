@@ -26,7 +26,7 @@ Authorization: Basic ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==
 
 ## Endpoint  
 
-Our HTTP endpoint is: `https://s2s.mparticle.com`. If you are using a non-US data center, look up your endpoint [here](/developers/data-residency/#events-api).
+Our HTTP endpoint is: `https://s2s.mparticle.com`. If you are using a non-US data center, look up your endpoint [here](/developers/data-localization/#events-api).
 
 ## Paths
 This API supports two paths: one for setting calculated attribute seeds for a single user and one for updating many users in bulk.

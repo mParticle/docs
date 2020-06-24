@@ -11,7 +11,7 @@ mParticle provides an HTTP-based Events API that can be used to collect data fro
 
 ## Endpoint  
 
-Our HTTP endpoint is: `https://s2s.mparticle.com`. If you are using a non-US data center, look up your endpoint [here](/developers/data-residency/#events-api).
+Our HTTP endpoint is: `https://s2s.mparticle.com`. If you are using a non-US data center, look up your endpoint [here](/developers/data-localization/#events-api).
 
 ## JSON Format
 
@@ -104,12 +104,12 @@ This path accepts the same JSON payload as [/v2/bulkevents](#v2bulkevents) and s
 
 A batch received by the historical data endpoint will _not_ be processed if any of the following are true:
 
-* The batch contains no events, 
-* Any event in the batch does not contain the `timestamp_unixtime_ms` property, 
+* The batch contains no events,
+* Any event in the batch does not contain the `timestamp_unixtime_ms` property,
 * The value of any `timestamp_unixtime_ms` is less than 72 hours old.
 
-#### Processing 
-The `historical` API endpoint behaves nearly identically to the `events` and `bulkevents` endpoints with one key difference: data is not forwarded to connected event and data warehouses. 
+#### Processing
+The `historical` API endpoint behaves nearly identically to the `events` and `bulkevents` endpoints with one key difference: data is not forwarded to connected event and data warehouses.
 
 | mParticle Feature | Effect of historical data |
 | ----------------  | ------------------------  |
@@ -120,26 +120,26 @@ The `historical` API endpoint behaves nearly identically to the `events` and `bu
 
 ## Authentication   
 
-The HTTP APIs are secured via basic authentication. 
+The HTTP APIs are secured via basic authentication.
 
 You can authenticate in 2 ways:
 1. Many HTTP clients support basic authentication out of the box. Use your API key for the "username" and your API secret for "password".
 2. Manually set the `authentication` header by encoding your key and secret together:
 
     2.1 Concatenate your application key and secret together with a colon (:) separating the two:
-  
+
     `example-api-key:example-api-secret`
 
-    2.2 Base64 with UTF-8 encode the result: 
-  
+    2.2 Base64 with UTF-8 encode the result:
+
     `ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==`  
 
-    2.3 Prefix the encoded string with the authorization method, *including a space*: 
-  
+    2.3 Prefix the encoded string with the authorization method, *including a space*:
+
     `Basic ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==`
 
     2.4 Set resulting string as the `Authorization` header in your HTTP requests:
-  
+
     `Authorization: Basic ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==`
 
 
@@ -183,7 +183,7 @@ The response body is optionally sent from the server and will not be included if
 
 In order to maintain high throughput performance for large quantities of event data via the HTTP API, pay attention to how you compile individual events into batches. Each batch contains an event array which can hold multiple events, as long as they are for the same user.
 
-If you are generating a lot of event data, sending a full batch for each individual event in realtime will negatively impact performance. Instead, send a combined event batch either at a set time interval, or after a given number of events for each user. 
+If you are generating a lot of event data, sending a full batch for each individual event in realtime will negatively impact performance. Instead, send a combined event batch either at a set time interval, or after a given number of events for each user.
 
 You can further reduce the number of HTTP requests by grouping together up to 100 event batches for multiple users together and forwarding them to the `/bulkevents` [endpoint](#v2bulkevents).
 
@@ -197,11 +197,11 @@ When creating event batches remember the following:
 
 ## SQS Integration
 
-For very high data loads, mParticle may approve the use of an Amazon SQS endpoint to receive bulk events, as an alternative to the HTTPS endpoint. An SQS integration also allows specialized message types for managing user profiles. Contact your mParticle Success Manager if you think your implementation requires an SQS Endpoint. 
+For very high data loads, mParticle may approve the use of an Amazon SQS endpoint to receive bulk events, as an alternative to the HTTPS endpoint. An SQS integration also allows specialized message types for managing user profiles. Contact your mParticle Success Manager if you think your implementation requires an SQS Endpoint.
 
 ### Delete User
 
-Customers sending events via SQS can also send messages to 'delete' a user. 
+Customers sending events via SQS can also send messages to 'delete' a user.
 
 <aside>Note that to use the Delete User message, you must authenticate with an org-level key. Also note that this endpoint is not GDPR-compliant. See our <a href="/developers/opengdpr/">OpenGDPR API</a> for GDPR erasure requests.</aside>
 

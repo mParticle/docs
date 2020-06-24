@@ -164,9 +164,9 @@ const TILES = [
         route: 'cli'
     },
     {
-        title: 'Data Residency',
+        title: 'Data Localization',
         content: 'Process your data in a non-US region.',
-        route: 'data-residency/'
+        route: 'data-localization/'
     },
     {
         title: 'Platform API',

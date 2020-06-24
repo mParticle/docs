@@ -2,13 +2,13 @@
 title: Data Warehouse
 ---
 
-mParticle's Data Warehouse integration with Snowflake forwards all your incoming data to a Snowflake cluster, allowing you to query the raw data directly. 
+mParticle's Data Warehouse integration with Snowflake forwards all your incoming data to a Snowflake cluster, allowing you to query the raw data directly.
 
 The integration creates a table in your Snowflake database for each custom app event name and each eCommerce event name with a volume above a defined threshold. Less common events are recorded in a single table, labeled `otherevents`.
 
 By default, the integration begins loading current data into Snowflake from the time it is enabled. You can work with your mParticle Customer Service Manager to load historical data.
 
-## Enable the Integration 
+## Enable the Integration
 
 ### Snowflake Database Setup
 
@@ -37,7 +37,7 @@ The size of the Snowflake database you pick should take into account the followi
 
 When mParticle forwards data to Snowflake, each event is a row in Snowflake table, each row has a list of columns. How many of those columns are populated and how big each column is (especially user attributes and event attributes columns) determines the size of a row. When you multiply by the total number of rows you get the total data size. Note that Snowflake compresses data and that it stores data in columnar format, and thus the multiplication result is likely larger than the actual size, however, this is a starting point. The number of MTU doesn't matter, all data could be for 1 single mpid.
 
-After data size is available, you pick Snowflake size based on the query latency needs. You can use mParticle's filtering/sampling feature to reduce the data size in Snowflake if you want. 
+After data size is available, you pick Snowflake size based on the query latency needs. You can use mParticle's filtering/sampling feature to reduce the data size in Snowflake if you want.
 
 A rule of thumb for Snowflake is to start small, test, and scale up if needed. In Snowflake, scaling up/down is fairly easy and quick as Snowflake charges by how many credits are used, not by cluster size.
 
@@ -61,12 +61,12 @@ CREATE USER mparticle_user
   MUST_CHANGE_PASSWORD = FALSE
   DEFAULT_ROLE = data_loader
   PASSWORD = "STRONG_PASSWORD_HERE";
-   
+
 GRANT ROLE data_loader TO USER mparticle_user;
 ~~~
 
 ### mParticle Setup
- 
+
 After adding Snowflake from the integrations Directory, you can find the settings UI at **Setup > Data Warehouse**.
 
 ![](/images/Snowflake-mParticle-Connect-Data-Warehouse.png)
@@ -95,7 +95,7 @@ Once your Data Warehouse integration is configured, connect individual inputs to
 
 <!-- [[[WILL FILL IN WHEN AVAILABLE]]] -->
 
-All tables created in Snowflake have the same schema, consisting of a single column of type `variant` (a dedicated Snowflake type to efficiently handle JSON data) with the name `"data"`. Each row in a table is a JSON string with multiple key/value pairs. 
+All tables created in Snowflake have the same schema, consisting of a single column of type `variant` (a dedicated Snowflake type to efficiently handle JSON data) with the name `"data"`. Each row in a table is a JSON string with multiple key/value pairs.
 
 For example:
 
@@ -115,7 +115,7 @@ For example:
   "brand": "google",
   "cityname": "Sierra View",
   "clientip": "75.154.15.95",
-  "clientipv6": "75.154.15.95", 
+  "clientipv6": "75.154.15.95",
   "countrycode": "US",
   "customerid": "9172349@gmail.com",
   "dataconnectiontype": "wifi",
@@ -188,7 +188,7 @@ mParticle also creates two types of views under the schema:
 
 
 ### Querying From the Data Column
-Use syntax `data:key_name`. Here are some sample queries: 
+Use syntax `data:key_name`. Here are some sample queries:
 
 ~~~sql
 -- select some "columns" to look at, if querying the table directly
@@ -214,7 +214,7 @@ order by 3 desc
 
 ## Snowflake IP Whitelisting
 
-If you have chosen to create an IP whitelist as part of your Snowflake [Network Policy](https://docs.snowflake.net/manuals/user-guide/network-policies.html#creating-a-network-policy), you can access a current list of IP addresses used by mParticle [here](/developers/data-residency/#sending-data-out-of-mparticle).
+If you have chosen to create an IP whitelist as part of your Snowflake [Network Policy](https://docs.snowflake.net/manuals/user-guide/network-policies.html#creating-a-network-policy), you can access a current list of IP addresses used by mParticle [here](/developers/data-localization/#sending-data-out-of-mparticle).
 
 ## Partner Feed Data
 
