@@ -55,9 +55,74 @@ const mediaSession = new MediaSession(
     'Video',                      // Content Type (Video or Audio)
     'OnDemand'                    // Stream Type (OnDemand, Live, etc.)
 );
+
+// optionally set percentage at which you consider content completed
+mediaSession.mediaContentCompleteLimit = 90;
 ```
 
 You can access the source code and contribute to the [mParticle Media SDK Github repo here](https://github.com/mParticle/mparticle-web-media-sdk).
+
+
+## Summary Events
+
+Summary events are automated events that contain an accumulated record of what occured during a session, individual segments, and individual ads.
+
+### Session Summary Events
+
+A Session Summary event tracks from when a `MediaSession` is initialized to when it's de-initialized or when `logMediaSessionEnd` is called. The more accurate and detailed developers are with `logPlay`, `logPause`, `logAdStart`, and other media events, the more accurate the summary data will be.
+
+The following table explains the different parts of the Session Summary event.
+
+| Session Summary Keys | Description |
+| --- | --- |
+|  "media_session_id" | A unique identifier automatically created for each session |
+| "content_id" | A unique identifier that can set by the user when initializing a session |
+| "content_title" | The title of the content. Can be set by the user when initializing a session |
+| "media_session_start_time" | Timestamp created on `logMediaSessionStart` event |
+| "media_session_end_time" | Timestamp of most recent valid event |
+| "media_time_spent" | Total seconds user spent on this session |
+| "media_content_time_spent" | The total seconds user spent playing content |
+| "media_content_complete" | True if `logMediaContentEnd` was called or if user progressed past percentage set in `MediaSession.mediaContentCompleteLimit` |
+| "media_session_segment_total" | The number of segments progressed into by the user |
+| "media_total_ad_time_spent" | The total seconds that ads played during this session |
+| "media_ad_time_spent_rate" | The parcentage of playback time that was ad content |
+| "media_session_ad_total" | The number of ads played in the media session |
+| "media_session_ad_objects" | An array of unique identifiers for ads played during this media session |
+
+### Segment Summary Events
+
+A Segment Summary event tracks from when `logSegmentStart` is called to when either `logSegmentSkip` or `logSegmentEnd` is called. Segments could be the chapters of an audiobook or scenes in a movie.
+
+The following table explains the different parts of the Segment Summary event.
+
+| Segment Summary Keys | Description |
+| --- | --- |
+| "media_session_id" | A unique identifier automatically created for each session |
+| "content_id" | A unique identifier that can set by the user when initializing a session |
+| "segment_title" | The title of the segment |
+| "segment_index" | The index of the segment |
+| "segment_start_time" | Timestamp created on `logSegmentStart` event |
+| "segment_end_time" | Timestamp of most recent valid event in segment |
+| "media_segment_time_spent" | Total seconds user spent on this segment |
+| "segment_completed" | True if `logSegmentEnd` was called to end the segment |
+| "segment_skipped" | True if `logSegmentSkip` was called to end the segment |
+
+### Ad Summary Events
+
+An Ad Summary event tracks from when `logAdStart` is called to when either `logAdSkip` or `logAdEnd` is called.
+
+The following table explains the different parts of the Ad Summary event.
+
+| Ad Summary Keys | Description |
+| --- | --- |
+| "media_session_id" | A unique identifier automatically created for each session |
+| "ad_break_id" | A unique identifier that can set by the user when initializing an ad break |
+| "ad_content_id" | A unique identifier that can set by the user when initializing an ad |
+| "ad_content_title" | The title of the ad |
+| "ad_content_start_time" | Timestamp created on `logAdStart` event |
+| "ad_content_end_time" | Timestamp of most recent valid event in segment |
+| "ad_completed" | True if `logAdEnd` was called to end the segment. |
+| "ad_skipped" | True if `logAdSkip` was called to end the segment. |
 
 ## Logging Media Events
 
@@ -66,31 +131,72 @@ Once your session is instantiated, you will need to trigger a `SessionStart`. Th
 1. Start a session
 
 ```javascript
-mediaSession.logMediaSessionStart();
+const options = {
+    customAttributes: {
+    },
+    currentPlayheadPosition: 0,
+};
+mediaSession.logMediaSessionStart(options);
 ```
 
 2. Log a play event
 
 ```javascript
-mediaSession.logPlay();
+const options = {
+    customAttributes: {
+        content_rating: 'epic',
+        additional: {
+            attribute: 'foo',
+        },
+    },
+    currentPlayheadPosition: 0,
+};
+mediaSession.logPlay(options);
 ```
 
 3. (optional) Fire other events for user interaction, i.e. `pause`
 
 ```javascript
-mediaSession.logPause();
+const options = {
+    customAttributes: {
+        content_rating: 'epic',
+        additional: {
+            attribute: 'foo',
+        },
+    },
+    currentPlayheadPosition: 32,
+};
+mediaSession.logPause(options);
 ```
 
 4. End the Media Content once the content is complete
 
 ```javascript
-mediaSession.logMediaEnd();
+const options = {
+    customAttributes: {
+        content_rating: 'epic',
+        additional: {
+            attribute: 'foo',
+        },
+    },
+    currentPlayheadPosition: 30000,
+};
+mediaSession.logMediaEnd(options);
 ```
 
 5. End the Media Session once the user interaction is over (such as after a post-roll or if the app is terminated)
 
 ```javascript
-mediaSession.logMediaSessionEnd();
+const options = {
+    customAttributes: {
+        content_rating: 'epic',
+        additional: {
+            attribute: 'foo',
+        },
+    },
+    currentPlayheadPosition: 30000,
+};
+mediaSession.logMediaSessionEnd(options);
 ```
 
 ## Logging Advertising
