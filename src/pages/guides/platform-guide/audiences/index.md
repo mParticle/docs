@@ -146,7 +146,7 @@ To build an audience criteria based on a user's profile information, press the *
 - User and device identities
 - User attributes
 - User attribute lists
-
+- Location
 
 ![](/images/audience-user-criteria.png)
 
@@ -193,6 +193,12 @@ Attribution criteria can be used to segment users who have installed your app fr
 
 ### Identity criteria
 Identity criteria allow you to segment users based on their stored identities to test existence of a given identity or write logic against the identity as a string. This criteria will still scope the audience based on the workspaces included; It will not automatically include all users in the [Identity Scope](../../idsync/components/#identity-scope). For example, if the identity scope is set at the account level and the account has 3 workspaces, an audience created in one workspace will only include users with activity in that workspace (and not the other two).
+
+### Location criteria
+Segment users by their location these two options available under **Users**, **Location**:
+1. `Equals`: Segment users that are in a specific city, state, zip or DMA, using geolocation of the users [IP address](https://docs.mparticle.com/developers/server/json-reference/#overall-structure).
+2. `Within`: Segment users that are within a set distance to any global city, using [latitude & longitude coordinates](https://docs.mparticle.com/developers/server/json-reference/#location).
+
 
 ## Setup an Audience Output
 
