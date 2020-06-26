@@ -11,7 +11,7 @@ title: Event
 
 ## Blueshift Configurations
 
-mParticle supports both a server-to-server integration and a client-side kit integration. In-app events and events associated with push notifications will be sent client-side to Blueshift via Blueshift's SDK in conjunction with this kit. If the kit is detected, all events will be sent client side, otherwise events will be sent via the server-to-server integration.  
+mParticle supports both a server-to-server integration and a client-side kit integration. In-app events and events associated with push notifications will be sent client-side to Blueshift via Blueshift's SDK in conjunction with this kit. All other events will be sent via the server-to-server integration.  
 
 ## Blueshift Kit Configuration
 
