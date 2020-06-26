@@ -176,7 +176,7 @@ curl \
 curl \
   -X GET \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/accounts ?accountId=1"
+  "https://api.mparticle.com/v1/accounts?accountId=1"
 ~~~
 
 ##### Example Response
