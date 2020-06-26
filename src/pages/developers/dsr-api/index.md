@@ -132,6 +132,19 @@ mParticle Identity/Device Type | API Format / OpenDSR | Notes
 `MPID` | `mpid` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
 `customer_id` | `controller_customer_id` | -
 `email` | `email` | -
+`other` | `other` | -
+`other2` | `other2` | -
+`other3` | `other3` | -
+`other4` | `other4` | -
+`other5` | `other5` | -
+`other6` | `other6` | -
+`other7` | `other7` | -
+`other8` | `other8` | -
+`other9` | `other9` | -
+`other10` | `other10` | -
+`mobile_number` | `mobile_number` | -
+`phone_number_2` | `phone_number_2` | -
+`phone_number_3` | `phone_number_3` | -
 `android_advertising_id` | `android_advertising_id` | -
 `android_uuid` | `android_id` | -
 `fire_advertising_id` | `fire_advertising_id` | -
