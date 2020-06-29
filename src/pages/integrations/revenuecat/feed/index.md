@@ -8,7 +8,7 @@ title: Feed
 
 1. The RevenueCat SDK and mParticle SDKs should both be implemented in your environment, which allows RevenueCat to collect the MPID in order to use it as an identifier.
 2. Create a feed configuration via mParticle's integrations directory to produce API key/secret values.
-3. Provide your API credentials to your RevenueCat account manager to connect your RevenueCat input data to your mParticle feed configuration(s).
+3. Complete the RevenueCat setup as described [here.](https://docs.revenuecat.com/docs/mparticle)
 
 ## Supported Event Types
 
