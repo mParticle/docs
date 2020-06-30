@@ -37,8 +37,15 @@ Basic purchase tracking is a three-step process:
 
 ~~~javascript
 // 1. Create the product
-var product = mParticle.eCommerce.createProduct(
-    'Double Room - Econ Rate', //
+var product1 = mParticle.eCommerce.createProduct(
+    'Double Room - Econ Rate',  // Name
+    'econ-1',                   // SKU
+    100.00,                     // Price
+    4                           // Quantity
+);
+
+var product2 = mParticle.eCommerce.createProduct(
+    'Double Room - Econ Rate',
     'econ-1', 
     100.00, 
     4
@@ -51,8 +58,15 @@ var transactionAttributes = {
     Tax: 30
 };
 
-// 3. Log the purchase event
-mParticle.eCommerce.logPurchase(transactionAttributes, product);
+// 3. Log the purchase event (optional custom attributes an custom flags depending on your );
+var customAttributes = {sale: true}; // if not passing any custom attributes, pass null
+var customFlags = {'Google.Category': 'travel'} // if not passing any custom flags, pass null
+mParticle.eCommerce.logProductAction(
+    mParticle.ProductActionType.Purchase,
+    [product1, product2],
+    customAttributes,
+    customFlags,
+    transactionAttributes);
 ~~~
 
 ## Product Events
@@ -69,19 +83,28 @@ The first step in any product-based event is to create the products. See [basic 
 
 Once you have your products, you can log events via the `mParticle.eCommerce.logProductAction()` method, shown below.
 
-### Create events manually
+### Additional Commerce event types
 
-Our Commerce API allows you to highly customize your Commerce flow. All product events take a product "action," (which identifies the action being captured), a single product (or an array of products), custom attributes, and custom flags. Purchases and refunds require a transaction attributes object as the custom attributes argument.
+Our Commerce API allows you to highly customize your Commerce flow. All product events take a `ProductAction` (which identifies the action being captured), a single product (or an array of products), custom attributes, custom flags, and transaction attributes. Purchases, refunds, and checkout events require a transaction attributes object to provide fuller detail of the event.
 
 ~~~javascript
 // With the product created above, you can perform any of the above product actions. Some examples include:
 
 // Adding/Removing items to/from your cart
-mParticle.eCommerce.logProductAction(mParticle.ProductActionType.AddToCart, product, {customAttr: customValue});
-mParticle.eCommerce.logProductAction(mParticle.ProductActionType.RemoveFromCart, product, {customAttr: customValue});
+mParticle.eCommerce.logProductAction(mParticle.ProductActionType.AddToCart, product, customAttributes);
+mParticle.eCommerce.logProductAction(mParticle.ProductActionType.RemoveFromCart, product, customAttributes);
 
-// Purchasing
-mParticle.eCommerce.logProductAction(mParticle.ProductActionType.Purchase, transactionAttributes);
+// Checkout (continuation of transactionAttributes above)
+transactionAttributes.Step = 2;
+transactionAttributes.Option = 'Visa';
+
+mParticle.eCommerce.logProductAction(
+    mParticle.ProductActionType.Checkout,
+    [product1, product2],
+    customAttributes,
+    customFlags,
+    transactionAttributes);
+
 ~~~
 
 The complete list of possible product actions includes:
@@ -129,7 +152,6 @@ var impression = mParticle.eCommerce.createImpression('Suggested Products List',
 mParticle.eCommerce.logImpression(impression);
 ~~~
 
-
 ## Forwarding Commerce Data to Partners
 
 mParticle commerce events can capture a transaction including multiple products in a single event. Many of our partners take a different approach and only capture purchases at the level of a product. At the simplest end of the spectrum, some partners are only interested in logging the increase in a user's lifetime value and capture no product details at all. For this reason, it's important that both your individual products and the transaction summary are complete and correct.
@@ -139,7 +161,3 @@ When instrumenting your app with mParticle, you don't need to worry about the re
 ## API Reference
 
 Reference the complete [API reference](/developers/sdk/web/core-apidocs/classes/mParticle.eCommerce.html) for a deep dive into the Commerce APIs.
-
-
-
-
