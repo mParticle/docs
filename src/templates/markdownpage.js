@@ -1,12 +1,19 @@
+import path from 'path';
 import React from 'react';
 import LeftNavLayout from '../layouts/leftnav';
 import { graphql } from 'gatsby';
 import { routePropTypes } from '../utils/routes';
 
 class MarkdownTemplate extends React.Component {
-    render() {
-        const { location } = this.props;
-        const link = `https://github.com/mparticle/docs/blob/development/src/pages${location.pathname}index.md`;
+  render() {
+    const { location } = this.props;
+
+    const linkPath = path.join(
+      '/mparticle/docs/blob/development/src/pages',
+      this.props.pageContext.slug,
+      'index.md'
+    );
+    const link = `https://github.com${linkPath}`;
 
         const metadata = this.props.data.pageMetadata;
         const post = this.props.data.markdownRemark;

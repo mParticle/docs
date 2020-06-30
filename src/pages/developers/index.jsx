@@ -245,14 +245,14 @@ const DevContent = (props) => (
                             <span className='icon-tile' />
                             <Link
                                 className='header-links'
-                                to={`developers/${event.route}`}>
+                                to={`${event.route}`}>
                                 <h3>{event.title}</h3>
                             </Link>
                         </div>
                         <div className='dev-tile-content'>
                             <p>{event.content}</p>
                             <Link
-                                to={`developers/${event.route}/`}
+                                to={`${event.route}/`}
                                 className='learn-more'>
                                 <div className='content'>
                                     <span id='learn-more'>Learn More</span>
@@ -272,7 +272,8 @@ const DevContent = (props) => (
                     <div className='dev-tile-content'>
                         <p>{MEDIA.content}</p>
                         <Link
-                            to={'developers/sdk/android/media/'}
+                            data-cy='dev-tile-media-sdk-android-learn-more'
+                            to={'sdk/android/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>Android</span>
@@ -280,7 +281,8 @@ const DevContent = (props) => (
                         </Link>
                         <p />
                         <Link
-                            to={'developers/sdk/ios/media/'}
+                            data-cy='dev-tile-media-sdk-ios-learn-more'
+                            to={'sdk/ios/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>iOS</span>
@@ -288,7 +290,8 @@ const DevContent = (props) => (
                         </Link>
                         <p />
                         <Link
-                            to={'developers/sdk/web/media/'}
+                            data-cy='dev-tile-media-sdk-web-learn-more'
+                            to={'sdk/web/media/'}
                             className='learn-more'>
                             <div className='content'>
                                 <span id='learn-more'>Web</span>

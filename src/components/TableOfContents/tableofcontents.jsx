@@ -87,6 +87,7 @@ class TableOfContents extends React.Component {
                         if (child.path === this.props.metadata.path && this.state.expanded) {
                             acc.push(
                                 <Link
+                                    data-cy='toc-link'
                                     className='toc-link'
                                     key={child.path}
                                     to={child.path}>
@@ -110,6 +111,7 @@ class TableOfContents extends React.Component {
                         } else if (child.path === this.props.metadata.path) {
                             acc.push(
                                 <Link
+                                    data-cy='toc-link'
                                     className='toc-link'
                                     key={child.path}
                                     to={child.path}>
@@ -126,6 +128,7 @@ class TableOfContents extends React.Component {
                         } else if (!isHighLevel) {
                             acc.push(
                                 <Link
+                                    data-cy='toc-link'
                                     className='toc-link'
                                     key={child.path}
                                     to={child.path}>

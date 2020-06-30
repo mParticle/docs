@@ -49,11 +49,12 @@ describe('Integration Markdown Template', () => {
       cy.get('.category-chooser').should('contain.text', 'Categories');
       cy.get('.conversion > .toc-link')
         .should('contain.text', 'Conversion Tracking')
-        .should(
-          'have.attr',
-          'href',
-          '/integrations/?category=Conversion%20Tracking'
-        );
+        .should('have.attr', 'href')
+        .then(($href) => {
+          expect($href).to.contain(
+            '/integrations/?category=Conversion%20Tracking'
+          );
+        });
     });
   });
 });

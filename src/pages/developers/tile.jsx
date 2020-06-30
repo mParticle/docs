@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 const DevTile = ({ data }) => (
     <Link
+        data-cy={`dev-tile-${data.title}`}
         to={`/developers/${data.route}`}
         className='dev-tile'>
         <div className='content'>

@@ -22,10 +22,9 @@ describe('Developers', () => {
   });
 
   it('should have a web sdk', () => {
-    cy.get('[href="/developers/sdk/web/"] > .content > p').click();
+    cy.get('.dev-sdk-tiles > [data-cy=dev-tile-Web] > .content > p').click();
     cy.get('h1').should('have.text', 'Getting Started');
-    cy.get('[aria-current="page"]')
-      .children()
+    cy.get('[data-cy=toc-link] > .active')
       .should('have.class', 'active')
       .should('have.text', 'Getting Started');
     cy.get('.sdk-widget > .docs-header-home-link').should(
@@ -41,12 +40,9 @@ describe('Developers', () => {
   });
 
   it('should have a media sdk', () => {
-    cy.get(
-      '[href="/developers/sdk/web/media/"] > .content > #learn-more'
-    ).click();
+    cy.get('[data-cy=dev-tile-media-sdk-web-learn-more] > .content').click();
     cy.get('h1').should('have.text', 'Media');
-    cy.get('[aria-current="page"]')
-      .children()
+    cy.get('[data-cy=toc-link] > .active')
       .should('have.class', 'active')
       .should('have.text', 'Media');
     cy.get('.sdk-widget > .docs-header-home-link').should(
