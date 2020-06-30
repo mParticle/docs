@@ -29,7 +29,7 @@ Setting Name | Data Type | Default Value | Description
 API User|`string`| |Your SendGrid user name. This is the same credential used for your SendGrid SMTP settings, and for logging into the SendGrid website.
 API Key|`string` | | Your SendGrid password. This is the same credential used for your SendGrid SMTP settings, and for logging into the SendGrid website.
 
-## Configuration Settings
+## Connection Settings
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---
