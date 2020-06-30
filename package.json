@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "axios": "^0.19.2",
+    "cypress": "^4.9.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "2.2.0",
@@ -56,11 +57,20 @@
     "eslint-plugin-react": "6.10.3",
     "fs-extra": "3.0.1",
     "gh-pages": "0.12.0",
-    "json-loader": "^0.5.7"
+    "json-loader": "^0.5.7",
+    "pre-commit": "^1.2.2",
+    "start-server-and-test": "^1.11.0"
   },
   "main": "n/a",
+  "pre-commit": [
+    "test"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "npm run test:e2e:ci",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run",
     "develop": "npm run update-partners && gatsby develop",
     "clean": "gatsby clean",
     "serve": "gatsby serve",

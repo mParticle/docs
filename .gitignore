@@ -12,3 +12,5 @@ settings.json
 .vscode
 .vscode/settings.json
 latest_search_items.json
+cypress/videos
+cypress/screenshots
