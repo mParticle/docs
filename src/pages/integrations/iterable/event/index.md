@@ -43,6 +43,14 @@ mParticle will forward the following identifiers to Iterable where available:
 * Android ID
 * mParticle ID
 
+## User Attributes
+
+The mParticle integration will automatically map the following mParticle user attributes to corresponding Iterable user attributes:
+
+| mParticle User Attribute | Iterable User Attribute | Description |
+|---|---|---|
+| `$Mobile` | `phoneNumber` | The user's mobile phone number. In Iterable, the `phoneNumber` attribute is used primarily for sending SMS text messages. For more information on the `phoneNumber` attribute, see [User Profile Fields Used By Iterable - phoneNumber](https://support.iterable.com/hc/en-us/articles/217744303-User-Profile-Fields-Used-by-Iterable-#phonenumber) |
+
 ## Supported Event Types
 
 * Custom Event
