@@ -13,6 +13,7 @@ The Iterable integration supports Android, iOS and Web data. All event data is f
 
 
 ## Data Processing Notes
+
 Iterable will not accept data more than 24 hours old.
 
 ## Prerequisites
@@ -32,7 +33,7 @@ If you will be sending push registration events, you will need to provide the It
 * [Setting up iOS Push Notifications](https://support.iterable.com/hc/en-us/articles/115000315806#_4-create-a-mobile-app-in-iterable)
 * [Setting up Android Push Notifications](https://support.iterable.com/hc/en-us/articles/115000331943#_2-create-a-mobile-app-in-iterable)
 
-## Supported User Identities
+## User Identities
 
 mParticle will forward the following identifiers to Iterable where available:
 
@@ -45,13 +46,15 @@ mParticle will forward the following identifiers to Iterable where available:
 
 ## User Attributes
 
-The mParticle integration will automatically map the following mParticle user attributes to corresponding Iterable user attributes:
+The Iterable integration will automatically map the following mParticle user attributes to corresponding Iterable user attributes:
 
 | mParticle User Attribute | Iterable User Attribute | Description |
 |---|---|---|
 | `$Mobile` | `phoneNumber` | The user's mobile phone number. In Iterable, the `phoneNumber` attribute is used primarily for sending SMS text messages. For more information on the `phoneNumber` attribute, see [User Profile Fields Used By Iterable - phoneNumber](https://support.iterable.com/hc/en-us/articles/217744303-User-Profile-Fields-Used-by-Iterable-#phonenumber) |
 
-## Supported Event Types
+## Event Types
+
+The Iterable integration supports the following event types:
 
 * Custom Event
 * Product Action
