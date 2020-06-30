@@ -17,7 +17,7 @@
                 <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 2.11.5</em>
+            <em>API Docs for: 2.11.15</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -380,11 +380,18 @@ export default function Consent(mpInstance) {
         /**
          * Removes CCPA from the consent state object
          *
-         * @method removeCCPAState
+         * @method removeCCPAConsentState
          */
-        function removeCCPAState() {
+        function removeCCPAConsentState() {
             delete ccpa[CCPAPurpose];
             return this;
+        }
+
+        function removeCCPAState() {
+            mpInstance.Logger.warning(
+                &#x27;removeCCPAState is deprecated and will be removed in a future release; use removeCCPAConsentState instead&#x27;
+            );
+            return removeCCPAConsentState();
         }
 
         return {
@@ -395,6 +402,7 @@ export default function Consent(mpInstance) {
             getGDPRConsentState: getGDPRConsentState,
             removeGDPRConsentState: removeGDPRConsentState,
             removeCCPAState: removeCCPAState,
+            removeCCPAConsentState: removeCCPAConsentState,
         };
     };
 }

@@ -17,7 +17,7 @@
                 <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 2.11.5</em>
+            <em>API Docs for: 2.11.15</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -247,6 +247,9 @@ function mParticle() {
     this.logPageView = function(eventName, attrs, customFlags) {
         self.getInstance().logPageView(eventName, attrs, customFlags);
     };
+    this.upload = function() {
+        self.getInstance().upload();
+    };
     this.eCommerce = {
         Cart: {
             add: function(product, logEventBoolean) {
@@ -331,13 +334,15 @@ function mParticle() {
             productActionType,
             product,
             attrs,
-            customFlags
+            customFlags,
+            transactionAttributes
         ) {
             self.getInstance().eCommerce.logProductAction(
                 productActionType,
                 product,
                 attrs,
-                customFlags
+                customFlags,
+                transactionAttributes
             );
         },
         logPurchase: function(

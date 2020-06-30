@@ -5,7 +5,7 @@
         "url": "https://github.com/mParticle/mparticle-sdk-javascript",
         "logo": "https://static.mparticle.com/sdk/nuget_logo.png",
         "path": "src/",
-        "version": "2.11.5"
+        "version": "2.11.15"
     },
     "files": {
         "src/consent.js": {
@@ -111,7 +111,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/identity.js",
-            "line": 1227,
+            "line": 1234,
             "description": "Invoke these methods on the mParticle.Identity.getCurrentUser().getCart() object.\nExample: mParticle.Identity.getCurrentUser().getCart().add(...);",
             "deprecated": true
         },
@@ -136,7 +136,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/mp-instance.js",
-            "line": 490,
+            "line": 504,
             "description": "Invoke these methods on the mParticle.Consent object.\nExample: mParticle.Consent.createConsentState()"
         },
         "mParticle.eCommerce": {
@@ -148,7 +148,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/mp-instance.js",
-            "line": 529,
+            "line": 543,
             "description": "Invoke these methods on the mParticle.eCommerce object.\nExample: mParticle.eCommerce.createImpresion(...)"
         },
         "mParticle.eCommerce.Cart": {
@@ -160,7 +160,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/mp-instance.js",
-            "line": 535,
+            "line": 549,
             "description": "Invoke these methods on the mParticle.eCommerce.Cart object.\nExample: mParticle.eCommerce.Cart.add(...)",
             "deprecated": true
         }
@@ -243,7 +243,7 @@
             "line": 291,
             "description": "Removes CCPA from the consent state object",
             "itemtype": "method",
-            "name": "removeCCPAState",
+            "name": "removeCCPAConsentState",
             "class": "Consent"
         },
         {
@@ -482,7 +482,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 912,
+            "line": 913,
             "description": "Set multiple user attributes",
             "itemtype": "method",
             "name": "setUserAttributes",
@@ -497,7 +497,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 934,
+            "line": 935,
             "description": "Removes a specific user attribute",
             "itemtype": "method",
             "name": "removeUserAttribute",
@@ -512,7 +512,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 992,
+            "line": 998,
             "description": "Sets a list of user attributes",
             "itemtype": "method",
             "name": "setUserAttributeList",
@@ -532,7 +532,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1099,
+            "line": 1106,
             "description": "Removes all user attributes",
             "itemtype": "method",
             "name": "removeAllUserAttributes",
@@ -540,7 +540,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1132,
+            "line": 1139,
             "description": "Returns all user attribute keys that have values that are arrays",
             "itemtype": "method",
             "name": "getUserAttributesLists",
@@ -552,7 +552,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1153,
+            "line": 1160,
             "description": "Returns all user attributes",
             "itemtype": "method",
             "name": "getAllUserAttributes",
@@ -564,7 +564,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1180,
+            "line": 1187,
             "description": "Returns the cart object for the current user",
             "itemtype": "method",
             "name": "getCart",
@@ -575,7 +575,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1192,
+            "line": 1199,
             "description": "Returns the Consent State stored locally for this user.",
             "itemtype": "method",
             "name": "getConsentState",
@@ -586,7 +586,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1200,
+            "line": 1207,
             "description": "Sets the Consent State stored locally for this user.",
             "itemtype": "method",
             "name": "setConsentState",
@@ -601,7 +601,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1235,
+            "line": 1242,
             "description": "Adds a cart product to the user cart",
             "itemtype": "method",
             "name": "add",
@@ -623,7 +623,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1303,
+            "line": 1310,
             "description": "Removes a cart product from the current user cart",
             "itemtype": "method",
             "name": "remove",
@@ -645,7 +645,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1361,
+            "line": 1368,
             "description": "Clears the user's cart",
             "itemtype": "method",
             "name": "clear",
@@ -654,7 +654,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1394,
+            "line": 1401,
             "description": "Returns all cart products",
             "itemtype": "method",
             "name": "getCartProducts",
@@ -991,7 +991,15 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 497,
+            "line": 489,
+            "description": "Forces an upload of the batch",
+            "itemtype": "method",
+            "name": "upload",
+            "class": "mParticle & mParticleInstance"
+        },
+        {
+            "file": "src/mp-instance.js",
+            "line": 511,
             "description": "Creates a CCPA Opt Out Consent State.",
             "itemtype": "method",
             "name": "createCCPAConsent",
@@ -1030,7 +1038,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 509,
+            "line": 523,
             "description": "Creates a GDPR Consent State.",
             "itemtype": "method",
             "name": "createGDPRConsent",
@@ -1069,7 +1077,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 521,
+            "line": 535,
             "description": "Creates a Consent State Object, which can then be used to set CCPA states, add multiple GDPR states, as well as get and remove these privacy states.",
             "itemtype": "method",
             "name": "createConsentState",
@@ -1081,7 +1089,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 542,
+            "line": 556,
             "description": "Adds a product to the cart",
             "itemtype": "method",
             "name": "add",
@@ -1103,7 +1111,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 562,
+            "line": 576,
             "description": "Removes a product from the cart",
             "itemtype": "method",
             "name": "remove",
@@ -1125,7 +1133,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 582,
+            "line": 596,
             "description": "Clears the cart",
             "itemtype": "method",
             "name": "clear",
@@ -1134,7 +1142,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 599,
+            "line": 613,
             "description": "Sets the currency code",
             "itemtype": "method",
             "name": "setCurrencyCode",
@@ -1149,7 +1157,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 620,
+            "line": 634,
             "description": "Creates a product",
             "itemtype": "method",
             "name": "createProduct",
@@ -1216,7 +1224,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 660,
+            "line": 674,
             "description": "Creates a promotion",
             "itemtype": "method",
             "name": "createPromotion",
@@ -1249,7 +1257,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 677,
+            "line": 691,
             "description": "Creates a product impression",
             "itemtype": "method",
             "name": "createImpression",
@@ -1269,7 +1277,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 687,
+            "line": 701,
             "description": "Creates a transaction attributes object to be used with a checkout",
             "itemtype": "method",
             "name": "createTransactionAttributes",
@@ -1314,7 +1322,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 715,
+            "line": 729,
             "description": "Logs a checkout action",
             "itemtype": "method",
             "name": "logCheckout",
@@ -1325,9 +1333,9 @@
                     "type": "Number"
                 },
                 {
-                    "name": "options",
+                    "name": "option",
                     "description": "",
-                    "type": "Object"
+                    "type": "String"
                 },
                 {
                     "name": "attrs",
@@ -1341,11 +1349,12 @@
                     "optional": true
                 }
             ],
+            "deprecated": true,
             "class": "mParticle.eCommerce"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 739,
+            "line": 757,
             "description": "Logs a product action",
             "itemtype": "method",
             "name": "logProductAction",
@@ -1371,13 +1380,19 @@
                     "description": "Custom flags for the event",
                     "type": "Object",
                     "optional": true
+                },
+                {
+                    "name": "transactionAttributes",
+                    "description": "Transaction Attributes for the event",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "class": "mParticle.eCommerce"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 773,
+            "line": 795,
             "description": "Logs a product purchase",
             "itemtype": "method",
             "name": "logPurchase",
@@ -1411,11 +1426,12 @@
                     "optional": true
                 }
             ],
+            "deprecated": true,
             "class": "mParticle.eCommerce"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 814,
+            "line": 840,
             "description": "Logs a product promotion",
             "itemtype": "method",
             "name": "logPromotion",
@@ -1447,7 +1463,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 838,
+            "line": 864,
             "description": "Logs a product impression",
             "itemtype": "method",
             "name": "logImpression",
@@ -1473,7 +1489,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 860,
+            "line": 886,
             "description": "Logs a refund",
             "itemtype": "method",
             "name": "logRefund",
@@ -1507,11 +1523,12 @@
                     "optional": true
                 }
             ],
+            "deprecated": true,
             "class": "mParticle.eCommerce"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 901,
+            "line": 931,
             "description": "Sets a session attribute",
             "itemtype": "method",
             "name": "setSessionAttribute",
@@ -1531,7 +1548,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 953,
+            "line": 983,
             "description": "Set opt out of logging",
             "itemtype": "method",
             "name": "setOptOut",
@@ -1546,7 +1563,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 983,
+            "line": 1013,
             "description": "Set or remove the integration attributes for a given integration ID.\nIntegration attributes are keys and values specific to a given integration. For example,\nmany integrations have their own internal user/device ID. mParticle will store integration attributes\nfor a given device, and will be able to use these values for server-to-server communication to services.\nThis is often useful when used in combination with a server-to-server feed, allowing the feed to be enriched\nwith the necessary integration attributes to be properly forwarded to the given integration.",
             "itemtype": "method",
             "name": "setIntegrationAttribute",
@@ -1566,7 +1583,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 1059,
+            "line": 1089,
             "description": "Get integration attributes for a given integration ID.",
             "itemtype": "method",
             "name": "getIntegrationAttributes",
