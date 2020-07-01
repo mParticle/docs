@@ -270,6 +270,10 @@ For larger changes, we recommend creating a new plan version. Creating a new pla
 
 ### FAQ
 
+#### What do valid events look like on the developer side?
+
+If you're looking for an example of how to implement events that conform to your data plan, download your data plan and [check out this tool](https://mparticle.github.io/data-planning-snippets/). This tool will show you how to create a valid event for every point in your data plan and in any of our SDKs.
+
 #### How are expectations validated?
 
 Each Data Point is composed of two key elements, a "criteria" used to match the Data Point within an incoming data stream, and "schema" that is used to validate the contents of the Data Point:
@@ -405,3 +409,6 @@ To view the details of a specific event, select the event from the Live Stream l
 ## Linting (beta)
 
 We've developed tools for you to be able to lint your Swift, Kotlin/Java, and JavaScript/TypeScript code. For more details, click [here](/developers/linting/).
+
+## Snippets (beta)
+We've developed a tool for you to easily create snippets of code that conform to your data plan. To use this tool, click [here](https://mparticle.github.io/data-planning-snippets/) and for more detailed documentation [check out the Github repo](https://github.com/mParticle/data-planning-snippets).
