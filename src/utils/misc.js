@@ -41,7 +41,7 @@ export function alphabeticSort(key) {
     return function propertySort(a, b) {
         if (!a || !a[key]) {
             return 1;
-        } else if (!b || !b[key]) {
+        } if (!b || !b[key]) {
             return -1;
         }
         const nameA = a[key].toUpperCase();

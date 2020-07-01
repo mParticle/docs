@@ -21,7 +21,7 @@ const cla = (
             contained herein and other good and valuable consideration,
             the receipt and sufficiency of which are hereby
             acknowledged, the parties agree as follows:
-    </p>
+        </p>
         <ol>
             <li>
                 Definitions.
@@ -193,7 +193,7 @@ export default class DevContent extends React.Component {
         this.state = {
             selectedUserType: '',
             formState: '',
-            submitDisabled: false
+            submitDisabled: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -206,35 +206,35 @@ export default class DevContent extends React.Component {
         const formData = new FormData(document.forms['cla-form']);
         formData.set('date', new Date());
         this.setState({
-            submitDisabled: true
+            submitDisabled: true,
         });
 
         fetch(this.url, {
             method: 'POST',
-            body: formData
+            body: formData,
         })
-        .then(() => {
-            window.console.log('success!');
-            this.setState({
-                formState: 'complete'
+            .then(() => {
+                window.console.log('success!');
+                this.setState({
+                    formState: 'complete',
+                });
+            })
+            .catch(() => {
+                window.console.log('error');
+                this.setState({
+                    formState: 'incomplete',
+                });
             });
-        })
-        .catch(() => {
-            window.console.log('error');
-            this.setState({
-                formState: 'incomplete'
-            });
-        });
     }
 
     handleChange(changeEvent) {
         this.setState({
-            selectedUserType: changeEvent.target.value
+            selectedUserType: changeEvent.target.value,
         });
     }
 
     render() {
-        const formState = this.state.formState;
+        const { formState } = this.state;
         let employerQuestions;
         let form;
         let confirmation;
@@ -246,7 +246,7 @@ export default class DevContent extends React.Component {
                     <div>
                         <p>
                             <label htmlFor='cla-form' className='cla-labels'>
-                            Company
+                                Company
                             </label>
                             <input className='form-input' type='text' name='company' required={this.state.selectedUserType === 'employer'} />
                         </p>
@@ -279,7 +279,9 @@ export default class DevContent extends React.Component {
                         <a
                             className='docs-header-home-link'
                             href='https://github.com/mparticle/docs'>
-                            <span className='github-icon' />Go to Github<span className='arrow-right-icon' />
+                            <span className='github-icon' />
+                            Go to Github
+                            <span className='arrow-right-icon' />
                         </a>
                     </div>
                 </div>
@@ -375,7 +377,7 @@ export default class DevContent extends React.Component {
                         </div>
                         {employerQuestions}
                         <div className='submit-cla'>
-                            <button type='submit' className='submit-cla' disabled={this.state.submitDisabled} >
+                            <button type='submit' className='submit-cla' disabled={this.state.submitDisabled}>
                                 Submit
                                 <span className='arrow-right-icon' />
                             </button>
@@ -404,7 +406,7 @@ export default class DevContent extends React.Component {
 
 export const frontmatter = {
     title: 'Contribution License Agreement',
-    showWhenLast: true
+    showWhenLast: true,
 };
 
 export const query = graphql`
@@ -418,6 +420,6 @@ export const query = graphql`
 DevContent.propTypes = {
     location: routePropTypes.location.isRequired,
     data: PropTypes.shape({
-        pageMetadata: routePropTypes.pageMetadata
-    }).isRequired
+        pageMetadata: routePropTypes.pageMetadata,
+    }).isRequired,
 };

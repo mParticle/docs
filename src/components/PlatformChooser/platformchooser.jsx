@@ -17,12 +17,11 @@ const PlatformChooser = (props) => (
     </div>
 );
 
-
 PlatformChooser.propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
-        isActive: PropTypes.bool
-    })).isRequired
+        isActive: PropTypes.bool,
+    })).isRequired,
 };
 
 export default PlatformChooser;

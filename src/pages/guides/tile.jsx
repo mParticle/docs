@@ -38,8 +38,8 @@ GuideTile.propTypes = {
         route: PropTypes.string,
         links: PropTypes.array,
         title: PropTypes.string,
-        content: PropTypes.string
-    }).isRequired
+        content: PropTypes.string,
+    }).isRequired,
 };
 
 GuideTile.defaultProps = {
@@ -47,6 +47,6 @@ GuideTile.defaultProps = {
         route: '',
         links: [],
         title: '',
-        content: ''
-    }
+        content: '',
+    },
 };

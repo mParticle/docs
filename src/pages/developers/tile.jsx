@@ -18,13 +18,13 @@ export default DevTile;
 DevTile.propTypes = {
     data: PropTypes.shape({
         route: PropTypes.string,
-        title: PropTypes.string
-    }).isRequired
+        title: PropTypes.string,
+    }).isRequired,
 };
 
 DevTile.defaultProps = {
     data: {
         route: '',
-        title: ''
-    }
+        title: '',
+    },
 };

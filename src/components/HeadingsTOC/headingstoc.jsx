@@ -17,11 +17,10 @@ const handleItemClick = (heading) => {
 };
 
 class HeadingsTOC extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            headings: null
+            headings: null,
         };
         this.onScroll = () => this.forceUpdate();
         this.navRefCallback = (el) => {
@@ -40,7 +39,7 @@ class HeadingsTOC extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.currPath !== this.props.currPath) {
             this.setState({
-                headings: null
+                headings: null,
             });
         }
     }
@@ -70,7 +69,7 @@ class HeadingsTOC extends React.Component {
             }
         }
         this.setState({
-            headings: navHeadings
+            headings: navHeadings,
         });
     }
 
@@ -92,7 +91,7 @@ class HeadingsTOC extends React.Component {
                 el: heading,
                 collapsed: true,
                 expanded: false,
-                parent: false
+                parent: false,
             };
         });
         let currentParentIndex = 0;
@@ -162,14 +161,17 @@ class HeadingsTOC extends React.Component {
                                 (heading.active ? 'child active' : 'child')
                                 + (heading.parent ? ' parent' : '')
                                 + (heading.expanded ? ' expanded' : '')
-                                + (heading.tagName === 'H3' ? ' nested-child' : '')}
+                                + (heading.tagName === 'H3' ? ' nested-child' : '')
+                            }
                             onClick={() => handleItemClick(heading)}
                             role='menuitem'>
-                            {heading.parent &&
-                                <span
-                                    role='button'
-                                    className='icon'
-                                    onClick={toggleCollapse} />}
+                            {heading.parent
+                                && (
+                                    <span
+                                        role='button'
+                                        className='icon'
+                                        onClick={toggleCollapse} />
+                                )}
                             <div
                                 className={`heading-nav-element ${heading.tagName}`}>
                                 <span>{heading.textContent}</span>
@@ -183,7 +185,7 @@ class HeadingsTOC extends React.Component {
 }
 
 HeadingsTOC.propTypes = {
-    currPath: PropTypes.string.isRequired
+    currPath: PropTypes.string.isRequired,
 };
 
 export default HeadingsTOC;

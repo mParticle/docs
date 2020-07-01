@@ -11,15 +11,14 @@ import './_tableofcontents.less';
 const TopLevelLookup = {
     developers: 'Developers',
     integrations: 'Integrations',
-    guides: 'Guides'
+    guides: 'Guides',
 };
-
 
 class TableOfContents extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: true
+            expanded: true,
         };
         this.toggleExpand = this.toggleExpand.bind(this);
         this.resetToggle = this.resetToggle.bind(this);
@@ -33,13 +32,13 @@ class TableOfContents extends React.Component {
 
     toggleExpand() {
         this.setState({
-            expanded: !this.state.expanded
+            expanded: !this.state.expanded,
         });
     }
 
     resetToggle() {
         this.setState({
-            expanded: true
+            expanded: true,
         });
     }
 
@@ -72,15 +71,16 @@ class TableOfContents extends React.Component {
                         to={`/${topLevelSection}/`}>
                         <p className='header-section'>{TopLevelLookup[topLevelSection] || 'Docs Homepage'}</p>
                     </Link>
-                    {!isHighLevel &&
-                        <div>
-                            <span className='arrow-up' />
-                            {sdkActive && (
-                                <span className='client-sdk'>Client SDK: </span>
-                            )}
-                            <span className='header-section'>{headerSection}</span>
-                        </div>
-                    }
+                    {!isHighLevel
+                        && (
+                            <div>
+                                <span className='arrow-up' />
+                                {sdkActive && (
+                                    <span className='client-sdk'>Client SDK: </span>
+                                )}
+                                <span className='header-section'>{headerSection}</span>
+                            </div>
+                        )}
                 </div>
                 <ul>
                     {this.props.metadata.metadataParent.metadataChildren.reduce((acc, child) => {
@@ -94,21 +94,19 @@ class TableOfContents extends React.Component {
                                     <div
                                         key={child.path}
                                         className={child.path === this.props.metadata.path ? 'active' : ''}>
-                                        {isHighLevel &&
-                                            <span className='arrow-up' />
-                                        }
+                                        {isHighLevel
+                                            && <span className='arrow-up' />}
                                         <span
                                             className='listing'>
                                             {child.title}
                                         </span>
                                     </div>
-                                </Link>
+                                </Link>,
                             );
                             return acc.concat(<HeadingsTOC
                                 key='headings'
-                                currPath={this.props.metadata.path} />
-                            );
-                        } else if (child.path === this.props.metadata.path) {
+                                currPath={this.props.metadata.path} />);
+                        } if (child.path === this.props.metadata.path) {
                             acc.push(
                                 <Link
                                     data-cy='toc-link'
@@ -123,7 +121,7 @@ class TableOfContents extends React.Component {
                                             {child.title}
                                         </span>
                                     </div>
-                                </Link>
+                                </Link>,
                             );
                         } else if (!isHighLevel) {
                             acc.push(
@@ -137,7 +135,7 @@ class TableOfContents extends React.Component {
                                         key={child.path}>
                                         {child.title}
                                     </div>
-                                </Link>
+                                </Link>,
                             );
                         }
                         return acc;
@@ -149,7 +147,7 @@ class TableOfContents extends React.Component {
 }
 
 TableOfContents.propTypes = {
-    metadata: routePropTypes.pageMetadata.isRequired
+    metadata: routePropTypes.pageMetadata.isRequired,
 };
 
 export default TableOfContents;

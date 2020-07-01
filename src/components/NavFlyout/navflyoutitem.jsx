@@ -6,31 +6,31 @@ import { routePropTypes } from '../../utils/routes';
 export const NavToggleState = {
     OFF: 0,
     ON: 1,
-    AUTO: 2
+    AUTO: 2,
 };
 
 class NavFlyoutItem extends React.Component {
     constructor(props) {
         super();
-        const pathname = props.location.pathname;
+        const { pathname } = props.location;
         const routePath = props.route.path;
         const inActivePath = routePath && (pathname.indexOf(routePath) === 0);
         const isCurrentPage = inActivePath && (pathname.length === routePath.length);
         this.state = {
             expanded: props.expanded === NavToggleState.AUTO
                 && inActivePath
-                && !isCurrentPage ? NavToggleState.AUTO : NavToggleState.OFF
+                && !isCurrentPage ? NavToggleState.AUTO : NavToggleState.OFF,
         };
 
         this.toggleExpanded = () => {
             this.setState({
-                expanded: this.state.expanded ? NavToggleState.OFF : NavToggleState.ON
+                expanded: this.state.expanded ? NavToggleState.OFF : NavToggleState.ON,
             });
         };
     }
 
     render() {
-        const pathname = this.props.location.pathname;
+        const { pathname } = this.props.location;
         const routeTitle = this.props.route.title;
         const routePath = this.props.route.path;
         const inActivePath = routePath && (pathname.indexOf(routePath) === 0);
@@ -87,7 +87,7 @@ class NavFlyoutItem extends React.Component {
 NavFlyoutItem.propTypes = {
     route: routePropTypes.pageMetadata.isRequired,
     location: routePropTypes.location.isRequired,
-    expanded: PropTypes.number.isRequired
+    expanded: PropTypes.number.isRequired,
 };
 
 export default NavFlyoutItem;

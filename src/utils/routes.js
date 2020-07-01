@@ -1,10 +1,11 @@
+/* eslint-disable no-else-return */
 /* eslint no-use-before-define: 'off' */
 import PropTypes from 'prop-types';
 
 export const PageMetadataShape = PropTypes.shape({
     title: PropTypes.string,
     path: PropTypes.string,
-    sourceCode: PropTypes.string
+    sourceCode: PropTypes.string,
 });
 
 PageMetadataShape.metadataParent = PageMetadataShape;
@@ -12,9 +13,9 @@ PageMetadataShape.metadataChildren = PropTypes.arrayOf(PageMetadataShape);
 
 export const routePropTypes = {
     location: PropTypes.shape({
-        pathname: PropTypes.string
+        pathname: PropTypes.string,
     }),
-    pageMetadata: PageMetadataShape
+    pageMetadata: PageMetadataShape,
 };
 
 export function getRouteData(route) {

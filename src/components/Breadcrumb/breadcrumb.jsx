@@ -9,13 +9,13 @@ class Breadcrumb extends React.Component {
         this.openSearch = this.openSearch.bind(this);
 
         this.state = {
-            searchOpen: false
+            searchOpen: false,
         };
     }
 
     componentWillMount() {
         this.setState({
-            searchOpen: false
+            searchOpen: false,
         });
     }
 
@@ -28,7 +28,7 @@ class Breadcrumb extends React.Component {
 
     openSearch(which) {
         this.setState({
-            searchOpen: which
+            searchOpen: which,
         });
     }
 
@@ -44,7 +44,7 @@ class Breadcrumb extends React.Component {
                 backwardsCrumbs.push({
                     title: node.title,
                     path: node.path,
-                    showWhenLast: node.showWhenLast
+                    showWhenLast: node.showWhenLast,
                 });
             }
             node = node.metadataParent;
@@ -86,11 +86,13 @@ class Breadcrumb extends React.Component {
                         breadcrumbs.slice(1).map((crumb) => (
                             crumb.removeLink
                                 ? <span key={crumb.title}>{crumb.title}</span>
-                                : (<Link
-                                    key={crumb.title}
-                                    to={crumb.path}>
-                                    {crumb.title}
-                                </Link>)
+                                : (
+                                    <Link
+                                        key={crumb.title}
+                                        to={crumb.path}>
+                                        {crumb.title}
+                                    </Link>
+                                )
                         ))
                     }
                 </div>
@@ -103,11 +105,13 @@ class Breadcrumb extends React.Component {
                     breadcrumbs.map((crumb) => (
                         crumb.removeLink
                             ? <span key={crumb.title}>{crumb.title}</span>
-                            : (<Link
-                                key={crumb.title}
-                                to={crumb.path}>
-                                {crumb.title}
-                            </Link>)
+                            : (
+                                <Link
+                                    key={crumb.title}
+                                    to={crumb.path}>
+                                    {crumb.title}
+                                </Link>
+                            )
                     ))
                 }
             </div>
@@ -116,11 +120,11 @@ class Breadcrumb extends React.Component {
 }
 
 Breadcrumb.defaultProps = {
-    metadata: null
+    metadata: null,
 };
 
 Breadcrumb.propTypes = {
-    metadata: PageMetadataShape
+    metadata: PageMetadataShape,
 };
 
 export const query = graphql`

@@ -47,7 +47,7 @@ const FlyoutRootInternal = (props) => {
     const roots = [
         props.data.developerRoot,
         props.data.integrationsRoot,
-        props.data.platformsRoot
+        props.data.platformsRoot,
     ];
 
     return (
@@ -73,13 +73,13 @@ FlyoutRootInternal.propTypes = {
     data: PropTypes.shape({
         developerRoot: routePropTypes.pageMetadata,
         integrationsRoot: routePropTypes.pageMetadata,
-        platformsRoot: routePropTypes.pageMetadata
-    }).isRequired
+        platformsRoot: routePropTypes.pageMetadata,
+    }).isRequired,
 };
 
-
-const FlyoutRoot = (props) => (<StaticQuery
-    query={graphql`
+const FlyoutRoot = (props) => (
+    <StaticQuery
+        query={graphql`
         query {
             developerRoot: pageMetadata (path: {eq: "/developers/"}) {
                 ...DeepTree
@@ -92,18 +92,18 @@ const FlyoutRoot = (props) => (<StaticQuery
             }
         }
     `}
-    render={(data) => <FlyoutRootInternal location={props.location} data={data} />} />
+        render={(data) => <FlyoutRootInternal location={props.location} data={data} />} />
 );
 
 FlyoutRoot.propTypes = {
-    location: routePropTypes.location.isRequired
+    location: routePropTypes.location.isRequired,
 };
 
 class NavFlyout extends React.Component {
     constructor() {
         super();
         this.state = {
-            open: false
+            open: false,
         };
 
         this.handleOutsideClick = this.handleOutsideClick.bind(this);
@@ -117,7 +117,7 @@ class NavFlyout extends React.Component {
         }
 
         this.setState({
-            open: true
+            open: true,
         });
 
         addGlobalEventListener('onclick', this.handleOutsideClick);
@@ -125,7 +125,7 @@ class NavFlyout extends React.Component {
 
     close() {
         this.setState({
-            open: false
+            open: false,
         });
 
         removeGlobalEventListener('onclick', this.handleOutsideClick);
@@ -143,24 +143,26 @@ class NavFlyout extends React.Component {
     }
 
     render() {
-        return (<div className='nav-flyout'>
-            <button className='open-icon' onClick={this.onClick} />
-            {
-                this.state.open
-                    ? <div className='click-catch' />
-                    : null
-            }
-            {
-                this.state.open
-                    ? <FlyoutRoot location={this.props.location} />
-                    : null
-            }
-        </div>);
+        return (
+            <div className='nav-flyout'>
+                <button className='open-icon' onClick={this.onClick} />
+                {
+                    this.state.open
+                        ? <div className='click-catch' />
+                        : null
+                }
+                {
+                    this.state.open
+                        ? <FlyoutRoot location={this.props.location} />
+                        : null
+                }
+            </div>
+        );
     }
 }
 
 NavFlyout.propTypes = {
-    location: routePropTypes.location.isRequired
+    location: routePropTypes.location.isRequired,
 };
 
 export default NavFlyout;

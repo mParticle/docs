@@ -50,11 +50,11 @@
   "devDependencies": {
     "axios": "^0.19.2",
     "cypress": "^4.9.0",
-    "eslint": "3.19.0",
-    "eslint-config-airbnb": "14.1.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.10.3",
+    "eslint": "7.3.1",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-react": "7.20.2",
     "fs-extra": "9.0.1",
     "json-loader": "^0.5.7",
     "pre-commit": "^1.2.2",
@@ -77,6 +77,6 @@
     "build": "npm run lint && npm run update-partners && ACTIVE_ENV=development gatsby build --prefix-paths",
     "github:comment": "node scripts/githubComments",
     "production-build": "npm run lint && npm run update-partners && ACTIVE_ENV=production gatsby build",
-    "lint": "eslint \"src\\components\\**\" \"src\\pages\\**\" \"src\\utils\\**\""
+    "lint": "eslint src/components/**/*.jsx src/pages/**/*.jsx src/utils/*.js"
   }
 }

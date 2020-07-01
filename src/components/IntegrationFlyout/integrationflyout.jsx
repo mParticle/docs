@@ -7,14 +7,15 @@ import ListFlyout from '../ListFlyout/listflyout';
 const flyoutComponent = (data) => {
     const items = data.pageMetadata.metadataChildren.map((x) => ({
         path: x.path,
-        label: x.title
+        label: x.title,
     }));
 
-    return (<ListFlyout
-        searchPlaceholder='Search...'
-        value='Select Integration'
-        clickCallback={(val) => navigate(val.path)}
-        items={items} />
+    return (
+        <ListFlyout
+            searchPlaceholder='Search...'
+            value='Select Integration'
+            clickCallback={(val) => navigate(val.path)}
+            items={items} />
     );
 };
 
