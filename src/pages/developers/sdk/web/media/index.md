@@ -224,7 +224,8 @@ mediaSession.logAdStart({
   duration: 60000,
   creative: 'A Fishful of Dollars',
   siteid: 'moms',
-  placement: 0
+  placement: 'first',
+  position: 0
 });
 ```
 
@@ -356,6 +357,7 @@ mediaSDK.logMediaSessionStart({
 | ad_content_campaign            | Name of campaign                                                                                                                                                                                                                                       |
 | ad_content_creative            | Name of creative                                                                                                                                                                                                                                       |
 | ad_content_placement           | Description of placement                                                                                                                                                                                                                               |
+| ad_content_position  | Index of position in content |
 | ad_content_site_id             | Identifier of ad content site                                                                                                                                                                                                                          |
 | ad_custom_attribute            | User defined attribute                                                                                                                                                                                                                                 |
 | player_name                    | Then name of the player used                                                                                                                                                                                                                           |
