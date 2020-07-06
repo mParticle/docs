@@ -2,7 +2,7 @@
 title: Event
 ---
 
-[Customer.io](https://customer.io/) provides an email service that allows you to generate and execute against email lists based upon user mobile app activity. 
+[Customer.io](https://customer.io/) provides a marketing automation platform for email, SMS, push messaging, and more. Features include app-event based segmentation and targeting.
 
 ## Supported Features
 

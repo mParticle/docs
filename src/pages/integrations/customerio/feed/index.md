@@ -2,12 +2,12 @@
 title: Feed
 ---
 
-[Customer.io](https://customer.io/) provides an email service that allows you to generate and execute against email lists based upon user mobile app activity. 
+[Customer.io](https://customer.io/) provides a marketing automation platform for email, SMS, push messaging, and more. Features include app-event based segmentation and targeting.
 
 ## Enable the Integrations
 
 1. Set up a Customer.io feed configuration in mParticle in order to generate API key/secret values.  
-2. Complete the Customer.io setup as described [here.](https://docs.revenuecat.com/docs/mparticle)
+2. Complete the Customer.io setup as described [here.](https://customer.io/docs/integrating-with-mparticle)
 
 ## Supported Event Types
 
