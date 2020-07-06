@@ -9,14 +9,18 @@ Iterable is a multi-channel growth marketing and user engagement platform that p
 
 ## Prerequisites
 
-In order to forward an mParticle audience to Iterable, you must have an account with Iterable.
+In order to forward an mParticle audience to Iterable, you must have an account with Iterable. You can sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login).
 
-1. Sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login)
-2. Create your Iterable API keys by selecting Integrations -> API Keys
-3. Click the Create New API Key button
-4. Select to create a key of type `Mobile`
-5. Click Create
-6. Save the value in the Key column of the table.  This value is needed to configure Iterable in mParticle.
+### Create a Standard API Key
+
+Create a dedicated **Standard API key** for the Iterable Audience Integration:
+
+1. In the Iterable UI, navigate to to Integrations -> API Keys
+2. Click the "NEW API KEY" button
+3. Provide a descriptive name such as "mparticle-audience-integration"
+4. Select the `Standard` type
+5. Click "CREATE"
+6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable Event Integration in mParticle.
 
 Follow these [steps](https://support.iterable.com/hc/en-us/articles/115000770906-Importing-User-Lists-) to create a new List in Iterable with no users.   
 
@@ -28,7 +32,7 @@ From the List View, get the List ID for your List from the table to enter in the
 
 ## User Identity Mapping
 
-When forwarding audience data to Iterable, mParticle will send Emails and if they exist, Customer IDs and any additional user attributes. 
+When forwarding audience data to Iterable, mParticle will only send users with an email identity unless you are using MPID as the user identifier.
 
 ## Configuration Settings
 
