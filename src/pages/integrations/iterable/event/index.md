@@ -19,9 +19,9 @@ Iterable will not accept data more than 24 hours old.
 
 In order to forward events to Iterable, you must have an account with Iterable. You can sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login)
 
-### Create an API Key 
+### Create a Mobile API Key 
 
-Create a dedicated **Mobile API key** for the Iterable Event integration:
+Create a dedicated **Mobile API key** for the Iterable Event ntegration:
 
 1. In the Iterable UI, navigate to to Integrations -> API Keys
 2. Click the "NEW API KEY" button
