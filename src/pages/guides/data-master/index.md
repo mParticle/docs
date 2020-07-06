@@ -137,9 +137,12 @@ To create a new plan:
 
 1. Within the **Data Master** section of your dashboard's side navigation panel, select **Plans**, and then select **Create Plan**
 2. Enter the **Data Plan Name** and an optional **Description**.
-3. You can import existing Data Points from [the catalog](/guides/data-master/#catalog) or from other plans:
-    - When importing from the catalog, you can filter to a subset of Data Points. For example, import a specific date range or your latest releases. Use these refinement filters to exclude data with known data quality issues. If you import more Data Points than you intend, you can always delete them after.
-    - To import from another plan, select an existing plan and version. This may be useful to clone a plan and when there is significant data overlap that you'd like to share.
+3. You can import existing Data Points from various sources:
+    - **[Catalog](/guides/data-master/#catalog)**: When importing from the catalog, you can filter to a subset of Data Points. For example, import a specific date range or your latest releases. Use these refinement filters to exclude data with known data quality issues. If you import more Data Points than you intend, you can always delete them afterwards.
+    - **Another data plan version**: To import from another plan, select an existing plan and version. This may be useful to clone a plan when there is significant data overlap that you'd like to share.
+    - **JSON files**: Data plan verions are stored as JSON files. You can download a plan version as a JSON file directly from the plan version editor. The resulting JSON can be updated in a text editor or programmatically via your own custom scripts. You can then upload the plan version back into mParticle through the import modal.
+
+<aside>You can move data plans between various mParticle workspaces and accounts by downloading and uploading JSON formatted plans.</aside>
 
 #### Step 2: Activate your plan
 
@@ -270,36 +273,104 @@ For larger changes, we recommend creating a new plan version. Creating a new pla
 
 ### FAQ
 
-#### How are expectations validated?
+#### Which events are supported?
 
-Each Data Point is composed of two key elements, a "criteria" used to match the Data Point within an incoming data stream, and "schema" that is used to validate the contents of the Data Point:
+You can plan for and validate the following events:
 
-##### Criteria
+- Custom Events (including events emitted by the Media SDK)
+- Screen Events
+- Commerce Events
 
-The match criteria defines the high-level type and identifying information of a Data Point to validate. The Data Point editor supports the following criteria-types, with more types to follow in future releases:
+The following events are not yet included:
+- Application State Transition Events
+- Session Events
+- Attribution Events
 
-- **Custom Events**: this type is uniquely matched by the event name and custom event type.
-- **Screen Events**: this type is uniquely matched by the screen name
-- **User Attributes**: this type is uniquely matched by the user attribute key
+#### How do I validate the shape of event schemas?
 
-See the [Events API documentation](https://docs.mparticle.com/developers/server/json-reference/#events) for more information on these entities.
+Here's an example schema configuration for a screen event called "Sandbox Page View":
 
-<aside>As data streams into mParticle via the Events API, these criteria are used to locate the Data Point within the payload, then the schema (described below) is used to validate it.</aside>
+![](/images/dataplanning/existence.png)
 
-##### Schema
+This configuration states the following:
+1. The `custom_attributes` object is required and any additional attributes that are not listed below should be flagged – the behavior for additional attributes is implied by the validation dropdown for the `custom_attributes` object.
+1. An attribute called `anchor` is a string and it's required.
+1. An attribute called `name` is a string and it's optional.
 
-The validation schema defines the expected syntax of each Data Point. For every attribute of a given Data Point, you can define:
+Let's look at a couple examples to see this schema validation in action.
 
-- **Data type**: The supported types and formats are defined by the [JSON Schema standard](https://json-schema.org/understanding-json-schema/reference/type.html) and include:
-   - `string`
-   - `number`
-   - `boolean`
-   - `date-time`: Date and time together, for example `2019-11-22T20:20:39+00:00`
-   - `date`: Date, for example `2019-11-22`
-- **Required**: If the attribute must be present for the Data Point to be valid
-- **Description**: An optional description of the attribute
+##### Example 1
+~~~javascript
+window.mParticle.logPageView(
+    'Sandbox Page View',
+    {
+        'anchor': '/home', 
+        'name': 'Home',
+    }
+)
+~~~
+This event **passes** validation.
 
-<aside>mParticle uses the richly defined "JSON schema" standard to describe this syntax. While the editor UI supports a subset of JSON schema, a future release will expose API access to allow you extremely rich and specific schema descriptions.</aside>
+##### Example 2
+~~~javascript
+window.mParticle.logPageView(
+    'Sandbox Page View',
+    {
+        'name': 'Home',
+    }
+)
+~~~
+This event **fails** validation since the required `anchor` attribute is excluded.
+
+##### Example 3
+~~~javascript
+window.mParticle.logPageView(
+    'Sandbox Page View',
+    {
+        'anchor': '/home', 
+    }
+)
+~~~
+This event **passes** validation: The `name` attribute is excluded but optional.
+
+##### Example 4
+~~~javascript
+window.mParticle.logPageView(
+    'Sandbox Page View',
+    {
+        'anchor': '/home', 
+        `label`: `Home`
+    }
+)
+~~~
+This event **fails** validation: The `label` attribute is unplanned and `custom_attributes` has been configured to disallow additional attributes. You can change this behavior by changing the validation of the `custom_attributes` object to `Allow add'l attributes` (see below).
+
+![](/images/dataplanning/allow.png)
+
+#### What do valid events look like on the developer side?
+
+If you're looking for an example of how to implement events that conform to your data plan, download your data plan and [check out this tool](https://mparticle.github.io/data-planning-snippets/). This tool will show you how to create a valid event for every point in your data plan and in any of our SDKs.
+
+#### How can I validate specific event, user and identity attributes?
+
+You can validate specific attributes differently depending on type.
+
+##### Numbers
+
+Select a numeric range or an enumeration of allowed values.
+
+![](/images/dataplanning/number_validation.png)
+
+
+##### Strings
+
+String can be validated in three ways:
+
+1. A fixed list of allowed strings
+1. A regex pattern
+1. A list of pre-defined formats defined by the [JSON Schema standard](https://json-schema.org/understanding-json-schema/reference/type.html), including email, URI, date, time, datetime and others.
+
+![](/images/dataplanning/string_validation.png)
 
 #### Where in mParticle's data pipeline are plans enforced?
 
@@ -405,3 +476,7 @@ To view the details of a specific event, select the event from the Live Stream l
 ## Linting (beta)
 
 We've developed tools for you to be able to lint your Swift, Kotlin/Java, and JavaScript/TypeScript code. For more details, click [here](/developers/linting/).
+
+## Snippets (beta)
+
+We've developed a tool for you to easily create snippets of code that conform to your data plan. To use this tool, click [here](https://mparticle.github.io/data-planning-snippets/) and for more detailed documentation [check out the Github repo](https://github.com/mParticle/data-planning-snippets).
