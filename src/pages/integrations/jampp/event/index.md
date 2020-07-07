@@ -17,7 +17,7 @@ To set up the Jampp integration, you will need your Jampp Code, which can be obt
 ## Supported ID Types
 
 * Google Advertising ID (GAID)
-* iOS Advertising ID (IDFV)
+* iOS Advertising ID (IDFA)
 
 ## Supported Events
 

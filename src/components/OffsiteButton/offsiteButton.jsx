@@ -18,7 +18,7 @@ const OffsiteButton = ({ text, url }) => (
 
 OffsiteButton.propTypes = {
     text: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
 };
 
 export default OffsiteButton;

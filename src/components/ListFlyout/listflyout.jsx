@@ -10,13 +10,12 @@ import './_listflyout.less';
 //     'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
 class ListFlyout extends React.Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
             open: false,
-            letterFilter: null
+            letterFilter: null,
         };
 
         this.handleOutsideClick = this.handleOutsideClick.bind(this);
@@ -32,7 +31,7 @@ class ListFlyout extends React.Component {
         }
 
         this.setState({
-            open: true
+            open: true,
         });
 
         this.isOpenClick = true;
@@ -46,7 +45,7 @@ class ListFlyout extends React.Component {
     close() {
         this.setState({
             open: false,
-            letterFilter: null
+            letterFilter: null,
         });
 
         removeGlobalEventListener('onclick', this.handleOutsideClick);
@@ -104,7 +103,8 @@ class ListFlyout extends React.Component {
             <div className='flyout-container'>
                 <button className='list-flyout' onClick={this.onClick}>
                     <div className='selected-value'>
-                        {this.props.value}{icon}
+                        {this.props.value}
+                        {icon}
                     </div>
                 </button>
                 {
@@ -141,8 +141,8 @@ ListFlyout.propTypes = {
     searchPlaceholder: PropTypes.string.isRequired,
     clickCallback: PropTypes.func.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
-        label: PropTypes.string
-    })).isRequired
+        label: PropTypes.string,
+    })).isRequired,
 };
 
 export default ListFlyout;

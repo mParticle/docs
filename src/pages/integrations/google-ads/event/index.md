@@ -192,6 +192,6 @@ When you are ready to use the Google Ads output from the data sent to mParticle,
 
 | Setting Name |  Data Type | Default Value | Platform | Description |
 | ---|---|---|---|---
-| Labels | `Custom Field` | <unset> | All| The mapping of your events to Google Ads conversion labels provided in the Google Ads conversion actions section under the 'Set up your tracking method' heading <br> <br>Note that there are a maximum of three (3) Labels allowed. |
+| Labels | `Custom Field` | <unset> | All| The mapping of your events to Google Ads conversion labels provided in the Google Ads conversion actions section under the 'Set up your tracking method' heading <br> <br>Note that there are a maximum of [50](https://developers.google.com/adwords/api/docs/appendix/limits#label) Labels allowed. |
 | Custom Parameters | `Custom Field` | <unset> | Web| The mapping of your event attributes to Google Ads custom parameters as setup in the tracking template field under Campaign Advanced Settings. (Max # of Mappings Allowed: 3) <br> <br> Note that there are a maximum of three (3) Custom Parameters allowed.|
 | Remarketing Only | `bool` | False | Web| If enabled, the integration is set to remarketing only mode which allows you to improve your marketing campaign's targeting. |

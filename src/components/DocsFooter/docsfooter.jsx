@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import ScrollTopButton from '../../components/ScrollTopButton/scrolltopbutton';
+import ScrollTopButton from '../ScrollTopButton/scrolltopbutton';
 import './_docsfooter.less';
 
 const settings = require('../../../settings.json');
@@ -14,17 +14,20 @@ export default () => (
         <div className='sections'>
             <div className='section legal'>
                 {(buildDate
-                    ?
+                    ? (
                         <div className='build'>
                             <div className='version'>Last Updated:</div>
                             <span>{ buildDate.toLocaleString() }</span>
                         </div>
+                    )
                     : null
-                    )}
+                )}
                 <br />
                 <span>
-                    © 2020 mParticle, Inc.<br />
-                    All rights reserved.<br />
+                    © 2020 mParticle, Inc.
+                    <br />
+                    All rights reserved.
+                    <br />
                     <br />
                     <a
                         className='footer-link'
@@ -37,7 +40,8 @@ export default () => (
                         rel='noopener noreferrer'
                         target='_blank'>
                         Privacy Policy
-                    </a><br />
+                    </a>
+                    <br />
                     <a
                         className='footer-link ot-sdk-show-settings'>
                         Cookie Policy
@@ -46,11 +50,17 @@ export default () => (
             </div>
             <div className='section info'>
                 <p className='title'>Questions?</p>
-                <p>{`We're always happy to help with code or other questions you
+                <p>
+                    {`We're always happy to help with code or other questions you
                     might have! `}
-                     Check out our {<Link to='/faq/'><span className='link'>answers</span></Link>} {'to common questions, or '}
-                    {<a href='https://www.mparticle.com/contact' id='send-email'>
-                        <span className='link'>send us an email</span></a>}
+                    Check out our
+                    {' '}
+                    <Link to='/faq/'><span className='link'>answers</span></Link>
+                    {' '}
+                    {'to common questions, or '}
+                    <a href='https://www.mparticle.com/contact' id='send-email'>
+                        <span className='link'>send us an email</span>
+                    </a>
                 </p>
             </div>
             <div style={{ display: 'none' }} className='section'>

@@ -1,4 +1,4 @@
 export const frontmatter = {
     title: 'FAQ',
-    noBreadcrumb: true
+    noBreadcrumb: true,
 };

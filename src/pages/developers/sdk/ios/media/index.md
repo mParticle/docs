@@ -173,7 +173,8 @@ adContent.campaign = "MomCorp Galactic Domination Plot 3201"
 adContent.duration = 60000
 adContent.creative = "A Fishful of Dollars"
 adContent.siteId = "moms"
-adContent.placement = 0
+adContent.placement = "first"
+adContent.position = 0
 mediaSession.logAdStart(adContent: adContent)
 let adBreak = MPMediaAd.init(title: "pre-roll", id: "123456")
 mediaSession.logAdBreakStart(adBreak)
@@ -294,6 +295,7 @@ Note: Depending on your player, you will need to either enable the callback meth
 | ad_content_campaign	| Name of campaign |
 | ad_content_creative	| Name of creative|
 | ad_content_placement | Description of placement |	
+| ad_content_position  | Index of position in content |
 | ad_content_site_id | Identifier of ad content site|	
 | ad_custom_attribute	| User defined attribute|
 | player_name	| Then name of the player used |

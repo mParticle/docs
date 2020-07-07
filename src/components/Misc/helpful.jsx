@@ -22,8 +22,9 @@ class Helpful extends Component {
                 'Page - Not Helpful',
                 window.mParticle.EventType.Other,
                 {
-                    page: e.currentTarget.baseURI
-                });
+                    page: e.currentTarget.baseURI,
+                },
+            );
         }
         this.setState({ submitted: true });
     }
@@ -35,8 +36,9 @@ class Helpful extends Component {
                 'Page - Helpful',
                 window.mParticle.EventType.Other,
                 {
-                    page: e.currentTarget.baseURI
-                });
+                    page: e.currentTarget.baseURI,
+                },
+            );
         }
         this.setState({ submitted: true });
     }

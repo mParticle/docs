@@ -23,17 +23,17 @@ class DocsHeader extends React.Component {
         this.title = this.platformsActive
             ? 'Guides'
             : this.integrationsActive
-            ? 'Integration Center'
-            : this.developersActive
-            ? 'Developer Documentation'
-            : this.homeActive
-            ? 'mParticle Documentation'
-            : '';
+                ? 'Integration Center'
+                : this.developersActive
+                    ? 'Developer Documentation'
+                    : this.homeActive
+                        ? 'mParticle Documentation'
+                        : '';
     }
 
     openSearch(which) {
         this.setState({
-            searchOpen: which
+            searchOpen: which,
         });
     }
 
@@ -58,7 +58,8 @@ class DocsHeader extends React.Component {
                     </div>
                     <div className='pin-middle'>
                         <Link
-                            className={`header-links ${this.homeActive ? 'active' : ''}`}to='/'>
+                            className={`header-links ${this.homeActive ? 'active' : ''}`}
+                            to='/'>
                             <span>Home</span>
                         </Link>
                         <Link
@@ -105,7 +106,7 @@ class DocsHeader extends React.Component {
 }
 
 DocsHeader.propTypes = {
-    location: routePropTypes.location.isRequired
+    location: routePropTypes.location.isRequired,
 };
 
 export default DocsHeader;

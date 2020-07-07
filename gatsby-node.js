@@ -6,7 +6,7 @@ const fs = require('fs');
 const fs_e = require('fs-extra');
 const remark = require('remark')
 const strip = require('strip-markdown')
-const uuidv4 = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid');
 // Documentation for these APIs and other functionality is here:
 // https://www.gatsbyjs.org/docs/node-apis/
 

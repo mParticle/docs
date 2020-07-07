@@ -7,14 +7,13 @@ import { addGlobalEventListener, removeGlobalEventListener } from '../../utils/m
 import './_leftnavpane.less';
 
 class LeftNavPane extends React.Component {
-
     constructor(props) {
         super(props);
         this.navRefCallback = (el) => {
             this.navRef = el;
         };
         this.state = {
-            toggled: false
+            toggled: false,
         };
         this.paneTopOffset = 85;
         this.onScroll = () => this.forceUpdate();
@@ -46,7 +45,7 @@ class LeftNavPane extends React.Component {
         addGlobalEventListener('onclick', this.onOutsideClick);
         addGlobalEventListener('onhashchange', this.closeFlyout);
         this.setState({
-            toggled: true
+            toggled: true,
         });
     }
 
@@ -56,6 +55,7 @@ class LeftNavPane extends React.Component {
             this.closeFlyout();
         }
     }
+
     resetTOCHeight() {
         this.windowHeight = Math.min(this.body.scrollHeight, this.body.offsetHeight);
         this.scrollPos = window.scrollY;
@@ -68,7 +68,7 @@ class LeftNavPane extends React.Component {
         removeGlobalEventListener('onclick', this.onOutsideClick);
         removeGlobalEventListener('onhashchange', this.closeFlyout);
         this.setState({
-            toggled: false
+            toggled: false,
         });
     }
 
@@ -89,7 +89,8 @@ class LeftNavPane extends React.Component {
                 className={leftNavClass}
                 style={{
                     height: this.maxWindowView || '80%',
-                    borderRight: '1px solid #f0f0f0' }}>
+                    borderRight: '1px solid #f0f0f0',
+                }}>
                 {
                     this.props.children
                 }
@@ -101,5 +102,5 @@ class LeftNavPane extends React.Component {
 export default LeftNavPane;
 
 LeftNavPane.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
 };

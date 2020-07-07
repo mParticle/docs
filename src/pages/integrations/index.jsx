@@ -47,36 +47,35 @@ function renderIntegrations(items) {
 
 const tagOptions = [{
     name: 'Audience',
-    value: 'Audience'
+    value: 'Audience',
 },
 {
     name: 'Event',
-    value: 'Event'
+    value: 'Event',
 },
 {
     name: 'Feed',
-    value: 'Feed'
+    value: 'Feed',
 },
 {
     name: 'Cookie Sync',
-    value: 'Cookie Sync'
+    value: 'Cookie Sync',
 },
 {
     name: 'Data Warehouse',
-    value: 'Data Warehouse'
+    value: 'Data Warehouse',
 },
 {
     name: 'Audience - LiveRamp',
-    value: 'LiveRamp'
+    value: 'LiveRamp',
 }].sort((tagA, tagB) => ((tagA.name > tagB.name) ? 1 : -1));
 
 tagOptions.unshift({
     name: 'All',
-    value: 'all'
+    value: 'all',
 });
 
 class Integrations extends React.Component {
-
     constructor(props) {
         super(props);
         this.extensionDataById = {};
@@ -84,7 +83,7 @@ class Integrations extends React.Component {
             filter: '',
             filteringByType: false,
             filteringByCategory: false,
-            categoryFilter: ''
+            categoryFilter: '',
         };
         this.handleFilterChange = this.handleFilterChange.bind(this);
         this.integrations = props.data.pageMetadata.metadataChildren;
@@ -129,7 +128,7 @@ class Integrations extends React.Component {
                 acc.push({
                     value: route.path,
                     image: data.partnerImageOverride || extensionData.partnerImage,
-                    title: data.title
+                    title: data.title,
                 });
             }
 
@@ -159,15 +158,14 @@ class Integrations extends React.Component {
 
     async handleFilterChange(e) {
         await this.setState({
-            filter: e.target.value
+            filter: e.target.value,
         });
-        this.integrations = this.state.filter ?
-            this.props.data.pageMetadata.metadataChildren.filter((int) => (
+        this.integrations = this.state.filter
+            ? this.props.data.pageMetadata.metadataChildren.filter((int) => (
                 int.title
                     ? int.title.toUpperCase().includes(this.state.filter.toUpperCase())
                     : false))
-            :
-            this.props.data.pageMetadata.metadataChildren;
+            : this.props.data.pageMetadata.metadataChildren;
         this.forceUpdate();
     }
 
@@ -182,7 +180,7 @@ class Integrations extends React.Component {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         await this.setState({
-            filteringByType: true
+            filteringByType: true,
         });
     }
 
@@ -191,12 +189,12 @@ class Integrations extends React.Component {
         await this.setState({
             filteringByType: false,
             filteringByCategory: true,
-            categoryFilter: type
+            categoryFilter: type,
         });
     }
 
     render() {
-        const category = getQueryMap(this.props.location).category;
+        const { category } = getQueryMap(this.props.location);
         const updatedIntegrations = this.getIntegrationsList(this.integrations, category);
 
         return (
@@ -215,33 +213,32 @@ class Integrations extends React.Component {
                                     value={this.state.filter}
                                     onChange={this.handleFilterChange}
                                     placeholder='Search...' />
-                                {!this.state.filter &&
-                                    <span className='search-icon' />}
-                                {this.state.filter &&
-                                    <span
-                                        role='button'
-                                        className='close-search'
-                                        tabIndex='0'
-                                        onClick={this.closeSearch} />}
+                                {!this.state.filter
+                                    && <span className='search-icon' />}
+                                {this.state.filter
+                                    && (
+                                        <span
+                                            role='button'
+                                            className='close-search'
+                                            tabIndex='0'
+                                            onClick={this.closeSearch} />
+                                    )}
                             </div>
                             <div
                                 className='filter-category'
                                 role='button'
                                 onClick={this.handleFilter}>
-                                {this.state.filteringByCategory ?
-                                    tagOptions.find((tag) => tag.value === this.state.categoryFilter).name
+                                {this.state.filteringByCategory
+                                    ? tagOptions.find((tag) => tag.value === this.state.categoryFilter).name
                                     : 'Filter by integration type'}
                                 <span className='icon-arrow' />
-                                {this.state.filteringByType &&
-                                    <IntegrationFilter tags={tagOptions} filterFunc={this.filterFunc} />
-                                }
+                                {this.state.filteringByType
+                                    && <IntegrationFilter tags={tagOptions} filterFunc={this.filterFunc} />}
                             </div>
                         </div>
-                        {!this.state.filteringByCategory || (this.state.filteringByCategory && updatedIntegrations.length) ?
-                            renderIntegrations(updatedIntegrations)
-                            :
-                            <h5 className='no-integration-results'>No results found</h5>
-                        }
+                        {!this.state.filteringByCategory || (this.state.filteringByCategory && updatedIntegrations.length)
+                            ? renderIntegrations(updatedIntegrations)
+                            : <h5 className='no-integration-results'>No results found</h5>}
                     </div>
                 </div>
             </HeaderFooterLayout>
@@ -266,14 +263,14 @@ export const integrationQuery = graphql`
 
 Integrations.propTypes = {
     data: PropTypes.shape({
-        pageMetadata: routePropTypes.pageMetadata.isRequired
+        pageMetadata: routePropTypes.pageMetadata.isRequired,
     }),
-    location: routePropTypes.location.isRequired
+    location: routePropTypes.location.isRequired,
 };
 
 export const frontmatter = {
     title: 'Integrations',
-    showWhenLast: true
+    showWhenLast: true,
 };
 
 export default Integrations;

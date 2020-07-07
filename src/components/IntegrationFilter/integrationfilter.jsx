@@ -16,7 +16,9 @@ const IntegrationFilter = ({ tags, filterFunc }) => (
             {tags.map((tag) => (
                 <li
                     key={tag.name}
-                    onClick={(e) => filterFunc(e, tag.value)}>{tag.name}</li>
+                    onClick={(e) => filterFunc(e, tag.value)}>
+                    {tag.name}
+                </li>
             ))}
         </ul>
     </div>
@@ -25,9 +27,9 @@ const IntegrationFilter = ({ tags, filterFunc }) => (
 IntegrationFilter.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
-        value: PropTypes.string
+        value: PropTypes.string,
     })).isRequired,
-    filterFunc: PropTypes.func.isRequired
+    filterFunc: PropTypes.func.isRequired,
 };
 
 export default IntegrationFilter;

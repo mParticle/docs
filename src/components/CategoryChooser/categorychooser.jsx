@@ -17,9 +17,10 @@ class CategoryChooser extends React.Component {
         super(props);
         this.integrationsMap = [];
         this.state = {
-            integrationsLoaded: false
+            integrationsLoaded: false,
         };
     }
+
     componentDidMount() {
         getUpdatedIntegrations(partners);
         this.forceUpdate();
@@ -27,15 +28,14 @@ class CategoryChooser extends React.Component {
             const accumObj = Object.assign(all);
             if (item.Tags) {
                 accumObj[item.Id] = item.Tags.split(',').map((integration) => (
-                    integration.toLowerCase())
-                );
+                    integration.toLowerCase()));
             } else {
                 accumObj[item.Id] = [];
             }
             return accumObj;
         }, {});
         this.setState({
-            integrationsLoaded: true
+            integrationsLoaded: true,
         });
     }
 
@@ -54,12 +54,12 @@ class CategoryChooser extends React.Component {
                 'Conversion Tracking',
                 'Crash Reporting',
                 'Location',
-                'User Analytics'
+                'User Analytics',
             ],
             'Data Warehousing': [
                 'Business Intelligence',
                 'Data Management Platform',
-                'Raw Data Export'
+                'Raw Data Export',
             ],
             Marketing: [
                 'Advertising',
@@ -71,8 +71,8 @@ class CategoryChooser extends React.Component {
                 'Re-Targeting',
                 'Tag Management',
                 'User Acquisition',
-                'User Feedback'
-            ]
+                'User Feedback',
+            ],
         };
         const colors = ['#00AAFF', '#FF0043', '#00CA2C'];
 
@@ -112,86 +112,91 @@ class CategoryChooser extends React.Component {
                                 all = i;
                             }
                             return all;
-                        }, '')
+                        }, ''),
                     };
-                })
+                }),
             };
             return (
                 <div className='category-chooser'>
-                    { headerText &&
-                        <div className='category-header'>
-                            <span>{headerText}</span>
-                        </div>
-                    }
+                    { headerText
+                        && (
+                            <div className='category-header'>
+                                <span>{headerText}</span>
+                            </div>
+                        )}
                     <div className='category-wrapper'>
                         {
-                        currentCategories['Current Categories'].map((item) => {
-                            const integrationText = item.name.split(' ').map((word) =>
-                                word.charAt(0).toUpperCase() + word.slice(1))
-                            .join(' ')
-                            .split('-')
-                            .map((word) =>
-                                word.charAt(0).toUpperCase() + word.slice(1))
-                            .join('-')
-                            .split('/')
-                            .map((word) =>
-                                word.charAt(0).toUpperCase() + word.slice(1))
-                            .join('/');
+                            currentCategories['Current Categories'].map((item) => {
+                                const integrationText = item.name.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                    .join(' ')
+                                    .split('-')
+                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                    .join('-')
+                                    .split('/')
+                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                                    .join('/');
 
-                            const link = `/integrations/?category=${encodeURIComponent(integrationText)}`;
-                            return (
-                                <div
-                                    className={`link-wrapper ${item.name}`}
-                                    key={item.name}>
-                                    <Link
-                                        className='toc-link'
-                                        to={link}>
-                                        <span>
-                                            <svg height='8' width='8'>
-                                                <circle
-                                                    cx='4'
-                                                    cy='4'
-                                                    r='4'
-                                                    fill={colors[item.cat]} />
-                                            </svg>
-                                        </span>
-                                        { integrationText }
-                                    </Link>
-                                </div>
-                            );
-                        })
-                    }
+                                const link = `/integrations/?category=${encodeURIComponent(integrationText)}`;
+                                return (
+                                    <div
+                                        className={`link-wrapper ${item.name}`}
+                                        key={item.name}>
+                                        <Link
+                                            className='toc-link'
+                                            to={link}>
+                                            <span>
+                                                <svg height='8' width='8'>
+                                                    <circle
+                                                        cx='4'
+                                                        cy='4'
+                                                        r='4'
+                                                        fill={colors[item.cat]} />
+                                                </svg>
+                                            </span>
+                                            { integrationText }
+                                        </Link>
+                                    </div>
+                                );
+                            })
+                        }
                     </div>
                 </div>
             );
-        } else if (activeIntegration) {
+        } if (activeIntegration) {
             return (
                 <div className='category-chooser'>
-                    { headerText &&
-                        <div className='category-header'>
-                            <span>{headerText}</span>
-                            <Link
-                                className='toc-link view-all'
-                                onClick={this.handleClick} style={{ display: 'block' }} to='/integrations' >All</Link>
-                        </div>
-                    }
+                    { headerText
+                        && (
+                            <div className='category-header'>
+                                <span>{headerText}</span>
+                                <Link
+                                    className='toc-link view-all'
+                                    onClick={this.handleClick}
+                                    style={{ display: 'block' }}
+                                    to='/integrations'>
+                                    All
+                                </Link>
+                            </div>
+                        )}
                 </div>
             );
         }
 
         return (
             <div className='category-chooser'>
-                { headerText &&
-                    <div className='category-header'>
-                        <span>{headerText}</span>
-                        <Link
-                            className={`toc-link view-all ${activeLink ? '' : 'active'}`}
-                            onClick={this.handleClick}
-                            style={{ display: 'block' }}
-                            to='/integrations'>
-                            All</Link>
-                    </div>
-                }
+                { headerText
+                    && (
+                        <div className='category-header'>
+                            <span>{headerText}</span>
+                            <Link
+                                className={`toc-link view-all ${activeLink ? '' : 'active'}`}
+                                onClick={this.handleClick}
+                                style={{ display: 'block' }}
+                                to='/integrations'>
+                                All
+                            </Link>
+                        </div>
+                    )}
                 {
                     Object.keys(categories).map((category, index) => (
                         <div className='category-wrapper' key={category}>
@@ -200,7 +205,9 @@ class CategoryChooser extends React.Component {
                                     <circle cx='4' cy='4' r='4' fill={colors[index]} />
                                 </svg>
                                 <span
-                                    className={`${category === activeCategory ? 'activeCat' : ''} ${category}`} href='/'>{category}
+                                    className={`${category === activeCategory ? 'activeCat' : ''} ${category}`}
+                                    href='/'>
+                                    {category}
                                 </span>
                             </span>
                             <div className='categories'>
@@ -208,8 +215,8 @@ class CategoryChooser extends React.Component {
                                     categories[category].map((item) => {
                                         const isActiveLink = item === activeLink;
                                         const link = isActiveLink
-                                        ? '/integrations/'
-                                        : `/integrations/?category=${encodeURIComponent(item)}`;
+                                            ? '/integrations/'
+                                            : `/integrations/?category=${encodeURIComponent(item)}`;
                                         return (
                                             <div className={`link-wrapper ${category} ${isActiveLink ? 'active' : ''}`} key={item}>
                                                 <Link
@@ -232,12 +239,12 @@ class CategoryChooser extends React.Component {
 
 CategoryChooser.defaultProps = {
     integrations: null,
-    currPageMetadata: null
+    currPageMetadata: null,
 };
 
 CategoryChooser.propTypes = {
     currPageMetadata: routePropTypes.pageMetadata,
-    location: routePropTypes.location.isRequired
+    location: routePropTypes.location.isRequired,
 };
 
 export default CategoryChooser;

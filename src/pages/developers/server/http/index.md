@@ -114,7 +114,7 @@ The `historical` API endpoint behaves nearly identically to the `events` and `bu
 | mParticle Feature | Effect of historical data |
 | ----------------  | ------------------------  |
 | Event and Data Warehouse Outputs  | Not forwarded downstream. |
-| Audience | No change to Real-time or Lifetime audiences. Data is subject to existing date-range retention limits. Real-time audiences have a 30 day look-back for most customers. |
+| Audience | No change to Real-time or Standard Audiences. Data is subject to existing date-range retention limits. Real-time audiences have a 30 day look-back for most customers. |
 | User Activity | No change; Events visible in date order. |
 | Identity and Profiles | No change |
 
