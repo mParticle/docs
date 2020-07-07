@@ -21,7 +21,7 @@ In order to forward events to Iterable, you must have an account with Iterable. 
 
 ### Create a Mobile API Key 
 
-Create a dedicated **Mobile API key** for the Iterable Event ntegration:
+Create a dedicated **Mobile API key** for the Iterable Event integration:
 
 1. In the Iterable UI, navigate to to Integrations -> API Keys
 2. Click the "NEW API KEY" button
@@ -30,7 +30,7 @@ Create a dedicated **Mobile API key** for the Iterable Event ntegration:
 5. Click "CREATE"
 6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable Event Integration in mParticle.
 
-<aside class="warning"> For the Iterable Event Integration, you should always use an Iterable <strong>Mobile API key</strong>. The Mobile API key's permissions are scoped to the endpoints required for sending data to Iterable and using Iterable's mobile features. If you're implementing the <a href="/integrations/iterable/event/#iterable-kit-integration">Iterable Kit</a>, mParticle will send this API key to the client-side SDK. Using a Standard API key will expose access to your project's data.</aside>
+<aside class="warning"> You should always use an Iterable <strong>Mobile API key</strong> for the Iterable Event Integration. The Mobile API key's permissions are scoped to the endpoints required for sending data to Iterable and using Iterable's mobile features. If you're implementing the <a href="/integrations/iterable/event/#iterable-kit-integration">Iterable Kit</a>, mParticle will send this API key to the client-side SDK. Using a Standard API key will expose access to your project's data.</aside>
 
 ### Create Push Integrations
 
