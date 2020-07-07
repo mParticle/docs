@@ -549,8 +549,7 @@ Canceling a sharing arrangement cannot be undone. If you wish to resume it, the 
 
 > Standard Audiences are a paid premium feature. Contact your mParticle representative if you're interested in using Standard Audiences.
 
-mParticle’s new Standard Audiences feature lets you define and build audiences based on long-term historical data. Standard Audiences differ from our standard audiences, now known as “Real-time” audiences, in a few key ways:
-
+mParticle’s new Standard Audiences feature lets you define and build audiences based on long-term historical data. Standard Audiences differ from Real-time Audiences, in a few key ways:
 
 * Real-time audiences are based only on recently received data. For most customers, real-time audiences draw on the most recent 30 days of data. Standard Audiences uses any data that we have saved, according to your retention policies.
 * Real-time audiences are constantly calculated and updated on an ongoing basis, and changes to the audiences are often forwarded to Audience partners in near real-time. Standard Audiences are calculated only once and, given the volume of data involved, take some time to complete. Forwarding a Standard Audience to an audience partner also happens only once. You can manually set the audience to be calculated or sent again.
