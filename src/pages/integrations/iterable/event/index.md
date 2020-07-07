@@ -34,7 +34,7 @@ Create a dedicated **Mobile API key** for the Iterable Event integration:
 
 ### Create Push Integrations
 
-If you will be sending push registration events, you will need to provide the Iterable Push Integration names as part of the mParticle configuration. This can be done from the Iterable platform:
+If you will be sending push registration events, you will need to provide the Iterable Push Integration names as part of the mParticle configuration. This can be done from Iterable:
 
 * [Setting up iOS Push Notifications](https://support.iterable.com/hc/en-us/articles/115000315806#_4-create-a-mobile-app-in-iterable)
 * [Setting up Android Push Notifications](https://support.iterable.com/hc/en-us/articles/115000331943#_2-create-a-mobile-app-in-iterable)
