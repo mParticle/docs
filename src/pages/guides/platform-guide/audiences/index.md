@@ -344,7 +344,7 @@ You can download a calculated audience as a CSV file. This is useful if you want
 
 Audience downloads take some time to prepare depending on the volume of users in the audience, ranging from a few minutes up to ~6 hours for extremely large audiences.
 
-Audience downloads are available on Real-time audiences only. To download a Lifetime audience, connect and send it to an infrastructure output, like Amazon S3 via a Kinesis connection, and download it from there.
+Audience downloads are available on Real-time audiences only. To download a Standard Audience, connect and send it to an infrastructure output, like Amazon S3 via a Kinesis connection, and download it from there.
 
 ### Initiate a download
 
@@ -545,29 +545,29 @@ If any of the above occur, the shared audience will no longer be available to th
 
 Canceling a sharing arrangement cannot be undone. If you wish to resume it, the Initiator must resend the audience to the receiver.
 
-## Lifetime Audiences
+## Standard Audiences
 
-> Lifetime Audiences are a paid premium feature. Contact your mParticle representative if you're interested in using Lifetime Audiences.
+> Standard Audiences are a paid premium feature. Contact your mParticle representative if you're interested in using Standard Audiences.
 
-mParticle’s new Lifetime Audiences feature lets you define and build audiences based on long-term historical data. Lifetime audiences differ from our standard audiences, now known as “Real-time” audiences, in a few key ways:
+mParticle’s new Standard Audiences feature lets you define and build audiences based on long-term historical data. Standard Audiences differ from our standard audiences, now known as “Real-time” audiences, in a few key ways:
 
 
-* Real-time audiences are based only on recently received data. For most customers, real-time audiences draw on the most recent 30 days of data. Lifetime audiences uses any data that we have saved, according to your retention policies.
-* Real-time audiences are constantly calculated and updated on an ongoing basis, and changes to the audiences are often forwarded to Audience partners in near real-time. Lifetime audiences are calculated only once and, given the volume of data involved, take some time to complete. Forwarding a Lifetime audience to an audience partner also happens only once. You can manually set the audience to be calculated or sent again.
-* Since Lifetime audiences use huge amounts of data, your account is limited to a set amount of calculations per year. A single calculation can include multiple audiences as long as they are calculated together.
-* While Lifetime audiences support all of the same Audience partners as Real-time audiences, with the same connection settings, the workflow of calculating and sending a Lifetime audience has a few optional steps: to allow you to make the most of your calculations, you can calculate and send audiences in bulk.
+* Real-time audiences are based only on recently received data. For most customers, real-time audiences draw on the most recent 30 days of data. Standard Audiences uses any data that we have saved, according to your retention policies.
+* Real-time audiences are constantly calculated and updated on an ongoing basis, and changes to the audiences are often forwarded to Audience partners in near real-time. Standard Audiences are calculated only once and, given the volume of data involved, take some time to complete. Forwarding a Standard Audience to an audience partner also happens only once. You can manually set the audience to be calculated or sent again.
+* Since Standard Audiences use huge amounts of data, your account is limited to a set amount of calculations per year. A single calculation can include multiple audiences as long as they are calculated together.
+* While Standard Audiences support all of the same Audience partners as Real-time audiences, with the same connection settings, the workflow of calculating and sending a Standard Audience has a few optional steps: to allow you to make the most of your calculations, you can calculate and send audiences in bulk.
 
 ### Workflow
 
-#### 1 - Create a New Lifetime Audience
+#### 1 - Create a New Standard Audience
 
-Lifetime Audiences are managed separately from Real-time audiences. Choose **Audiences > Lifetime** from the left navigation menu, and click **+ New Lifetime Audience**.
+Standard Audiences are managed separately from Real-time audiences. Choose **Audiences > Lifetime** from the left navigation menu, and click **+ New Standard Audience**.
 
 ![](/images/lifetime-create.png)
 
 #### 2 - Define date range and inputs
 
-Just as with Real-time audiences, you can define which inputs you want to calculate the audience from. For Lifetime audiences you also need to define a date range. You can choose **All available data** or define any period within the available range. When you’re ready, click **Create**. The start and end dates are inclusive and it uses the UTC timezone.
+Just as with Real-time audiences, you can define which inputs you want to calculate the audience from. For Standard Audiences you also need to define a date range. You can choose **All available data** or define any period within the available range. When you’re ready, click **Create**. The start and end dates are inclusive and it uses the UTC timezone.
 
 ![medium](/images/lifetime-define-range.png)
 
@@ -579,7 +579,7 @@ Define your audience, using any number of criteria. This step works identically 
 
 #### 4 - Calculate one or more audiences
 
-From the **In Progress** tab of the Lifetime Audiences page, click **Calculate** at the top of the page, or within the actions menu on a single lifetime audience.
+From the **In Progress** tab of the Standard Audiences page, click **Calculate** at the top of the page, or within the actions menu on a single Standard Audience.
 
 ![](/images/lifetime-calculate.png)
 

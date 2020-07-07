@@ -23,14 +23,14 @@ Alerts | Displays the number of alerts which occurred when forwarding data to an
 Revenue | Displays total revenue.  <br> This tab is only shown if there is a non-zero amount of revenue to display.
 
 All metrics can be filtered by date range, environment and input.
-  
+
 ### Identity
 
 ![](/images/identity-main-page.png)
 
 Displays summary metrics for identity data collected about your users:
 
-* **% of Users**: The percentage of users that have a given identity type. 
+* **% of Users**: The percentage of users that have a given identity type.
 * **Overlaps**: The percentage of users and count that have a combination of the two given identity types.
 
 This section is filterable by the date range, environment and input options at the top of the page.
@@ -51,7 +51,7 @@ Displays summary information representing the current workspace’s usage, showi
 * **Active Event Integrations**: Count of active event configurations.
 * **Active Audience Integrations**: Count of active audience configurations.
 * **Active Real-time Audiences**: Count of active real-time audiences.
-* **Lifetime Audiences**: Count of ‘ready’ lifetime audiences.
+* **Standard Audiences**: Count of ‘ready’ Standard Audiences.
 
 
 ## User Activity
@@ -61,13 +61,13 @@ The User Activity view allows you to see a detailed summary of data associated w
 To find a user, begin entering any known ID for the user, an email address, customer ID, device ID, etc. The ID must match exactly to return a profile. If multiple profiles are returned, select the user you want from the list.
 
 ## User Search
-You can search for any element in your Identity Set. 
+You can search for any element in your Identity Set.
 To perform a search do the following:
-1. Navigate to the **Activity** > **User Activity** screen. The User Search dialog displays on the screen. 
+1. Navigate to the **Activity** > **User Activity** screen. The User Search dialog displays on the screen.
 
 ![](/images/User-Activity-User-Search-042019.png)
 
-2. Enter the search terms in the search field. 
+2. Enter the search terms in the search field.
    *. You can narrow your search by clicking the Any Profile field drop-down and selecting any field that is part of your Identity Set.
 3. Click the Search button. The screen refreshes and search results are displayed in the Information screen.
 
@@ -76,7 +76,7 @@ View individual results by clicking a row. From the individual results you can d
 * View User Events by clicking the **Events** tab or by scrolling to the bottom of the screen and clicking the **View User Events** button
 * Expand any of the sections on the Information screen for more information about your results
 
-The information shown on this screen is explained in the following sections. 
+The information shown on this screen is explained in the following sections.
 
 ### Information
 
@@ -157,62 +157,62 @@ The System Alerts report provides information related to any issues forwarding d
 
 The report displays the number of alerts in each category for a 12-hour time period, and a breakdown for each active Output service. You can expand the data for any output for a breakdown of alerts by type. The following alert types are supported:
 
-|Alert Type | Integrations | Description 
+|Alert Type | Integrations | Description
 |---|---|---
-|Error Parsing SDK Version |  Kochava| The SDK version in the event batch is invalid. 
-|Event Arrived Late | Adjust, Mixpanel | A message arrived which is older than can be supported by the integration and will be discarded. 
-|Feature Unsupported by SDK Version | Kochava | The forwarding of events is not supported by the current SDK version - A later version of the mParticle SDK is required. 
-|Identifier Too Long | Leanplum |The Device ID or Customer ID exceeds the length which the integration supports. 
-|Invalid Credentials |  AgilOne, SFDC Email | A token cannot be obtained due to invalid credentials. 
-|Missing Android ID | Appboy, AgilOne, Fiksu, Leanplum | Android ID is required, and is missing in the event batch. 
+|Error Parsing SDK Version |  Kochava| The SDK version in the event batch is invalid.
+|Event Arrived Late | Adjust, Mixpanel | A message arrived which is older than can be supported by the integration and will be discarded.
+|Feature Unsupported by SDK Version | Kochava | The forwarding of events is not supported by the current SDK version - A later version of the mParticle SDK is required.
+|Identifier Too Long | Leanplum |The Device ID or Customer ID exceeds the length which the integration supports.
+|Invalid Credentials |  AgilOne, SFDC Email | A token cannot be obtained due to invalid credentials.
+|Missing Android ID | Appboy, AgilOne, Fiksu, Leanplum | Android ID is required, and is missing in the event batch.
 |Missing App Info | AgilOne, Appboy, Google Adwords, Google Analytics, Kochava, Krux, Oracle BlueKai, Tune, Webtrends | Application Info is required, and is missing in the event batch.  
-|Missing AppName | Google Analytics, Webtrends | Application Name is required, and is missing in the event batch. 
-| Missing Build ID | Google Adwords | 
+|Missing AppName | Google Analytics, Webtrends | Application Name is required, and is missing in the event batch.
+| Missing Build ID | Google Adwords |
 |Missing Device Info | Appboy, Singular, Google Adwords, Kochava, Krux, Leanplum, Oracle BlueKai, SFDC Email, SFDC MobilePush, Webtrends | Device Info is required, and is missing in the event batch.  
 |Missing Event Name | Amazon Mobile Analytics, Amplitude, Customer.io | Event Name is required, and is missing in the event batch.  
 |Missing Fire Advertising Identifier | Krux | Amazon Fire TV Identifier is required and is missing in the event batch. |
-|Missing Google Advertising Identifier | Facebook Atlas, Google Adwords, Krux, Leanplum, Nanigans, Oracle BlueKai, TapCommerce, Tapstream | Google Advertising Identifier is required, and is missing in the event batch. 
-|Missing Google Advertising Identifier and Android ID | Adjust, AppLovin, Leanplum, Quantcast | Google Advertising Identifier or Android ID is required, and neither is present in the event batch. 
-|Missing Identity | AgilOne | A required identity (i.e. Customer ID, etc.) is required, and is missing in the event batch. 
+|Missing Google Advertising Identifier | Facebook Atlas, Google Adwords, Krux, Leanplum, Nanigans, Oracle BlueKai, TapCommerce, Tapstream | Google Advertising Identifier is required, and is missing in the event batch.
+|Missing Google Advertising Identifier and Android ID | Adjust, AppLovin, Leanplum, Quantcast | Google Advertising Identifier or Android ID is required, and neither is present in the event batch.
+|Missing Identity | AgilOne | A required identity (i.e. Customer ID, etc.) is required, and is missing in the event batch.
 |Missing Identity and Device ID | Appboy, Amplitude, Localytics, Webtrends | An identity and device ID are required, and both are missing in the event batch. <br><br>For Appboy, a Customer ID and Push Token are required. <br> <br>For Webtrends, a Customer ID and either IDFA or IDFV (iOS) or Google Advertising Identifier or Android ID (Android) are required. <br><br> For Localytics data to be forwarded server side, the Customer ID or Other User Identity must be set, or the Google Advertiser ID or Android ID (Android) or IDFA (iOS) is required.
-|Missing IDFA | Applovin, Fiksu, Facebook Atlas, Google Adwords, Leanplum, Nanigans, Oracle BlueKai, Quantcast, TapCommerce, Tapstream | IDFA is required, and is missing in the event batch. The IDFA can be turned off by the end user by turning on 'Limit Ad Tracking' on their iOS device in Privacy Settings. 
-|Missing IDFA and IDFV | Adjust, Appboy, Krux, Leanplum | IDFA or IDFV is required, and both are missing in the event batch. 
-|Missing IDFV | Leanplum | IDFV is required, and is missing in the event batch. 
+|Missing IDFA | Applovin, Fiksu, Facebook Atlas, Google Adwords, Leanplum, Nanigans, Oracle BlueKai, Quantcast, TapCommerce, Tapstream | IDFA is required, and is missing in the event batch. The IDFA can be turned off by the end user by turning on 'Limit Ad Tracking' on their iOS device in Privacy Settings.
+|Missing IDFA and IDFV | Adjust, Appboy, Krux, Leanplum | IDFA or IDFV is required, and both are missing in the event batch.
+|Missing IDFV | Leanplum | IDFV is required, and is missing in the event batch.
 |Missing IP Address |Singular, Facebook Atlas, Google DoubleClick, Quantcast |IP Address is required, and is missing in the event batch.
 | Missing LocaleCountry |  Google Adwords | |
 | Missing LocaleLanguage |  Google Adwords | |
 | Missing Model |  Google Adwords | |
-|Missing OS Version | Singular, Google Adwords | OS Version is required and is missing in the event batch. 
-|Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Tune, Urban Airship | Package Name is required, and the application is not presenting one in the event batch. For Tune, you can override the Package Name in the configuration settings. 
+|Missing OS Version | Singular, Google Adwords | OS Version is required and is missing in the event batch.
+|Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Tune, Urban Airship | Package Name is required, and the application is not presenting one in the event batch. For Tune, you can override the Package Name in the configuration settings.
 | Missing Required Setting | Appboy, Appsflyer, Fiksu | A required setting is missing.  
-| Missing Roku Channel Client ID | Leanplum | The Roku channel client ID is not present. 
-| Missing Roku Advertising ID | Leanplum | The Roku advertising ID is not present. 
+| Missing Roku Channel Client ID | Leanplum | The Roku channel client ID is not present.
+| Missing Roku Advertising ID | Leanplum | The Roku advertising ID is not present.
 | Missing User Agent |Facebook Atlas, Google DoubleClick |User Agent is required, and is missing in the event batch.
-|No Route Available | Appboy, Airship | The source of the event batch is not supported.  This is used to indicate that the source of the event batch was not from a native client with the extended SDK (appropriate kit included) or the mParticle Events API. 
-| Request Too Long | Krux | The requeest exceeds a size or character limit set by the partner and cannot be delivered 
-|Retry Count Exceeded  |Any |This indicates that the data has repeatedly been attempted for delivery, but has exceeded the retry limit. 
-|306-Unknown  |Any | This may occur in cases of network issues which may be retried. 
-|400-Bad Request  |Any | This indicates an error with the request sent to the integration and will not be retried by default. 
-|401-Unauthorized  |Any | This may indicate a poor response from the remote server. 
+|No Route Available | Appboy, Airship | The source of the event batch is not supported.  This is used to indicate that the source of the event batch was not from a native client with the extended SDK (appropriate kit included) or the mParticle Events API.
+| Request Too Long | Krux | The requeest exceeds a size or character limit set by the partner and cannot be delivered
+|Retry Count Exceeded  |Any |This indicates that the data has repeatedly been attempted for delivery, but has exceeded the retry limit.
+|306-Unknown  |Any | This may occur in cases of network issues which may be retried.
+|400-Bad Request  |Any | This indicates an error with the request sent to the integration and will not be retried by default.
+|401-Unauthorized  |Any | This may indicate a poor response from the remote server.
 |403-Forbidden  |Any | This may indicate the credentials used to authenticate with the remote server are incorrect.  Check the configuration settings to ensure a valid value was entered (i.e. API Key, Username, Password, etc.).
-|404-Not Found  |Any | This may indicate an issue on the remote server (i.e. if DNS changes are not observed fast enough). 
-|408-Request Timeout | Any | This indicates a timeout occurred in sending data to an integration.  A timeout will be noted as a Warning and retried. If the retry limit is exceeded, the timeout will be classified as Fatal. 
-|409-Conflict | Any | This may indicate an issue with the request to the integration or the remote endpoint.  The request will be dropped. 
-|413-Request Entity Too Large | Any | This indicates the request was too large for the integration and it will not be retried. 
-|414-Request-URI Too Long | Any | This is similar to 413, but for a different portion of the request, and it will not be retried. 
-|500-Internal Server Error | Any | This indicates that there is a server error, and will be retried. 
-|502-Bad Gateway | Any | This usually indicates a temporary network glitch or configuration issue on the remote endpoint which may resolve itself.  This type of alert will be retried 
-|503-Service Unavailable | Any | This is similar to 500, indicates a server error, and will be retried. 
-|504-Gateway Timeout | Any | Usually a temporary network glitch or configuration issue on the remote endpoint; will usually resolve itself, and will be retried. 
-|525-SSL Termination Error | Any | This may indicate an issue with the SSL configuration, but may also be seen during a network outage, and will not be retried. 
+|404-Not Found  |Any | This may indicate an issue on the remote server (i.e. if DNS changes are not observed fast enough).
+|408-Request Timeout | Any | This indicates a timeout occurred in sending data to an integration.  A timeout will be noted as a Warning and retried. If the retry limit is exceeded, the timeout will be classified as Fatal.
+|409-Conflict | Any | This may indicate an issue with the request to the integration or the remote endpoint.  The request will be dropped.
+|413-Request Entity Too Large | Any | This indicates the request was too large for the integration and it will not be retried.
+|414-Request-URI Too Long | Any | This is similar to 413, but for a different portion of the request, and it will not be retried.
+|500-Internal Server Error | Any | This indicates that there is a server error, and will be retried.
+|502-Bad Gateway | Any | This usually indicates a temporary network glitch or configuration issue on the remote endpoint which may resolve itself.  This type of alert will be retried
+|503-Service Unavailable | Any | This is similar to 500, indicates a server error, and will be retried.
+|504-Gateway Timeout | Any | Usually a temporary network glitch or configuration issue on the remote endpoint; will usually resolve itself, and will be retried.
+|525-SSL Termination Error | Any | This may indicate an issue with the SSL configuration, but may also be seen during a network outage, and will not be retried.
 
 ## Event Forwarding
 
 ![](/images/Platform-Update-Activity-Event-Forwarding-042019.png)
 
-The Event Forwarding report provides information on your app’s incoming event data and the data that is forwarded to enabled output event services. This is where you can verify how much data mParticle captured per event, and how much data was forwarded.  If multiple configurations are enabled for an integration, the data sent to each configuration will be shown separately. We recommend checking this report if you notice any discrepancies in your vendor dashboards. 
+The Event Forwarding report provides information on your app’s incoming event data and the data that is forwarded to enabled output event services. This is where you can verify how much data mParticle captured per event, and how much data was forwarded.  If multiple configurations are enabled for an integration, the data sent to each configuration will be shown separately. We recommend checking this report if you notice any discrepancies in your vendor dashboards.
 
-The report displays a daily summary of events, plus counts for each message type and event name, along with the inbound and outbound counts for each enabled service.  By default a summary of data for a full day is shown, but you can also select a specific hour to display hourly data. 
+The report displays a daily summary of events, plus counts for each message type and event name, along with the inbound and outbound counts for each enabled service.  By default a summary of data for a full day is shown, but you can also select a specific hour to display hourly data.
 
 You may notice differences between an inbound data count and an outbound data count. There are several reasons these differences may occur. Here are some good questions to start with:
 
@@ -237,7 +237,7 @@ mParticle supports 3rd party data in the User Insights report and in your audien
 
 ![](/images/activity-user-insights.png)
 
-The User Insights report will be updated daily using the last 30 days of app data. 
+The User Insights report will be updated daily using the last 30 days of app data.
 
 The following categories of performance stats are shown in the report:
 
