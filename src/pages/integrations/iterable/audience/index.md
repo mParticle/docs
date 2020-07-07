@@ -19,7 +19,7 @@ Create a dedicated **Standard API key** for the Iterable Audience Integration:
 2. Click **New API Key**.
 3. Provide a descriptive name such as `mparticle-audience-integration`.
 4. Select the `Standard` type
-5. Click "CREATE"
+5. Click **Create**.
 6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable Event Integration in mParticle.
 
 Follow these [steps](https://support.iterable.com/hc/en-us/articles/115000770906-Importing-User-Lists-) to create a new List in Iterable with no users.   
