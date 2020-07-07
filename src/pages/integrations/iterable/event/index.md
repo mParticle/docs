@@ -56,7 +56,7 @@ The Iterable integration will automatically map the following mParticle user att
 
 | mParticle User Attribute | Iterable User Attribute | Description |
 |---|---|---|
-| `$Mobile` | `phoneNumber` | The user's mobile phone number. In Iterable, the `phoneNumber` attribute is used primarily for sending SMS text messages. For more information on the `phoneNumber` attribute, see [User Profile Fields Used By Iterable - phoneNumber](https://support.iterable.com/hc/en-us/articles/217744303-User-Profile-Fields-Used-by-Iterable-#phonenumber) |
+| `$Mobile` | `phoneNumber` | The user's mobile phone number. Iterable uses the `phoneNumber` attribute primarily for sending SMS text messages. For more information, see [User Profile Fields Used By Iterable](https://support.iterable.com/hc/articles/217744303#phonenumber). |
 
 ## Events
 
