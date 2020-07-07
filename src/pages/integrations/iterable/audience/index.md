@@ -13,7 +13,7 @@ In order to forward an mParticle audience to Iterable, you must have an account 
 
 ### Create a Standard API Key
 
-Create a dedicated **Standard API key** for the Iterable Audience Integration:
+Create a dedicated _Standard_ API key for the Iterable Audience Integration:
 
 1. In Iterable, navigate to to **Integrations > API Keys**.
 2. Click **New API Key**.
