@@ -27,7 +27,7 @@ Create a dedicated **Mobile API key** for the Iterable Event integration:
 2. Click the "NEW API KEY" button
 3. Provide a descriptive name such as `mparticle-event-integration`.
 4. For the [API key type](https://support.iterable.com/hc/articles/360043464871#types-of-api-keys), select **Mobile**.
-5. Click "CREATE"
+5. Click **Create**.
 6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable Event Integration in mParticle.
 
 <aside class="warning"> You should always use an Iterable <strong>Mobile API key</strong> for the Iterable Event Integration. The Mobile API key's permissions are scoped to the endpoints required for sending data to Iterable and using Iterable's mobile features. If you're implementing the <a href="/integrations/iterable/event/#iterable-kit-integration">Iterable Kit</a>, mParticle will send this API key to the client-side SDK. Using a Standard API key will expose access to your project's data.</aside>
