@@ -23,9 +23,9 @@ Google Cloud Storage accepts data from all platform types. All event types are s
 
 ## Connection Settings
 
-| Setting Name |  Data Type    | Default Value | Platform | Description |
-| ---|---|---|---|---
-| Storage Bucket Name. | `string` | <unset> | All| The name of the storage bucket to which mParticle will forward event data. |
+| Setting Name | Data Type | Default Value | Platform | Description |
+| ---|---|---|---|--- |
+| Storage Bucket Name | `string` | <unset> | All| The name of the storage bucket to which mParticle will forward event data. |
 | Folder Name | `string` | <unset> | All| An optional name of a folder in the storage bucket in which to store event data. |
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
