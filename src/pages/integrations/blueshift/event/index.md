@@ -54,6 +54,7 @@ dependencies {
 ## Supported Device Identities 
  * Push Token
  * Apple IDFA
+ * Apple IDFV
  * Google Advertising ID
 
 ## Maximum Data Age
