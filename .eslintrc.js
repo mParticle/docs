@@ -2,6 +2,12 @@ module.exports = {
     env: {
         browser: true,
     },
+    globals: {
+        cy: true,
+        describe: true,
+        beforeEach: true,
+        it: true,
+    },
     extends: ['airbnb', 'eslint:recommended', 'plugin:react/recommended'],
     plugins: ['react', 'jsx-a11y', 'import'],
     rules: {
