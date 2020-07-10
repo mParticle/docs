@@ -244,4 +244,5 @@ By default, mParticle forwards all available user attributes to Braze, including
 | Forward Page Name as Braze Event Name	| `bool` | False | Web | If enabled, the Page Name that is sent to Braze is the first argument in mParticle.logPageView("PageName"). Otherwise the path will be used.
 | Replace SKU as Braze Product Name | `bool` | False | Web | If enabled, the SKU replaces Product Name when sent to Braze. By default, Web sends Product Name to Braze. New customers should check this to be consistent with iOS/Android which sends SKU by default.
 | Enable HTML within in-app messages | `bool` | False | Web| Enable HTML within in-app messages. This correlates to the enableHtmlInAppMessages setting of the Braze SDK. |
-| Do not Load FontAwesome | `bool` | False | Web | Disable loading of FontAwesome from the FontAwesome CDN. Note that if you do this, you are responsible for ensuring that FontAwesome is loaded - otherwise in-app messages may not render correctly.
+| Do not Load FontAwesome | `bool` | False | Web | Disable loading of FontAwesome from the FontAwesome CDN. Note that if you do this, you are responsible for ensuring that FontAwesome is loaded - otherwise in-app messages may not render correctly. 
+| Enable Type Detection | `bool` | False | Web | Send custom/user attributes with parsed data types. |

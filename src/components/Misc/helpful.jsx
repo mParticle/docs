@@ -52,11 +52,13 @@ class Helpful extends Component {
                     </div>
                     <div className='right'>
                         <button
+                            data-cy='yes-btn'
                             type='button'
                             onClick={this.yes}>
                             Yes
                         </button>
                         <button
+                            data-cy='no-btn'
                             type='button'
                             onClick={this.no}>
                             No

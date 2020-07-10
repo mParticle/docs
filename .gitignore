@@ -14,3 +14,4 @@ settings.json
 latest_search_items.json
 cypress/videos
 cypress/screenshots
+storybook-static

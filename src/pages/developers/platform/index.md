@@ -1119,7 +1119,9 @@ name | `string` | Optional parameter to filter by name.
       },
       "seeding": null
     },
-    "audience_count": 1
+    "audience_count": 1,
+    "activated_on": "2020-02-18T19:24:50.426Z",
+    "activated_by": "user@mparticle.com"
   }
 ]
 ~~~
@@ -1185,273 +1187,88 @@ curl \
   }'
 ~~~
 
-##### Request Schema:
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "draft_definition": {
-      "type": "object",
-      "properties": {
-        "recipe_type": {
-          "type": "string",
-          "description": "The type of message the calculated attribute supports. Currently, only event messages are supported.",
-          "enum": [
-            "event"
-          ]
-        },
-        "data_point": {
-          "type": "object",
-          "description": "A unique datapoint in the system. This could be an event, event attribute or user attribute, but currently only events are supported.",
-          "properties": {
-            "type": {
-              "type": "string",
-              "enum": [
-                "event",
-                "event_attribute",
-                "user_attribute"
-              ]
-            },
-            "event_name": {
-              "type": "string",
-              "description": "If targeting a custom event or event attribute, this property is required."
-            },
-            "attribute_name": {
-              "type": "string",
-              "description": "If targeting an event attribute or user attribute, this property is required. In the case of targeting an event attribute, the corresponding event name must be set in the event_name property."
-            },
-            "event_type": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "enum": [
-                "unknown",
-                "session_start",
-                "session_end",
-                "screen_view",
-                "custom_event",
-                "crash_report",
-                "opt_out",
-                "first_run",
-                "pre_attribution",
-                "push_registration",
-                "application_state_transition",
-                "push_message",
-                "network_performance",
-                "breadcrumb",
-                "profile",
-                "push_reaction",
-                "commerce_event",
-                "user_attribute_change",
-                "user_identity_change",
-                "uninstall",
-                "validation_result",
-                null
-              ]
-            },
-            "custom_event_type": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "description": "Only applicable to app (custom) events.",
-              "enum": [
-                "unknown",
-                "navigation",
-                "location",
-                "search",
-                "transaction",
-                "user_content",
-                "user_preference",
-                "social",
-                "other",
-                "media",
-                "add_to_cart",
-                "remove_from_cart",
-                "checkout",
-                "checkout_option",
-                "click",
-                "view_detail",
-                "purchase",
-                "refund",
-                "promotion_view",
-                "promotion_click",
-                "add_to_wishlist",
-                "remove_from_wishlist",
-                "impression",
-                "attribution",
-                "consent_granted",
-                "consent_denied",
-                null
-              ]
-            },
-            "attribute_category": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "enum": [
-                "event_attribute",
-                "product_attribute",
-                "promotion_attribute",
-                null
-              ]
-            },
-            "use_product_quantity": {
-              "type": "bool",
-            },
-            "conditions": {
-              "type": "array",
-              "description": "An array of conditions that must be met for the datapoint to qualify for the recipe.",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "The type of data being operated on.",
-                    "enum": [
-                      "string",
-                      "number",
-                      "boolean",
-                      "date"
-                    ]
-                  },
-                  "operator": {
-                    "type": "string",
-                    "description": "The operator to apply. The supported list of operators depends on the type of the selected attribute.",
-                    "enum": [
-                      "exists",
-                      "not_exists",
-                      "empty",
-                      "in_list",
-                      "contains",
-                      "not_contains",
-                      "pattern",
-                      "equals",
-                      "not_equals",
-                      "greater_than",
-                      "greater_or_equal",
-                      "less_than",
-                      "less_than_or_equal",
-                      "before",
-                      "after",
-                      "between",
-                      "between_dates"
-                    ]
-                  },
-                  "attribute_name": {
-                    "type": "string",
-                    "description": "The name of an attribute that belongs to the event selected in the datapoint section. If the event does not contain the attribute, it is implied that the condition is not met."
-                  },
-                  "value": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "If the operator requires a single value, then this field will be used and is required."
-                  },
-                  "values": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "description": "If the operator requires a set of values, such as \"in_list\", then the set will be provided in this array and is required.",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "min_value": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "If the operator requires defining a range, then the min value of the range will be set here."
-                  },
-                  "max_value": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "If the operator requires defining a range, then the max value of the range will be set here."
-                  }
-                }
-              }
-            },
-            "calculation_type": {
-              "type": "string",
-              "description": "The calculation type to be performed on the datapoint that will result in the value of the calculated attribute.",
-              "enum": [
-                "count",
-                "first_occurrence_timestamp",
-                "last_occurrence_timestamp",
-                "first_occurrence",
-                "last_occurrence",
-                "sum",
-                "min",
-                "max",
-                "average",
-                "unique_list",
-                "unique_values_count",
-                "most_frequent"
-              ]
-            },
-            "time_period": {
-              "type": "object",
-              "description": "The time period to which the calculation should be applied.",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "enum": [
-                    "all",
-                    "since",
-                    "within"
-                  ]
-                },
-                "date": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "within": {
-                  "type": "integer"
-                },
-                "within_unit": {
-                  "type": "string",
-                  "enum": [
-                    "days",
-                    "weeks"
-                  ]
-                }
-              }
-            },
-            "seeding": {
-              "type": [
-                "object",
-                "null"
-              ],
-              "description": "Settings for seeding the calculated attribute.",
-              "properties": {
-                "cutoff_date": {
-                  "type": "string",
-                  "description": "mParticle will only use data after this date to compute the calculated attribute. Client is responsible for calculating the value based on data prior to this date and send mParticle a seed value.",
-                  "format": "date"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "$schema": "http://json-schema.org/draft-04/schema#"
-}
-```
+##### Request Payload Properties
+Name | Data Type | Required | Description
+|--|--|--|--
+`name` | string | Required | Calculated attribute name.
+`description` | string | Optional | Calculated attribute description.
+`draft_definition` | object | Required | Calculated attribute definition.
+
+##### Draft Definition Object Properties
+`draft_definition`
+
+Name | Data Type | Required | Description
+|--|--|--|--
+`recipe_type` | string | Required | Currently only "event" is supported.
+`data_point` | object | Required | A unique datapoint in the system. This could be an event, event attribute or user attribute, but currently only events are supported.
+
+##### Data Point Object Properties
+`draft_definition.data_point`
+
+Name | Data Type | Required | Description
+|--|--|--|--
+`type` | string | Required | One of "event", "event_attribute", or "user_attribute".
+`event_name` | string | Required | App event name.
+`attribute_name` | string | Optional | If targeting an event attribute or user attribute, this property is required. In the case of targeting an event attribute, the corresponding event name must be set in the event_name property.
+`event_type` | string | Required | See `event_type` field in [Events API](/developers/server/json-reference/#events) for supported values.
+`custom_event_type` | string | Optional | Only applicable to app (custom) events. See `custom_event_type` field in [Events API](/developers/server/json-reference/#events) for supported values.
+`attribute_category` | string | Optional | Only applicable when `attribute_name` is provided. Value can be one of "event_attribute", "product_attribute", or "promotion_attribute". If nothing is set the default value will be set as "event_attribute".
+`use_product_quantity` | bool | Optional | Indicates that the product quantity should be used when calculating Average or Most Frequent calculations with e-commerce event types. Only applies when attribute_category is one of "product_attribute" or "promotion_attribute".
+`conditions` | object array | Optional | An array of conditions that must be met for the datapoint to qualify for the recipe.
+`calculation_type` | string | Required | The calculation type to be performed on the datapoint that will result in the value of the calculated attribute.<br><br>One of:<ul><li>count</li> <li>first_occurrence_timestamp</li> <li>last_occurrence_timestamp</li> <li>first_occurrence</li> <li>last_occurrence</li> <li>sum</li> <li>min</li> <li>max</li> <li>average</li> <li>unique_list</li> <li>unique_values_count</li> <li>most_frequent</li></ul>
+`time_period` | object | Required | The time period to which the calculation should be applied.
+`seeding` | object | Optional | Settings for seeding the calculated attribute.
+
+##### Condition Object Properties
+`draft_definition.data_point.conditions`
+
+Name | Data Type | Required | Description
+|--|--|--|--
+`type` | string | Required | The type of data being operated on. One of "string", "number", "boolean", or "date".
+`operator` | string | Required | The operator to apply. The supported list of operators depends on the type of the selected attribute. See type-map table below.
+`attribute_name` | string | Required | The name of an attribute that belongs to the event selected in the datapoint section. If the event does not contain the attribute, it is implied that the condition is not met.
+`value` | string | Conditionally Required | If the operator requires a single value, then this field will be used and is required.
+`values` | string array | Conditionally Required | If the operator requires a set of values, such as \"in_list\", then the set will be provided in this array and is required.
+`min_value` | string | Conditionally Required | If the operator requires defining a range, then the min value of the range will be set here.
+`max_value` | string | Condtionally Required | If the operator requires defining a range, then the max value of the range will be set here.
+
+###### ** Operator - Type Support Map **
+Operator | String | Number | Boolean | Date
+|--|--|--|--|--
+exists | Yes | Yes | Yes | Yes
+not_exists | Yes | Yes | Yes | Yes
+empty | Yes | Yes | Yes | Yes
+in_list | Yes | Yes | No | No
+contains | Yes | No | No | No
+not_contains | Yes | No | No | No
+pattern | Yes | No | No | No
+equals | Yes | Yes | Yes | Yes
+not_equals | Yes | Yes | No | No
+greater_than | No | Yes | No | No
+greater_or_equal | No | Yes | No | No
+less_than | No | Yes | No | No
+less_than_or_equal | No | Yes | No | No
+before | No | No | No | Yes
+after | No | No | No | Yes
+between | No | Yes | No | No
+between_dates | No | No | No | Yes
+
+##### Time Period Object Properties
+`draft_definition.data_point.time_period`
+
+Name | Data Type | Required | Description
+|--|--|--|--
+`type` | string | Required | One of "all", "since", or "within".
+`date` | string | Conditionally Required | A date string in ISO 8601 format. Optional for type "all".
+`within_unit` | string | Conditionally Required | Required if type is `within`. Value is one of "days" or "weeks".
+`within` | integer | Conditionally Required | Required if type is `within`. Value corresponds to the unit chosen in `within_unit`.
+
+##### Seeding Object Properties
+`draft_definition.data_point.seeding`
+
+Name | Data Type | Required | Description
+|--|--|--|--
+`cutoff_date` | string | Required | A date string in ISO 8601 format. mParticle will only use data after this date to compute the calculated attribute. Client is responsible for calculating the value based on data prior to this date and send mParticle a seed value.
 
 ##### Response
 The response will be an integer identfier for the new Calculated Attribute.
@@ -1575,7 +1392,9 @@ curl \
       }
     }
   },
-  "audience_count": 0
+  "audience_count": 0,
+  "activated_on": "2020-02-18T19:24:50.426Z",
+  "activated_by": "user@mparticle.com"
 }
 ```
 
