@@ -168,7 +168,7 @@ There are several fields only accepted by server-to-server Web connections. Thes
 
 | Setting Name | Data Type | Default Value | Description |
 | --- | --- | --- | --- |
-| Access Token | `string` | <unset> | The Facebook Access Token used to make Marketing API calls. Required for Web. Facebook recommends using a [System User Access Token](https://developers.facebook.com/docs/marketing-api/system-users). |
+| Access Token | `string` | <unset> | The [Facebook Access Token](https://developers.facebook.com/docs/marketing-api/server-side-api/get-started#access-token) used to make Marketing API calls. Required for Web. Facebook recommends using a [System User Access Token](https://developers.facebook.com/docs/marketing-api/system-users). |
 | Use Pixel Server-Side Forwarding | `bool` | False | If enabled, mParticle will use Facebook's Pixel Server-Side API to forward events for Web and Out-of-Band connections. Notes: this setting is read-only. To enable it, create a new configuration. |
 
 ## Connection Settings
