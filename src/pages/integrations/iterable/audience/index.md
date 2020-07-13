@@ -32,7 +32,12 @@ From the List View, get the List ID for your List from the table to enter in the
 
 ## User Identity Mapping
 
-When forwarding audience data to Iterable, mParticle will only send users with an email identity unless you are using MPID as the user identifier.
+The User ID selected in the Audience Connection Settings will impact how audiences are forwarded to Iterable.
+
+| User ID Setting | User Identity Mapping |
+| --- | --- |
+| Customer ID | The mParticle identity `customer_id` will be mapped to the Iterable `userId` attribute. Users must have an email address in order to be forwared to Iterable. |
+| mParticle ID | The mParticle identity `mpid` will be mapped to the Iterable `userId` attribute. Users without an email address will be forwarded with a "placeholder" email address. Placeholder email addresses use the format `<mpid>@placeholder.email`. |
 
 ## Configuration Settings
 
@@ -45,4 +50,4 @@ Setting Name | Data Type | Default Value | Description
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---|
 |List ID | `string` | | The Iterable List ID which will be mapped to this audience.|
-|User ID | `string` | customerId | All| Select which user identity to forward to Iterable as your customer's user ID. |
+|User ID | `string` | customerId | Select which user identity to forward to Iterable as your customer's user ID. |
