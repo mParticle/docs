@@ -36,8 +36,8 @@ The User ID selected in the Audience Connection Settings will impact how audienc
 
 | User ID Setting | User Identity Mapping |
 | --- | --- |
-| Customer ID | The mParticle identity `customer_id` will be mapped to the Iterable `userId` attribute. Users must have an email address in order to be forwared to Iterable. |
-| mParticle ID | The mParticle identity `mpid` will be mapped to the Iterable `userId` attribute. Users without an email address will be forwarded with a "placeholder" email address. Placeholder email addresses use the format `<mpid>@placeholder.email`. |
+| Customer ID | Email address and Customer ID will be forwarded to Iterable. The mParticle identity `customer_id` will be mapped to the Iterable `userId` attribute. Users must have an email address in order to be forwared to Iterable. |
+| mParticle ID | Email address and mParticle ID will be forwarded to Iterable. The mParticle identity `mpid` will be mapped to the Iterable `userId` attribute. Users without an email address will be forwarded with a "placeholder" email address. Placeholder email addresses use the format `<mpid>@placeholder.email`. |
 
 ## Configuration Settings
 
