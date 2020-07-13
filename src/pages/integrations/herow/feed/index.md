@@ -9,7 +9,7 @@ title: Feed
 1. In mParticle's integrations Directory, configure HEROW to generate API Key/Secret Credentials 
 2. In your HEROW dashboard, go to settings > integrations and click on Connect with mParticle. You will enter your credentials here to complete the configuration of the feed.
 
-Please see [HEROW's Documentation](https://herow.io/integrations/mparticle/) for more details.
+Please see [HEROW's Documentation](https://www.herow.io/help-center-articles/mparticle) for more details.
 
 ## Supported Event Types
 
