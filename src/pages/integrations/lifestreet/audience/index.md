@@ -2,7 +2,7 @@
 title: Audience
 ---
 
-LifeStreet is a leading global in-app advertising technology company. Its platform delivers breakthrough monetization for publishers and extraordinary volumes of quality users for advertisers.
+[Lifestreet](https://lifestreet.com/) is a leading global in-app advertising technology company. Its platform delivers breakthrough monetization for publishers and large volumes of quality users for advertisers.
 
 ## Prerequisites 
 
@@ -17,3 +17,9 @@ When forwarding audience data to LifeStreet, mParticle will send IDFAs and Googl
 Setting Name | Data Type | Default Value | Description  
 |---|---|---|---
 API Key |`string` | | Please use the API key provided to you by LifeStreet account manager.
+
+## Connection Settings
+
+Setting Name | Data Type | Default Value | Description
+|---|---|---|---
+Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection.
