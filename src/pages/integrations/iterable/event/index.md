@@ -68,6 +68,7 @@ The Iterable integration supports the following event types:
 * Product Action
 * Push Subscription
 * Push Message Receipt
+* Push Message Open
 * User Identity Change
 
 ### Subscription Preferences
