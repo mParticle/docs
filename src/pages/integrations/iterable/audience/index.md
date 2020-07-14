@@ -9,14 +9,18 @@ Iterable is a multi-channel growth marketing and user engagement platform that p
 
 ## Prerequisites
 
-In order to forward an mParticle audience to Iterable, you must have an account with Iterable.
+In order to forward an mParticle audience to Iterable, you must have an account with Iterable. You can sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login).
 
-1. Sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login)
-2. Create your Iterable API keys by selecting Integrations -> API Keys
-3. Click the Create New API Key button
-4. Select to create a key of type `Mobile`
-5. Click Create
-6. Save the value in the Key column of the table.  This value is needed to configure Iterable in mParticle.
+### Create a Standard API Key
+
+Create a dedicated _Standard_ API key for the Iterable Audience Integration:
+
+1. In Iterable, navigate to to **Integrations > API Keys**.
+2. Click **New API Key**.
+3. Provide a descriptive name such as `mparticle-audience-integration`.
+4. For the [API key type](https://support.iterable.com/hc/articles/360043464871#types-of-api-keys), select **Standard**.
+5. Click **Create**.
+6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable Event Integration in mParticle.
 
 Follow these [steps](https://support.iterable.com/hc/en-us/articles/115000770906-Importing-User-Lists-) to create a new List in Iterable with no users.   
 
@@ -28,7 +32,12 @@ From the List View, get the List ID for your List from the table to enter in the
 
 ## User Identity Mapping
 
-When forwarding audience data to Iterable, mParticle will send Emails and if they exist, Customer IDs and any additional user attributes. 
+The User ID selected in the Audience Connection Settings will impact how audiences are forwarded to Iterable.
+
+| User ID Setting | User Identity Mapping |
+| --- | --- |
+| Customer ID | Email address and Customer ID will be forwarded to Iterable. The mParticle identity `customer_id` will be mapped to the Iterable `userId` attribute. Users must have an email address in order to be forwared to Iterable. |
+| mParticle ID | Email address and mParticle ID will be forwarded to Iterable. The mParticle identity `mpid` will be mapped to the Iterable `userId` attribute. Users without an email address will be forwarded with a "placeholder" email address. Placeholder email addresses use the format `<mpid>@placeholder.email`. |
 
 ## Configuration Settings
 
@@ -41,4 +50,4 @@ Setting Name | Data Type | Default Value | Description
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---|
 |List ID | `string` | | The Iterable List ID which will be mapped to this audience.|
-|User ID | `string` | customerId | All| Select which user identity to forward to Iterable as your customer's user ID. |
+|User ID | `string` | customerId | Select which user identity to forward to Iterable as your customer's user ID. |

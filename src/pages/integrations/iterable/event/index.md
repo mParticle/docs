@@ -2,7 +2,6 @@
 title: Event
 ---
 
-
 [Iterable](https://www.iterable.com) makes consumer growth marketing and user engagement simple. With Iterable, marketers send the right message, to the right device, at the right time.
 
 Iterable is a multi-channel growth marketing and user engagement platform that powers marketing, transactional, and lifecycle campaigns on email, web and mobile.  Iterable requires your application to be collecting email addresses.  This can be done by calling the `setUserIdentity` SDK method.
@@ -13,26 +12,34 @@ The Iterable integration supports Android, iOS and Web data. All event data is f
 
 
 ## Data Processing Notes
+
 Iterable will not accept data more than 24 hours old.
 
 ## Prerequisites
 
-In order to forward events to Iterable, you must have an account with Iterable.
+In order to forward events to Iterable, you must have an account with Iterable. You can sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login)
 
-1. Sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login)
-2. Create your Iterable API keys by selecting Integrations -> API Keys
-3. Click the Create New API Key button
-4. Select to create a key of type [Mobile](https://support.iterable.com/hc/en-us/articles/360035018152-Iterable-s-iOS-SDK-#_5-create-a-mobile-api-key-in-iterable)
-5. Click Create
-6. Save the value in the Key column of the table.  This value is needed to configure Iterable in mParticle.
+### Create a Mobile API Key 
 
-### 3. Create Push Integrations
-If you will be sending push registration events, you will need to provide the Iterable Push Integration names as part of the mParticle configuration.  This can be done from the Iterable platform:
+Create a dedicated _Mobile_ API key for the Iterable Event integration:
+
+1. In Iterable, navigate to **Integrations > API Keys**.
+2. Click **New API Key**.
+3. Provide a descriptive name such as `mparticle-event-integration`.
+4. For the [API key type](https://support.iterable.com/hc/articles/360043464871#types-of-api-keys), select **Mobile**.
+5. Click **Create**.
+6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable Event Integration in mParticle.
+
+<aside class="warning"> You should always use an Iterable <strong>Mobile API key</strong> for the Iterable Event Integration. The Mobile API key's permissions are scoped to the endpoints required for sending data to Iterable and using Iterable's mobile features. If you're implementing the <a href="/integrations/iterable/event/#iterable-kit-integration">Iterable Kit</a>, mParticle will send this API key to the client-side SDK. Using a Standard API key will expose access to your project's data.</aside>
+
+### Create Push Integrations
+
+If you will be sending push registration events, you will need to provide the Iterable Push Integration names as part of the mParticle configuration. This can be done from Iterable:
 
 * [Setting up iOS Push Notifications](https://support.iterable.com/hc/en-us/articles/115000315806#_4-create-a-mobile-app-in-iterable)
 * [Setting up Android Push Notifications](https://support.iterable.com/hc/en-us/articles/115000331943#_2-create-a-mobile-app-in-iterable)
 
-## Supported User Identities
+## User Identities
 
 mParticle will forward the following identifiers to Iterable where available:
 
@@ -43,12 +50,25 @@ mParticle will forward the following identifiers to Iterable where available:
 * Android ID
 * mParticle ID
 
-## Supported Event Types
+## User Attributes
+
+The Iterable integration will automatically map the following mParticle user attributes to corresponding Iterable user attributes:
+
+| mParticle User Attribute | Iterable User Attribute | Description |
+|---|---|---|
+| `$Mobile` | `phoneNumber` | The user's mobile phone number. Iterable uses the `phoneNumber` attribute primarily for sending SMS text messages. For more information, see [User Profile Fields Used By Iterable](https://support.iterable.com/hc/articles/217744303#phonenumber). |
+
+## Events
+
+### Supported Event Types
+
+The Iterable integration supports the following event types:
 
 * Custom Event
 * Product Action
 * Push Subscription
 * Push Message Receipt
+* Push Message Open
 * User Identity Change
 
 ### Subscription Preferences
