@@ -3,7 +3,7 @@ title: Ruby SDK
 order: 5
 ---
 
-This SDK is a helper library for the mParticle Events HTTP API, it exposes mParticle's schema as simple models and provides an HTTP client interface. This SDK is stateless and will only send the data that you populate, whereas our mobile SDKs will automatically collect app and device information, session events, install events, and maintain persistence. Read this wiki for a general overview and examples, and [contact our customer support team](mailto:support@mparticle.com) to make sure you're feeding the platform with the right data to power your integrations.
+This SDK is a helper library for the mParticle Events HTTP API, it exposes mParticle's schema as simple models and provides an HTTP client interface. This SDK is stateless and will only send the data that you populate, whereas our mobile SDKs will automatically collect app and device information, session events, install events, and maintain persistence. Read this wiki for a general overview and examples, and [contact our customer support team](mailto:support@mparticle.com) to make sure you're feeding the platform with the right data to power your integrations. You can find the Ruby SDK [hosted on Github](https://github.com/mParticle/mparticle-ruby-sdk).
 
 ## Model Overview
 
@@ -12,7 +12,7 @@ This SDK is a helper library for the mParticle Events HTTP API, it exposes mPart
 All data sent via the SDK must be encapsulated in a Batch object. Each Batch is associated with a **single user**. Batch objects must be associated with an environment (`production` or `development`) to properly silo your testing and production data.
 
 ```ruby
-import mparticle
+require 'mparticle'
 batch = MParticle::Batch.new
 batch.environment = 'development'
 ```
@@ -201,7 +201,7 @@ config = MParticle::Configuration.new
 config.api_key = 'REPLACE WITH API KEY'
 config.api_secret = 'REPLACE WITH API SECRET'
 
-api_instance = MParticle::EventsApi.new
+api_instance = MParticle::EventsApi.new(config)
 ```
 
 ### Uploading Data
