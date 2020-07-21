@@ -42,7 +42,7 @@ Connect your iOS, Android, or Web workspaces to Adobe Marketing Cloud. You will 
 
 * [Reporting Suite IDs](https://marketing.adobe.com/resources/help/en_US/reference/new_report_suite.html)
 * Your [Marketing Cloud Organization ID](https://forums.adobe.com/thread/2339895)
-* Make sure the **Timestamps Enabled** option in the Connection Settings matches the [Timestamp Configuration](https://marketing.adobe.com/resources/help/en_US/reference/timestamp-optional.html) of your Reporting Suites.
+* Make sure the **Timestamp Option** setting in the Configuration Settings matches the [Timestamp Configuration](https://marketing.adobe.com/resources/help/en_US/reference/timestamp-optional.html) of your Reporting Suites.
 
 
 ### iOS and Android Setup
