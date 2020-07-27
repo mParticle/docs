@@ -107,7 +107,7 @@ Smartype `init`  will ask you a series of questions and then create a Smartype c
 
 ```bash
 # With mvnx:
-mvnx com:mparticle:smartype-generator init
+mvnx com.mparticle:smartype-generator init
 
 # Or directly execute the pre-downloaded jar
 java -jar smartype.jar init
@@ -119,7 +119,7 @@ Smartype `generate` will read your configuration file and output binaries that a
 
 ```bash
 # With mvnx:
-mvnx com:mparticle:smartype-generator generate
+mvnx com.mparticle:smartype-generator generate
 
 # Or directly execute the pre-downloaded jar
 java -jar smartype.jar generate
@@ -252,7 +252,7 @@ api.send(message)
 ### Source Code and Example Projects
 
 - [Check out the Github repo to dive into the code](https://github.com/mParticle/smartype/)
-- [See example applications](https://github.com/mParticle/smartype/tree/master/examples)
+- [See example applications](https://github.com/mParticle/smartype/tree/main/examples)
 
 ### Feedback and Questions
 
