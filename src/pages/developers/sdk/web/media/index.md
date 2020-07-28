@@ -53,7 +53,7 @@ const mediaSession = new MediaSession(
     'Funny Internet cat video',   // Custom media Title
     120000,                       // Duration in milliseconds
     'Video',                      // Content Type (Video or Audio)
-    'OnDemand'                    // Stream Type (OnDemand, Live, etc.)
+    'OnDemand'                    // Stream Type (OnDemand or LiveStream)
 );
 
 // optionally set percentage at which you consider content completed
@@ -255,7 +255,7 @@ const mediaSession = new MediaSession(
     'Funny Internet cat video',   // Custom Media Title
     120000,                       // Duration in milliseconds
     'Video',                      // Content Type (Video or Audio)
-    'OnDemand'                    // Stream Type (OnDemand, Live, etc.)
+    'OnDemand'                    // Stream Type (OnDemand or LiveStream)
     true                          // Log Page Event Toggle (true/false)
 )
 ```
@@ -428,7 +428,7 @@ For example:
             "content_duration": "120000",
             "content_id": "1234567",
             "content_type": "Video",
-            "stream_type": "OnDemand",
+            "stream_type": "LiveStream",
             "media_session_id": "96a023b8-b0c7-47b7-b687-09f73b9dfac3",
             "playhead_position": "110123"
         }
