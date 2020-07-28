@@ -12,16 +12,16 @@ mParticle supports Adobe Marketing Cloud’s Mobile Services through our mobile 
 
 ## Adobe Analytics Overview and Prerequisites
 
-Currently mParticle supports Adobe's 4.x SDK. The workflow of using the mParticle SDK is similar to using Adobe 4.x SDK. 
+Currently mParticle supports Adobe's 4.x SDK. The workflow of using the mParticle SDK is similar to using Adobe 4.x SDK.
 
 If you are new to setting up Adobe Marketing Cloud’s Mobile Services, your best place to start is of course Adobe itself and the below is a must-read before proceeding:
- 
+
 * <a href="https://www.adobe.com/solutions/digital-analytics/mobile-analytics.html" target="_blank">Mobile Service Features</a>
- 
+
 If you are migrating from Adobe v2 or v3 to the latest Adobe Marketing Cloud platform, please take a moment to read the following:
- 
+
 * <a href="https://marketing.adobe.com/resources/help/en_US/mobile/ios/migration_v3.html" target="_blank"> Best Practices for setting up your events in v4.x</a>
- 
+
 When mParticle sends data to the Adobe Marketing Cloud, mParticle utilizes the Amazon Marketing Mobile Services' native APIs.  This allows mParticle to implement server side data forwarding and supports our value proposition to customers of not requiring that additional app SDK components be continually added and updated for integrations.
 
 You will need an Adobe Marketing Cloud account to get your Reporting Suite ID (RSID) and your Tracking Server.  You will need these settings when configuring Adobe in mParticle Setup.
@@ -56,7 +56,7 @@ Audience Management | Audience |  Audience management allows you to design tests
 *Reference: <https://marketing.adobe.com/resources/help/en_US/mobile>*
 
 ## Supported Feature Reference
- 
+
 ### App Lifecycle tracking
 
 Adobe Mobile Services SDK method | mParticle SDK method
@@ -74,7 +74,7 @@ Launches | Triggered on every run, including crashes and installs. Also triggere
 Monthly Engaged Users | Triggered when the application is used during a particular month. | mParticle forwards a MonthlyEngagedEvent the first time a user is seen within a month. The logic is similar to above.
 Previous Session Length | Reports the number of seconds that a previous application session lasted based on how long the application was open and in the foreground. | mParticle calculates session length as "session end time" - "session start time" - "time spent in background".
 Upgrades | Triggered on first run after upgrade (anytime the version number changes). | mParticle detects app upgrades and will forward the timestamp of upgrades.
- 
+
 **Note for Existing Adobe Customers:**
 
 Since the mParticle SDK always looks for any existing data on a device stored by Adobe's SDK, the transition to the mParticle SDK is straightforward.
@@ -89,11 +89,11 @@ trackState:data: | logScreen:eventData
 trackAction:data: | logEvent:eventData
 
 In Adobe Mobile Services v4.x, you can map events using an Event/Attribute structure, which maps almost exactly to mParticle’s data structure.
- 
+
 **Notes for Existing Adobe (3.x) Customers**
 
 e.Vars and s.Props are no longer needed in the Adobe Mobile Services 4.x, but you can pass Adobe legacy values for each of those by adding them to the attributes of an event.
-  
+
 ### Product Variables
 
 The following methods are used to track commerce events:
@@ -115,21 +115,21 @@ scCheckout | Product.CHECKOUT
 purchase | Product.PURCHASE
 
 ### LTV Tracking
- 
+
 Adobe Mobile Services SDK | mParticle SDK | Additional Comments
 ------------------------- | ------------- | -------------------
 trackLifetimeValueIncrease | logLTVIncrease | mParticle SDK has a "MPProduct" object to help with logging transactions that lead to LTV increase.
- 
+
 The mParticle SDK can calculate the lifetime value of customers once the mParticle SDK has been added to an app.
- 
-### Opt-in/Opt-out Management 
- 
+
+### Opt-in/Opt-out Management
+
 Adobe Mobile Services SDK | mParticle SDK
 ------------------------- | -------------
 Set default value via privacyStatus in a SDK config file (also has setPrivacyStatus method to change the status in the app) | `OptOut` in iOS, `setOptOut` in Android
 
 mParticle assumes that users have opt-in status by default, whereas Adobe’s SDK supports setting the default status in an SDK config file per app.
- 
+
 ### Location Tracking
 
 Adobe Mobile Services SDK | mParticle SDK
@@ -139,15 +139,15 @@ trackLocation:data: | `beginLocationTracking` in iOS, `enableLocationTracking` i
 If the *Generate Location Message* setting is enabled, mParticle will forward the location data (if available) of each event to Adobe.
 
 ### Offline Tracking
- 
+
 Adobe Mobile Services SDK | mParticle SDK
 ------------------------- | -------------
 offlineEnabled setting in config | enabled by default
 
-The mParticle SDK always collects offline data and sends that data to the mParticle SDK server. 
+The mParticle SDK always collects offline data and sends that data to the mParticle SDK server.
 
 If the *Offline Tracking Enabled* setting is enabled, mParticle will includes a "ts" parameter that represents the timestamp (in seconds) of the event.
- 
+
 ### User Identification
 
 Adobe Mobile Services SDK | mParticle SDK
@@ -181,8 +181,6 @@ These values are case sensitive and must be entered exactly.
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|---
-| Report Suite IDs | `string` | | The report suite ID from Adobe settings page.  Multiple IDs can be entered, separated by commas |
-| Tracking Server | `string` |  | The URL of the Adobe tracking server |
 | Media Tracking Server | `string` |  | Web Only. The URL of the Adobe media tracking server.  When this is filled in, Adobe Heartbeat is loaded. Leave this box blank if you do not want to load Adobe Heartbeat|
 | Report Suite IDs | `string` | <unset> | The report suite ID from Adobe settings page. Multiple IDs can be entered, separated by commas |
 | Tracking Server | `string` | <unset> | The URL of the Adobe tracking server |
