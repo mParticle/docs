@@ -181,6 +181,9 @@
             }
          }
       },
+      "context":{
+         "$ref":"#/definitions/BatchContext"
+      },
       "partner_identity":{
          "$ref":"#/definitions/String"
       },
@@ -220,10 +223,34 @@
       "environment"
    ],
    "definitions":{
+      "BatchContext":{
+         "properties":{
+            "data_plan":{
+               "$ref":"#/definitions/DataPlanContext"
+            }
+         }
+      },
+      "DataPlanContext":{
+         "properties":{
+            "plan_id":{
+               "type":"string"
+            },
+            "plan_version":{
+               "type":"integer"
+            }
+         },
+         "required":[
+            "plan_id"
+         ]
+      },
       "StringOrArray":{
          "anyOf":[
-            {"$ref":"#/definitions/String"},
-            {"$ref":"#/definitions/Array"}
+            {
+               "$ref":"#/definitions/String"
+            },
+            {
+               "$ref":"#/definitions/Array"
+            }
          ]
       },
       "Array":{
