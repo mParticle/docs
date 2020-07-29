@@ -57,6 +57,8 @@ This path accepts a JSON array of event batches.  See our [JSON documentation](/
 You may not send more than 100 EVENT DATA items per request.
 If some event batches succeed and some event batches fail, you will still get an "Accepted" response.
 
+Please see the format below containing an array of JSON event batches.
+
 ~~~json
 [
     {
