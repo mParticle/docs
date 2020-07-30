@@ -20,14 +20,14 @@ In order to take advantage of the Amazon S3 integration, you’ll need the name 
 
 To use role-based authentication, you’ll need to create an S3 bucket.
 
-The bucket name **must** begin with `mp-forwarding-`, and setup a Bucket Policy. 
+The bucket name **must** begin with `mp-forwarding-`, and setup a Bucket Policy.
 Use this link [docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3) for information on S3 ARN Syntax.
 
 Sample ARN syntax for S3 is: `arn:aws:s3:::**bucket_name**/**key_name*`.
 
 To set up a bucket policy:
 
-1. [Create an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html). The bucket name **must** begin with `mp-forwarding-`. 
+1. [Create an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html). The bucket name **must** begin with `mp-forwarding-`.
   <aside> Note the full name of your bucket. This will be required later.</aside>
 2. Create a New Policy from the template below and be sure to replace the word ``{bucket}`` with the name of the S3 bucket created in step 1.
 3. [Assign Policy to Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/EditingBucketPermissions.html). In the Bucket Policy Editor
@@ -64,7 +64,7 @@ Refer to the steps below for Amazon setup if you are Assigning Customer Policies
 
 1. [Create an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
    * The Bucket Name is required for mParticle setup and for creating the custom policy
-2. [Create an IAM user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)  
+2. [Create an IAM user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)
    * Be sure to save the credentials file which contains the Access Key Id and Secret Access Key required for mParticle setup.
 3. [Create a Custom Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)
 
@@ -125,14 +125,23 @@ AWS IAM Policy Template
 
 ## Event Data Format
 
-The event data will be forwarded as plain text files containing JSON objects. Please refer to the mParticle [JSON](/developers/server/json-reference/) documentation for a detailed description of the data format.
+### File Contents
+
+The event data will be forwarded as plain text files containing new-line delimited JSON objects. Each line in the file will correspond with a single event batch formatted as a JSON object. Please refer to the mParticle [JSON](/developers/server/json-reference/) documentation for a detailed description of the data format used for each batch.
+
+For example, if two batches are forwarded at once, the file will contain something like the following (note some fields were removed for brevity):
+
+~~~json
+{"events":[{"data":{"event_name":"MyTestEvent","timestamp_unixtime_ms":"1595542763908","event_id":"1234"},"event_type":"custom_event"}],"user_identities":[{"identity_type":"customer_id","identity":"TestCustomerId1"}],"environment":"production"}
+{"events":[{"data":{"event_name":"MyOtherTestEvent","timestamp_unixtime_ms":"1595543017730","event_id":"2345"},"event_type":"custom_event"}],"user_identities":[{"identity_type":"customer_id","identity":"TestCustomerId2"}],"environment":"production"}
+~~~
 
 ### File and Folder Names
 
 #### File Names
 
 Each file should be named using the following format:<br>
-`<App Name>_<UTC timestamp set as message is forwarded>_<Random 5 digit number>.txt`. 
+`<App Name>_<UTC timestamp set as message is forwarded>_<Random 5 digit number>.txt`.
 
 For example: `mPTravel_20171017170911644493_34523.txt`.
 
