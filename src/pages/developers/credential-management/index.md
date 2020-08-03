@@ -2,7 +2,7 @@
 title: API Credential Management
 ---
 
-<aside> The API Credentials interface currently supports credential management for the <a href="profile-api">Profile API</a> and the <a href="platform">Platform API</a>. We will be releasing support for additional mParticle APIs in the near future.</aside>
+<aside> The API Credentials interface currently supports credential management for the <a href="/developers/profile-api">Profile API</a>, <a href="/developers/platform">Platform API</a>, and the <a href="/developers/dataplanning-api">Data Planning API</a>. We will be releasing support for additional mParticle APIs in the near future.</aside>
 
 The API Credentials interface allows you view, create, edit, delete, activate, and deactivate API credentials from a single screen in the mParticle UI.
 

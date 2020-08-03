@@ -53,7 +53,7 @@ You can also get started quickly with a Postman collection:
 
 Calls to the Data Planning API are authenticated via mParticle access token, which are based on the [JSON Web Token](https://jwt.io/) standard. If you're using [one of the helper SDKs](#helper-sdks), this is taken care of for you.
 
-<aside>Contact your account representative or email support@mparticle.com to be issued a client ID and secret, which are used to generate a JWT.</aside>
+<aside>You can create and manage your mParticle access tokens for Data Planning with the <a href="/developers/credential-management">API Credentials interface</a>.</aside>
 
 #### Parameters
 
