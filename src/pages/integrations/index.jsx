@@ -64,10 +64,6 @@ const tagOptions = [{
 {
     name: 'Data Warehouse',
     value: 'Data Warehouse',
-},
-{
-    name: 'Audience - LiveRamp',
-    value: 'LiveRamp',
 }].sort((tagA, tagB) => ((tagA.name > tagB.name) ? 1 : -1));
 
 tagOptions.unshift({
