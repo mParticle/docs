@@ -116,6 +116,8 @@ Time | time | Event Timestamp, in milliseconds
 User ID | user_id | Set based on the value of the `User Identification` setting 
 User Properties | user_properties | All user attributes included with the event.  See above for Attribution Custom Events. 
 
+Note: Only for web requests, mParticle will extract OS and browser info from HTTP User Agent.
+Similar to Amplitude's SDK behavior, `os_name` and `os_version` will be populated with browser info. For that reason, mParticle will send 2 additional `Custom User Properties`, `web_os_name` and `web_os_version`, that will contain OS info. See [Amplitude's doc](https://developers.amplitude.com/docs/http-api-v2#properties).
 
 ## Configuration Settings
 
