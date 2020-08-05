@@ -7,9 +7,10 @@ Built for the subscription and in-app purchase era, [Nami ML](https://www.namiml
 ## Enable the Integration
 
 1. Create a feed configuration in mParticle to produce API key/secret values. 
-<!-- 2. In the Nami ML Control Center, enter your mParticle credentials. -->
 2. Provide these credentials to your Nami ML Account Rep.
-3. In the Nami ML Control Center, map the appropriate Nami ML identity type to mParticle's Customer ID identifier. Nami ML will also send namiml_user_id as a Partner Identity.
+3. With your Nami ML Account Rep, determine which Nami ML identity type to map to mParticle's Customer ID to ensure your Nami ML data is connected to the right user profiles. Nami ML will also send `namiml_user_id` as a Partner Identity.
+<!-- 2. In the Nami ML Control Center, enter your mParticle credentials. -->
+<!-- 3. In the Nami ML Control Center, map the appropriate Nami ML identity type to mParticle's Customer ID identifier. Nami ML will also send namiml_user_id as a Partner Identity. -->
 
 Please see [Nami ML's Documentation](https://docs.namiml.com/docs/mparticle) for more details.
 
