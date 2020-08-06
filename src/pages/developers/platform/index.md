@@ -1032,7 +1032,7 @@ curl \
 
 A Calculated Attribute is a read-only value about a single user, providing granular insight into user behavior. These attributes are defined in mParticle and are computed automatically over time by using the raw data stream of events and user information.
 
-<aside>The Calculated Attributes feature is currently available only upon request for early-access customers. If you're interested in using it prior to general availability, please let us know by asking your success manager.</aside>
+<aside>The Calculated Attributes feature is currently available only upon request for beta customers. If you're interested in using it prior to general availability, please contact your success manager.</aside>
 
 #### Version 2 API
 This API uses a different path than other Platform APIs. It can be accessed at `https://api.mparticle.com/platform/v2`. This API does not require the `?accountId` query string parameter.
@@ -1420,7 +1420,9 @@ The response body will be empty.
 
 #### Update a Calculated Attribute
 
-Use this endpoint to create or update a draft of your Calculated Attribute definition. The `active_definition` property cannot be updated. You can only rename a Calculated Attribute as long as it has never been activated. Once activated, the `name` field is read-only.
+Use this endpoint to create or update a draft of your Calculated Attribute definition. When a Calculated Attribute is updated, the `draft_definition` is changed. Once the Calculated Attribute is activated, the `draft_defintiion` is moved into the `active_definition` and the new definition is used to calculate values.  The `active_definition` property cannot be updated directly.
+
+You can only rename a Calculated Attribute before it has been activated; Once activated, the `name` is read-only.
 
 `PUT /workspaces/1234/calculatedattributes/5678`
 
