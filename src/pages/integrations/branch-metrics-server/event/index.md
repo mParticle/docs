@@ -8,6 +8,7 @@ mParticle’s Branch S2S integration supports the following platforms:
 
 * Alexa
 * Android
+* Data feeds
 * Fire TV
 * iOS
 * Roku
@@ -15,14 +16,14 @@ mParticle’s Branch S2S integration supports the following platforms:
 * tvOS
 * Web
 * XBox
-* Custom and unbound inputs
+
 
 ## Which Branch integration should I use?
 
 mParticle supports two separate integrations for sending event data to Branch:
 
 * An [embedded kit integration](/integrations/branch-metrics/event/) that bundles key functionality of the Branch SDK with the mParticle SDK and sends event data directly to Branch from an iOS or Android device.
-* A server-to-server(S2S) integration (current page) that forwards data to Branch server-side, via mParticle.
+* A server-to-server (S2S) integration (current page) that forwards data to Branch server-side, via mParticle.
 
 ### Most customers should use the embedded kit
 
@@ -49,7 +50,9 @@ Note that the only available identifier for Web Data is Customer ID, so for your
 
 ## Prerequisites
 
-To set up the Branch integration, you will need your API Key, provided by your Branch Account Manager.
+To set up the Branch S2S integration:
+1.  Obtain your Branch Key and Secret from your Branch dashboard.  
+2.  Enable the [Branch](https://help.branch.io/using-branch/docs/mparticle-import) server side integration.
 
 ## Data Processing Notes
 
