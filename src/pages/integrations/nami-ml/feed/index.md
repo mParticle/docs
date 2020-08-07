@@ -77,6 +77,7 @@ Nami ML will send the following events to mParticle as Commerce Events.
 | User Attribute | Type | Description
 | ---|---|---|
 | namiml_active_entitlements | `Array`  | Any entitlements that currently apply to the customer |
+| namiml_active_skus | `Array` | A list of currently purchased product SKUs that correspond to the namiml_active_entitlements associated with the customer. |
 | namiml_device_ids | `Array`  | The device IDs associated with the customer |
 | namiml_device_platforms | `Array`  | The platforms of the devices associated with the customer |
 | namiml_former_subscriber | `String` | Whether or not the customer is a former subscriber |
