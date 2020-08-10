@@ -8,9 +8,16 @@ title: Audience
 
 In order to enable our integration with Aarki, you'll need to obtain your API Key from your Aarki Account Manager for mParticle configuration.
 
-## User Identity Mapping
+## Supported IDs
 
-When forwarding audience data to Aarki, mParticle will send IDFAs and Google Advertising IDs.
+### Device IDs  
+
+* GAID (Google Advertising ID)
+* IDFA (iOS Advertising ID)
+
+### User IDs  
+
+* Customer ID
 
 ## Configuration Settings
 
