@@ -12,9 +12,9 @@ title: Event
 
 In order to take advantage of the Amazon S3 integration, you’ll need the name of the S3 bucket in which you want to store your data. You'll also need to provide access for mParticle to write data to your bucket. There are two ways to do this:
 
-[Option 1](#option-1-role-based-authentication) is role-based authentication. In this option, you apply a policy to the bucket itself, granting mParticle access to write to your bucket. Most organizations choose this path.
+[Option 1](#option-1---role-based-authentication) is role-based authentication. In this option, you apply a policy to the bucket itself, granting mParticle access to write to your bucket. Most organizations choose this path.
 
-[Option 2](#option-2-user-based-authentication) is user-based authentication. In this option, you create a user under your own AWS account, give the user permission to write to your bucket, and provide the credentials for that user to mParticle.
+[Option 2](#option-2---user-based-authentication) is user-based authentication. In this option, you create a user under your own AWS account, give the user permission to write to your bucket, and provide the credentials for that user to mParticle.
 
 ### Option 1 - Role-Based Authentication
 
