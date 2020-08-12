@@ -380,7 +380,7 @@ $gclid| gclid | Google AdWords ID |
 | Hash Customer ID | `bool` | False | All| If true, a hashed Customer ID, when available, will be forwarded as User ID |
 | Send User IP Address | `bool` | False | All| If enabled, the user's IP address will be forwarded. |
 | Enable Enhanced Ecommerce | `bool` | False | All| Use this setting if you have enhanced ecommerce enabled in your Google Analytics account |
-| Send Advertising IDs | `bool` | True | All| Enable this setting if you want mParticle to send Google Ad IDs, IDFAs, and Microsoft Ad IDs to Google Analytics. |
+| Send Advertising IDs | `bool` | True | All| Enable this setting if you want mParticle to send Google Ad IDs, IDFAs, Microsoft Ad IDs, and Fire TV Ad IDs to Google Analytics. |
 | Allow Legacy CID Format | `bool` | False | All | Allow the legacy CID format to be sent through as-is. The legacy format being "X.Y", where X and Y are 32-bit integers.
 | Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, requests will only be forwarded server-side.
 | Late Event Action | `string` | Send | All| Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |

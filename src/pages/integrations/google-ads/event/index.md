@@ -133,7 +133,7 @@ As explained previously, if you are not using mParticle's Android or iOS SDKs (o
 | `device_info.ios_advertising_id`  | iOS only  | Required. Will return an error if not present |
 | `device_info.os_version` |iOS only | [iOS version number](https://en.wikipedia.org/wiki/IOS_version_history) |
 | `device_info.android_advertising_id` | Android only | | 
-| `device_info.build_version_release` | Android only | Android [version number](https://en.wikipedia.org/wiki/Android_version_history) | 
+ `device_info.build_version_release` | Android only | Android [version number](https://en.wikipedia.org/wiki/Android_version_history) | 
 | `device_info.locale_language` | Android and iOS |  2-character [ISO 639-1 Language Code](http://www.loc.gov/standards/iso639-2/php/English_list.php) | 
 | `device_info.locale_country` | Android and iOS | 2-character [ISO 3166-1 Country Code](https://www.iso.org/obp/ui/#search) | 
 | `device_info.device_model` | Android and iOS | Model of the device, e.g. `iPhone6,1`| 
