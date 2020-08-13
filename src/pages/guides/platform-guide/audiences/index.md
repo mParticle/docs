@@ -268,23 +268,6 @@ You have created 2 workspaces in your account to track activity for two related 
 
 You create an audience in the App A workspace, and your criteria match John Smith's user profile. When you connect that audience to an Output that accepts IDFAs, mParticle will forward both of John Smith's IDFAs.
 
-## LiveRamp for Targeting
-
-<aside>LiveRamp for Targeting is a premium feature available now. Contact your Customer Success representative to get started.</aside>
-
-![](/images/liveramp-diagram.png)
-
-mParticle offers Audience connections via LiveRamp. LiveRamp for Targeting gives you access to LiveRamp's third-party identity graph, so you can reach more of your audience across more channels. You do not need to be an existing LiveRamp customer to use this feature.
-
-### How it works
-
-1. Find LiveRamp powered integrations within the mParticle directory by searching for "LiveRamp" in the directory search or by filtering the directory by selecting "Audience - LiveRamp" in the Configuration Type dropdown.
-  ![](/images/mparticle_lr_directory.png)
-2. Configure the integration exactly as you would a standard audience output.
-  ![](/images/liveramp-config.png)
-3. Destination configuration information will be passed to LiveRamp along with the customer data for the audience. LiveRamp will first match the customer data against its ID Graph to find all relevant identifiers for the destination, and then send the audience and all identifiers to the destination.
-
-
 ## Audience A/B Testing
 
 <aside>Audience A/B Testing is a premium feature. Talk to your Customer Success Manager if you're interested in enabling Audience A/B Testing for your account.</aside>
