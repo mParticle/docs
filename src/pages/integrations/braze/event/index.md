@@ -231,6 +231,7 @@ By default, mParticle forwards all available user attributes to Braze, including
 | Braze SDK Flush Interval | `string` | <unset> | iOS, tvOS| Braze SDK data flush internal in seconds (iOS only). Refer to Braze sdk doc for "ABKFlushIntervalOptionKey". |
 | Braze SDK Request Policy | `string` | <unset> | iOS, tvOS| Braze SDK request policy at app start time (iOS only). Refer to Braze sdk doc for "ABKRequestProcessingPolicyOptionKey". |
 | Braze SDK Minimum Time Interval Between Triggers | `string` | <unset> | iOS, tvOS| Braze SDK minimum time interval in seconds between triggers (iOS only). Refer to Braze sdk doc for "ABKMinimumTriggerTimeIntervalKey". |
+| User Tags Value | `enum` | "true" | Web| Select the value to be sent to Braze for [user tags](/developers/sdk/web/users/#set-user-tags). The possible values are `null` or "true". When "true", it will be affected by the parameter Enable type detection. |
 | Braze SDK Collect IDFA? | `bool` | False | iOS, tvOS| Informs the Braze Kit whether to collect IDFA. |
 | Braze SDK Disable Automatic Location Tracking| `bool` | False | iOS, tvOS | Informs the Braze Kit whether to disable automatic location tracking at app startup time |
 | Include Enriched User Attributes | `bool` | True | iOS, tvOS| If enabled, mParticle will forward enriched user attributes from the existing user profile. |
