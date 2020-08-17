@@ -48,7 +48,9 @@ dependencies {
 ## Supported User Identities
 * Customer ID
 * Email
+* mParticle ID (MPID)
 * Other
+* Other5
 * Facebook ID
 
 ## Supported Device Identities 
