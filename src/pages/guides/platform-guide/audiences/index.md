@@ -138,15 +138,15 @@ As mentioned above, you can build audience criteria based on user attributes fro
 
 To build an audience criteria based on a user's profile information, press the **add criteria** button and select **Users** to view options for user based criteria:
 
-- Audience membership
-- Calculated attributes
-- Consent
-- Device, OS, Carrier
-- First seen
-- User and device identities
-- User attributes
-- User attribute lists
-- Location
+- `Audience membership`: Checking a user's membership in other audiences. Only audiences which do not contain nested definitions can be selected.
+- `Calculated attributes`: Check a users calculated attribute value
+- `Consent`: Check a users CCPA or GDPR consent state
+- `Device, OS, Carrier`: Check a users device type, carrier and operating system
+- `First seen`: Check the date the user was first seen
+- `Location`: Check user location
+- `User and device identities`: Check the format and presence of user and device identities
+- `User attributes`: Check user attributes
+- `User attribute lists`: Check user attribute lists
 
 ![](/images/audience-user-criteria.png)
 
