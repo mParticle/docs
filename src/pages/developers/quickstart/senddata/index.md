@@ -207,7 +207,7 @@ _________________
 Create a <strong>Custom Feed</strong> on the [Setup](https://app.mparticle.com/setup/inputs/feeds) page to generate server-to-server API credentials.
 
 ### 2. Send an HTTP request
-Use <strong>curl</strong> or <strong>Postman</strong> to send an HTTP request with your access credentials to our server-to-server endpoint `https://s2s.mparticle.com/v2/events`.
+Use <strong>curl</strong> or <strong>Postman</strong> to send an HTTP request with your access credentials to our server-to-server [endpoint](https://docs.mparticle.com/developers/server/http/#endpoint) `https://s2s.mparticle.com/v2/events`.  
 
 #### curl
 
