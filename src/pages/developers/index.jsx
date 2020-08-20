@@ -186,6 +186,7 @@ const DevContent = (props) => (
             <h1 id='developer-hub-title'>Developers</h1>
             <p className='large'>
                 This section contains detailed documentation on implementing our client SDKs and HTTP APIs. For more business-oriented information on mParticle features, try the
+                {' '}
                 <Link to='/guides/'>Guides</Link>
                 {' '}
                 section.
@@ -311,6 +312,7 @@ const DevContent = (props) => (
 export const frontmatter = {
     title: 'Developers',
     showWhenLast: true,
+    tocItem: true,
 };
 
 export const query = graphql`
