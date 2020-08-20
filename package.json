@@ -70,9 +70,6 @@
     "start-server-and-test": "^1.11.0"
   },
   "main": "n/a",
-  "pre-commit": [
-    "test"
-  ],
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
