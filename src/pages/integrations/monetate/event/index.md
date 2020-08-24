@@ -2,25 +2,29 @@
 title: Event
 ---
 
-[Monetate](https://www.monetate.com) provides the most flexible and complete solutions for optimizing and personalizing your customersí experience - from the simplest use cases to the most complex strategies.
+[Monetate](https://www.monetate.com) provides the most flexible and complete solutions for optimizing and personalizing your customers experience - from the simplest use cases to the most complex strategies.
 
-The Monetate integration supports the iOS and Android platform.
+## Enable the Integration
 
-## Supported Features
+1. Obtain your API Key from your Monetate Account Manager.  There is a separate API Key for each Monetate account.
+2. Use the above credentials to configure The Filter's Event Integration via mParticle's integrations directory.
 
-* Event Forwarding
+## Supported Platforms
 
-## Prerequisites
+Monetate will receive events forwarded from the following input sources:
 
-To set up the Monetate integration, you will need your Monetate-issued API Key.
+* iOS
+* Android
 
-## Supported User Identities
+## Supported Identities
 
-mParticle will forward the following IDs to Monetate:
-
-* Google Advertising ID (GAID)
-* Apple Advertising ID (IDFA)
+### User Identities
 * Customer ID
+
+## Device Identities
+
+* Apple Advertising ID (IDFA)
+* Google Advertising ID (GAID)
 
 ## Data Processing Notes
 
