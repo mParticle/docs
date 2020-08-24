@@ -326,3 +326,9 @@ P7f3LwgHVcDt8/26hziIGx56oVWGonkt6od7AY1VQBLsnIeh0K/z55GDmlrB7rbfd05RGUqqgjw4tekA
     "results_url":null
 }
 ~~~
+
+## Errors
+
+Status Code  | Retriable  | Description
+---  | ---  | ---
+409  | No  | There is an in progress request with the same identities and extensions and its status is pending. Please do not retry the request.
