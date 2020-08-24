@@ -204,6 +204,15 @@ val mediaSession = MediaSession.builder {
 }
 ```
 
+To log a custom event that does not correspond with the supported Media Session events, you can generate a completely custom event:
+
+```kotlin
+val mpEvent = mediaSession.buildMPEvent("Milestone", mapOf(
+    "type" to "95%"
+  ))
+MParticle.getInstance()?.logEvent(mpEvent)
+```
+
 ### Custom Event Schema
 
 The Media SDK will generate Custom events per the specification below.
