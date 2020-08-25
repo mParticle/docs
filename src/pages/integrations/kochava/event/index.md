@@ -28,6 +28,8 @@ mParticle supports the following modes when forwarding data to Kochava:
 
 mParticle will forward Apple Search Ad Attribution values, if provided.
 
+mParticle will forward feed data to Kochava if we have any user identity in the [User Identity Mapping](/integrations/kochava/event/#user-ids) section
+
 ## Prerequisites
 
 In order to activate mParticle's integration with Kochava, you'll need to have your Kochava App ID handy.  If you're not sure what this ID is or where to find it, please contact your Kochava account representative for assistance.
@@ -126,14 +128,14 @@ The following Device IDs will be included in the IdentityLink message if availab
 
 The following User IDs will be included in the IdentityLink message if available:
 
-| mParticle ID Type | Kochava Key
+| mParticle ID Type | Kochava Key | 
 | --- |----|
 | Email | `email` |
 | Customer ID | `app_userid` |
 | Facebook | `fb_userid` |
 | Google | `google_userid` |
 | Microsoft | `microsoft_userid` |
-| Other | Forwarded as a Device ID of type `custom`
+| `External Custom Device Type` | Forwarded as a Device ID of type `custom` | 
 | Yahoo | `yahoo_userid` |
 
 
@@ -155,3 +157,4 @@ The following User IDs will be included in the IdentityLink message if available
 | Send Kochava Device ID | `bool` | True | All| If enabled, mParticle will send the `kochava_device_id` property with every request. |
 | External User Identity Type | `enum` | Customer ID | All | The mParticle User Identity type to forward as an External Id to Kochava. |
 | External Email Identity Type | `enum` | Email | All | The mParticle User Identity type to forward as an Email to Kochava. |
+| External Custom Device Type | `enum` | Other | All | The mParticle User Identity type to forward as a custom device type to Kochava. |
