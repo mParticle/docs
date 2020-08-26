@@ -109,7 +109,16 @@ Once your session is instantiated, you will need to trigger a `SessionStart`. Th
 1. Start a session
 
 ```kotlin
-mediaSession.logMediaSessionStart()
+val currentPlayheadPosition = Options(currentPlayheadPosition = 300)
+
+val customAttributes = HashMap<String, Int>()
+customAttributes["category"] = "Destination Intro"
+customAttributes["title"] = "Paris"
+customAttributes["purchaseCustom"] = "AttributeTest"
+
+Options mediaOptions = new Options(currentPlayheadPosition,customAttributes);
+
+mediaSession.logMediaSessionStart(mediaOptions)
 ```
 
 2. Log a play event
