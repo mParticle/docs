@@ -20,7 +20,7 @@ Refer to the links below for Amazon setup:
 Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams) for information on Kinesis ARN syntax.  Sample ARN syntax for Kinesis is:  `arn:aws:kinesis:{region}:{account-id}:stream/{stream-name}`. 
 
 ### Option 1 - Role-Based Authentication
-1. [Create a Stream](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/kinesis-pig-create-stream.html)
+1. [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html)
 * The Kinesis Stream Name and Kinesis Service Region are required for mParticle setup
 2. [Create IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) with the following naming convention: `arn:aws:iam::{account-id}:role/mparticle-kinesis-role`. This naming convention is required for mParticle to be able to assume role correctly.
 3. [Create a Custom Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).  Use one of the following methods to create the policy:
@@ -74,7 +74,7 @@ Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespace
 ~~~
 
 ### Option 2 - User-Based Authentication
-1. [Create a Stream](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/kinesis-pig-create-stream.html)
+1. [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html)
 * The Kinesis Stream Name and Kinesis Service Region are required for mParticle setup 
 2. [Create an IAM user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)  
 * Be sure to save the credentials file which contains the Access Key Id and Secret Access Key required for mParticle setup.
