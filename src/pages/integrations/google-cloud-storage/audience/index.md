@@ -41,6 +41,12 @@ Ex:
 
 By default, Google Cloud Storage will forward all available Device and User identities for a given user. However, you can individually set which of these are excluded in the Connection Settings dialog.
 
+## Validation
+
+Upon saving a new audience subscription, mParticle will attempt to upload an empty file called `mparticle-validation.txt` to the bucket and folder to verify it is configured correctly.
+
+If there is any error in the subscription settings, the connection won't be saved, and an error message will be displayed.
+
 ## Connection Settings
 
 | Setting Name | Data Type | Default Value | Description |
