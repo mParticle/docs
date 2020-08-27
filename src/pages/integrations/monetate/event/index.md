@@ -7,7 +7,7 @@ title: Event
 ## Enable the Integration
 
 1. Obtain your API Key from your Monetate Account Manager.  There is a separate API Key for each Monetate account.
-2. Use the above credentials to configure The Filter's Event Integration via mParticle's integrations directory.
+2. Use the above credentials to complete the configuration via mParticle's integrations directory.
 
 ## Supported Platforms
 
