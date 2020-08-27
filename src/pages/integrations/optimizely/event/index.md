@@ -4,9 +4,13 @@ title: Event
 
 [Optimizely](https://www.optimizely.com/) provides easy-to-use A/B testing solutions, allowing dynamic experimentation in your web, iOS, and Android apps.
 
-mParticle supports the full breadth of the latest [Optimizely X](https://developers.optimizely.com/overview/) platform by bundling the Optimizely SDKs.
-
 This integration allows you to send events tracked in mParticle to Optimizely to give further visibility into how the experiments you are running impact your engagement metrics. Use it to reduce the time it takes to evaluate an experiment by leveraging the events you already record with mParticle.
+
+mParticle supports 2 Optimizely products for your needs:
+* Optimizely Full Stack support on iOS, Android, and Web
+* Optimizely Web for web UI experimentation
+
+If you want to use both Optimizely Web and Optimizely Full Stack (Web), add 2 Optimizely connections to your JS input. To enable Full Stack in one of those connections, select `Use Full Stack`. Full Stack is assumed for Android and iOS.
 
 ## Prerequisites
 
@@ -14,13 +18,17 @@ In order to enable mParticle's integration with Optimizely, you will need your O
 
 Note: as noted on the Optimizely website, earlier versions of their SDK use a Project ID rather than an SDK Key to create a manager. Project IDs are still supported in 2.x backwards compatibility. Versions 1.x and 2.x can use only a Project ID, while 3.0+ can use a Project ID or SDK key to instantiate the client with the datafile. The benefit of using an SDK Key is that you can retrieve datafiles for other environments and not just the primary environment as when you use a Project ID. See [Initialize a mobile SDK](https://docs.developers.optimizely.com/full-stack/docs/initialize-a-mobile-sdk) for clarification. 
 
-Optimizely does not accept PII, so while mParticle allows for email addresses to be used to identify users, an anonymous user ID is required to send with the mParticle events that are sent to Optimizely. Additionally, the user ID used for the mParticle event must be the same that is passed into the Optimizely activate call. Please see [Optimizely's documentation](https://docs.developers.optimizely.com/full-stack/docs/track-events) regarding user IDs and event tracking for more information.
+Optimizely [does not accept PII](https://docs.developers.optimizely.com/full-stack/docs/handle-user-ids), so while mParticle allows for email addresses to be used to identify users, an anonymous user ID is required to send with the mParticle events that are sent to Optimizely. Additionally, the user ID used for the mParticle event must be the same that is passed into the Optimizely activate call. Please see [Optimizely's documentation](https://docs.developers.optimizely.com/full-stack/docs/track-events) regarding user IDs and event tracking for more information.
 
 ### Web
 
-The mParticle Web SDK will automatically load the Optimizely JavaScript snippet for your **SDK Key or Project ID** once you've configured it in your mParticle dashboard. If you would like to load the Optimizely snippet yourself you can do so and, once enabled, mParticle will look for `window.optimizely` to prevent duplicate loading. In either case, mParticle will still forward events to the Optimzely object that is loaded.
+The mParticle Web SDK will automatically load the Optimizely JavaScript snippet for your **SDK Key or Project ID** once you've configured it in your mParticle dashboard. If you would like to load the Optimizely snippet yourself you can do so and, once enabled, mParticle will look for `window.optimizely` to prevent duplicate loading. In either case, mParticle will still forward events to the Optimizely object that is loaded.
 
 While allowing mParticle to automatic load Optimizely reduces the amount of code you need to write, you may choose to initialize Optimizely yourself to prevent "page flashing" in the case where an Optimizely experiment is expected to alter the UI immediately on load. You can [read more about this concern here](https://help.optimizely.com/Set_Up_Optimizely/Implement_the_one-line_snippet_for_Optimizely_X) and make the choice that's best for your setup.
+
+### Full Stack (Javascript)
+
+The mParticle Web SDK will automatically load the Optimizely Full Stack Javascript snippet for your **SDK Key** once you've configured it in your mParticle dashboard. You may choose to [initialize the Optimizely Full Stack SDK](https://docs.developers.optimizely.com/full-stack/docs/install-sdk-javascript) yourself to improve load times by requiring `@optimizely/optimizely-sdk` and creating an `optimizelyClientInstance` attached to `window`. Note that mParticle will only recognize `window.optimizelyClientInstance` to prevent duplicate loading. In either case, mParticle will map events to an Optimizely `track` event once loaded. All decision-based API methods, such as `activate` and `isFeatureEnabled`, must be implemented by customers natively.
 
 ### Adding the kit to your iOS or Android app
 
@@ -64,7 +72,7 @@ The mParticle integration will take care of initializing the Optimizely client f
 
 ### Accessing the mParticle-Initialized Client
 
-If you'd like to use the client that mParticle creates you can access it directly from the kit on iOS or Android, or the `window.optimizely` object on web.
+On iOS and Android, you can directly access the Optimizely Client that is created. For Web, use `window.optimizely` and for Web Full Stack, use `window.optimizelyClientInstance`.
 
 :::code-selector-block
 ~~~objectivec
@@ -138,19 +146,32 @@ OptimizelyManager.Builder builder = OptimizelyManager.builder()
 optimizelyManager.initialize(this, new OptimizelyStartListener() {
     @Override
     public void onStart(OptimizelyClient optimizely) {
-        //set the Optimizely client on mParticle
+        // Set the Optimizely client on mParticle
         OptimizelyKit.setOptimizelyClient(optimizely);
     }
 });
 
 ~~~
+
+~~~javascript
+var optimizely = require('@optimizely/optimizely-sdk');
+
+// Instantiate an Optimizely client
+window.optimizelyClientInstance = optimizely.createInstance({
+  datafile: window.optimizelyDatafile,
+});
+~~~
 :::
 
-[See Optimizely's docs for a more in-depth explanation](https://developers.optimizely.com/x/solutions/sdks-v1/reference/index.html?language=android&platform=mobile#initialization).
+[See Optimizely's docs for a more in-depth explanation](https://docs.developers.optimizely.com/full-stack/docs/quickstarts).
 
 ### Web
 
-The mParticle Optimizely web integration will look for `window.optimizely` and use that if present. You can also use this object to access the Optimizely client that the integration automatically initializes.
+The mParticle Optimizely Web integration will look for `window.optimizely` and use that if present. You can also use this object to access the Optimizely Web client directly.
+
+### Full Stack (Javascript)
+
+The mParticle Optimizely Full Stack integration will look for `window.optimizelyClientInstance` and use that if present. You can also use this object to access the Optimizely Full Stack client that the integration automatically initializes if you are not initializing it yourself.
 
 ## Activate an Experiment
 
@@ -158,7 +179,7 @@ Once you have a reference to the Optimizely client, you can use it to activate a
 
 By default, mParticle will use the device application stamp if present. See below for more information on the supported identity types. If you've configured a different ID than device application stamp, be sure to use that ID (if present) to activate experiments.
 
-[See Optimizely's docs for a more in-depth explanation](https://developers.optimizely.com/x/solutions/sdks-v1/reference/index.html?language=android&platform=mobile#activation).
+[See Optimizely's docs for a more in-depth explanation](https://docs.developers.optimizely.com/full-stack/docs/activate-android).
 
 :::code-selector-block
 ~~~objectivec
@@ -210,11 +231,17 @@ if (variation != null) {
 
 You can activate an experiment on web using exactly the same code as a standard Optimizely implementation. 
 
-[See Optimizely's docs for a more in-depth explanation](https://developers.optimizely.com/x/solutions/sdks-v1/reference/index.html?language=javascript&platform=mobile#activation).
+[See Optimizely's docs for a more in-depth explanation](https://docs.developers.optimizely.com/web/docs/activate).
+
+### Full Stack
+
+You can enable event tracking with Optimizely Full Stack by setting up a new experiment in Optimizely and defining `events` and `attributes` in your Optimizely dashboard that you want to capture and report on.
+
+[See Optimizely's docs for a more in-depth explanation on adding events to experiments](https://docs.developers.optimizely.com/full-stack/docs/create-events).
 
 ## Supported Identity Types
 
-### iOS and Android
+### iOS, Android, and Full Stack
 
 All events sent to Optimizely must be tagged with a user ID. With mParticle's integration you have the option to configure which user or device identity type should be mapped to the Optimizely User ID. This is present as a [connection setting](#connection-settings) when configuring Optimizely in your mParticle dashboard. The following user identities are supported:
 
@@ -231,7 +258,7 @@ All events sent to Optimizely must be tagged with a user ID. With mParticle's in
 
 ### Web
 
-The Optimizely-X web client platform does not currently support user ID values at this time. As soon as this becomes available, we'll be sure to update the mParticle integration to send it!
+The Optimizely Web client platform does not currently support user ID values at this time. As soon as this becomes available, we'll be sure to update the mParticle integration to send it!
 
 ## Supported Event Types
 
@@ -241,7 +268,7 @@ mParticle forwards the following event types:
 * Commerce Event
 * Page View (Web only)
 
-On iOS and Android, these events are mapped to Optimizely's `track` API and will include the name of the event, custom attributes, user attributes, and your configured user ID. On Web, the events are pushed into the `window.optimizely` queue to be sent to the server.
+On iOS, Android and Full Stack these events are mapped to Optimizely's `track` API and will include the name of the event, custom attributes, user attributes, and your configured user ID. On Web, the events are pushed into the `window.optimizely` queue to be sent to the server.
 
 ## Reserved Tags
 
@@ -319,7 +346,10 @@ var product1 = mParticle.eCommerce.createProduct('Foo name', 'Foo sku', 100, 4),
     ta = mParticle.eCommerce.createTransactionAttributes('foo-transaction-id', 'foo-affiliation', 'foo-coupon', 400, shipping, tax),
     logPurchaseBoolean = false,
     attributes = {foo: 'bar'},
+    // mapped to Optimizely as a custom event name if Web
     customFlags = {'Optimizely.EventName': 'custom revenue event name'};
+    //mapped to Optimizely as a custom event name if Full Stack
+    customFlags = {'OptimizelyFullStack.EventName': 'custom revenue event name'};
 
 mParticle.eCommerce.logPurchase(ta, product1, logPurchaseBoolean, attributes, customFlags);
 
@@ -372,7 +402,7 @@ mParticle.logEvent('Foo conversion event', eventType, attributes, customFlags);
 
 ## Single Page Applications (Web Only)
 
-Optimizely works great on Single Page Applications (SPAs). Review [this in depth article](https://help.optimizely.com/Build_Campaigns_and_Experiments/Support_for_dynamic_websites%3A_Use_Optimizely_on_single_page_applications) about how to set up your Optimizely settings and pages properly in order to avoid issues with Optimizely on your SPA. mParticle's OptimizelyX Web Client SDK provides the `logPageView` method which allows you to apply a page context for manually activating a page, allowing for full flexibility for sites with dynamic content or challenging URL patterns. View more information [here](https://developers.optimizely.com/x/solutions/javascript/topics/dynamic-websites/index.html#manual). The following example performs a mapping of the page `watchedVideo` as seen [here](https://developers.optimizely.com/x/solutions/javascript/reference/#function_setpage).
+Optimizely works great on Single Page Applications (SPAs). Review [this in depth article](https://help.optimizely.com/Build_Campaigns_and_Experiments/Support_for_dynamic_websites%3A_Use_Optimizely_on_single_page_applications) about how to set up your Optimizely settings and pages properly in order to avoid issues with Optimizely on your SPA. mParticle's Optimizely Web Client SDK provides the `logPageView` method which allows you to apply a page context for manually activating a page, allowing for full flexibility for sites with dynamic content or challenging URL patterns. View more information [here](https://docs.developers.optimizely.com/web/docs/dynamic-websites#manual). The following example performs a mapping of the page `watchedVideo` as seen [here](https://docs.developers.optimizely.com/web/docs/api-functions#function_setpage).
 
 ```
 var tags = {category: 'Kitchen', subcategory: 'blenders'}
