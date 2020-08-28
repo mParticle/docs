@@ -5,7 +5,7 @@ title: Event
 <a href="https://www.mixpanel.com" target="_blank">Mixpanel's</a> mission is to increase the rate of innovation. Companies use Mixpanel to analyze how & why users engage, convert, and retain in real-time on web, mobile, and IoT devices, and then use the data to improve their products.
 
 ## Overview & Prerequisites
- 
+
 If you are new to setting up Mixpanel’s Mobile App Analytics, your best place to start is Mixpanel itself and the below are must-reads before proceeding:
 
 * Mobile App Analytics Setup Overview: <https://mixpanel.com/help/reference>
@@ -38,18 +38,18 @@ Feature Name | mParticle Support | Feature Description
 
 ### User Identification
 
-One of the key features of Mixpanel is funnel tracking, this feature requires a consistent approach to identifying your users as they sign up, and progress from being only identifiable by their device, to having a unique 'logged in' ID. 
+One of the key features of Mixpanel is funnel tracking, this feature requires a consistent approach to identifying your users as they sign up, and progress from being only identifiable by their device, to having a unique "logged in" ID.
 
 mParticle manages this process using its [IDSync feature](/guides/idsync/introduction). IDSync gives you granular control over how user profiles are managed. To support IDSync, mParticle maintains a hierarchy of different ID types.
 
 A traditional Mixpanel implementation, using the Mixpanel SDK, manages sign-up funnels by using the following process:
 
 1. When a user first downloads your app, the `Distinct ID` is set using a [default anonymous device id](https://help.mixpanel.com/hc/en-us/articles/115004509426) (Apple Advertising ID for iOS, a random GUID for Android, a Cookie ID for Web).
-2. When you know the identity of the current user, typically after log-in or sign-up, you call Mixpanel's `identify` method. Mixpanel recommends against using identify for anonymous visitors to your site. 
+2. When you know the identity of the current user, typically after log-in or sign-up, you call Mixpanel's `identify` method. Mixpanel recommends against using identify for anonymous visitors to your site.
 
 If your project has Mixpanel's [ID Merge](https://help.mixpanel.com/hc/en-us/articles/360039133851#enable-id-merge) feature enabled, the call to `identify` will connect pre- and post-authentication events when appropriate.
 
-If your project does not have ID Merge enabled, `identify` will change the user's local distinct_id to the unique ID you pass. Events tracked prior to authentication will not be connected to the same user identity. If ID Merge is disabled,  Alias can be used to tie the original Distinct ID (an anonymous device ID) and the new Distinct ID (a unique User ID) together in Mixpanel. 
+If your project does not have ID Merge enabled, `identify` will change the user's local distinct_id to the unique ID you pass. Events tracked prior to authentication will not be connected to the same user identity. If ID Merge is disabled,  Alias can be used to tie the original Distinct ID (an anonymous device ID) and the new Distinct ID (a unique User ID) together in Mixpanel.
 
 **If this process is not followed correctly, funnel tracking won’t be possible, as Mixpanel will see the two Distinct IDs as two completely separate users.**
 
@@ -57,7 +57,7 @@ If you wish to use Mixpanel's funnel tracking features, you have two options for
 
 ### Option 1 - Use mParticle ID as the Distinct ID
 
-_This option is recommended for new implementations._ This option lets your Mixpanel user profiles mirror those maintained by mParticle. This option lets your mParticle Identity strategy take care of aliasing for you, before your data ever reaches Mixpanel. 
+_This option is recommended for new implementations._ This option lets your Mixpanel user profiles mirror those maintained by mParticle. This option lets your mParticle Identity strategy take care of aliasing for you, before your data ever reaches Mixpanel.
 
 For this to work, you need to have selected an Identity Strategy that supports funnel tracking, such as the [Profile Conversion Strategy](http://docs.mparticle.com/guides/idsync/profile-conversion-strategy). If you use the Profile Conversion Strategy and mParticle's `Customer ID` as your logged-in ID type, a sign-up flow works as follows:
 
@@ -75,7 +75,7 @@ This approach requires specific client-side code to support your Mixpanel integr
 To use this option, you must set the **External Identity Type** in the [Configuration Settings](#configuration-settings) to the Identity Type you are using to identify known users in mParticle. For most apps this will be `Customer ID` or `Email`, but you can also choose an `Other` identity type. Using Customer ID as an example, the sign-up flow works as follows:
 
 1. When a user first downloads your app, your chosen External Identity Type will not yet be available, so mParticle will fall back to forwarding event data to Mixpanel with a device ID mapped to the Distinct ID.
-2. When the user creates an account, and the Customer ID becomes available, you must _FIRST_ set the value as mParticle's `alias` identity type. The `alias` identity type in mParticle is only used to support this particular configuration with Mixpanel. 
+2. When the user creates an account, and the Customer ID becomes available, you must _FIRST_ set the value as mParticle's `alias` identity type. The `alias` identity type in mParticle is only used to support this particular configuration with Mixpanel.
 
  :::code-selector-block
  ~~~java
@@ -94,7 +94,7 @@ To use this option, you must set the **External Identity Type** in the [Configur
  ~~~javascript
  var identityRequest = {
        userIdentities: {
-           alias: 'HenryJekyll86'
+           alias: 'HenryJekyll86',
            customerid: 'HenryJekyll86'   
        }
     }
@@ -107,7 +107,7 @@ To use this option, you must set the **External Identity Type** in the [Configur
 Note that these examples are the minimum necessary to demonstrate the required sign-up flow and do not include additional features, such as completion handlers. Refer to the full Identity documentation:
 * [iOS](/developers/sdk/ios/identity)
 * [Android](/developers/sdk/android/identity)
-* [Web](/developers/sdk/web/identity) 
+* [Web](/developers/sdk/web/identity)
 
 ## Supported Feature Reference
 
@@ -124,7 +124,7 @@ registerSuperProperties | Registers super properties, overwriting ones that have
 registerSuperPropertiesOnce | Registers super properties without overwriting ones that have already been set. | Segmentation, Funnels, Retention, People Analytics | _Not supported_ | mParticle leaves this type of implementation to the developer.
 reset | Clears all stored properties and distinct IDs. Useful if your app's user logs out. | People Analytics | _Not Supported_
 set | Set user properties | Segmentation, People Analytics | SetUserAttribute | If MessageType is AppEvent or ScreenView, user attributes will be sent if the 'Include User Attributes' setting is enabled
-track | tracks an event with or without properties | Segmentation, Funnels, Retention, People Analytics | logScreen / logEvent 
+track | tracks an event with or without properties | Segmentation, Funnels, Retention, People Analytics | logScreen / logEvent
 trackCharge | Track money spent by the current user for revenue analytics | People Analytics | logEvent. Also, the logged events need to be set up as LTV tracking event in mParticle's UI
 union (Android only) | add an array of values to a user attribute key | People Analytics | _Not supported_
 unset (Android only) | remove a property of the given name from a user profile | People Analytics | removeUserAttribute
@@ -132,31 +132,31 @@ unset (Android only) | remove a property of the given name from a user profile |
 ### Event Tracking
 
 Tracking standard events in the mParticle SDK is fairly straightforward. Events can be standalone or include event attributes. mParticle attributes are converted to Mixpanel properties automatically when forwarded.
- 
+
 Mixpanel's SDK Method | mParticle's SDK Method
 --------------------- | ----------------------
 track with properties | `logEvent` with event attributes or `logEcommerceTransactionWithProduct`
 track with no properties | `logScreen` or `logEvent` with no event attributes
- 
+
 ### Super Property Tracking
 
 Super properties allow certain properties that you want to include with each event you send. Generally, these are things you know about the user rather than about a specific event, for example, the user's age, gender, or source. These super properties will be automatically included with all tracked events. Super properties are saved to device storage, and will persist across invocations of your app.
- 
+
 Mixpanel's SDK Method | mParticle's SDK Method | Description |
 --------------------- | ---------------------- | --------------
 registerSuperProperties | SetUserAttribute | Super properties, once registered, are automatically sent for all even tracking calls. |
 registerSuperPropertiesOnce | _Not supported_ | |
- 
+
 ### Setting User Properties and Attribute Mapping
 
 Both Mixpanel and mParticle have the ability to set specific attributes for the user which will persist until overwritten.
- 
+
 Mixpanel's SDK Method | mParticle's SDK Method | Description |
 --------------------- | ---------------------- | -------------
 set | SetUserAttribute | Sets a single property with the given name and value for this group.
- 
+
 If you have enabled the 'Include User Attributes' setting, then any messages with type ScreenView or AppEvent will include the email user identity (if available) and all user attributes.  The `SetUserAttribute` method can be used to set user attributes. This method will overwrite the values of any existing user attributes.
- 
+
 ### Attribute Mappings
 
 mParticle’s attribute naming conventions closely resemble standard Mixpanel attributes, which a few exceptions:
@@ -166,9 +166,9 @@ mParticle attribute | will be changed to
 $FirstName          | $first_name
 $LastName           | $last_name
 $Mobile             | $phone
- 
+
 These mParticle attributes will just have the leading $ removed:
- 
+
 mParticle attribute | will be changed to
 ------------------- | ------------------
 $Gender             | Gender
@@ -180,7 +180,7 @@ $State              | State
 $Address            | Address
 
 If these attributes are seen, they will be replaced with Mixpanel attributes:
- 
+
 mParticle attribute | will be changed to
 ------------------- | ------------------
 created             | $created
@@ -201,15 +201,15 @@ Data being sent in the $set section:
 
 * **user attributes:** following the rules in [Attribute mappings](#attribute-Mappings)
 * **email address:** if it exists in the user identities
- 
+
 ### Revenue Tracking and Commerce Events
 
 In order to track revenue using mParticle and Mixpanel, you need to ensure that mParticle is forwarding on relevant data by enabling the **Use Mixpanel People** setting.  If the mParticle SDK method has been called to log an event, the event and one event attribute have been set up for LTV tracking, and the event is not excluded by an account policy, a transaction message will be sent to Mixpanel.
- 
+
 Mixpanel's SDK Method | mParticle's SDK Method
 --------------------- | ----------------------
 trackCharge | logEvent or logEcommerceTransactionWithProduct. Also, the logged events need to be set up as LTV tracking event in mParticle's UI.
- 
+
 Only specific data will be considered as part of the transactional funnel. Standard message data format is:
 
 * **action type:** $transaction for a TrackCharge message
@@ -227,7 +227,7 @@ Data being sent in the transactions section:
 ### Enabling Push Notification
 
 Mixpanel push notifications are handled differently in iOS than in Android.
- 
+
 #### Android
 
 To send Push Notifications to your Android App, you will need to set your FCM or GCM Server Key in the Mixpanel Dashboard under **Settings > Notifications**. Paste your Server Key into the field marked **Android FCM Server Key**.
@@ -245,7 +245,7 @@ MParticle.getInstance().Messaging().displayPushNotificationByDefault(true);
 
 #### iOS
 If a push notification token has been set using the mParticle SDK, mParticle will forward it to Mixpanel to authorize push notifications.
- 
+
 Mixpanel's SDK Method | mParticle's SDK Method
 --------------------- | ----------------------
 addPushDeviceToken | set pushNotificationToken
@@ -275,6 +275,3 @@ If a push notification token has been set using the mParticle SDK, mParticle wil
 | Include Attribution Info | `bool` | False | iOS, Android| If enabled, attribution info (publisher and campaign names) will be included when tracking events. |
 | Include IP Address | `bool` | True | All| If enabled, IP Address will be sent with the event. |
 | Super Properties | `Custom Field` | <unset> | iOS, Android| Mapped user attributes here will always be sent as event properties (regardless of the 'Include User Attributes' setting). Note they will also be excluded from people properties. |
-
- 
- 

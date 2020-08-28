@@ -10,7 +10,7 @@ Adobe provides analytics and optimizations for mobile and web apps and brings to
 
 ## Differences from mParticle
 
-Adobe Analyics tracks Metrics, which count actions in your app and are similar to events in mParticle, and Dimensions, a broad category that covers data that in mParticle would be considered "device information", "application information", "event attributes", and "user attributes".
+Adobe Analytics tracks Metrics, which count actions in your app and are similar to events in mParticle, and Dimensions, a broad category that covers data that in mParticle would be considered "device information", "application information", "event attributes", and "user attributes".
 
 When setting up this integration, it's important to understand that mParticle and Adobe take different approaches to accepting data. mParticle allows you freedom to capture custom attributes for your users and events. New event and attribute names can be added to your implementation at any time. All you have to do is send in new data.
 
@@ -21,7 +21,7 @@ Adobe, on the other hand, explicitly demands and enforces a data plan. Apart fro
    * Traffic Properties (or props)
    * Hierarchy Variables ( or hiers )
 
-Also unlike mParticle, where an event or attribute name can be almost any string, Adobe gives you a specific alotment of each data type with predefined keys. For example, eVars are keyed `eVar1`, `eVar2`, etc. 
+Also unlike mParticle, where an event or attribute name can be almost any string, Adobe gives you a specific allotment of each data type with predefined keys. For example, eVars are keyed `eVar1`, `eVar2`, etc.
 
 Before you start trying to set up an mParticle -> Adobe connection, you need to consider how you want to organize your data in Adobe and create the appropriate data points. A few useful Adobe resources include:
    * [General docs on metrics, including Page Views and Custom Success Events](https://marketing.adobe.com/resources/help/en_US/analytics/getting-started/metrics.html)
@@ -66,7 +66,7 @@ use_frameworks!
 target '<Your Target>' do
     # To send media data to Adobe, you must use CocoaPods since their SDKs do not support Carthage
     pod 'mParticle-Adobe/AdobeMedia'
-    
+
     # Otherwise uncomment below for the previous non-media Adobe integration, you can integrate via Carthage or CocoaPods
     # pod 'mParticle-Adobe/Adobe'
 end
@@ -77,7 +77,7 @@ end
 
 dependencies {
     // Ensure the Kit version matches that of the mParticle Core SDK that you're using
-    compile 'com.mparticle:android-adobe-kit:4.16.4' 
+    compile 'com.mparticle:android-adobe-kit:4.16.4'
 }
 ~~~
 :::
@@ -137,7 +137,7 @@ Once you have created your data plan in Adobe, you need to map mParticle event a
 
 There are two basic approaches you can take:
 
-1. You can map event names and attributes to events, eVars, props and hiers in the [Connection Settings](#connection-settings). This approach is required for Web integrations, unless **Forward Web Requests Server Side** is enabled. 
+1. You can map event names and attributes to events, eVars, props and hiers in the [Connection Settings](#connection-settings). This approach is required for Web integrations, unless **Forward Web Requests Server Side** is enabled.
 2. For iOS, Android, and Web requests where **Forward Web Requests Server Side** is enabled, regardless of whether you provide mappings in your connection settings, mParticle will also forward event names and attributes to Adobe as [Context Variables](https://marketing.adobe.com/resources/help/en_US/sc/implement/context_data_variables.html). Context variables are similar to mParticle's Custom Attributes, since their name can be any string. However, Context Variables cannot be tracked in Adobe until you create a [Processing Rule](https://marketing.adobe.com/resources/help/en_US/reference/processing_rules.html), which copies the value of the context variable to one of your eVars, Props, etc.
 
 ### Mapping in Adobe
@@ -166,24 +166,24 @@ Note that some of these metrics will automatically be available in your reportin
 
 Adobe Metric | Adobe Context Variable | Processing Rule Required | mParticle mapping |
 ------| ------- | ------------ | ---
-First Launches | `a.InstallEvent` | No | Forwarded when mParticle detects an install or reinstall | 
+First Launches | `a.InstallEvent` | No | Forwarded when mParticle detects an install or reinstall |
 Upgrades | `a.UpgradeEvent` | | Forwarded when mParticle detects a version number change |
-Daily Engaged Users | `a.DailyEngUserEvent` | Yes |Forwarded the first time the application is used on a given device on a given calendar day | 
+Daily Engaged Users | `a.DailyEngUserEvent` | Yes |Forwarded the first time the application is used on a given device on a given calendar day |
 Monthly Engaged Users | `a.MonthlyEngUserEvent` |  Yes | Forwarded the first time the application is used on a given device in a given calendar month |
-Launches | `a.LaunchEvent` | No | Forwarded on every App Init or Foreground that is not an install or upgrade. | 
-Crashes | `a.CrashEvent` |  No | Forwarded every time mParticle receives a Crash Report event. | 
-Previous Session Length | `a.PrevSessionLength` | No|  Whenever an Application Init or Foreground starts a new session, mParticle forwards the total foreground length of the previous session in seconds. | 
+Launches | `a.LaunchEvent` | No | Forwarded on every App Init or Foreground that is not an install or upgrade. |
+Crashes | `a.CrashEvent` |  No | Forwarded every time mParticle receives a Crash Report event. |
+Previous Session Length | `a.PrevSessionLength` | No|  Whenever an Application Init or Foreground starts a new session, mParticle forwards the total foreground length of the previous session in seconds. |
 
 ### Standard Dimensions
 
 #### Referrer
 
-For Android and FireTV installs, mParticle forwards UTM Referrer information to Adobe: 
+For Android and FireTV installs, mParticle forwards UTM Referrer information to Adobe:
 
 Adobe Dimension | Adobe Context Variable | mParticle mapping |
 ------| ------- | ------------ | ----
-Campaign | `a.referrer.campaign.name`  | `application_info.install_referrer` | 
-Campaign Content | `a.referrer.campaign.content`  | `application_info.install_referrer` | 
+Campaign | `a.referrer.campaign.name`  | `application_info.install_referrer` |
+Campaign Content | `a.referrer.campaign.content`  | `application_info.install_referrer` |
 Campaign Medium | `a.referrer.campaign.medium`  | `application_info.install_referrer` |
 Campaign Source | `a.referrer.campaign.source` | `application_info.install_referrer` |
 Campaign Term | `a.referrer.campaign.term` | `application_info.install_referrer` |
@@ -213,9 +213,9 @@ mParticle forwards a common set of context variables with every native app event
 
 #### Device Identities
 
-Adobe Context Variable Name | mParticle mapping 
+Adobe Context Variable Name | mParticle mapping
 -------------------- | -------------
-iOS & tvOS     | 
+iOS & tvOS     |
 mp.AdvertisingIdentifier | `device_info.ios_advertising_id`
 mp.VendorIdentifier | `device_info.idfv`
 Android & Fire TV |
@@ -223,7 +223,7 @@ mp.GoogleAdvertisingIdentifier | `device_info.android_advertising_id`
 
 #### Device and Application Information
 
-Adobe Context Variable Name | mParticle mapping 
+Adobe Context Variable Name | mParticle mapping
 -------------------- | ----------------
 mp.LocaleCountry | `device_info.locale_country`
 mp.LocaleLanguage | `device_info.locale_language`
@@ -255,7 +255,7 @@ mParticle will always forward the HTTP user agent included in your Events API da
 - When using the mParticle client SDKs, the user agent string is collected automatically.
 - When sending data to mParticle server-side via the Events API, you **must** populate this field manually after having collected it from your users. Sending a user agent string that's not reflective of the original user client device may trigger Adobe's bot filtering or otherwise corrupt your Adobe data. If you are unable to populate the user agent string, you should explicitly set it to empty in both the header of your Events API request and the device information object of the batch.
 
-Please see the [Events API documentation](https://docs.mparticle.com/developers/server/json-reference/#device_info) for how to properly populate the user agent field in Event API uploads. 
+Please see the [Events API documentation](https://docs.mparticle.com/developers/server/json-reference/#device_info) for how to properly populate the user agent field in Event API uploads.
 
 ### Timestamps
 
@@ -309,7 +309,7 @@ Analytics.trackAction("Viewed Video", contextData);
 ~~~
 
 ~~~javascript
-/* 
+/*
     Assuming the following connection settings
     "Viewed Video" -> "event1"
     "category" -> "prop2"
@@ -328,7 +328,7 @@ window.s.linkTrackVars = 'eVar2, prop1, events, pageName'
 window.s.t();
 window.s.clearVars();
 
-/* 
+/*
     Assuming the following connection settings:
     No Mappings
     Forward Events Server Side = true
@@ -384,7 +384,7 @@ Analytics.trackState("Destination Details", contextData);
 ~~~
 
 ~~~javascript
-/* 
+/*
     Assuming the following connection settings
     "rating" -> "prop1"
     "property_type" -> "eVar1"
@@ -401,7 +401,7 @@ window.s.pageName = 'Destination Details'; // if no pageName is provided, Adobe 
 window.s.t(); // logs the current window object with Adobe
 window.s.clearVars(); //clears the current window object so the next event can be logged
 
-/* 
+/*
     Assuming the following connection settings:
     No Mappings
     Forward Events Server Side = true
@@ -450,20 +450,20 @@ All fields are optional. We'll deal with product incrementors and merchandising 
 &&products=flights;JFK-IBZ;2;800
 ~~~
 
-Adobe Context Variable Name | mParticle mapping 
+Adobe Context Variable Name | mParticle mapping
 -------------------- | ----------------
-`mp.transactionId` | `product_action.transaction_id` 
-`mp.couponCode` | `product_action.coupon_code` 
-`mp.affiliation` | `product_action.affiliation` 
-`mp.shippingAmount` | `product_action.shipping_amount` 
-`mp.tax` | `product_action.tax_amount` 
-`mp.revenue` | `product_action.total_amount` 
+`mp.transactionId` | `product_action.transaction_id`
+`mp.couponCode` | `product_action.coupon_code`
+`mp.affiliation` | `product_action.affiliation`
+`mp.shippingAmount` | `product_action.shipping_amount`
+`mp.tax` | `product_action.tax_amount`
+`mp.revenue` | `product_action.total_amount`
 
 #### Product Incrementors
 
 Product attributes can also be mapped to product-specific events. Product-specific events are generally of the 'incrementor' or 'currency' type. See Adobe's docs on [counter, incrementor and currency events](https://helpx.adobe.com/analytics/kb/comparing-event-types.html) for more info. To set a product specific event you will need to have set up the event number in Adobe beforehand.
 
-**Example:** 
+**Example:**
 
 mPtravel lets users earn reward cash when they make purchases. A custom product attribute -- `reward_cash` -- is used to track the reward value of each product. These rewards can be tracked in Adobe using a product-specific event. In Mobile App settings, allocate `event1` to "Reward Cash", and set type to "Decimal Number".
 
@@ -481,13 +481,13 @@ In the **Product Incrementors** section of the mParticle Connection Settings, ma
 
 Merchandising Variables are eVars tied to products, that help you track revenue for segments or categories of products. You can map any Product Attribute to a Merchandising Variable in the Connection Settings. As with Product Incrementors, you need to have set these up in the Adobe dashboard.
 
-**Example:** 
+**Example:**
 
 mPtravel periodically puts flight packages on sale. A custom product attribute `sale_name` is used to track when a product is part of a sale. By creating `sale_name` as a Merchandising Variable in Adobe, it is possible to analyse the overall revenue generated by a particular sale.
 
 ![](/images/adobe-analytics-create-merchandising-variable.png)
 
-In the **Merchandising Variables** section of the mParticle Connection Settings, map the `sale_name` variable to `evar1`. 
+In the **Merchandising Variables** section of the mParticle Connection Settings, map the `sale_name` variable to `evar1`.
 
 ![](/images/adobe-analytics-settings-merchandising-variable.png)
 

@@ -29,7 +29,7 @@ mParticle's integration with AppsFlyer includes a required Kit integration and a
 
 mParticle's AppsFlyer integration requires that you add the AppsFlyer Kit to your iOS or Android app. Just by adding the binary to your app:
 
-- The mParticle SDK will initialize AppsFlyer's SDK per their documentation, using the AppsFlyer dev key provided above, and will also forward all required `UIApplication` (iOS) and `Activity` (Android) lifecycle events to the AppsFlyer SDK. 
+- The mParticle SDK will initialize AppsFlyer's SDK per their documentation, using the AppsFlyer dev key provided above, and will also forward all required `UIApplication` (iOS) and `Activity` (Android) lifecycle events to the AppsFlyer SDK.
 - Events that you log via mParticle's API will be automatically mapped onto AppsFlyer analogous event tracking APIs.
 - The customer ID and email of the current user, set via mParticle's Identity APIs, will be mapped onto AppsFlyer's analogous `setUser` APIs.
 - Google Play Install Referrer will be forwarded (Android only - see below).
@@ -55,7 +55,7 @@ end
 
 dependencies {
     // Ensure the Kit version matches that of the mParticle Core SDK that you're using
-    compile 'com.mparticle:android-appsFlyer-kit:4.16.6' 
+    implementation 'com.mparticle:android-appsflyer-kit:5+'
 }
 ~~~
 :::
@@ -93,7 +93,7 @@ Specifically, the AppsFlyer SDK exposes two distinct callback APIs:
 1. `onConversionDataReceived`
 2. `onAppOpenAttribution`
 
-mParticle has a single API that wraps both of these callbacks, and the respective kits expose constants to inform you of which callback has been fired. On both platforms, the iOS/Android kit will register a delegate/callback with the AppsFlyer SDK on initialization and for the lifetime of the app's process, and will call your completion handler block (iOS), or `AttributionListener` (Android), whenever there is a new conversion data available. 
+mParticle has a single API that wraps both of these callbacks, and the respective kits expose constants to inform you of which callback has been fired. On both platforms, the iOS/Android kit will register a delegate/callback with the AppsFlyer SDK on initialization and for the lifetime of the app's process, and will call your completion handler block (iOS), or `AttributionListener` (Android), whenever there is a new conversion data available.
 
 The `onAppOpenAttribution` method parses the data and returns it via an `NSDictionary` (Hash Map) object on iOS or `Map` object on Android. This is true when using app specific attribution links, URL schemes or shortened OneLinks.
 However, when users deep link directly using universal or app links, the onAppOpenAttribution method returns the full link unparsed since the app opens directly without going through AppsFlyer first. You can read more about AppsFlyer's deep linking methods [here](https://support.appsflyer.com/hc/en-us/articles/208874366-OneLink-deep-linking-guide#deep-linking-data-accessing-conversion-data-for-deferred-deep-linking).
@@ -142,5 +142,3 @@ mParticle can forward app events and commerce events received via our [Events AP
 2. The data you send server-side must include a device ID, so that mParticle can lookup the AppsFlyer ID for the user.
 
 <aside class="warning">The AppsFlyer Kit must be included in your app - the server integration may only be used as a complement to the Kit integration.</aside>
-
-
