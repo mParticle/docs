@@ -253,7 +253,7 @@ Deleting a Data Plan version is similar, only requiring an additional flag of `v
 $ mp planning:data-plans:delete --dataPlanId=XXXXX --versionNumber=XX
 ```
 
-#### Validating agasint a Data Plan
+#### Validating against a Data Plan
 
 Validating an Event Batch is a more complex task and the CLI provides flexibility by allowing validation to be done either locally or via the server, depending on your needs. Running a validation locally does not make a request on our servers, and as such is faster and ideal for a CI/CD environment.
 
