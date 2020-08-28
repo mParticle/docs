@@ -62,6 +62,18 @@ mediaSession.mediaContentCompleteLimit = 90;
 
 You can access the source code and contribute to the [mParticle Media SDK Github repo here](https://github.com/mParticle/mparticle-web-media-sdk).
 
+## Media Session Properties
+
+| Property         | Type    | Description                          |
+| ---------------- | ------- | ------------------------------------ |
+| sdk              | object  | mParticle SDK Instance               |
+| mediaID          | string  | Custom Media ID                      |
+| mediaTitle       | string  | Title of the Media Content           |
+| duration         | integer | Length of time for the Media Content |
+| contentType      | enum    | Type of content (`Video` or `Audio`)     |
+| streamType       | enum    | Type of Stream (`OnDemand`, `Live`, `Linear`, `Podcast`, `Audiobook`) |
+| pageEventToggle  | boolean | Should this log a page event?        |
+| mediaEventToggle | boolean | Should this log a media event?       |
 
 ## Summary Events
 
