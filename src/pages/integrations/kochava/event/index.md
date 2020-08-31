@@ -58,7 +58,7 @@ MParticle.getInstance().logEvent("SomeEvent");
 
 mParticle will forward all ["custom" events](https://docs.mparticle.com/developers/server/json-reference/#custom_event) to Kochava, using the mParticle event name as the Kochava event "title."  See the panel below for a sample call using Kochava's SDK, and the equivalent using mParticle's.
 
-In contrast, Application State Transition events will only be forwarded to Kochava if they meet the criteria of an install event ("type" = "appInit" and "isFirstRun" = "true").
+In contrast, ["Application State Transition" events](https://docs.mparticle.com/developers/server/json-reference/#application_state_transition) will only be forwarded to Kochava if they meet the criteria of an install event:("application_transition_type" = "application_initialized" and "is_first_run" = "true").
 
 ### Screen Views
 
