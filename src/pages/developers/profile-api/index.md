@@ -22,7 +22,7 @@ As a best practice, your app frontend should never directly query the Profile AP
 A simple example of a personalization service implemented with Node and Express is available on [Github](https://github.com/kbogdanovs-mparticle/profile-api-service).
 
 ## Authentication
-Once provisioned, credentials can only be issued over encrypted communications, so you will need to provide a public key. If you don't have a public key, you can make one with simple free software on [Mac](https://gpgtools.org/) or [Windows](https://www.gpg4win.org/
+Once provisioned, credentials can only be issued over encrypted communications, so you will need to provide a public key. If you don't have a public key, you can make one with simple free software on [Mac](https://gpgtools.org/) or [Windows](https://www.gpg4win.org/).
 
 Once your API credentials have been issued, you can authenticate by issuing a POST request to mParticle's SSO token endpoint.
 

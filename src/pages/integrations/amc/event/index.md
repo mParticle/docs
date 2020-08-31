@@ -24,11 +24,11 @@ Adobe, on the other hand, explicitly demands and enforces a data plan. Apart fro
 Also unlike mParticle, where an event or attribute name can be almost any string, Adobe gives you a specific allotment of each data type with predefined keys. For example, eVars are keyed `eVar1`, `eVar2`, etc.
 
 Before you start trying to set up an mParticle -> Adobe connection, you need to consider how you want to organize your data in Adobe and create the appropriate data points. A few useful Adobe resources include:
-   * [General docs on metrics, including Page Views and Custom Success Events](https://marketing.adobe.com/resources/help/en_US/analytics/getting-started/metrics.html)
-   * [General docs on Variables in Adobe reporting](https://marketing.adobe.com/resources/help/en_US/reference/variable_definitions.html)
-   * Tech specs for [eVars](https://marketing.adobe.com/resources/help/en_US/sc/implement/eVarN.html), [props](https://marketing.adobe.com/resources/help/en_US/sc/implement/propN.html), and [hiers](https://marketing.adobe.com/resources/help/en_US/sc/implement/hierN.html)
-   * [General docs on Props and eVars](https://marketing.adobe.com/resources/help/en_US/sc/implement/props_eVars.html)
-   * [Props vs eVars comparison](https://marketing.adobe.com/resources/help/en_US/sc/implement/props_vs_eVars.html)
+   * [General docs on metrics, including Page Views and Custom Success Events](https://docs.adobe.com/content/help/en/analytics/components/metrics/overview.html)
+   * [General docs on Variables in Adobe reporting](https://docs.adobe.com/content/help/en/analytics/implementation/vars/overview.html)
+   * Tech specs for [eVars](https://docs.adobe.com/content/help/en/analytics/implementation/vars/page-vars/evar.html), [props](https://docs.adobe.com/content/help/en/analytics/implementation/vars/page-vars/prop.html), and [hiers](https://docs.adobe.com/content/help/en/analytics/implementation/vars/page-vars/hier.html)
+   * [General docs on Props](https://docs.adobe.com/content/help/en/analytics/components/dimensions/prop.html)
+   * [General docs on eVars](https://docs.adobe.com/content/help/en/analytics/components/dimensions/evar.html)
 
 ## Enable the Adobe Marketing Cloud Integration
 
@@ -38,11 +38,11 @@ Connect your iOS, Android, or Web workspaces to Adobe Marketing Cloud. You will 
 
 * Your Tracking Server - this can be created one of two ways:
     * Create a value as defined [here](https://helpx.adobe.com/analytics/kb/determining-data-center.html)
-    * Create a CNAME record in your domain that points to Adobe's servers as defined [here](https://marketing.adobe.com/resources/help/en_US/whitepapers/first_party_cookies/analytics_fpc.pdf)
+    * Create a CNAME record in your domain that points to Adobe's servers as defined [here](https://docs.adobe.com/content/help/en/core-services/interface/ec-cookies/cookies-first-party.html)
 
-* [Reporting Suite IDs](https://marketing.adobe.com/resources/help/en_US/reference/new_report_suite.html)
+* [Reporting Suite IDs](https://docs.adobe.com/content/help/en/analytics/admin/manage-report-suites/new-report-suite/new-report-suite.html)
 * Your [Marketing Cloud Organization ID](https://forums.adobe.com/thread/2339895)
-* Make sure the **Timestamps Enabled** option in the Configuration Settings matches the [Timestamp Configuration](https://marketing.adobe.com/resources/help/en_US/reference/timestamp-optional.html) of your Reporting Suites.
+* Make sure the **Timestamps Enabled** option in the Configuration Settings matches the [Timestamp Configuration](https://docs.adobe.com/content/help/en/analytics/admin/admin-tools/timestamp-optional.html) of your Reporting Suites.
 
 
 ### iOS and Android Setup
@@ -121,7 +121,7 @@ if (adobe != null) {
 ~~~
 :::
 
-On Web, you can retrieve the MID by accessing Adobe's `visitorAPI.js` directly. Since multiple instances can be active on a page at once, you will need to [get an instance](https://marketing.adobe.com/resources/help/en_US/mcvid/mcvid_getinstance.html) using the appropriate Marketing Cloud Organization ID and use the [getMarketingCloudVisitorID() method](https://docs.adobe.com/content/help/en/id-service/using/id-service-api/methods/getmcvid.html).
+On Web, you can retrieve the MID by accessing Adobe's `visitorAPI.js` directly. Since multiple instances can be active on a page at once, you will need to [get an instance](https://docs.adobe.com/content/help/en/id-service/using/id-service-api/methods/getinstance.html) using the appropriate Marketing Cloud Organization ID and use the [getMarketingCloudVisitorID() method](https://docs.adobe.com/content/help/en/id-service/using/id-service-api/methods/getmcvid.html).
 
 For other OSs -- such as Roku -- the MID will either need to:
 - already be resident within the given user's profile, such that enrichment can occur in the backend.
@@ -138,7 +138,7 @@ Once you have created your data plan in Adobe, you need to map mParticle event a
 There are two basic approaches you can take:
 
 1. You can map event names and attributes to events, eVars, props and hiers in the [Connection Settings](#connection-settings). This approach is required for Web integrations, unless **Forward Web Requests Server Side** is enabled.
-2. For iOS, Android, and Web requests where **Forward Web Requests Server Side** is enabled, regardless of whether you provide mappings in your connection settings, mParticle will also forward event names and attributes to Adobe as [Context Variables](https://marketing.adobe.com/resources/help/en_US/sc/implement/context_data_variables.html). Context variables are similar to mParticle's Custom Attributes, since their name can be any string. However, Context Variables cannot be tracked in Adobe until you create a [Processing Rule](https://marketing.adobe.com/resources/help/en_US/reference/processing_rules.html), which copies the value of the context variable to one of your eVars, Props, etc.
+2. For iOS, Android, and Web requests where **Forward Web Requests Server Side** is enabled, regardless of whether you provide mappings in your connection settings, mParticle will also forward event names and attributes to Adobe as [Context Variables](https://docs.adobe.com/content/help/en/analytics/implementation/vars/page-vars/contextdata.html). Context variables are similar to mParticle's Custom Attributes, since their name can be any string. However, Context Variables cannot be tracked in Adobe until you create a [Processing Rule](https://docs.adobe.com/content/help/en/analytics/admin/admin-tools/processing-rules/processing-rules.html), which copies the value of the context variable to one of your eVars, Props, etc.
 
 ### Mapping in Adobe
 
@@ -158,7 +158,7 @@ It is also possible to directly map mParticle event and attribute names to Adobe
 
 ## Adobe Lifecycle Metrics and Dimensions
 
-'Metrics' in Adobe are similar to events in mParticle. They count the number of times something happens in your app. mParticle uses data collected by our Application State Transition and Crash Report events to forward a complete set of [standard mobile metrics](https://marketing.adobe.com/resources/help/en_US/mobile/metrics_reference.html) to Adobe.
+'Metrics' in Adobe are similar to events in mParticle. They count the number of times something happens in your app. mParticle uses data collected by our Application State Transition and Crash Report events to forward a complete set of [standard mobile metrics](https://docs.adobe.com/content/help/en/mobile-services/using/get-started-ug/mobile-metrics/metrics-reference.html) to Adobe.
 
 Note that some of these metrics will automatically be available in your reporting suite, others will require a Processing Rule.
 
@@ -268,11 +268,11 @@ Adobe Context Variable Name | mParticle mapping | Used for
 
 ### Web Variables
 
-Note that since the client-side Web Integration actually sends data directly via Adobe's javascript, mParticle does not pass a long list of automatically collected device information in the same way as the native integration. Instead, Adobe automatically collects the information it needs from the browser client. See Adobe's [Page Variables](https://marketing.adobe.com/resources/help/en_US/sc/implement/page-variables.html) docs for more information
+Note that since the client-side Web Integration actually sends data directly via Adobe's javascript, mParticle does not pass a long list of automatically collected device information in the same way as the native integration. Instead, Adobe automatically collects the information it needs from the browser client. See Adobe's [Page Variables](https://docs.adobe.com/help/en/analytics/implementation/vars/page-vars/page-variables.html) docs for more information
 
 ## Custom Events
 
-Once your Adobe integration is set up, logging an event in mParticle is roughly equivalent to a `trackAction` call using the Adobe SDK. See Adobe's track action docs for [iOS](https://marketing.adobe.com/resources/help/en_US/mobile/ios/actions.html) and [Android](https://marketing.adobe.com/resources/help/en_US/mobile/android/actions.html).
+Once your Adobe integration is set up, logging an event in mParticle is roughly equivalent to a `trackAction` call using the Adobe SDK. See Adobe's track action docs for [iOS](https://docs.adobe.com/content/help/en/mobile-services/ios/analytics-ios/actions.html) and [Android](https://docs.adobe.com/content/help/en/mobile-services/android/analytics-android/actions.html).
 
 :::code-selector-block
 ~~~objectivec
@@ -346,11 +346,11 @@ Custom events are forwarded to Adobe as follows:
 1. If you have mapped the event name to a custom success event in the [Connection Settings](#connection-settings), mParticle will forward it as the mapped event number. If you have not mapped the event, mParticle will send the event name as a a context variable: `a.action = <event name>`.
 2. If you have mapped any eVars, props or hiers in the Connection Settings, these will be mapped directly.
 3. All other custom attributes are forwarded as Context Variables with their original attribute name as the key.
-4. [Standard Context Variables](#mparticle-standard-context-variables) will be added as listed above.
+4. [Standard Context Variables](#context-variables) will be added as listed above.
 
 ## Screen Views
 
-Once your Adobe integration is set up, logging a screen view in mParticle is roughly equivalent to a `trackState` call using the Adobe SDK. See Adobe's track state docs for [iOS](https://marketing.adobe.com/resources/help/en_US/mobile/ios/states.html) and [Android](https://marketing.adobe.com/resources/help/en_US/mobile/android/states.html).
+Once your Adobe integration is set up, logging a screen view in mParticle is roughly equivalent to a `trackState` call using the Adobe SDK. See Adobe's track state docs for [iOS](https://docs.adobe.com/content/help/en/mobile-services/ios/analytics-ios/states.html) and [Android](https://docs.adobe.com/content/help/en/mobile-services/android/analytics-android/states.html).
 
 :::code-selector-block
 ~~~objectivec
@@ -419,7 +419,7 @@ Screen Views are forwarded to Adobe as follows:
 1. If you have mapped the event name to a custom success event in the [Connection Settings](#connection-settings), mParticle will forward it as the mapped event number, as if it were a custom event. If not, the `pageName` context variable will be set to the Screen Name.
 2. If you have mapped any eVars, props or hiers in the Connection Settings, these will be mapped directly.
 3. All other custom attributes are forwarded as Context Variables with their original attribute name as the key.
-4. [Standard Context Variables](#mparticle-standard-context-variables) will be added as listed above.
+4. [Standard Context Variables](#context-variables) will be added as listed above.
 
 
 ## Commerce Events
