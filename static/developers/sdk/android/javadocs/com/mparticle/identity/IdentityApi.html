@@ -109,7 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">IdentityApi</span>
 extends java.lang.Object</pre>
-<div class="block">Helper class that is used to access Identity endpoints to manage User's Attributes and Identities</div>
+<div class="block">Helper class that is used to access Identity endpoints to manage User's Attributes and Identities.</div>
 </li>
 </ul>
 </div>
@@ -188,11 +188,12 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#IdentityApi-android.content.Context-AppStateManager-MessageManager-ConfigManager-KitManager-">IdentityApi</a></span>(android.content.Context&nbsp;context,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#IdentityApi-android.content.Context-AppStateManager-MessageManager-ConfigManager-KitManager-com.mparticle.MParticle.OperatingSystem-">IdentityApi</a></span>(android.content.Context&nbsp;context,
            AppStateManager&nbsp;appStateManager,
            MessageManager&nbsp;messageManager,
            ConfigManager&nbsp;configManager,
-           KitManager&nbsp;kitManager)</code>&nbsp;</td>
+           KitManager&nbsp;kitManager,
+           <a href="../../../com/mparticle/MParticle.OperatingSystem.html" title="enum in com.mparticle">MParticle.OperatingSystem</a>&nbsp;operatingSystem)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -212,7 +213,7 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#addIdentityStateListener-com.mparticle.identity.IdentityStateListener-">addIdentityStateListener</a></span>(<a href="../../../com/mparticle/identity/IdentityStateListener.html" title="interface in com.mparticle.identity">IdentityStateListener</a>&nbsp;listener)</code>
-<div class="block">adds a global listener which will be invoked when the MPID or "logged in" status changes for the current user</div>
+<div class="block">Adds a global listener which will be invoked when the MPID or "logged in" status changes for the current user.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -225,7 +226,7 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code><a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#getCurrentUser--">getCurrentUser</a></span>()</code>
 <div class="block">return the MParticleUser with the current MPID, even if an Identity request,
- which might cause the MPID to change, is currently in progress</div>
+ which might cause the MPID to change, is currently in progress.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -235,7 +236,7 @@ extends java.lang.Object</pre>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#getUser-java.lang.Long-">getUser</a></span>(java.lang.Long&nbsp;mpid)</code>
-<div class="block">return the MParticleUser with the specified MPID, if it exists.</div>
+<div class="block">Return the MParticleUser with the specified MPID, if it exists.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -246,7 +247,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#identify-com.mparticle.identity.IdentityApiRequest-">identify</a></span>(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;identifyRequest)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#identify-com.mparticle.identity.IdentityApiRequest-">identify</a></span>(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;identifyRequest)</code>
+<div class="block">Calls the Identity Identify endpoint.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/identity/IdentityApi.Internal.html" title="class in com.mparticle.identity">IdentityApi.Internal</a></code></td>
@@ -255,17 +258,19 @@ extends java.lang.Object</pre>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#login--">login</a></span>()</code>
-<div class="block">calls the Identity Login endpoint with an empty IdentityApiRequest</div>
+<div class="block">Calls the Identity Login endpoint with an empty IdentityApiRequest.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#login-com.mparticle.identity.IdentityApiRequest-">login</a></span>(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;loginRequest)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#login-com.mparticle.identity.IdentityApiRequest-">login</a></span>(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;loginRequest)</code>
+<div class="block">Calls the Identity Login endpoint.</div>
+</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#logout--">logout</a></span>()</code>
-<div class="block">calls the Identity Logout endpoint with an empty IdentityApiRequest</div>
+<div class="block">Calls the Identity Logout endpoint with an empty IdentityApiRequest.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
@@ -274,12 +279,14 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity">BaseIdentityTask</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#modify-com.mparticle.identity.IdentityApiRequest-">modify</a></span>(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;updateRequest)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#modify-com.mparticle.identity.IdentityApiRequest-">modify</a></span>(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;updateRequest)</code>
+<div class="block">Calls the Identity Modify endpoint.</div>
+</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/IdentityApi.html#removeIdentityStateListener-com.mparticle.identity.IdentityStateListener-">removeIdentityStateListener</a></span>(<a href="../../../com/mparticle/identity/IdentityStateListener.html" title="interface in com.mparticle.identity">IdentityStateListener</a>&nbsp;listener)</code>
-<div class="block">removes an instance of a global listener by reference</div>
+<div class="block">Removes an instance of a global listener by reference.</div>
 </td>
 </tr>
 </table>
@@ -357,7 +364,7 @@ extends java.lang.Object</pre>
 <pre>protected&nbsp;IdentityApi()</pre>
 </li>
 </ul>
-<a name="IdentityApi-android.content.Context-AppStateManager-MessageManager-ConfigManager-KitManager-">
+<a name="IdentityApi-android.content.Context-AppStateManager-MessageManager-ConfigManager-KitManager-com.mparticle.MParticle.OperatingSystem-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -367,7 +374,8 @@ extends java.lang.Object</pre>
                    AppStateManager&nbsp;appStateManager,
                    MessageManager&nbsp;messageManager,
                    ConfigManager&nbsp;configManager,
-                   KitManager&nbsp;kitManager)</pre>
+                   KitManager&nbsp;kitManager,
+                   <a href="../../../com/mparticle/MParticle.OperatingSystem.html" title="enum in com.mparticle">MParticle.OperatingSystem</a>&nbsp;operatingSystem)</pre>
 </li>
 </ul>
 </li>
@@ -386,7 +394,7 @@ extends java.lang.Object</pre>
 <h4>getCurrentUser</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a>&nbsp;getCurrentUser()</pre>
 <div class="block">return the MParticleUser with the current MPID, even if an Identity request,
- which might cause the MPID to change, is currently in progress</div>
+ which might cause the MPID to change, is currently in progress.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../com/mparticle/identity/IdentityStateListener.html" title="interface in com.mparticle.identity"><code>IdentityStateListener</code></a></dd>
@@ -400,8 +408,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getUser</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a>&nbsp;getUser(java.lang.Long&nbsp;mpid)</pre>
-<div class="block">return the MParticleUser with the specified MPID, if it exists. If an MParticleUser with the
- specified MPID does not exist, or the specifid MPID is 0, this will return null</div>
+<div class="block">Return the MParticleUser with the specified MPID, if it exists. If an MParticleUser with the
+ specified MPID does not exist, or the specifid MPID is 0, this will return null.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>mpid</code> - the desired MParticleUser's MPID</dd>
@@ -439,7 +447,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addIdentityStateListener</h4>
 <pre>public&nbsp;void&nbsp;addIdentityStateListener(<a href="../../../com/mparticle/identity/IdentityStateListener.html" title="interface in com.mparticle.identity">IdentityStateListener</a>&nbsp;listener)</pre>
-<div class="block">adds a global listener which will be invoked when the MPID or "logged in" status changes for the current user</div>
+<div class="block">Adds a global listener which will be invoked when the MPID or "logged in" status changes for the current user.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>listener</code> - callback for Identity State changes</dd>
@@ -455,7 +463,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>removeIdentityStateListener</h4>
 <pre>public&nbsp;void&nbsp;removeIdentityStateListener(<a href="../../../com/mparticle/identity/IdentityStateListener.html" title="interface in com.mparticle.identity">IdentityStateListener</a>&nbsp;listener)</pre>
-<div class="block">removes an instance of a global listener by reference</div>
+<div class="block">Removes an instance of a global listener by reference.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>listener</code> - callback for Identity State changes</dd>
@@ -471,7 +479,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>logout</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;&nbsp;logout()</pre>
-<div class="block">calls the Identity Logout endpoint with an empty IdentityApiRequest</div>
+<div class="block">Calls the Identity Logout endpoint with an empty IdentityApiRequest.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an MParticleTask<IdentityApiResult> to handle the Asynchronous results</dd>
@@ -505,7 +513,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>login</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;&nbsp;login()</pre>
-<div class="block">calls the Identity Login endpoint with an empty IdentityApiRequest</div>
+<div class="block">Calls the Identity Login endpoint with an empty IdentityApiRequest.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an MParticleTask<IdentityApiResult> to handle the Asynchronous results</dd>
@@ -522,11 +530,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>login</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;&nbsp;login(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;loginRequest)</pre>
+<div class="block">Calls the Identity Login endpoint.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an MParticleTask<IdentityApiResult> to handle the Asynchronous results</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity"><code>calls the Identity Login endpoint</code></a>, 
+<dd><a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity"><code>IdentityApiRequest</code></a>, 
 <a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle"><code>and</code></a>, 
 <a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity"><code>IdentityApiResult</code></a></dd>
 </dl>
@@ -539,11 +548,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>identify</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a>&lt;<a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity">IdentityApiResult</a>&gt;&nbsp;identify(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;identifyRequest)</pre>
+<div class="block">Calls the Identity Identify endpoint.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an MParticleTask<IdentityApiResult> to handle the Asynchronous results</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity"><code>calls the Identity Identify endpoint</code></a>, 
+<dd><a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity"><code>IdentityApiRequest</code></a>, 
 <a href="../../../com/mparticle/MParticleTask.html" title="class in com.mparticle"><code>and</code></a>, 
 <a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity"><code>IdentityApiResult</code></a></dd>
 </dl>
@@ -556,12 +566,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>modify</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity">BaseIdentityTask</a>&nbsp;modify(<a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;updateRequest)</pre>
+<div class="block">Calls the Identity Modify endpoint. This should be used in place of the pre-version-5
+ MParticle.setUserAttribute() and MParticle.setUserIdentity() methods.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an MParticleTask<IdentityApiResult> to handle the Asynchronous results</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity"><code>calls the Identity Modify endpoint. This should be used in place of the pre-version-5
- MParticle.setUserAttribute() and MParticle.setUserIdentity() methods</code></a>, 
+<dd><a href="../../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity"><code>IdentityApiRequest</code></a>, 
 <a href="../../../com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity"><code>BaseIdentityTask</code></a></dd>
 </dl>
 </li>

@@ -102,14 +102,13 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>@Deprecated
 public interface <span class="typeNameLabel">UserAliasHandler</span></pre>
-<div class="block">Deprecated. To easily migrate your existing code, add a success listener
- to the <a href="../../../com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity"><code>BaseIdentityTask</code></a> that is being returned from this method )<a href="../../../com/mparticle/identity/BaseIdentityTask.html#addSuccessListener-com.mparticle.identity.TaskSuccessListener-"><code>BaseIdentityTask.addSuccessListener(TaskSuccessListener)</code></a>. Within the
+<div class="block">to the <a href="../../../com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity"><code>BaseIdentityTask</code></a> that is being returned from this method )<a href="../../../com/mparticle/identity/BaseIdentityTask.html#addSuccessListener-com.mparticle.identity.TaskSuccessListener-"><code>BaseIdentityTask.addSuccessListener(TaskSuccessListener)</code></a>. Within the
  <a href="../../../com/mparticle/identity/IdentityApiResult.html" title="class in com.mparticle.identity"><code>IdentityApiResult</code></a> returned by the success listener, you can run the same code you do
  in you <a href="../../../com/mparticle/identity/UserAliasHandler.html" title="interface in com.mparticle.identity"><code>UserAliasHandler</code></a>, using the <a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity"><code>MParticleUser</code></a>s returned by
  <a href="../../../com/mparticle/identity/IdentityApiResult.html#getUser--"><code>IdentityApiResult.getUser()</code></a> and <a href="../../../com/mparticle/identity/IdentityApiResult.html#getPreviousUser--"><code>IdentityApiResult.getPreviousUser()</code></a> in place
  of "newUser" and "previousUser" respectively
 
- Interface which will handle the transition between Users</div>
+ Interface which will handle the transition between Users.</div>
 </li>
 </ul>
 </div>
@@ -133,7 +132,7 @@ public interface <span class="typeNameLabel">UserAliasHandler</span></pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/UserAliasHandler.html#onUserAlias-com.mparticle.identity.MParticleUser-com.mparticle.identity.MParticleUser-">onUserAlias</a></span>(<a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a>&nbsp;previousUser,
            <a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a>&nbsp;newUser)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-<div class="block">a handler for when Users change.</div>
+<div class="block">A handler for when Users change.</div>
 </td>
 </tr>
 </table>
@@ -160,7 +159,7 @@ public interface <span class="typeNameLabel">UserAliasHandler</span></pre>
 <pre>void&nbsp;onUserAlias(<a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a>&nbsp;previousUser,
                  <a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a>&nbsp;newUser)</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
-<div class="block">a handler for when Users change. Any carry-over in state between an outgoing user and an incoming user, should take place here</div>
+<div class="block">A handler for when Users change. Any carry-over in state between an outgoing user and an incoming user, should take place here.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>previousUser</code> - the outgoing User</dd>

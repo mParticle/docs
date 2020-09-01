@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -141,75 +141,80 @@ extends java.lang.Object</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#attributionListener-com.mparticle.AttributionListener-">attributionListener</a></span>(<a href="../../com/mparticle/AttributionListener.html" title="interface in com.mparticle">AttributionListener</a>&nbsp;attributionListener)</code>
-<div class="block">Register a callback for when an attribution is received</div>
+<div class="block">Register a callback for when an attribution is received.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#build--">build</a></span>()</code>
-<div class="block">Builds this Builder into an MParticleOptions object which can be used to start the SDK</div>
+<div class="block">Builds this Builder into an MParticleOptions object which can be used to start the SDK.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#credentials-java.lang.String-java.lang.String-">credentials</a></span>(java.lang.String&nbsp;apiKey,
            java.lang.String&nbsp;apiSecret)</code>
-<div class="block">register an Api Key and Secret to be used for the SDK.</div>
+<div class="block">Register an Api Key and Secret to be used for the SDK.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#dataplan-java.lang.String-java.lang.Integer-">dataplan</a></span>(java.lang.String&nbsp;dataplanId,
+        java.lang.Integer&nbsp;dataplanVersion)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#devicePerformanceMetricsDisabled-boolean-">devicePerformanceMetricsDisabled</a></span>(boolean&nbsp;disabled)</code>
 <div class="block">Disable CPU and memory usage collection.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#enableUncaughtExceptionLogging-boolean-">enableUncaughtExceptionLogging</a></span>(boolean&nbsp;enable)</code>
-<div class="block">Enable or disable mParticle exception handling to automatically log events on uncaught exceptions</div>
-</td>
-</tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#environment-com.mparticle.MParticle.Environment-">environment</a></span>(<a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle">MParticle.Environment</a>&nbsp;environment)</code>
-<div class="block">indicate a known <a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle"><code>MParticle.Environment</code></a> the Application will be running in.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#enableUncaughtExceptionLogging-boolean-">enableUncaughtExceptionLogging</a></span>(boolean&nbsp;enable)</code>
+<div class="block">Enable or disable mParticle exception handling to automatically log events on uncaught exceptions.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#environment-com.mparticle.MParticle.Environment-">environment</a></span>(<a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle">MParticle.Environment</a>&nbsp;environment)</code>
+<div class="block">Indicate a known <a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle"><code>MParticle.Environment</code></a> the Application will be running in.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#identify-com.mparticle.identity.IdentityApiRequest-">identify</a></span>(<a href="../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;identifyRequest)</code>
-<div class="block">register an IdentityApiRequest which will be passed to an <a href="../../com/mparticle/identity/IdentityApi.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>IdentityApi.identify(IdentityApiRequest)</code></a>
+<div class="block">Register an IdentityApiRequest which will be passed to an <a href="../../com/mparticle/identity/IdentityApi.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>IdentityApi.identify(IdentityApiRequest)</code></a>
  request when the SDK starts in order to interact with the results of this call, without registering
  a global listener in <a href="../../com/mparticle/identity/IdentityApi.html#addIdentityStateListener-com.mparticle.identity.IdentityStateListener-"><code>IdentityApi.addIdentityStateListener(IdentityStateListener)</code></a>, register
  a BaseIdentityTask with <a href="../../com/mparticle/MParticleOptions.Builder.html#identifyTask-com.mparticle.identity.BaseIdentityTask-"><code>identifyTask(BaseIdentityTask)</code></a>.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#identifyTask-com.mparticle.identity.BaseIdentityTask-">identifyTask</a></span>(<a href="../../com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity">BaseIdentityTask</a>&nbsp;task)</code>
-<div class="block">register an BaseIdentityTask, which can be used to interact with the asynchronous results
- of an <a href="../../com/mparticle/MParticleOptions.Builder.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>identify(IdentityApiRequest)</code></a> request</div>
+<div class="block">Register an BaseIdentityTask, which can be used to interact with the asynchronous results
+ of an <a href="../../com/mparticle/MParticleOptions.Builder.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>identify(IdentityApiRequest)</code></a> request.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#identityConnectionTimeout-int-">identityConnectionTimeout</a></span>(int&nbsp;identityConnectionTimeout)</code>
 <div class="block">Set the user connection timeout interval.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#installType-com.mparticle.MParticle.InstallType-">installType</a></span>(<a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle">MParticle.InstallType</a>&nbsp;installType)</code>
-<div class="block">indicate a known <a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle"><code>MParticle.InstallType</code></a>.</div>
-</td>
-</tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#locationTrackingDisabled--">locationTrackingDisabled</a></span>()</code>
-<div class="block">disables Location tracking</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#installType-com.mparticle.MParticle.InstallType-">installType</a></span>(<a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle">MParticle.InstallType</a>&nbsp;installType)</code>
+<div class="block">Indicate a known <a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle"><code>MParticle.InstallType</code></a>.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#locationTrackingDisabled--">locationTrackingDisabled</a></span>()</code>
+<div class="block">Disables Location tracking.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#locationTrackingEnabled-java.lang.String-long-long-">locationTrackingEnabled</a></span>(java.lang.String&nbsp;provider,
                        long&nbsp;minTime,
@@ -217,30 +222,36 @@ extends java.lang.Object</pre>
 <div class="block">Enables location tracking given a provider and update frequency criteria.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#logLevel-com.mparticle.MParticle.LogLevel-">logLevel</a></span>(<a href="../../com/mparticle/MParticle.LogLevel.html" title="enum in com.mparticle">MParticle.LogLevel</a>&nbsp;logLevel)</code>
 <div class="block">Set the minimum log level for the SDK.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#networkOptions-com.mparticle.networking.NetworkOptions-">networkOptions</a></span>(<a href="../../com/mparticle/networking/NetworkOptions.html" title="class in com.mparticle.networking">NetworkOptions</a>&nbsp;networkOptions)</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
+<td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#operatingSystem-com.mparticle.MParticle.OperatingSystem-">operatingSystem</a></span>(<a href="../../com/mparticle/MParticle.OperatingSystem.html" title="enum in com.mparticle">MParticle.OperatingSystem</a>&nbsp;operatingSystem)</code>
+<div class="block">Set the Operating System.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#pushRegistration-java.lang.String-java.lang.String-">pushRegistration</a></span>(java.lang.String&nbsp;instanceId,
                 java.lang.String&nbsp;senderId)</code>
-<div class="block">Manually log a push registration</div>
+<div class="block">Manually log a push registration.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#sessionTimeout-int-">sessionTimeout</a></span>(int&nbsp;sessionTimeout)</code>
 <div class="block">Set the user session timeout interval.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticleOptions.Builder.html#uploadInterval-int-">uploadInterval</a></span>(int&nbsp;uploadInterval)</code>
 <div class="block">Set the upload interval period to control how frequently uploads occur.</div>
@@ -276,8 +287,8 @@ extends java.lang.Object</pre>
 <h4>credentials</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;credentials(java.lang.String&nbsp;apiKey,
                                             java.lang.String&nbsp;apiSecret)</pre>
-<div class="block">register an Api Key and Secret to be used for the SDK. This is a required field, and your
- app will not function properly if you do not provide a valid Key and Secret</div>
+<div class="block">Register an Api Key and Secret to be used for the SDK. This is a required field, and your
+ app will not function properly if you do not provide a valid Key and Secret.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>apiKey</code> - the Api Key</dd>
@@ -294,8 +305,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>installType</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;installType(<a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle">MParticle.InstallType</a>&nbsp;installType)</pre>
-<div class="block">indicate a known <a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle"><code>MParticle.InstallType</code></a>. If this method is not used,
- a default type of MParticle.InstallType.AutoDetect will be used</div>
+<div class="block">Indicate a known <a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle"><code>MParticle.InstallType</code></a>. If this method is not used,
+ a default type of MParticle.InstallType.AutoDetect will be used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>installType</code> - </dd>
@@ -313,8 +324,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>environment</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;environment(<a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle">MParticle.Environment</a>&nbsp;environment)</pre>
-<div class="block">indicate a known <a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle"><code>MParticle.Environment</code></a> the Application will be running in. If this method is not used.
- a default Environment of MParticle.Environment.AutoDetect will be used</div>
+<div class="block">Indicate a known <a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle"><code>MParticle.Environment</code></a> the Application will be running in. If this method is not used.
+ a default Environment of MParticle.Environment.AutoDetect will be used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>environment</code> - </dd>
@@ -329,12 +340,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>identify</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;identify(<a href="../../com/mparticle/identity/IdentityApiRequest.html" title="class in com.mparticle.identity">IdentityApiRequest</a>&nbsp;identifyRequest)</pre>
-<div class="block">register an IdentityApiRequest which will be passed to an <a href="../../com/mparticle/identity/IdentityApi.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>IdentityApi.identify(IdentityApiRequest)</code></a>
+<div class="block">Register an IdentityApiRequest which will be passed to an <a href="../../com/mparticle/identity/IdentityApi.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>IdentityApi.identify(IdentityApiRequest)</code></a>
  request when the SDK starts in order to interact with the results of this call, without registering
  a global listener in <a href="../../com/mparticle/identity/IdentityApi.html#addIdentityStateListener-com.mparticle.identity.IdentityStateListener-"><code>IdentityApi.addIdentityStateListener(IdentityStateListener)</code></a>, register
  a BaseIdentityTask with <a href="../../com/mparticle/MParticleOptions.Builder.html#identifyTask-com.mparticle.identity.BaseIdentityTask-"><code>identifyTask(BaseIdentityTask)</code></a>. If this method is not called,
  an Identify request using the most recent current user will be used, or if this is a first-run,
- and empty request will be used</div>
+ and empty request will be used.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>identifyRequest</code> - </dd>
@@ -352,8 +363,8 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>identifyTask</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;identifyTask(<a href="../../com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity">BaseIdentityTask</a>&nbsp;task)</pre>
-<div class="block">register an BaseIdentityTask, which can be used to interact with the asynchronous results
- of an <a href="../../com/mparticle/MParticleOptions.Builder.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>identify(IdentityApiRequest)</code></a> request</div>
+<div class="block">Register an BaseIdentityTask, which can be used to interact with the asynchronous results
+ of an <a href="../../com/mparticle/MParticleOptions.Builder.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>identify(IdentityApiRequest)</code></a> request.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>task</code> - </dd>
@@ -423,7 +434,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;sessionTimeout(int&nbsp;sessionTimeout)</pre>
 <div class="block">Set the user session timeout interval.
  <p></p>
- A session has ended once the application has been in the background for more than this timeout</div>
+ A session has ended once the application has been in the background for more than this timeout.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>sessionTimeout</code> - Session timeout in seconds</dd>
@@ -439,7 +450,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>enableUncaughtExceptionLogging</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;enableUncaughtExceptionLogging(boolean&nbsp;enable)</pre>
-<div class="block">Enable or disable mParticle exception handling to automatically log events on uncaught exceptions</div>
+<div class="block">Enable or disable mParticle exception handling to automatically log events on uncaught exceptions.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the instance of the builder, for chaining calls</dd>
@@ -474,7 +485,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>attributionListener</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;attributionListener(<a href="../../com/mparticle/AttributionListener.html" title="interface in com.mparticle">AttributionListener</a>&nbsp;attributionListener)</pre>
-<div class="block">Register a callback for when an attribution is received</div>
+<div class="block">Register a callback for when an attribution is received.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>attributionListener</code> - an instance of the AttributionListener callback</dd>
@@ -492,7 +503,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>locationTrackingDisabled</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;locationTrackingDisabled()</pre>
-<div class="block">disables Location tracking</div>
+<div class="block">Disables Location tracking.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the instance of the builder, for chaining calls</dd>
@@ -528,7 +539,7 @@ extends java.lang.Object</pre>
 <h4>pushRegistration</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;pushRegistration(java.lang.String&nbsp;instanceId,
                                                  java.lang.String&nbsp;senderId)</pre>
-<div class="block">Manually log a push registration</div>
+<div class="block">Manually log a push registration.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>instanceId</code> - the Instance Id of the push token</dd>
@@ -547,7 +558,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;identityConnectionTimeout(int&nbsp;identityConnectionTimeout)</pre>
 <div class="block">Set the user connection timeout interval.
  <p></p>
- A connection to the server closes after this timeout expires, for each call</div>
+ A connection to the server closes after this timeout expires, for each call.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>identityConnectionTimeout</code> - the connection timeout for Identity server calls, in seconds</dd>
@@ -565,6 +576,31 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;networkOptions(<a href="../../com/mparticle/networking/NetworkOptions.html" title="class in com.mparticle.networking">NetworkOptions</a>&nbsp;networkOptions)</pre>
 </li>
 </ul>
+<a name="dataplan-java.lang.String-java.lang.Integer-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dataplan</h4>
+<pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;dataplan(java.lang.String&nbsp;dataplanId,
+                                         java.lang.Integer&nbsp;dataplanVersion)</pre>
+</li>
+</ul>
+<a name="operatingSystem-com.mparticle.MParticle.OperatingSystem-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>operatingSystem</h4>
+<pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a>&nbsp;operatingSystem(<a href="../../com/mparticle/MParticle.OperatingSystem.html" title="enum in com.mparticle">MParticle.OperatingSystem</a>&nbsp;operatingSystem)</pre>
+<div class="block">Set the Operating System. Defaults to <a href="../../com/mparticle/MParticle.OperatingSystem.html#ANDROID"><code>MParticle.OperatingSystem.ANDROID</code></a></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>operatingSystem</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+</dl>
+</li>
+</ul>
 <a name="build--">
 <!--   -->
 </a>
@@ -572,7 +608,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>build</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a>&nbsp;build()</pre>
-<div class="block">Builds this Builder into an MParticleOptions object which can be used to start the SDK</div>
+<div class="block">Builds this Builder into an MParticleOptions object which can be used to start the SDK.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>MParticleOptions instance</dd>

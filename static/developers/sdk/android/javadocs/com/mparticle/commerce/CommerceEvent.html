@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Prev&nbsp;Class</li>
 <li><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html" title="class in com.mparticle.commerce"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -98,7 +98,12 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../com/mparticle/BaseEvent.html" title="class in com.mparticle">com.mparticle.BaseEvent</a></li>
+<li>
+<ul class="inheritance">
 <li>com.mparticle.commerce.CommerceEvent</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -108,19 +113,19 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">CommerceEvent</span>
-extends java.lang.Object</pre>
+extends <a href="../../../com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a></pre>
 <div class="block">The canonical object used to measure a commerce-related datapoint.
 
  This class is highly flexible and can be used to encapsulate user-interactions with Products, Promotions, or Impressions of Products.
 
  CommerceEvent objects should generally be considered immutable, several Builder classes are provided to help you construct new CommerceEvent objects.
 
- The <a href="../../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce"><code>CommerceApi</code></a> helper methods, accessed via <code>MParticle.getInstance().Commerce()</code>, are a wrapper around this class and will generate and log CommerceEvent objects
+ The <code>CommerceApi</code> helper methods, accessed via <code>MParticle.getInstance().Commerce()</code>, are a wrapper around this class and will generate and log CommerceEvent objects
  for you.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html" title="class in com.mparticle.commerce"><code>CommerceEvent.Builder</code></a>, 
-<a href="../../../com/mparticle/MParticle.html#logEvent-com.mparticle.commerce.CommerceEvent-"><code>MParticle.logEvent(CommerceEvent)</code></a></dd>
+<a href="../../../com/mparticle/MParticle.html#logEvent-com.mparticle.BaseEvent-"><code>MParticle.logEvent(BaseEvent)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -147,6 +152,13 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="nested.classes.inherited.from.class.com.mparticle.BaseEvent">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from class&nbsp;com.mparticle.<a href="../../../com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a></h3>
+<code><a href="../../../com/mparticle/BaseEvent.MessageType.html" title="interface in com.mparticle">BaseEvent.MessageType</a>, <a href="../../../com/mparticle/BaseEvent.Type.html" title="enum in com.mparticle">BaseEvent.Type</a></code></li>
+</ul>
 </li>
 </ul>
 <!-- ========== METHOD SUMMARY =========== -->
@@ -184,82 +196,78 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getCustomAttributes--">getCustomAttributes</a></span>()</code>
-<div class="block">Retrieve the Map of custom attributes of the event.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getCustomFlags--">getCustomFlags</a></span>()</code>
-<div class="block">Retrieve the custom flags set on this event.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getEventName--">getEventName</a></span>()</code>
 <div class="block">Retrieve the event name associated with the CommerceEvent.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../com/mparticle/commerce/Impression.html" title="class in com.mparticle.commerce">Impression</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getImpressions--">getImpressions</a></span>()</code>
 <div class="block">Retrieve the <a href="../../../com/mparticle/commerce/Impression.html" title="class in com.mparticle.commerce"><code>Impression</code></a> list associated with the CommerceEvent.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>BaseMPMessageBuilder</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getMessage--">getMessage</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.Boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getNonInteraction--">getNonInteraction</a></span>()</code>
-<div class="block">Retrieve the boolean indicating if the event was triggered by a user</div>
+<div class="block">Retrieve the boolean indicating if the event was triggered by a user.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getProductAction--">getProductAction</a></span>()</code>
 <div class="block">Retrieve the Product action of the event.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getProductListName--">getProductListName</a></span>()</code>
 <div class="block">Retrieve the Product List Name associated with the CommerceEvent.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getProductListSource--">getProductListSource</a></span>()</code>
 <div class="block">Retrieve the product list source associated with the CommerceEvent.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce">Product</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getProducts--">getProducts</a></span>()</code>
 <div class="block">Retrieve the list of Products to which the CommerceEvent applies.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getPromotionAction--">getPromotionAction</a></span>()</code>
 <div class="block">Retrieve the Promotion action of the CommerceEvent.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../../com/mparticle/commerce/Promotion.html" title="class in com.mparticle.commerce">Promotion</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getPromotions--">getPromotions</a></span>()</code>
 <div class="block">Retrieve the <a href="../../../com/mparticle/commerce/Promotion.html" title="class in com.mparticle.commerce"><code>Promotion</code></a> list associated with the CommerceEvent.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getScreen--">getScreen</a></span>()</code>
-<div class="block">Retrieve the Screen where the event occurred</div>
+<div class="block">Retrieve the Screen where the event occurred.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code><a href="../../../com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce">TransactionAttributes</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getTransactionAttributes--">getTransactionAttributes</a></span>()</code>
+<div class="block">Retrieve the <a href="../../../com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce"><code>TransactionAttributes</code></a> object associated with the CommerceEvent.</div>
 </td>
 </tr>
 <tr id="i16" class="altColor">
-<td class="colFirst"><code><a href="../../../com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce">TransactionAttributes</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#getTransactionAttributes--">getTransactionAttributes</a></span>()</code>
-<div class="block">Retrieve the <a href="../../../com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce"><code>TransactionAttributes</code></a> object associated with the CommerceEvent</div>
-</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/commerce/CommerceEvent.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
@@ -267,11 +275,18 @@ extends java.lang.Object</pre>
 </tr>
 </table>
 <ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.mparticle.BaseEvent">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.mparticle.<a href="../../../com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a></h3>
+<code><a href="../../../com/mparticle/BaseEvent.html#getCustomAttributes--">getCustomAttributes</a>, <a href="../../../com/mparticle/BaseEvent.html#getCustomFlags--">getCustomFlags</a>, <a href="../../../com/mparticle/BaseEvent.html#getType--">getType</a>, <a href="../../../com/mparticle/BaseEvent.html#setCustomAttributes-java.util.Map-">setCustomAttributes</a>, <a href="../../../com/mparticle/BaseEvent.html#setCustomFlags-java.util.Map-">setCustomFlags</a>, <a href="../../../com/mparticle/BaseEvent.html#setType-com.mparticle.BaseEvent.MessageType-">setType</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -300,40 +315,6 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="getCustomAttributes--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCustomAttributes</h4>
-<pre>public&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;getCustomAttributes()</pre>
-<div class="block">Retrieve the Map of custom attributes of the event.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>returns a Map of custom attributes, or null if no custom attributes are set</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#customAttributes-java.util.Map-"><code>CommerceEvent.Builder.customAttributes(Map)</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="getCustomFlags--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCustomFlags</h4>
-<pre>public&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;getCustomFlags()</pre>
-<div class="block">Retrieve the custom flags set on this event. Custom Flags are used to send data or trigger behavior
- to individual 3rd party services that you have enabled for your app. By default, flags are not forwarded
- to any providers.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>returns the map of custom flags, or null if none are set</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/MPEvent.Builder.html#addCustomFlag-java.lang.String-java.lang.String-"><code>MPEvent.Builder.addCustomFlag(String, String)</code></a></dd>
-</dl>
-</li>
-</ul>
 <a name="getScreen--">
 <!--   -->
 </a>
@@ -341,12 +322,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getScreen</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getScreen()</pre>
-<div class="block">Retrieve the Screen where the event occurred</div>
+<div class="block">Retrieve the Screen where the event occurred.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the String descriptor/name of the Screen where this event occurred, or null if this is not set</dd>
+<dd>the String descriptor/name of the Screen where this event occurred, or null if this is not set.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#screen-java.lang.String-"><code>CommerceEvent.Builder.screen(String)</code></a></dd>
+<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#screen-java.lang.String-"><code>CommerceEvent.Builder.screen(String).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -357,12 +338,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getNonInteraction</h4>
 <pre>public&nbsp;java.lang.Boolean&nbsp;getNonInteraction()</pre>
-<div class="block">Retrieve the boolean indicating if the event was triggered by a user</div>
+<div class="block">Retrieve the boolean indicating if the event was triggered by a user.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a Boolean indicating if this event was triggered by a user, or null if not set</dd>
+<dd>a Boolean indicating if this event was triggered by a user, or null if not set.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#nonInteraction-boolean-"><code>CommerceEvent.Builder.nonInteraction(boolean)</code></a></dd>
+<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#nonInteraction-boolean-"><code>CommerceEvent.Builder.nonInteraction(boolean).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -377,9 +358,9 @@ extends java.lang.Object</pre>
  will be null in the case of Promotion and Impression CommerceEvents.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a String indicating the Product action, or null if this is not a Product-based CommerceEvent</dd>
+<dd>a String indicating the Product action, or null if this is not a Product-based CommerceEvent.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Product)">Builder(java.lang.String, com.mparticle.commerce.Product)</a></code>, 
+<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Product)">Builder(java.lang.String, com.mparticle.commerce.Product)</a></code>., 
 <a href="../../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce"><code>Product</code></a></dd>
 </dl>
 </li>
@@ -394,7 +375,7 @@ extends java.lang.Object</pre>
 <div class="block">Retrieve the Checkout Step of the CommerceEvent. This should typically only be set in the case of a <a href="../../../com/mparticle/commerce/Product.html#CHECKOUT"><code>Product.CHECKOUT</code></a> CommerceEvent.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>an Integer representing the step, or null if none is set</dd>
+<dd>an Integer representing the step, or null if none is set.</dd>
 </dl>
 </li>
 </ul>
@@ -408,7 +389,7 @@ extends java.lang.Object</pre>
 <div class="block">Retrieve the Checkout options of the CommerceEvent. This describes custom options that a user may select at particular steps in the checkout process.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a String describing any checkout options, or null if none are set</dd>
+<dd>a String describing any checkout options, or null if none are set.</dd>
 </dl>
 </li>
 </ul>
@@ -424,7 +405,7 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the product list name, or null if not set.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#productListName-java.lang.String-"><code>CommerceEvent.Builder.productListName(String)</code></a></dd>
+<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#productListName-java.lang.String-"><code>CommerceEvent.Builder.productListName(String).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -440,7 +421,7 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the product list source, or null if not set.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#productListSource-java.lang.String-"><code>CommerceEvent.Builder.productListSource(String)</code></a></dd>
+<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#productListSource-java.lang.String-"><code>CommerceEvent.Builder.productListSource(String).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -451,12 +432,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getTransactionAttributes</h4>
 <pre>public&nbsp;<a href="../../../com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce">TransactionAttributes</a>&nbsp;getTransactionAttributes()</pre>
-<div class="block">Retrieve the <a href="../../../com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce"><code>TransactionAttributes</code></a> object associated with the CommerceEvent</div>
+<div class="block">Retrieve the <a href="../../../com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce"><code>TransactionAttributes</code></a> object associated with the CommerceEvent.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the TransactionAttributes object, or null if not set.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#transactionAttributes-com.mparticle.commerce.TransactionAttributes-"><code>CommerceEvent.Builder.transactionAttributes(TransactionAttributes)</code></a></dd>
+<dd><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#transactionAttributes-com.mparticle.commerce.TransactionAttributes-"><code>CommerceEvent.Builder.transactionAttributes(TransactionAttributes).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -467,14 +448,14 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getProducts</h4>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce">Product</a>&gt;&nbsp;getProducts()</pre>
-<div class="block">Retrieve the list of Products to which the CommerceEvent applies. This should only be set for Product-type CommerceEvents</div>
+<div class="block">Retrieve the list of Products to which the CommerceEvent applies. This should only be set for Product-type CommerceEvents.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the list of Products, or null if not set.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Product)">Builder(java.lang.String, com.mparticle.commerce.Product)</a></code>, 
-<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#addProduct-com.mparticle.commerce.Product-"><code>CommerceEvent.Builder.addProduct(Product)</code></a>, 
-<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#products-java.util.List-"><code>CommerceEvent.Builder.products(List)</code></a></dd>
+<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Product)">Builder(java.lang.String, com.mparticle.commerce.Product)</a></code>., 
+<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#addProduct-com.mparticle.commerce.Product-"><code>CommerceEvent.Builder.addProduct(Product).</code></a>, 
+<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#products-java.util.List-"><code>CommerceEvent.Builder.products(List).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -489,10 +470,10 @@ extends java.lang.Object</pre>
  will be null in the case of Product and Impression CommerceEvents.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>a String indicating the Promotion action, or null if this is not a Promotion-based CommerceEvent</dd>
+<dd>a String indicating the Promotion action, or null if this is not a Promotion-based CommerceEvent.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Promotion)">Builder(java.lang.String, com.mparticle.commerce.Promotion)</a></code>, 
-<a href="../../../com/mparticle/commerce/Promotion.html" title="class in com.mparticle.commerce"><code>for supported product actions</code></a></dd>
+<a href="../../../com/mparticle/commerce/Promotion.html" title="class in com.mparticle.commerce"><code>for supported product actions.</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -506,11 +487,11 @@ extends java.lang.Object</pre>
 <div class="block">Retrieve the <a href="../../../com/mparticle/commerce/Promotion.html" title="class in com.mparticle.commerce"><code>Promotion</code></a> list associated with the CommerceEvent.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>returns an unmodifiable List of Promotions, or null if this is a <a href="../../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce"><code>Product</code></a> or <a href="../../../com/mparticle/commerce/Impression.html" title="class in com.mparticle.commerce"><code>Impression</code></a> based <a href="../../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a></dd>
+<dd>returns an unmodifiable List of Promotions, or null if this is a <a href="../../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce"><code>Product</code></a> or <a href="../../../com/mparticle/commerce/Impression.html" title="class in com.mparticle.commerce"><code>Impression</code></a> based <a href="../../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Promotion)">Builder(java.lang.String, com.mparticle.commerce.Promotion)</a></code>, 
-<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#addPromotion-com.mparticle.commerce.Promotion-"><code>CommerceEvent.Builder.addPromotion(Promotion)</code></a>, 
-<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#promotions-java.util.List-"><code>CommerceEvent.Builder.promotions(List)</code></a></dd>
+<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Promotion)">Builder(java.lang.String, com.mparticle.commerce.Promotion)</a></code>., 
+<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#addPromotion-com.mparticle.commerce.Promotion-"><code>CommerceEvent.Builder.addPromotion(Promotion).</code></a>, 
+<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#promotions-java.util.List-"><code>CommerceEvent.Builder.promotions(List).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -527,6 +508,19 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="hashCode--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hashCode</h4>
+<pre>public&nbsp;int&nbsp;hashCode()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+</dl>
+</li>
+</ul>
 <a name="getImpressions--">
 <!--   -->
 </a>
@@ -537,11 +531,11 @@ extends java.lang.Object</pre>
 <div class="block">Retrieve the <a href="../../../com/mparticle/commerce/Impression.html" title="class in com.mparticle.commerce"><code>Impression</code></a> list associated with the CommerceEvent.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>returns an unmodifiable List of Impressions, or null if this is a <a href="../../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce"><code>Product</code></a> or <a href="../../../com/mparticle/commerce/Promotion.html" title="class in com.mparticle.commerce"><code>Promotion</code></a> based <a href="../../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a></dd>
+<dd>returns an unmodifiable List of Impressions, or null if this is a <a href="../../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce"><code>Product</code></a> or <a href="../../../com/mparticle/commerce/Promotion.html" title="class in com.mparticle.commerce"><code>Promotion</code></a> based <a href="../../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a>.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Impression)">Builder(java.lang.String, com.mparticle.commerce.Impression)</a></code>, 
-<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#addImpression-com.mparticle.commerce.Impression-"><code>CommerceEvent.Builder.addImpression(Impression)</code></a>, 
-<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#impressions-java.util.List-"><code>CommerceEvent.Builder.impressions(List)</code></a></dd>
+<dd><code><a href="CommerceEvent.Builder.html#CommerceEvent.Builder(java.lang.String,%20com.mparticle.commerce.Impression)">Builder(java.lang.String, com.mparticle.commerce.Impression)</a></code>., 
+<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#addImpression-com.mparticle.commerce.Impression-"><code>CommerceEvent.Builder.addImpression(Impression).</code></a>, 
+<a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html#impressions-java.util.List-"><code>CommerceEvent.Builder.impressions(List).</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -562,7 +556,7 @@ extends java.lang.Object</pre>
 <a name="getEventName--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getEventName</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getEventName()</pre>
@@ -570,6 +564,19 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the name associated with the CommerceEvent, or null if not set.</dd>
+</dl>
+</li>
+</ul>
+<a name="getMessage--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getMessage</h4>
+<pre>public&nbsp;BaseMPMessageBuilder&nbsp;getMessage()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../com/mparticle/BaseEvent.html#getMessage--">getMessage</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -600,7 +607,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Prev&nbsp;Class</li>
 <li><a href="../../../com/mparticle/commerce/CommerceEvent.Builder.html" title="class in com.mparticle.commerce"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

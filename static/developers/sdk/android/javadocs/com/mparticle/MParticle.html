@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9,"i10":10,"i11":10,"i12":9,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":9,"i23":10,"i24":10,"i25":10,"i26":10,"i27":42,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":9,"i50":9,"i51":9,"i52":9,"i53":10,"i54":9,"i55":10,"i56":10,"i57":9,"i58":10,"i59":10,"i60":9,"i61":10};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":9,"i9":10,"i10":10,"i11":9,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":9,"i22":10,"i23":10,"i24":10,"i25":10,"i26":42,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":9,"i48":9,"i49":9,"i50":9,"i51":10,"i52":9,"i53":10,"i54":10,"i55":9,"i56":10,"i57":10,"i58":9,"i59":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -110,7 +110,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">MParticle</span>
 extends java.lang.Object</pre>
 <div class="block">The primary access point to the mParticle SDK. In order to use this class, you must first call <a href="../../com/mparticle/MParticle.html#start-com.mparticle.MParticleOptions-"><code>start(MParticleOptions)</code></a>. You can then retrieve a reference
- to an instance of this class via <a href="../../com/mparticle/MParticle.html#getInstance--"><code>getInstance()</code></a></div>
+ to an instance of this class via <a href="../../com/mparticle/MParticle.html#getInstance--"><code>getInstance()</code></a>.</div>
 </li>
 </ul>
 </div>
@@ -138,7 +138,7 @@ extends java.lang.Object</pre>
 <tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.EventType.html" title="enum in com.mparticle">MParticle.EventType</a></span></code>
-<div class="block">Event type to use when logging events.</div>
+<div class="block">Event type to use when logging <a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle"><code>MPEvent</code></a>s.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -150,7 +150,7 @@ extends java.lang.Object</pre>
 <tr class="rowColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle">MParticle.InstallType</a></span></code>
-<div class="block">To be used when initializing MParticle</div>
+<div class="block">To be used when initializing MParticle.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -165,16 +165,20 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.OperatingSystem.html" title="enum in com.mparticle">MParticle.OperatingSystem</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.ResetListener.html" title="interface in com.mparticle">MParticle.ResetListener</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></span></code>
 <div class="block">This interface defines constants that can be used to interact with specific 3rd-party services.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static interface&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.UserAttributes.html" title="interface in com.mparticle">MParticle.UserAttributes</a></span></code>
 <div class="block">This interface defines a series of constants that can be used to specify certain characteristics of a user.</div>
@@ -215,48 +219,44 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mAttributionListener">mAttributionListener</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce">CommerceApi</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mCommerce">mCommerce</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>protected ConfigManager</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mConfigManager">mConfigManager</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected MParticleDBManager</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mDatabaseManager">mDatabaseManager</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../com/mparticle/identity/IdentityApi.html" title="class in com.mparticle.identity">IdentityApi</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mIdentityApi">mIdentityApi</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../com/mparticle/MParticle.Internal.html" title="class in com.mparticle">MParticle.Internal</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mInternal">mInternal</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected KitFrameworkWrapper</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mKitManager">mKitManager</a></span></code>
 <div class="block">Used to delegate messages, events, user actions, etc on to embedded kits.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected MPLocationListener</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mLocationListener">mLocationListener</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../com/mparticle/media/MPMediaAPI.html" title="class in com.mparticle.media">MPMediaAPI</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mMedia">mMedia</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected MessageManager</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mMessageManager">mMessageManager</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../com/mparticle/messaging/MPMessagingAPI.html" title="class in com.mparticle.messaging">MPMessagingAPI</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mMessaging">mMessaging</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected android.content.SharedPreferences</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#mPreferences">mPreferences</a></span></code>&nbsp;</td>
 </tr>
@@ -298,30 +298,23 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#addListener-android.content.Context-com.mparticle.SdkListener-">addListener</a></span>(android.content.Context&nbsp;context,
            <a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle">SdkListener</a>&nbsp;listener)</code>
-<div class="block">note: Experimental feature, adding a Listener will slow down the SDK, and should be used only
+<div class="block">NOTE: Experimental feature, adding a Listener will slow down the SDK, and should be used only
  for development purposes.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce">CommerceApi</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#Commerce--">Commerce</a></span>()</code>
-<div class="block">Retrieve an instance of the <a href="../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce"><code>CommerceApi</code></a> helper class, used to access the <a href="../../com/mparticle/commerce/Cart.html" title="class in com.mparticle.commerce"><code>Cart</code></a> and as a helper class to log <a href="../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a> events
- with the <a href="../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce"><code>Product</code></a> objects currently in the Cart.</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#disableLocationTracking--">disableLocationTracking</a></span>()</code>
+<div class="block">Disables any mParticle location tracking that had been started.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#disableLocationTracking--">disableLocationTracking</a></span>()</code>
-<div class="block">Disables any mParticle location tracking that had been started</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#disableUncaughtExceptionLogging--">disableUncaughtExceptionLogging</a></span>()</code>
+<div class="block">Disables mParticle exception handling and restores the original UncaughtExceptionHandler.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#disableUncaughtExceptionLogging--">disableUncaughtExceptionLogging</a></span>()</code>
-<div class="block">Disables mParticle exception handling and restores the original UncaughtExceptionHandler</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#enableLocationTracking-java.lang.String-long-long-">enableLocationTracking</a></span>(java.lang.String&nbsp;provider,
                       long&nbsp;minTime,
@@ -329,196 +322,188 @@ extends java.lang.Object</pre>
 <div class="block">Enables location tracking given a provider and update frequency criteria.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#enableUncaughtExceptionLogging--">enableUncaughtExceptionLogging</a></span>()</code>
-<div class="block">Enable mParticle exception handling to automatically log events on uncaught exceptions</div>
+<div class="block">Enable mParticle exception handling to automatically log events on uncaught exceptions.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../com/mparticle/AttributionListener.html" title="interface in com.mparticle">AttributionListener</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getAttributionListener--">getAttributionListener</a></span>()</code>
+<div class="block">Retrieve the current Attribution Listener.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../com/mparticle/AttributionListener.html" title="interface in com.mparticle">AttributionListener</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getAttributionListener--">getAttributionListener</a></span>()</code>
-<div class="block">Retrieve the current attribution listener</div>
+<td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,<a href="../../com/mparticle/AttributionResult.html" title="class in com.mparticle">AttributionResult</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getAttributionResults--">getAttributionResults</a></span>()</code>
+<div class="block">Queries the attribution results.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>java.util.Map&lt;java.lang.Integer,<a href="../../com/mparticle/AttributionResult.html" title="class in com.mparticle">AttributionResult</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getAttributionResults--">getAttributionResults</a></span>()</code>
-<div class="block">Queries the attribution results</div>
-</td>
-</tr>
-<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/Session.html" title="class in com.mparticle">Session</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getCurrentSession--">getCurrentSession</a></span>()</code>
 <div class="block">Query for a read-only Session API object.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getDeviceImei--">getDeviceImei</a></span>()</code>
 <div class="block">Get the device's current IMEI.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle">MParticle.Environment</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getEnvironment--">getEnvironment</a></span>()</code>
 <div class="block">Get the current Environment that the SDK has interpreted.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getInstallReferrer--">getInstallReferrer</a></span>()</code>
-<div class="block">Retrieve the current install referrer, if it has been set</div>
+<div class="block">Retrieve the current install referrer, if it has been set.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="../../com/mparticle/MParticle.html" title="class in com.mparticle">MParticle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getInstance--">getInstance</a></span>()</code>
 <div class="block">Retrieve an instance of the MParticle class.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getIntegrationAttributes-int-">getIntegrationAttributes</a></span>(int&nbsp;integrationId)</code>
 <div class="block">Queries the current integration attributes for a given integration ID.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.Object</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getKitInstance-int-">getKitInstance</a></span>(int&nbsp;kitId)</code>
 <div class="block">Retrieve the underlying object for the given Kit Id for direct calls.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.Boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getOptOut--">getOptOut</a></span>()</code>
 <div class="block">Get the current opt-out status for the application.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getSessionTimeout--">getSessionTimeout</a></span>()</code>
 <div class="block">Retrieves the current session timeout setting in seconds</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>android.net.Uri</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getSurveyUrl-int-">getSurveyUrl</a></span>(int&nbsp;kitId)</code>
 <div class="block">Retrieve a URL to be loaded within a <code>WebView</code> to show the user a survey
  or feedback form.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#getUserSegments-long-java.lang.String-com.mparticle.segmentation.SegmentListener-">getUserSegments</a></span>(long&nbsp;timeout,
                java.lang.String&nbsp;endpointId,
                <a href="../../com/mparticle/segmentation/SegmentListener.html" title="interface in com.mparticle.segmentation">SegmentListener</a>&nbsp;listener)</code>&nbsp;</td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/identity/IdentityApi.html" title="class in com.mparticle.identity">IdentityApi</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#Identity--">Identity</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#incrementSessionAttribute-java.lang.String-int-">incrementSessionAttribute</a></span>(java.lang.String&nbsp;key,
                          int&nbsp;value)</code>
 <div class="block">Increment a single <i>session</i> attribute.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MParticle.Internal.html" title="class in com.mparticle">MParticle.Internal</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#Internal--">Internal</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#isAndroidIdDisabled--">isAndroidIdDisabled</a></span>()</code>
 <div class="block">Query the status of Android ID collection.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.Boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#isAutoTrackingEnabled--">isAutoTrackingEnabled</a></span>()</code>
 <div class="block">Retrieves the current setting of automatic screen tracking.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#isDevicePerformanceMetricsDisabled--">isDevicePerformanceMetricsDisabled</a></span>()</code>
 <div class="block">Query whether device performance metrics are disabled</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#isKitActive-int-">isKitActive</a></span>(int&nbsp;serviceProviderId)</code>
 <div class="block">Detect whether the given service provider kit is active.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#isLocationTrackingEnabled--">isLocationTrackingEnabled</a></span>()</code>
-<div class="block">Retrieves the current setting of location tracking</div>
+<div class="block">Retrieves the current setting of location tracking.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#isProviderActive-int-">isProviderActive</a></span>(int&nbsp;serviceProviderId)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;&nbsp;</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#leaveBreadcrumb-java.lang.String-">leaveBreadcrumb</a></span>(java.lang.String&nbsp;breadcrumb)</code>
 <div class="block">Leave a breadcrumb to be included with error and exception logging, as well as
  with regular session events.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logError-java.lang.String-">logError</a></span>(java.lang.String&nbsp;message)</code>
-<div class="block">Logs an error event</div>
+<div class="block">Logs an error event.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logError-java.lang.String-java.util.Map-">logError</a></span>(java.lang.String&nbsp;message,
         java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;errorAttributes)</code>
 <div class="block">Logs an error event</div>
 </td>
 </tr>
+<tr id="i30" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logEvent-com.mparticle.BaseEvent-">logEvent</a></span>(<a href="../../com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a>&nbsp;event)</code>&nbsp;</td>
+</tr>
 <tr id="i31" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logEvent-com.mparticle.commerce.CommerceEvent-">logEvent</a></span>(<a href="../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce">CommerceEvent</a>&nbsp;event)</code>
-<div class="block">Log an e-Commerce related event with a <a href="../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a> object</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logException-java.lang.Exception-">logException</a></span>(java.lang.Exception&nbsp;exception)</code>
+<div class="block">Logs an Exception.</div>
 </td>
 </tr>
 <tr id="i32" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logEvent-com.mparticle.MPEvent-">logEvent</a></span>(<a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a>&nbsp;event)</code>
-<div class="block">Log an event with an <a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle"><code>MPEvent</code></a> object</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logException-java.lang.Exception-java.util.Map-">logException</a></span>(java.lang.Exception&nbsp;exception,
+            java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;eventData)</code>
+<div class="block">Logs an Exception.</div>
 </td>
 </tr>
 <tr id="i33" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logException-java.lang.Exception-">logException</a></span>(java.lang.Exception&nbsp;exception)</code>
-<div class="block">Logs an Exception</div>
-</td>
-</tr>
-<tr id="i34" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logException-java.lang.Exception-java.util.Map-">logException</a></span>(java.lang.Exception&nbsp;exception,
-            java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;eventData)</code>
-<div class="block">Logs an Exception</div>
-</td>
-</tr>
-<tr id="i35" class="rowColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logException-java.lang.Exception-java.util.Map-java.lang.String-">logException</a></span>(java.lang.Exception&nbsp;exception,
             java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;eventData,
             java.lang.String&nbsp;message)</code>
-<div class="block">Logs an Exception</div>
+<div class="block">Logs an Exception.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logLtvIncrease-java.math.BigDecimal-java.lang.String-java.util.Map-">logLtvIncrease</a></span>(java.math.BigDecimal&nbsp;valueIncreased,
               java.lang.String&nbsp;eventName,
@@ -526,7 +511,7 @@ extends java.lang.Object</pre>
 <div class="block">Logs an increase in the lifetime value of a user.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logNetworkPerformance-java.lang.String-long-java.lang.String-long-long-long-java.lang.String-int-">logNetworkPerformance</a></span>(java.lang.String&nbsp;url,
                      long&nbsp;startTime,
@@ -537,62 +522,62 @@ extends java.lang.Object</pre>
                      java.lang.String&nbsp;requestString,
                      int&nbsp;responseCode)</code>&nbsp;</td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logNotification-android.content.Intent-">logNotification</a></span>(android.content.Intent&nbsp;intent)</code>
-<div class="block">Logs a Push Notification displayed to the User</div>
+<div class="block">Logs a Push Notification displayed to the User.</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logNotificationOpened-android.content.Intent-">logNotificationOpened</a></span>(android.content.Intent&nbsp;intent)</code>
-<div class="block">Logs a Push Notification has been tapped or opened</div>
+<div class="block">Logs a Push Notification has been tapped or opened.</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logPushRegistration-java.lang.String-java.lang.String-">logPushRegistration</a></span>(java.lang.String&nbsp;instanceId,
                    java.lang.String&nbsp;senderId)</code>&nbsp;</td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logScreen-com.mparticle.MPEvent-">logScreen</a></span>(<a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a>&nbsp;screenEvent)</code>
-<div class="block">Logs a screen view event</div>
+<div class="block">Logs a screen view event.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logScreen-java.lang.String-">logScreen</a></span>(java.lang.String&nbsp;screenName)</code>
-<div class="block">Logs a screen view event</div>
+<div class="block">Logs a screen view event.</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#logScreen-java.lang.String-java.util.Map-">logScreen</a></span>(java.lang.String&nbsp;screenName,
          java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;eventData)</code>
-<div class="block">Logs a screen view event</div>
+<div class="block">Logs a screen view event.</div>
+</td>
+</tr>
+<tr id="i42" class="altColor">
+<td class="colFirst"><code><a href="../../com/mparticle/media/MPMediaAPI.html" title="class in com.mparticle.media">MPMediaAPI</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#Media--">Media</a></span>()</code>
+<div class="block">Entry point to the Media APIs.</div>
+</td>
+</tr>
+<tr id="i43" class="rowColor">
+<td class="colFirst"><code><a href="../../com/mparticle/messaging/MPMessagingAPI.html" title="class in com.mparticle.messaging">MPMessagingAPI</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#Messaging--">Messaging</a></span>()</code>
+<div class="block">Entry point to the Messaging APIs.</div>
 </td>
 </tr>
 <tr id="i44" class="altColor">
-<td class="colFirst"><code><a href="../../com/mparticle/media/MPMediaAPI.html" title="class in com.mparticle.media">MPMediaAPI</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#Media--">Media</a></span>()</code>
-<div class="block">Entry point to the Media APIs</div>
-</td>
-</tr>
-<tr id="i45" class="rowColor">
-<td class="colFirst"><code><a href="../../com/mparticle/messaging/MPMessagingAPI.html" title="class in com.mparticle.messaging">MPMessagingAPI</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#Messaging--">Messaging</a></span>()</code>
-<div class="block">Entry point to the Messaging APIs</div>
-</td>
-</tr>
-<tr id="i46" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#registerWebView-android.webkit.WebView-">registerWebView</a></span>(android.webkit.WebView&nbsp;webView)</code>
 <div class="block">Instrument a WebView so that communication can be facilitated between this Native SDK instance and any
  instance of the mParticle Javascript SDK is loaded within the provided WebView.</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#registerWebView-android.webkit.WebView-java.lang.String-">registerWebView</a></span>(android.webkit.WebView&nbsp;webView,
                java.lang.String&nbsp;requiredBridgeName)</code>
@@ -600,100 +585,90 @@ extends java.lang.Object</pre>
  instance of the mParticle Javascript SDK is loaded within the provided WebView.</div>
 </td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#removeAttributionListener--">removeAttributionListener</a></span>()</code>
-<div class="block">Clears the current Attribution Listener</div>
+<div class="block">Clears the current Attribution Listener.</div>
+</td>
+</tr>
+<tr id="i47" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#removeListener-com.mparticle.SdkListener-">removeListener</a></span>(<a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle">SdkListener</a>&nbsp;listener)</code>
+<div class="block">Remove an instance of <a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle"><code>SdkListener</code></a>.</div>
+</td>
+</tr>
+<tr id="i48" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#reset-android.content.Context-">reset</a></span>(android.content.Context&nbsp;context)</code>
+<div class="block">This method will permanently remove ALL MParticle data from the device, included SharedPreferences and Database,
+ and halt any upload or download behavior that may be in process.</div>
 </td>
 </tr>
 <tr id="i49" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#removeListener-com.mparticle.SdkListener-">removeListener</a></span>(<a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle">SdkListener</a>&nbsp;listener)</code>
-<div class="block">Remove an instance of <a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle"><code>SdkListener</code></a></div>
-</td>
-</tr>
-<tr id="i50" class="altColor">
-<td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#reset-android.content.Context-">reset</a></span>(android.content.Context&nbsp;context)</code>
-<div class="block">This method will permanently remove ALL MParticle data from the device, included SharedPreferences and Database,
- and halt any upload or download behavior that may be in process
-
- If you have any reference to the MParticle instance, you must remove your reference by setting it to "null",
- in order to avoid any unexpected behavior
-
- The SDK will be shut down and MParticle.getInstance() will return null.</div>
-</td>
-</tr>
-<tr id="i51" class="rowColor">
-<td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#reset-android.content.Context-com.mparticle.MParticle.ResetListener-">reset</a></span>(android.content.Context&nbsp;context,
      <a href="../../com/mparticle/MParticle.ResetListener.html" title="interface in com.mparticle">MParticle.ResetListener</a>&nbsp;callback)</code>
 <div class="block">This method will permanently remove ALL MParticle data from the device, included SharedPreferences and Database,
- and halt any upload or download behavior that may be in process
-
- If you have any reference to the MParticle instance, you must remove your reference by setting it to "null",
- in order to avoid any unexpected behavior
-
- The SDK will be shut down and MParticle.getInstance() will return null.</div>
+ and halt any upload or download behavior that may be in process.</div>
 </td>
 </tr>
-<tr id="i52" class="altColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setDeviceImei-java.lang.String-">setDeviceImei</a></span>(java.lang.String&nbsp;deviceImei)</code>
 <div class="block">Set the device's current IMEI.</div>
 </td>
 </tr>
-<tr id="i53" class="rowColor">
+<tr id="i51" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setInstallReferrer-java.lang.String-">setInstallReferrer</a></span>(java.lang.String&nbsp;referrer)</code>
 <div class="block">Manually set the install referrer.</div>
 </td>
 </tr>
-<tr id="i54" class="altColor">
+<tr id="i52" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setInstance-com.mparticle.MParticle-">setInstance</a></span>(<a href="../../com/mparticle/MParticle.html" title="class in com.mparticle">MParticle</a>&nbsp;instance)</code>
 <div class="block">Use this method for your own unit testing.</div>
 </td>
 </tr>
-<tr id="i55" class="rowColor">
+<tr id="i53" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setIntegrationAttributes-int-java.util.Map-">setIntegrationAttributes</a></span>(int&nbsp;integrationId,
                         java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;attributes)</code>
 <div class="block">Set or remove the integration attributes for a given integration ID.</div>
 </td>
 </tr>
-<tr id="i56" class="altColor">
+<tr id="i54" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setLocation-android.location.Location-">setLocation</a></span>(android.location.Location&nbsp;location)</code>
 <div class="block">Set the current location of the active session.</div>
 </td>
 </tr>
-<tr id="i57" class="rowColor">
+<tr id="i55" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setLogLevel-com.mparticle.MParticle.LogLevel-">setLogLevel</a></span>(<a href="../../com/mparticle/MParticle.LogLevel.html" title="enum in com.mparticle">MParticle.LogLevel</a>&nbsp;level)</code>
 <div class="block">Set the minimum log level before the SDK is initialized.</div>
 </td>
 </tr>
-<tr id="i58" class="altColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setOptOut-java.lang.Boolean-">setOptOut</a></span>(java.lang.Boolean&nbsp;optOutStatus)</code>
 <div class="block">Control the opt-in/opt-out status for the application.</div>
 </td>
 </tr>
-<tr id="i59" class="rowColor">
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#setSessionAttribute-java.lang.String-java.lang.Object-">setSessionAttribute</a></span>(java.lang.String&nbsp;key,
                    java.lang.Object&nbsp;value)</code>
 <div class="block">Set a single <i>session</i> attribute.</div>
 </td>
 </tr>
-<tr id="i60" class="altColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#start-com.mparticle.MParticleOptions-">start</a></span>(<a href="../../com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a>&nbsp;options)</code>
 <div class="block">Start the mParticle SDK and begin tracking a user session.</div>
 </td>
 </tr>
-<tr id="i61" class="rowColor">
+<tr id="i59" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MParticle.html#upload--">upload</a></span>()</code>
 <div class="block">Force upload all queued messages to the mParticle server.</div>
@@ -803,15 +778,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>mMedia</h4>
 <pre>protected&nbsp;<a href="../../com/mparticle/media/MPMediaAPI.html" title="class in com.mparticle.media">MPMediaAPI</a> mMedia</pre>
-</li>
-</ul>
-<a name="mCommerce">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mCommerce</h4>
-<pre>protected&nbsp;<a href="../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce">CommerceApi</a> mCommerce</pre>
 </li>
 </ul>
 <a name="mDatabaseManager">
@@ -1040,41 +1006,20 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getInstallReferrer</h4>
 <pre>public&nbsp;java.lang.String&nbsp;getInstallReferrer()</pre>
-<div class="block">Retrieve the current install referrer, if it has been set</div>
+<div class="block">Retrieve the current install referrer, if it has been set.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The current Install Referrer</dd>
 </dl>
 </li>
 </ul>
-<a name="logEvent-com.mparticle.MPEvent-">
+<a name="logEvent-com.mparticle.BaseEvent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>logEvent</h4>
-<pre>public&nbsp;void&nbsp;logEvent(<a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a>&nbsp;event)</pre>
-<div class="block">Log an event with an <a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle"><code>MPEvent</code></a> object</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>event</code> - the event object to log</dd>
-</dl>
-</li>
-</ul>
-<a name="logEvent-com.mparticle.commerce.CommerceEvent-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>logEvent</h4>
-<pre>public&nbsp;void&nbsp;logEvent(<a href="../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce">CommerceEvent</a>&nbsp;event)</pre>
-<div class="block">Log an e-Commerce related event with a <a href="../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a> object</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>event</code> - the event to log</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a></dd>
-</dl>
+<pre>public&nbsp;void&nbsp;logEvent(<a href="../../com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a>&nbsp;event)</pre>
 </li>
 </ul>
 <a name="logLtvIncrease-java.math.BigDecimal-java.lang.String-java.util.Map-">
@@ -1103,7 +1048,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>logScreen</h4>
 <pre>public&nbsp;void&nbsp;logScreen(java.lang.String&nbsp;screenName)</pre>
-<div class="block">Logs a screen view event</div>
+<div class="block">Logs a screen view event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>screenName</code> - the name of the screen to be tracked</dd>
@@ -1118,7 +1063,7 @@ extends java.lang.Object</pre>
 <h4>logScreen</h4>
 <pre>public&nbsp;void&nbsp;logScreen(java.lang.String&nbsp;screenName,
                       java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;eventData)</pre>
-<div class="block">Logs a screen view event</div>
+<div class="block">Logs a screen view event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>screenName</code> - the name of the screen to be tracked</dd>
@@ -1133,7 +1078,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>logScreen</h4>
 <pre>public&nbsp;void&nbsp;logScreen(<a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a>&nbsp;screenEvent)</pre>
-<div class="block">Logs a screen view event</div>
+<div class="block">Logs a screen view event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>screenEvent</code> - an event object, the name of the event will be used as the screen name</dd>
@@ -1162,7 +1107,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>logError</h4>
 <pre>public&nbsp;void&nbsp;logError(java.lang.String&nbsp;message)</pre>
-<div class="block">Logs an error event</div>
+<div class="block">Logs an error event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>message</code> - the name of the error event to be tracked</dd>
@@ -1208,7 +1153,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>logException</h4>
 <pre>public&nbsp;void&nbsp;logException(java.lang.Exception&nbsp;exception)</pre>
-<div class="block">Logs an Exception</div>
+<div class="block">Logs an Exception.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>exception</code> - an Exception</dd>
@@ -1223,7 +1168,7 @@ extends java.lang.Object</pre>
 <h4>logException</h4>
 <pre>public&nbsp;void&nbsp;logException(java.lang.Exception&nbsp;exception,
                          java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;eventData)</pre>
-<div class="block">Logs an Exception</div>
+<div class="block">Logs an Exception.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>exception</code> - an Exception</dd>
@@ -1238,7 +1183,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>removeAttributionListener</h4>
 <pre>public&nbsp;void&nbsp;removeAttributionListener()</pre>
-<div class="block">Clears the current Attribution Listener</div>
+<div class="block">Clears the current Attribution Listener.</div>
 </li>
 </ul>
 <a name="getAttributionListener--">
@@ -1248,7 +1193,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAttributionListener</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/AttributionListener.html" title="interface in com.mparticle">AttributionListener</a>&nbsp;getAttributionListener()</pre>
-<div class="block">Retrieve the current attribution listener</div>
+<div class="block">Retrieve the current Attribution Listener.</div>
 </li>
 </ul>
 <a name="getAttributionResults--">
@@ -1258,7 +1203,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAttributionResults</h4>
 <pre>public&nbsp;java.util.Map&lt;java.lang.Integer,<a href="../../com/mparticle/AttributionResult.html" title="class in com.mparticle">AttributionResult</a>&gt;&nbsp;getAttributionResults()</pre>
-<div class="block">Queries the attribution results</div>
+<div class="block">Queries the attribution results.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the current attribution results</dd>
@@ -1274,7 +1219,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;logException(java.lang.Exception&nbsp;exception,
                          java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;eventData,
                          java.lang.String&nbsp;message)</pre>
-<div class="block">Logs an Exception</div>
+<div class="block">Logs an Exception.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>exception</code> - an Exception</dd>
@@ -1309,7 +1254,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>disableLocationTracking</h4>
 <pre>public&nbsp;void&nbsp;disableLocationTracking()</pre>
-<div class="block">Disables any mParticle location tracking that had been started</div>
+<div class="block">Disables any mParticle location tracking that had been started.</div>
 </li>
 </ul>
 <a name="isLocationTrackingEnabled--">
@@ -1319,7 +1264,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isLocationTrackingEnabled</h4>
 <pre>public&nbsp;boolean&nbsp;isLocationTrackingEnabled()</pre>
-<div class="block">Retrieves the current setting of location tracking</div>
+<div class="block">Retrieves the current setting of location tracking.</div>
 </li>
 </ul>
 <a name="setLocation-android.location.Location-">
@@ -1436,7 +1381,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>enableUncaughtExceptionLogging</h4>
 <pre>public&nbsp;void&nbsp;enableUncaughtExceptionLogging()</pre>
-<div class="block">Enable mParticle exception handling to automatically log events on uncaught exceptions</div>
+<div class="block">Enable mParticle exception handling to automatically log events on uncaught exceptions.</div>
 </li>
 </ul>
 <a name="disableUncaughtExceptionLogging--">
@@ -1446,7 +1391,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>disableUncaughtExceptionLogging</h4>
 <pre>public&nbsp;void&nbsp;disableUncaughtExceptionLogging()</pre>
-<div class="block">Disables mParticle exception handling and restores the original UncaughtExceptionHandler</div>
+<div class="block">Disables mParticle exception handling and restores the original UncaughtExceptionHandler.</div>
 </li>
 </ul>
 <a name="isAutoTrackingEnabled--">
@@ -1551,25 +1496,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>Messaging</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/messaging/MPMessagingAPI.html" title="class in com.mparticle.messaging">MPMessagingAPI</a>&nbsp;Messaging()</pre>
-<div class="block">Entry point to the Messaging APIs</div>
+<div class="block">Entry point to the Messaging APIs.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a helper object that allows for interaction with the Messaging APIs</dd>
-</dl>
-</li>
-</ul>
-<a name="Commerce--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>Commerce</h4>
-<pre>public&nbsp;<a href="../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce">CommerceApi</a>&nbsp;Commerce()</pre>
-<div class="block">Retrieve an instance of the <a href="../../com/mparticle/commerce/CommerceApi.html" title="class in com.mparticle.commerce"><code>CommerceApi</code></a> helper class, used to access the <a href="../../com/mparticle/commerce/Cart.html" title="class in com.mparticle.commerce"><code>Cart</code></a> and as a helper class to log <a href="../../com/mparticle/commerce/CommerceEvent.html" title="class in com.mparticle.commerce"><code>CommerceEvent</code></a> events
- with the <a href="../../com/mparticle/commerce/Product.html" title="class in com.mparticle.commerce"><code>Product</code></a> objects currently in the Cart.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>returns a global CommerceApi instance.</dd>
 </dl>
 </li>
 </ul>
@@ -1580,7 +1510,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>Media</h4>
 <pre>public&nbsp;<a href="../../com/mparticle/media/MPMediaAPI.html" title="class in com.mparticle.media">MPMediaAPI</a>&nbsp;Media()</pre>
-<div class="block">Entry point to the Media APIs</div>
+<div class="block">Entry point to the Media APIs.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a helper object that allows for interaction with the Media APIs</dd>
@@ -1652,7 +1582,7 @@ extends java.lang.Object</pre>
 <h4>getKitInstance</h4>
 <pre>public&nbsp;java.lang.Object&nbsp;getKitInstance(int&nbsp;kitId)</pre>
 <div class="block">Retrieve the underlying object for the given Kit Id for direct calls. Results will be null if
- kit is not active, or if the application just started, and the kit has not yet been initialized</div>
+ kit is not active, or if the application just started, and the kit has not yet been initialized.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>kitId</code> - </dd>
@@ -1678,7 +1608,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>logNotification</h4>
 <pre>public&nbsp;void&nbsp;logNotification(android.content.Intent&nbsp;intent)</pre>
-<div class="block">Logs a Push Notification displayed to the User</div>
+<div class="block">Logs a Push Notification displayed to the User.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>intent</code> - </dd>
@@ -1692,7 +1622,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>logNotificationOpened</h4>
 <pre>public&nbsp;void&nbsp;logNotificationOpened(android.content.Intent&nbsp;intent)</pre>
-<div class="block">Logs a Push Notification has been tapped or opened</div>
+<div class="block">Logs a Push Notification has been tapped or opened.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>intent</code> - </dd>
@@ -1725,13 +1655,13 @@ extends java.lang.Object</pre>
 <h4>reset</h4>
 <pre>public static&nbsp;void&nbsp;reset(android.content.Context&nbsp;context)</pre>
 <div class="block">This method will permanently remove ALL MParticle data from the device, included SharedPreferences and Database,
- and halt any upload or download behavior that may be in process
+ and halt any upload or download behavior that may be in process.
 
  If you have any reference to the MParticle instance, you must remove your reference by setting it to "null",
- in order to avoid any unexpected behavior
+ in order to avoid any unexpected behavior.
 
  The SDK will be shut down and MParticle.getInstance() will return null. MParticle can be restarted by
- calling MParticle.start()</div>
+ calling MParticle.start().</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - </dd>
@@ -1747,13 +1677,13 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;void&nbsp;reset(android.content.Context&nbsp;context,
                          <a href="../../com/mparticle/MParticle.ResetListener.html" title="interface in com.mparticle">MParticle.ResetListener</a>&nbsp;callback)</pre>
 <div class="block">This method will permanently remove ALL MParticle data from the device, included SharedPreferences and Database,
- and halt any upload or download behavior that may be in process
+ and halt any upload or download behavior that may be in process.
 
  If you have any reference to the MParticle instance, you must remove your reference by setting it to "null",
- in order to avoid any unexpected behavior
+ in order to avoid any unexpected behavior.
 
  The SDK will be shut down and MParticle.getInstance() will return null. MParticle can be restarted by
- calling MParticle.start()</div>
+ calling MParticle.start().</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - </dd>
@@ -1769,7 +1699,7 @@ extends java.lang.Object</pre>
 <h4>addListener</h4>
 <pre>public static&nbsp;void&nbsp;addListener(android.content.Context&nbsp;context,
                                <a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle">SdkListener</a>&nbsp;listener)</pre>
-<div class="block">note: Experimental feature, adding a Listener will slow down the SDK, and should be used only
+<div class="block">NOTE: Experimental feature, adding a Listener will slow down the SDK, and should be used only
  for development purposes. By default, InternalListeners will automatically disable in release builds.
  In order to override this behavior, use the following adb shell command:
 
@@ -1790,7 +1720,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>removeListener</h4>
 <pre>public static&nbsp;void&nbsp;removeListener(<a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle">SdkListener</a>&nbsp;listener)</pre>
-<div class="block">Remove an instance of <a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle"><code>SdkListener</code></a></div>
+<div class="block">Remove an instance of <a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle"><code>SdkListener</code></a>.</div>
 </li>
 </ul>
 <a name="setIntegrationAttributes-int-java.util.Map-">

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":9,"i4":9};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":9,"i5":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../com/mparticle/consent/ConsentInstance.html" title="class in com.mparticle.consent"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../com/mparticle/consent/ConsentState.Builder.html" title="class in com.mparticle.consent"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -153,20 +153,24 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/ConsentState.html#builder--">builder</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../com/mparticle/consent/CCPAConsent.html" title="class in com.mparticle.consent">CCPAConsent</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/ConsentState.html#getCCPAConsentState--">getCCPAConsentState</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,<a href="../../../com/mparticle/consent/GDPRConsent.html" title="class in com.mparticle.consent">GDPRConsent</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/ConsentState.html#getGDPRConsentState--">getGDPRConsentState</a></span>()</code>
 <div class="block">Retrieve the current GDPR consent state for this user.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/ConsentState.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/mparticle/consent/ConsentState.Builder.html" title="class in com.mparticle.consent">ConsentState.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/ConsentState.html#withConsentState-com.mparticle.consent.ConsentState-">withConsentState</a></span>(<a href="../../../com/mparticle/consent/ConsentState.html" title="class in com.mparticle.consent">ConsentState</a>&nbsp;consentState)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/mparticle/consent/ConsentState.Builder.html" title="class in com.mparticle.consent">ConsentState.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/ConsentState.html#withConsentState-java.lang.String-">withConsentState</a></span>(java.lang.String&nbsp;consentState)</code>&nbsp;</td>
 </tr>
@@ -228,12 +232,21 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;java.util.Map&lt;java.lang.String,<a href="../../../com/mparticle/consent/GDPRConsent.html" title="class in com.mparticle.consent">GDPRConsent</a>&gt;&nbsp;getGDPRConsentState()</pre>
 <div class="block">Retrieve the current GDPR consent state for this user.
  <p>
- Note that all purpose keys will be lower-cased and trimmed.</div>
+ Note that all purpose keys will be lower-case and trimmed.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>returns an unmodifiable Map. Attempted mutation will
- result in an <tt>UnsupportedOperationException</tt>.</dd>
+ result in an <code>UnsupportedOperationException</code>.</dd>
 </dl>
+</li>
+</ul>
+<a name="getCCPAConsentState--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCCPAConsentState</h4>
+<pre>public&nbsp;<a href="../../../com/mparticle/consent/CCPAConsent.html" title="class in com.mparticle.consent">CCPAConsent</a>&nbsp;getCCPAConsentState()</pre>
 </li>
 </ul>
 <a name="toString--">
@@ -276,7 +289,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../com/mparticle/consent/ConsentInstance.html" title="class in com.mparticle.consent"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../com/mparticle/consent/ConsentState.Builder.html" title="class in com.mparticle.consent"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

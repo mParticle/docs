@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":10,"i4":10,"i5":9,"i6":10};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":10,"i10":10,"i11":9,"i12":9,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -148,29 +148,90 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#audienceMapping-java.lang.String-">audienceMapping</a></span>(java.lang.String&nbsp;newUrl)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#aliasMapping-java.lang.String-">aliasMapping</a></span>(java.lang.String&nbsp;newUrl)</code>
+<div class="block">Override the url of outbound Alias events requests.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#configMapping-java.lang.String-">configMapping</a></span>(java.lang.String&nbsp;newUrl)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#aliasMapping-java.lang.String-boolean-">aliasMapping</a></span>(java.lang.String&nbsp;newUrl,
+            boolean&nbsp;overridesSubdirectory)</code>
+<div class="block">Override the url of outbound Alias events requests.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#eventsMapping-java.lang.String-">eventsMapping</a></span>(java.lang.String&nbsp;newUrl)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#audienceMapping-java.lang.String-">audienceMapping</a></span>(java.lang.String&nbsp;newUrl)</code>
+<div class="block">Override the url of outbound Audience requests</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.List&lt;<a href="../../../com/mparticle/networking/Certificate.html" title="class in com.mparticle.networking">Certificate</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#getCertificates--">getCertificates</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#audienceMapping-java.lang.String-boolean-">audienceMapping</a></span>(java.lang.String&nbsp;newUrl,
+               boolean&nbsp;overridesSubdirectory)</code>
+<div class="block">Override the url of outbound Audience requests.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#getUrl--">getUrl</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#configMapping-java.lang.String-">configMapping</a></span>(java.lang.String&nbsp;newUrl)</code>
+<div class="block">Override the url of outbound Config requests</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#identityMapping-java.lang.String-">identityMapping</a></span>(java.lang.String&nbsp;newUrl)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#configMapping-java.lang.String-boolean-">configMapping</a></span>(java.lang.String&nbsp;newUrl,
+             boolean&nbsp;overridesSubdirectory)</code>
+<div class="block">Override the url of outbound Config requests.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#eventsMapping-java.lang.String-">eventsMapping</a></span>(java.lang.String&nbsp;newUrl)</code>
+<div class="block">Override the url of outbound Events requests, including Alias events</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#eventsMapping-java.lang.String-boolean-">eventsMapping</a></span>(java.lang.String&nbsp;newUrl,
+             boolean&nbsp;overridesSubdirectory)</code>
+<div class="block">Override the url of outbound Events requests, including Alias events.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#eventsMapping-java.lang.String-boolean-boolean-">eventsMapping</a></span>(java.lang.String&nbsp;newUrl,
+             boolean&nbsp;overridesSubdirectory,
+             boolean&nbsp;eventsOnly)</code>
+<div class="block">Override the url of outbound Events requests.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../com/mparticle/networking/Certificate.html" title="class in com.mparticle.networking">Certificate</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#getCertificates--">getCertificates</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#getUrl--">getUrl</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#identityMapping-java.lang.String-">identityMapping</a></span>(java.lang.String&nbsp;newUrl)</code>
+<div class="block">Override the url of outbound Identity requests</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#identityMapping-java.lang.String-boolean-">identityMapping</a></span>(java.lang.String&nbsp;newUrl,
+               boolean&nbsp;overridesSubdirectory)</code>
+<div class="block">Override the url of outbound Identity requests.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#isOverridesSubdirectory--">isOverridesSubdirectory</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/DomainMapping.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -203,6 +264,32 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>configMapping</h4>
 <pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;configMapping(java.lang.String&nbsp;newUrl)</pre>
+<div class="block">Override the url of outbound Config requests</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
+</li>
+</ul>
+<a name="configMapping-java.lang.String-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>configMapping</h4>
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;configMapping(java.lang.String&nbsp;newUrl,
+                                                  boolean&nbsp;overridesSubdirectory)</pre>
+<div class="block">Override the url of outbound Config requests. The subdirectory of the url will also be
+ overridden if  is true</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dd><code>overridesSubdirectory</code> - indicate whether the new domain includes the subdirectory</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
 </li>
 </ul>
 <a name="eventsMapping-java.lang.String-">
@@ -212,6 +299,89 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>eventsMapping</h4>
 <pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;eventsMapping(java.lang.String&nbsp;newUrl)</pre>
+<div class="block">Override the url of outbound Events requests, including Alias events</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
+</li>
+</ul>
+<a name="eventsMapping-java.lang.String-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>eventsMapping</h4>
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;eventsMapping(java.lang.String&nbsp;newUrl,
+                                                  boolean&nbsp;overridesSubdirectory)</pre>
+<div class="block">Override the url of outbound Events requests, including Alias events. The subdirectory of the url will also be
+ overridden if  is true</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dd><code>overridesSubdirectory</code> - indicate whether the new domain includes the subdirectory</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
+</li>
+</ul>
+<a name="eventsMapping-java.lang.String-boolean-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>eventsMapping</h4>
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;eventsMapping(java.lang.String&nbsp;newUrl,
+                                                  boolean&nbsp;overridesSubdirectory,
+                                                  boolean&nbsp;eventsOnly)</pre>
+<div class="block">Override the url of outbound Events requests. The subdirectory of the url will also be
+ overridden if  is true.  with indicate if
+ this mapping should only be applied to Events requests, and specifically not Alias events</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dd><code>overridesSubdirectory</code> - indicate whether the new domain includes the subdirectory</dd>
+<dd><code>eventsOnly</code> - indicates whether this mapping should only apply to core, non-alias events</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
+</li>
+</ul>
+<a name="aliasMapping-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>aliasMapping</h4>
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;aliasMapping(java.lang.String&nbsp;newUrl)</pre>
+<div class="block">Override the url of outbound Alias events requests.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
+</li>
+</ul>
+<a name="aliasMapping-java.lang.String-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>aliasMapping</h4>
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;aliasMapping(java.lang.String&nbsp;newUrl,
+                                                 boolean&nbsp;overridesSubdirectory)</pre>
+<div class="block">Override the url of outbound Alias events requests. The subdirectory of the url will also be
+ overridden if  is true</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dd><code>overridesSubdirectory</code> - indicate whether the new domain includes the subdirectory</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
 </li>
 </ul>
 <a name="identityMapping-java.lang.String-">
@@ -221,6 +391,32 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>identityMapping</h4>
 <pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;identityMapping(java.lang.String&nbsp;newUrl)</pre>
+<div class="block">Override the url of outbound Identity requests</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
+</li>
+</ul>
+<a name="identityMapping-java.lang.String-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>identityMapping</h4>
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;identityMapping(java.lang.String&nbsp;newUrl,
+                                                    boolean&nbsp;overridesSubdirectory)</pre>
+<div class="block">Override the url of outbound Identity requests. The subdirectory of the url will also be
+ overridden if  is true</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dd><code>overridesSubdirectory</code> - indicate whether the new domain includes the subdirectory</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
 </li>
 </ul>
 <a name="audienceMapping-java.lang.String-">
@@ -230,6 +426,32 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>audienceMapping</h4>
 <pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;audienceMapping(java.lang.String&nbsp;newUrl)</pre>
+<div class="block">Override the url of outbound Audience requests</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
+</li>
+</ul>
+<a name="audienceMapping-java.lang.String-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>audienceMapping</h4>
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/DomainMapping.Builder.html" title="class in com.mparticle.networking">DomainMapping.Builder</a>&nbsp;audienceMapping(java.lang.String&nbsp;newUrl,
+                                                    boolean&nbsp;overridesSubdirectory)</pre>
+<div class="block">Override the url of outbound Audience requests. The subdirectory of the url will also be
+ overridden if  is true</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newUrl</code> - the new domain portion of the url</dd>
+<dd><code>overridesSubdirectory</code> - indicate whether the new domain includes the subdirectory</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Builder instance</dd>
+</dl>
 </li>
 </ul>
 <a name="getUrl--">
@@ -248,6 +470,15 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCertificates</h4>
 <pre>public&nbsp;java.util.List&lt;<a href="../../../com/mparticle/networking/Certificate.html" title="class in com.mparticle.networking">Certificate</a>&gt;&nbsp;getCertificates()</pre>
+</li>
+</ul>
+<a name="isOverridesSubdirectory--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isOverridesSubdirectory</h4>
+<pre>public&nbsp;boolean&nbsp;isOverridesSubdirectory()</pre>
 </li>
 </ul>
 <a name="toString--">

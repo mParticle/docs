@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../com/mparticle/ReferrerReceiver.html" title="class in com.mparticle"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../com/mparticle/MPServiceUtil.html" title="class in com.mparticle"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../com/mparticle/SdkListener.DatabaseTable.html" title="enum in com.mparticle"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -109,8 +109,8 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">SdkListener</span>
 extends java.lang.Object</pre>
-<div class="block">note: This is an Experimental feature. Adding an instance of SdkListener will slow down the SDK and
- should be used only in development
+<div class="block">Note: This is an Experimental feature. Adding an instance of SdkListener will slow down the SDK and
+ should be used only in development.
 
  SdkListener is a new feature which enables updates on and visibility into internal Events occuring
  inside the SDK.</div>
@@ -210,7 +210,7 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/SdkListener.html#onEntityStored-com.mparticle.SdkListener.DatabaseTable-long-org.json.JSONObject-">onEntityStored</a></span>(<a href="../../com/mparticle/SdkListener.DatabaseTable.html" title="enum in com.mparticle">SdkListener.DatabaseTable</a>&nbsp;tableName,
               long&nbsp;primaryKey,
               org.json.JSONObject&nbsp;message)</code>
-<div class="block">Indicates that a new Database entry has been created</div>
+<div class="block">Indicates that a new Database entry has been created.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -228,13 +228,13 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/SdkListener.html#onKitConfigReceived-int-org.json.JSONObject-">onKitConfigReceived</a></span>(int&nbsp;kitId,
                    org.json.JSONObject&nbsp;configuration)</code>
-<div class="block">Indicates that a Configuration for a kit with kitId is being applied</div>
+<div class="block">Indicates that a Configuration for a kit with kitId is being applied.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/SdkListener.html#onKitDetected-int-">onKitDetected</a></span>(int&nbsp;kitId)</code>
-<div class="block">Indicates that a Kit module, with kitId, is present in the classpath</div>
+<div class="block">Indicates that a Kit module, with kitId, is present in the classpath.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -247,7 +247,7 @@ extends java.lang.Object</pre>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/SdkListener.html#onKitStarted-int-">onKitStarted</a></span>(int&nbsp;kitId)</code>
-<div class="block">Indicates that a kit with kitId was successfully started</div>
+<div class="block">Indicates that a kit with kitId was successfully started.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -270,7 +270,7 @@ extends java.lang.Object</pre>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/SdkListener.html#onSessionUpdated-InternalSession-">onSessionUpdated</a></span>(InternalSession&nbsp;session)</code>
-<div class="block">Indicates that state of a Session may have changed</div>
+<div class="block">Indicates that state of a Session may have changed.</div>
 </td>
 </tr>
 </table>
@@ -343,7 +343,7 @@ extends java.lang.Object</pre>
                         java.util.List&lt;java.lang.Object&gt;&nbsp;objects,
                         boolean&nbsp;isExternal)</pre>
 <div class="block">Indicates that an API method was called. This includes invocations both from external sources (your code)
- and those which originated from within the SDK</div>
+ and those which originated from within the SDK.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>apiName</code> - the name of the Api method</dd>
@@ -361,7 +361,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;onEntityStored(<a href="../../com/mparticle/SdkListener.DatabaseTable.html" title="enum in com.mparticle">SdkListener.DatabaseTable</a>&nbsp;tableName,
                            long&nbsp;primaryKey,
                            org.json.JSONObject&nbsp;message)</pre>
-<div class="block">Indicates that a new Database entry has been created</div>
+<div class="block">Indicates that a new Database entry has been created.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>tableName</code> - the name of the table, see <a href="../../com/mparticle/SdkListener.DatabaseTable.html" title="enum in com.mparticle"><code>SdkListener.DatabaseTable</code></a></dd>
@@ -379,7 +379,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;void&nbsp;onNetworkRequestStarted(<a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle">SdkListener.Endpoint</a>&nbsp;type,
                                     java.lang.String&nbsp;url,
                                     org.json.JSONObject&nbsp;body)</pre>
-<div class="block">Indicates that a Network Request has been started. Network Requests for a given <a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle"><code>SdkListener.Endpoint</code></a> are performed
+<div class="block">Indicates that a Network Request has been started. Network Requests for a given <a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle"><code>SdkListener.Endpoint</code></a> are performed.
  synchronously, so the next invocation of <a href="../../com/mparticle/SdkListener.html#onNetworkRequestStarted-com.mparticle.SdkListener.Endpoint-java.lang.String-org.json.JSONObject-"><code>onNetworkRequestStarted(Endpoint, String, JSONObject)</code></a>
  of the same <a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle"><code>SdkListener.Endpoint</code></a>, will refer to the same request</div>
 <dl>
@@ -401,7 +401,7 @@ extends java.lang.Object</pre>
                                      org.json.JSONObject&nbsp;response,
                                      int&nbsp;responseCode)</pre>
 <div class="block">Indicates that a Network Request has completed. Network Requests for a given <a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle"><code>SdkListener.Endpoint</code></a> are performed
- synchronously, so any invocation will refer to the same request as the most recent
+ synchronously, so any invocation will refer to the same request as the most recent.
  <a href="../../com/mparticle/SdkListener.html#onNetworkRequestStarted-com.mparticle.SdkListener.Endpoint-java.lang.String-org.json.JSONObject-"><code>onNetworkRequestStarted(Endpoint, String, JSONObject)</code></a> invocation of the same <a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle"><code>SdkListener.Endpoint</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -443,7 +443,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>onKitDetected</h4>
 <pre>public&nbsp;void&nbsp;onKitDetected(int&nbsp;kitId)</pre>
-<div class="block">Indicates that a Kit module, with kitId, is present in the classpath</div>
+<div class="block">Indicates that a Kit module, with kitId, is present in the classpath.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>kitId</code> - the id of the kit, corresponse with a <a href="../../com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle"><code>MParticle.ServiceProviders</code></a></dd>
@@ -458,7 +458,7 @@ extends java.lang.Object</pre>
 <h4>onKitConfigReceived</h4>
 <pre>public&nbsp;void&nbsp;onKitConfigReceived(int&nbsp;kitId,
                                 org.json.JSONObject&nbsp;configuration)</pre>
-<div class="block">Indicates that a Configuration for a kit with kitId is being applied</div>
+<div class="block">Indicates that a Configuration for a kit with kitId is being applied.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>kitId</code> - the id of the kit, corresponse with a <a href="../../com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle"><code>MParticle.ServiceProviders</code></a></dd>
@@ -473,7 +473,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>onKitStarted</h4>
 <pre>public&nbsp;void&nbsp;onKitStarted(int&nbsp;kitId)</pre>
-<div class="block">Indicates that a kit with kitId was successfully started</div>
+<div class="block">Indicates that a kit with kitId was successfully started.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>kitId</code> - the id of the kit, corresponse with a <a href="../../com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle"><code>MParticle.ServiceProviders</code></a></dd>
@@ -491,7 +491,7 @@ extends java.lang.Object</pre>
 <div class="block">Indicates that either an attempt to start a kit was unsuccessful, or a started kit was stopped.
  Possibilities for why this may happen include: <a href="../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity"><code>MParticleUser</code></a>'s loggedIn status or
  <a href="../../com/mparticle/consent/ConsentState.html" title="class in com.mparticle.consent"><code>ConsentState</code></a> required it to be stopped, the Kit crashed, or a
- configuration was received with excluded the kit</div>
+ configuration was received with excluded the kit.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>kitId</code> - the id of the kit, corresponse with a <a href="../../com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle"><code>MParticle.ServiceProviders</code></a></dd>
@@ -506,7 +506,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>onSessionUpdated</h4>
 <pre>public&nbsp;void&nbsp;onSessionUpdated(InternalSession&nbsp;session)</pre>
-<div class="block">Indicates that state of a Session may have changed</div>
+<div class="block">Indicates that state of a Session may have changed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>session</code> - the current <code>InternalSession</code> instance</dd>
@@ -554,7 +554,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../com/mparticle/ReferrerReceiver.html" title="class in com.mparticle"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../com/mparticle/MPServiceUtil.html" title="class in com.mparticle"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../com/mparticle/SdkListener.DatabaseTable.html" title="enum in com.mparticle"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

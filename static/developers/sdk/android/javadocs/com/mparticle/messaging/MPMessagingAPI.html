@@ -109,7 +109,8 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">MPMessagingAPI</span>
 extends java.lang.Object</pre>
-<div class="block">Utility class to enable and adjust push notification behavior. Do not directly instantiate this class.</div>
+<div class="block">DO NOT DIRECTLY INSTANTIATE THIS CLASS!
+ Utility class to enable and adjust push notification behavior.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../com/mparticle/MParticle.html#Messaging--"><code>MParticle.Messaging()</code></a></dd>
@@ -184,7 +185,7 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/messaging/MPMessagingAPI.html#disablePushNotifications--">disablePushNotifications</a></span>()</code>
-<div class="block">Unregister the application for FCM notifications</div>
+<div class="block">Unregister the application for FCM notifications.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -194,14 +195,14 @@ extends java.lang.Object</pre>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/messaging/MPMessagingAPI.html#enablePushNotifications-java.lang.String-">enablePushNotifications</a></span>(java.lang.String&nbsp;senderId)</code>
-<div class="block">Register the application for FCM notifications</div>
+<div class="block">Register the application for FCM notifications.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/messaging/MPMessagingAPI.html#registerPushAnalyticsReceiver-com.mparticle.messaging.PushAnalyticsReceiver-">registerPushAnalyticsReceiver</a></span>(<a href="../../../com/mparticle/messaging/PushAnalyticsReceiver.html" title="class in com.mparticle.messaging">PushAnalyticsReceiver</a>&nbsp;receiver)</code>
 <div class="block">Register a custom implementation of PushAnalyticsReceiver, which will provide callbacks when
- push messages are received</div>
+ push messages are received.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
@@ -311,7 +312,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>enablePushNotifications</h4>
 <pre>public&nbsp;void&nbsp;enablePushNotifications(java.lang.String&nbsp;senderId)</pre>
-<div class="block">Register the application for FCM notifications</div>
+<div class="block">Register the application for FCM notifications.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>senderId</code> - the SENDER_ID for the application</dd>
@@ -325,7 +326,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>disablePushNotifications</h4>
 <pre>public&nbsp;void&nbsp;disablePushNotifications()</pre>
-<div class="block">Unregister the application for FCM notifications</div>
+<div class="block">Unregister the application for FCM notifications.</div>
 </li>
 </ul>
 <a name="displayPushNotificationByDefault-java.lang.Boolean-">
@@ -345,7 +346,7 @@ extends java.lang.Object</pre>
 <h4>registerPushAnalyticsReceiver</h4>
 <pre>public&nbsp;void&nbsp;registerPushAnalyticsReceiver(<a href="../../../com/mparticle/messaging/PushAnalyticsReceiver.html" title="class in com.mparticle.messaging">PushAnalyticsReceiver</a>&nbsp;receiver)</pre>
 <div class="block">Register a custom implementation of PushAnalyticsReceiver, which will provide callbacks when
- push messages are received</div>
+ push messages are received.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>receiver</code> - the implementation of PushAnalyticsReceiver to be registered</dd>
