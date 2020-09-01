@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":9,"i4":6,"i5":10};
+var methods = {"i0":6,"i1":10,"i2":6,"i3":6,"i4":9,"i5":6,"i6":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -149,22 +149,29 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getAuthority--">getAuthority</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>abstract java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getFile--">getFile</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getDefaultUrl--">getDefaultUrl</a></span>()</code>
+<div class="block">returns an instance of the Default URL, if NetworkOptions is being used to override it.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>abstract java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getPath--">getPath</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getFile--">getFile</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getUrl-java.lang.String-">getUrl</a></span>(java.lang.String&nbsp;url)</code>&nbsp;</td>
+<td class="colFirst"><code>abstract java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getPath--">getPath</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>static <a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#getUrl-java.lang.String-com.mparticle.networking.MPUrl-">getUrl</a></span>(java.lang.String&nbsp;url,
+      <a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a>&nbsp;defaultUrl)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>abstract <a href="../../../com/mparticle/networking/MPConnection.html" title="interface in com.mparticle.networking">MPConnection</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#openConnection--">openConnection</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/networking/MPUrl.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -207,13 +214,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getUrl-java.lang.String-">
+<a name="getUrl-java.lang.String-com.mparticle.networking.MPUrl-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUrl</h4>
-<pre>public static&nbsp;<a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a>&nbsp;getUrl(java.lang.String&nbsp;url)
+<pre>public static&nbsp;<a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a>&nbsp;getUrl(java.lang.String&nbsp;url,
+                           <a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a>&nbsp;defaultUrl)
                     throws java.net.MalformedURLException</pre>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -269,10 +277,25 @@ extends java.lang.Object</pre>
 <a name="getPath--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getPath</h4>
 <pre>public abstract&nbsp;java.lang.String&nbsp;getPath()</pre>
+</li>
+</ul>
+<a name="getDefaultUrl--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getDefaultUrl</h4>
+<pre>public&nbsp;<a href="../../../com/mparticle/networking/MPUrl.html" title="class in com.mparticle.networking">MPUrl</a>&nbsp;getDefaultUrl()</pre>
+<div class="block">returns an instance of the Default URL, if NetworkOptions is being used to override it. Otherwise,
+ a reference to itself will be returned</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>an MPUrl instance with the the default URL</dd>
+</dl>
 </li>
 </ul>
 </li>

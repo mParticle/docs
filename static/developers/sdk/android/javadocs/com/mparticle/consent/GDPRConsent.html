@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":9,"i1":9};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -98,7 +98,12 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../com/mparticle/consent/ConsentInstance.html" title="class in com.mparticle.consent">com.mparticle.consent.ConsentInstance</a></li>
+<li>
+<ul class="inheritance">
 <li>com.mparticle.consent.GDPRConsent</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -108,7 +113,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">GDPRConsent</span>
-extends java.lang.Object</pre>
+extends <a href="../../../com/mparticle/consent/ConsentInstance.html" title="class in com.mparticle.consent">ConsentInstance</a></pre>
 <div class="block">Record of consent under the GDPR.</div>
 </li>
 </ul>
@@ -142,7 +147,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -152,34 +157,17 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#builder-boolean-">builder</a></span>(boolean&nbsp;consented)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#getDocument--">getDocument</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#getHardwareId--">getHardwareId</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#getLocation--">getLocation</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>java.lang.Long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#getTimestamp--">getTimestamp</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#isConsented--">isConsented</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#toString--">toString</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/mparticle/consent/GDPRConsent.Builder.html" title="class in com.mparticle.consent">GDPRConsent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/consent/GDPRConsent.html#withGDPRConsent-com.mparticle.consent.GDPRConsent-">withGDPRConsent</a></span>(<a href="../../../com/mparticle/consent/GDPRConsent.html" title="class in com.mparticle.consent">GDPRConsent</a>&nbsp;gdprConsent)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.mparticle.consent.ConsentInstance">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.mparticle.consent.<a href="../../../com/mparticle/consent/ConsentInstance.html" title="class in com.mparticle.consent">ConsentInstance</a></h3>
+<code><a href="../../../com/mparticle/consent/ConsentInstance.html#getDocument--">getDocument</a>, <a href="../../../com/mparticle/consent/ConsentInstance.html#getHardwareId--">getHardwareId</a>, <a href="../../../com/mparticle/consent/ConsentInstance.html#getLocation--">getLocation</a>, <a href="../../../com/mparticle/consent/ConsentInstance.html#getTimestamp--">getTimestamp</a>, <a href="../../../com/mparticle/consent/ConsentInstance.html#isConsented--">isConsented</a>, <a href="../../../com/mparticle/consent/ConsentInstance.html#toString--">toString</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -213,68 +201,10 @@ extends java.lang.Object</pre>
 <a name="withGDPRConsent-com.mparticle.consent.GDPRConsent-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>withGDPRConsent</h4>
 <pre>public static&nbsp;<a href="../../../com/mparticle/consent/GDPRConsent.Builder.html" title="class in com.mparticle.consent">GDPRConsent.Builder</a>&nbsp;withGDPRConsent(<a href="../../../com/mparticle/consent/GDPRConsent.html" title="class in com.mparticle.consent">GDPRConsent</a>&nbsp;gdprConsent)</pre>
-</li>
-</ul>
-<a name="isConsented--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isConsented</h4>
-<pre>public&nbsp;boolean&nbsp;isConsented()</pre>
-</li>
-</ul>
-<a name="getDocument--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDocument</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getDocument()</pre>
-</li>
-</ul>
-<a name="getTimestamp--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getTimestamp</h4>
-<pre>public&nbsp;java.lang.Long&nbsp;getTimestamp()</pre>
-</li>
-</ul>
-<a name="getLocation--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getLocation</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getLocation()</pre>
-</li>
-</ul>
-<a name="getHardwareId--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getHardwareId</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getHardwareId()</pre>
-</li>
-</ul>
-<a name="toString--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-</dl>
 </li>
 </ul>
 </li>

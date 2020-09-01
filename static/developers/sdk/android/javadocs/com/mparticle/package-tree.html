@@ -81,10 +81,14 @@
 <ul>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/AttributionError.html" title="class in com.mparticle"><span class="typeNameLink">AttributionError</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/AttributionResult.html" title="class in com.mparticle"><span class="typeNameLink">AttributionResult</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/BaseEvent.html" title="class in com.mparticle"><span class="typeNameLink">BaseEvent</span></a>
+<ul>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle"><span class="typeNameLink">MPEvent</span></a></li>
+</ul>
+</li>
 <li type="circle">android.content.BroadcastReceiver
 <ul>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MPReceiver.html" title="class in com.mparticle"><span class="typeNameLink">MPReceiver</span></a></li>
-<li type="circle">com.mparticle.<a href="../../com/mparticle/ReferrerReceiver.html" title="class in com.mparticle"><span class="typeNameLink">ReferrerReceiver</span></a></li>
 </ul>
 </li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/BuildConfig.html" title="class in com.mparticle"><span class="typeNameLink">BuildConfig</span></a></li>
@@ -112,7 +116,6 @@
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MParticleOptions.html" title="class in com.mparticle"><span class="typeNameLink">MParticleOptions</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle"><span class="typeNameLink">MParticleOptions.Builder</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MParticleTask.html" title="class in com.mparticle"><span class="typeNameLink">MParticleTask</span></a>&lt;MParticleTaskResult&gt;</li>
-<li type="circle">com.mparticle.<a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle"><span class="typeNameLink">MPEvent</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle"><span class="typeNameLink">MPEvent.Builder</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MPServiceUtil.html" title="class in com.mparticle"><span class="typeNameLink">MPServiceUtil</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/SdkListener.html" title="class in com.mparticle"><span class="typeNameLink">SdkListener</span></a></li>
@@ -123,6 +126,7 @@
 <h2 title="Interface Hierarchy">Interface Hierarchy</h2>
 <ul>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/AttributionListener.html" title="interface in com.mparticle"><span class="typeNameLink">AttributionListener</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/BaseEvent.MessageType.html" title="interface in com.mparticle"><span class="typeNameLink">BaseEvent.MessageType</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/InstallReferrerHelper.InstallReferrerCallback.html" title="interface in com.mparticle"><span class="typeNameLink">InstallReferrerHelper.InstallReferrerCallback</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.ResetListener.html" title="interface in com.mparticle"><span class="typeNameLink">MParticle.ResetListener</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle"><span class="typeNameLink">MParticle.ServiceProviders</span></a></li>
@@ -135,13 +139,15 @@
 <ul>
 <li type="circle">java.lang.Enum&lt;E&gt; (implements java.lang.Comparable&lt;T&gt;, java.io.Serializable)
 <ul>
-<li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.EventType.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.EventType</span></a></li>
-<li type="circle">com.mparticle.<a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle"><span class="typeNameLink">SdkListener.Endpoint</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.LogLevel.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.LogLevel</span></a></li>
-<li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.InstallType</span></a></li>
-<li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.Environment</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/SdkListener.DatabaseTable.html" title="enum in com.mparticle"><span class="typeNameLink">SdkListener.DatabaseTable</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.Environment.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.Environment</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/SdkListener.Endpoint.html" title="enum in com.mparticle"><span class="typeNameLink">SdkListener.Endpoint</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.InstallType</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.OperatingSystem.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.OperatingSystem</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.EventType.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.EventType</span></a></li>
 <li type="circle">com.mparticle.<a href="../../com/mparticle/MParticle.IdentityType.html" title="enum in com.mparticle"><span class="typeNameLink">MParticle.IdentityType</span></a></li>
+<li type="circle">com.mparticle.<a href="../../com/mparticle/BaseEvent.Type.html" title="enum in com.mparticle"><span class="typeNameLink">BaseEvent.Type</span></a> (implements com.mparticle.<a href="../../com/mparticle/BaseEvent.MessageType.html" title="interface in com.mparticle">BaseEvent.MessageType</a>)</li>
 </ul>
 </li>
 </ul>

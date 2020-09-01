@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -114,7 +114,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">MParticleUserImpl</span>
 extends java.lang.Object
 implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a></pre>
-<div class="block">a class which represents a User</div>
+<div class="block">A class which represents a User.</div>
 </li>
 </ul>
 </div>
@@ -153,105 +153,99 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../com/mparticle/commerce/Cart.html" title="class in com.mparticle.commerce">Cart</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getCart--">getCart</a></span>()</code>
-<div class="block">query the Cart of the User</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/mparticle/consent/ConsentState.html" title="class in com.mparticle.consent">ConsentState</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getConsentState--">getConsentState</a></span>()</code>
 <div class="block">Query the ConsentState of this user</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getFirstSeenTime--">getFirstSeenTime</a></span>()</code>
 <div class="block">The timestamp representing the first time this user was observed on this device</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getId--">getId</a></span>()</code>
 <div class="block">query the MPID of the User</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getLastSeenTime--">getLastSeenTime</a></span>()</code>
 <div class="block">The timestamp representing the last time this user was the "currentUser" on this device</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getSegments-long-java.lang.String-com.mparticle.segmentation.SegmentListener-">getSegments</a></span>(long&nbsp;timeout,
            java.lang.String&nbsp;endpointId,
            <a href="../../../com/mparticle/segmentation/SegmentListener.html" title="interface in com.mparticle.segmentation">SegmentListener</a>&nbsp;listener)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.Object&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getUserAttributes--">getUserAttributes</a></span>()</code>
 <div class="block">query the attributes of the User</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,java.lang.Object&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getUserAttributes-com.mparticle.UserAttributeListener-">getUserAttributes</a></span>(<a href="../../../com/mparticle/UserAttributeListener.html" title="interface in com.mparticle">UserAttributeListener</a>&nbsp;listener)</code>
-<div class="block">query the attributes of the User asynchronously</div>
+<div class="block">Query the attributes of the User asynchronously.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Map&lt;<a href="../../../com/mparticle/MParticle.IdentityType.html" title="enum in com.mparticle">MParticle.IdentityType</a>,java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#getUserIdentities--">getUserIdentities</a></span>()</code>
 <div class="block">query the Identities of the User</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#incrementUserAttribute-java.lang.String-int-">incrementUserAttribute</a></span>(java.lang.String&nbsp;key,
                       int&nbsp;value)</code>
 <div class="block">increment an attribute for the user</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#isLoggedIn--">isLoggedIn</a></span>()</code>
 <div class="block">Query the "Logged In" status for this user.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#removeUserAttribute-java.lang.String-">removeUserAttribute</a></span>(java.lang.String&nbsp;key)</code>
 <div class="block">remove an attribute for the user</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#setConsentState-com.mparticle.consent.ConsentState-">setConsentState</a></span>(<a href="../../../com/mparticle/consent/ConsentState.html" title="class in com.mparticle.consent">ConsentState</a>&nbsp;state)</code>
 <div class="block">Set the ConsentState for this user</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#setUserAttribute-java.lang.String-java.lang.Object-">setUserAttribute</a></span>(java.lang.String&nbsp;key,
                 java.lang.Object&nbsp;value)</code>
 <div class="block">set a single attribute for the user</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#setUserAttributeList-java.lang.String-java.lang.Object-">setUserAttributeList</a></span>(java.lang.String&nbsp;key,
                     java.lang.Object&nbsp;value)</code>
-<div class="block">set a single attribute for the user whos value is an Object, not just a String</div>
+<div class="block">set a single attribute for the user whose value is an Object, not just a String</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#setUserAttributes-java.util.Map-">setUserAttributes</a></span>(java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;userAttributes)</code>
 <div class="block">assign attributes to the User in bulk</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/mparticle/identity/MParticleUserImpl.html#setUserTag-java.lang.String-">setUserTag</a></span>(java.lang.String&nbsp;tag)</code>
 <div class="block">set a tag for a User.</div>
@@ -313,25 +307,6 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 </dl>
 </li>
 </ul>
-<a name="getCart--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCart</h4>
-<pre>public&nbsp;<a href="../../../com/mparticle/commerce/Cart.html" title="class in com.mparticle.commerce">Cart</a>&nbsp;getCart()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/mparticle/identity/MParticleUser.html#getCart--">MParticleUser</a></code></span></div>
-<div class="block">query the Cart of the User</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/mparticle/identity/MParticleUser.html#getCart--">getCart</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the cart</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../com/mparticle/commerce/Cart.html" title="class in com.mparticle.commerce"><code>Cart</code></a></dd>
-</dl>
-</li>
-</ul>
 <a name="getUserAttributes--">
 <!--   -->
 </a>
@@ -356,7 +331,7 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <li class="blockList">
 <h4>getUserAttributes</h4>
 <pre>public&nbsp;java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;getUserAttributes(<a href="../../../com/mparticle/UserAttributeListener.html" title="interface in com.mparticle">UserAttributeListener</a>&nbsp;listener)</pre>
-<div class="block">query the attributes of the User asynchronously</div>
+<div class="block">Query the attributes of the User asynchronously.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../com/mparticle/identity/MParticleUser.html#getUserAttributes-com.mparticle.UserAttributeListener-">getUserAttributes</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a></code></dd>
@@ -381,7 +356,7 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>userAttributes</code> - the attributes to be set</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>whether the attributes where successfully set</dd>
+<dd>whether the attributes were successfully set</dd>
 </dl>
 </li>
 </ul>
@@ -419,7 +394,7 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <dd><code>key</code> - the key of the attribute</dd>
 <dd><code>value</code> - the value of the attribute</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>whether the attributes where successfully set</dd>
+<dd>whether the attributes were successfully set</dd>
 </dl>
 </li>
 </ul>
@@ -432,7 +407,7 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <pre>public&nbsp;boolean&nbsp;setUserAttributeList(java.lang.String&nbsp;key,
                                     java.lang.Object&nbsp;value)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/mparticle/identity/MParticleUser.html#setUserAttributeList-java.lang.String-java.lang.Object-">MParticleUser</a></code></span></div>
-<div class="block">set a single attribute for the user whos value is an Object, not just a String</div>
+<div class="block">set a single attribute for the user whose value is an Object, not just a String</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../com/mparticle/identity/MParticleUser.html#setUserAttributeList-java.lang.String-java.lang.Object-">setUserAttributeList</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a></code></dd>
@@ -440,7 +415,7 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <dd><code>key</code> - the key of the attribute</dd>
 <dd><code>value</code> - the value of the attribute</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>whether the attributes where successfully set</dd>
+<dd>whether the attributes were successfully set</dd>
 </dl>
 </li>
 </ul>
@@ -461,7 +436,7 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <dd><code>key</code> - the key of the attribute</dd>
 <dd><code>value</code> - the value of the attribute</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>whether the attributes where successfully set</dd>
+<dd>whether the attributes were successfully set</dd>
 </dl>
 </li>
 </ul>
@@ -480,7 +455,7 @@ implements <a href="../../../com/mparticle/identity/MParticleUser.html" title="i
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - the key of the attribute which is to be removed</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>whether the attributes where successfully removed</dd>
+<dd>whether the attributes were successfully removed</dd>
 </dl>
 </li>
 </ul>
