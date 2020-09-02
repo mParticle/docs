@@ -180,30 +180,29 @@ Previous Session Length | `a.PrevSessionLength` | No|  Whenever an Application I
 
 For Android and FireTV installs, mParticle forwards UTM Referrer information to Adobe:
 
-Adobe Dimension | Adobe Context Variable | mParticle mapping |
-------| ------- | ------------ | ----
-Campaign | `a.referrer.campaign.name`  | `application_info.install_referrer` |
-Campaign Content | `a.referrer.campaign.content`  | `application_info.install_referrer` |
-Campaign Medium | `a.referrer.campaign.medium`  | `application_info.install_referrer` |
-Campaign Source | `a.referrer.campaign.source` | `application_info.install_referrer` |
-Campaign Term | `a.referrer.campaign.term` | `application_info.install_referrer` |
+| Adobe Dimension | Adobe Context Variable | mParticle mapping |
+| ------| ------- | ------------ |
+| Campaign | `a.referrer.campaign.name`  | `application_info.install_referrer` |
+| Campaign Content | `a.referrer.campaign.content`  | `application_info.install_referrer` |
+| Campaign Medium | `a.referrer.campaign.medium`  | `application_info.install_referrer` |
+| Campaign Source | `a.referrer.campaign.source` | `application_info.install_referrer` |
+| Campaign Term | `a.referrer.campaign.term` | `application_info.install_referrer` |
 
-For Web page view events, mParticle forwards UTM Referrer information to Adobe:
+For Web page view events, mParticle forwards UTM Referrer information to Adobe. The data should be sent in a custom flag with the following format: `utm_campaign=my_campaign&utm_source=google&utm_medium=cpc&utm_term=my_keyword&utm_content=ad_variation1`.
 
-Adobe Dimension | Adobe Context Variable | mParticle mapping |
-------| ------- | ------------ | ----
-Campaign | `a.referrer.campaign.name`  | `data.custom_flags.Adobe.UTM` |
-Campaign Content | `a.referrer.campaign.content`  | `data.custom_flags.Adobe.UTM` |
-Campaign Medium | `a.referrer.campaign.medium`  | `data.custom_flags.Adobe.UTM` |
-Campaign Source | `a.referrer.campaign.source` | `data.custom_flags.Adobe.UTM` |
-Campaign Term | `a.referrer.campaign.term` | `data.custom_flags.Adobe.UTM` |
+| Adobe Dimension | Adobe Context Variable | mParticle mapping |
+| ------| ------- | ------------ |
+| Campaign | `a.referrer.campaign.name`  | `data.custom_flags.Adobe.UTM` |
+| Campaign Content | `a.referrer.campaign.content`  | `data.custom_flags.Adobe.UTM` |
+| Campaign Medium | `a.referrer.campaign.medium`  | `data.custom_flags.Adobe.UTM` |
+| Campaign Source | `a.referrer.campaign.source` | `data.custom_flags.Adobe.UTM` |
+| Campaign Term | `a.referrer.campaign.term` | `data.custom_flags.Adobe.UTM` |
 
 For Web page view events, mParticle forwards Referrer URL information to Adobe:
 
-
-Adobe Dimension | Adobe Variable | mParticle mapping |
-------| ------- | ------------ | ----
-Referrer | `r`  | `data.custom_flags.Adobe.Referrer` |
+| Adobe Dimension | Adobe Variable | mParticle mapping |
+| ------| ------- | ------------ |
+| Referrer | `r`  | `data.custom_flags.Adobe.Referrer` |
 
 ## Context Variables
 
