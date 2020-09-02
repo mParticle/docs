@@ -69,6 +69,10 @@ Custom events logged via mParticle's `logEvent` SDK method and their attributes 
 
 Attribution Custom events will be forwarded to Amplitude prefixed with the attribution provider in the event name.  For example, `[Tune] attribution`.  Event Attributes that are included with the event are forwarded to Amplitude in user_properties, also prefixed with the attribution provider.
 
+### Push Registration
+
+mParticle will forward all push registration events to Amplitude with the Amplitude Event Type set to `Push Registration`. All Field Mappings defined in this documentation will be forwarded too.
+
 ### Application State Transition Forwarding
 
 If the `Send Application State Transitions` setting is enabled, Application State Transition events will be forwarded to Amplitude as follows:
