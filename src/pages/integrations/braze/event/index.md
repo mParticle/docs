@@ -224,17 +224,18 @@ By default, mParticle forwards all available user attributes to Braze, including
 | ---|---|---|---|----
 | App Group REST API Key | `string` |  | All| The App Group REST API Key can be found in the developer console section of the Braze dashboard.  This field is optional when sending in data via the SDK, but is required for using the S2S API. |
 | Braze SDK Session Timeout | `string` | <unset> | All| Braze SDK time interval for session time out in seconds. |
-| Push Enabled | `bool` | True | iOS, Android| Forward GCM registration IDs to the Braze SDK and enable Braze push notifications. |
-| Event Attributes that add to array | `Custom Field` |  | iOS, Android| Select your mParticle event names and event attributes and enter the corresponding Braze custom attribute array name you want the event attribute ADDED to. |
-| Event Attributes that remove from array | `Custom Field` |  | iOS, Android| Select your mParticle event names and event attributes and enter the corresponding Braze custom attribute array name you want the event attribute REMOVED from. |
-| Event Attributes that set to custom attribute value | `Custom Field` |  | iOS, Android| Select your mParticle event names and event attributes and enter the corresponding Braze custom attribute you want the event attribute to map to. Note each time this event attribute is present, it will get sent to Braze and overwrite any previously sent value. |
+| Push Enabled | `bool` | True | iOS, tvOS, Android| Forward GCM registration IDs to the Braze SDK and enable Braze push notifications. |
+| Event Attributes that add to array | `Custom Field` |  | iOS, tvOS, Android, Roku | Select your mParticle event names and event attributes and enter the corresponding Braze custom attribute array name you want the event attribute ADDED to. |
+| Event Attributes that remove from array | `Custom Field` |  | iOS, tvOS, Android, Roku | Select your mParticle event names and event attributes and enter the corresponding Braze custom attribute array name you want the event attribute REMOVED from. |
+| Event Attributes that set to custom attribute value | `Custom Field` |  | iOS, tvOS, Android, Roku | Select your mParticle event names and event attributes and enter the corresponding Braze custom attribute you want the event attribute to map to. Note each time this event attribute is present, it will get sent to Braze and overwrite any previously sent value. |
 | Braze SDK Flush Interval | `string` | <unset> | iOS, tvOS| Braze SDK data flush internal in seconds (iOS only). Refer to Braze sdk doc for "ABKFlushIntervalOptionKey". |
 | Braze SDK Request Policy | `string` | <unset> | iOS, tvOS| Braze SDK request policy at app start time (iOS only). Refer to Braze sdk doc for "ABKRequestProcessingPolicyOptionKey". |
 | Braze SDK Minimum Time Interval Between Triggers | `string` | <unset> | iOS, tvOS| Braze SDK minimum time interval in seconds between triggers (iOS only). Refer to Braze sdk doc for "ABKMinimumTriggerTimeIntervalKey". |
-| User Tags Value | `enum` | "true" | Web| Select the value to be sent to Braze for [user tags](/developers/sdk/web/users/#set-user-tags). The possible values are `null` or "true". When "true", it will be affected by the parameter Enable type detection. |
+| User Tags Value | `enum` | "true" |  All but Web | Select the value to be sent to Braze for [user tags](/developers/sdk/web/users/#set-user-tags). The possible values are `null` or "true". When "true", it will be affected by the parameter Enable type detection. |
 | Braze SDK Collect IDFA? | `bool` | False | iOS, tvOS| Informs the Braze Kit whether to collect IDFA. |
 | Braze SDK Disable Automatic Location Tracking| `bool` | False | iOS, tvOS | Informs the Braze Kit whether to disable automatic location tracking at app startup time |
-| Include Enriched User Attributes | `bool` | True | iOS, tvOS| If enabled, mParticle will forward enriched user attributes from the existing user profile. |
+| Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. |
+| Send User Attribute Lists as Arrays | `bool` | False | All | If checked, mParticle will send each user attribute list server-side as an array, rather than a comma-separated string |
 | Enable type detection for custom/user attributes | `bool` | False | All but Web | By default, all platforms (except for web) send attributes as strings unless there are special Braze reserved user attributes. Checking this will force attributes to be sent as parsed data types where possible|
 | Forward Screen View Messages | `bool` | False | All| If enabled, all screen view messages will be forwarded to Braze as separate events. |
 | Forward Session Events | `bool` | False | All| If enabled, all session start and end events will be forwarded to Braze as separate events. Session IDs will also be sent with events when populated. |
@@ -246,4 +247,3 @@ By default, mParticle forwards all available user attributes to Braze, including
 | Replace SKU as Braze Product Name | `bool` | False | Web | If enabled, the SKU replaces Product Name when sent to Braze. By default, Web sends Product Name to Braze. New customers should check this to be consistent with iOS/Android which sends SKU by default.
 | Enable HTML within in-app messages | `bool` | False | Web| Enable HTML within in-app messages. This correlates to the enableHtmlInAppMessages setting of the Braze SDK. |
 | Do not Load FontAwesome | `bool` | False | Web | Disable loading of FontAwesome from the FontAwesome CDN. Note that if you do this, you are responsible for ensuring that FontAwesome is loaded - otherwise in-app messages may not render correctly. 
-| Enable Type Detection | `bool` | False | Web | Send custom/user attributes with parsed data types. |
