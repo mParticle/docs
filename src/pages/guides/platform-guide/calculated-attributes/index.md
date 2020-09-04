@@ -97,7 +97,7 @@ Occurrence | Last timestamp  | Timestamp | `2020-01-10T22:14:47.1051728Z` | Inst
 List | Unique List | Comma separated list of dynamic values; maximum of 100. | `"Item 1","Item 2","Item 3"` | Instant
 
 
-All calculation speeds here are *after* the values have been initialized. Setting the date range to 'within the last' will cause delayed calculations for all calculation types.
+All calculation speeds here are *after* the values have been initialized. Setting the date range to 'within the last' will cause all calculations to update with delayed speed.
 
 ## Forwarding
 
@@ -147,6 +147,10 @@ To create a Calculated Attribute:
     1. **Save** your changes.
       ![](/images/ca-builder.png)
 
+### Type Conversions
+Some calculated attributes, like `sum`, require numeric event attributes to function. If you select an attribute that is not detected as the correct type, the platform will warn you about using those fields in the calculated attribute definition. You <b>can still calculate</b> the calculated attribute despite the warning and it will attempt to convert the string values into numerics. For example, if you pass the attribute `amount` in as a numeric string like `"34.32"`, a `sum` calculation will still work correctly.
+
+![](/images/ca-type-warning.png)
 
 ## Seeding
 Seeding allows you to pass in historic values for calculated attributes that mParticle will build upon as new data arrives, without passing in all the raw events. This allows you to seamlessly transition from your own calculations to mParticle's.  You can seed calculated attributes in both draft (recommended) and active states; the calculated attribute must exist before seeding it.
