@@ -35,6 +35,8 @@ Leanplum has limits around characters and the number of unique event names and a
 * tvOS
 * Web
 
+The mParticle Unity plugin also supports the Leanplum kit. [Navigate to see Leanplum's documentation](https://docs.leanplum.com/docs/mparticle-sdk#unity) for the steps needed for Unity support.
+
 ## Supported User IDs
 * Customer ID
 * Email Address
