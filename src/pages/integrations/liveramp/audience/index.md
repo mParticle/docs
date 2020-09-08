@@ -6,7 +6,13 @@ title: Audience
 
 ## Prerequisites
 
-In order to enable the mParticle integration with LiveRamp, you will need the credentials for the SFTP location used to upload files to LiveRamp.  The LiveRamp integration only supports SFTP for uploading data to LiveRamp.
+In order to enable the mParticle integration with LiveRamp, you will need the credentials for the SFTP location used to upload files to LiveRamp.
+
+Contact your LiveRamp rep and request that uploads from mParticle be enabled. Let your LiveRamp rep know which of your LiveRamp audiences you wish to upload Device and PII data to.
+
+The LiveRamp integration only supports SFTP for uploading data to LiveRamp. 
+
+At this time the integration only supports LiveRamp in the United States, not the United Kingdom, Canada or France.
 
 ## Activate the Integration
 
@@ -42,6 +48,12 @@ If `Send PII to LiveRamp` is selected, a file containing the fields specified in
 ## Upload Frequency
 
 The LiveRamp Audience Integration uploads data to the SFTP location you specify nightly at 12am EST.  When the integration is first configured and connected to an Audience the first file(s) will be sent at 12am EST.  As long as the integration is active, each night the audience membership will be evaluated and new file(s) will be uploaded to LiveRamp.  This allows you to keep the audiences in LiveRamp and other downstream systems in sync.
+
+## Finding your mParticle Audiences in Liveramp
+
+When you connect an mParticle audience to LiveRamp, mParticle will upload a CSV file to LiveRamp nightly for each selected data type (Device and PII). The files will be named using a combination of your mParticle Org ID, the Audience ID, the upload date, and the data type. For example `3242_17095-D_2020-04-01.csv`. Each file will be available as a "segment" in LiveRamp. You should ignore these segments in LiveRamp, unless you specifically want to distribute the mParticle audience as it was on one particular day.
+
+LiveRamp will also create segments with names based on the External Name of the mParticle audience. For example, if your mParticle audience is called `High-value customers`, then the segments in LiveRamp will be called `High-value customers-D` (Device) and `High-value customers-PII` (PII). LiveRamp updates these segments each night based on the data uploaded by mParticle. These are the segments you should add to LiveRamp distributions, since LiveRamp will keep your distributions up to date as mParticle sends more data. 
 
 ## LiveRamp File Limits
 
