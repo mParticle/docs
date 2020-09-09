@@ -258,3 +258,20 @@ MParticle.getInstance().upload()
 :::
 
 
+### Fire TV Support
+
+In addition to the Google Play Store and its compatible Android devices, the same core Android SDK also supports Amazon's Fire TV store and platform. Within a Fire TV app, the core Android SDK will attempt to query for the Amazon Advertising ID (instead of the Google Advertising ID), but otherwise the SDK functions identically.
+
+In order to use the Android SDK within a Fire TV app, you must override the `OperatingSystem` during SDK initialization:
+
+:::code-selector-block
+```java
+MParticleOptions options = MParticleOptions.builder(this)
+    .operatingSystem(MParticle.OperatingSystem.FIRE_OS)
+
+```
+```kotlin
+var options = MParticleOptions.builder(this)
+   .operatingSystem(MParticle.OperatingSystem.FIRE_OS)
+```
+:::
