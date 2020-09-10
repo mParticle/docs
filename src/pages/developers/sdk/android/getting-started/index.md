@@ -82,7 +82,7 @@ import com.mparticle.MParticleOptions
 class ExampleApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        var options = MParticleOptions.builder(this)
+        val options = MParticleOptions.builder(this)
             .credentials("REPLACE ME WITH KEY", "REPLACE ME WITH SECRET")
             .build()
         MParticle.start(options)
