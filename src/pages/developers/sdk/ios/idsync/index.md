@@ -39,8 +39,9 @@ MPIdentityApiRequest *identityRequest = [MPIdentityApiRequest requestWithEmptyUs
 //the MPIdentityApiRequest provides convenience methods for common identity types
 identityRequest.email = @"foo@example.com";
 identityRequest.customerId = @"123456";
-//alternatively, you can use the setUserIdentity method and supply the MPUserIdentity type
-[identityRequest setUserIdentity: @"bar-id" identityType:MPUserIdentityOther];
+//alternatively, you can use the setIdentity method and supply the MPIdentity type
+[identityRequest setIdentity: [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] identityType:MPIdentityIOSAdvertiserId];
+[identityRequest setIdentity: @"bar-id" identityType:MPIdentityOther];
 ```
 
 ```swift
@@ -48,8 +49,9 @@ var identityRequest = MPIdentityApiRequest.withEmptyUser()
 //the MPIdentityApiRequest provides convenience methods for common identity types
 identityRequest.email = "foo@example.com"
 identityRequest.customerId = "123456"
-//alternatively, you can use the setUserIdentity method and supply the MPUserIdentity type
-identityRequest.setUserIdentity("bar-id", identityType: MPUserIdentity.other)
+//alternatively, you can use the setIdentity method and supply the MPIdentity type
+identityRequest.setIdentity("bar-id", identityType: MPIdentity.other)
+identityRequest.setIdentity(ASIdentifierManager.shared().advertisingIdentifier.uuidString, identityType: MPIdentity.iOSAdvertiserId)
 ```
 :::
 
@@ -190,6 +192,24 @@ identityRequest.email = nil;
 ```swift
 var identityRequest = MPIdentityApiRequest.withEmptyUser()
 identityRequest.email = nil;
+MParticle.sharedInstance().identity.modify(identityRequest, completion: identityCallback)
+```
+:::
+
+## Advertising ID (IDFA)
+
+As of Apple SDK 8.0, mParticle will no longer automatically collect the Apple Advertising ID (IDFA). This is to ensure that developers can make their own decision on user privacy and data use, especially as it pertains to [Apple policy changes](https://developer.apple.com/app-store/user-privacy-and-data-use/) arriving with iOS 14. To include IDFA in your mParticle data, you must must now manually query and provide the IDFA to the mParticle SDK. For more information on migrating to our Apple SDK 8.0, checkout our [migration guide](https://github.com/mParticle/mparticle-apple-sdk/blob/master/migration-guide-v8.md). 
+
+:::code-selector-block
+```objectivec
+MPIdentityApiRequest *identityRequest = [MPIdentityApiRequest requestWithEmptyUser];
+[identityRequest setIdentity: [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] identityType:MPIdentityIOSAdvertiserId];
+[[[MParticle sharedInstance] identity] modify:identityRequest completion:identityCallback];
+```
+
+```swift
+var identityRequest = MPIdentityApiRequest.withEmptyUser()
+identityRequest.setIdentity(ASIdentifierManager.shared().advertisingIdentifier.uuidString, identityType: MPIdentity.iOSAdvertiserId)
 MParticle.sharedInstance().identity.modify(identityRequest, completion: identityCallback)
 ```
 :::
@@ -369,7 +389,7 @@ MParticle.sharedInstance().identity.aliasUsers(request)
 <!--
 ```swift
 let request = MPIdentityApiRequest.withEmptyUser()
-request.setUserIdentity("12345", identityType: MPUserIdentity.other)
+request.setIdentity("12345", identityType: MPIdentity.other)
 
 request.onUserAlias = { (previousUser, newUser) -> Void in
     
@@ -424,31 +444,34 @@ override func viewDidLoad() {
 
 ## Supported Identity Types
 
-See the table below and the complete [API reference](/developers/sdk/ios/appledocs/Constants/MPUserIdentity.html) for supported user identity types:
+See the table below and the complete [API reference](/developers/sdk/ios/appledocs/Constants/MPIdentity.html) for supported user identity types:
 
 
-| MPUserIdentity    |   Description
+| MPIdentity    |   Description
 |---|---|
-| `MPUserIdentityCustomerId`                 | If you have an internal ID for your customer |
-| `MPUserIdentityEmail`                      | The user's email address |
-| `MPUserIdentityOther`                      | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther2`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther3`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther4`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther5`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther6`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther7`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther8`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther9`                     | Any other identifier that can contribute to user identification |
-| `MPUserIdentityOther10`                    | Any other identifier that can contribute to user identification |
-| `MPUserIdentityMobileNumber`               | The user's mobile number |
-| `MPUserIdentityPhoneNumber2`               | Any other phone number for the user |
-| `MPUserIdentityPhoneNumber3`               | Any other phone number for the user |
-| `MPUserIdentityFacebook`                   | The user's Facebook ID |
-| `MPUserIdentityFacebookCustomAudienceId`   | The user's Facebook App User ID that can be retrieved through the Facebook SDK |
-| `MPUserIdentityGoogle`                     | The user's Google ID |
-| `MPUserIdentityTwitter`                    | The user's Twitter ID |
-| `MPUserIdentityMicrosoft`                  | The user's Microsoft ID |
-| `MPUserIdentityYahoo`                      | The user's Yahoo ID |
-
+| `MPIdentityCustomerId`                 | If you have an internal ID for your customer |
+| `MPIdentityEmail`                      | The user's email address |
+| `MPIdentityOther`                      | Any other identifier that can contribute to user identification |
+| `MPIdentityOther2`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther3`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther4`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther5`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther6`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther7`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther8`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther9`                     | Any other identifier that can contribute to user identification |
+| `MPIdentityOther10`                    | Any other identifier that can contribute to user identification |
+| `MPIdentityMobileNumber`               | The user's mobile number |
+| `MPIdentityPhoneNumber2`               | Any other phone number for the user |
+| `MPIdentityPhoneNumber3`               | Any other phone number for the user |
+| `MPIdentityFacebook`                   | The user's Facebook ID |
+| `MPIdentityFacebookCustomAudienceId`   | The user's Facebook App User ID that can be retrieved through the Facebook SDK |
+| `MPIdentityGoogle`                     | The user's Google ID |
+| `MPIdentityTwitter`                    | The user's Twitter ID |
+| `MPIdentityMicrosoft`                  | The user's Microsoft ID |
+| `MPIdentityYahoo`                      | The user's Yahoo ID |
+| `MPIdentityIOSAdvertiserId`  | The device advertiser identifier |
+| `MPIdentityIOSVendorId`          | The device vendor identifier |
+| `MPIdentityPushToken`              | The token provided to send push notications to this user |
+| `MPIdentityDeviceApplicationStamp`   | The device application stamp |
 
