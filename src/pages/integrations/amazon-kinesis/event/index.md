@@ -58,7 +58,7 @@ Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespace
       "Effect": "Allow",
       "Principal": {
         "AWS": [
-          "arn:aws:iam::338661164609:role/lambda_basic_vpc_execution",
+          "arn:aws:iam::338661164609:role/role-lambda-verifyrequest",
           "arn:aws:iam::338661164609:role/role-ecs-mp-notification-httpservertoserverprocessor"
         ]
       },
