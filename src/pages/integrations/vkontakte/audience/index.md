@@ -11,10 +11,12 @@ title: Audience
 
 ## Supported IDs
 
+All device and user IDs are sent to Vkontakte in MD5 hash format.
+
 ### Device IDs  
 
 * GAID (Google Advertising ID)
-* IDFA (iOS Advertising ID)
+* IDFA (iOS Advertising ID) 
 
 ### User IDs  
 
