@@ -22,15 +22,21 @@ Additionally, you must check the box for <b>Use Mixpanel People</b> configuratio
 
 When forwarding audience data to Mixpanel, mParticle will send
 * Android Device IDs
-* IDFAs, 
+* IDFAs,
 * IDFVs
 * Customer IDs
 
-## Configuration Settings
+## Forwarding Audiences
 
 mParticle will forward a single Mixpanel People Attribute called `SegmentMembership`. `SegmentMembership`'s value will be a comma-separated list of mParticle audience IDs that the user is a member of, wrapped in single quotes (e.g. “‘123’,’456’,’789’”).
 
-Setting Name | Data Type | Default Value | Description 
+### Deactivating and Deleting Connections
+
+Since mParticle does not directly maintain user segments in Mixpanel, it will not delete user segments when the corresponding mParticle audience connection is deleted or deactivated. When a deletion or deactivation occurs, mParticle will **not** update the Mixpanel People Attributes to remove the audience from each user.
+
+## Configuration Settings
+
+Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 Token | `string` | | Mixpanel API Token.  Project token, which you can find by clicking the gear icon  your project.
 Create One User Attribute Per Audience | `bool` | False | If enabled, mParticle will forward membership information for each audience as a separate Mixpanel People Attribute. For example, if you’re forwarding an audience named “New Users”, mParticle will forward membership information for this audience in a Mixpanel People Attribute called “In New Users”, with a value of “true” or “false”.
