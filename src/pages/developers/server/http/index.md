@@ -29,6 +29,8 @@ You can use the Open API specification (also known as Swagger) below to generate
 
 This path accepts a JSON event batch.  See our [JSON documentation](/developers/server/json-reference/) for additional information.
 
+This path should not be used to upload historical data older than 30 days, as this could impact downstream processes such as audience calculation. To upload historical data older than 30 days, please use the [historical endpoint](/developers/server/http/#v2bulkeventshistorical).
+
 ~~~json
 {
     "events" : [
@@ -56,6 +58,8 @@ This path accepts a JSON array of event batches.  See our [JSON documentation](/
 
 You may not send more than 100 EVENT DATA items per request.
 If some event batches succeed and some event batches fail, you will still get an "Accepted" response.
+
+This path should not be used to upload historical data older than 30 days, as this could impact downstream processes such as audience calculation. To upload historical data older than 30 days, please use the [historical endpoint](/developers/server/http/#v2bulkeventshistorical).
 
 Please see the format below containing an array of JSON event batches.
 
