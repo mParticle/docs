@@ -40,7 +40,7 @@ By default, mParticle forwards web data to Amplitude client-side, by directly in
 
 ### Screen Views
 
-mParticle will forward all screen views to Amplitude with the Amplitude Event Type set to "Viewed ScreenName", where `ScreenName` is the screen name passed to the `logScreen` SDK method (or the name of the screen's Activity class if you're using automatic screen tracking on Android).  
+mParticle will forward all screen views to Amplitude with the Amplitude Event Type set to "Viewed ScreenName", where `ScreenName` is the screen name passed to the `logScreen` SDK method (or the name of the screen's Activity class if you're using automatic screen tracking on Android).
 
 ### Session Forwarding
 
@@ -48,16 +48,16 @@ mParticle will forward all session start and session end events to Amplitude wit
 
 ### eCommerce Event Forwarding
 
-mParticle will translate eCommerce events into Amplitude events by expanding the eCommerce event into multiple events per product by appending the event name with " - Item" , i.e. eCommerce - AddToCart - Item. This expansion applies to all eCommerce transactions; Add To Cart, Add To WishList, Checkout Purchase, etc. 
+mParticle will translate eCommerce events into Amplitude events by expanding the eCommerce event into multiple events per product by appending the event name with " - Item" , i.e. eCommerce - AddToCart - Item. This expansion applies to all eCommerce transactions; Add To Cart, Add To WishList, Checkout Purchase, etc.
 
 #### eCommerce Field Mappings
 
-|Parameter | Amplitude field |  mParticle details | 
+|Parameter | Amplitude field |  mParticle details |
 |---|---|---
-Quantity | quantity | Item Quantity | 
+Quantity | quantity | Item Quantity |
 Revenue |  revenue | Item Revenue |
 Product ID|  productId | Product ID or SKU |
-Price | price | Item Price | 
+Price | price | Item Price |
 
 The TotalAmount attribute is not forwarded to Amplitude on a CommerceEvent.
 
@@ -88,37 +88,37 @@ If the `Send Application State Transitions` setting is enabled, Application Stat
 
 ## Field Mappings
 
-|Parameter | Amplitude Field  | mParticle Details 
+|Parameter | Amplitude Field  | mParticle Details
 |---|---|---
-Android ID | android_id | Passed if OS is Android 
-Android Advertising ID | adid | Passed if OS is Android 
+Android ID | android_id | Passed if OS is Android
+Android Advertising ID | adid | Passed if OS is Android
 Application Version | app_version | Application Version
-Brand | device_brand | The device brand the user is on.  This is not passed for Apple devices. 
+Brand | device_brand | The device brand the user is on.  This is not passed for Apple devices.
 Carrier | device_carrier | Device Carrier
-City | city | City the user is in; this is also included in User Properties 
+City | city | City the user is in; this is also included in User Properties
 Country | Country the user is in; this is also included in User Properties | country
-Designated Market Area | DMA | If you wish to forward this property to Amplitude, you must set it as a custom user attribute, labeled `dma`. 
-Device ID | device_id | Set based on Operating System;  see [Device ID Mapping](#device-id-mapping)  
+Designated Market Area | DMA | If you wish to forward this property to Amplitude, you must set it as a custom user attribute, labeled `dma`.
+Device ID | device_id | Set based on Operating System;  see [Device/User ID Mapping](#deviceuser-id-mapping)
 Email | If the `Include Email in User Properties` setting is enabled, email is included in user_properties| email
-Event Properties | event_properties | All event attributes included with eCommerce, Custom and Screen View events.  See above for Attribution Custom Events.  
-Event Type | event_type | Described above for each supported event 
+Event Properties | event_properties | All event attributes included with eCommerce, Custom and Screen View events.  See above for Attribution Custom Events.
+Event Type | event_type | Described above for each supported event
 IDFA | idfa | Passed if OS is iOS or tvOS
-Insert ID | insert_id | A unique id for the event derived from the event name and the event and session_start timestamps 
+Insert ID | insert_id | A unique id for the event derived from the event name and the event and session_start timestamps
 IP Address | ip | IP address of the user
-Language | language | Language the user has set 
+Language | language | Language the user has set
 Latitude | location_lat | Latitude of the user
-Library | library | A label for the source of data which is visible in the Amplitude dashboard. This will always be set to 'mParticle' 
-Longitude | location_lng | Longitude of the user 
-Manufacturer | device_manufacturer | Device Manufacturer 
-Model | device_model | Device Model 
-OS Name | os_name | iOS, tvOS, Android, Roku 
+Library | library | A label for the source of data which is visible in the Amplitude dashboard. This will always be set to 'mParticle'
+Longitude | location_lng | Longitude of the user
+Manufacturer | device_manufacturer | Device Manufacturer
+Model | device_model | Device Model
+OS Name | os_name | iOS, tvOS, Android, Roku
 OS Version | os_version |The version of the mobile OS or browser the user is on
-Platform | platform | iOS, Android, Apple TV, Web, Roku 
-Region | region | Region (or State) the user is in; this is also included in User Properties 
-Session Start Time | session_id | Session Start Timestamp 
-Time | time | Event Timestamp, in milliseconds 
-User ID | user_id | Set based on the value of the `User Identification` setting 
-User Properties | user_properties | All user attributes included with the event.  See above for Attribution Custom Events. 
+Platform | platform | iOS, Android, Apple TV, Web, Roku
+Region | region | Region (or State) the user is in; this is also included in User Properties
+Session Start Time | session_id | Session Start Timestamp
+Time | time | Event Timestamp, in milliseconds
+User ID | user_id | Set based on the value of the `User Identification` setting
+User Properties | user_properties | All user attributes included with the event.  See above for Attribution Custom Events.
 
 Note: Only for web requests, mParticle will extract OS and browser info from HTTP User Agent.
 Similar to Amplitude's SDK behavior, `os_name` and `os_version` will be populated with browser info. For that reason, mParticle will send 2 additional `Custom User Properties`, `web_os_name` and `web_os_version`, that will contain OS info. See [Amplitude's doc](https://developers.amplitude.com/docs/http-api-v2#properties).
@@ -128,7 +128,7 @@ Similar to Amplitude's SDK behavior, `os_name` and `os_version` will be populate
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
 | API Key | `string` | <unset> | Your app's Amplitude API Key.  You can find this on the "My Account" page of Amplitude's dashboard. |
-| Use Batch API Endpoint | `bool` | False | If enabled, the Amplitude [batch API](https://developers.amplitude.com/docs/batch-event-upload-api) endpoint will be used. The endpoint has a higher rate limit but may have a slight delay in delivering events. Please note that if the request is replayed, the batch API endpoint will always be used regardless of this configuration value. 
+| Use Batch API Endpoint | `bool` | False | If enabled, the Amplitude [batch API](https://developers.amplitude.com/docs/batch-event-upload-api) endpoint will be used. The endpoint has a higher rate limit but may have a slight delay in delivering events. Please note that if the request is replayed, the batch API endpoint will always be used regardless of this configuration value.
 
 ## Connection Settings
 

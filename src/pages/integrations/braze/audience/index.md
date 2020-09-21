@@ -12,7 +12,7 @@ In order to activate our Braze integration, you're going to need the [API key](h
 
 ## Braze Instance
 
-Braze maintains several instances. As part of the [Configuration Settings](#configuration-settings), you need to specify which one your data should be forwarded to.  You can tell your [Braze Instance](https://www.braze.com/docs/user_guide/administrative/access_braze/braze_instances/) from the URL of your Braze Dashboard.  
+Braze maintains several instances. As part of the [Configuration Settings](#configuration-settings), you need to specify which one your data should be forwarded to.  You can tell your [Braze Instance](https://www.braze.com/docs/user_guide/administrative/access_braze/braze_instances/) from the URL of your Braze Dashboard.
 
 | Instance | Dashboard URL |
 | ------   | ------  |
@@ -26,11 +26,11 @@ Braze maintains several instances. As part of the [Configuration Settings](#conf
 
 Check with your Braze account manager if you are unsure which Braze instance you are using.
 
-There is also the ability to specify a Custom instance, which allows you to specify separate endpoints for REST, SDK and Javascript. 
+There is also the ability to specify a Custom instance, which allows you to specify separate endpoints for REST, SDK and Javascript.
 
 <aside class="warning">
-<b>Important</b>: Your Custom Endpoint settings should be your URL's Authority. For example: <code>sdk.iad-01.braze.com</code>, <i>not</i> <code>https://sdk.iad-01.braze.com</code>.  
-  
+<b>Important</b>: Your Custom Endpoint settings should be your URL's Authority. For example: <code>sdk.iad-01.braze.com</code>, <i>not</i> <code>https://sdk.iad-01.braze.com</code>.
+
 Using `https://` or a trailing `/` in your endpoint address will cause errors.
 </aside>
 
@@ -70,9 +70,13 @@ with the filter `In Possible Parisians` -- `equals` -- `true`.
 
 ![](/images/braze-possible-parisians-condition.png)
 
+### Deactivating and Deleting Connections
+
+Since mParticle does not directly maintain segments in Braze, it will not delete segments when the corresponding mParticle audience connection is deleted or deactivated. When this happens, mParticle will **not** update the audience user attributes in Braze to remove the audience from each user.
+
 ## Configuration Settings
 
-Setting Name | Data Type | Default Value | Description 
+Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 API Key | `string` | | Your app's API Key can be found in your Braze dashboard.
 API Key Operating System | `enum` | Unselected | Select which operating system your Braze API key corresponds to. This selection will limit the types of push tokens that will be forwarded on an audience update.
