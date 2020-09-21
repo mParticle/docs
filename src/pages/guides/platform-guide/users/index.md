@@ -22,7 +22,7 @@ mParticle offers several User Roles with different levels of access to the mPart
 
 mParticle's User Roles are:
 
-* **User** - Can view and make updates to all parts of the mParticle platorm except for the User Activity view and managing other users
+* **User** - Can view and make updates to all parts of the mParticle platform except for the User Activity view and managing other users
 * **Read Only** - Has the same view access as 'User' level but cannot make any changes additions
 * **Admin** - Same access as 'User' level, plus the ability to add, remove and manage users and access the User Activity view
 * **Audiences Only** - Can view and manage Audiences. Cannot view other areas of the mParticle platform. Note that this means Audiences Only users can connect audiences to existing Outputs, but cannot add and configure new Audience Outputs
