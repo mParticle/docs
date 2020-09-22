@@ -50,6 +50,9 @@ dependencies {
 * Email
 * mParticle ID (MPID)
 * Other
+* Other2
+* Other3
+* Other4
 * Other5
 * Facebook ID
 
@@ -65,10 +68,16 @@ Blueshift supports retrieving data for up to 24 hours.
 
 ## Supported Environments
 
+* Alexa
 * Android
 * Data Feeds
+* FireTV
 * iOS
+* Roku
+* SmartTV
+* tvOS
 * Web
+* Xbox
 
 ## Configuration Settings
 
