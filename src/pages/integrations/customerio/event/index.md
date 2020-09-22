@@ -21,7 +21,7 @@ mParticle will forward all events logged with the mParticle SDK `logEvent` or `l
 
 ## User Attribute Mapping
 
-mParticle will only forward event and user data to Customer.io for users that have an email address (`MPUserIdentityEmail`) defined. When forwarding user data, mParticle uses `MPUserIdentityCustomerId` as the Customer.io user_id. If CustomerId is not defined, mParticle uses the email address instead.  mParticle always forwards  users' email, $FirstName, and $LastName, and will optionally forward all user attributes if the configuration parameter "Include ALL user attributes?" is enabled.
+mParticle will only forward event and user data to Customer.io for users that have a valid customer id (`MPUserIdentityCustomerId`) or an email (`MPUserIdentityEmail`) defined. When forwarding user data, mParticle primarly uses `MPUserIdentityCustomerId` as the Customer.io user_id. If CustomerId is not defined, mParticle uses the email address instead.  mParticle always forwards  users' $FirstName, and $LastName, and will optionally forward all user attributes if the configuration parameter "Include ALL user attributes?" is enabled.
 
 ## User Opt-out
 
