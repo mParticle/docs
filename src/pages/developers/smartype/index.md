@@ -34,7 +34,7 @@ Smartype supports the following SDKs and language environments today:
     - [mParticle Android SDK](/developers/sdk/android/getting-started/)
     - [mParticle Java SDK](https://github.com/mParticle/mparticle-java-events-sdk)
 2. [mParticle Apple SDK](https://docs.mparticle.com/developers/sdk/ios/getting-started/)
-3. Web support is in alpha and will be released soon in coordination with the release of Kotlin 1.4, which has a redesign Javascript backend for more optimized Javascript code generation.
+3. Web browsers via TypeScript and JavaScript
 
 ## mParticle Data Plans
 
@@ -135,7 +135,7 @@ The following code snippets use the mParticle receiver as an example, but receiv
 
 #### Requirements
 
-Smartype currently requires Xcode 11.3.1 or earlier and Carthage to be installed.
+Smartype requires Xcode and Carthage to be installed.
 
 #### 1. Run `generate`
 
@@ -246,6 +246,43 @@ val message = api.chooseItem(
     )
 )
 //the message object will now be sent to mParticle's SDK
+api.send(message)
+```
+
+### Web
+
+Smartype `generate` will create a set of `.js` and `.d.ts` files that you can include directly with your projects. Our [example](https://github.com/mParticle/smartype/blob/main/examples/webExample/src/index.js) uses webpack to concatenate and minify the source files.
+
+To use Smartype on Web, start by adding the generated `smartype-dist` directory to your project and any 3rd-party receivers that you plan on using, then include the relevant files in your typescript or javascript sources:
+
+```js
+import * as kotlin from "../smartype-dist/kotlin.js"
+import * as smartype from "../smartype-dist/smartype-smartype.js"
+import * as smartypeMparticle from "../smartype-dist/smartype-smartype-mparticle.js"
+
+// create namespace references for easier access
+var api = smartype.com.mparticle.smartype
+var receivers = smartypeMparticle.com.mparticle.smartype.api.receivers
+```
+
+- Import and initialize Smartype prior to use, and register your receivers
+- The `SmartypeApi` object will surface a series of methods which each represent the top-level items in your schema
+- Pass the fully constructed objects into your `SmartypeApi` instance for all receivers 
+
+```js
+var smartypeApi = new api.SmartypeApi()
+smartypeApi.addReceiver(new receivers.mparticle.MParticleReceiver())
+smartypeApi.addReceiver(this)
+
+var message = smartypeApi.chooseItem(
+      new api.ChooseItemData(
+        new api.ChooseItemDataCustomAttributes(
+          1, true, new api.ChooseItemDataCustomAttributesItem().REGULARCOFFEE()
+        )
+      )
+    )
+
+//the message object will now be sent to all receivers
 api.send(message)
 ```
 
