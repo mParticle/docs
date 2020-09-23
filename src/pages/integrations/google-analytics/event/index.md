@@ -208,6 +208,7 @@ Google.Label | el
 Google.NonInteraction | in
 Google.Page | dp
 Google.Value | ev
+Google.CGNumber | cg<groupIndex>
 
 For HitType, by default on web, pageviews are logged as HitType `pageview`, and all other events including commerce events are logged as HitType `event`. While these are the default and most common HitTypes, you can customize these using Custom Flags to be any types that [Google allows](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#t) (`pageview`, `screenview`, `event`, `transaction`, `item`, `social`, `exception`, `timing`).
 
@@ -294,6 +295,74 @@ Required| Google Analytic Attribute Name | Google Analytic Parameter | mParticle
 ### User / Event Timing
 
 Mobile app and web developers can measure how long an event takes. On mobile this is done by passing in "eventLength" parameter to `logEvent`. On web, you will need to pass in a custom flag of 'Google.UserTiming'.
+
+### Content Groups
+
+Content Groups are only supported for client-side web data at the moment.  There are multiple ways to set up Content Groups in Google's UI, and mParticle supports setting Content Groups via tracking code. You can read more [here](https://support.google.com/analytics/answer/2853546?hl=en).  Google Analytics supports up to 5 Content Groups.
+
+There are two ways of setting up Content Groups depending on if your web site is a Single Page Application (SPA) or Multiple Page Application (MPA).
+
+#### Single Page Application Content Groups
+
+If you have a Single Page Application, you should set the Content Group as a Custom Flag at the event logging level. Note that once you set the Content Group, every event after that will contain this Content Group even if you are not including it in future Custom Flags. If you need to update the Content Group, change the Custom Flag associated with the next event. Content Groups can be updated and set for any event level logging (PageView, Event Logging, Commerce Event, etc) but for illustration purposes, we are logging page views below:
+
+```javascript
+const customAttributes = { page: window.location.toString()};
+const customFlags = {
+  'Google.CGNumber': '2',
+  'Google.CGValue': '/news'
+}
+
+mParticle.logPageView('News Page Viewed', customAttributes, customFlags);
+
+// If a user then moves to the sports page and you have a Content Group for that:
+const customFlags = {
+  'Google.CGNumber': '3',
+  'Google.CGValue': '/news/sports'
+}
+
+mParticle.logPageView('Sports Page Viewed', customAttributes, customFlags);
+
+// If you want to unset the contentGroup, simply set the CGValue to null
+
+const customFlags = {
+  'Google.CGNumber': '3',
+  'Google.CGValue': null
+}
+
+mParticle.logPageView('Unrelated Page', customAttributes, customFlags);
+
+```
+
+
+#### Multi-Page Application Content Groups
+
+If your website is not a Multi-Page Application, then mParticle loads and reinitializes on every page. In this case, you can include the Custom Flag in your mParticle's `config` object in the snippet.
+
+```html
+// mParticle JS snippet
+// See https://docs.mparticle.com/developers/sdk/web/getting-started/#add-the-sdk-snippet for full snippet
+
+<script type="text/javascript">
+  window.mParticle = {
+    config: {
+      ...
+      customFlags: {
+        'Google.CGNumber': '3',
+        'Google.CGValue': '/news/sports'
+      }
+      ...
+    }
+  };
+  ... // remaining snippet
+
+  const customAttributes = { page: window.location.toString()};
+  mParticle.logPageView('Sports Page Viewed', customAttributes)
+</script>
+
+```
+
+Note that even with the MPA method, you can change the Content Group if you'd like using Custom Flags within the event logging method as in the SPA method explained above.
 
 #### Mobile
 mParticle's SDK Method | Google Analytic's SDK Method
