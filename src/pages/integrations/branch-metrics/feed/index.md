@@ -48,6 +48,10 @@ Depending on your Branch setup, Branch may also send other custom attributes. Th
 * `$` indicates a Branch configuration parameter
 * `+` indicates a parameter not instrumented by the user but added by Branch to enrich the event
 
+## User Identity Mapping
+
+The Branch user_data_developer_identity is sent to mParticle's Customer Id.  Additionally, device identifiers associated with the act-as platform will also be provided by Branch.
+
 ## Configuration
 
 In mParticle, configure the Branch Input.  Create a separate feed configuration for each platform (iOS, Android), and copy the Server Key and Secret.  Follow [Branch's instructions](https://docs.branch.io/pages/integrations/mparticle/#enable-data-feeds) to use your Server Key and Secret to configure the postback in Branch.
