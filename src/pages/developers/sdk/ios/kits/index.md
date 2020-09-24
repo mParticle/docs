@@ -11,8 +11,6 @@ Refer to the [iOS](https://github.com/mParticle/mParticle-apple-SDK) SDK GitHub 
   Although you may use the classes and methods of these kits directly, be careful not to log the same event, for example, via the mParticle SDK <b>and</b> a kit - the mParticle SDK will automatically call the appropriate method in any enabled kit for you. Also remember that the more service-specific code you maintain on the client side, the less flexible your application will be with respect to adding and/or removing services without a client-side code change.
 </aside>
 
-Kits are not currently available for tvOS.
-
 
 ### Making direct calls to Kits
 
