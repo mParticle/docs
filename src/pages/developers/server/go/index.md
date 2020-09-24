@@ -25,7 +25,7 @@ import "github.com/mParticle/mparticle-go-sdk/events"
 
 ### Batch
 
-All data sent via the SDK must be encapsulated in a [Batch](https://git.corp.mparticle.com/mParticle/mparticle-go-sdk/blob/master/events/model_batch.go) struct. Each Batch is associated with a **single user**. Batch objects must be associated with an environment (`development` or `production`) to properly silo your testing and production data.
+All data sent via the SDK must be encapsulated in a [Batch](https://github.com/mParticle/mparticle-go-sdk/blob/master/events/model_batch.go) struct. Each Batch is associated with a **single user**. Batch objects must be associated with an environment (`development` or `production`) to properly silo your testing and production data.
 
 ```go
 //"DevelopmentEnvironment" or "ProductionEnvironment"
