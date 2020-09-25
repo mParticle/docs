@@ -2,8 +2,6 @@
 title: Feed
 ---
 
-<aside>The Leanplum feed is in beta and may offer functionality that is not yet documented here.</aside>
-
 <a href="https://www.leanplum.com/" target="_blank">Leanplum</a> is a mobile marketing platform providing cross-channel messaging and app optimization in a single solution. Leanplum offers Push, Email, Automation, App Editing, Personalization, A/B Testing, and Analytics.
 
 ## Enable the Integration
