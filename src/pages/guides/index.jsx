@@ -77,7 +77,10 @@ const Links = [
         route: 'data-master',
         title: 'Data Master',
         content: 'Explore every data point in your workspace and manage your data quality.',
-        links: [{}],
+        links: [{
+            text: 'Backfill Blocked Data',
+            link: 'blocked-data-backfill-guide',
+        }],
     },
     {
         route: 'consent-management',
