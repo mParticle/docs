@@ -123,8 +123,7 @@ To start using Data Plans, you can follow these steps:
 1. **Validate** your incoming data with the expectations you've defined in your plan. You'll need a developer to complete this step.
 1. **Monitor** your event stream over time to measure and continuously improve the quality of your data.
 1. **Update** your data plan as the data you collect changes over time.
-
-
+1. **[NEW] Block** unplanned data from being forwarded to downstream systems
 
 #### Step 1: Create your plan
 
@@ -270,6 +269,16 @@ For larger changes, we recommend creating a new plan version. Creating a new pla
 ![](/images/dataplanning/clone_version.png)
 
 <aside>If you've pinned your SDK or Events API payload to a plan version you'll have to update your code to point to the new plan version. If you have omitted the plan version in your implementation, mParticle will automatically find the latest version that is active in development or production.</aside>
+
+#### Step 6: Block unplanned data from being forwarded to downstream systems
+
+<aside class="warning">The Block feature currently only blocks data sent to server-side integrations. Learn more about this limitation <a href="#limitations">here</a>.</aside>
+
+Once you are confident that your plan reflects the data you want to collect, you can block unplanned data from being forwarded to downstream systems. You can think of this feature as a **whitelist for the data you want to capture with mParticle**: Any event, event attributes or user attribute that is not included in the whitelist can be blocked from further processing.
+
+![](/images/dataplanning/block/block_settings_page.png)
+
+To learn more about this feature, make sure to [read our FAQ](#what-do-i-need-to-know-before-enabling-block-settings).
 
 ### FAQ
 
@@ -429,6 +438,27 @@ An invalid attribute will cause the Data Point to also be marked as invalid.
 ##### Unplanned Attribute
 
 The means the attribute was *not* defined within the matched Data Point. An unplanned attribute will cause the Data Point to also be marked as invalid.
+
+#### What do I need to know before enabling block settings?
+
+<aside class="warning">Enabling blocking will impact your data stream and can lead to data loss. Work closely with your mParticle representative when implementing this feature for your production data stream.</aside>
+
+##### Limitations
+
+We currently only support blocking data before it is sent to server-side integrations. mParticle Kits are not yet supported.
+
+##### Quarantine Connections
+
+To prevent blocked data from being lost, you can opt for blocked data to be forwarded to an Output with a Quarantine Connection. To illustrate a typical workflow, assume you choose to configure an Amazon S3 bucket as your Quarantine Output.
+
+![](/images/dataplanning/block/block_settings_page.png)
+
+Anytime a Data Point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configure Amazon S3 bucket. You will then be able to:
+
+- Examine the blocked data in greater detail
+- Backfill data that was mistakenly blocked by following our backfill guide
+
+Learn more about how to use quarantined data [here](/guides/data-master/blocked-data-backfill-guide).
 
 ## Live Stream
 
