@@ -58,6 +58,8 @@ For example:
 * Most frequent brand purchased
 * Count of unique show genres watched
 
+In the event of a tie, `most frequent` will pick the last value sorted alphabetically. 
+
 ### Occurrence
 
 Calculate the timestamp or an event value of the first or last observation of a matching event: `first value`, `first timestamp`, `last value` and `last timestamp`.
@@ -120,7 +122,7 @@ Calculated attributes can be setup to calculate over defined date range. This al
 
 The following date ranges are supported:
 
-* **Within the Last**: limit calculations to the window of X days or weeks ago to now.  For example, most frequent product categories viewed over the last 30 days. Using this date range will always produce
+* **Within the Last**: limit calculations to the window of X days or weeks ago to now.  For example, most frequent product categories viewed over the last 30 days.
 * **Since**: limit calculations to the window of: a set start date to now. For example, number of orders made since Jan 1st of 2020.
 * **All Time**: Do not limit calculations by date range; use all available data.
 
