@@ -28,3 +28,4 @@ mParticle will forward the following User IDs to Moloco:
 | Setting Name| Data Type | Default Value | Description |
 |---|---|---|---|
 | API Key | `string` | | Secret key to use the API, provided by your account manager. |
+| Send Email | `boolean` | False | If enabled, email user identities will be forwarded. |
