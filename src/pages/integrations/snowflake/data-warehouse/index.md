@@ -73,11 +73,13 @@ After adding Snowflake from the integrations Directory, you can find the setting
 
 From the main page for your Snowflake configuration, select the **Settings** tab to provide the necessary settings to get your Snowflake integration working.
 
+Your full account name may include [region](https://docs.snowflake.com/en/user-guide/intro-regions.html#specifying-region-information-in-your-account-hostname).  For example, `xy12345.us-east-1`.
+
 ![](/images/Snowflake-mParticle-Settings-042019.png)
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
-| Account | `string` | | Your Snowflake account name. |
+| Account | `string` | | Your Snowflake account name.  Your full account name may include [region.](https://docs.snowflake.com/en/user-guide/intro-regions.html#specifying-region-information-in-your-account-hostname)|
 | Database Name | `string` |  | The database name created in your Snowflake setup.|
 | Data Warehouse Name | `string` |   | The warehouse name created in your Snowflake setup. |
 | User ID | `string` | | User ID for the  user you created in your Snowflake setup. These credentials will be used to manage the schema and load data. |
