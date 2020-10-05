@@ -77,7 +77,7 @@ From the main page for your Snowflake configuration, select the **Settings** tab
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
-| Account | `string` | | Your Snowflake account name. |
+| Account | `string` | | Your Snowflake account name. Note: account name may include the region where your account is hosted (`xy12345` or `xy12345.us-east-1`). |
 | Database Name | `string` |  | The database name created in your Snowflake setup.|
 | Data Warehouse Name | `string` |   | The warehouse name created in your Snowflake setup. |
 | User ID | `string` | | User ID for the  user you created in your Snowflake setup. These credentials will be used to manage the schema and load data. |
