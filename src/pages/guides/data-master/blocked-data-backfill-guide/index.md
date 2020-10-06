@@ -17,23 +17,36 @@ Read more about our Blocking feature [here](/guides/data-master/#step-6-block-un
 
     If the backfilled MPID and the original MPID do not match, the user will be counted twice and the number of unique MPIDs that determines your mParticle bill will be impacted.  
 
-1. **Timing**
+1. **Sooner is better than later**
 
     We advise replaying data no longer than 2 weeks from the date it was quarantined. Many downstream tools will not accept data over a certain age. The sooner you replay data, the better.
 
+1. **Batch and event timestamps**
+
+    To send data to mParticle via our Events API, events are stored in a batch (see our Events API [docs pages](/developers/server/http/#v2events) for additional detail). Both mParticle batches and events have a timestamp attached to them. To ensure that events are backfilled with the original timestamp, it's essential to preserve the value stored in the `timestamp_unixtime_ms` field that each event object contains (the timestamp attached at the batch level can be ignored).
+
+1. **Avoid batch deduplication**
+
+    To avoid batches from being deduplicated in mParticle's internal data pipeline, make sure to remove the `batch_id` from the blocked batch before backfilling it to mParticle.
+
+1. **Backfilling data requires some coding skills**
+
+    To fix and replay data, you need to know how to code.
+
+
 ## Define your backfill strategy
 
-Backfilling blocked data is non-trivial because you typically are not just interested in backfilling data to other downstream event integrations in addition to mParticle.
+Backfilling blocked data is non-trivial because you typically are interested in backfilling data to several downstream event integrations.
 
 Based on your unique set of target event integrations, you should devise a strategy for your data backfill. The following questions will guide your backfill strategy:
 
 1. <strong>Which integrations do I need to backfill?</strong>
 
-    Different integrations have different limitations when it comes to receiving historical data. Establish the limtitation of a target integration by reading their docs.
+    Different integrations have different limitations when it comes to receiving historical data. Establish the limitation of a target integration by reading their developer docs or by sending a small amount of test data through an mParticle connection.
 
 1. <strong>Do I need to backfill unplanned event attributes?</strong>
 
-    Event attributes cannot be replayed without their associated events. You'll need a strategy (e.g. deleting incomplete events) to avoid event duplication if you want to replay blocked event attributes.
+    Event attributes cannot be replayed without their associated events. You'll need a strategy (e.g. deleting previously sent yet incomplete events) to avoid event duplication if you want to replay blocked event attributes.
 
 1. <strong>Which mParticle Input should I use to backfill my data?</strong>
 
@@ -41,11 +54,11 @@ Based on your unique set of target event integrations, you should devise a strat
     
     However, some integrations are not available through the [Custom Feed](/integrations/custom-feed/feed/) Input. In those cases, you will need to either (i) use the keys and secret of the original Input (e.g. Web) in our backfill script or (ii) send data directly to the integration's API (after transforming it to match their data model).
 
+    ![](/images/dataplanning/block/backfill-connection.png)
+
 ## How to backfill blocked data
 
-<aside class="warning">To fix and replay data, you need to know how to code.</aside>
-
- Once you have a strategy for your backfill, here are the steps to backfill your data:
+Once you have a strategy for your backfill, here are the steps to backfill your data:
 
 1. Go to your Quarantine output and find the data you want to transform.  
 
@@ -61,7 +74,7 @@ Based on your unique set of target event integrations, you should devise a strat
 
 7. Perform any data fixes.
 
-8. Using mParticle’s Events API, create a new batch containing the events to be replayed along with any corrected event or user attributes. Send the fixed batch.
+8. Using mParticle’s Events API, create a new batch containing the events to be replayed along with any corrected event or user attributes. Send the fixed batch to mParticle's Events API.
 
 ### Resources
 
