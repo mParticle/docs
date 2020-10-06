@@ -204,7 +204,7 @@ _________________
 ## HTTP
 _________________
 ### 1. Generate your API key
-Create a <strong>Custom Feed</strong> on the [Setup](https://app.mparticle.com/setup/inputs/feeds) page to generate server-to-server API credentials.
+Create a <strong>Custom Feed</strong> on the [Setup](https://app.mparticle.com/setup/inputs/feeds) page to generate server-to-server API credentials and store them in a safe place. You'll need them to make a `POST` request in the next step.
 
 ### 2. Send an HTTP request
 Use <strong>curl</strong> or <strong>Postman</strong> to send an HTTP request with your access credentials to our server-to-server [endpoint](https://docs.mparticle.com/developers/server/http/#endpoint) `https://s2s.mparticle.com/v2/events`.  
@@ -244,11 +244,13 @@ curl -u YOUR_API_KEY:YOUR_API_SECRET -vX POST -H "Content-Type: application/json
 ~~~
 
 #### Postman 
-<span class="postman-widget">[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/110be1299a8ddcb786a3)</span>
+<span class="postman-widget">[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/110be1299a8ddcb786a3)</span>
 
-Use our Postman collection to make an HTTP request to the Events API.
+Once you're in the Postman app, follow these steps to make your request:
 
-<aside class="notice"><p>Set your API key and secret as the username and password in the <strong>Basic Auth</strong> configuration in your Postman app.</aside>
+1. Set your API <strong>key</strong> and <strong>secret</strong> as the `Username` and `Password` in the <strong>Authorization</strong> tab of the Postman request builder. The <strong>Type</strong> dropdown on the <strong>Authorization</strong> tab should be set to <strong>Basic Auth</strong> for the builder to show those fields.</aside>
+
+1. [Optional] Go to the <strong>Body</strong> tab to view the JSON payload. You can change values in the payload to customize the event you sent to mParticle. Learn more about our JSON Schema [here](/developers/server/json-reference/#overall-structure).
 
 ### 3. Verify
 Go to the [Live Stream](https://app.mparticle.com/dm/livestream) and watch new events come in as you send requests.
