@@ -26,7 +26,10 @@ Each attribution and uninstall event from Adjust will contain the following, whe
 * Apple Vendor ID
 * Android Advertising ID
 * Android ID
-* Customer ID -- to send customer ID you must configure a `customer_id` callback parameter in Adjust. See [below](#adjust-configuration) for more
+* Customer ID
+* mParticle ID (MPID)
+
+In order to send Customer ID and MPID you must configure partner parameters in Adjust, `customer_id` and a `MPID` respectively. See [Adjust Configuration](#adjust-configuration) for more.
 
 ### Custom Attributes
 
@@ -134,4 +137,4 @@ The type of event is defined by `activity_kind`. If the value is `uninstall` the
 
 Follow [these instructions to configure the postback in Adjust](https://docs.adjust.com/en/special-partners/mparticle/) and entering the token copied above.
 
-If you'd like to forward customer IDs as part of the attribution data, you will need to setup Partner Parameters.  You can get details on the Adjust configuration for partner parameters in [iOS](https://github.com/adjust/ios_sdk#session-partner-parameters) and [Android](https://github.com/adjust/android_sdk#session-partner-parameters).
+If you'd like to forward Customer ID or MPID as part of the attribution data, you will need to configure your mobile application collect the respective ID as a Partner Parameters via the Adjust SDK. You can get details on the Adjust configuration for partner parameters in [iOS](https://github.com/adjust/ios_sdk#session-partner-parameters) and [Android](https://github.com/adjust/android_sdk#session-partner-parameters).
