@@ -121,7 +121,7 @@ mParticle will always forward events if sent via the mParticle SDK, provided you
 
 ## Braze Instance
 
-Braze maintains several instances.   As part of the [Configuration Settings](#configuration-settings), you need to specify which one your data should be forwarded to.  You can tell your [Braze Instance](https://www.braze.com/docs/user_guide/administrative/access_braze/braze_instances/) from the URL of your Braze Dashboard.  
+Braze maintains several instances.   As part of the [Configuration Settings](#configuration-settings), you need to specify which one your data should be forwarded to.  You can tell your [Braze Instance](https://www.braze.com/docs/user_guide/administrative/access_braze/braze_instances/) from the URL of your Braze Dashboard.
 
 | Instance | Dashboard URL |
 | ------   | ------  |
@@ -135,10 +135,10 @@ Braze maintains several instances.   As part of the [Configuration Settings](#co
 
 Check with your Braze account manager if you are unsure which Braze instance you are using.
 
-There is also the ability to specify a Custom instance, which allows you to specify separate endpoints for REST, SDK and Javascript. 
+There is also the ability to specify a Custom instance, which allows you to specify separate endpoints for REST, SDK and Javascript.
 
 <aside class="warning">
-<b>Important</b>: Your Custom Endpoint settings should be your URL's Authority. For example: <code>sdk.iad-01.braze.com</code>, <i>not</i> <code>https://sdk.iad-01.braze.com</code>.  
+<b>Important</b>: Your Custom Endpoint settings should be your URL's Authority. For example: <code>sdk.iad-01.braze.com</code>, <i>not</i> <code>https://sdk.iad-01.braze.com</code>.
 
 Using `https://` or a trailing `/` in your endpoint address will cause errors.
 </aside>
@@ -162,7 +162,7 @@ All commerce events will forwarded as purchase events to Braze, if the following
 * `transaction_id`
 * `price`
 
-We also pass the `currency_code` attribute of the corresponding `MPProduct` object, or assume that the currency is USD if it's not defined.  
+We also pass the `currency_code` attribute of the corresponding `MPProduct` object, or assume that the currency is USD if it's not defined.
 
 If `quantity` is greater than 1, we will forward Braze a purchase event for each individual unit of the product (i.e. we'll send two identical purchase events if `quantity` equals 2).
 
@@ -170,7 +170,7 @@ Product attributes are mapped to the `properties` node of the Braze purchase.
 
 ### Screen Views
 
-Your screen view events will be passed to Braze using the screen name that you passed to our `logScreen` SDK method, as the event name.  
+Your screen view events will be passed to Braze using the screen name that you passed to our `logScreen` SDK method, as the event name.
 
 If you are using automatic screen tracking in our Android SDK, the automatically-generated screen view events will be forwarded to Braze using the name of the associated Activity class.
 
@@ -237,13 +237,13 @@ By default, mParticle forwards all available user attributes to Braze, including
 | Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. |
 | Send User Attribute Lists as Arrays | `bool` | False | All | If checked, mParticle will send each user attribute list server-side as an array, rather than a comma-separated string |
 | Enable type detection for custom/user attributes | `bool` | False | All but Web | By default, all platforms (except for web) send attributes as strings unless there are special Braze reserved user attributes. Checking this will force attributes to be sent as parsed data types where possible|
-| Forward Screen View Messages | `bool` | False | All| If enabled, all screen view messages will be forwarded to Braze as separate events. |
+| Forward Screen View Messages | `bool` | False | All | If enabled, all screen view messages will be forwarded to Braze as separate events. Not supported for S2S requests. |
 | Forward Session Events | `bool` | False | All| If enabled, all session start and end events will be forwarded to Braze as separate events. Session IDs will also be sent with events when populated. |
 | Soft Push Custom Event Name | `string` | <unset> | Web | The custom event name that shows up in your Braze dashboard when priming your user for push notifications. Braze recommends "prime-for-push". When filled in, users will be sent a Braze In-App message on session load
 | Push Notification Service Worker File Location | `string` | <unset> | Web | Optional - If the "service worker.js" file is not located in your root directory, then this field is the relative path, starting with "/" and including the filename.js. Please view integration docs for more information
 | Safari Website Push ID |`string` | <unset> | Web | The unique identifier for your Website Push ID, starting with the string "web", from the Apple Developer website
 | Automatically display new in-app messages | `bool` | True | Web| Automatically display new in-app messages when they come in from the server. |
-| Forward Page Name as Braze Event Name	| `bool` | False | Web | If enabled, the Page Name that is sent to Braze is the first argument in mParticle.logPageView("PageName"). Otherwise the path will be used.
+| Forward Page Name as Braze Event Name	| `bool` | False | Web | If enabled, the Page Name that is sent to Braze is the first argument in mParticle.logPageView("PageName"). Otherwise the path will be used. For S2S requests, enabling this setting will send the event name as-is. Otherwise `Viewed` will be added to the event name.
 | Replace SKU as Braze Product Name | `bool` | False | Web | If enabled, the SKU replaces Product Name when sent to Braze. By default, Web sends Product Name to Braze. New customers should check this to be consistent with iOS/Android which sends SKU by default.
 | Enable HTML within in-app messages | `bool` | False | Web| Enable HTML within in-app messages. This correlates to the enableHtmlInAppMessages setting of the Braze SDK. |
-| Do not Load FontAwesome | `bool` | False | Web | Disable loading of FontAwesome from the FontAwesome CDN. Note that if you do this, you are responsible for ensuring that FontAwesome is loaded - otherwise in-app messages may not render correctly. 
+| Do not Load FontAwesome | `bool` | False | Web | Disable loading of FontAwesome from the FontAwesome CDN. Note that if you do this, you are responsible for ensuring that FontAwesome is loaded - otherwise in-app messages may not render correctly.
