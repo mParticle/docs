@@ -109,7 +109,20 @@ Once your session is instantiated, you will need to trigger a `SessionStart`. Th
 1. Start a session
 
 ```kotlin
-mediaSession.logMediaSessionStart()
+// set playhead
+val currentPlayheadPosition = 300
+
+// create any custom attributes
+val customAttributes = mapOf(
+    "<media attribute key>" to "<media attribute value>",
+    "<custom attribute key>" to "<custom attribute value>"
+)
+
+// build Options object for logging Media Session Start
+val options = Options(currentPlayheadPosition, customAttributes)
+
+// call Media Session Start heartbeat event
+mediaSession.logMediaSessionStart(options)
 ```
 
 2. Log a play event
