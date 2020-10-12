@@ -76,8 +76,8 @@ end
 // Sample build.gradle
 
 dependencies {
-    // Ensure the Kit version matches that of the mParticle Core SDK that you're using
-    compile 'com.mparticle:android-adobe-kit:4.16.4' 
+    // The Android Adobe Media Kit contains all of the mParticle Core SDK, Media SDK, and Adobe Custom Events kit as dependencies so only need to initialize the Adobe Media kit for Android
+    compile 'com.mparticle:android-adobemedia-kit:5.14.15' 
 }
 ~~~
 :::
