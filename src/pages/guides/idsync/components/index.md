@@ -103,7 +103,7 @@ A user signs up for your iOS mobile app with the email [ed.hyde@example.com](mai
 
 ### Login Identity
 
-A Login Identity (Login ID) is a setting specifies that the identifier is for a user that has created an account with your app. Login IDs perform two important functions. They protect the integrity of known user profiles, and they can drive sdentity rules that determine when a new User Profile should be created.
+A Login Identity (Login ID) is a setting specifies that the identifier is for a user that has created an account with your app. Login IDs perform two important functions. They protect the integrity of known user profiles, and they can drive identity rules that determine when a new User Profile should be created.
 
 #### Protect Known Identity Records
 
