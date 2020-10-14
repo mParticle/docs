@@ -60,7 +60,12 @@ dependencies {
  * Push Token
  * Apple IDFA
  * Apple IDFV
+ * Fire Advertising ID
  * Google Advertising ID
+ * Microsoft Advertising ID
+ * Microsoft Publisher ID
+ * Roku Advertising ID
+ * Roku Publisher ID
 
 ## Maximum Data Age
 
