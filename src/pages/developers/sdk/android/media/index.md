@@ -117,7 +117,7 @@ mediaSession.logMediaSessionStart()
 ```kotlin
 val options = Options(currentPlayheadPosition = 300)
 
-mediaSession.logPlayEvent(options)
+mediaSession.logPlay(options)
 ```
 
 3. (optional) Fire other events for user interaction, i.e. `pause`
