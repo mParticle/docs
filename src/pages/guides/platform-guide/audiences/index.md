@@ -134,7 +134,7 @@ The audience builder allows you to build criteria based on two sources of data:
 - `Attribution`: access user install and uninstall information to build criteria based on the attributed `campaign` and `publisher`.
 
 ### User Profile Criteria
-As mentioned above, you can build audience criteria based on user attributes from the user profiles. These attributes can be of any data type including: numbers, strings, dates, lists, booleans, etc.
+As mentioned above, you can build audience criteria based on user attributes from the user profiles. These attributes can be of any data type including: numbers, strings, dates, lists, booleans, etc. All user profile data is scoped and maintained within a single workspace; In multiworkspace audiences, you can select which workspace to use by pressing the number in the top right of the criteria in the audience builder.
 
 To build an audience criteria based on a user's profile information, press the **add criteria** button and select **Users** to view options for user based criteria:
 
@@ -150,6 +150,9 @@ To build an audience criteria based on a user's profile information, press the *
 
 ![](/images/audience-user-criteria.png)
 
+<aside>
+User profile criteria are run against the latest data in the user profile and are not based on date ranges.
+</aside>
 
 ### String Matching Criteria
 
