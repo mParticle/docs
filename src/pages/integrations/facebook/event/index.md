@@ -35,6 +35,8 @@ In order to enable mParticle's Facebook event integration, you'll need the follo
 
 mParticle's Facebook integration supports [custom mappings](/guides/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for Facebook. mParticle provides mappings for the following Facebook event types:
 
+<aside> For web connections, custom mappings are only available for Pixel server-side forwarding.</aside>
+
 * Achieved Level
 * Ad Click
 * Ad Impression
@@ -137,10 +139,10 @@ mp.logEvent("battledAnOrc");
 
 ### Screen Views
 
-Screen views are forwarded as follows based on platform:
+For the **Web** platform, mParticle will forward screen views as 'PageView' events.
+* **Note:** This also applies to Pixel server-side forwarding.
 
-* **iOS/tvOS** and **Android** platforms - mParticle will forward screen views as a 'Viewed Content' event, with the screen name mapped to the 'Content ID' attribute.
-* **Web** platform - mParticle will forward screen views as a 'PageView' event.
+For the **iOS/tvOS** and **Android** platforms, screen views are supported by custom mappings. Reference the [custom mappings](#custom-mappings) section for more.
 
 ### Web Server-to-Server Fields
 
