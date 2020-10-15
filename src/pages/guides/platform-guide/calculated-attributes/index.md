@@ -58,7 +58,7 @@ For example:
 * Most frequent brand purchased
 * Count of unique show genres watched
 
-In the event of a tie, `most frequent` will pick the last value sorted alphabetically. 
+In the event of a tie, `most frequent` will pick the last value sorted alphabetically.
 
 ### Occurrence
 
@@ -101,20 +101,13 @@ List | Unique List | Comma separated list of dynamic values; maximum of 100. | `
 
 All calculation speeds here are *after* the values have been initialized. Setting the date range to 'within the last' will cause all calculations to update with delayed speed.
 
-## Forwarding
+## Calculation Speed
 
 ![](/images/ca-delayed-flow.png)
 
-Calculations are either **instant** or **delayed**.  Instant calculations are evaluated immediately and updated values are included in the very same outgoing event batch.
-Delayed calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the *next* outgoing event batch **and** to outputs connected to a special feed input named "Calculated Attributes". As delayed values are computed, they will be sent downstream to any output connected to this input. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their delayed CAs were calculated will be sent.
+Calculations are either **instant** or **delayed**.  Instant calculations are evaluated immediately and updated values are included in the same outgoing event batch with no delay.
 
-<aside>
- Be mindful of which downstream systems are connected to the "Calculated Attributes" input to avoid unintentional increases in API calls.
-</aside>
-
-![](/images/ca-delayed-connection.png)
-
-You can control which downstream system receives these updates by connecting platforms to receive the delayed calculation updates. You can also filter out calculated attributes you do not wish to forward using the platform filters page.
+Delayed calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the *next* outgoing event batch **and** to outputs connected to a special feed input named "Calculated Attributes" [more about this input](#ca-feed).
 
 ## Date Range
 
@@ -195,15 +188,26 @@ Depending on the date range, volume of data in your workspace, and complexity of
 
 ## Using Calculated Attributes
 
-### Forwarding Calculated Attributes Downstream
+### Forwarding via Event Batches
 
-mParticle will enrich incoming batches with active calculated attributes for that user. Just like regular user attributes, you can restrict which outputs receive them, using the [data filters](../data-filter).
+mParticle will enrich incoming batches with active calculated attributes for that user. Just like regular user attributes, you can restrict which outputs receive them, using [data filters](../data-filter).
 
 <aside>
-If an active calculated attribute has the same name as a user attribute, only the calculated attribute will be sent downstream. You will see warnings in the UI when this occurs.
+If an active calculated attribute has the same name as a user attribute, only the calculated attribute will be sent downstream. You will see many warnings in the UI when this occurs.
 </aside>
 
 ![](/images/ca-filter.png)
+
+### Forwarding via Feed
+There is a special feed named 'Calculated Attributes' that allows you to send calculated attributes downstream whenever they change, without an event from the user; this feed is especially useful for keeping calculated attributes with delayed calculations synchronized throughout your stack and for sending calculated attributes downstream alongside kit integrations. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their delayed CAs were calculated will be sent. This feed sends changed calculated attributes, it does not send user attributes.
+
+You can control which downstream system receives these updates by connecting platforms to receive the delayed calculation updates. You can also filter out calculated attributes you do not wish to forward using the platform filters page.
+
+<aside>
+Be mindful of which downstream systems are connected to the "Calculated Attributes" input to avoid unintentional increases in API calls as this input can send lots of API calls.
+</aside>
+
+![](/images/ca-delayed-connection.png)
 
 ### Live Stream, User Activity View & Profile API
 
