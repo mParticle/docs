@@ -7,7 +7,7 @@ title: Audience
 
 ## Enable the Integration
 
-<aside>When syncing an audience, Teak will only match users that are already known in your Teak instance. In order for Teak to match users, you must have implemented the Teak and mParticle SDKs with a common user identifier and must ensure that the appropriate mParticle identity type is mapped to [Teak's Player ID Identity](https://teak.readthedocs.io/projects/unity/en/latest/unity-editor.html#tell-teak-how-to-identify-the-current-user) type as part of configuring the integration.</aside>
+When syncing an audience, Teak will only match users that are already known in your Teak instance. In order for Teak to match users, you must have implemented the Teak and mParticle SDKs with a common user identifier and must ensure that the appropriate mParticle identity type is mapped to [Teak's Player ID Identity](https://teak.readthedocs.io/projects/unity/en/latest/unity-editor.html#tell-teak-how-to-identify-the-current-user) type as part of configuring the integration.
 
 1. Get your Teak App ID and Teak App Secret. You can access these values within Teak via the Settings dashboard and Settings > Server tab.
 2. With your mParticle and Teak account managers, determine which mParticle user identifier will match your Teak Player ID Identity Type.
