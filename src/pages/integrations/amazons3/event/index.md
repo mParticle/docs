@@ -204,3 +204,7 @@ If you see an option for <code>Unselected</code> displayed in the drop-down (or 
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
+
+<aside>
+When saving Connection Settings, bucket write access is validated by creating a file <code>"mParticle_Bucket_Verification_yyyyMMdd-hhmmss.txt"</code> and uploading it to the bucket using the provided information. This file contains the string "{}", which is a valid json. An error message will be shown if a problem is detected during this validation.
+</aside>
