@@ -31,6 +31,7 @@ game_status | JSON of current steps & state in the offer for detailed creative &
 game_type | String identifying offer type or use case. This is frequently used to determine which creative template to use to represent game status.
 is_reward | Possible values are "`True`" or "`False`". A string representing whether or not this progress resulted in points being issued. In this case, it is often best to leverage the Reward Earned event for creative.
 last_change	| Possible values are `Opted In`, `Step Completed`, or `Game Completed`.
+metadata | JSON of offer metadata fields.
 num_steps | Number of steps in the game (goals in game_status).
 offer_expiration | UTC Timestamp (ISO8601) representing when the offer is no longer active for the customer.
 offer_start | UTC Timestamp (ISO8601) representing when the offer is active for the customer.
