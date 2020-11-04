@@ -1072,32 +1072,32 @@ Used to communicate the GDPR [consent state](/guides/consent-management/#consent
 
 ~~~json     
 "consent_state": {
-	"gdpr": {
-	  "location_collection": {
-	    "consented": true,
-	    "document": "location_collection_agreement_v4",
-	    "timestamp_unixtime_ms": 1523039002083,
-	    "location": "17 Cherry Tree Lane",
-	    "hardware_id": "IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"
-	  },
-	  "parental": {
-	    "consented": false,
-	    "document": "parental_consent_agreement_v2",
-	    "timestamp_unixtime_ms": 1523039002083,
-	    "location": "17 Cherry Tree Lane",
-	    "hardware_id": "IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"     
-	  }
-	},
-  "ccpa":{
-    "data_sale_opt_out":{
-      "consented": true,
-      "document": null,
-      "timestamp_unixtime_ms": 1523039002083,
-      "location": null,
-      "hardware_id": null
+    "gdpr": {
+      "location_collection": {
+        "consented": true,
+        "document": "location_collection_agreement_v4",
+        "timestamp_unixtime_ms": 1523039002083,
+        "location": "17 Cherry Tree Lane",
+        "hardware_id": "IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"
+      },
+      "parental": {
+        "consented": false,
+        "document": "parental_consent_agreement_v2",
+        "timestamp_unixtime_ms": 1523039002083,
+        "location": "17 Cherry Tree Lane",
+        "hardware_id": "IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"
+      }
+    },
+    "ccpa": {
+      "data_sale_opt_out": {
+        "consented": true,
+        "document": null,
+        "timestamp_unixtime_ms": 1523039002083,
+        "location": null,
+        "hardware_id": null
+      }
     }
   }
-}
 ~~~
 
 ## `source_info`
