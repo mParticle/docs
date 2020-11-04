@@ -121,6 +121,28 @@ OTSDK.initWithKeys(OT_PREFERENCE_CENTER_ID,
 
 ### Enabling the Integration
 
+Before enabling the integration, include your customized script for OneTrust in the `<head>` of your page before the mParticle snippet.  You can get this from your OneTrust dashboard and it looks like:s
+
+~~~javascript
+// OneTrust script from your admin dashboard
+
+<!-- OneTrust Cookies Consent Notice start for YOURWEBSITENAME.COM -->
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for YOURWEBSITENAME.COM -->
+
+<script>
+// from Web Docs quickstart
+// https://docs.mparticle.com/developers/sdk/web/getting-started/#add-the-sdk-snippet
+(
+    function(t){window.mParticle=window.mParticle||{};window.mParticle.EventType={Unknown:0,Navigation:1,Location:2,Search:3,Transaction:4,UserContent:5,UserPreference:6,Social:7,Other:8};window.mParticle.eCommerce={Cart:{}};window.mParticle.Identity={};window.mParticle.config=window.mParticle.config||{};window.mParticle.config.rq=[];window.mParticle.config.snippetVersion=2.3;window.mParticle.ready=function(t){window.mParticle.config.rq.push(t)};var e=["endSession","logError","logBaseEvent","logEvent","logForm","logLink","logPageView","setSessionAttribute","setAppName","setAppVersion","setOptOut","setPosition","startNewSession","startTrackingLocation","stopTrackingLocation"];var o=["setCurrencyCode","logCheckout"];var i=["identify","login","logout","modify"];e.forEach(function(t){window.mParticle[t]=n(t)});o.forEach(function(t){window.mParticle.eCommerce[t]=n(t,"eCommerce")});i.forEach(function(t){window.mParticle.Identity[t]=n(t,"Identity")});function n(e,o){return function(){if(o){e=o+"."+e}var t=Array.prototype.slice.call(arguments);t.unshift(e);window.mParticle.config.rq.push(t)}}var dpId,dpV,config=window.mParticle.config,env=config.isDevelopmentMode?1:0,dbUrl="?env="+env,dataPlan=window.mParticle.config.dataPlan;dataPlan&&(dpId=dataPlan.planId,dpV=dataPlan.planVersion,dpId&&(dpV&&(dpV<1||dpV>1e3)&&(dpV=null),dbUrl+="&plan_id="+dpId+(dpV?"&plan_version="+dpV:"")));var mp=document.createElement("script");mp.type="text/javascript";mp.async=true;mp.src=("https:"==document.location.protocol?"https://jssdkcdns":"http://jssdkcdn")+".mparticle.com/js/v2/"+t+"/mparticle.js" + dbUrl;var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(mp,c)}
+)("REPLACE WITH API KEY");
+
+</script>
+~~~
+
 To enable the OneTrust integration, just add it from the directory, and connect it to your Web input, as with any event integration. In the [Connection Settings](/integrations/onetrust/event#connection-settings), you need to map your OneTrust Cookie Groups to your mParticle consent purposes.
 
 The ID of each of your Cookie Groups can be found in the OneTrust dashboard:
