@@ -60,24 +60,6 @@ window.mParticle.ready(
 );
 ```
 
-## Upload Interval / Batching
-To save bandwidth and improve site performance, mParticle does not upload each event as it is recorded. Instead, events are assembled into batches and uploaded every 5 seconds or based on specific triggers. When a trigger is fired, the SDK will:
-
-* Query for the current events stored in memory
-* Assemble batches of events, enriching the batch with user, device, and other application state information
-* Attempt to upload each batch by order of creation
-* Failed uploads will be continously retried whenever the trigger next fires, and batches are individually deleted from the device only upon successful upload.
-
-There are several events that trigger SDK batch creation and upload:
-
-* Every 5 seconds
-* A commerce event is recorded
-* `mParticle.upload()` is manually invoked
-* A user closes the window or closes/switches to another tab
-* On older browsers where the `sendBeacon` API is not available, events are uploaded as soon as they are recorded
-
-mParticle uses a modern web API, `sendBeacon` (see [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) for more) to upload batches. Even after a user closes the browser tab or leaves the page, `sendBeacon` will still be able to send batches to mParticle's servers.  To ensure maximum [browser compatibility](/developers/sdk/web/browser-compatibility/) and to capture every event, if `sendBeacon` is not available, the SDK will use `window.fetch` or `XHR`. 
-
 ## SDK Configuration
 
 The web SDK evaluates the `window.mParticle.config` object for configuration upon initialization. The complete list of configuration options is as follows and several detailed examples are below.
