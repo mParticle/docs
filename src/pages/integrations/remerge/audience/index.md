@@ -2,17 +2,24 @@
 title: Audience
 ---
 
-Remerge is a leading provider of app retargeting and audience management. The Remerge platform offers an efficient and scalable solution by streamlining complex and manual processes with technology - and without needing to integrate an SDK. By activating Remerge, app developers can re-engage users worldwide to increase retention and boost user lifetime value - by driving purchases, orders, bookings, subscriptions and revenues.
+Re-engage your user base with app retargeting. [Remerge](https://www.remerge.io) is a secure, efficient and scalable solution to increase retention and boost user lifetime value. Remerge is a leading provider of app retargeting and audience management. The Remerge platform offers an efficient and scalable solution by streamlining complex and manual processes with technology - and without needing to integrate an SDK. By activating Remerge, app developers can re-engage users worldwide to increase retention and boost user lifetime value - by driving purchases, orders, bookings, subscriptions and revenues.
 
-## Prerequisites
+## Enable the Integration
 
-In order to enable mParticle’s integration with Remerge you will need your Remerge API Key and Customer ID.  Please reach out to your contact at Remerge for more information on obtaining these values.
+1. Contact your Remerge account manager to obtain your Remerge API Key and Customer ID.
+2. With the above credential, configure the Remerge audience integration via mParticle's integrations directory.
 
-## User Identity Mapping
+## Supported Identities
 
-When forwarding audience data to Remerge, mParticle will send IDFAs and Google Advertising IDs.
+### Device Identities
 
-## Configuration Settings
+* Apple IDFA
+* Apple IDFV
+* Google Advertising ID
+
+## Settings
+
+### Configuration Settings
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---

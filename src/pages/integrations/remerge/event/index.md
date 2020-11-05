@@ -2,7 +2,27 @@
 title: Event
 ---
 
-Remerge is a leading provider of app retargeting and audience management. The Remerge platform offers an efficient and scalable solution by streamlining complex and manual processes with technology - and without needing to integrate an SDK. By activating Remerge, app developers can re-engage users worldwide to increase retention and boost user lifetime value - by driving purchases, orders, bookings, subscriptions and revenues.
+Re-engage your user base with app retargeting. [Remerge](https://www.remerge.io) is a secure, efficient and scalable solution to increase retention and boost user lifetime value. Remerge is a leading provider of app retargeting and audience management. The Remerge platform offers an efficient and scalable solution by streamlining complex and manual processes with technology - and without needing to integrate an SDK. By activating Remerge, app developers can re-engage users worldwide to increase retention and boost user lifetime value - by driving purchases, orders, bookings, subscriptions and revenues.
+
+## Enable the Integration
+
+1. Contact your Remerge account manager to obtain your Remerge API Key and Customer ID.
+2. With the above credential, configure the Remerge event integration via mParticle's integrations directory.
+
+## Supported Platforms
+
+Remerge will receive events forwarded from the following input sources:
+
+* Android
+* iOS
+
+## Supported Identities
+
+### Device Identities
+
+* Apple IDFA
+* Apple IDFV
+* Google Advertising ID
 
 ## Supported Features
 
@@ -10,11 +30,13 @@ Remerge is a leading provider of app retargeting and audience management. The Re
 * App Event
 * Commerce Event
 
-## Prerequisites
+## Data Processing Notes
 
-In order to enable mParticle’s integration with Remerge you will need your Remerge API Key and Customer ID.  Please reach out to your contact at Remerge for more information on obtaining these values.
+Remerge will not accept data more than 24 hours old.
 
-## Configuration Settings
+## Settings
+
+### Configuration Settings
 
 Setting Name| Data Type | Default Value | Description
 |---|---|---|---|
