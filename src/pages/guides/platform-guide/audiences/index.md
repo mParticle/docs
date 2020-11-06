@@ -542,11 +542,18 @@ mParticle’s new Standard Audiences feature lets you define and build audiences
 * Since Standard Audiences use huge amounts of data, your account is limited to a set amount of calculations per year. A single calculation can include multiple audiences as long as they are calculated together.
 * While Standard Audiences support all of the same Audience partners as Real-time audiences, with the same connection settings, the workflow of calculating and sending a Standard Audience has a few optional steps: to allow you to make the most of your calculations, you can calculate and send audiences in bulk.
 
+### Calculation credits
+Standard audiences are purchased by buying annual calculation credits. Each calculation credit lets you run a calculation across 365 days of your historical data, regardless of how many audiences are included. You can calculate many standard audiences at once. There are prompts in the product to select the audiences to calculate and confirm how many credits you are spending.
+
+Some example calculations and costs:
+- 1 standard audience spanning from 1/1/2018 to 1/1/2020: this costs 2 credits as it scans 2 years of data.
+- 3 standard audiences spanning from 1/1/2019 to 12/31/2019: this costs 1 credit as it scans 1 year of data (with many audiences).
+
 ### Workflow
 
 #### 1 - Create a New Standard Audience
 
-Standard Audiences are managed separately from Real-time audiences. Choose **Audiences > Lifetime** from the left navigation menu, and click **+ New Standard Audience**.
+Standard Audiences are managed separately from Real-time audiences. Choose **Audiences > Standard** from the left navigation menu, and click **+ New Standard Audience**.
 
 ![](/images/lifetime-create.png)
 
@@ -568,7 +575,7 @@ From the **In Progress** tab of the Standard Audiences page, click **Calculate**
 
 ![](/images/lifetime-calculate.png)
 
-Select any additional DRAFT audiences from the list to add them to the calculation. When you’re ready click ****Start Calculation**.
+Select any additional DRAFT audiences from the list to add them to the calculation. This modal will show you how many calculation credits will be deducted from your account. When you’re ready click ****Start Calculation**.
 
 ![large](/images/lifetime-start-calculation.png)
 
