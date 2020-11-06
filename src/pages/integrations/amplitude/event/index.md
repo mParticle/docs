@@ -120,29 +120,34 @@ Time | time | Event Timestamp, in milliseconds
 User ID | user_id | Set based on the value of the `User Identification` setting
 User Properties | user_properties | All user attributes included with the event.  See above for Attribution Custom Events.
 
-Note: Only for web requests, mParticle will extract OS and browser info from HTTP User Agent.
+### Server to Server Web Requests
+
+Only for web requests, mParticle will extract OS and browser info from HTTP user agent.
 Similar to Amplitude's SDK behavior, `os_name` and `os_version` will be populated with browser info. For that reason, mParticle will send 2 additional `Custom User Properties`, `web_os_name` and `web_os_version`, that will contain OS info. See [Amplitude's doc](https://developers.amplitude.com/docs/http-api-v2#properties).
+
+mParticle will also populate `device_brand` and `device_model` from the HTTP user agent if the `Extract Device Family from User Agent` setting is enabled. With this setting enabled, if mParticle cannot determine the device brand or model, it will populate `device_brand` with the same value as is set for `web_os_name`. Note, the device values may differ slightly between S2S events and events sent through the Amplitude web kit.
 
 ## Configuration Settings
 
-| Setting Name |  Data Type    | Default Value  | Description |
-| ---|---|---|---|
-| API Key | `string` | <unset> | Your app's Amplitude API Key.  You can find this on the "My Account" page of Amplitude's dashboard. |
-| Use Batch API Endpoint | `bool` | False | If enabled, the Amplitude [batch API](https://developers.amplitude.com/docs/batch-event-upload-api) endpoint will be used. The endpoint has a higher rate limit but may have a slight delay in delivering events. Please note that if the request is replayed, the batch API endpoint will always be used regardless of this configuration value.
+| Setting Name | Data Type | Default Value | Description |
+| --- | --- | --- | --- |
+| API Key | `string` | <unset> | Your app's Amplitude API Key. You can find this on the "My Account" page of Amplitude's dashboard. |
+| Use Batch API Endpoint | `bool` | False | If enabled, the Amplitude [batch API](https://developers.amplitude.com/docs/batch-event-upload-api) endpoint will be used. The endpoint has a higher rate limit but may have a slight delay in delivering events. Please note that if the request is replayed, the batch API endpoint will always be used regardless of this configuration value. |
 
 ## Connection Settings
 
-| Setting Name |  Data Type    | Default Value | Platform | Description |
-| ---|---|---|---|----
-| User Identification | `string` | customerId | All| To identify users, choose "Customer ID" to send Customer ID if provided, "Email" to send Email addresses if provided, or "MPID" to send mParticle ID. <br> You can map other IDs by using the Other, Other2, Other3, and Other4 fields by selecting these from the **User Identification** drop-down. These fields can be used to map Other IDs as  Customer IDs.  |
-| Include Email in User Properties | `bool` | False | All| If enabled, the email user identity will be forwarded in the Amplitude user_properties. |
-| Allow unset user attributes | `bool` | True | All| Allow user attributes to be removed in Amplitude using the $unset operation.
-| Prefix Attribution with Source | `bool` | True | All | If enabled, the attribution source name will be prefixed for attribution events.
-| Include UTM in User Properties | `bool` | default | Web| If enabled, Amplitude will find the standard UTM parameters from either the URL or the browser cookie and set them as user properties. |
-| Forward Web Requests Server Side |  `bool` | False | Web | If enabled, mParticle will not initialize the full Amplitude integration on the web client. Instead, web data will be forwarded to Amplitude via server-to-server API.
-| Instance Name | `string` | default | Web| The name of the client-side Amplitude instance to use. This should be unique for each Amplitude connection. |
+| Setting Name | Data Type | Default Value | Platform | Description |
+| --- | --- | --- | --- | --- |
+| User Identification | `string` | customerId | All | To identify users, choose "Customer ID" to send Customer ID if provided, "Email" to send Email addresses if provided, or "MPID" to send mParticle ID. <br> You can map other IDs by using the Other, Other2, Other3, and Other4 fields by selecting these from the **User Identification** drop-down. These fields can be used to map Other IDs as  Customer IDs. |
+| Include Email in User Properties | `bool` | False | All | If enabled, the email user identity will be forwarded in the Amplitude user_properties. |
+| Allow unset user attributes | `bool` | True | All | Allow user attributes to be removed in Amplitude using the $unset operation. |
+| Prefix Attribution with Source | `bool` | True | All | If enabled, the attribution source name will be prefixed for attribution events. |
+| Include UTM in User Properties | `bool` | default | Web | If enabled, Amplitude will find the standard UTM parameters from either the URL or the browser cookie and set them as user properties. |
+| Forward Web Requests Server Side |  `bool` | False | Web | If enabled, mParticle will not initialize the full Amplitude integration on the web client. Instead, web data will be forwarded to Amplitude via server-to-server API. |
+| Instance Name | `string` | default | Web | The name of the client-side Amplitude instance to use. This should be unique for each Amplitude connection. |
 | Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. |
 | Send Application State Transitions | `bool` | False | All | If enabled, application state transitions will be forwarded to Amplitude. |
 | Send Event Attributes as Objects | `bool` | False | All | If enabled, mParticle will attempt to send event attributes as objects. Attributes should be string values containing serialized JSON. If we are unable to parse JSON from the attribute, we will send it to Amplitude as is. We will parse all valid JSON including objects, arrays, numbers, bools, and nulls. Note, Amplitude event properties do not support all nested object formats - please see their docs [here](https://developers.amplitude.com/docs/http-api-v2#properties-1) for details. |
-| Generate Insert ID From Event ID | `bool` | False | All but Web |If enabled, mParticle will generate insert ID from the event ID. If disabled, insert ID will be generated from a combination of device ID, user ID, event ID, event ID, and time. Insert ID is used by Amplitude for deduplication. |
-| Enable Apple Search Ads | `bool` | False | iOS, tvOS |If enabled, the Apple Search Ads attributes will be forwarded in the Amplitude user_properites |
+| Generate Insert ID From Event ID | `bool` | False | All but Web | If enabled, mParticle will generate insert ID from the event ID. If disabled, insert ID will be generated from a combination of device ID, user ID, event ID, event ID, and time. Insert ID is used by Amplitude for deduplication. |
+| Enable Apple Search Ads | `bool` | False | iOS, tvOS | If enabled, the Apple Search Ads attributes will be forwarded in the Amplitude user_properites. |
+| Extract Device Family from User Agent | `bool` | False | Web | If enabled, mParticle will attempt to extract device family information from the provided user agent string. Note, this is only used for server side web requests. See [Server to Server Web Requests](#server-to-server-web-requests) for more info. |
