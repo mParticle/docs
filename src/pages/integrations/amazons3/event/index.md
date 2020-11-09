@@ -41,20 +41,35 @@ To set up a bucket policy:
 #### AWS S3 Bucket Policy Template
 ~~~json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::338661164609:role/Prod-Role-DG12-Default"
-      },
-      "Action": [
-           "s3:PutObject",
-           "s3:PutObjectAcl"
-      ],
-      "Resource": "arn:aws:s3:::{bucket}/*"
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::{bucket}/*",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::338661164609:role/Prod-Role-DG12-Default"
+                ]
+            }
+        },
+        {
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::{bucket}/*",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::338661164609:role/role-lambda-verifyrequest"
+                ]
+            }
+        }
+    ]
 }
 ~~~
 
