@@ -50,8 +50,7 @@ To set up a bucket policy:
       },
       "Action": [
            "s3:PutObject",
-           "s3:PutObjectAcl",
-           "kms:Decrypt"
+           "s3:PutObjectAcl"
       ],
       "Resource": "arn:aws:s3:::{bucket}/*"
     }
@@ -117,7 +116,7 @@ AWS IAM Policy Template
         "s3:GetObject",
         "s3:ListBucket",
         "s3:PutObject",
-        "kms:Decrypt",
+        "kms:Decrypt"
       ],
       "Resource": [
         "arn:aws:s3:::{bucket}/*"
