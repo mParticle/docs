@@ -29,7 +29,9 @@ To set up a bucket policy:
 
 1. [Create an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html). The bucket name **must** begin with `mp-forwarding-`.
   <aside> Note the full name of your bucket. This will be required later.</aside>
+  
 2. Create a New Policy from the template below and be sure to replace the word ``{bucket}`` with the name of the S3 bucket created in step 1.
+
 3. [Assign Policy to Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/EditingBucketPermissions.html). In the Bucket Policy Editor
     1. Click Properties
     2. Click Permissions
@@ -48,7 +50,8 @@ To set up a bucket policy:
       },
       "Action": [
            "s3:PutObject",
-           "s3:PutObjectAcl"
+           "s3:PutObjectAcl",
+           "kms:Decrypt"
       ],
       "Resource": "arn:aws:s3:::{bucket}/*"
     }
@@ -113,7 +116,8 @@ AWS IAM Policy Template
       "Action": [
         "s3:GetObject",
         "s3:ListBucket",
-        "s3:PutObject"
+        "s3:PutObject",
+        "kms:Decrypt",
       ],
       "Resource": [
         "arn:aws:s3:::{bucket}/*"
