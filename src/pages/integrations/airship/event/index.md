@@ -151,7 +151,7 @@ If your Airship configuration is for Web only, enter an App Key, and enable the 
 
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
-| Token | `string` | <unset> | All | Airship generated string identifying the Bearer token. |
+| Token | `string` | <unset> | All | Airship generated string identifying the [Bearer token](https://docs.airship.com/tutorials/manage-project/messaging/bearer-tokens/). |
 | Notification Icon Name | `string` | Application Icon | Android| Name of the drawable resource to use for the notification icon, for example, ic_notification. |
 | Notification Accent Color | `string` | System default | Android| Accent color to be used when constructing the notification, for example, #ff0000. |
 | Named User ID Type | `string` | <unset> | All | Set to "None," "Other," "Hashed e-mail address," or "Customer ID" to define which identity to send to Airship. If a request does not include the Named User ID Type it will be dropped. Airship will return an error if 'Other' is selected but the 'Other' identity is not present in the event batch |
