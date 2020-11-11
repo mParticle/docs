@@ -61,7 +61,7 @@ Events are central to many of mParticle's integrations; analytics integrations t
 App Events represent specific actions that a user has taken in your app. At minimum they require a name and a type, but can also be associate with a free-form dictionary of key/value pairs.
 
 ```python
-app_event = mparticle.AppEvent('Example', 'navigation')
+app_event = mparticle.AppEvent('Example', 'navigation', custom_attributes={'foo':'bar'})
 app_event.timestamp_unixtime_ms = example_timestamp
 batch.events = [app_event]
 ```
