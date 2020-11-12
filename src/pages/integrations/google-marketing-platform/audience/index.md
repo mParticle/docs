@@ -40,7 +40,7 @@ The table below describes the configuration settings for each audience integrati
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---
-Client Customer ID | `string`| | Your Google Marketing Platform Client Customer ID.  Please contact your Google TAM or AM to obtain this value.
+Client Customer ID | `string`| | Your Google Marketing Platform Client Customer ID.  Please contact your Google TAM or AM to obtain this value. For DFP, this is the Audience link ID.
 Product | `string` | ADX Buyer | The Google Ad Product you would like to forward audience data to.
 
 ## Connection Settings

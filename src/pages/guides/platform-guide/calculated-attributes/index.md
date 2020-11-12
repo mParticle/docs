@@ -33,7 +33,7 @@ Once a calculated attribute is activated, the initialization of existing data ca
 
 ## Calculations
 
-We currently support 13 calculations organized into three groups:
+We currently support 13 calculations organized into four groups:
 
 ### Count
 

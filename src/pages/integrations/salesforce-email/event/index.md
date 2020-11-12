@@ -172,9 +172,9 @@ GUID| Text  | Yes | If you want mParticle to generate a **GUID** to be sent, add
 IDFA|Text  | Yes | If you want the **IDFA** device id to be sent, add this field.
 IDFV|Text | Yes | If you want the **IDFV** device id to be sent, add this field.
 GAID|Text  | Yes | If you want the **Google Advertising ID** device id to be sent, add this field.
-Android ID|Text|  No | If you want the **Android ID** device id to be sent, add this field.
-Platform |Text| No | If you want  **Platform** to be sent, add this field.
-OS Version|Text|  No | If you want **OS Version** to be sent, add this field.
+Android ID|Text|  Yes | If you want the **Android ID** device id to be sent, add this field.
+Platform |Text| Yes | If you want  **Platform** to be sent, add this field.
+OS Version|Text|  Yes | If you want **OS Version** to be sent, add this field.
 Country|Text | Yes | If you want **Country** to be sent, add this field.
 Locale|Text | Yes | If you want **Locale** to be sent, add this field.
 Application Name|Text  | Yes | If you want **Application Name** to be sent, add this field.
