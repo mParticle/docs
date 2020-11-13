@@ -42,35 +42,44 @@ mParticle will attempt to match users in Braze based on IDFAs, Android Device ID
 
 The Braze API does not allow mParticle to directly create and maintain membership of segments in Braze, so the Audience integration works by setting attributes on a user, which you can then use to [define a corresponding segment in Braze](https://www.braze.com/docs/user_guide/engagement_tools/segments/creating_a_segment/). Like mParticle, Braze populates it's Segment Manager based on the actual data points received, so you need to create audiences in mParticle and connect them to Braze first. Then, provided your audience is not empty, the segment membership attributes should become available in the Braze Segment Manager within a few minutes.
 
-mParticle offers two ways to set segment membership attributes, controlled by the `Create One User Attribute per Segment` option in the [Configuration Settings](#configuration-settings).
+mParticle offers three ways to set segment membership attributes, controlled by the `Send Segments As` [Configuration Setting](#configuration-settings).  The processing of each option is described below:
 
-### If `Create One User Attribute per Segment` is `false` (default)
+1. Single Attribute (default)
+2. One Attribute Per Segment
+3. Both Single Attribute and One Attribute Per Segment
 
-mParticle creates a single custom attribute in Braze for each user, called `SegmentMembership`. The value of this attribute is a list of mParticle audience IDs that match the user. Audience IDs can be found in the main Audience list view. For example, given these three audiences:
+### Single Attribute
+
+This is the default behavior.  mParticle creates a single custom attribute in Braze for each user, called `SegmentMembership`. The value of this attribute is a list of mParticle audience IDs that match the user. Audience IDs can be found in the main Audience list view. For example, given these three audiences:
 
 ![](/images/mparticle-audience-ids.png)
 
-A user who is a member of both `Aspiring Athenians` and `Ibiza Dreamers` will show the attribute `SegmentMembership = ['11036', '11034']` in Braze:
+A user who is a member of both `Aspiring Athenians` and `Ibiza Dreamers` will show the attribute `SegmentMembership` with a value of `'11036','11034'` in Braze:
 
 ![](/images/braze-segment-membership-user-search.png)
 
-To target members of `Ibiza Dreamers`, you need to create a matching segment in Braze,
+To target members of `Ibiza Dreamers`, you need to create a matching segment in Braze using the mParticle Audience ID,
 with the filter `SegmentMembership` -- `matches regex` -- `11034`. It's important to choose the `matches regex` option, and not `equals`, or users with membership in more than one audience will not be matched.
 
 ![](/images/braze-ibiza-dreamers-condition.png)
 
-### If `Create One User Attribute per Segment` is `true`
+<aside>Warning: Do not select `Single Attribute` for multiple configurations using the same credentials and cluster. Each configuration will send its own set of audience IDs to the same profile in Braze which will cause them to overwrite each other. If you need to use multiple configurations, please use the `Single Attribute` for at most one configuration and use `One Attribute Per Segment` for others.</aside>
 
-For each audience that matches a user, mParticle creates a custom attribute in Braze, based on the External Name of the audience. For example, a user who is a member of `Possible Parisians` will show the attribute `In Possible Parisians = true` in Braze:
+### One Attribute Per Segment
+
+mParticle creates a custom attribute in Braze for each audience that a user belongs to, based on the External Name of the audience. For example, a user who is a member of audience `Possible Parisians` will show the attribute `In Possible Parisians` is true in Braze.
 
 ![](/images/braze-segment-member-bool-user-search.png)
 
-To target members of `Possible Parisians`, you need to create a matching segment in Braze,
-with the filter `In Possible Parisians` -- `equals` -- `true`.
+To target members of `Possible Parisians`, you need to create a matching segment in Braze, with the filter `In Possible Parisians` -- `equals` -- `true`.
 
 ![](/images/braze-possible-parisians-condition.png)
 
-### Deactivating and Deleting Connections
+### Both Single Attribute and One Attribute Per Segment
+
+mParticle will send attributes as described by both [`Single Attribute`](#single-attribute) and [`One Attribute Per Segment`](#one-attribute-per-segment).
+
+## Deactivating and Deleting Connections
 
 Since mParticle does not directly maintain segments in Braze, it will not delete segments when the corresponding mParticle audience connection is deleted or deactivated. When this happens, mParticle will **not** update the audience user attributes in Braze to remove the audience from each user.
 
@@ -80,7 +89,7 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 API Key | `string` | | Your app's API Key can be found in your Braze dashboard.
 API Key Operating System | `enum` | Unselected | Select which operating system your Braze API key corresponds to. This selection will limit the types of push tokens that will be forwarded on an audience update.
-Create One User Attribute per Segment | `bool`| False | If enabled, mParticle will forward membership information for each audience as a separate user attribute.  For example, if you're forwarding an audience named "New Users", mParticle will forward membership information for this audience in a user attribute called "In New Users", with a value of "true" or "false".  <br><br>If disabled, mParticle will forward a single user attribute called "SegmentMembership", and its value will be a comma-separated list of mParticle audience IDs that the user is a member of, wrapped in single quotes (e.g., "'123','456','789'").
+Send Segments As | `enum`| Single Attribute | The method of sending audiences to Braze:  Single Attribute, One Attribute Per Segment, or Both Single Attribute and One Attribute Per Segment.  Warning: If multiple configurations use the same credentials and cluster, 'Single Attribute' may cause values to be overwritten.
 App Group REST API Key | `string`| | The App Group REST API Key can be found in the developer console section of the Braze dashboard.
 External Identity Type | `enum` | Customer ID | The mParticle User Identity type to forward as an External ID to Braze.
 Email Identity Type | `enum` | Email | The mParticle User Identity Type to forward as the Email to Braze.
