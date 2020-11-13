@@ -189,11 +189,11 @@ paths:
           application/json:
             schema:
               properties:
-                batch: true
                 document:
                   $ref: "#/components/schemas/DataPlanVersion"
       responses:
-        '200': true
+        '200':
+          $ref: '#/components/responses/DataPlanVersionResponse'
         '400':
           $ref: '#/components/responses/BadSchema'
         '401':
@@ -266,7 +266,7 @@ components:
     TooManyRequests:
       description: Too Many Requests
       headers:
-        Retry-After: 
+        Retry-After:
           description: Seconds to wait until the next request attempt
           schema:
             type: integer
@@ -281,7 +281,7 @@ components:
         - "production"
     Criteria:
       anyOf:
-        - $ref: "#/components/schemas/ScreenViewEventCriteria"       
+        - $ref: "#/components/schemas/ScreenViewEventCriteria"
         - $ref: "#/components/schemas/CustomEventCriteria"
         - $ref: "#/components/schemas/UserAttributeCriteria"
     CustomEventCriteria:
@@ -322,35 +322,6 @@ components:
           type: string
         data_plan_versions:
           $ref: "#/components/schemas/DataPlanVersionList"
-    DataPlanTransformation:
-      properties:
-        transformation_id:
-          type: integer
-        transformation_name:
-          type: string
-        description:
-          type: string
-        error_pointer:
-          type: [string, null]
-        schema_keywords:
-          type: [array, null]
-          items:
-            type: string
-        validation_error_types:
-          type: [array, null]
-          items:
-            $ref: "#/components/schemas/ValidationErrorType"
-        json_patch:
-          $ref: "#/components/schemas/JSONPatch"
-      required: ["transformation_id", "transformation_name", "json_patch"]
-    DataPlanTransformationErrorType:
-      enum:
-        - invalid
-        - valid
-    DataPlanTransformationStatus:
-      enum:
-        - success
-        - failure
     DataPlanVersion:
       properties:
         version:
@@ -403,10 +374,8 @@ components:
           enum:
             - "json_schema"
         definition:
-          type: string
+          type: object
           description: "This should be a valid JSON schema"
-          allOf:
-            - $ref: "schemas/base-schema.json"
       required: ["type", "definition"]
     Error:
       type: object
@@ -421,47 +390,6 @@ components:
           items:
             oneOf:
               - $ref: '#/components/schemas/Error'
-    ExecutedTransformation:
-      properties:
-        transformation_id:
-          type: int
-        transformation_status:
-          "$ref": "#/components/schemas/DataPlanTransformationStatus"
-        transformation_error_type:
-          "$ref": "#/components/schemas/DataPlanTransformationErrorType"
-        transformation_error_message:
-          type: string
-    JSONPatch:
-      type: array
-      items:
-        oneOf:
-          -
-            properties:
-              op:
-                const: remove
-              path:
-                type: string
-            required: [op, path]
-            additionalProperties: false
-          -
-            properties:
-              op:
-                enum: [add, replace, test]
-              path:
-                type: string
-              value: true
-            required: [op, path, value]
-            additionalProperties: false
-          -
-            properties:
-              op:
-                enum: [move, copy]
-              path:
-                type: string
-              from:
-                type: string
-            required: [op, path, from]
-            additionalProperties: false
     MatchType:
       type: string
       enum:
@@ -480,7 +408,7 @@ components:
       properties:
         match_key:
           type: string
-        value: 
+        value:
           type: string
         schema_pointer:
           type: string
@@ -494,7 +422,7 @@ components:
         - message
         - match_key
         - error_type
-    SchemaErrorList: 
+    SchemaErrorList:
       type: object
       properties:
         errors:
@@ -520,10 +448,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/DataPoint"
-        transformations:
-          type: [array, null]
-          items:
-            $ref: "#/components/schemas/DataPlanTransformation"
         active_transformation_ids:
           type: array
           items:
