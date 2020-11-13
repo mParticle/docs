@@ -32,6 +32,17 @@ For a Phone Number audience, mParticle forwards all 3 phone number identities as
 
 For a Device ID audience, mParticle forwards the Apple Advertising Identifier (IDFA) or the Android Advertising ID (AAID). No other fields are included with Device ID audiences. If you choose to send either or both Device IDs you **MUST** provide the correct App ID for each type. See [Prerequisites](#prerequisites).
 
+### Address Info
+
+mParticle will send [Address Info](https://developers.google.com/adwords/api/docs/reference/v201809/AdwordsUserListService.AddressInfo) to Google Ads for advanced matching. This data will only be sent if ALL of the following fields are present:
+
+| Google Field | mParticle Field | Description|
+|---|---|---|
+| hashedFirstName | $FirstName | First name of the member, which is normalized and SHA-256 hashed by mParticle. |
+| hashedLastName | $LastName | Last name of the member, which is normalized and SHA-256 hashed by mParticle. |
+| countryCode | $Country | 2-letter country code. |
+| zipCode | $Zip | Zip code. |
+
 ## Data Processing Notes
 
 * mParticle names User Lists in Google Ads based on the External Name of the audience and the identity type. For example, if you connect an audience named `Remarketing` to Ads and check all three identity types, mParticle will create four audiences called `Remarketing (Email)`, `Remarketing (Phone)`, `Remarketing (IDFA)`, and `Remarketing (AAID)`.
