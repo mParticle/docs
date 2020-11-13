@@ -266,7 +266,7 @@ components:
     TooManyRequests:
       description: Too Many Requests
       headers:
-        Retry-After:
+        Retry-After: 
           description: Seconds to wait until the next request attempt
           schema:
             type: integer
@@ -281,7 +281,7 @@ components:
         - "production"
     Criteria:
       anyOf:
-        - $ref: "#/components/schemas/ScreenViewEventCriteria"
+        - $ref: "#/components/schemas/ScreenViewEventCriteria"       
         - $ref: "#/components/schemas/CustomEventCriteria"
         - $ref: "#/components/schemas/UserAttributeCriteria"
     CustomEventCriteria:
@@ -408,7 +408,7 @@ components:
       properties:
         match_key:
           type: string
-        value:
+        value: 
           type: string
         schema_pointer:
           type: string
@@ -422,7 +422,7 @@ components:
         - message
         - match_key
         - error_type
-    SchemaErrorList:
+    SchemaErrorList: 
       type: object
       properties:
         errors:
