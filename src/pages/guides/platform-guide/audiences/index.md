@@ -283,8 +283,6 @@ Audience A/B Testing allows you to split an audience into two or more variations
 
 You can then compare the engagement outcomes for each group and apply the most successful strategy to the entire audience.
 
-Tests can be run for as long as required and deleted at any time. Creating a test does not affect [Audience sharing](#audience-sharing). If you create a test using a P2P shared audience, your variations will be visible only to you.
-
 ### Create a Test
 
 1. From the Audience details page, select the **A/B Test** tab. If no test is set up for this audience, you will see only one 'Control' variation containing 100% of the users in the audience. Begin setting up the test by clicking **Add A/B Test Variation**.
@@ -463,74 +461,6 @@ When you believe you have resolved the issue, open the fault notification and cl
 
 <aside> Remember that to resume sending data, you must open the fault notification and click <strong>Resume</strong>. Otherwise, forwarding will not resume, even if you have fixed the underlying issue.</aside>
 
-## Audience Sharing
-
-<aside>Audience Sharing is in beta testing. If you would like to enable audience sharing in your mParticle account, please contact your Success Manager.</aside>
-
-Audience Sharing lets mParticle clients share audience data with each other.
-
-There are two basic use cases for Audience Sharing:
-
-1. Sharing an audience with a media platform to efficiently target campaigns.
-
-   _mPTravel wants to run a retargeting campaign for their web app on the mPMovies media platform. Since both are mParticle clients, mPTravel can share the retargeting Audience they have created with mPMovies, who can then use that audience to determine which users to target with ads for mPTravel._
-
-2. Mutually sharing audiences with a related app to allow both parties to expand their user base.
-
-   _mPTravel and mPRestaurants both target users interested in travel and entertainment. Since they are both mParticle customers, they agree to share audiences with each other, so that each can target the other's users._
-
-Any Audience Sharing arrangement has two parties:
-
-* The **Initiator** offers to share one or more of the audiences they have created in mParticle.
-* The **Receiver** gains access to the shared audience in their own mParticle dashboard. In order to receive audiences, you must opt in.
-
-Either party can end the arrangement at any time.
-
-### Opt In to Receive Audiences
-
-To be able to receive audiences, navigate to **Audiences** in the Dashboard, click **P2P Audiences**, and turn on the **Receiving** switch.
-
-![](/images/PlatformUpdate-AudienceSharing-Shared-Audiences-Enabled-Receiving-042019.png)
-
-You will be prompted to accept the sharing terms and conditions, and upload a PNG file of your company logo.
-
-### Share an Audience
-
-To share an audience, from the **Audience** page, under **P2P Audiences > Shared**, and click **Share Audience**.
-
-![](/images/shared-audiences-share-new.png)
-
-Select the audiences you want to share and the mParticle customers you want to receive them. Only activated audiences can be shared.
-
-The Receiver must accept the audiences before sharing begins. Until the audience is accepted, it will appear as 'pending' in your **Shared** audience tab.
-
-Your **Shared** tab will show an up-to-date view of each audience you've shared, and which mParticle customers they are shared with.
-
-### Receive an Audience
-
-If another mParticle customer has shared an audience with you, you will see a notification on the **Audience** page, under **P2P Audiences > Received**, showing that you have audiences pending. Click it to accept or reject the audiences.
-
-![](/images/shared-audiences-pending.png)
-
-Once you have accepted an audience, you can connect it to any of your audience services, just like an audience you have created yourself.
-
-### Updates to Shared Audiences
-
-Once an Audience is shared, any users added, deleted or updated will be reflected for all parties that share the audience.
-
-### Stop Sharing
-
-Once a particular audience is being shared, the sharing arrangement can end in several ways.
-
-  1. The Initiator deletes the audience.
-  2. The Initiator chooses to 'unshare' the audience.
-  3. The Receiver removes the audience from their 'Shared Audiences' tab.
-  4. The Receiver opts out of Audience Sharing.
-
-If any of the above occur, the shared audience will no longer be available to the Receiver.
-
-Canceling a sharing arrangement cannot be undone. If you wish to resume it, the Initiator must resend the audience to the receiver.
-
 ## Standard Audiences
 
 > Standard Audiences are a paid premium feature. Contact your mParticle representative if you're interested in using Standard Audiences.
@@ -607,7 +537,7 @@ Calculated audience will remain in the **Ready** tab for **30 days**, after whic
 
 ## User Attribute Sharing
 
-mParticle’s Audience User Attribute Sharing feature allows you to include user attributes along with identities when you forward an audience to a supported Partner.
+mParticle’s Audience User Attribute Sharing feature allows you to include user attributes along with identities when you connect a supported audience connection. This allows you to use richer data in your activation platform, such as LTV, lead score or propensity to convert.  This feature does not forward or share your user data to any company beyond what you are explicitly configuring as an audience connection.
 
 ### Set up User Attribute Sharing
 
@@ -634,50 +564,3 @@ Once you have selected the User Attributes you want to forward, **Save and Activ
 mParticle’s User Profile stores user attributes across platforms, workspaces and accounts. This means that, if your audience output uses device IDs, and if you are tracking a User across multiple platforms (mobile and web, for example) you may be able to forward user attributes that were not collected on the targeted mobile devices.
 
 If you select a workspace-level attribute, and the same attribute name is used across multiple workspaces in the account, then mParticle will only use values from the workspace you created the audience in.
-
-
-<!--
-## Cross Organization Audience Sharing
-
-Allows brands to control how their identity data is shared across accounts in audiences and the mParticle user activity page. Also allows audiences to be created with user attributes from another account.
-
-## Setting up Audience Sharing
-
-Contact your Customer Success Manager to set up accounts for each business unit. Each business unit will require it's own account so that audience information may be shared.
-Audience sharing will have the following levels:
-
-* Private - Audiences are not shared with any other users
-* View-only - Other users of your organization can view the audiences but not share the data in them
-* Usable - Other users can request using your audiences
-
-The following table highlights the various permissions for different sharing levels
-
-|Permission/Sharing Level | View Audience in Listing and Details: Including Stats, Criteria, A/B Tests, etc.  | Download | Add Output | Connect Output | View Connected Outputs and Their Details (Outputs Will Default to Viewable)
-|---|---|---|---|---|---|
-|Private   |   |   |   |   |   |
-|View-Only   |<p align="center"> x</p>  |   |   |   |<p align="center"> x</p>   |
-|Usable   | <p align="center"> x</p>  |   |<p align="center"> x</p>   | <p align="center"> x</p>  |<p align="center"> x</p>   |
-
-
-
-## Accessing Audience Sharing
-
-From the Audiences page, there will be a tab named **Shared**. From this tab you can see the following information:
-
-Audiences created in other accounts
-Workspaces - summary of the workspaces included in this audience
-  * Single workspace audiences show the workspace icon
-  * Multi-workspace audiences show an icon and a count of workspaces used
-* Sharing - summary of your current sharing level for that audience
-  * Icon showing the sharing level to the current user
-  * Tooltip showing what the current level is with a link to the change form and viewing the rest of the sharing permissions
-* Workspaces filter that allows you to pick workspaces/audiences that this audience uses
-  * Options for the Workspaces filter allows you to pick All or a specific workspace
-* Sharing filter that allows you to filter audiences by sharing level to the current user
-
-
-
-
-
-
--->
