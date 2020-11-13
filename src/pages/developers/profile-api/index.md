@@ -90,7 +90,7 @@ Allows you to retrieve the Profile
 
 Name | Type | Required | Description
 |---|---|---| ---|
-?fields| `string` | Yes |Comma-separated list of fields you want to return for the user. Allowed values are `device_identities`, `user_identities`, `user_attributes`, `audience_memberships`, and `attribution`. You must specify each field you want to return.  |
+?fields| `string` | Yes |Comma-separated list of fields you want to return for the user. Allowed values are `device_identities`, `user_identities`, `user_attributes` (including calculated attributes), `audience_memberships`, and `attribution`. You must specify each field you want to return.  |
 
 #### Curl example
 
