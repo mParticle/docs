@@ -143,7 +143,7 @@ The following command will generate an iOS "fat" framework containing all archit
 
 ```bash
 # With mvnx:
-mvnx com:mparticle:smartype-generator generate
+mvnx com.mparticle:smartype-generator generate
 
 # Or directly execute the pre-downloaded jar
 java -jar smartype.jar generate
