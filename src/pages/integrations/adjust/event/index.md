@@ -19,7 +19,9 @@ mParticle will only forward events to Adjust if:
 * iOS - An IDFA or IDFV is set
 * Android - A Google Advertising ID or Android ID is set
 
-mParticle will only forward events to Adjust if the data is less than 28 days old - <https://docs.adjust.com/en/event-tracking/#server-side-event-tracking>
+mParticle will only forward events to Adjust if the data is less than 28 days old - <https://docs.adjust.com/en/event-tracking/#server-side-event-tracking>.
+
+If the incoming data includes an IP address, it will also be forwarded alongside other device information.
 
 ## Adjust Kit Integration
 
@@ -43,7 +45,7 @@ end
 dependencies {
     compile ('com.mparticle:android-adjust-kit:4.+')
 }
-~~~   
+~~~
 :::
 
 ## Adjust mParticle Configuration
