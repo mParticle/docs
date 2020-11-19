@@ -124,6 +124,8 @@ The following Device IDs will be included in the IdentityLink message if availab
 | Apple Vendor ID | `idfv` and `idfv_sha1` (as a SHA-1 hash) |
 | Google Advertising ID | `adid` |
 | Android ID | `android_id` |
+| Roku Advertising ID | `rida` |
+| Fire Advertising ID | `faid` |
 
 
 ### User IDs
@@ -137,7 +139,7 @@ The following User IDs will be included in the IdentityLink message if available
 | Facebook | `fb_userid` |
 | Google | `google_userid` |
 | Microsoft | `microsoft_userid` |
-| `External Custom Device Type` | Forwarded as a Device ID of type `custom` | 
+| External Custom Device Type | Forwarded as a Device ID of type `custom` | 
 | Yahoo | `yahoo_userid` |
 
 
