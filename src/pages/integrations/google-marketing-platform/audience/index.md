@@ -6,14 +6,9 @@ title: Audience
 
 ## Prerequisites
 
-In order to forward an mParticle audience to Google Marketing Platform, mParticle must be "whitelisted" for access to your account.  Your Google Technical Account Manager (TAM) or Account Manager (AM) should be able to walk you through the whitelisting process.  If you do not have a dedicated Google TAM or AM, you can also initiate the process by emailing one of the following email aliases, depending on the product that you'd like the mParticle audience to be forwarded to:
+In order to forward an mParticle audience to Google Marketing Platform, mParticle must be "whitelisted" for access to your account.  The steps to link your accounts can be found in the [Link external data management platform to Display & Video 360 to share audience lists](https://support.google.com/displayvideo/answer/9649053?hl=en) topic.  
 
-* DoubleClick Bid Manager (DBM): bidmanager-support@google.com
-* DoubleClick for Publishers (DFP): dfp-support@google.com
-* Ad Exchange Buyer: adxbuyersupport@google.com
-* AdWords: adwords-support@google.com
-
-Please note that each Google ad product has a separate whitelisting process, so you will need to complete this process separately for each ad product that you'd like mParticle to forward audience data to.  You will also need to create a separate integration account for each product that you'd like to forward your audiences to.
+If you need assistance, you can reach out to your Google Technical Account Manager (TAM) or Account Manager (AM) to walk you through the whitelisting process.   You will need to create a separate configuration for each Google Product that you'd like to forward your audiences to.  
 
 ## User Identity Mapping
 
@@ -36,7 +31,7 @@ Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer
 
 ## Configuration Settings
 
-The table below describes the configuration settings for each audience integration account.  You will need to create a separate integration account for each Google ad product that you'd like to forward your audiences to.
+The table below describes the configuration settings for each audience integration account.  You will need to create a separate integration account for each Google ad product that you'd like to forward your audiences to. 
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---
