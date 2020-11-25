@@ -61,18 +61,6 @@ When you have completed the required settings and set up any transformations, op
 
 See [Rules](/platform-guide/rules/) for more information on Rules.
 
-### User Splits
-
-The User Splits feature gives you the ability to test two or more different output services against each other by sending a specific group of users to each service.
-
-mParticle has implemented User Splits via user ranges. The mParticle platform assigns each user a random number between 1 and 100, ensuring an even distribution of your users across this range. This implementation allows you to create up to 5 overlapping or mutually exclusive groups of users for your User Split test.  
-
-Simply set the sliders for each integration to determine which users to send to each platform. For example, you might create a group to send 0-50% to Output Service A and 50-100% to Output Service B.
-
-![](/images/connections-user-splits.png)
-
-<aside>Embedded Kit integrations can only support User Splits with mParticle support. [Contact our customer support team](mailto:support@mparticle.com) if you need to set up User Splits for a Kit integration.</aside>
-
 ## Specific Output Transformations
 
 mParticle lets you customize the data that you send to each output. There are many reasons to do this, including:
