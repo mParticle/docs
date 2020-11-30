@@ -189,7 +189,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 | Missing Roku Advertising ID | Leanplum | The Roku advertising ID is not present.
 | Missing User Agent |Facebook Atlas, Google DoubleClick |User Agent is required, and is missing in the event batch.
 |No Route Available | Appboy, Airship | The source of the event batch is not supported.  This is used to indicate that the source of the event batch was not from a native client with the extended SDK (appropriate kit included) or the mParticle Events API.
-| Request Too Long | Krux | The requeest exceeds a size or character limit set by the partner and cannot be delivered
+| Request Too Long | Krux | The request exceeds a size or character limit set by the partner and cannot be delivered
 |Retry Count Exceeded  |Any |This indicates that the data has repeatedly been attempted for delivery, but has exceeded the retry limit.
 |306-Unknown  |Any | This may occur in cases of network issues which may be retried.
 |400-Bad Request  |Any | This indicates an error with the request sent to the integration and will not be retried by default.
