@@ -20,7 +20,7 @@
         }
         debounceId = window.setTimeout(x, t);
     };
-    
+
     const spinner = (
         <div className='sk-circle'>
             <div className='sk-circle1 sk-child' />
@@ -38,7 +38,7 @@
         </div>
     );
 
-    const placeholderText = '        Search...';
+    const placeholderText = 'Search...';
     class Search extends React.Component {
         constructor(props) {
             super(props);
@@ -61,13 +61,20 @@
             this.close = this.close.bind(this);
             this.focus = this.focus.bind(this);
             this.clearText = this.clearText.bind(this);
-            this.showInput = this.showInput.bind(this);
             this.logSuccessfulSearch = this.logSuccessfulSearch.bind(this);
             this.inputRefCallback = (el) => { this.inputRef = el; };
             this.lastResponseTime = 0;
         }
     
         componentDidMount() {
+            // Attempt a search when component mounts
+            if (this.inputRef.value.length > 0) {
+                this.handleSearchText();
+                this.setState({
+                    canOpen: true,
+                    collapsed: false
+                });
+            }
             addGlobalEventListener('onclick', this.handleOutsideClick);
             document.addEventListener('keydown', this.escHandler, false);
         }
@@ -206,14 +213,6 @@
             };
         }
     
-        showInput() {
-            this.setState({
-                collapsed: false,
-                canOpen: true
-            });
-            this.props.openSearch(true);
-        }
-
         logSuccessfulSearch(item) {
             if (window.mParticle) {
                 const title = Array.isArray(item.fields.title) ? item.fields.title.join(',') : item.fields.title;
@@ -288,8 +287,6 @@
                         {
                             !this.state.collapsed && ((this.inputRef && this.inputRef.value) || this.state.canOpen) && !this.state.searchPending
                                 ? <span className='close-icon ignore-click' onClick={this.clearText} />
-                                : !this.state.searchPending
-                                ? <span className='search-icon ignore-click' onClick={this.showInput} />
                                 : null
                         }
                     </div>

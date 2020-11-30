@@ -48,6 +48,31 @@
             font-family: 'Roboto';
             padding-left: 10px;
             box-sizing: border-box;
+
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                background-image: url(/images/icons/icon-search-grey.svg);
+                background-repeat: no-repeat;
+                background-size: 20px;
+                text-indent: 40px;
+            }
+            &::-moz-placeholder { /* Firefox 19+ */
+                background-image: url(/images/icons/icon-search-grey.svg);
+                background-repeat: no-repeat;
+                background-size: 20px;
+                text-indent: 40px;
+            }
+            &:-ms-input-placeholder { /* IE 10+ */
+                background-image: url(/images/icons/icon-search-grey.svg);
+                background-repeat: no-repeat;
+                background-size: 20px;
+                text-indent: 40px;
+            }
+            &:-moz-placeholder { /* Firefox 18- */
+                background-image: url(/images/icons/icon-search-grey.svg);
+                background-repeat: no-repeat;
+                background-size: 20px;
+                text-indent: 40px;
+            }
         }
 
         &:focus, &:hover {
