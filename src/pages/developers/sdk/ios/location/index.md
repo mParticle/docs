@@ -45,6 +45,11 @@ MParticle.sharedInstance().beginLocationTracking(kCLLocationAccuracyThreeKilomet
 
 // Ends tracking location
 MParticle.sharedInstance().endLocationTracking()
+
+// Set location directly
+func updateLocation(newLocation: CLLocation) -> Void {
+    MParticle.sharedInstance().location = newLocation
+}
 ~~~
 :::
 
@@ -62,9 +67,10 @@ If you don't wish to collect location data while your app is in background, you 
                                       minDistance:1000];
 ~~~
 ~~~swift
-func updateLocation(newLocation: CLLocation) -> Void {
-    MParticle.sharedInstance().location = newLocation
-}
+MParticle.sharedInstance().backgroundLocationTracking = false
+
+MParticle.sharedInstance().beginLocationTracking(kCLLocationAccuracyThreeKilometers,
+                                             minDistance: 1000)
 ~~~
 :::
 
