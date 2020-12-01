@@ -15,7 +15,8 @@ We strongly recommend coordinating with your Moloco Client Success director befo
 mParticle will forward the following Device IDs to Moloco:
 
 * Google Advertising ID (GAID)
-* Apple Advertising ID (IDFA)
+* Apple IDFA
+* Apple IDFV
 
 ## Supported User Identities
 
@@ -29,3 +30,9 @@ mParticle will forward the following User IDs to Moloco:
 |---|---|---|---|
 | API Key | `string` | | Secret key to use the API, provided by your account manager. |
 | Send Email | `boolean` | False | If enabled, email user identities will be forwarded. |
+
+## Connection Settings
+
+Setting Name | Data Type | Default Value | Description
+|---|---|---|---
+Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection.

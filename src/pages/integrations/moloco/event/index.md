@@ -21,8 +21,8 @@ We strongly recommend coordinating with your Moloco Client Success director befo
 mParticle will forward the following Device IDs to Moloco:
 
 * Google Advertising ID (GAID)
-* Apple Advertising ID (IDFA)
-
+* Apple IDFA
+* Apple IDFV
 
 ## Supported User Identities
 
