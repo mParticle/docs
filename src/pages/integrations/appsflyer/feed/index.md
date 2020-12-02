@@ -30,6 +30,7 @@ customer_id | Customer ID User Identity |(custom-user-id)
 publisher | Publisher custom event attribute | (promoter-id)
 campaign | Campaign custom event attribute |(campaign)
 ts | Unix time in milliseconds |(install-unix-ts-ms)
+af_c_id | af_c_id custom event attribute | {af_c_id}
 
 ## Configuration
 
