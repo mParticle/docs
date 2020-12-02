@@ -30,6 +30,8 @@ mParticle will forward Apple Search Ad Attribution values, if provided.
 
 mParticle will forward feed data to Kochava if we have any user identity in the [User Identity Mapping](/integrations/kochava/event/#user-ids) section
 
+If the incoming data includes an IP address or a user agent, it will also be forwarded alongside other device information. For iOS and Apple TV, if the user agent is not provided, a default user agent will be forwarded. 
+
 ## Prerequisites
 
 In order to activate mParticle's integration with Kochava, you'll need to have your Kochava App ID handy.  If you're not sure what this ID is or where to find it, please contact your Kochava account representative for assistance.
