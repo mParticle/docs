@@ -31,6 +31,46 @@ In order to enable mParticle's Facebook event integration, you'll need the follo
 * The iOS/tvOS and Android integrations forward App, App State Transition, Commerce, Screen View, and Session Start events.
 * The Web integration forwards App, Commerce, Screen View, and Session Start / End events.
 
+### User Data Mappings
+
+mParticle will send a variety of user data fields to Facebook for advanced matching. The specific fields sent depends on if Facebook Pixel server-side forwarding is enabled or not.
+
+**Facebook Pixel Server-Side Forwarding Disabled**
+
+mParticle will hash and send the following fields to Facebook when they are set for a user.
+
+| mParticle Field | Facebook Field | Description |
+| --- | --- | --- |
+| `email` User Identity | `em` | |
+| Identity as defined by `External User Identity Type` setting | `external_id` | mParticle will hash and send a single identity based on the value of the `External User Identity Type` setting. |
+| Phone Number User Identity | `ph` | mParticle will hash and send a single phone number identity. mParticle will use the `mobile_number` identity if it is provided. If not, mParticle will use `phone_number_2` if it is provided. If neither of those are provided, mParticle will use `phone_number_3` if it is provided. If none of those are provided, mParticle will use the `$mobile` user attribute if it is provided. |
+| `$gender` User Attribute | `ge` | |
+| `$firstname` User Attribute | `fn` | |
+| `$lastname` User Attribute | `ln` | |
+| `$city` User Attribute | `ct` | |
+| `$state` User Attribute | `st` | |
+| `$zip` User Attribute | `zp` | |
+| `$country` User Attribute | `country` | |
+
+**Facebook Pixel Server-Side Forwarding Enabled**
+
+| mParticle Field | Facebook Field Name | Hashed? | Description |
+| --- | --- | --- | --- |
+| `email` User Identity | `em` | Yes | |
+| `Facebook.BrowserId` [Custom Flag](/developers/server/json-reference/#custom_flags) | `fbp` | No | Facebook Browser ID |
+| `Facebook.ClickId` [Custom Flag](/developers/server/json-reference/#custom_flags) | `fbc` | No | Facebook Click ID |
+| Phone Number User Identity | `ph` | Yes | mParticle will hash and send a single phone number identity. mParticle will use the `mobile_number` identity if it is provided. If not, mParticle will use `phone_number_2` if it is provided. If neither of those are provided, mParticle will use `phone_number_3` if it is provided. If none of those are provided, mParticle will use the `$mobile` user attribute if it is provided. |
+| Identity as defined by `External User Identity Type` setting | `external_id` | Yes | mParticle will hash and send a single identity based on the value of the `External User Identity Type` setting. |
+| `$gender` User Attribute | `ge` | Yes | |
+| `$firstname` User Attribute | `fn` | Yes | |
+| `$lastname` User Attribute | `ln` | Yes | |
+| `$city` User Attribute | `ct` | Yes | |
+| `$state` User Attribute | `st` | Yes | |
+| `$zip` User Attribute | `zp` | Yes | |
+| `$country` User Attribute | `country` | Yes | |
+| `ip` | `client_ip_address` | No | |
+| Device Info `http_header_user_agent` | `client_user_agent` | No | |
+
 ### Custom Mappings
 
 mParticle's Facebook integration supports [custom mappings](/guides/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for Facebook. mParticle provides mappings for the following Facebook event types:
@@ -148,8 +188,6 @@ For the **iOS/tvOS** and **Android** platforms, screen views are supported by cu
 
 There are several fields only accepted by server-to-server Web connections. These fields and the mParticle fields they are set from are listed below:
 
-**Event Fields**
-
 | Facebook Field Name | Description | mParticle Field |
 | --- | --- | --- |
 | `event_source_url` | The browser URL where the event happened. | `Facebook.EventSourceUrl` [custom flag](/developers/server/json-reference/#custom_flags) |
@@ -157,14 +195,6 @@ There are several fields only accepted by server-to-server Web connections. Thes
 | Custom Data Fields | Additional data used for ads delivery optimization. | [Custom attributes](https://docs.mparticle.com/developers/server/json-reference/#common-event-data-node-properties)* |
 
 *Custom data fields can also be set via custom mappings or E-Commerce event fields. See the relevant sections for more details.
-
-**User Fields**
-
-| Facebook Field Name | Description | mParticle Field |
-| --- | --- | --- |
-| `fbp` | Facebook Browser ID | `Facebook.BrowserId` [custom flag](/developers/server/json-reference/#custom_flags) |
-| `fbc` | Facebook Click ID | `Facebook.ClickId` [custom flag](/developers/server/json-reference/#custom_flags) |
-
 
 ## Configuration Settings
 
@@ -184,5 +214,5 @@ There are several fields only accepted by server-to-server Web connections. Thes
 | Limit Event and Data Usage | `bool` | False | iOS, Android, tvOS | Sets whether data sent to Facebook should be restricted from being used for purposes other than analytics and conversions, such as targeting ads |
 | Pixel ID | `string` | <unset> | Web | Facebook Pixel ID |
 | Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side |
-| External User Identity Type | `string` | Customer ID | Web | Hash of the User Identity to send to Facebook as External ID |
+| External User Identity Type | `string` | Customer ID | All | Hash of the User Identity to send to Facebook as External ID |
 | Send CCPA Limited Data Use | `enum` | Never | Web | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with either client IP or country and state user attributes defined. This flag is only supported for server-side connections. |
