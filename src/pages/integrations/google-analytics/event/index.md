@@ -396,14 +396,15 @@ $gclid| gclid | Google AdWords ID |
 
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
-| Use Localhost Cookie | `bool` | False | All| Allows events to be sent when running a site under localhost. |
-| Send User IP Address | `bool` | False | All| If enabled, the user's IP address will be forwarded. |
-| Enable Enhanced Ecommerce | `bool` | False | All| Use this setting if you have enhanced ecommerce enabled in your Google Analytics account. |
-| Send Advertising IDs | `bool` | True | All| Enable this setting if you want mParticle to send Google Ad IDs, IDFAs, Microsoft Ad IDs, and Fire TV Ad IDs to Google Analytics. |
+| Use Localhost Cookie | `bool` | False | All | Allows events to be sent when running a site under localhost. |
+| Send User IP Address | `bool` | False | All | If enabled, the user's IP address will be forwarded. |
+| Enable Enhanced Ecommerce | `bool` | False | All | Use this setting if you have enhanced ecommerce enabled in your Google Analytics account. |
+| Send Advertising IDs | `bool` | True | All | Enable this setting if you want mParticle to send Google Ad IDs, IDFAs, Microsoft Ad IDs, and Fire TV Ad IDs to Google Analytics. |
 | Allow Legacy CID Format | `bool` | False | All | Allow the legacy CID format to be sent through as-is. The legacy format being "X.Y", where X and Y are 32-bit integers. |
-| External User Identity Type | `string` | None | All| The mParticle User Identity type to forward as a User ID to Google Analytics. The selected value will be hashed before being sent. |
+| Hash User ID | `bool` | True | All | If enabled, mParticle will hash the selected user ID (uid) before forwarding to Google. |
+| External User Identity Type | `string` | None | All | The mParticle user identity type to forward as a user ID (uid) to Google Analytics. |
 | Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, requests will only be forwarded server-side. |
-| Late Event Action | `string` | Send | All| Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |
-| Custom dimensions | `Custom Field` | <unset> | All| Allows you to map your mParticle custom dimensions to the corresponding custom dimensions setup in Google Analytics. |
-| Custom metrics | `Custom Field` | <unset> | All| Allows you to map your mParticle custom metrics to the corresponding custom metrics setup in Google Analytics. |
-| Default Application Name | `string` | <unset> | All| The application name to forward to Google Analytics if one is not provided by the application or data feed |
+| Late Event Action | `string` | Send | All | Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |
+| Custom dimensions | `Custom Field` | <unset> | All | Allows you to map your mParticle custom dimensions to the corresponding custom dimensions setup in Google Analytics. |
+| Custom metrics | `Custom Field` | <unset> | All | Allows you to map your mParticle custom metrics to the corresponding custom metrics setup in Google Analytics. |
+| Default Application Name | `string` | <unset> | All | The application name to forward to Google Analytics if one is not provided by the application or data feed |
