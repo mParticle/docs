@@ -182,9 +182,7 @@ MParticle.start(options)
 
 ### Log Level
 
-#### Development Logs
-
-The SDK log level is only respected while in development mode, which you can configure via the `loglevel`  `MParticleOptions` object:
+You can configure the log level via the `loglevel` property of the `MParticleOptions` object:
 
 :::code-selector-block
 ```java
@@ -198,16 +196,14 @@ options.logLevel(MParticle.LogLevel.VERBOSE)
 ```
 :::
 
-#### Production Logs
 
-For production builds, you must manually enable logging using the adb `setprop` command with the "mParticle" tag:
+You can also enable logging at runtime using the adb `setprop` command with the "mParticle" tag:
 
-~~~java
+~~~bash
 adb shell setprop log.tag.mParticle VERBOSE
 ~~~
 
 Reference the [Android development documentation](https://developer.android.com/studio/command-line/adb#shellcommands) for more information on issuing `adb` commands.
-
 
 ### Event Upload Interval
 
