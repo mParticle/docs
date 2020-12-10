@@ -485,35 +485,35 @@ Some example calculations and costs:
 
 Standard Audiences are managed separately from Real-time audiences. Choose **Audiences > Standard** from the left navigation menu, and click **+ New Standard Audience**.
 
-![](/images/lifetime-create.png)
+![](/images/standard-create.png)
 
 #### 2 - Define date range and inputs
 
 Just as with Real-time audiences, you can define which inputs you want to calculate the audience from. For Standard Audiences you also need to define a date range. You can choose **All available data** or define any period within the available range. When you’re ready, click **Create**. The start and end dates are inclusive and it uses the UTC timezone.
 
-![medium](/images/lifetime-define-range.png)
+![medium](/images/standard-define-range.png)
 
 #### 3 - Define Audience Criteria
 
 Define your audience, using any number of criteria. This step works identically to Real-time audiences. When your definition is ready, click **Save as Draft**.
 
-![](/images/lifetime-define-criteria.png)
+![](/images/standard-define-criteria.png)
 
 #### 4 - Calculate one or more audiences
 
 From the **In Progress** tab of the Standard Audiences page, click **Calculate** at the top of the page, or within the actions menu on a single Standard Audience.
 
-![](/images/lifetime-calculate.png)
+![](/images/standard-calculate.png)
 
 Select any additional DRAFT audiences from the list to add them to the calculation. This modal will show you how many calculation credits will be deducted from your account. When you’re ready click ****Start Calculation**.
 
-![large](/images/lifetime-start-calculation.png)
+![large](/images/standard-start-calculation.png)
 
 #### 5 - Set up one or more connections
 
 At first your audience will show as **Calculating** in the list view. While you wait for the calculation to complete, you can set up one or more audience connections. Calculation can take many hours for large amounts of data. You can track it’s progress via a popup in the Size column.
 
-![](/images/lifetime-connect.png)
+![](/images/standard-connect.png)
 
 The Connections screen functions identically to Real-time audiences. Add and configure one or more connections. The only difference is that when you save the connection, no data is forwarded until you explicitly ‘send’ the audience.
 
@@ -521,11 +521,11 @@ The Connections screen functions identically to Real-time audiences. Add and con
 
 Once your audience is completely calculated, you can see it in the **Ready** tab. Click Send next to an Audience to go back to the **Connections** screen.
 
-![](/images/lifetime-send.png)
+![](/images/standard-send.png)
 
 From the **Connections** screen click **Send**. You can also adjust your output connections here as needed.
 
-![](/images/lifetime-connection-screen.png)
+![](/images/standard-connection-screen.png)
 
 Select one or more audience Outputs and click **Send**.
 
