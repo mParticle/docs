@@ -2,7 +2,7 @@
 title: Default Service Limits
 ---
 
-mParticle imposes certain limits on incoming data in order to protect the performance of both the mParticle dashboard and your apps. This includes limits around the length of individual data points, such as event names, how fast mParticle can receive data, and how many unique data points a workspace or account can have. 
+mParticle imposes certain limits on incoming data in order to protect the performance of both the mParticle dashboard and your apps. This includes limits around the length of individual data points, such as event names, how fast mParticle can receive data, and how many unique data points a workspace or account can have.
 
 The tables below list mParticle's Default Limits. Enterprise customers should contact their Customer Success Manager for custom limits.
 
@@ -28,13 +28,13 @@ mParticle can recieve data across many channels, and limits are not always enfor
 
 | Resource | Limits | Details |
 | -------- | ------ | --- |
-| Total batch size | 128KB | If this limit is exceeded, the SDK will automatically attempt to break up the batch into multiple smaller batches. | 
+| Total batch size | 128KB | If this limit is exceeded, the SDK will automatically attempt to break up the batch into multiple smaller batches. |
 | Total events per session | 1000 | Once the limit is reached, subsequent events for the session are not uploaded. |
 
 ## Events per Workspace and User
 
 | Resource | Limits | Details |
-| -------- | ------ | ---| 
+| -------- | ------ | ---|
 | Unique event names and Screen Names per workspace | 1000 | New unique event names over the limit are dropped from incoming data. This limit is configurable, but proliferating unique event names usually indicate problems with your data and can impact performance of both the mParticle dashboard and your apps, therefore it will not be raised except where absolutely necessary. |
 | Average events per user within 24 hours | 150 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
 | Average events per user within 30 days | 175 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
@@ -52,6 +52,7 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | -------- | ------ | --- |
 | Event batch long-term archival storage | 24 months | Contact your mParticle Customer Service representative if you need longer or shorter archival storage. |
 | Profile storage | 30 days | User Profiles are deleted after 30 days of inactivity. |
+| Real-time audience storage | 30MB | Maximum size of a single users data in real-time audience storage. Typical users are ~200kb. |
 
 ## Dashboard
 
@@ -59,22 +60,5 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | -------- | ------ | --- |
 | Max Workspaces | 50 | Users are prevented from creating additional workspaces. This limit can be raised by arrangement.
 | Max Users | 200 | Admins are prevented from creating additional users. This limit can be raised by arrangement.
-| Audience Name Length| 100 | Audience name and external name fields are limited to 100 characters. 
-| Tag length | 18 | Tag names are limited to 18 characters. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Audience Name Length| 100 | Audience name and external name fields are limited to 100 characters.
+| Tag length | 18 | Tag names are limited to 18 characters.
