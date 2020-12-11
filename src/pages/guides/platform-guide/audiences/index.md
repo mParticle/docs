@@ -472,6 +472,10 @@ mParticle’s new Standard Audiences feature lets you define and build audiences
 * Since Standard Audiences use huge amounts of data, your account is limited to a set amount of calculations per year. A single calculation can include multiple audiences as long as they are calculated together.
 * While Standard Audiences support all of the same Audience partners as Real-time audiences, with the same connection settings, the workflow of calculating and sending a Standard Audience has a few optional steps: to allow you to make the most of your calculations, you can calculate and send audiences in bulk.
 
+<aside>
+Be aware that there is a 48 hour delay for live data to become available for standard audiences. When creating a standard audience, select the end date of 'most recent' to get the latest available data.
+</aside>
+
 ### Calculation credits
 Standard audiences are purchased by buying annual calculation credits. Each calculation credit lets you run a calculation across 365 days of your historical data, regardless of how many audiences are included. You can calculate many standard audiences at once. There are prompts in the product to select the audiences to calculate and confirm how many credits you are spending.
 
