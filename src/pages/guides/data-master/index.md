@@ -183,6 +183,11 @@ Data Planning is supported by the following mParticle SDKs:
   <td>v2.2.0 or later</td>
   <td><a href="https://github.com/mParticle/mparticle-java-events-sdk" target="_blank">Github</a></td>
 </tr>
+<tr>
+  <td>Roku</td>
+  <td>v2.1.3 or later</td>
+  <td><a href="https://github.com/mParticle/mparticle-roku-sdk" target="_blank">Github</a></td>
+</tr>
 </table>
 
 - **Plan ID**: This is the "slugified" form of your Data Plan name. You can find it during plan creation, and on the plan listing page.
@@ -240,6 +245,18 @@ window.mParticle = {
       }
     }
 };
+```
+
+```brightscript
+options = {}
+options.apiKey = "REPLACE WITH API KEY"
+options.apiSecret = "REPLACE WITH API SECRET"
+
+options.dataPlanId = "REPLACE WITH DATA PLAN ID"
+options.dataPlanVersion = 1 'REPLACE WITH DATA PLAN VERSION
+
+'REQUIRED: mParticle will look for mParticleOptions in the global node
+screen.getGlobalNode().addFields({ mparticleOptions: options })
 ```
 :::
 
