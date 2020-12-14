@@ -13,11 +13,10 @@ When you set Opt Out to `true`:
 
 * Once the Opt Out event is uploaded, the SDK will cease uploading to mParticle and will no longer initialize any embedded kits. Note that kits which have already been initialized may continue to communicate with the relevant partners until the app is closed.
 
-Note that Opt Out shuts down data collection at the source. This is separate from mParticle's [Consent Management]() feature. 
+Note that Opt Out shuts down data collection at the source. This is separate from mParticle's [Consent Management](/developers/sdk/web/consent-management/) feature.
 
 <!-- We should cover un-opt out -->
 
 ~~~javascript
 mParticle.setOptOut(true);
 ~~~
-
