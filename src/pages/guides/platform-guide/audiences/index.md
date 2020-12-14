@@ -273,8 +273,6 @@ You create an audience in the App A workspace, and your criteria match John Smit
 
 ## Audience A/B Testing
 
-<aside>Audience A/B Testing is a premium feature. Talk to your Customer Success Manager if you're interested in enabling Audience A/B Testing for your account.</aside>
-
 Audience A/B Testing allows you to split an audience into two or more variations and create connections for each variation independently, to help you to compare the performance of different messaging platforms. For example, if you have an audience of low engagement users that you want to reengage with your app, you might devise a test like this:
 
 * Send 40% of the audience to Messaging Platform A
