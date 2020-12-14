@@ -2,12 +2,9 @@
 title: Cross-account audience sharing
 ---
 
-<aside><p>This feature is currently in limited release. The workflows detailed below are subject to change as additional features are added or changed.</p>
-</aside>
-
 The cross-account audience sharing feature allows you to share audience data between accounts within your organization and offers detailed control over exactly what data is shared.
 
-You can choose to share audience data broadly within your organization, or to provide access to only as much data as is needed for a campaign. This feature does not share any data outside your organization, except where explicitly connected to a downstream output.
+You can choose to share audience data broadly within your organization, or to provide access to only as much data as is needed for a campaign. This feature does not share any data outside your organization, except where explicitly connected to a downstream audience integration.
 
 ## Audience sharing permissions
 
@@ -88,7 +85,7 @@ The owner of the audience will be automatically notified of your request by emai
 
 In addition to setting access permission for each audience, you can choose whether or not to make each identity type available to each account when you share audiences.
 
-For example, you can choose to make Google Advertising ID and Apple IDFA available to a particular account, but email unavailable. These settings are at the account level and apply to all audiences shared from the account.
+For example, you can choose to make Google Advertising ID and Apple IDFA available to a particular account, but email unavailable. These settings are at the account level and apply to all audiences shared from the account. These identity filters apply **only** when the user hasn't already been seen in the receiving account.
 
 Only users with Admin access can manage identity-level permissions.
 

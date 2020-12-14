@@ -80,7 +80,7 @@ To create an audience:
 
    ![](/images/Platform-Update-Audiences-Blank-042019.png)
 
-2. Enter the **Audience Name**. You also have the option to provide an **External Name**. If provided, the external name is forwarded to Audience services and will be displayed if the audience is ever [shared](#audience-sharing).
+2. Enter the **Audience Name**. You also have the option to provide an **External Name**. If provided, the external name is forwarded to Audience connections.
     <aside>
     If no <b>External Name</b> is entered, the <b>External Name</b> will be the same as the <b>Audience Name</b>.
     </aside>
@@ -543,6 +543,10 @@ Calculated audience will remain in the **Ready** tab for **30 days**, after whic
 
 mParticle’s Audience User Attribute Sharing feature allows you to include user attributes along with identities when you connect a supported audience connection. This allows you to use richer data in your activation platform, such as LTV, lead score or propensity to convert.  This feature does not forward or share your user data to any company beyond what you are explicitly configuring as an audience connection.
 
+<aside>
+Notes that UA sharing is only available in single workspace, real-time audiences.
+</aside>
+
 ### Set up User Attribute Sharing
 
 #### 1 - Create the Connection
@@ -566,5 +570,3 @@ Once you have selected the User Attributes you want to forward, **Save and Activ
 ### Data Processing Notes
 
 mParticle’s User Profile stores user attributes across platforms, workspaces and accounts. This means that, if your audience output uses device IDs, and if you are tracking a User across multiple platforms (mobile and web, for example) you may be able to forward user attributes that were not collected on the targeted mobile devices.
-
-If you select a workspace-level attribute, and the same attribute name is used across multiple workspaces in the account, then mParticle will only use values from the workspace you created the audience in.
