@@ -9,6 +9,8 @@ title: Event
 1.  Obtain your Blueshift API Key [from the Blueshift dashboard](https://app.getblueshift.com/dashboard#/account_setup) or by contacting success@getblueshift.com.  
 2. Use the API key to configure a Blueshift output for your mParticle workspace
 
+<b>Note:</b> Blueshift leverages User Identity Change (UIC) events to trigger identity calls within their system. If you do not trigger a UIC event, event data forwarded to Blueshift for that user may not be mapped to a Blueshift user profile. As an alternative, you can ask Blueshift to whitelist other event types to be leveraged for Blueshift identity calls. Please reach out to your Blueshift account manager if you believe this may be required for your account.
+
 ## Blueshift Configurations
 
 mParticle supports both a server-to-server integration and a client-side kit integration. In-app events and events associated with push notifications will be sent client-side to Blueshift via Blueshift's SDK in conjunction with this kit. All other events will be sent via the server-to-server integration.  
