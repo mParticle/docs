@@ -96,11 +96,17 @@ Authorization: Basic <your-token-here>
  "status_callback_urls":[
    "https://exampleurl.com/opendsr/callbacks"
  ],
- "extensions": {
-   "opendsr.mparticle.com": {
-      "mpids": [122933875378, 1329482143058]
-   }
- }
+  "extensions": {
+    "opendsr.mparticle.com": {
+      "mpids": [1234567890, 5678901234],
+      "identities": [
+        {
+          "identity_type": "other1",
+          "identity_value": "test@test1.com"
+        }
+      ]
+    }
+  } 
 }
 ~~~
 
@@ -113,7 +119,7 @@ Authorization: Basic <your-token-here>
 | `subject_identities` | array | Required unless an `extensions` field is included | See below for details |
 | `api_version` | string | Optional | The API Version your request uses. Valid values are: `2.0` (current for the openDSR endpoint) and `1.0` (legacy, for OpenGDPR endpoint).|
 | `status_callback_urls` | Array | Optional | Array of URLs for a callback post to be made on completion of the request |
-| `extensions` | array | Optional | Contains processor-specific extensions. For mParticle, use the extension `["opendsr.mparticle.com"]` with the key 'mpids' to pass an array of MPIDs.  If you send MPIDs directly this way, you can omit the `subject_identities` field as MPIDs directly identify users and profiles. |
+| `extensions` | array | Optional | Contains processor-specific extensions. For mParticle, use the extension `["opendsr.mparticle.com"]`. See below for supported identity types.|
 
 #### The `subject_identities` object
 This object encapsulates the identities for this data subject request. For each identity included in an OpenDSR request, three fields are required.
@@ -132,19 +138,6 @@ mParticle Identity/Device Type | API Format / OpenDSR | Notes
 `MPID` | `mpid` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
 `customer_id` | `controller_customer_id` | -
 `email` | `email` | -
-`other` | `other` | -
-`other2` | `other2` | -
-`other3` | `other3` | -
-`other4` | `other4` | -
-`other5` | `other5` | -
-`other6` | `other6` | -
-`other7` | `other7` | -
-`other8` | `other8` | -
-`other9` | `other9` | -
-`other10` | `other10` | -
-`mobile_number` | `mobile_number` | -
-`phone_number_2` | `phone_number_2` | -
-`phone_number_3` | `phone_number_3` | -
 `android_advertising_id` | `android_advertising_id` | -
 `android_uuid` | `android_id` | -
 `fire_advertising_id` | `fire_advertising_id` | -
@@ -154,6 +147,19 @@ mParticle Identity/Device Type | API Format / OpenDSR | Notes
 `microsoft_publisher_id` | `microsoft_publisher_id` | -
 `roku_advertising_id` | `roku_advertising_id` | -
 `roku_publishing_id` | `roku_publishing_id` | -
+`other` | `other` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other2` | `other2` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other3` | `other3` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other4` | `other4` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other5` | `other5` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other6` | `other6` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other7` | `other7` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other8` | `other8` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other9` | `other9` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`other10` | `other10` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`mobile_number` | `mobile_number` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`phone_number_2` | `phone_number_2` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
+`phone_number_3` | `phone_number_3` | With the ['opendsr.mparticle.com'](#submit-a-data-subject-request-dsr) extension.
 
 #### Example Success Response Body
 ~~~http
