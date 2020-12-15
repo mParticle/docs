@@ -3,7 +3,7 @@ title: Calculated Attributes
 order: 4.1
 ---
 
-<aside>The Calculated Attributes feature is currently in beta status and is available upon request. If you're interested in using it prior to general availability, please contact your success manager.</aside>
+<aside>The Calculated Attributes feature is currently in Early Access and is available upon request. If you're interested in using it prior to general availability, please contact your success manager.</aside>
 
 ## Overview
 
@@ -120,7 +120,7 @@ The following date ranges are supported:
 * **All Time**: Do not limit calculations by date range; use all available data.
 
 <aside>
-Date ranges that include extremely large volumes of data (e.g. `All Time`) may take up to 7 days to fully initialize before values are ready for everyone in your population. Once initialized, values will be updated in real-time. Initialization will be faster when the feature exits beta.
+Date ranges that include extremely large volumes of data (e.g. `All Time`) may take up to 7 days to fully initialize before values are ready for everyone in your population. Once initialized, values will be updated in real-time. 
 </aside>
 
 ## Create a Calculated Attribute
