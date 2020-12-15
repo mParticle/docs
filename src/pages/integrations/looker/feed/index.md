@@ -2,7 +2,6 @@
 title: Feed
 ---
 
-
 <div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Juopxbf0w90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
@@ -20,6 +19,8 @@ You can find Looker's documentation on this integration [here](https://github.co
     * User profiles - Enrich profiles or create audiences in mParticle by sending Looker calculated user facts
     * Events - Send over raw events to forward downstream or to use in Audience creation in mParticle
  
+<aside><b>Note:</b> This integration supports limited volume from Looker, and as a result if you attempt to send a large report you may not see every record reflected in mParticle. To ensure all data in your Looker report is sent, reduce the number of fields or records where possible.</aside>
+
 ## Supported Identities
 
 ### User Identities
