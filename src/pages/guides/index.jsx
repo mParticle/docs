@@ -91,7 +91,7 @@ const Links = [
     {
         route: 'data-subject-requests',
         title: 'Data Subject Requests',
-        content: 'Explore how to respond to data subject requsts as mandated by the GDPR and CCPA regulations.',
+        content: 'Explore how to respond to data subject requests as mandated by the GDPR and CCPA regulations.',
         links: [{}],
     },
     {
