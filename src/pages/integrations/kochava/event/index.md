@@ -14,14 +14,14 @@ From attribution and analytics to optimization, the Kochava platform provides pr
 
 ## Data Processing Notes
 
-If the mParticle SDK is used to send data, the minimum acceptable SDK version is 3.0 for iOS and 2.0 for Android. Data sent from earlier SDK versions will not be forwarded to Kochava. 
+If the mParticle SDK is used to send data, the minimum acceptable SDK version is 3.0 for iOS and 2.0 for Android. Data sent from earlier SDK versions will not be forwarded to Kochava.
 
 Due to a known bug in the mParticle iOS SDK prior to version 5.1.4, install events may or may not be forwarded. If install events are missing in Kochava's platform, please make sure you are using the latest version of the mParticle SDK.
 
 mParticle supports the following modes when forwarding data to Kochava:
 
 1. Hybrid mode
-    * If the Kochava SDK is initialized in the app, it sends install events to Kochava servers. 
+    * If the Kochava SDK is initialized in the app, it sends install events to Kochava servers.
     * Post-install events and any user identities are sent via the mParticle SDK to mParticle servers and forwarded to Kochava S2S.
 2. Server mode
     * If data is sent to mParticle S2S API or Kochava's SDK is not initialized in the app, mParticle will forward installs, post-install events, and any user identities to Kochava S2S
@@ -30,7 +30,7 @@ mParticle will forward Apple Search Ad Attribution values, if provided.
 
 mParticle will forward feed data to Kochava if we have any user identity in the [User Identity Mapping](/integrations/kochava/event/#user-ids) section
 
-If the incoming data includes an IP address or a user agent, it will also be forwarded alongside other device information. For iOS and Apple TV, if the user agent is not provided, a default user agent will be forwarded. 
+If the incoming data includes an IP address or a user agent, it will also be forwarded alongside other device information. For iOS and Apple TV, if the user agent is not provided, a default user agent will be forwarded.
 
 ## Prerequisites
 
@@ -101,7 +101,7 @@ NSDictionary *coords = @{@"SpatialX":@"1.0",
 ~~~java
 //Kochava Spatial Event tracking method call
 //Assume that kTracker is a reference to an instantiated Kochava SDK object
-kTracker.eventSpatial( "My Spatial Event" , 1.0, 3.33, -0.5); 
+kTracker.eventSpatial( "My Spatial Event" , 1.0, 3.33, -0.5);
 
 //Equivalent call using mParticle's SDK
 Map<String, String> coords = new HashMap<String, String>();
@@ -129,19 +129,29 @@ The following Device IDs will be included in the IdentityLink message if availab
 | Roku Advertising ID | `rida` |
 | Fire Advertising ID | `faid` |
 
+#### Kochava Device ID
+
+Kochava device ID can be optionally included on all event requests. This is useful in contexts where device IDs might not be present such as when a user limits ad tracking. There are two settings to control this in mParticle:
+
+* Send Kochava Device ID
+* Kochava Device ID Type
+
+'Kochava Device ID Type' can be set to `Device Application Stamp` or `Hashed MPID + Device Application Stamp`. `Device Application Stamp` is not guaranteed to be unique in all scopes so its use has been deprecated. New connections should use `Hashed MPID + Device Application Stamp` since it will provide a consistent and unique anonymous identifier for devices.
+
+<aside class="warning">Changing 'Kochava Device ID Type' will break event attribution in Kochava. Before updating it, please consult with your mParticle representative to determine if you would benefit from changing this setting and fully understand the impact.</aside>
 
 ### User IDs
 
 The following User IDs will be included in the IdentityLink message if available:
 
-| mParticle ID Type | Kochava Key | 
+| mParticle ID Type | Kochava Key |
 | --- |----|
 | Email | `email` |
 | Customer ID | `app_userid` |
 | Facebook | `fb_userid` |
 | Google | `google_userid` |
 | Microsoft | `microsoft_userid` |
-| External Custom Device Type | Forwarded as a Device ID of type `custom` | 
+| External Custom Device Type | Forwarded as a Device ID of type `custom` |
 | Yahoo | `yahoo_userid` |
 
 
@@ -161,6 +171,7 @@ The following User IDs will be included in the IdentityLink message if available
 | Enable Console Logging | `bool` | False | All| If enabled, Kochava-specific debugging information will be outputted to LogCat for Android, or to the XCode debugging console for Apple OS. |
 | Limit ad tracking | `bool` | False | All| If enabled, mParticle will initialize Kochava's embedded SDK with ad tracking disabled. |
 | Send Kochava Device ID | `bool` | True | All| If enabled, mParticle will send the `kochava_device_id` property with every request. |
+| Kochava Device ID Type | `enum` | Device Application Stamp | All | Select the mParticle field to be sent as the kochava_device_id if 'Send Kochava Device ID' is checked. The default setting sends the value of the mp_deviceid field. Use of this is deprecated, but is still available for existing connections. Selecting 'Hashed MPID + Device Application Stamp' ensures passing a  unique ID. WARNING: Changing this setting for existing connections will break ongoing event attribution in Kochava. See above for more details. |
 | External User Identity Type | `enum` | Customer ID | All | The mParticle User Identity type to forward as an External Id to Kochava. |
 | External Email Identity Type | `enum` | Email | All | The mParticle User Identity type to forward as an Email to Kochava. |
 | External Custom Device Type | `enum` | Other | All | The mParticle User Identity type to forward as a custom device type to Kochava. |
