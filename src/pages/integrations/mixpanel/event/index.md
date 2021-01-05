@@ -33,7 +33,7 @@ Feature Name | mParticle Support | Feature Description
 [Notifications](https://help.mixpanel.com/hc/en-us/articles/360001302503-Send-Push-Notifications-from-Mixpanel) | Yes | Send email / push notifications.
 [People Profiles](https://help.mixpanel.com/hc/en-us/articles/115004501966-People-Profiles) | Yes | Get to know your users, track their LTV.
 [Retention](https://help.mixpanel.com/hc/en-us/articles/360001370146-Types-of-Retention) | Yes | Analyze how many users come back to your apps, break down by cohorts
-[Segmentation, now known as Insights](https://help.mixpanel.com/hc/en-us/articles/360001333826-Insights-Overview) | Yes | Slice and dice data using all available dimensions (by events, event attributes, user attributes, etc.). For infomration about Ingsights replacing Segmentation see, [Segmentation Retirement FAQ](https://help.mixpanel.com/hc/en-us/articles/360001361023-Segmentation-Retirement-FAQ).
+[Segmentation, now known as Insights](https://help.mixpanel.com/hc/en-us/articles/360001333826-Insights-Overview) | Yes | Slice and dice data using all available dimensions (by events, event attributes, user attributes, etc.). For information about Insights replacing Segmentation see, [Segmentation Retirement FAQ](https://help.mixpanel.com/hc/en-us/articles/360001361023-Segmentation-Retirement-FAQ).
 [Survey](https://help.mixpanel.com/hc/en-us/articles/115004551583-Export-Survey-Results) | No | Ask users what they think of your apps.
 
 ### User Identification
@@ -95,7 +95,7 @@ To use this option, you must set the **External Identity Type** in the [Configur
  var identityRequest = {
        userIdentities: {
            alias: 'HenryJekyll86',
-           customerid: 'HenryJekyll86'   
+           customerid: 'HenryJekyll86'
        }
     }
  mParticle.Identity.login(identityRequest);

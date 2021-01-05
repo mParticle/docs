@@ -63,7 +63,7 @@ with the filter `SegmentMembership` -- `matches regex` -- `11034`. It's importan
 
 ![](/images/braze-ibiza-dreamers-condition.png)
 
-<aside>Warning: Do not select `Single Attribute` for multiple configurations using the same credentials and cluster. Each configuration will send its own set of audience IDs to the same profile in Braze which will cause them to overwrite each other. If you need to use multiple configurations, please use the `Single Attribute` for at most one configuration and use `One Attribute Per Segment` for others.</aside>
+<aside class="warning"><b>Warning</b>: Do not select `Single Attribute` for multiple configurations using the same credentials and cluster. Each configuration will send its own set of audience IDs to the same profile in Braze which will cause them to overwrite each other. If you need to use multiple configurations, please use the `Single Attribute` for at most one configuration and use `One Attribute Per Segment` for others.</aside>
 
 ### One Attribute Per Segment
 
