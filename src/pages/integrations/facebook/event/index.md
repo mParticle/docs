@@ -20,16 +20,34 @@ Facebook has limits around the number of unique event names and attributes their
 
 ## Prerequisites
 
-In order to enable mParticle's Facebook event integration, you'll need the following parameters for setup available on your Facebook Ads dashboard:
+Event data from mParticle to Facebook is typically sent server side.  However, Web data can be sent client or server side based on your implementation and settings.  These different options require different settings:
 
-* For iOS/tvOS and Android platforms, you'll need your app's Facebook Application ID and Application Secret
-* For the Web platform, you'll need your Facebook Pixel ID
-* For server-to-server Web connections, you'll need your Facebook Pixel ID and Facebook Marketing API Access Token
+* iOS, tvOS, and Android - data is sent S2S, and you'll need your app's Facebook Application ID and Application Secret
+* Data Feeds - data is sent S2S, and you'll need your Facebook Pixel ID
+* Web - for client side kit, you'll need your Facebook Pixel ID
+* Web - for S2S, you'll need your Facebook Pixel ID and Facebook Marketing API Access Token.  You also need to enable both the `Use Pixel Server-Side Forwarding` and `Forward Web Requests Server Side` settings.
+
+### Configuring Facebook Pixel Server-to-Server
+
+You need to perform a few steps in Facebook to create a [Facebook Pixel S2S](https://developers.facebook.com/docs/marketing-api/conversions-api/get-started) connection.  
+
+1. **Navigate to the Facebook Events Manager**
+2. **Connect a New Data Source**:  Select `Web` with a connection method of `Conversions API`.
+3. **Create an Access Token:** Open the settings for the new Pixel Data Source, scroll to the `Conversions API` > `Set up manually` section and click `Create Access Token`. Follow the steps described and copy the [Access Token](https://developers.facebook.com/docs/marketing-api/conversions-api/get-started#access-token) for setup in mParticle.
+
+#### Troubleshooting Facebook Pixel Issues
+
+Please run through the following steps to confirm your settings are correct:
+
+* Verify your access token is of type `System User` and will never expire using this page: https://developers.facebook.com/tools/debug/accesstoken/
+* Verify you Pixel ID is valid using this page. Please enter the ID and confirm the `Send To Test Events` works: https://developers.facebook.com/docs/marketing-api/conversions-api/payload-helper/
+
+If you run into issues with either of the above steps, please repeat the steps described in [Configuring Facebook Pixel Server-to-Server](#Configuring-Facebook-Pixel-Server-to-Server).
 
 ## Event Data Mapping
 
-* The iOS/tvOS and Android integrations forward App, App State Transition, Commerce, Screen View, and Session Start events.
-* The Web integration forwards App, Commerce, Screen View, and Session Start / End events.
+* The iOS/tvOS and Android integrations forward App State Transition, Commerce, Custom, Screen View, and Session Start events.
+* The Web integration forwards Commerce, Custom, Screen View, and Session Start / End events.
 
 ### User Data Mappings
 
