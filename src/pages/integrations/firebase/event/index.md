@@ -24,7 +24,7 @@ Unlike Android, the Firebase iOS SDK supports runtime initialization, so the Fir
 
 - **Option 1**: Once the integration is enabled for your mParticle workspace, the kit will detect if Firebase has been manually included in your app, and if not it will initialize an instance of Firebase using the credentials configured in the mParticle dashboard.
 
-- **Option 2**: Otherwise, if a Firebase instance has been manually included in your app, data will be automatically forwarded to that instance - mParticle will not create an additional instance. In this case, the Firebase credentials configured in your mParticle workspace are ignored, but all other controls such as data filtering and user-filtering are available as expected to protect the flow of event data. 
+- **Option 2**: Otherwise, if a Firebase instance has been manually included in your app, data will be automatically forwarded to that instance - mParticle will not create an additional instance. In this case, the Firebase credentials configured in your mParticle workspace are ignored, but all other controls such as data filtering and user-filtering are available as expected to protect the flow of event data.
 
 Regardless of the approach you would like to take, you will need to follow the Firebase docs to create a Firebase project and download your `GoogleService-Info.plist` configuration file. You must then include the plist directly in your app.
 
@@ -48,7 +48,7 @@ end
 ~~~groovy
 dependencies {
     // Ensure the Kit version matches that of the mParticle Core SDK that you're using
-    compile 'com.mparticle:android-googleanalyticsfirebase-kit:VERSION' 
+    compile 'com.mparticle:android-googleanalyticsfirebase-kit:VERSION'
 }
 ~~~
 :::
@@ -63,6 +63,10 @@ You can configure the integration to automatically map the following identities 
 - mParticle ID
 - Email
 
+## User Attributes Mapping
+
+mParticle will map user attributes to Firebase user properties by invoking Firebase's `setUserProperty` API. 
+
 ## Event Mapping
 
 ### Custom events
@@ -75,11 +79,11 @@ The kit integrations will automatically invoke Firebase's `setScreen` APIs for e
 
 ### Commerce events
 
-mParticle will automatically map commerce events to Firebase event names based on the product action. 
+mParticle will automatically map commerce events to Firebase event names based on the product action.
 
-| Firebase Event | Android | iOS 
+| Firebase Event | Android | iOS
 | -------------  | ------------------------ | --|
-| `ecommerce_purchase` | `Product.PURCHASE` | `MPCommerceEventActionPurchase` 
+| `ecommerce_purchase` | `Product.PURCHASE` | `MPCommerceEventActionPurchase`
 | `add_to_cart` | `Product.ADD_TO_CART` | `MPCommerceEventActionAddToCart`
 | `remove_from_cart` | `Product.REMOVE_FROM_CART` | `MPCommerceEventActionRemoveFromCart`
 | `add_to_wishlist` | `Product.ADD_TO_WISHLIST` | `MPCommerceEventActionAddToWishList`
@@ -93,7 +97,7 @@ mParticle will automatically map commerce events to Firebase event names based o
 
 ### Event Attributes
 
-The following Firebase attributes will be automatically be mapped to the equivalent mParticle attribute for Commerce events. 
+The following Firebase attributes will be automatically be mapped to the equivalent mParticle attribute for Commerce events.
 
 * `checkout_step`
 * `checkout_option`
@@ -121,5 +125,3 @@ Setting Name| Data Type | Default Value | Platform | Description
 Firebase App ID | `string` | | iOS | Your Firebase application ID. You can find this in your Firebase project's config json or plist.
 Google Project Number | `string` || iOS  | Your Google API console project number, also known as GCM sender ID. You can find this in your Firebase project's config json or plist.
 User ID | `enum` | Customer ID | All | Select which user identity to forward to Firebase as your customer's user ID.
-
-
