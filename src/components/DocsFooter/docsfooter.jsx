@@ -24,27 +24,36 @@ export default () => (
                 )}
                 <br />
                 <span>
-                    © 2020 mParticle, Inc.
+                    © 2021 mParticle, Inc.
                     <br />
                     All rights reserved.
                     <br />
                     <br />
                     <a
                         className='footer-link'
-                        href='https://www.mparticle.com'>
+                        href='https://www.mparticle.com'
+                        rel='noopener noreferrer'
+                        target='_blank'>
                         mParticle.com
                     </a>
                     <a
                         className='footer-link'
-                        href='https://www.mparticle.com/termsofservice/'
+                        href='https://www.mparticle.com/privacypolicy'
                         rel='noopener noreferrer'
                         target='_blank'>
                         Privacy Policy
                     </a>
                     <br />
                     <a
-                        className='footer-link ot-sdk-show-settings'>
+                        href='https://www.mparticle.com/cookie-policy/current'
+                        rel='noopener noreferrer'
+                        target='_blank'
+                        className='footer-link'>
                         Cookie Policy
+                    </a>
+                    <a
+                        className='footer-link ot-sdk-show-settings'>
+                        Cookies Settings
                     </a>
                 </span>
             </div>
