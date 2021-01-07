@@ -4,21 +4,38 @@ title: Feed
 
 [Adjust](https://www.adjust.com) is a business intelligence platform for mobile app marketers, combining attribution for advertising sources with advanced analytics and store statistics.
 
+## Enable the Feed
+
+### mParticle Configuration 
+
+1.  Select **Directory**, and click the Adjust tile.
+2.  Click **Add Adjust to Setup**.
+3.  Select the **Input Feed** Integration Type and click **Add to Setup**.
+4.  Select the **Adjust** input configuration group to specify the configuration parameters:
+  * Configuration Name
+  * Act as Application
+5.  Click **Create**.
+6.  Copy the Token.
+
+### Adjust Configuration
+
+Follow [these instructions to configure the postback in Adjust](https://docs.adjust.com/en/special-partners/mparticle/) and enter the token copied above.  
+
+In order to send Customer ID and MPID you must configure partner parameters `customer_id` and `MPID` respectively. [Adjust Partner Specific Setup](https://help.adjust.com/en/integrated-partners/mparticle#partner-specific-setup-instructions) can be done to include Customer ID and MPID in the postback.  You also need to configure your mobile application to collect the respective ID as Partner Parameters via the Adjust SDK. You can get details on the Adjust configuration for partner parameters in [iOS](https://github.com/adjust/ios_sdk#session-partner-parameters) and [Android](https://github.com/adjust/android_sdk#session-partner-parameters).
+
 ## Event Types
 
-The purpose of the Adjust feed is to collect attribution and uninstall events from Adjust. The feed uses mParticle's [unified custom event type for attribution events](/developers/server/json-reference#custom-event) to capture an attribution or uninstall postback from Adjust.
+The Adjust feed will send attribution and uninstall events to mParticle.  The type of event is determined by the Adjust macro `{activity_kind}`. If the value is `uninstall`, it will be processed as an Uninstall event.  All other values will be processed as  Attribution events (see [Adjust's best practices callbacks](https://help.adjust.com/manage-data/raw-data-exports/callbacks/best-practices-callbacks#recommended-placeholders-for-all-callback-urls) for more information):
 
-### Attribution Data
-
-Attribution events have an event type of `Custom Event`, a Custom Event Type of `attribution` and an Event Name defined by the `event_type` attribute.
-
-### Uninstall Data
-
-Uninstall events have an event type of `Uninstall`.
+* Event Type = `Custom Event`
+* Custom Event Type = `attribution`
+* Event Name - set by Adjust in the `event_type` postback field
+* Custom Attribute `publisher` = set by the Adjust macro `{network_name}`
+* Custom Attribute `campaign` = set by the Adjust macro `{campaign_name}`
 
 ## Event Data
 
-Each attribution and uninstall event from Adjust will contain the following, where available:
+Events from Adjust may contain the following identities if available/setup:
 
 ### User and Device IDs
 
@@ -29,41 +46,32 @@ Each attribution and uninstall event from Adjust will contain the following, whe
 * Customer ID
 * mParticle ID (MPID)
 
-In order to send Customer ID and MPID you must configure partner parameters in Adjust, `customer_id` and a `MPID` respectively. See [Adjust Configuration](#adjust-configuration) for more.
-
-### Custom Attributes
-
-* `publisher` - this will be the `Network` in Adjust.
-* `campaign` - this will be the Campaign Name in Adjust.
-
 ### Additional Attributes
 
-| mParticle Name  | Adjust Mapped Name
-|---|---
-|event_type|activity_kind
-|adgroup_name|adgroup_name
-|application_version|app_version_short
-|city|city
-|country|country
-|state|country_subdivision
-|creative_name|creative_name
-|product|device_name
-|device_type|device_type
-|is_organic|is_organic
-|network_carrier|isp
-|locale_language|language
-|match_type|match_type
-|network_name|network_name
-|platform|os_name
-|os_version|os_version
-|zip|postal_code
-|locale_country|region
-|sdk_version|sdk_version
-|search_term|search_term
-|store|store
-|environment|environment
+The following additional fields can be configured to also be sent to mParticle.  Any additional fields received will be processed as custom_attributes.  
 
-The type of event is defined by `activity_kind`. If the value is `uninstall` the data will be treated as an Uninstall event, other values will default to Attribution event (see [Adjust's best practices callbacks](https://help.adjust.com/manage-data/raw-data-exports/callbacks/best-practices-callbacks#recommended-placeholders-for-all-callback-urls) for more information).
+[Adjust Field/Macro](https://partners.adjust.com/placeholders/)  | mParticle Mapped Name | [mParticle JSON field](/developers/server/json-reference/)
+| --- | --- | --- 
+{app_version_short} | application_version  | application_info.application_version
+{adgroup_name} | adgroup_name | custom_attributes.adgroup_name
+{creative_name} | creative_name | custom_attributes.creative_name
+{device_type} | device_type | custom_attributes.device_type
+{is_organic} | is_organic | custom_attributes.is_organic
+{match_type} | match_type | custom_attributes.match_type
+{sdk_version} | sdk_version | custom_attributes.sdk_version
+{search_term} | search_term | custom_attributes.search_term
+{store} | store | custom_attributes.store
+{region} | locale_country | device_info.locale_country
+{language} | locale_language | device_info.locale_language
+{isp} | network_carrier | device_info.network_carrier
+{os_version} | os_version | device_info.os_version
+{device_name} | product | device_info.product
+{environment} | environment  | environment
+{city} | city | user_attributes.$city
+{country} | country | user_attributes.$country
+{country_subdivision} | state | user_attributes.$state
+{postal_code} | zip | user_attributes.$zip
+
 
 ### Sample JSON
 
@@ -77,8 +85,7 @@ The type of event is defined by `activity_kind`. If the value is `uninstall` the
     "network_carrier": "Verizon Wireless",
     "locale_language": "en",
     "os_version": "10.1.0",
-    "locale_country": "us",
-    "platform": 1
+    "locale_country": "us"
   },
   "application_info": { 
     "application_version": "3.69.1"
@@ -89,8 +96,8 @@ The type of event is defined by `activity_kind`. If the value is `uninstall` the
   "user_attributes": {
     "$city": "Chicago",
     "$country": "us",
-    "$state": "California",
-    "$zip": "12345"
+    "$state": "Illinois",
+    "$zip": "60629"
   },
   "events": [
     {
@@ -99,7 +106,6 @@ The type of event is defined by `activity_kind`. If the value is `uninstall` the
         "custom_attributes": {
           "Publisher": "Truth and Soul, Inc",
           "Campaign": "Ethereal Cereal",
-          "event_type": "install",
           "adgroup_name": "Youtube",
           "creative_name": "YoutubeVideos",
           "device_type": "phone",
@@ -119,22 +125,3 @@ The type of event is defined by `activity_kind`. If the value is `uninstall` the
   "environment": "production"
 }
 ~~~
-
-## Enable the Feed
-
-### mParticle Configuration 
-
-1.  Select **Directory**, and click the Adjust tile.
-2.  Click **Add Adjust to Setup**.
-3.  Select the **Input Feed** Integration Type and click **Add to Setup**.
-4.  Select the **Adjust** input configuration group to specify the configuration parameters:
-  * Configuration Name
-  * Act as Application
-5.  Click **Create**.
-6.  Copy the Token.
-
-### Adjust Configuration
-
-Follow [these instructions to configure the postback in Adjust](https://docs.adjust.com/en/special-partners/mparticle/) and entering the token copied above.
-
-If you'd like to forward Customer ID or MPID as part of the attribution data, you will need to configure your mobile application collect the respective ID as a Partner Parameters via the Adjust SDK. You can get details on the Adjust configuration for partner parameters in [iOS](https://github.com/adjust/ios_sdk#session-partner-parameters) and [Android](https://github.com/adjust/android_sdk#session-partner-parameters).
