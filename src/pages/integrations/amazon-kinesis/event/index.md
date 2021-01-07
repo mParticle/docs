@@ -12,12 +12,12 @@ Amazon Kinesis is a platform for streaming data on AWS, offering powerful servic
 
 In order to take advantage of the Amazon Kinesis integration, you'll need the Stream Name, Kinesis Service Region, and either the credentials of an Identity and Access Management (IAM) user that has access to Kinesis, or the AWS Account ID of the role mParticle will assume, depending on the setup option taken.  
 
-[Option 1](#option-1-role-based-authentication) is role-based authentication. In this option, you apply a policy to the stream itself, granting mParticle access to write to your stream. AWS Account ID of the role mParticle will assume will have to be provided. Furthermore, a role will have to be created with the specified naming convention. 
+[Option 1](#option-1-role-based-authentication) is role-based authentication. In this option, you apply a policy to the stream itself, granting mParticle access to write to your stream. AWS Account ID of the role mParticle will assume will have to be provided. Furthermore, a role will have to be created with the specified naming convention.
 
 [Option 2](#option-2-user-based-authentication) is user-based authentication. In this option, you create a user under your own AWS account, give the user permission to write to your stream, and provide the credentials for that user to mParticle.Credentials of an Identity and Access Management (IAM) user that has access to Kinesis will have to be provided.
 
 Refer to the links below for Amazon setup:
-Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams) for information on Kinesis ARN syntax.  Sample ARN syntax for Kinesis is:  `arn:aws:kinesis:{region}:{account-id}:stream/{stream-name}`. 
+Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams) for information on Kinesis ARN syntax.  Sample ARN syntax for Kinesis is:  `arn:aws:kinesis:{region}:{account-id}:stream/{stream-name}`.
 
 ### Option 1 - Role-Based Authentication
 1. [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html)
@@ -75,7 +75,7 @@ Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespace
 
 ### Option 2 - User-Based Authentication
 1. [Create a Stream](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-streams.html)
-* The Kinesis Stream Name and Kinesis Service Region are required for mParticle setup 
+* The Kinesis Stream Name and Kinesis Service Region are required for mParticle setup
 2. [Create an IAM user](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)  
 * Be sure to save the credentials file which contains the Access Key Id and Secret Access Key required for mParticle setup.
 3. [Create a Custom Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).  Use one of the following methods to create the policy:
@@ -86,7 +86,7 @@ Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespace
      * Click Add Statement
    2. Create Policy from JSON
      * Paste the template policy below into the "Policy Document" field.  Be sure to replace the {region}, {account-id} and {stream-name} with your specific values.
-     
+
 ~~~json
 {
    "Version": "2012-10-17",
@@ -136,7 +136,7 @@ The event data will be forwarded as JSON objects.  Please refer to the [JSON](/d
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
 | Wait for Complete Batch | `bool` | False | All| If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
-| Include User Identities | `bool` | True | All| If enabled, user identity information will be forwarded with event batches. |
+| Include MP DeviceId | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
 | Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
