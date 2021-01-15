@@ -206,7 +206,7 @@ User Identity of type `Twitter` |`twitter` |
 
 ### Enriched Attributes
 
-By default, mParticle forwards all available user attributes to Braze, including attributes added during profile enrichment. You can disable this behavior in the [Connection Settings](#connection-settings).
+By default, mParticle forwards all available user attributes to Braze, including attributes added during profile enrichment. You can disable this behavior in the [Connection Settings](#connection-settings).   Only data which is sent to Braze Server to Server can be enriched.
 
 ## Configuration Settings
 
@@ -234,7 +234,7 @@ By default, mParticle forwards all available user attributes to Braze, including
 | User Tags Value | `enum` | "true" |  All but Web | Select the value to be sent to Braze for [user tags](/developers/sdk/web/users/#set-user-tags). The possible values are `null` or "true". When "true", it will be affected by the parameter Enable type detection. |
 | Braze SDK Collect IDFA? | `bool` | False | iOS, tvOS| Informs the Braze Kit whether to collect IDFA. |
 | Braze SDK Disable Automatic Location Tracking| `bool` | False | iOS, tvOS | Informs the Braze Kit whether to disable automatic location tracking at app startup time |
-| Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. |
+| Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. Only data which is sent to Braze Server to Server can be enriched. |
 | Send User Attribute Lists as Arrays | `bool` | False | All | If checked, mParticle will send each user attribute list server-side as an array, rather than a comma-separated string |
 | Enable type detection for user attributes | `bool` | False | All but Web | By default, all platforms (except for web) send user attributes as strings unless there are special Braze reserved user attributes. Checking this will force user attributes to be sent as parsed data types where possible. Please note that Braze refers to these as Custom Attributes. |
 | Forward Screen View Messages | `bool` | False | All | If enabled, all screen view messages will be forwarded to Braze as separate events. Not supported for S2S requests. |
