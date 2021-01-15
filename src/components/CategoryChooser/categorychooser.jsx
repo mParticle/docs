@@ -48,33 +48,56 @@ class CategoryChooser extends React.Component {
             headerText = 'Filter by Category';
         }
         const categories = {
+            Advertising: [
+                'Data Onboarding',
+                'Re-Targeting',
+                'User Acquisition',
+            ],
             Analytics: [
                 'A/B Testing',
                 'Attribution',
                 'Conversion Tracking',
                 'Crash Reporting',
+                'Custom Feeds',
+                'Feature Flagging',
                 'Location',
+                'Monitoring',
+                'Predictive Analytics',
                 'User Analytics',
+            ],
+            'Customer Service': [
+                'Customer Support',
+                'Helpdesk',
+                'User Feedback',
             ],
             'Data Warehousing': [
                 'Business Intelligence',
-                'Data Management Platform',
+                'DMP',
                 'Raw Data Export',
             ],
+            Finance: [
+                'Commerce',
+                'Payments',
+            ],
             Marketing: [
-                'Advertising',
                 'Affiliate Marketing',
+                'CRM',
+                'Customer Engagement',
+                'Data Enrichment',
                 'Deep Linking',
-                'Email Marketing',
-                'Marketing Automation',
-                'Push Notifications',
-                'Re-Targeting',
+                'Loyalty and Rewards',
+                'Personalization',
                 'Tag Management',
-                'User Acquisition',
-                'User Feedback',
+            ],
+            Privacy: [
+                'Consent Management',
+            ],
+            Security: [
+                'Access Management',
+                'Fraud Monitoring',
             ],
         };
-        const colors = ['#00AAFF', '#FF0043', '#00CA2C'];
+        const colors = ['#FF4000', '#00AAFF', '#9D0FAA', '#FF0043', '#0041CA', '#00C752', '#5239D3', '#019FC2'];
 
         const activeLink = getQueryMap(this.props.location).category;
         const activeIntegration = this.props.currPageMetadata
@@ -95,26 +118,17 @@ class CategoryChooser extends React.Component {
             && this.integrationsMap[activeIntegration]
         ) {
             const currentCategories = {
-                'Current Categories': this.integrationsMap[activeIntegration].map((int) => {
-                    const name = int.split(' ')
-                        .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
-                        .join(' ')
-                        .split('-')
-                        .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
-                        .join('-')
-                        .split('/')
-                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                        .join('/');
-                    return {
-                        name: int,
-                        cat: Object.keys(categories).reduce((all, item, i) => {
-                            if (categories[item].includes(name)) {
-                                all = i;
-                            }
-                            return all;
-                        }, ''),
-                    };
-                }),
+                'Current Categories': this.integrationsMap[activeIntegration].map((int) => ({
+                    name: int,
+                    cat: Object.keys(categories).reduce((all, item, i) => {
+                        const itemname = int.toUpperCase().trim();
+                        if (categories[item]
+                            .some((word) => itemname === word.toUpperCase().trim())) {
+                            all = i;
+                        }
+                        return all;
+                    }, ''),
+                })),
             };
             return (
                 <div className='category-chooser'>
@@ -125,40 +139,41 @@ class CategoryChooser extends React.Component {
                             </div>
                         )}
                     <div className='category-wrapper'>
-                        {
-                            currentCategories['Current Categories'].map((item) => {
-                                const integrationText = item.name.split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                                    .join(' ')
-                                    .split('-')
-                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                                    .join('-')
-                                    .split('/')
-                                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                                    .join('/');
+                        { currentCategories['Current Categories'].map((item) => {
+                            const itemname = item.name.toUpperCase().trim();
+                            const category = Object.keys(categories).reduce((all, categ) => {
+                                if (categories[categ]
+                                    .some((word) => itemname === word.toUpperCase().trim())) {
+                                    all = categ;
+                                }
+                                return all;
+                            }, item.name.charAt(0).toUpperCase() + item.name.slice(1));
 
-                                const link = `/integrations/?category=${encodeURIComponent(integrationText)}`;
-                                return (
-                                    <div
-                                        className={`link-wrapper ${item.name}`}
-                                        key={item.name}>
-                                        <Link
-                                            className='toc-link'
-                                            to={link}>
-                                            <span>
-                                                <svg height='8' width='8'>
-                                                    <circle
-                                                        cx='4'
-                                                        cy='4'
-                                                        r='4'
-                                                        fill={colors[item.cat]} />
-                                                </svg>
-                                            </span>
-                                            { integrationText }
-                                        </Link>
-                                    </div>
-                                );
-                            })
-                        }
+                            const integrationText = categories[category]
+                                .find((word) => itemname === word.toUpperCase().trim());
+
+                            const link = `/integrations/?category=${encodeURIComponent(integrationText)}`;
+                            return (
+                                <div
+                                    className={`link-wrapper ${item.name}`}
+                                    key={item.name}>
+                                    <Link
+                                        className='toc-link'
+                                        to={link}>
+                                        <span>
+                                            <svg height='8' width='8'>
+                                                <circle
+                                                    cx='4'
+                                                    cy='4'
+                                                    r='4'
+                                                    fill={colors[item.cat]} />
+                                            </svg>
+                                        </span>
+                                        { integrationText }
+                                    </Link>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             );
