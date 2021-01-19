@@ -202,7 +202,9 @@ If you see an option for <code>Unselected</code> displayed in the drop-down (or 
 | S3 Bucket Name | `string` | <unset> | All| The name of the S3 Bucket that you'd like mParticle to forward your event data to. |
 | Folder Name | `string` | <unset> | All| An optional folder name in your S3 Bucket to store the event data. |
 | Server Side Encryption Method | `string` | None | All| If enabled, server side encryption method will be used. |
+| Store Data In Folders By Date | `enum` | UNSELECTED | All| If enabled, your data will be stored in an S3 folder according to the chosen method. |
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
+| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
 | Send Screen Views | `bool` | True | All| If enabled, screen view events will be forwarded. |
 | Send Crash Events | `bool` | True | All| If enabled, app crashes will be forwarded. |
@@ -212,16 +214,19 @@ If you see an option for <code>Unselected</code> displayed in the drop-down (or 
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
 | Wait for Complete Batch | `bool` | False | Android| If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
-| Include Event Batch Location | `bool` | False | All| If enabled, event batch location data will be set on `context.location` whenever possible. See the JSON API reference [here](/developers/server/json-reference/#context) for more detail. |
-| Include User Identities | `bool` | True | All| If enabled, user identity information will be forwarded with event batches. |
 | Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
-| Store Data In Folders By Date | `enum` | UNSELECTED | All| If enabled, your data will be stored in an S3 folder according to the chosen method. |
 | Use Compression | `bool` | False | All| If enabled, your data will be compressed in gzip format. |
 | Include Consent State | `bool` | False | All| If enabled, Consent State will be forwarded. See the JSON API reference [here](/developers/server/json-reference/#consent_state) for more detail. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
+| Send Batches without Events | `bool` | True | All | If enabled, batches with no events will be forwarded. |
+| Include Event Batch Location | `bool` | False | All| If enabled, event batch location data will be set on `context.location` whenever possible. See the JSON API reference [here](/developers/server/json-reference/#context) for more detail. |
+| Send Alias Requests | `bool` | False | All | If enabled, alias request events will be forwarded. |  
+| Include MP DeviceId | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
+| Send Validation Results | `bool` | False | All| Determines if we should send data planning validation result events. |
+| Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
 
 <aside>
 When saving Connection Settings, bucket write access is validated by creating a file <code>"mParticle_Bucket_Verification_yyyyMMdd-hhmmss.txt"</code> and uploading it to the bucket using the provided information. This file contains the string "{}", which is a valid json. An error message will be shown if a problem is detected during this validation.
