@@ -149,8 +149,11 @@ class CategoryChooser extends React.Component {
                                 return all;
                             }, item.name.charAt(0).toUpperCase() + item.name.slice(1));
 
-                            const integrationText = categories[category]
-                                .find((word) => itemname === word.toUpperCase().trim());
+                            const tags = categories[category];
+
+                            const integrationText = tags
+                                ? tags.find((word) => itemname === word.toUpperCase().trim())
+                                : item.name;
 
                             const link = `/integrations/?category=${encodeURIComponent(integrationText)}`;
                             return (
