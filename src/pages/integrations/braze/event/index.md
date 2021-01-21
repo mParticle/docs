@@ -2,7 +2,7 @@
 title: Event
 ---
 
-[Braze](https://www.braze.com/) is a marketing automation platform for mobile apps with app analytics, segmentation, newsfeed, push, in-app messaging, email marketing, and user feedback feature sets.
+[Braze](https://www.braze.com/) is a comprehensive customer engagement platform that powers relevant experiences between consumers and brands they love. Braze helps brands foster human connection through interactive conversations across channels.
 
 Braze offers a broad range of functionality via their solution and it is critically important that you work directly with your Braze representative to ensure that you are correctly planning and implementing their features.  mParticle does not recommend enabling forwarding to Braze until you have completed the Braze planning process with your Braze team.
 

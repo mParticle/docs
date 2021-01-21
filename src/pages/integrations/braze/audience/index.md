@@ -2,7 +2,7 @@
 title: Audience
 ---
 
-[Braze](https://www.braze.com/) is a marketing automation platform for mobile apps, with user analytic, segmentation, push, and email marketing feature sets.
+[Braze](https://www.braze.com/) is a comprehensive customer engagement platform that powers relevant experiences between consumers and brands they love. Braze helps brands foster human connection through interactive conversations across channels.
 
 mParticle audiences correspond to Braze's [Segments](https://www.braze.com/docs/user_guide/engagement_tools/segments/creating_a_segment/) feature and can be used to target engagement campaigns in Braze.
 

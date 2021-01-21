@@ -2,7 +2,7 @@
 title: Feed
 ---
 
-[Braze](https://www.braze.com/) is mobile marketing automation that empowers marketers to build better relationships with their customers with push, email, in-app and more
+[Braze](https://www.braze.com/) is a comprehensive customer engagement platform that powers relevant experiences between consumers and brands they love. Braze helps brands foster human connection through interactive conversations across channels.
 
 The Braze Feed allows mParticle to receive Braze interaction data for the iOS, Android and Web platforms. It also supports an 'unbound' feed for events, such as emails, that are not connected to an app platform.
 
