@@ -11,7 +11,6 @@ A/B Testing
 ## Prerequisites
 
 In order to enable mParticle’s integration with Apptimize, you will need your App Key which can be found on your Apptimize [settings](https://apptimize.com/admin/settings/apps) page. 
-<aside>Account may be required.</aside>
 
 ## Apptimize Kit Integration
 
@@ -43,31 +42,12 @@ dependencies {
 ~~~   
 :::
 
-## Apptimize mParticle Configuration
-
-### Create an Apptimize Output Configuration
-
-1.  Select **Directory**, and click the Apptimize tile.
-2.  Click **Add Apptimize to Setup**.
-3.  Select the **Output Event** Integration Type and click **Add to Setup**.
-4.  Select the **Apptimize** output configuration group to configure an output event configuration.
-5.  Enter a Configuration Name and your Apptimize configuration settings and click **Save**.
-
-### Connect Inputs to the Apptimize Output Configuration
-
-1.  Select **Connections**.
-2.  Select the Input for the connection definition.
-3.  Click **Connect Output**.
-4.  Select the **Apptimize** configuration.
-5.  Enter your connection configuration settings.
-6. Toggle the Status to **Sending**.
-7. Click **Save**.
-
 ## Configuration Settings
 
 | Setting Name |  Data Type    | Default Value  | Description |
 |---|---|---|---|
 | App Key | `string` | <unset> | You can find your App Key on the Apptimize settings page |
+| Apptimize EU Data Center | `bool` | False | If enabled, the SDK will use endpoints associated with Apptimize European Data Center, otherwise data will be sent and received from the Default Data Center. If you are unsure which data center you are on, please reach out to support@apptimize.com |
 
 
 ## Connection Settings
