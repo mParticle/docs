@@ -33,7 +33,7 @@ Apptentive will process the following events forwarded via this integration. How
 
 ## Prerequisites
 
-In order to enable mParticle’s integration with Apptentive, you will need your Apptentive App Key and Apptentive App Signature for each respective app and environment which you can get from Apptentive's [API and Development](https://be.apptentive.com/apps/current/settings/api) page. If you need assistance to get an account, you can contact your Apptentive representative or reach out [here](mailto:support@apptentive.com).
+In order to enable mParticle's integration with Apptentive, you will need your Apptentive App Key and Apptentive App Signature for each respective app and environment which you can get from Apptentive's [API and Development](https://be.apptentive.com/apps/current/settings/api) page. If you need assistance to get an account, you can contact your Apptentive representative or reach out [here](mailto:support@apptentive.com).
 
 ## Apptentive Kit Integration
 
