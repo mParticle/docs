@@ -54,7 +54,7 @@ end
 ~~~Java
 //Sample build.gradle
 dependencies {
-    compile ('com.mparticle:android-apptentive-kit:4.+')
+    compile ('com.mparticle:android-apptentive-kit:5.+')
 }
 ~~~   
 
