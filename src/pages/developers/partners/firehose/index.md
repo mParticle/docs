@@ -111,7 +111,7 @@ The details of the registration response are outlined below. For a full example 
 
 ### 1. Creating your `ModuleRegistrationResponse` and Describing your Service
 
-mParticle users will see the result of your module registration response in our integrations directory. You should set a human-readable title for your service (such as your company's name), as well as a short description of your company including a link to your company's website, and it must be less than 230 characters. 
+mParticle users will see the result of your module registration response in our integrations directory. You should set a human-readable title for your service (such as your company's name), as well as a short description of your company including a link to your company's website with optional tracking parameters. Your description must be less than 230 characters. 
 
 This information will be also shown on [https://docs.mparticle.com/integrations/](https://docs.mparticle.com/integrations/) and [https://www.mparticle.com/integrations.](https://www.mparticle.com/integrations)
 
@@ -119,7 +119,7 @@ Override the `processRegistrationRequest` method in your `MessageProcessor` and 
 
 ```java
 ModuleRegistrationResponse response = new ModuleRegistrationResponse("My Company Name", "1.0");
-response.setDescription("<a href=\"http://www.mycompany.com\" target=\"_blank\">My Company</a> empowers brands to meaningfully engage their customers by leveraging data insights. With My Company's help, brands can personalize and cultivate their customer experience.\"");
+response.setDescription("<a href=\"http://www.mycompany.com?utm_source=mparticle\" target=\"_blank\">My Company</a> empowers brands to meaningfully engage their customers by leveraging data insights. With My Company's help, brands can personalize and cultivate their customer experience.\"");
 ```
 
 ### 2. Permissions
