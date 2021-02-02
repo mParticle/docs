@@ -3,7 +3,7 @@ title: JSON Reference
 order: 2
 ---
 
-This document details the mParticle JSON Events format.  This format is used to post events to mParticle via the HTTP API, receive events via webhook, and parse files uploaded to your Amazon S3 bucket.
+This document details the mParticle JSON Events format.  This format is used to post events to mParticle via the HTTP API. This format is also used to send events to output integrations which accept raw JSON, however there are a few [differences between the inbound and outbound JSON format](#differences-between-incoming-and-outgoing-json).  
 
 
 ## JSON Schema

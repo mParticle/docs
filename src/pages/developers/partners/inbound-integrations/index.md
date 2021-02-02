@@ -32,7 +32,8 @@ mParticle will provide you with a template to complete with information about yo
 To build a Feed integration, you need to:
 
 1. Create a function or service to convert the data you want to forward into mParticle's batch format.
-1. Create a secure way for your clients to be able to provide you with the API Key and Secret necessary to send their data to mParticle's Events API. You can either build this into your Platform UI or communicate directly with each client wanting to access your Feed in mParticle.
-1. Using the credentials provided by each client, forward data to our HTTPS API endpoint. See our [Events API documentation](/developers/server/http/) for more information.
+2. Create a secure way for your clients to be able to provide you with the API Key and Secret necessary to send their data to mParticle's Events API. You can either build this into your Platform UI or communicate directly with each client wanting to access your Feed in mParticle.
+3. Using the credentials provided by each client, forward data to our HTTPS API endpoint. See our [Events API documentation](/developers/server/http/) for more information.
+4. Ensure that your function or service will respond to an HTTP 429 Too Many Request [response](/developers/server/http/#response) so that no data is dropped.   
 
 Don't forget to provide a high-resolution logo to mParticle in SVG format with a transparent background.

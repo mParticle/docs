@@ -29,7 +29,7 @@ Event data from mParticle to Facebook is typically sent server side.  However, W
 
 ### Configuring Facebook Pixel Server-to-Server
 
-You need to perform a few steps in Facebook to create a [Facebook Pixel S2S](https://developers.facebook.com/docs/marketing-api/conversions-api/get-started) connection.  
+You need to perform a few steps in Facebook to create a [Facebook Pixel S2S](https://developers.facebook.com/docs/marketing-api/conversions-api/get-started) connection.
 
 1. **Navigate to the Facebook Events Manager**
 2. **Connect a New Data Source**:  Select `Web` with a connection method of `Conversions API`.
@@ -233,4 +233,4 @@ There are several fields only accepted by server-to-server Web connections. Thes
 | Pixel ID | `string` | <unset> | Web | Facebook Pixel ID |
 | Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side |
 | External User Identity Type | `string` | Customer ID | All | Hash of the User Identity to send to Facebook as External ID |
-| Send CCPA Limited Data Use | `enum` | Never | Web | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with either client IP or country and state user attributes defined. This flag is only supported for server-side connections. |
+| Send CCPA Limited Data Use | `enum` | Never | All | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with country and state user attributes defined or for Pixel connections with client IP defined. |
