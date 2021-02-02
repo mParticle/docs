@@ -317,9 +317,12 @@ eventProcessingRegistration.setPushMessagingProviderId("your-push-messaging-prov
 ### 7. Audience Registration
 
 Audience Registration will allow your integration to receive Audience Subscription and Membership messages. During registration, your integration needs to specify the settings required to map and send audience data from mParticle to your service:
-* (required) user modifiable account settings that your integration requires, such as an API key
-* (optional) user modifiable audience-specific settings such as an audience ID
-* (optional) internal audience-specific settings. These should be marked as not visible, so that users of the mParticle console cannot modify them. You can modify the values of these settings in your response to Audience Membership messages
+1. [Account Settings]((http://docs.mparticle.com/developers/partners/firehose/#4-account-settings)) are required, user-modifiable settings for your integration.
+2. Audience Subscription Settings are optional, audience-specific settings such as an audience ID from your service. These settings can be set manually by the user or can be set programatically.
+  - To allow users to set and modify the subscription setting's value, mark a subscription setting as not visible. The user will be prompted to enter a value when connecting an audience and you will see this value in your [audience subscription requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionRequest.json) and [audience membership change requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceMembershipChangeRequest.json).
+  - To set a subscription setting's value programatically, mark a subscription setting as visible. You will set the value after a user connects an audience as part of your audience subscription [response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionResponse.json). Subsequent membership change requests will contain the returned value.
+
+Audience Subscription Settings can be included in your module registration response as shown [here](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/ModuleRegistrationResponse.json#L74).
 
 [See here for more info on AudienceProcessingRegistration](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/registration/AudienceProcessingRegistration.html)
 

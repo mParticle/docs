@@ -20,7 +20,7 @@ var batch = new mParticle.Batch(mParticle.Batch.Environment.development);
 Most use-cases require that data be associated with a user identity, for example:
 
 - If you're also sending data to mParticle via our mobile SDKs, set a customer ID both via the mobile SDKs and this SDK so that mParticle can correctly associate data with each user.
-- Several marketing automation and audience integrations are powered by email. 
+- Several marketing automation and audience integrations are powered by email.
 
 ```javascript
 var user_identities = new mParticle.UserIdentities();
@@ -58,9 +58,10 @@ Events are central to many of mParticle's integrations; analytics integrations t
 App Events represent specific actions that a user has taken in your app. At minimum they require a name and a type, but can also be associate with a free-form dictionary of key/value pairs.
 
 ```javascript
-var event = new mParticle.AppEvent(mParticle.AppEvent.CustomEventType.navigation, 
+var event = new mParticle.AppEvent(mParticle.AppEvent.CustomEventType.navigation,
   'Hello World');
-
+  event.custom_attributes = { foo: 'bar' };
+  
 batch.addEvent(event);
 ```
 
@@ -159,7 +160,7 @@ At minimum, the `EventsApi` must be initialized with a `Configuration` object, c
 
 ```javascript
 var api = new mParticle.EventsApi(new mParticle.Configuration(
-    'REPLACE WITH API KEY', 
+    'REPLACE WITH API KEY',
     'REPLACE WITH API SECRET'));
 ```
 
@@ -179,7 +180,7 @@ batch.user_identities.customerid = '123456' // identify the user (required)
 
 batch.user_attributes = {'hair color': 'brown'}
 
-var event = new mParticle.AppEvent(mParticle.AppEvent.CustomEventType.navigation, 
+var event = new mParticle.AppEvent(mParticle.AppEvent.CustomEventType.navigation,
   'Hello World');
 
 batch.addEvent(event);
@@ -197,6 +198,5 @@ var callback = function(error, data, response) {
 api.bulkUploadEvents(body, callback);
 
 // or upload a single batch
-//api.uploadEvents(body, batch) 
+//api.uploadEvents(body, batch)
 ```
-

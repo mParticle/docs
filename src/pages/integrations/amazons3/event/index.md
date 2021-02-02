@@ -29,7 +29,7 @@ To set up a bucket policy:
 
 1. [Create an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html). The bucket name **must** begin with `mp-forwarding-`.
   <aside> Note the full name of your bucket. This will be required later.</aside>
-  
+
 2. Create a New Policy from the template below and be sure to replace the word ``{bucket}`` with the name of the S3 bucket created in step 1.
 
 3. [Assign Policy to Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/EditingBucketPermissions.html). In the Bucket Policy Editor
@@ -147,7 +147,7 @@ AWS IAM Policy Template
 
 The event data will be forwarded as plain text files containing new-line delimited JSON objects. Each line in the file will correspond with a single event batch formatted as a JSON object. Please refer to the mParticle [JSON](/developers/server/json-reference/) documentation for a detailed description of the data format used for each batch.
 
-For example, if two batches are forwarded at once, the file will contain something like the following (note some fields were removed for brevity):
+For example, if two batches are forwarded at once, the file will contain something similar to the following (note some fields were removed for brevity):
 
 ~~~json
 {"events":[{"data":{"event_name":"MyTestEvent","timestamp_unixtime_ms":"1595542763908","event_id":"1234"},"event_type":"custom_event"}],"user_identities":[{"identity_type":"customer_id","identity":"TestCustomerId1"}],"environment":"production"}
@@ -167,7 +167,7 @@ For example: `mPTravel_20171017170911644493_34523.txt`.
 
 Optionally, you can store files in a folder within your S3 bucket by providing a **Folder Name** in mParticle's Amazon S3 Integration [Connection Settings](#connection-settings).
 
-#### Date-based folders
+#### Date-Based Folders
 
 You can further organize files into date-based folders, with the name format:<br>
 `YYYY-MM-DD`.
@@ -177,7 +177,7 @@ Files can be sorted into folders in several ways according to how you set **Stor
 * **None** - files will not be stored in date folders
 * **Store data in folders by the event time** - each file will be sorted into a folder according to the timestamp of the first event in the batch
 * **Store data in folders by upload time** - each file will be sorted into a folder according to the upload time of the batch
-* **Store Data in folders by first event time or upload time if no events** - each file will be sorted into a folder according to the timestamp of the first event in the batch, or the upload time of the batch if there are no events
+* **Store data in folders by first event time or upload time if no events** - each file will be sorted into a folder according to the timestamp of the first event in the batch, or the upload time of the batch if there are no events
 
 Note that files will be sorted into folders depending on when when the events occurred, or were received by mParticle, but the files themselves are named according to the time the file is created. If there is a delay in forwarding, it is possible that the file and folder timestamps will not match. File/folder timestamp mismatches do not indicate an error.
 
@@ -195,7 +195,7 @@ If you see an option for <code>Unselected</code> displayed in the drop-down (or 
 | AWS Region Endpoint | `string` | us-east-1 | AWS Region Endpoint for the S3 Bucket. Defaults to US East (N. Virginia) also known as us-east-1 |
 
 
-## mParticle Connection Settings
+## Connection Settings
 
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|-----
