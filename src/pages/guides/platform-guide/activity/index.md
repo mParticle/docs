@@ -167,8 +167,8 @@ The report displays the number of alerts in each category for a 12-hour time per
 |Missing Android ID | Appboy, AgilOne, Fiksu, Leanplum | Android ID is required, and is missing in the event batch.
 |Missing App Info | AgilOne, Appboy, Google Adwords, Google Analytics, Kochava, Krux, Oracle BlueKai, Tune, Webtrends | Application Info is required, and is missing in the event batch.  
 |Missing AppName | Google Analytics, Webtrends | Application Name is required, and is missing in the event batch.
-| Missing Build ID | Google Adwords |
-|Missing Device Info | Appboy, Singular, Google Adwords, Kochava, Krux, Leanplum, Oracle BlueKai, SFDC Email, SFDC MobilePush, Webtrends | Device Info is required, and is missing in the event batch.  
+| Missing Build ID | Google Adwords | The request was missing a required build id.
+|Missing Device Info | Appboy, Singular, Google Adwords, Kochava, Krux, Leanplum, Oracle BlueKai, SFDC Email, SFDC MobilePush, Webtrends | Device Info is required, and is missing in the event batch.
 |Missing Event Name | Amazon Mobile Analytics, Amplitude, Customer.io | Event Name is required, and is missing in the event batch.  
 |Missing Fire Advertising Identifier | Krux | Amazon Fire TV Identifier is required and is missing in the event batch. |
 |Missing Google Advertising Identifier | Facebook Atlas, Google Adwords, Krux, Leanplum, Nanigans, Oracle BlueKai, TapCommerce, Tapstream | Google Advertising Identifier is required, and is missing in the event batch.
@@ -179,14 +179,18 @@ The report displays the number of alerts in each category for a 12-hour time per
 |Missing IDFA and IDFV | Adjust, Appboy, Krux, Leanplum | IDFA or IDFV is required, and both are missing in the event batch.
 |Missing IDFV | Leanplum | IDFV is required, and is missing in the event batch.
 |Missing IP Address |Singular, Facebook Atlas, Google DoubleClick, Quantcast |IP Address is required, and is missing in the event batch.
-| Missing LocaleCountry |  Google Adwords | |
-| Missing LocaleLanguage |  Google Adwords | |
-| Missing Model |  Google Adwords | |
+| Missing Locale Country | Google Adwords | The request was missing required locale country.
+| Missing Locale Language | Google Adwords | The request was missing required locale language.
+| Missing Model | Google Adwords | The request was missing required device model.
 |Missing OS Version | Singular, Google Adwords | OS Version is required and is missing in the event batch.
 |Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Tune, Urban Airship | Package Name is required, and the application is not presenting one in the event batch. For Tune, you can override the Package Name in the configuration settings.
-| Missing Required Setting | Appboy, Appsflyer, Fiksu | A required setting is missing.  
+| Missing Required Setting | Appboy, Appsflyer, Fiksu, Double Click, Facebook, Quantcast, Salesforce | A required setting is missing.
+| Missing Device Application Stamp | Leanplum | Missing Device Application Stamp for Device ID.
 | Missing Roku Channel Client ID | Leanplum | The Roku channel client ID is not present.
-| Missing Roku Advertising ID | Leanplum | The Roku advertising ID is not present.
+| Missing Roku Advertiser ID | Leanplum | The Roku advertising ID is not present.
+| Invalid Required Attribute | Simplereach, Aloha | The request has a required attribute that's in an invalid format.
+| Missing Required Attribute | Simplereach, Facebook | The request has a required attribute that's missing.
+| Missing Screen Name | Zendesk | Screen name is required, and is missing in the event batch.
 | Missing User Agent |Facebook Atlas, Google DoubleClick |User Agent is required, and is missing in the event batch.
 |No Route Available | Appboy, Airship | The source of the event batch is not supported.  This is used to indicate that the source of the event batch was not from a native client with the extended SDK (appropriate kit included) or the mParticle Events API.
 | Request Too Long | Krux | The request exceeds a size or character limit set by the partner and cannot be delivered
