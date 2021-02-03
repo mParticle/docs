@@ -138,7 +138,7 @@ As mentioned above, you can build audience criteria based on user attributes fro
 
 To build an audience criteria based on a user's profile information, press the **add criteria** button and select **Users** to view options for user based criteria:
 
-- `Audience membership`: Checking a user's membership in other audiences. Only audiences which do not contain nested definitions can be selected.
+- `Audience membership`: Checking a user's membership in other audiences. Only audiences which do not contain nested definitions can be selected. When using a standard audience membership criteria, the population starts with the real-time audience and refines from there. This criteria is not affected by standard audience expiration.
 - `Calculated attributes`: Check a users calculated attribute value
 - `Consent`: Check a users CCPA or GDPR consent state
 - `Device, OS, Carrier`: Check a users device type, carrier and operating system
@@ -151,7 +151,7 @@ To build an audience criteria based on a user's profile information, press the *
 ![](/images/audience-user-criteria.png)
 
 <aside>
-User profile criteria are run against the latest data in the user profile and are not based on date ranges.
+User profile criteria are run against the latest data in the user profile (or the latest from the date range selected). To ensure the latest user attribute and consent states are used, always end your standard audience at the most recent date.
 </aside>
 
 ### String Matching Criteria
@@ -467,7 +467,7 @@ mParticle’s new Standard Audiences feature lets you define and build audiences
 
 * Real-time audiences are based only on recently received data. For most customers, real-time audiences draw on the most recent 30 days of data. Standard Audiences uses any data that we have saved, according to your retention policies.
 * Real-time audiences are constantly calculated and updated on an ongoing basis, and changes to the audiences are often forwarded to Audience partners in near real-time. Standard Audiences are calculated only once and, given the volume of data involved, take some time to complete. Forwarding a Standard Audience to an audience partner also happens only once. You can manually set the audience to be calculated or sent again.
-* Since Standard Audiences use huge amounts of data, your account is limited to a set amount of calculations per year. A single calculation can include multiple audiences as long as they are calculated together.
+* Since Standard Audiences use huge amounts of data, your account is limited to a set amount of calculations per year. A single calculation can include multiple audiences as long as they are calculated together (see below).
 * While Standard Audiences support all of the same Audience partners as Real-time audiences, with the same connection settings, the workflow of calculating and sending a Standard Audience has a few optional steps: to allow you to make the most of your calculations, you can calculate and send audiences in bulk.
 
 <aside>
@@ -480,6 +480,13 @@ Standard audiences are purchased by buying annual calculation credits. Each calc
 Some example calculations and costs:
 - 1 standard audience spanning from 1/1/2018 to 1/1/2020: this costs 2 credits as it scans 2 years of data.
 - 3 standard audiences spanning from 1/1/2019 to 12/31/2019: this costs 1 credit as it scans 1 year of data (with many audiences).
+
+### Standard Audience Lifecycle
+Standard audiences have a 4 stage lifecycle:
+- <strong>Draft</strong>: The audience is being drafted and has not yet been calculated. To calculate it, press 'calculate' and confirm that credits will be spent.
+- <strong>Calculating</strong>: The audience is being calculated. Progress indications are shown in the UI and the time this takes depends on the date range selected (and thus the data volume scanned).
+- <strong>Ready</strong>: The audience has been calculated and is ready for use by connecting and sending it downstream.
+- <strong>Expired</strong>: 30 days after it is calculated the audience is expired. It can no longer be connected, but it can be cloned for re-calculation. Any real-time audience criteria checking user membership in a standard audience is not affected by standard audience expiration, as the users membership is saved in the users profile.
 
 ### Workflow
 
