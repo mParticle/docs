@@ -66,6 +66,8 @@ Your ARNs should look something like this:
 
 `arn:aws:lambda:us-east-1:999999999999:function:mprmylambdafunction:$LATEST`
 
+**Please note that lambda functions used for rules must be created in us-east-1 in order for them to modify incoming/outgoing batches in mParticle.**
+
 ### IAM User
 
 To connect to your AWS Lambda function, you must provide the AWS Access Key ID and Secret Access Key for an [IAM User](https://aws.amazon.com/documentation/iam/).
