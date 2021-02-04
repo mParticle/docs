@@ -15,11 +15,6 @@ Initial syncs of your audiences may take a few hours to be fully reflected in Am
 
 ## Supported Identities
 
-### User Identities
-
-* Customer ID
-* Email Address
-
 ### Device Identities
 
 * Apple IDFA
