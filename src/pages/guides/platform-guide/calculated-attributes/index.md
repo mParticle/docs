@@ -31,6 +31,14 @@ Calculated attributes are defined and calculated in the scope of a single worksp
 ### Initialization
 Once a calculated attribute is activated, the initialization of existing data can take anywhere from 24 hours to several days, depending on the date range selected and the amount of data to be processed.
 
+### Calculation Speed
+
+![](/images/ca-delayed-flow.png)
+
+Calculations are either **instant** or **delayed**.  Instant calculations are evaluated immediately and updated values are included in the same outgoing event batch with no delay.
+
+Delayed calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the *next* outgoing event batch **and** to outputs connected to a special feed input named "Calculated Attributes" ([more about this feed](#forwarding-via-feed)).
+
 ## Calculations
 
 We currently support 13 calculations organized into four groups:
@@ -80,8 +88,8 @@ For example:
 * Unique game titles played
 * Unique product categories viewed in the last 30 days
 
-### Calculation Formats
-The following table defines the data types produced by each calculation. All timestamp values are in ISO 8601 format in the UTC timezone. Several calculations produce results with types that depend on the type of the event attribute selected, for example `First Value` will return a string if the event attribute selected is a string.
+### Calculation Details
+The following table defines the details of all supported calculations. All timestamp values are in ISO 8601 format in the UTC timezone. Several calculations produce results with types that depend on the type of the event attribute selected, for example `First Value` will return a string if the event attribute selected is a string.
 
 Group | Calculation Type  | Format | Example | Speed
 ---| ---|---|--| ----
@@ -101,14 +109,6 @@ List | Unique List | Comma separated list of dynamic values; maximum of 100. | `
 
 All calculation speeds here are *after* the values have been initialized. Setting the date range to 'within the last' will cause all calculations to update with delayed speed.
 
-## Calculation Speed
-
-![](/images/ca-delayed-flow.png)
-
-Calculations are either **instant** or **delayed**.  Instant calculations are evaluated immediately and updated values are included in the same outgoing event batch with no delay.
-
-Delayed calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the *next* outgoing event batch **and** to outputs connected to a special feed input named "Calculated Attributes" [more about this input](#ca-feed).
-
 ## Date Range
 
 Calculated attributes can be setup to calculate over defined date range. This allows you to limit calculations to a more relevant business window such as “unique list of product purchased in the last 30 days” or “total bookings made over the last year”.
@@ -120,30 +120,11 @@ The following date ranges are supported:
 * **All Time**: Do not limit calculations by date range; use all available data.
 
 <aside>
-Date ranges that include extremely large volumes of data (e.g. `All Time`) may take up to 7 days to fully initialize before values are ready for everyone in your population. Once initialized, values will be updated in real-time. 
+Date ranges that include extremely large volumes of data (e.g. `All Time`) may take up to 7 days to fully initialize before values are ready for everyone in your population. Once initialized, values will be updated in real-time.
 </aside>
 
-## Create a Calculated Attribute
-
-To create a Calculated Attribute:
-
-1. Within the **Activity** section of your dashboard’s side navigation panel, select **Calculated Attributes**, and then select **+ Calculated Attribute**.
-2. Enter the Calculated Attribute **Name** and an optional **Description**.      ![medium](/images/ca-create.png)
-3. Select the **Calculation Type** for your calculations. Please see the [Calculation Types](#calculation-types) section for more details
-4. When applicable, select the **operation**.
-5. Click on the data criteria section to define the data used to run the calculation.
-    1. From the dropdown, select the **event** to calculate on.
-    1. Certain calculations are based on an event attribute for the selected event. When applicable, select the **attribute**.
-    1. Some operations requires a specific data type to run calculation. When selected attribute is not compatible with the operation a warning message will be displayed. If you want to force a specific event attribute to be used you can continue past the warning and activate the calculated attribute. For example, if you pass in purchase amount as a string you can force it to be a number for use in a sum calculation.
-    1. **Save** your changes.
-6. To adjust date range for your calculation, click on **Date Range** criteria.
-    1. Select **Since** from dropdown for calculations that require to be run from a specific start date
-    1. Select **Within the last** from dropdown for calculations that require to be run over a specific rolling time period. Enter a number and specify a time unit of **Days** or **Weeks**.
-    1. **Save** your changes.
-      ![](/images/ca-builder.png)
-
 ### Type Conversions
-Some calculated attributes, like `sum`, require numeric event attributes to function. If you select an attribute that is not detected as the correct type, the platform will warn you about using those fields in the calculated attribute definition. You <b>can still calculate</b> the calculated attribute despite the warning and it will attempt to convert the string values into numerics. For example, if you pass the attribute `amount` in as a numeric string like `"34.32"`, a `sum` calculation will still work correctly.
+Some calculated attributes, like `sum`, require numeric event attributes to function. If you select an attribute that is not detected as the correct type, the platform will warn you about using those fields in the calculated attribute definition. You <b>can still use</b> the calculated attribute despite the warning and it will attempt to convert the string values into numerics. For example, if you pass the attribute `amount` in as a numeric string like `"34.32"`, a `sum` calculation will still work correctly: the string `"34.32"` will be converted to the decimal value `34.32`.
 
 ![](/images/ca-type-warning.png)
 
@@ -169,23 +150,6 @@ Seeding requires two pieces of information:
 2. If you need to update the seeds after already sending them to mParticle, simply send the updated seeds to mParticle again. We will overwrite previously received seeds.
 
 
-## Activate a Calculated Attribute
-
-A calculated attribute must first be activated in order for mParticle to start calculating its values across your users.
-
-To activate a Calculated Attribute:
-
-1. Select **Activate** after defining the Calculated Attribute.
-2. Once activated, Calculated Attribute is immediately available across the mParticle platform. This allows you to create audiences, setup connections, and data filters as an example.
-
-<aside>There is a limit to the number of concurrent active calculated attributes that is determined by your account plan. To increase limit, contact your account representative or delete unneeded active calculated attributes.</aside>
-
-When activated, mParticle will start to compute and initialize the initial value for the calculated attribute. This uses both the historical data in mParticle and real-time incoming data.
-
-Depending on the date range, volume of data in your workspace, and complexity of definition, calculations will have varying SLAs before it first becomes available across your customer profiles. Whilst calculating, the UI will display its calculation progress.
-
-![](/images/ca-pending.png)
-
 ## Using Calculated Attributes
 
 ### Forwarding via Event Batches
@@ -199,7 +163,7 @@ If an active calculated attribute has the same name as a user attribute, only th
 ![](/images/ca-filter.png)
 
 ### Forwarding via Feed
-There is a special feed named 'Calculated Attributes' that allows you to send calculated attributes downstream whenever they change, without an event from the user; this feed is especially useful for keeping calculated attributes with delayed calculations synchronized throughout your stack and for sending calculated attributes downstream alongside kit integrations. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their delayed CAs were calculated will be sent. This feed sends changed calculated attributes, it does not send user attributes.
+There is a special feed named 'Calculated Attributes' that allows you to send calculated attributes downstream whenever they change, without an event from the user. This used to keep calculated attributes with delayed calculations updated throughout your stack and for sending calculated attributes downstream alongside kit integrations. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their delayed CAs were calculated will be sent. This feed sends updated [delayed calculated attributes](#calculation-details) -- not instant calculations nor user attributes. Instant calculated attributes are updated instantly and sent on event connections. If you want only those values, use the filters functionality to remove other events and user information.
 
 You can control which downstream system receives these updates by connecting platforms to receive the delayed calculation updates. You can also filter out calculated attributes you do not wish to forward using the platform filters page.
 
@@ -225,3 +189,41 @@ Calculated attributes can be used in the Audience builder by selecting **User > 
 
 
 ![](/images/ca-audiences.png)
+
+
+## How to: Create a Calculated Attribute
+
+To create a Calculated Attribute:
+
+1. Within the **Activity** section of your dashboard’s side navigation panel, select **Calculated Attributes**, and then select **+ Calculated Attribute**.
+2. Enter the Calculated Attribute **Name** and an optional **Description**.      ![medium](/images/ca-create.png)
+3. Select the **Calculation Type** for your calculations. Please see the [Calculation Types](#calculation-types) section for more details
+4. When applicable, select the **operation**.
+5. Click on the data criteria section to define the data used to run the calculation.
+    1. From the dropdown, select the **event** to calculate on.
+    1. Certain calculations are based on an event attribute for the selected event. When applicable, select the **attribute**.
+    1. Some operations requires a specific data type to run calculation. When selected attribute is not compatible with the operation a warning message will be displayed. If you want to force a specific event attribute to be used you can continue past the warning and activate the calculated attribute. For example, if you pass in purchase amount as a string you can force it to be a number for use in a sum calculation.
+    1. **Save** your changes.
+6. To adjust date range for your calculation, click on **Date Range** criteria.
+    1. Select **Since** from dropdown for calculations that require to be run from a specific start date
+    1. Select **Within the last** from dropdown for calculations that require to be run over a specific rolling time period. Enter a number and specify a time unit of **Days** or **Weeks**.
+    1. **Save** your changes.
+      ![](/images/ca-builder.png)
+
+
+## How to: Activate a Calculated Attribute
+
+A calculated attribute must first be activated in order for mParticle to start calculating its values across your users.
+
+To activate a Calculated Attribute:
+
+1. Select **Activate** after defining the Calculated Attribute.
+2. Once activated, Calculated Attribute is immediately available across the mParticle platform. This allows you to create audiences, setup connections, and data filters as an example.
+
+<aside>There is a limit to the number of concurrent active calculated attributes that is determined by your account plan. To increase limit, contact your account representative or delete unneeded active calculated attributes.</aside>
+
+When activated, mParticle will start to compute and initialize the initial value for the calculated attribute. This uses both the historical data in mParticle and real-time incoming data.
+
+Depending on the date range, volume of data in your workspace, and complexity of definition, calculations will have varying SLAs before it first becomes available across your customer profiles. Whilst calculating, the UI will display its calculation progress.
+
+![](/images/ca-pending.png)
