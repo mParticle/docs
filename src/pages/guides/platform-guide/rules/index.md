@@ -54,7 +54,7 @@ You can also apply a Rule right before it's sent to a *specific* Output. This le
 
 ## Create a Function in AWS
 
-mParticle Rules are hosted in your AWS account as Lambda functions. To do this, you need to be able to provide an Amazon Resource Number (ARN) for your Rule. See the [AWS Lambda documentation](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html) for help creating a function.
+mParticle Rules are hosted in your AWS account as Lambda functions. To do this, you need to be able to provide an Amazon Resource Number (ARN) for your Rule. See the [AWS Lambda documentation](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html) for help creating a function.  The Lambda functions used for rules must be hosted in the same AWS region as your [mParticle account](/developers/data-localization#rules).
 
 * The name of the function must begin with "mpr"
 * Your Development Rule must have an alias of "$LATEST"
