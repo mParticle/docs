@@ -35,6 +35,7 @@ The [JSON](/developers/server/json-reference/) documentation describes the forma
 | ---|---|---|---|
 | POST URL | `string` | <unset> | The URL to POST your events to, including scheme ('HTTP' or 'HTTPS') |
 | Authorization Header | `string` | | The HTTP Authorization Header to include with the POST request | 
+| Include MP DeviceId | `bool` | False | If enabled, MP DeviceId will be forwarded with event batches. | 
 
 
 ## Connection Settings
@@ -46,7 +47,6 @@ The [JSON](/developers/server/json-reference/) documentation describes the forma
 | Wait for Complete Batch | `bool` | False | All| If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
 | Send Crash Events | `bool` | True | All| If enabled, app crashes will be forwarded. |
 | Send Custom Events | `bool` | True | All| If enabled, custom app events will be forwarded. |
-| Include User Identities | `bool` | True | All| If enabled, user identity information will be forwarded with event batches. |
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
@@ -57,3 +57,6 @@ The [JSON](/developers/server/json-reference/) documentation describes the forma
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
+| Send Validation Results | `bool` | False | All| Determines if we should send data planning validation result events. |
+| Metadata Field Exclusion | Custom Field | | All| A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
+| Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
