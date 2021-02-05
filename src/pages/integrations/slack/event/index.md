@@ -57,3 +57,10 @@ Connect inputs to the Slack output configuration
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
 | Channel Name | `string` | <unset> | All| Specify a public channel with "#channel" or a direct message with "@username" to send events to a specific username. Only development events will be forwarded. |
+| Include Consent State | `bool` | False | All| If enabled, Consent State will be forwarded. See the JSON API reference [here](/developers/server/json-reference/#consent_state) for more detail. |
+| Include System Notifications | `bool` | True | All| If enabled, System Notifications will be forwarded. |
+| Send Alias Requests | `bool` | False | All | If enabled, alias request events will be forwarded. |  
+| Send Validation Results | `bool` | False | All| Determines if we should send data planning validation result events. |
+| Include MP DeviceId | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
+| Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
+
