@@ -4,6 +4,8 @@ title: Event
 
 [Kafka](https://kafka.apache.org/) is used for building real-time data pipelines and streaming apps. It is horizontally scalable, fault-tolerant, wicked fast, and runs in production in thousands of companies.
 
+The Kafka integration is in Beta.  Please reach out to your customer success manager for assistance in setting up the integration.
+
 ## Prerequisites
 
 To enable the Kafka integration, you will need a list of comma-separated bootstrap servers that identify an initial subset of servers, "brokers," in the Kafka cluster. You will also need to provide the name of the Kafka topic stream to publish to.
