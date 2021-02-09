@@ -16,6 +16,9 @@ The following tables represent the approved sub-processors and their locations f
 | Amazon AWS | The mParticle stack is built and hosted entirely on AWS | USA |
 | SumoLogic | Provides Error log aggregation | USA |
 | RedisLabs | Provides data store and cache | USA |
+| Fastly, Inc | Content Delivery Optimization | USA |
+| Google Cloud Platform | Cloud Infrastructure | USA |
+| Lacework | Security Monitoring | USA |
 
 <b>Australia:</b>
 
@@ -23,6 +26,9 @@ The following tables represent the approved sub-processors and their locations f
 | ---- | ---------- | -------- |
 | Amazon AWS | The mParticle stack is built and hosted entirely on AWS | Australia |
 | SumoLogic | Provides Error log aggregation | Australia |
+| Fastly, Inc | Content Delivery Optimization | Australia |
+| Google Cloud Platform | Cloud Infrastructure | Australia |
+| Lacework | Security Monitoring | Australia |
 
 <b>European Economic Area:</b>
 
@@ -30,3 +36,6 @@ The following tables represent the approved sub-processors and their locations f
 | ---- | ---------- | -------- |
 | Amazon AWS | The mParticle stack is built and hosted entirely on AWS | Germany |
 | SumoLogic | Provides Error log aggregation | Germany |
+| Fastly, Inc | Content Delivery Optimization | EEA |
+| Google Cloud Platform | Cloud Infrastructure | EEA |
+| Lacework | Security Monitoring | EEA |
