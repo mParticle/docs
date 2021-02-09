@@ -4,7 +4,7 @@ title: Audience
 
 Adobe Campaign Manager allows customers to manage multiple data sources, define audience segments, and plan and execute multi-step, cross-channel campaigns.
 
-## Prerequisites 
+## Prerequisites
 
 For some general information on Adobe Campaign Manager, reference the following: [Campaign Management](https://www.adobe.com/experience-cloud/topics/campaign-management.html).
 
@@ -39,7 +39,7 @@ For example:
 ## Upload Frequency
 
 The Adobe Campaign Manager integration uses `Bulk Forwarding`. This means that, instead of uploading updates to an audience in real time, mParticle queues updates until either:
-- The specified amount of time has passed since the last upload, or 
+- The specified amount of time has passed since the last upload, or
 - 1 GB of data has accumulated.
 
 The frequency with which mParticle uploads to Adobe Campaign Manger depends upon the `Upload Frequency in Hours` connection setting.
@@ -79,6 +79,7 @@ Setting Name | Data Type | Required | Default Value | Description |
 |---|---|---|---|---|
 Host | `string` | true | | Host name of your Adobe Campaign Manager. |
 Port | `int` | true | | Port used for making the connection. |
+Root Directory | `string` | false | | If supplied, all data will be uploaded under the supplied directory |
 Use SFTP | `bool` | true | true | If checked, data will be sent using the SFTP protocol; unchecked will use FTPS. |
 User | `string` | true | | User Name for your Adobe Campaign Manager account. |
 Password | `string` | false | | Password for your Adobe Campaign Manager account.
