@@ -44,21 +44,22 @@ Whenever an IDSync API is invoked, the `IdentityApiResult` object returned for a
 
 User attributes are free-form key-value pairs. The underlying mParticle events API only accepts three types of values: strings, lists, and the JSON null sentinel in the case of tags.
 
+:::code-selector-block
 ```objectivec
 // Note: may return null if the SDK has yet to acquire a user via IDSync!
 MParticleUser *currentUser = [[[MParticle sharedInstance] identity] currentUser];
 
-// Set user attributes associated with the user 
-[currentUser setUserAttribute:@"top_region" 
+// Set user attributes associated with the user
+[currentUser setUserAttribute:@"top_region"
                         value:@"Europe"];
 
 // You can change the value of an existing attribute at any time
-[currentUser setUserAttribute:@"top_region" 
+[currentUser setUserAttribute:@"top_region"
                         value:@"Europe"];
 
 
 // Increment a user attribute by an integer value, this will:
-// - look for an existing "trips_booked" value, 
+// - look for an existing "trips_booked" value,
 // - cast it to an integer and increment it
 // - cast the result back to an string for storage and upload
 [currentUser incrementUserAttribute:@"trips_booked"
@@ -69,7 +70,7 @@ MParticleUser *currentUser = [[[MParticle sharedInstance] identity] currentUser]
                        values:@[@"Rome", @"San Juan", @"Denver"]];
 
 
-// Remove attribute - 
+// Remove attribute -
 // all attributes for a given user share the same key space,
 // you cannot have lists, tags and regular attributes with the same key
 [currentUser removeUserAttribute:@"top_region"];
@@ -79,14 +80,14 @@ MParticleUser *currentUser = [[[MParticle sharedInstance] identity] currentUser]
 // Note: may return null if the SDK has yet to acquire a user via IDSync!
 let currentUser = MParticle.sharedInstance().identity.currentUser
 
-// Set user attributes associated with the user 
+// Set user attributes associated with the user
 currentUser?.setUserAttribute("top_region", value: "Europe")
 
 // You can change the value of an existing attribute at any time
 currentUser?.setUserAttribute("top_region", value: "North America")
 
 // Increment a user attribute by an integer value, this will:
-// - look for an existing "trips_booked" value, 
+// - look for an existing "trips_booked" value,
 // - cast it to an integer and increment it
 // - cast the result back to an string for storage and upload
 currentUser?.incrementUserAttribute("trips_booked", byValue: 1)
@@ -94,7 +95,7 @@ currentUser?.incrementUserAttribute("trips_booked", byValue: 1)
 // Associate a list of values with an attribute key
 currentUser?.setUserAttributeList("destinations", values: ["Rome", "San Juan", "Denver"])
 
-// Remove attribute - 
+// Remove attribute -
 // all attributes for a given user share the same key space,
 // you cannot have lists, tags and regular attributes with the same key
 currentUser?.removeUserAttribute("platinum_member")
@@ -127,7 +128,7 @@ currentUser?.removeUserAttribute("platinum_member")
 
 ## User Attribute Change Events
 
-The SDK will upload an event whenever a user attribute changes to denote new attributes, changing attributes, and removed attributes. This is to allow for calculation of the current user attribute state for each event within an mParticle upload. 
+The SDK will upload an event whenever a user attribute changes to denote new attributes, changing attributes, and removed attributes. This is to allow for calculation of the current user attribute state for each event within an mParticle upload.
 
 ## Reserved Attributes
 
@@ -183,6 +184,6 @@ The iOS SDK will persist any integration attributes at the device-level (rather 
 NSNumber *adobePartnerId = @11;
 NSString *adobeIntegrationAttributeKey = @"vid";
 NSDictionary *integrationAttributes = @{adobeIntegrationAttributeKey: @"<Adobe Visitor ID>"};
-[[MParticle sharedInstance] setIntegrationAttributes: integrationAttributes 
+[[MParticle sharedInstance] setIntegrationAttributes: integrationAttributes
 	                                          forKit: adobePartnerId];
 ```

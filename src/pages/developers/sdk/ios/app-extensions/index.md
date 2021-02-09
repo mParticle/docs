@@ -38,7 +38,7 @@ Import the SDK:
 
 #### Carthage
 
-You will need to manually add the SDK to your App Extension target. 
+You will need to manually add the SDK to your App Extension target.
 
 For Objective-C projects, go to **Build Settings -> Apple LLVM 7.x Preprocessing**, expand **Preprocessor Macros**. For your App Extension target, add `MPARTICLE_APP_EXTENSIONS=1` under both the Debug and Release fields. For your main project target, set `MPARTICLE_APP_EXTENSIONS=0` under the Debug and Release fields.
 
@@ -48,40 +48,65 @@ For Swift projects, go to **Build Settings -> Swift Compiler - Custom Flags**. F
 
 You can initialize the SDK in the extension just as you would normally, but in the `viewDidLoad` method, instead of `didFinishLaunchingWithOptions`. There are some special configuration considerations for App Extensions, see below for details.
 
-~~~objectivec
+:::code-selector-block
+```objectivec
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     MParticleOptions *options = [MParticleOptions optionsWithKey:@"foo" secret:@"bar"];
-    
+
     // Recommended for app extensions, see Lifecycle Data.
-    options.automaticSessionTracking = FALSE; 
+    options.automaticSessionTracking = FALSE;
 
     // Access to the Shared Group ID, this should also be set in your main app code. See App Groups.
     options.sharedGroupID = @"group.com.example.domain.shared";
-  
+
     [[MParticle sharedInstance] startWithOptions:options];
- 
+
     [MParticle sharedInstance].logLevel = MPILogLevelDebug;
 }
-~~~
+```
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let options = MParticleOptions(key: "REPLACE WITH APP KEY",
+                                         secret: "REPLACE WITH APP SECRET")  
+      // Recommended for app extensions, see Lifecycle Data.                                   
+      options.automaticSessionTracking = false
+
+      // Access to the Shared Group ID, this should also be set in your main app code. See App Groups.
+      options.sharedGroupID = "group.com.example.domain.shared"
+
+      options.logLevel = MPILogLevel.debug   
+
+    MParticle.sharedInstance().start(with: options)
+
+  }
+```
+:::
 
 Once the SDK is initialized, you can call all mParticle methods as normal.
 
 ## App Groups
 
-App Extensions can exist as part of an 'App Group' with the main app. This allows both apps to share access to the `NSUserDefaults` API to store and retrieve user preferences. 
+App Extensions can exist as part of an 'App Group' with the main app. This allows both apps to share access to the `NSUserDefaults` API to store and retrieve user preferences.
 
 Reference [Apple's Documentation for creating an App Group](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html).
 
 The mParticle SDK also makes use of the `NSUserDefaults` API. To help the SDK track users consistently across the main app and the extension, you can configure the Shared Group ID in the `MParticleOptions` object.
 
-~~~objectivec
+:::code-selector-block
+```objectivec
 MParticleOptions *options = [[MParticleOptions alloc] init];
     // Do this in both your extension and main app
-    options.sharedGroupID = @"group.com.example.domain.shared";//replace with your Shared Group ID
-~~~
+    options.sharedGroupID = @"group.com.example.domain.shared"; //replace with your Shared Group ID
+```
+```swift
+let options = MParticleOptions.init()
+    options.sharedGroupID = "group.com.example.domain.shared"; //replace with your Shared Group ID
+```
+:::
 
 If you do not create an App Group and configure the Shared Group ID in `MParticleOptions`, any info stored under `NSUserDefaults` will not be available in the app extension and you may not be able to consistently identify users across your main app and the extension. For this reason, you will need to [create a new workspace](/platform-guide/workspaces) in mParticle for your app extension, and create a new iOS input, with a new API key and secret to initialize the SDK in the extension.
 
@@ -89,12 +114,15 @@ If you do not create an App Group and configure the Shared Group ID in `MParticl
 
 The SDK can collect Application State Transition events in App Extensions, but since there are no background processes, Session information is unreliable. For this reason, we recommend turning off automatic session tracking in the `MParticleOptions` object when initializing the SDK in an App Extension. This will not affect session tracking in the main app.
 
-~~~objectivec
+:::code-selector-block
+```objectivec
 MParticleOptions *options = [[MParticleOptions alloc] init];
     // See above for other required settings
     options.automaticSessionTracking = FALSE;
-~~~
+```
 
-
-
-
+```swift
+let options = MParticleOptions.init()
+    options.automaticSessionTracking = FALSE;
+```
+:::

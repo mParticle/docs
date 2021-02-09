@@ -16,7 +16,12 @@ When you set Opt Out to `true`:
 Note that Opt Out shuts down data collection at the source. This is separate from mParticle's [Consent Management](/developers/sdk/ios/consent-management/) feature.
 
 <!-- We should cover un-opt out -->
-
-~~~objectivec
+:::code-selector-block
+```objectivec
 [MParticle sharedInstance].optOut = YES;
-~~~
+```
+
+```swift
+MParticle.sharedInstance().optOut = true
+```
+:::
