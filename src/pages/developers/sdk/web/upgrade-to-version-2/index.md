@@ -27,14 +27,14 @@ The `setUserIdentity` and `setUserAttribute` methods are deprecated as at versio
 
 ### Shopping Cart
 
-The shopping cart is now maintained against the current user. See the [eCommerce docs](/developers/sdk/webecommerce#product-events) for details.
+The shopping cart has been deprecated.
 
 ### Upgrade Checklist
 
-- Upgrade to the new v2 snippet.
+- Upgrade to the new [v2 snippet](/developers/sdk/web/getting-started/#add-the-sdk-snippet).
 - If you are implementing an eCommerce strategy, implement an `onUserAlias` function.
 - Replace any instance of `setUserIdentity` with the appropriate Identity method.
-- Any methods affecting a user must now be called on your your current user object. Check the following methods:
+- Any methods affecting a user must now be called on your your current user object. Check the following methods across your implementation:
   - `setUserTag`
   - `removeUserTag`
   - `setUserAttribute`
@@ -43,4 +43,3 @@ The shopping cart is now maintained against the current user. See the [eCommerce
   - `removeAllUserAttributes`
   - `getUserAttributesLists`
   - `getAllUserAttributes`
-- Any methods accessing the cart must be called on the current user object.
