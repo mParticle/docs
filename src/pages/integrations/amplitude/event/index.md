@@ -139,6 +139,7 @@ mParticle will also populate `device_brand` and `device_model` from the HTTP use
 | Setting Name | Data Type | Default Value | Platform | Description |
 | --- | --- | --- | --- | --- |
 | User Identification | `string` | customerId | All | To identify users, choose "Customer ID" to send Customer ID if provided, "Email" to send Email addresses if provided, or "MPID" to send mParticle ID. <br> You can map other IDs by using the Other, Other2, Other3, and Other4 fields by selecting these from the **User Identification** drop-down. These fields can be used to map Other IDs as  Customer IDs. |
+| Allow Anonymous Devices | `bool` | False | All | If enabled, mParticle will send an identifier derived from MPID and MP device ID when another device ID does not exist on the batch. This setting is only supported for server-side forwarding. |
 | Include Email in User Properties | `bool` | False | All | If enabled, the email user identity will be forwarded in the Amplitude user_properties. |
 | Allow unset user attributes | `bool` | True | All | Allow user attributes to be removed in Amplitude using the $unset operation. |
 | Prefix Attribution with Source | `bool` | True | All | If enabled, the attribution source name will be prefixed for attribution events. |
