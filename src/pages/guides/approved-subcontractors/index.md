@@ -38,4 +38,3 @@ The following tables represent the approved sub-processors and their locations f
 | SumoLogic | Provides Error log aggregation | Germany |
 | Fastly, Inc | Content Delivery Optimization | EEA |
 | Google Cloud Platform | Cloud Infrastructure | EEA |
-| Lacework | Security Monitoring | EEA |
