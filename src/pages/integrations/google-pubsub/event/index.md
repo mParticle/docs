@@ -52,7 +52,6 @@ mParticle forwards the following event types to Google Pub/Sub:
 | Send Custom Events | `bool` | True | All| If enabled, custom app events will be forwarded. |
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
-| Include Event Batch Location | `bool` | False | All| If enabled, event batch location data will be set on `context.location` whenever possible. See the JSON API reference [here](/developers/server/json-reference/#context) for more detail. |
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
 | Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins, logouts, updates, and deletes. |
 | Send Push Registrations and Receipts | `bool` | True | All| If enabled, push registration and receipt notifications will be forwarded. |
@@ -65,3 +64,4 @@ mParticle forwards the following event types to Google Pub/Sub:
 | Include Event Batch Location | `bool` | False | All | If enabled, event batch location data will be forwarded with event data whenever possible. |
 | Send Alias Requests | `bool` | False | All | If enabled, alias request events will be forwarded. |
 | Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
+| Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
