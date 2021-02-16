@@ -135,27 +135,24 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Kafka Bootstrap Servers | `string` | <unset> | This is a comma-separated list of Kafka bootstrap servers. |
 | Topic Name | `string` | <unset> | This is your Kafka topic.	 |
-| Authentication Mechanism | `string` | PLAIN | This is the mechanism used for sending username and password to the Kafka cluster. It must be one of PLAIN, SCRAM-SHA-256, SCRAM-SHA-512. This is only used when the user name is non-empty. |
 | User Name| `string` | <unset> | User Name for your Kafka account |
 | Password | `string` | <unset> | Password for your Kafka account |
+| SSL Private Key | `string` | <unset> | Client's private key string (PEM format) used for authentication. |
+| SSL Certificate | `string` | <unset> | Client's public key string (PEM format) used for authentication. |
+| SSL CA Certificate | `string` | <unset> | CA certificate(s) for verifying the broker's key. |
 
 ## Connection Settings
 
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
-| Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
-| Send Screen Views | `bool` | True | All| If enabled, screen view events will be forwarded. |
-| Send Crash Events | `bool` | True | All| If enabled, app crashes will be forwarded. |
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
-| Send Custom Events | `bool` | True | All| If enabled, custom app events will be forwarded. |
-| Send Push Registrations and Receipts | `bool` | True | All| If enabled, push registration and receipt notifications will be forwarded. |
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
-| Include User Identities | `bool` | True | All| If enabled, user identity information will be forwarded with event batches. |
 | Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
-| Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
-| Send Batches without Events	 | `bool` | False | All| A way to send eventless batches |
+| Send Batches without Events	 | `bool` | True | All| A way to send eventless batches |
+| Include MP DeviceId	 | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
+| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. | 
