@@ -65,6 +65,7 @@ The event data will be forwarded as JSON objects.  Please refer to the [JSON](/d
 | ---|---|---|---|---
 | Queue URL | `string` | <unset> | All| This is your SQS queue URL. |
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
+| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |   
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
 | Send Screen Views | `bool` | True | All| If enabled, screen view events will be forwarded. |
 | Send Crash Events | `bool` | True | All| If enabled, app crashes will be forwarded. |
@@ -79,4 +80,5 @@ The event data will be forwarded as JSON objects.  Please refer to the [JSON](/d
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
 | Send Batches without Events | `bool` | True | All | If enabled, batches with no events will be forwarded. |
-| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
+| Include MP DeviceId | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
+
