@@ -45,6 +45,8 @@ mParticle allows you to specify a minimum version of your app for data forwardin
 
 For example, let’s say your current version - which includes a partner's SDK - is version 1.0.  You next version, which incorporates the mParticle SDK and removes the service SDK, is version 2.0.  In your mParticle connection settings, you will want to specify 2.0 in the Version settings.  This will ensure that older app versions that still have the service's SDK still send data directly to the service and that newer versions with the mParticle SDK included and the services SDK removed will forward data via mParticle.
 
+App versions with non-numeric characters or parenthesis (e.g., 1.0ab or 1.0 (1234)) may cause filtering to not function as desired.
+
 ## Can I use a proxy tool like Charles for monitoring?
 
 Security is a priority for mParticle. As part of our security policy, our SDK clients pin SSL certificates and will only communicate directly with the mParticle server. However, we offer several other methods for monitoring traffic in and out of mParticle:
