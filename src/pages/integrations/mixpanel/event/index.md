@@ -196,6 +196,7 @@ With available user identity info and user attributes, standard people data bein
 * **distinct_id:** device's UDID or user's customerId
 * **ip:** the IP address of the request or "0"
 * **time:** the message timestamp
+* **insert_id:** used to de-duplicate events - this is set to mParticle event_id.
 
 Data being sent in the $set section:
 
@@ -217,12 +218,23 @@ Only specific data will be considered as part of the transactional funnel. Stand
 * **distinct_id:** device's UDID or user's customerId
 * **ip:** the IP address of the request or "0"
 * **time:** the message timestamp
+* **insert_id:** used to de-duplicate events - this is set to mParticle event_id.
 
 Data being sent in the transactions section:
 
 * **$amount:** the total value of the event
 * **$time:** the message timestamp in the format `yyyy-MM-dd'T'HH:mm:ss`
 * **event attributes:** follows the rules in [Attribute Mappings](#attribute-mappings)
+
+### Web Attributes
+
+Event batches sent to Mixpanel using the server-side web integration will also send the following data:
+
+* **browser:** the user's web browser
+* **browser version:** the version of the web browser
+* **os:** the user's operating system
+
+Note that this data depends on the [`http_header_user_agent`](/developers/server/json-reference/#device_info) field so they will only be set if a value is included in the batch.
 
 ### Enabling Push Notification
 
@@ -265,13 +277,15 @@ If a push notification token has been set using the mParticle SDK, mParticle wil
 ## Connection Settings
 
 | Setting Name |  Data Type    | Default Value | Platform | Description |
-| ---|---|---|---|---
-| Forward Session Start/End Messages | `bool` | True | iOS, Android| If enabled, all session start and session end messages will be forwarded to Mixpanel as separate events. |
-| Session Start Event Name | `string` | session-start | iOS, Android| The event name that will be forwarded to Mixpanel on a session start message.  Only used if 'Forward Session Start/End Messages' is enabled. |
-| Session End Event Name | `string` | session-end | iOS, Android| The event name that will be forwarded to Mixpanel on a session end message.  Only used if 'Forward Session Start/End Messages' is enabled. |
-| Create Profile Only If Logged In | `bool` | False | iOS, Android| If enabled, Mixpanel will only forward customer profile data if a customer ID is in the list of  user's identities; if disabled, Mixpanel will always forward customer profile data. |
-| Use Mixpanel People | `bool` | True | All| Enable this setting if you are using customer profiles in Mixpanel .|
-| Include User Attributes | `bool` | True | All| If enabled, all user attributes will be included when tracking events. |
-| Include Attribution Info | `bool` | False | iOS, Android| If enabled, attribution info (publisher and campaign names) will be included when tracking events. |
-| Include IP Address | `bool` | True | All| If enabled, IP Address will be sent with the event. |
-| Super Properties | `Custom Field` | <unset> | iOS, Android| Mapped user attributes here will always be sent as event properties (regardless of the 'Include User Attributes' setting). Note they will also be excluded from people properties. |
+| ---|---|---|---|---|
+| Forward Session Start/End Messages | `bool` | True | iOS, Android, tvOS, Roku, FireTV, Xbox | If enabled, all session start and session end messages will be forwarded to Mixpanel as separate events. |
+| Session Start Event Name | `string` | session-start | iOS, Android, tvOS, Roku, FireTV, Xbox | The event name that will be forwarded to Mixpanel on a session start message.  Only used if 'Forward Session Start/End Messages' is enabled. |
+| Session End Event Name | `string` | session-end | iOS, Android, tvOS, Roku, FireTV, Xbox | The event name that will be forwarded to Mixpanel on a session end message.  Only used if 'Forward Session Start/End Messages' is enabled. |
+| Create Profile Only If Logged In | `bool` | False | All | If enabled, Mixpanel will only forward customer profile data if a customer ID is in the list of  user's identities; if disabled, Mixpanel will always forward customer profile data. |
+| Use Mixpanel People | `bool` | True | All | Enable this setting if you are using customer profiles in Mixpanel |
+| Include User Attributes | `bool` | True | All | If enabled, all user attributes will be included when tracking events |
+| Include Attribution Info | `bool` | False | All | If enabled, attribution info (publisher and campaign names) will be included when tracking events. |
+| Include IP Address | `bool` | True | All | If enabled, IP Address will be sent with the event. This is used by Mixpanel to retrieve location data for the event. |
+| Upper Case Idfa and Idfv | `bool` | False | All | Whether to upper case Idfa and Idfv as Mixpanel is case sensitive with device ids |
+| Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side. |
+| Super Properties | `Custom Field` | <unset> | All | Mapped user attributes here will always be sent as event properties (regardless of the 'Include User Attributes' setting). Note they will also be excluded from people properties. |
