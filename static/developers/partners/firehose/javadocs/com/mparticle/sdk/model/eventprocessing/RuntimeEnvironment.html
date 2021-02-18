@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -203,42 +203,54 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="rowColor" id="i1">
+<td class="colFirst"><code>java.util.List&lt;<a href="DeviceIdentity.html" title="class in com.mparticle.sdk.model.eventprocessing">DeviceIdentity</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getIdentities()">getIdentities</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i2">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSdkVersion()">getSdkVersion</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor" id="i2">
+<tr class="rowColor" id="i3">
 <td class="colFirst"><code><a href="RuntimeEnvironment.Type.html" title="enum in com.mparticle.sdk.model.eventprocessing">RuntimeEnvironment.Type</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getType()">getType</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor" id="i3">
+<tr class="altColor" id="i4">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUserAgent()">getUserAgent</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor" id="i4">
+<tr class="rowColor" id="i5">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isDebug()">isDebug</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor" id="i5">
+<tr class="altColor" id="i6">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setClientIpAddress(java.lang.String)">setClientIpAddress</a></span>&#8203;(java.lang.String&nbsp;clientIpAddress)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor" id="i6">
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setIdentities(java.util.List)">setIdentities</a></span>&#8203;(java.util.List&lt;<a href="DeviceIdentity.html" title="class in com.mparticle.sdk.model.eventprocessing">DeviceIdentity</a>&gt;&nbsp;identities)</code></th>
+<td class="colLast">
+<div class="block">Set the device identities</div>
+</td>
+</tr>
+<tr class="altColor" id="i8">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSdkVersion(java.lang.String)">setSdkVersion</a></span>&#8203;(java.lang.String&nbsp;sdkVersion)</code></th>
 <td class="colLast">
 <div class="block">Get the SDK version associated with this request.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i7">
+<tr class="rowColor" id="i9">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUserAgent(java.lang.String)">setUserAgent</a></span>&#8203;(java.lang.String&nbsp;userAgent)</code></th>
 <td class="colLast">
-<div class="block">Get the user agent HTTP header that is sent by this runtime environment</div>
+<div class="block">Set the user agent HTTP header that is sent by this runtime environment</div>
 </td>
 </tr>
 </tbody>
@@ -382,14 +394,41 @@ extends java.lang.Object</pre>
 <a id="setUserAgent(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setUserAgent</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setUserAgent&#8203;(java.lang.String&nbsp;userAgent)</pre>
-<div class="block">Get the user agent HTTP header that is sent by this runtime environment</div>
+<div class="block">Set the user agent HTTP header that is sent by this runtime environment</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>userAgent</code> - value</dd>
+</dl>
+</li>
+</ul>
+<a id="getIdentities()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIdentities</h4>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="DeviceIdentity.html" title="class in com.mparticle.sdk.model.eventprocessing">DeviceIdentity</a>&gt;&nbsp;getIdentities()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the device identities</dd>
+</dl>
+</li>
+</ul>
+<a id="setIdentities(java.util.List)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setIdentities</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setIdentities&#8203;(java.util.List&lt;<a href="DeviceIdentity.html" title="class in com.mparticle.sdk.model.eventprocessing">DeviceIdentity</a>&gt;&nbsp;identities)</pre>
+<div class="block">Set the device identities</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>identities</code> - </dd>
 </dl>
 </li>
 </ul>

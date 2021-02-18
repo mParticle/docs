@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":6,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":6,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -207,124 +207,131 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="rowColor" id="i5">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processCCPAConsentStateNotification(com.mparticle.sdk.model.eventprocessing.notification.CCPAConsentStateNotification)">processCCPAConsentStateNotification</a></span>&#8203;(<a href="model/eventprocessing/notification/CCPAConsentStateNotification.html" title="class in com.mparticle.sdk.model.eventprocessing.notification">CCPAConsentStateNotification</a>&nbsp;notification)</code></th>
+<td class="colLast">
+<div class="block">Handler for processing CCPA Consent State system notifications</div>
+</td>
+</tr>
+<tr class="altColor" id="i6">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processCustomEvent(com.mparticle.sdk.model.eventprocessing.CustomEvent)">processCustomEvent</a></span>&#8203;(<a href="model/eventprocessing/CustomEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">CustomEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing CustomEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i6">
+<tr class="rowColor" id="i7">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processErrorEvent(com.mparticle.sdk.model.eventprocessing.ErrorEvent)">processErrorEvent</a></span>&#8203;(<a href="model/eventprocessing/ErrorEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ErrorEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ErrorEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i7">
+<tr class="altColor" id="i8">
 <td class="colFirst"><code><a href="model/eventprocessing/EventProcessingResponse.html" title="class in com.mparticle.sdk.model.eventprocessing">EventProcessingResponse</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processEventProcessingRequest(com.mparticle.sdk.model.eventprocessing.EventProcessingRequest)">processEventProcessingRequest</a></span>&#8203;(<a href="model/eventprocessing/EventProcessingRequest.html" title="class in com.mparticle.sdk.model.eventprocessing">EventProcessingRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing event processing request.</div>
 </td>
 </tr>
-<tr class="altColor" id="i8">
+<tr class="rowColor" id="i9">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processGDPRConsentStateNotification(com.mparticle.sdk.model.eventprocessing.notification.GDPRConsentStateNotification)">processGDPRConsentStateNotification</a></span>&#8203;(<a href="model/eventprocessing/notification/GDPRConsentStateNotification.html" title="class in com.mparticle.sdk.model.eventprocessing.notification">GDPRConsentStateNotification</a>&nbsp;notification)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing GDPR Consent State system notifications</div>
 </td>
 </tr>
-<tr class="rowColor" id="i9">
+<tr class="altColor" id="i10">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processImpressionEvent(com.mparticle.sdk.model.eventprocessing.ImpressionEvent)">processImpressionEvent</a></span>&#8203;(<a href="model/eventprocessing/ImpressionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ImpressionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ImpressionEvents.</div>
 </td>
 </tr>
-<tr class="altColor" id="i10">
+<tr class="rowColor" id="i11">
 <td class="colFirst"><code><a href="model/Message.html" title="class in com.mparticle.sdk.model">Message</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processMessage(com.mparticle.sdk.model.Message)">processMessage</a></span>&#8203;(<a href="model/Message.html" title="class in com.mparticle.sdk.model">Message</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Parses the message and invokes specific handler.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i11">
+<tr class="altColor" id="i12">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPrivacySettingChangeEvent(com.mparticle.sdk.model.eventprocessing.PrivacySettingChangeEvent)">processPrivacySettingChangeEvent</a></span>&#8203;(<a href="model/eventprocessing/PrivacySettingChangeEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PrivacySettingChangeEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PrivacySettingChangeEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i12">
+<tr class="rowColor" id="i13">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processProductActionEvent(com.mparticle.sdk.model.eventprocessing.ProductActionEvent)">processProductActionEvent</a></span>&#8203;(<a href="model/eventprocessing/ProductActionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ProductActionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ProductActionEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i13">
+<tr class="altColor" id="i14">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPromotionActionEvent(com.mparticle.sdk.model.eventprocessing.PromotionActionEvent)">processPromotionActionEvent</a></span>&#8203;(<a href="model/eventprocessing/PromotionActionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PromotionActionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PromotionActionEvents.</div>
 </td>
 </tr>
-<tr class="altColor" id="i14">
+<tr class="rowColor" id="i15">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPushMessageReceiptEvent(com.mparticle.sdk.model.eventprocessing.PushMessageReceiptEvent)">processPushMessageReceiptEvent</a></span>&#8203;(<a href="model/eventprocessing/PushMessageReceiptEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PushMessageReceiptEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PushMessageReceiptEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i15">
+<tr class="altColor" id="i16">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPushSubscriptionEvent(com.mparticle.sdk.model.eventprocessing.PushSubscriptionEvent)">processPushSubscriptionEvent</a></span>&#8203;(<a href="model/eventprocessing/PushSubscriptionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PushSubscriptionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PushSubscriptionEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i16">
+<tr class="rowColor" id="i17">
 <td class="colFirst"><code>abstract <a href="model/registration/ModuleRegistrationResponse.html" title="class in com.mparticle.sdk.model.registration">ModuleRegistrationResponse</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processRegistrationRequest(com.mparticle.sdk.model.registration.ModuleRegistrationRequest)">processRegistrationRequest</a></span>&#8203;(<a href="model/registration/ModuleRegistrationRequest.html" title="class in com.mparticle.sdk.model.registration">ModuleRegistrationRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing module registration request.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i17">
+<tr class="altColor" id="i18">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processScreenViewEvent(com.mparticle.sdk.model.eventprocessing.ScreenViewEvent)">processScreenViewEvent</a></span>&#8203;(<a href="model/eventprocessing/ScreenViewEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ScreenViewEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ScreenViewEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i18">
+<tr class="rowColor" id="i19">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processSessionEndEvent(com.mparticle.sdk.model.eventprocessing.SessionEndEvent)">processSessionEndEvent</a></span>&#8203;(<a href="model/eventprocessing/SessionEndEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">SessionEndEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing SessionEndEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i19">
+<tr class="altColor" id="i20">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processSessionStartEvent(com.mparticle.sdk.model.eventprocessing.SessionStartEvent)">processSessionStartEvent</a></span>&#8203;(<a href="model/eventprocessing/SessionStartEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">SessionStartEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing SessionStartEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i20">
+<tr class="rowColor" id="i21">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processUserAttributeChangeEvent(com.mparticle.sdk.model.eventprocessing.UserAttributeChangeEvent)">processUserAttributeChangeEvent</a></span>&#8203;(<a href="model/eventprocessing/UserAttributeChangeEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">UserAttributeChangeEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing UserAttributeChangeEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i21">
+<tr class="altColor" id="i22">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processUserIdentityChangeEvent(com.mparticle.sdk.model.eventprocessing.UserIdentityChangeEvent)">processUserIdentityChangeEvent</a></span>&#8203;(<a href="model/eventprocessing/UserIdentityChangeEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">UserIdentityChangeEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing UserIdentityChangeEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i22">
+<tr class="rowColor" id="i23">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLogger(com.mparticle.sdk.Logger)">setLogger</a></span>&#8203;(<a href="Logger.html" title="interface in com.mparticle.sdk">Logger</a>&nbsp;logger)</code></th>
 <td class="colLast">
@@ -445,6 +452,23 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;void&nbsp;processGDPRConsentStateNotification&#8203;(<a href="model/eventprocessing/notification/GDPRConsentStateNotification.html" title="class in com.mparticle.sdk.model.eventprocessing.notification">GDPRConsentStateNotification</a>&nbsp;notification)
                                          throws java.io.IOException</pre>
 <div class="block">Handler for processing GDPR Consent State system notifications</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>notification</code> - </dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.io.IOException</code></dd>
+</dl>
+</li>
+</ul>
+<a id="processCCPAConsentStateNotification(com.mparticle.sdk.model.eventprocessing.notification.CCPAConsentStateNotification)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>processCCPAConsentStateNotification</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;processCCPAConsentStateNotification&#8203;(<a href="model/eventprocessing/notification/CCPAConsentStateNotification.html" title="class in com.mparticle.sdk.model.eventprocessing.notification">CCPAConsentStateNotification</a>&nbsp;notification)
+                                         throws java.io.IOException</pre>
+<div class="block">Handler for processing CCPA Consent State system notifications</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>notification</code> - </dd>

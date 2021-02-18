@@ -32,7 +32,7 @@ dependencies {
     compile (
             'com.amazonaws:aws-lambda-java-core:1.1.0',
             'com.amazonaws:aws-lambda-java-events:1.1.0',
-            'com.mparticle:java-sdk:1.1.+'
+            'com.mparticle:java-sdk:2.5.+'
     )
 }
 ```
@@ -209,7 +209,11 @@ mParticle allows clients to record consent for data collection from their users.
 
    `permissions.setAllowConsentState(true);`
 
-See our [Consent Management](/guides/consent-management) guide to learn more about the consent state object.
+If enabled, the current consent state will be forwarded for users at the time of the event.
+
+To learn more about the consent state object, reference the following:
+- [Consent Management Guide](/guides/consent-management)
+- [Javadocs for ConsentState](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/eventprocessing/consent/ConsentState.html)
 
 ### 3. Supported Runtimes
 
@@ -291,11 +295,14 @@ Note that to receive User Attribute Change events, you must also register the Al
 
 #### System Notification Types
 
-<aside>Note, this permission was added as of version 1.9 of the Java SDK.</aside>
+<aside>Note, this feature was added as of version 1.9 of the Java SDK.</aside>
 
-System Notifications are used to communicate changes to a user. Currently, The available System Notifications are 'GDPR Consent State' and 'CPA Consent State'. Note the difference between these notifications and the `allowConsentState` [permission](#2-permissions). Consent State always gives the current consent state for the user at the time of an event. The System Notification for Consent State describes changes to the consent state. Each System Notification contains the full current and old consent states.
+System Notifications are used to communicate changes to a user. Currently, the available System Notifications are:
+- [GDPR Consent State](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/eventprocessing/notification/GDPRConsentStateNotification.html)
+- [CCPA Consent State](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/eventprocessing/notification/CCPAConsentStateNotification.html)
 
-[See here for more on the Consent State system notification](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/eventprocessing/notification/GDPRConsentStateNotification.html).
+Note that System Notifications related to Consent States describe changes to the consent state. As such, they each contain both the `old` and the `new` consent states.
+These notifications are different from the actual [Consent State](#consent-state) object.
 
 #### Max Data Age
 
