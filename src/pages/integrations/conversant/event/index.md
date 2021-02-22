@@ -2,6 +2,8 @@
 title: Event
 ---
 
+<aside>Conversant now operates under Epsilon and this integration is deprecated. Please use the <a href="https://docs.mparticle.com/integrations/epsilon/event/">Epsilon Integration</a>.</aside>
+
 [Conversant](http://www.conversantmedia.com) is a personalized digital media company. We help brands and agencies deliver media to the right consumers across all devices while maintaining the highest privacy standards.
 
 ## Supported Features
