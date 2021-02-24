@@ -83,13 +83,13 @@ The user's ATT status may change at any time as the user may directly change its
 :::code-selector-block
 ```objectivec
 MParticleOptions *options = [MParticleOptions optionsWithKey:@"REPLACE WITH APP KEY" secret:@"REPLACE WITH APP SECRET"];
-options.attStatus = @(ATTrackingManagerAuthorizationStatusAuthorized);
+options.attStatus = @([ATTrackingManager trackingAuthorizationStatus]);
 [[MParticle sharedInstance] startWithOptions:options];
 ```
 
 ```swift
 let options = MParticleOptions(key: "REPLACE WITH APP KEY", secret: "REPLACE WITH APP SECRET")     
-options.attStatus = NSNumber.init(value: MPATTAuthorizationStatus.authorized.rawValue)
+options.attStatus = NSNumber.init(value: [ATTrackingManager trackingAuthorizationStatus].rawValue)
 MParticle.sharedInstance().start(with: options)
 ```
 :::
