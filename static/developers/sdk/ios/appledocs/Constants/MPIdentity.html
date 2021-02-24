@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MPUserIdentity Constants Reference</title>
+	<title>MPIdentity Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,7 +59,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">MPUserIdentity Constants Reference</h1>
+					<h1 class="title">MPIdentity Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -75,12 +75,11 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">MPUserIdentity</h3>
+                    <h3 class="subsubtitle method-title">MPIdentity</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>User Identities
-The identities in this enum are limited to end-user forms of identity. A new enum, <a href="../Constants/MPIdentity.html">MPIdentity</a>, has been provided to cover all valid forms of identity supported by the mParticle Identity API (user identities and device identities)</p>
+                        <p>MP Identities</p>
 					</div>
 					
 					
@@ -88,51 +87,59 @@ The identities in this enum are limited to end-user forms of identity. A new enu
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSUInteger, MPUserIdentity ) {<br>
+                        <code>typedef NS_ENUM(NSUInteger, MPIdentity ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityCustomerId</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityCustomerId</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityFacebook</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityFacebook</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityTwitter</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityTwitter</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityGoogle</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityGoogle</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityMicrosoft</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityMicrosoft</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityYahoo</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityYahoo</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityEmail</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityEmail</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityAlias</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityAlias</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityFacebookCustomAudienceId</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityFacebookCustomAudienceId</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther2</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther2</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther3</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther3</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther4</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther4</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther5</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther5</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther6</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther6</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther7</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther7</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther8</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther8</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther9</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther9</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityOther10</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityOther10</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityMobileNumber</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityMobileNumber</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityPhoneNumber2</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityPhoneNumber2</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPUserIdentityPhoneNumber3</a>,<br>
+                            &nbsp;&nbsp; <a href="">MPIdentityPhoneNumber3</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MPIdentityIOSAdvertiserId</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MPIdentityIOSVendorId</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MPIdentityPushToken</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MPIdentityDeviceApplicationStamp</a>,<br>
                             
                             };</code>
                     
@@ -142,7 +149,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="MPUserIdentityOther"></a><code>MPUserIdentityOther</code></dt>
+                            <dt><a name="" title="MPIdentityOther"></a><code>MPIdentityOther</code></dt>
 <dd>
 
 
@@ -159,7 +166,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityCustomerId"></a><code>MPUserIdentityCustomerId</code></dt>
+                            <dt><a name="" title="MPIdentityCustomerId"></a><code>MPIdentityCustomerId</code></dt>
 <dd>
 
 
@@ -176,7 +183,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityFacebook"></a><code>MPUserIdentityFacebook</code></dt>
+                            <dt><a name="" title="MPIdentityFacebook"></a><code>MPIdentityFacebook</code></dt>
 <dd>
 
 
@@ -193,7 +200,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityTwitter"></a><code>MPUserIdentityTwitter</code></dt>
+                            <dt><a name="" title="MPIdentityTwitter"></a><code>MPIdentityTwitter</code></dt>
 <dd>
 
 
@@ -210,7 +217,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityGoogle"></a><code>MPUserIdentityGoogle</code></dt>
+                            <dt><a name="" title="MPIdentityGoogle"></a><code>MPIdentityGoogle</code></dt>
 <dd>
 
 
@@ -227,7 +234,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityMicrosoft"></a><code>MPUserIdentityMicrosoft</code></dt>
+                            <dt><a name="" title="MPIdentityMicrosoft"></a><code>MPIdentityMicrosoft</code></dt>
 <dd>
 
 
@@ -244,7 +251,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityYahoo"></a><code>MPUserIdentityYahoo</code></dt>
+                            <dt><a name="" title="MPIdentityYahoo"></a><code>MPIdentityYahoo</code></dt>
 <dd>
 
 
@@ -261,7 +268,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityEmail"></a><code>MPUserIdentityEmail</code></dt>
+                            <dt><a name="" title="MPIdentityEmail"></a><code>MPIdentityEmail</code></dt>
 <dd>
 
 
@@ -278,7 +285,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityAlias"></a><code>MPUserIdentityAlias</code></dt>
+                            <dt><a name="" title="MPIdentityAlias"></a><code>MPIdentityAlias</code></dt>
 <dd>
 
 
@@ -295,7 +302,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityFacebookCustomAudienceId"></a><code>MPUserIdentityFacebookCustomAudienceId</code></dt>
+                            <dt><a name="" title="MPIdentityFacebookCustomAudienceId"></a><code>MPIdentityFacebookCustomAudienceId</code></dt>
 <dd>
 
 
@@ -312,7 +319,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther2"></a><code>MPUserIdentityOther2</code></dt>
+                            <dt><a name="" title="MPIdentityOther2"></a><code>MPIdentityOther2</code></dt>
 <dd>
 
 
@@ -329,7 +336,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther3"></a><code>MPUserIdentityOther3</code></dt>
+                            <dt><a name="" title="MPIdentityOther3"></a><code>MPIdentityOther3</code></dt>
 <dd>
 
 
@@ -346,7 +353,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther4"></a><code>MPUserIdentityOther4</code></dt>
+                            <dt><a name="" title="MPIdentityOther4"></a><code>MPIdentityOther4</code></dt>
 <dd>
 
 
@@ -363,7 +370,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther5"></a><code>MPUserIdentityOther5</code></dt>
+                            <dt><a name="" title="MPIdentityOther5"></a><code>MPIdentityOther5</code></dt>
 <dd>
 
 
@@ -380,7 +387,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther6"></a><code>MPUserIdentityOther6</code></dt>
+                            <dt><a name="" title="MPIdentityOther6"></a><code>MPIdentityOther6</code></dt>
 <dd>
 
 
@@ -397,7 +404,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther7"></a><code>MPUserIdentityOther7</code></dt>
+                            <dt><a name="" title="MPIdentityOther7"></a><code>MPIdentityOther7</code></dt>
 <dd>
 
 
@@ -414,7 +421,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther8"></a><code>MPUserIdentityOther8</code></dt>
+                            <dt><a name="" title="MPIdentityOther8"></a><code>MPIdentityOther8</code></dt>
 <dd>
 
 
@@ -431,7 +438,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther9"></a><code>MPUserIdentityOther9</code></dt>
+                            <dt><a name="" title="MPIdentityOther9"></a><code>MPIdentityOther9</code></dt>
 <dd>
 
 
@@ -448,7 +455,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityOther10"></a><code>MPUserIdentityOther10</code></dt>
+                            <dt><a name="" title="MPIdentityOther10"></a><code>MPIdentityOther10</code></dt>
 <dd>
 
 
@@ -465,7 +472,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityMobileNumber"></a><code>MPUserIdentityMobileNumber</code></dt>
+                            <dt><a name="" title="MPIdentityMobileNumber"></a><code>MPIdentityMobileNumber</code></dt>
 <dd>
 
 
@@ -482,7 +489,7 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityPhoneNumber2"></a><code>MPUserIdentityPhoneNumber2</code></dt>
+                            <dt><a name="" title="MPIdentityPhoneNumber2"></a><code>MPIdentityPhoneNumber2</code></dt>
 <dd>
 
 
@@ -499,11 +506,79 @@ The identities in this enum are limited to end-user forms of identity. A new enu
 	
 </dd>
                             
-                            <dt><a name="" title="MPUserIdentityPhoneNumber3"></a><code>MPUserIdentityPhoneNumber3</code></dt>
+                            <dt><a name="" title="MPIdentityPhoneNumber3"></a><code>MPIdentityPhoneNumber3</code></dt>
 <dd>
 
 
 <p>User identity phone number 3</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">MPEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MPIdentityIOSAdvertiserId"></a><code>MPIdentityIOSAdvertiserId</code></dt>
+<dd>
+
+
+<p>Device identity advertiser</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">MPEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MPIdentityIOSVendorId"></a><code>MPIdentityIOSVendorId</code></dt>
+<dd>
+
+
+<p>Device identity vendor</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">MPEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MPIdentityPushToken"></a><code>MPIdentityPushToken</code></dt>
+<dd>
+
+
+<p>Device identity Push Token</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">MPEnums.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MPIdentityDeviceApplicationStamp"></a><code>MPIdentityDeviceApplicationStamp</code></dt>
+<dd>
+
+
+<p>Device identity Application Stamp</p>
 
 
 

@@ -623,6 +623,8 @@
       "build_identifier":"18E226",
       "http_header_user_agent":"Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
       "ios_advertising_id":"1cc8138f-8aaf-410a-b0b9-6465cfb2af6a",
+      "att_authorization_status":"authorized",
+      "att_timestamp_unixtime_ms":1614187122051,
       "push_token":null,
       "cpu_architecture":"x86",
       "is_tablet":true,

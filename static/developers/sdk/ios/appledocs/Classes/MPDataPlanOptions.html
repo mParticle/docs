@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MPAliasResponse Class Reference</title>
+	<title>MPDataPlanOptions Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -56,17 +56,15 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/errorResponse">errorResponse</option>
+		<option value="//api/name/blockEventAttributes">blockEventAttributes</option>
 		
-		<option value="//api/name/isSuccessful">isSuccessful</option>
+		<option value="//api/name/blockEvents">blockEvents</option>
 		
-		<option value="//api/name/request">request</option>
+		<option value="//api/name/blockUserAttributes">blockUserAttributes</option>
 		
-		<option value="//api/name/requestID">requestID</option>
+		<option value="//api/name/blockUserIdentities">blockUserIdentities</option>
 		
-		<option value="//api/name/responseCode">responseCode</option>
-		
-		<option value="//api/name/willRetry">willRetry</option>
+		<option value="//api/name/dataPlan">dataPlan</option>
 		
 	</optgroup>
 	
@@ -87,7 +85,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">MPAliasResponse Class Reference</h1>
+					<h1 class="title">MPDataPlanOptions Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -96,7 +94,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>MPAliasResponse.h</td>
+	<td>mParticle.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -106,7 +104,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>A response object representing the result of an alias <a href="#//api/name/request">request</a>.</p>
+						<p>Planning settings for kit blocking</p>
 					</div>
 					
 					
@@ -122,8 +120,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/responseCode" title="responseCode"></a>
-	<h3 class="method-title"><code><a href="#//api/name/responseCode">&nbsp;&nbsp;responseCode</a></code>
+	<a name="//api/name/dataPlan" title="dataPlan"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dataPlan">&nbsp;&nbsp;dataPlan</a></code>
 </h3>
 
 	<div class="method-info">
@@ -133,12 +131,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The HTTP response code returned by the server.</p>
+				<p>Data Plan.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSInteger responseCode</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readwrite, nullable) NSDictionary *dataPlan</code></div>
 
 		    
 			
@@ -150,7 +148,9 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>The HTTP response code returned by the server.</p>
+				<p>Data Plan.</p>
+
+<p>Data plan value (JSON schema) for blocking data to kits.</p>
 			</div>
 			
 
@@ -161,15 +161,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPAliasResponse.h</code></p>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/errorResponse" title="errorResponse"></a>
-	<h3 class="method-title"><code><a href="#//api/name/errorResponse">&nbsp;&nbsp;errorResponse</a></code>
+	<a name="//api/name/blockEvents" title="blockEvents"></a>
+	<h3 class="method-title"><code><a href="#//api/name/blockEvents">&nbsp;&nbsp;blockEvents</a></code>
 </h3>
 
 	<div class="method-info">
@@ -179,12 +179,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A human-readable error message returned by the server.</p>
+				<p>Whether to block unplanned events from being sent to kits, default false</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSString *errorResponse</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) BOOL blockEvents</code></div>
 
 		    
 			
@@ -196,7 +196,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>A human-readable error message returned by the server.</p>
+				<p>Whether to block unplanned events from being sent to kits, default false</p>
 			</div>
 			
 
@@ -207,15 +207,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPAliasResponse.h</code></p>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/request" title="request"></a>
-	<h3 class="method-title"><code><a href="#//api/name/request">&nbsp;&nbsp;request</a></code>
+	<a name="//api/name/blockEventAttributes" title="blockEventAttributes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/blockEventAttributes">&nbsp;&nbsp;blockEventAttributes</a></code>
 </h3>
 
 	<div class="method-info">
@@ -225,12 +225,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The corresponding alias request for this response.</p>
+				<p>Whether to block unplanned event attributes from being sent to kits, default false</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) MPAliasRequest *request</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) BOOL blockEventAttributes</code></div>
 
 		    
 			
@@ -242,7 +242,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>The corresponding alias request for this response.</p>
+				<p>Whether to block unplanned event attributes from being sent to kits, default false</p>
 			</div>
 			
 
@@ -253,15 +253,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPAliasResponse.h</code></p>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/requestID" title="requestID"></a>
-	<h3 class="method-title"><code><a href="#//api/name/requestID">&nbsp;&nbsp;requestID</a></code>
+	<a name="//api/name/blockUserAttributes" title="blockUserAttributes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/blockUserAttributes">&nbsp;&nbsp;blockUserAttributes</a></code>
 </h3>
 
 	<div class="method-info">
@@ -271,12 +271,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A random GUID associated with each alias <a href="#//api/name/request">request</a>.</p>
+				<p>Whether to block unplanned user attributes from being sent to kits, default false</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *requestID</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) BOOL blockUserAttributes</code></div>
 
 		    
 			
@@ -288,7 +288,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>A random GUID associated with each alias <a href="#//api/name/request">request</a>.</p>
+				<p>Whether to block unplanned user attributes from being sent to kits, default false</p>
 			</div>
 			
 
@@ -299,15 +299,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPAliasResponse.h</code></p>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/willRetry" title="willRetry"></a>
-	<h3 class="method-title"><code><a href="#//api/name/willRetry">&nbsp;&nbsp;willRetry</a></code>
+	<a name="//api/name/blockUserIdentities" title="blockUserIdentities"></a>
+	<h3 class="method-title"><code><a href="#//api/name/blockUserIdentities">&nbsp;&nbsp;blockUserIdentities</a></code>
 </h3>
 
 	<div class="method-info">
@@ -317,12 +317,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Whether the SDK will automatically try to re-send the alias <a href="#//api/name/request">request</a>.</p>
+				<p>Whether to block unplanned user identities from being sent to kits, default false</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL willRetry</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) BOOL blockUserIdentities</code></div>
 
 		    
 			
@@ -334,7 +334,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Whether the SDK will automatically try to re-send the alias <a href="#//api/name/request">request</a>.</p>
+				<p>Whether to block unplanned user identities from being sent to kits, default false</p>
 			</div>
 			
 
@@ -345,53 +345,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPAliasResponse.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/isSuccessful" title="isSuccessful"></a>
-	<h3 class="method-title"><code><a href="#//api/name/isSuccessful">&nbsp;&nbsp;isSuccessful</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Whether the alias <a href="#//api/name/request">request</a> was successfully accepted by the server.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL isSuccessful</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Whether the alias <a href="#//api/name/request">request</a> was successfully accepted by the server.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPAliasResponse.h</code></p>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
 			</div>
 			
 			

@@ -3,7 +3,9 @@ title: Getting Started
 order: 1
 ---
 
-The iOS SDK is designed to support both iOS and tvOS devices.
+The Apple SDK is designed to support both iOS and tvOS devices.
+
+<aside>There are critical changes coming to mParticle and the Apple SDK for iOS 14.5 and the App Tracking Transparency framework. For more information, <a href="../ios14">navigate to the dedicated guide</a> for iOS 14 and App Tracking Transparency.</aside>
 
 ## Create an Input
 

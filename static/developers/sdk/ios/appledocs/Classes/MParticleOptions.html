@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -57,6 +57,12 @@
 	<optgroup label="Properties">
 		
 		<option value="//api/name/consentState">consentState</option>
+		
+		<option value="//api/name/dataPlanId">dataPlanId</option>
+		
+		<option value="//api/name/dataPlanOptions">dataPlanOptions</option>
+		
+		<option value="//api/name/dataPlanVersion">dataPlanVersion</option>
 		
 		<option value="//api/name/networkOptions">networkOptions</option>
 		
@@ -194,7 +200,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (atomic, unsafe_unretained, readwrite) BOOL trackNotifications</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) BOOL trackNotifications</code></div>
 
 		    
 			
@@ -240,7 +246,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (atomic, unsafe_unretained, readwrite) NSTimeInterval uploadInterval</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) NSTimeInterval uploadInterval</code></div>
 
 		    
 			
@@ -289,7 +295,7 @@ when the application is sent to the background.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (atomic, unsafe_unretained, readwrite) NSTimeInterval sessionTimeout</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) NSTimeInterval sessionTimeout</code></div>
 
 		    
 			
@@ -385,7 +391,7 @@ when the application is sent to the background.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (atomic, strong, nullable) MPConsentState *consentState</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) MPConsentState *consentState</code></div>
 
 		    
 			
@@ -400,6 +406,150 @@ when the application is sent to the background.</p>
 				<p>Consent state.</p>
 
 <p>Allows you to record one or more consent purposes and whether or not the user agreed to each one.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dataPlanId" title="dataPlanId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dataPlanId">&nbsp;&nbsp;dataPlanId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Data Plan ID.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readwrite, nullable) NSString *dataPlanId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Data Plan ID.</p>
+
+<p>If set, this informs the SDK of which data plan each event is supposed to conform to.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dataPlanVersion" title="dataPlanVersion"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dataPlanVersion">&nbsp;&nbsp;dataPlanVersion</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Data Plan Version.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readwrite, nullable) NSNumber *dataPlanVersion</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Data Plan Version.</p>
+
+<p>If set, this informs the SDK of which version of the data plan each event is supposed to conform to.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dataPlanOptions" title="dataPlanOptions"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dataPlanOptions">&nbsp;&nbsp;dataPlanOptions</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Data Plan Options.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readwrite, nullable) MPDataPlanOptions *dataPlanOptions</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Data Plan Options.</p>
+
+<p>Settings for blocking data to kits</p>
 			</div>
 			
 
@@ -529,10 +679,10 @@ when the application is sent to the background.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 mParticle. All rights reserved. Updated: 2019-06-21</p>
+						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-02-24</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>

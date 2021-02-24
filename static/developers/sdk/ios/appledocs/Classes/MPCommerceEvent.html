@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -64,8 +64,6 @@
 		
 		<option value="//api/name/currency">currency</option>
 		
-		<option value="//api/name/customFlags">customFlags</option>
-		
 		<option value="//api/name/impressions">impressions</option>
 		
 		<option value="//api/name/nonInteractive">nonInteractive</option>
@@ -90,15 +88,13 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/addCustomFlag:withKey:">- addCustomFlag:withKey:</option>
-		
-		<option value="//api/name/addCustomFlags:withKey:">- addCustomFlags:withKey:</option>
-		
 		<option value="//api/name/addImpression:listName:">- addImpression:listName:</option>
 		
 		<option value="//api/name/addProduct:">- addProduct:</option>
 		
 		<option value="//api/name/allKeys">- allKeys</option>
+		
+		<option value="//api/name/dictionaryRepresentation">- dictionaryRepresentation</option>
 		
 		<option value="//api/name/initWithAction:product:">- initWithAction:product:</option>
 		
@@ -108,7 +104,11 @@
 		
 		<option value="//api/name/removeProduct:">- removeProduct:</option>
 		
-		<option value="//api/name/setCustomAttributes:">- setCustomAttributes:</option>
+		<option value="//api/name/setTimestamp:">- setTimestamp:</option>
+		
+		<option value="//api/name/timestamp">- timestamp</option>
+		
+		<option value="//api/name/userDefinedAttributes">- userDefinedAttributes</option>
 		
 	</optgroup>
 	
@@ -131,13 +131,13 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td>NSObject</td>
+	<td><a href="../Classes/MPBaseEvent.html">MPBaseEvent</a> : NSObject</td>
 </tr><tr>
 	<th>Conforms to</th>
-	<td>NSCopying<br />NSSecureCoding</td>
+	<td>NSSecureCoding</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>MPCommerceEvent.h<br />MPCommerceEvent.mm</td>
+	<td>MPCommerceEvent.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -183,7 +183,7 @@ MParticle *mParticle = [MParticle sharedInstance];
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
@@ -580,7 +580,7 @@ MParticle *mParticle = [MParticle sharedInstance];
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The <a href="#//api/name/attributes">attributes</a> of the trans<a href="#//api/name/action">action</a>, such as: transactionId, tax, affiliation, shipping, etc.</p>
+				<p>The attributes of the trans<a href="#//api/name/action">action</a>, such as: transactionId, tax, affiliation, shipping, etc.</p>
 			</div>
 			
 		    
@@ -597,7 +597,7 @@ MParticle *mParticle = [MParticle sharedInstance];
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>The <a href="#//api/name/attributes">attributes</a> of the trans<a href="#//api/name/action">action</a>, such as: transactionId, tax, affiliation, shipping, etc.</p>
+				<p>The attributes of the trans<a href="#//api/name/action">action</a>, such as: transactionId, tax, affiliation, shipping, etc.</p>
 			</div>
 			
 
@@ -612,52 +612,6 @@ MParticle *mParticle = [MParticle sharedInstance];
 					
 				</ul>
 			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPCommerceEvent.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/customFlags" title="customFlags"></a>
-	<h3 class="method-title"><code><a href="#//api/name/customFlags">&nbsp;&nbsp;customFlags</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Custom flags are a collection of <a href="#//api/name/attributes">attributes</a> used to trigger functionality in specific integrations. By default, most integrations will ignore custom flags. Reference the documentation for your integrations to see if they make use of custom flags.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly, nonnull) NSDictionary&lt;NSString*__kindofNSArray&lt;NSString*&gt; *&gt; *customFlags</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Custom flags are a collection of <a href="#//api/name/attributes">attributes</a> used to trigger functionality in specific integrations. By default, most integrations will ignore custom flags. Reference the documentation for your integrations to see if they make use of custom flags.</p>
-			</div>
-			
-
-			
-
 			
 
 			
@@ -1189,90 +1143,6 @@ MParticle *mParticle = [MParticle sharedInstance];
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setCustomAttributes:" title="setCustomAttributes:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setCustomAttributes:">&ndash;&nbsp;setCustomAttributes:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Associates a custom dictionary of key/value pairs to the commerce event.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setCustomAttributes:(nullable NSDictionary&lt;NSString*,NSString*&gt; *)<em>customAttributes</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>customAttributes</code></th>
-						<td><p>A dictionary containing the custom key/value pairs.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Associates a custom dictionary of key/value pairs to the commerce event.</p>
-
-<p>Alternatively you can set custom attributes using the regular notation for setting key/value pairs in an NSMutableDictionary.</p>
-
-<p><b>For example:</b></p>
-
-<p><b>Swift</b></p>
-
-<pre><code>
-let commerceEvent = MPCommerceEvent(action: MPCommerceEventAction.AddToCart, product: product1)
-
-commerceEvent.setCustomAttributes(dictionaryOfKeyValuePairs)
-
-commerceEvent["Custom Key"] = "Custom Value"
-</code></pre>
-
-
-<p><b>Objective-C</b></p>
-
-<pre><code>
-MPCommerceEvent *commerceEvent = [[MPCommerceEvent alloc] initWithAction:MPCommerceEventActionAddToCart product:product1];
-
-[commerceEvent setCustomAttributes:dictionaryOfKeyValuePairs];
-
-commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
-</code></pre>
-
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPCommerceEvent.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/allKeys" title="allKeys"></a>
 	<h3 class="method-title"><code><a href="#//api/name/allKeys">&ndash;&nbsp;allKeys</a></code>
 </h3>
@@ -1284,7 +1154,7 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns an array with all keys in the custom <a href="#//api/name/attributes">attributes</a> dictionary</p>
+				<p>Returns an array with all keys in the custom attributes dictionary (<b class="deprecated">Deprecated:</b><span class="deprecated"> use customAttributes.allKeys instead</span>)</p>
 			</div>
 			
 		    
@@ -1297,7 +1167,7 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An array with all keys in the custom <a href="#//api/name/attributes">attributes</a> dictionary</p>
+				<p>An array with all keys in the custom attributes dictionary</p>
 			</div>
 			
 
@@ -1306,7 +1176,7 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Returns an array with all keys in the custom <a href="#//api/name/attributes">attributes</a> dictionary</p>
+				<p>Returns an array with all keys in the custom attributes dictionary</p>
 			</div>
 			
 
@@ -1324,8 +1194,8 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/addCustomFlag:withKey:" title="addCustomFlag:withKey:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/addCustomFlag:withKey:">&ndash;&nbsp;addCustomFlag:withKey:</a></code>
+	<a name="//api/name/userDefinedAttributes" title="userDefinedAttributes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/userDefinedAttributes">&ndash;&nbsp;userDefinedAttributes</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1335,31 +1205,16 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds a custom flag associated with a key to the event.</p>
+				<p>A dictionary containing further information about the commerce event. The number of entries is
+limited to 100 key value pairs. Keys must be strings (up to 255 characters) and values
+can be strings (up to 4096 characters), numbers, booleans, or dates (<b class="deprecated">Deprecated:</b><span class="deprecated"> use customAttributes instead</span>)</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addCustomFlag:(nonnull NSString *)<em>customFlag</em> withKey:(nonnull NSString *)<em>key</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NSMutableDictionary *_Nullable)userDefinedAttributes</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>customFlag</code></th>
-						<td><p>A string attribute</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>key</code></th>
-						<td><p>The key associated with the custom flag.</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -1369,7 +1224,9 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Adds a custom flag associated with a key to the event.</p>
+				<p>A dictionary containing further information about the commerce event. The number of entries is
+limited to 100 key value pairs. Keys must be strings (up to 255 characters) and values
+can be strings (up to 4096 characters), numbers, booleans, or dates</p>
 			</div>
 			
 
@@ -1386,9 +1243,17 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 		</div>
 	</div>
-</div><div class="section-method">
-	<a name="//api/name/addCustomFlags:withKey:" title="addCustomFlags:withKey:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/addCustomFlags:withKey:">&ndash;&nbsp;addCustomFlags:withKey:</a></code>
+</div>
+						</div>
+						
+
+						<a title="Dictionary Methods" name="task_Dictionary Methods"></a>
+						<h2 class="task-title">Dictionary Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/dictionaryRepresentation" title="dictionaryRepresentation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dictionaryRepresentation">&ndash;&nbsp;dictionaryRepresentation</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1398,31 +1263,15 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds an array of custom flags associated with a key to the event.</p>
+				<p>A Dictionary representation of this instance for uploading the event
+Must be overridden by a subclass</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addCustomFlags:(nonnull NSArray&lt;NSString*&gt; *)<em>customFlags</em> withKey:(nonnull NSString *)<em>key</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NSDictionary *)dictionaryRepresentation</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>customFlags</code></th>
-						<td><p>An array of string <a href="#//api/name/attributes">attributes</a></p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>key</code></th>
-						<td><p>The key associated with the custom flags.</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -1432,7 +1281,8 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Adds an array of custom flags associated with a key to the event.</p>
+				<p>A Dictionary representation of this instance for uploading the event
+Must be overridden by a subclass</p>
 			</div>
 			
 
@@ -1443,7 +1293,99 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPCommerceEvent.h</code></p>
+				<p><code class="declared-in-ref">MPBaseEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/timestamp" title="timestamp"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timestamp">&ndash;&nbsp;timestamp</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The timestamp when the event was created. Is non null but can be set by the client</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDate *)timestamp</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The timestamp when the event was created. Is non null but can be set by the client</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">MPBaseEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setTimestamp:" title="setTimestamp:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTimestamp:">&ndash;&nbsp;setTimestamp:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The timestamp when the event was created. Is non null but can be set by the client</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setTimestamp:(NSDate *)<em>timestamp</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The timestamp when the event was created. Is non null but can be set by the client</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">MPBaseEvent.h</code></p>
 			</div>
 			
 			
@@ -1464,10 +1406,10 @@ commerceEvent[&#64;"Custom Key"] = &#64;"Custom Value";
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 mParticle. All rights reserved. Updated: 2019-06-21</p>
+						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-02-24</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>

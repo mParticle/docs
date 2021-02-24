@@ -874,7 +874,9 @@ external_disk_space_free_bytes | Int64 | optional| Android only
         "timezone_offset":-4,                                
         "build_identifier": "M4-rc20",
         "http_header_user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D167 mParticle/2.5.0",
-        "ios_advertising_id": "613ff528-afd1-4c1b-9628-e6ed25ece9c0",   
+        "ios_advertising_id": "613ff528-afd1-4c1b-9628-e6ed25ece9c0",
+        "att_authorization_status":"authorized",
+        "att_timestamp_unixtime_ms":1614187122051,
         "push_token": "<e481f135 9629f0c3 fb634be0 82ca18b1 73ea45a2 b0b96a6e 2a00c829 bc9ff6eb>",
         "cpu_architecture": "arm64",
         "is_tablet": false,
@@ -916,6 +918,8 @@ timezone_offset | Int32 | optional| This is the device's timezone offset setting
 build_identifier | string | optional| Build UUID
 http_header_user_agent | string | optional| HTTP User Agent
 ios_advertising_id | GUID | optional| iOS and tvOS
+att_authorization_status | string / enum | optional | "authorized", "denied", "not_determined", "restricted"
+att_timestamp_unixtime_ms | Int32 | optional | Specifies when the end-user first responded to the App Tracking Transparency prompt
 push_token | string | optional| Push messaging registration token
 cpu_architecture | string | optional| iOS and tvOS - CPU Architecture of device
 is_tablet | nullable bool | optional| True/False or null whether device is a tablet
@@ -1153,6 +1157,8 @@ is_historical | string | If true, data was received via the [historical](/develo
     "build_identifier": "M4-rc20",
     "http_header_user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_1 like Mac OS X) AppleWebKit/537.51.2 (KHTML, like Gecko) Mobile/11D167 mParticle/2.5.0",
     "ios_advertising_id": "613ff528-afd1-4c1b-9628-e6ed25ece9c0",
+    "att_authorization_status":"authorized",
+    "att_timestamp_unixtime_ms":1614187122051,
     "push_token": "<e481f135 9629f0c3 fb634be0 82ca18b1 73ea45a2 b0b96a6e 2a00c829 bc9ff6eb>",
     "cpu_architecture": "arm64",
     "is_tablet": false,
@@ -1383,7 +1389,9 @@ instance = {
     "source_request_id":"769D83CB-8C60-48F9-A0C1-C38CF1B40A4F",
     "device_info": {
         "ios_advertising_id":"1cc8138f-8aaf-410a-b0b9-6465cfb2af6a",
-        "ios_idfv":"0f129dcb-d5b9-450b-9003-a38a7b7e946d"
+        "ios_idfv":"0f129dcb-d5b9-450b-9003-a38a7b7e946d",
+        "att_authorization_status":"authorized",
+        "att_timestamp_unixtime_ms":1614187122051
     },
     "user_attributes":{ "Test attribute":"Test value" },
     "user_identities":{ "customer_id":"123456" },

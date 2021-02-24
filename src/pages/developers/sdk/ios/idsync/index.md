@@ -198,7 +198,7 @@ MParticle.sharedInstance().identity.modify(identityRequest, completion: identity
 
 ## Advertising ID (IDFA)
 
-As of Apple SDK 8.0, mParticle will no longer automatically collect the Apple Advertising ID (IDFA). This is to ensure that developers can make their own decision on user privacy and data use, especially as it pertains to [Apple policy changes](https://developer.apple.com/app-store/user-privacy-and-data-use/) arriving with iOS 14. To include IDFA in your mParticle data, you must must now manually query and provide the IDFA to the mParticle SDK. For more information on migrating to our Apple SDK 8.0, checkout our [migration guide](https://github.com/mParticle/mparticle-apple-sdk/blob/master/migration-guide-v8.md). 
+As of Apple SDK 8.0, mParticle no longer automatically collects the Apple Advertising ID (IDFA). This is to ensure that developers can make their own decision on user privacy and data use, especially as it pertains to [Apple policy changes](https://developer.apple.com/app-store/user-privacy-and-data-use/) arriving with iOS 14. To include IDFA in your mParticle data, you must must now manually query and provide the IDFA to the mParticle SDK. For more information on migrating to our Apple SDK 8.0, check out the [dedicated iOS 14 guide](../ios14) as well as the SDK [migration guide](https://github.com/mParticle/mparticle-apple-sdk/blob/master/migration-guide-v8.md). 
 
 :::code-selector-block
 ```objectivec

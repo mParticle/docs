@@ -79,6 +79,8 @@ The following additional fields can be configured to also be sent to mParticle. 
 {
   "device_info": {
     "ios_advertising_id": "613ff528-afd1-4c1b-9628-e6ed25ece9c0",
+    "att_authorization_status":"authorized",
+    "att_timestamp_unixtime_ms":1614187122051,
     "ios_idfv": "d50782be-9807-41d9-836c-21e488d1c350",
     "device_country": "US",
     "product": "iPhone 10,1",

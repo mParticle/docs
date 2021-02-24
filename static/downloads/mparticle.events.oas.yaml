@@ -673,6 +673,15 @@ components:
           type: string
         ios_advertising_id:
           type: string
+        att_authorization_status:
+          type: string
+          enum:
+            - authorized
+            - denied
+            - not_determined
+            - restricted
+        att_timestamp_unixtime_ms:
+          type: number
         push_token:
           type: string
         cpu_architecture:

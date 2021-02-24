@@ -495,7 +495,7 @@ You can filter the data shown in the Live Stream in several ways:
 - **Message Direction**: Select Inbound, Outbound, or Both In and Out. Inbound messages are data arriving in mParticle from instrumented apps or from partner feeds. Outbound messages are data sent by mParticle to an output service.
 - **Device**: Often, during testing, you will want to monitor a specific test device. The Device drop-down allows you to choose a device to monitor from all devices that are currently sending messages to all workspaces in the account, as well as all devices that have been saved.
 
-Live Stream shows only Dev data, but if you filter for a specific device, the Live Stream will also show events from the Production environment. When attempting to match a device to a device ID, mParticle will look for the following per platform:
+Live Stream shows only development data, but if you filter for a specific device, the Live Stream will also show events from the Production environment. When attempting to match a device to a device ID, mParticle will look for the following per platform:
 
 - **iOS**: IDFA (`ios_advertising_id` in the Events API)
 - **Android**: GAID (`android_advertising_id`)

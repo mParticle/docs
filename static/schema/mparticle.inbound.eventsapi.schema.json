@@ -921,6 +921,18 @@
             "ios_advertising_id":{
                "$ref":"#/definitions/Uuid"
             },
+            "att_authorization_status":{
+               "type":"string",
+               "enum":[
+                  "authorized",
+                  "denied",
+                  "not_determined",
+                  "restricted"
+               ]
+            },
+            "att_timestamp_unixtime_ms":{
+               "$ref":"#/definitions/Integer"
+            },
             "push_token":{
                "$ref":"#/definitions/String"
             },

@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -56,23 +56,17 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/category">category</option>
+		<option value="//api/name/)">)</option>
 		
-		<option value="//api/name/customFlags">customFlags</option>
+		<option value="//api/name/category">category</option>
 		
 		<option value="//api/name/duration">duration</option>
 		
 		<option value="//api/name/endTime">endTime</option>
 		
-		<option value="//api/name/info">info</option>
-		
 		<option value="//api/name/name">name</option>
 		
 		<option value="//api/name/startTime">startTime</option>
-		
-		<option value="//api/name/type">type</option>
-		
-		<option value="//api/name/typeName">typeName</option>
 		
 	</optgroup>
 	
@@ -82,11 +76,15 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/addCustomFlag:withKey:">- addCustomFlag:withKey:</option>
+		<option value="//api/name/beginTiming">- beginTiming</option>
 		
-		<option value="//api/name/addCustomFlags:withKey:">- addCustomFlags:withKey:</option>
+		<option value="//api/name/breadcrumbDictionaryRepresentation">- breadcrumbDictionaryRepresentation</option>
+		
+		<option value="//api/name/endTiming">- endTiming</option>
 		
 		<option value="//api/name/initWithName:type:">- initWithName:type:</option>
+		
+		<option value="//api/name/screenDictionaryRepresentation">- screenDictionaryRepresentation</option>
 		
 	</optgroup>
 	
@@ -109,13 +107,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td>NSObject</td>
-</tr><tr>
-	<th>Conforms to</th>
-	<td>NSCopying</td>
+	<td><a href="../Classes/MPBaseEvent.html">MPBaseEvent</a> : NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>MPEvent.h<br />MPEvent.mm</td>
+	<td>MPEvent.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -191,161 +186,8 @@ Please reference the mParticle doc site for more information.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/customFlags" title="customFlags"></a>
-	<h3 class="method-title"><code><a href="#//api/name/customFlags">&nbsp;&nbsp;customFlags</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Custom flags are a collection of attributes which by default are not forwarded to kits.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly, nonnull) NSDictionary&lt;NSString*__kindofNSArray&lt;NSString*&gt; *&gt; *customFlags</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Custom flags are a collection of attributes which by default are not forwarded to kits.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPEvent.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/duration" title="duration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/duration">&nbsp;&nbsp;duration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The duration, in milliseconds, of an event. You can set this property directly, or
-you can use the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods and it will be calculated automatically
-by the mParticle SDK.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) NSNumber *duration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>The duration, in milliseconds, of an event. You can set this property directly, or
-you can use the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods and it will be calculated automatically
-by the mParticle SDK.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/beginTiming">- beginTiming</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPEvent.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/endTime" title="endTime"></a>
-	<h3 class="method-title"><code><a href="#//api/name/endTime">&nbsp;&nbsp;endTime</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>If using the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods, this property contains the time the
-event ended. Otherwise it is nil.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) NSDate *endTime</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>If using the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods, this property contains the time the
-event ended. Otherwise it is nil.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPEvent.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/info" title="info"></a>
-	<h3 class="method-title"><code><a href="#//api/name/info">&nbsp;&nbsp;info</a></code>
+	<a name="//api/name/)" title=")"></a>
+	<h3 class="method-title"><code><a href="#//api/name/)">&nbsp;&nbsp;)</a></code>
 </h3>
 
 	<div class="method-info">
@@ -357,12 +199,12 @@ event ended. Otherwise it is nil.</p>
 			<div class="method-subsection brief-description">
 				<p>A dictionary containing further information about the event. The number of entries is
 limited to 100 key value pairs. Keys must be strings (up to 255 characters) and values
-can be strings (up to 4096 characters), numbers, booleans, or dates</p>
+can be strings (up to 4096 characters), numbers, booleans, or dates (<b class="deprecated">Deprecated:</b><span class="deprecated"> use customAttributes instead</span>)</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) NSDictionary&lt;NSString*id&gt; *info</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) NSDictionary&lt;NSString*id&gt; *DEPRECATED_MSG_ATTRIBUTE ( &quot;use customAttributes instead&quot; )</code></div>
 
 		    
 			
@@ -490,8 +332,8 @@ event started. Otherwise it is nil.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/typeName" title="typeName"></a>
-	<h3 class="method-title"><code><a href="#//api/name/typeName">&nbsp;&nbsp;typeName</a></code>
+	<a name="//api/name/endTime" title="endTime"></a>
+	<h3 class="method-title"><code><a href="#//api/name/endTime">&nbsp;&nbsp;endTime</a></code>
 </h3>
 
 	<div class="method-info">
@@ -501,12 +343,13 @@ event started. Otherwise it is nil.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>String representation of the event <a href="#//api/name/type">type</a> to be logged.</p>
+				<p>If using the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods, this property contains the time the
+event ended. Otherwise it is nil.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly, nonnull) NSString *typeName</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) NSDate *endTime</code></div>
 
 		    
 			
@@ -518,71 +361,13 @@ event started. Otherwise it is nil.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>String representation of the event <a href="#//api/name/type">type</a> to be logged.</p>
+				<p>If using the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods, this property contains the time the
+event ended. Otherwise it is nil.</p>
 			</div>
 			
 
 			
 
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MPEvent.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/type" title="type"></a>
-	<h3 class="method-title"><code><a href="#//api/name/type">&nbsp;&nbsp;type</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>An enum value that indicates the type of event to be logged. If logging a screen event, this
-property will be overridden to MPEventTypeNavigation. In all other cases the SDK will honor the type
-assigned to this property.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained) MPEventType type</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>An enum value that indicates the type of event to be logged. If logging a screen event, this
-property will be overridden to MPEventTypeNavigation. In all other cases the SDK will honor the type
-assigned to this property.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="../Constants/MPEventType.html">MPEventType</a></p></code></li>
-					
-				</ul>
-			</div>
 			
 
 			
@@ -626,7 +411,7 @@ assigned to this property.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>type</code></th>
-						<td><p>An enum value that indicates the <a href="#//api/name/type">type</a> of event to be logged.</p></td>
+						<td><p>An enum value that indicates the type of event to be logged.</p></td>
 					</tr>
 				
 				</table>
@@ -663,8 +448,8 @@ assigned to this property.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/addCustomFlag:withKey:" title="addCustomFlag:withKey:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/addCustomFlag:withKey:">&ndash;&nbsp;addCustomFlag:withKey:</a></code>
+	<a name="//api/name/duration" title="duration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/duration">&nbsp;&nbsp;duration</a></code>
 </h3>
 
 	<div class="method-info">
@@ -674,31 +459,14 @@ assigned to this property.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds a custom flag associated with a key to the event.</p>
+				<p>The duration, in milliseconds, of an event. You can set this property directly, use the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods to calculate it automatically,  or you can calll beginTimedEvent/endTimedEvent from the Mparticle sharedinstance to calculate it automatically.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addCustomFlag:(nonnull NSString *)<em>customFlag</em> withKey:(nonnull NSString *)<em>key</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, nullable) NSNumber *duration</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>customFlag</code></th>
-						<td><p>A string attribute</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>key</code></th>
-						<td><p>The key associated with the custom flag.</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -708,7 +476,7 @@ assigned to this property.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Adds a custom flag associated with a key to the event.</p>
+				<p>The duration, in milliseconds, of an event. You can set this property directly, use the beginTiming/<a href="#//api/name/endTiming">endTiming</a> methods to calculate it automatically,  or you can calll beginTimedEvent/endTimedEvent from the Mparticle sharedinstance to calculate it automatically.</p>
 			</div>
 			
 
@@ -726,8 +494,8 @@ assigned to this property.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/addCustomFlags:withKey:" title="addCustomFlags:withKey:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/addCustomFlags:withKey:">&ndash;&nbsp;addCustomFlags:withKey:</a></code>
+	<a name="//api/name/beginTiming" title="beginTiming"></a>
+	<h3 class="method-title"><code><a href="#//api/name/beginTiming">&ndash;&nbsp;beginTiming</a></code>
 </h3>
 
 	<div class="method-info">
@@ -737,31 +505,14 @@ assigned to this property.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds an array of custom flags associated with a key to the event.</p>
+				<p>Start timer for a timed event.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addCustomFlags:(nonnull NSArray&lt;NSString*&gt; *)<em>customFlags</em> withKey:(nonnull NSString *)<em>key</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)beginTiming</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>customFlags</code></th>
-						<td><p>An array of string attributes</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>key</code></th>
-						<td><p>The key associated with the custom flags.</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
@@ -771,7 +522,145 @@ assigned to this property.</p>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Adds an array of custom flags associated with a key to the event.</p>
+				<p>Start timer for a timed event.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">MPEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/endTiming" title="endTiming"></a>
+	<h3 class="method-title"><code><a href="#//api/name/endTiming">&ndash;&nbsp;endTiming</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stop timer for a timed event</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)endTiming</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Stop timer for a timed event</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">MPEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/breadcrumbDictionaryRepresentation" title="breadcrumbDictionaryRepresentation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/breadcrumbDictionaryRepresentation">&ndash;&nbsp;breadcrumbDictionaryRepresentation</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A Dictionary representation of this instance for uploading a breadcrumb event</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable NSDictionary *)breadcrumbDictionaryRepresentation</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>A Dictionary representation of this instance for uploading a breadcrumb event</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">MPEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/screenDictionaryRepresentation" title="screenDictionaryRepresentation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/screenDictionaryRepresentation">&ndash;&nbsp;screenDictionaryRepresentation</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A Dictionary representation of this instance for uploadinga screen event</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable NSDictionary *)screenDictionaryRepresentation</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>A Dictionary representation of this instance for uploadinga screen event</p>
 			</div>
 			
 
@@ -803,10 +692,10 @@ assigned to this property.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 mParticle. All rights reserved. Updated: 2019-06-21</p>
+						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-02-24</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>

@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>MPIdentityRequestType Constants Reference</title>
+	<title>MPKitReturnCode Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">MPIdentityRequestType Constants Reference</h1>
+					<h1 class="title">MPKitReturnCode Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>MPIdentityApi.m</td>
+	<td>MPKitExecStatus.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,21 +75,25 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">MPIdentityRequestType</h3>
+                    <h3 class="subsubtitle method-title">MPKitReturnCode</h3>
                     
                     <div class="section">
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSUInteger, MPIdentityRequestType ) {<br>
+                        <code>typedef NS_ENUM(NSUInteger, MPKitReturnCode ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">MPIdentityRequestIdentify</a> = 0,<br>
+                            &nbsp;&nbsp; <a href="">MPKitReturnCodeSuccess</a> = 0,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPIdentityRequestLogin</a> = 1,<br>
+                            &nbsp;&nbsp; <a href="">MPKitReturnCodeFail</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPIdentityRequestLogout</a> = 2,<br>
+                            &nbsp;&nbsp; <a href="">MPKitReturnCodeCannotExecute</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">MPIdentityRequestModify</a> = 3,<br>
+                            &nbsp;&nbsp; <a href="">MPKitReturnCodeUnavailable</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MPKitReturnCodeIncorrectProductVersion</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">MPKitReturnCodeRequirementsNotMet</a>,<br>
                             
                             };</code>
                     
@@ -99,42 +103,62 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="MPIdentityRequestIdentify"></a><code>MPIdentityRequestIdentify</code></dt>
+                            <dt><a name="" title="MPKitReturnCodeSuccess"></a><code>MPKitReturnCodeSuccess</code></dt>
 <dd>
 
     
 	<p>
-		Declared In <code class="declared-in-ref">MPIdentityApi.m</code>.
+		Declared In <code class="declared-in-ref">MPKitExecStatus.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="MPIdentityRequestLogin"></a><code>MPIdentityRequestLogin</code></dt>
+                            <dt><a name="" title="MPKitReturnCodeFail"></a><code>MPKitReturnCodeFail</code></dt>
 <dd>
 
     
 	<p>
-		Declared In <code class="declared-in-ref">MPIdentityApi.m</code>.
+		Declared In <code class="declared-in-ref">MPKitExecStatus.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="MPIdentityRequestLogout"></a><code>MPIdentityRequestLogout</code></dt>
+                            <dt><a name="" title="MPKitReturnCodeCannotExecute"></a><code>MPKitReturnCodeCannotExecute</code></dt>
 <dd>
 
     
 	<p>
-		Declared In <code class="declared-in-ref">MPIdentityApi.m</code>.
+		Declared In <code class="declared-in-ref">MPKitExecStatus.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="MPIdentityRequestModify"></a><code>MPIdentityRequestModify</code></dt>
+                            <dt><a name="" title="MPKitReturnCodeUnavailable"></a><code>MPKitReturnCodeUnavailable</code></dt>
 <dd>
 
     
 	<p>
-		Declared In <code class="declared-in-ref">MPIdentityApi.m</code>.
+		Declared In <code class="declared-in-ref">MPKitExecStatus.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MPKitReturnCodeIncorrectProductVersion"></a><code>MPKitReturnCodeIncorrectProductVersion</code></dt>
+<dd>
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">MPKitExecStatus.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="MPKitReturnCodeRequirementsNotMet"></a><code>MPKitReturnCodeRequirementsNotMet</code></dt>
+<dd>
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">MPKitExecStatus.h</code>.
 	</p>
 	
 </dd>
@@ -152,10 +176,10 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 mParticle. All rights reserved. Updated: 2019-06-21</p>
+						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-02-24</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>

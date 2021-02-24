@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -56,7 +56,15 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/firstSeen">firstSeen</option>
+		
+		<option value="//api/name/identities">identities</option>
+		
 		<option value="//api/name/isLoggedIn">isLoggedIn</option>
+		
+		<option value="//api/name/lastSeen">lastSeen</option>
+		
+		<option value="//api/name/userAttributes">userAttributes</option>
 		
 		<option value="//api/name/userId">userId</option>
 		
@@ -68,15 +76,9 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/cart">- cart</option>
-		
 		<option value="//api/name/consentState">- consentState</option>
 		
-		<option value="//api/name/firstSeen">- firstSeen</option>
-		
 		<option value="//api/name/incrementUserAttribute:byValue:">- incrementUserAttribute:byValue:</option>
-		
-		<option value="//api/name/lastSeen">- lastSeen</option>
 		
 		<option value="//api/name/removeUserAttribute:">- removeUserAttribute:</option>
 		
@@ -87,10 +89,6 @@
 		<option value="//api/name/setUserAttributeList:values:">- setUserAttributeList:values:</option>
 		
 		<option value="//api/name/setUserTag:">- setUserTag:</option>
-		
-		<option value="//api/name/userAttributes">- userAttributes</option>
-		
-		<option value="//api/name/userIdentities">- userIdentities</option>
 		
 		<option value="//api/name/userSegments:endpointId:completionHandler:">- userSegments:endpointId:completionHandler:</option>
 		
@@ -118,7 +116,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>MParticleUser.h<br />MParticleUser.m</td>
+	<td>MParticleUser.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -140,12 +138,58 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/userId" title="userId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/userId">&nbsp;&nbsp;userId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The mParticle id associated with this user (MPID)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly, strong, nonnull) NSNumber *userId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The mParticle id associated with this user (MPID)</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">MParticleUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/firstSeen" title="firstSeen"></a>
-	<h3 class="method-title"><code><a href="#//api/name/firstSeen">&ndash;&nbsp;firstSeen</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/firstSeen">&nbsp;&nbsp;firstSeen</a></code>
 </h3>
 
 	<div class="method-info">
@@ -160,7 +204,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSDate *)firstSeen</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, strong, nonnull) NSDate *firstSeen</code></div>
 
 		    
 			
@@ -191,7 +235,7 @@
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/lastSeen" title="lastSeen"></a>
-	<h3 class="method-title"><code><a href="#//api/name/lastSeen">&ndash;&nbsp;lastSeen</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/lastSeen">&nbsp;&nbsp;lastSeen</a></code>
 </h3>
 
 	<div class="method-info">
@@ -206,7 +250,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSDate *)lastSeen</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, strong, nonnull) NSDate *lastSeen</code></div>
 
 		    
 			
@@ -236,8 +280,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/cart" title="cart"></a>
-	<h3 class="method-title"><code><a href="#//api/name/cart">&ndash;&nbsp;cart</a></code>
+	<a name="//api/name/isLoggedIn" title="isLoggedIn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isLoggedIn">&nbsp;&nbsp;isLoggedIn</a></code>
 </h3>
 
 	<div class="method-info">
@@ -247,21 +291,16 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Gets the user&rsquo;s shopping cart</p>
+				<p>Returns whether this user is currently logged in</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (MPCart *)cart</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) BOOL isLoggedIn</code></div>
 
 		    
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An <a href="../Classes/MPCart.html">MPCart</a> object</p>
-			</div>
 			
 
 			
@@ -269,7 +308,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Gets the user&rsquo;s shopping cart</p>
+				<p>Returns whether this user is currently logged in</p>
 			</div>
 			
 
@@ -287,8 +326,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/userIdentities" title="userIdentities"></a>
-	<h3 class="method-title"><code><a href="#//api/name/userIdentities">&ndash;&nbsp;userIdentities</a></code>
+	<a name="//api/name/identities" title="identities"></a>
+	<h3 class="method-title"><code><a href="#//api/name/identities">&nbsp;&nbsp;identities</a></code>
 </h3>
 
 	<div class="method-info">
@@ -298,12 +337,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Gets current user identities (readonly)</p>
+				<p>Gets current identities (readonly)</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSDictionary *)userIdentities</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly, strong, nonnull) NSDictionary&lt;NSNumber*NSString*&gt; *identities</code></div>
 
 		    
 			
@@ -311,7 +350,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A dictionary containing the collection of user identities</p>
+				<p>A dictionary containing the collection of all identities including device identities</p>
 			</div>
 			
 
@@ -320,7 +359,7 @@
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Gets current user identities (readonly)</p>
+				<p>Gets current identities (readonly)</p>
 			</div>
 			
 
@@ -331,7 +370,7 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="../Constants/MPUserIdentity.html">MPUserIdentity</a></p></code></li>
+					<li><code><p><a href="../Constants/MPIdentity.html">MPIdentity</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -348,7 +387,7 @@
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/userAttributes" title="userAttributes"></a>
-	<h3 class="method-title"><code><a href="#//api/name/userAttributes">&ndash;&nbsp;userAttributes</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/userAttributes">&nbsp;&nbsp;userAttributes</a></code>
 </h3>
 
 	<div class="method-info">
@@ -363,7 +402,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSDictionary *)userAttributes</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readwrite, strong, nonnull) NSDictionary&lt;NSString*id&gt; *userAttributes</code></div>
 
 		    
 			
@@ -491,7 +530,7 @@ There is a 100 count limit to user attributes.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setUserAttribute:(nonnull NSString *)<em>key</em> value:(nonnull id)<em>value</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setUserAttribute:(NSString *)<em>key</em> value:(id)<em>value</em></code></div>
 
 		    
 			
@@ -555,7 +594,7 @@ There is a 100 count limit to user attributes.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setUserAttributeList:(nonnull NSString *)<em>key</em> values:(nonnull NSArray&lt;NSString*&gt; *)<em>values</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setUserAttributeList:(NSString *)<em>key</em> values:(NSArray&lt;NSString*&gt; *)<em>values</em></code></div>
 
 		    
 			
@@ -619,7 +658,7 @@ There is a 100 count limit to user attributes.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setUserTag:(nonnull NSString *)<em>tag</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setUserTag:(NSString *)<em>tag</em></code></div>
 
 		    
 			
@@ -678,7 +717,7 @@ There is a 100 count limit to user attributes.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)removeUserAttribute:(nonnull NSString *)<em>key</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)removeUserAttribute:(NSString *)<em>key</em></code></div>
 
 		    
 			
@@ -731,7 +770,7 @@ There is a 100 count limit to user attributes.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Retrieves user segments from mParticle&rsquo;s servers and returns the result as an array of MPUserSegments objects.
+				<p>Retrieves user segments from mParticle&rsquo;s servers and returns the result as an array of <a href="../Classes/MPUserSegments.html">MPUserSegments</a> objects.
 If the method takes longer than timeout seconds to return, the local cached segments will be returned instead,
 and the newly retrieved segments will update the local cache once the results arrive.</p>
 			</div>
@@ -772,7 +811,7 @@ and the newly retrieved segments will update the local cache once the results ar
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Retrieves user segments from mParticle&rsquo;s servers and returns the result as an array of MPUserSegments objects.
+				<p>Retrieves user segments from mParticle&rsquo;s servers and returns the result as an array of <a href="../Classes/MPUserSegments.html">MPUserSegments</a> objects.
 If the method takes longer than timeout seconds to return, the local cached segments will be returned instead,
 and the newly retrieved segments will update the local cache once the results arrive.</p>
 			</div>
@@ -903,106 +942,6 @@ and the newly retrieved segments will update the local cache once the results ar
 </div>
 						</div>
 						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/userId" title="userId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/userId">&nbsp;&nbsp;userId</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The mParticle id associated with this user (MPID)</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly, strong, nonnull) NSNumber *userId</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>The mParticle id associated with this user (MPID)</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MParticleUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/isLoggedIn" title="isLoggedIn"></a>
-	<h3 class="method-title"><code><a href="#//api/name/isLoggedIn">&nbsp;&nbsp;isLoggedIn</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns whether this user is currently logged in</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) BOOL isLoggedIn</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Returns whether this user is currently logged in</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">MParticleUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
 					</div>
 					
 					
@@ -1015,10 +954,10 @@ and the newly retrieved segments will update the local cache once the results ar
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 mParticle. All rights reserved. Updated: 2019-06-21</p>
+						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-02-24</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>
