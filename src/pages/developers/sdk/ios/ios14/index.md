@@ -89,7 +89,7 @@ options.attStatus = @([ATTrackingManager trackingAuthorizationStatus]);
 
 ```swift
 let options = MParticleOptions(key: "REPLACE WITH APP KEY", secret: "REPLACE WITH APP SECRET")     
-options.attStatus = NSNumber.init(value: [ATTrackingManager trackingAuthorizationStatus].rawValue)
+options.attStatus = NSNumber.init(value: ATTrackingManager.trackingAuthorizationStatus.rawValue)
 MParticle.sharedInstance().start(with: options)
 ```
 :::
