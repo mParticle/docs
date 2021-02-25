@@ -11,7 +11,7 @@ The Identity HTTP API is utilized by the mParticle iOS, Android, and Web SDKs, a
 
 The mParticle Identity endpoint is available at:
 
-```
+```javascript
 https://identity.mparticle.com/v1
 ```
 

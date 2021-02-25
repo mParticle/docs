@@ -308,7 +308,7 @@ These notifications are different from the actual [Consent State](#consent-state
 
 This setting lets mParticle know if historical events can be sent to your integration.  The default is `24` hours, however if your platform can receive and process older data, you can set this to a higher value, or to `-1` to process all data.
 
-```
+```java
 EventProcessingRegistration eventProcessingRegistration = new EventProcessingRegistration();
 eventProcessingRegistration.setMaxDataAgeHours(24)
 ```

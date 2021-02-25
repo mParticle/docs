@@ -54,15 +54,18 @@ mParticle integrates with Braze to allow web push notifications to further engag
     * Select the `Cloud Messaging` tab and note the `Server Key` and `Sender ID`.
 2. Configure your site
     * Add `<link rel="manifest" href="/manifest.json" />` to the `<head>` section of your website. Add a manifest.json file in the root of your site and enter the content below:
-    ```
+    ```javascript
     {
         "gcm_sender_id": "YOUR_CLOUD_MESSAGING_SENDER_ID"
     }
     ```
+
     * Create a `service-worker.js` file to your root directory. Inside your `service-worker.js` file, include
-    ```
+
+    ```javascript
     self.importScripts('https://static.mparticle.com/sdk/js/braze/service-worker.js');
     ```
+    
     mParticle hosts Braze's service worker in order to prevent unpredictable versioning issues. Do not use Braze's service-worker.js cdn.
 
 3. Set your Cloud Messaging Key

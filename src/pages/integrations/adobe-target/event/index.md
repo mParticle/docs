@@ -10,7 +10,7 @@ Currently mParticle supports Adobe Target v1.8. Note that you must host your ins
 
 Once you have set up your global functions and hosted your `at.js` file, see below for an example of how to load both `at.js` and mParticle's web sdk in your index.html file:
 
-```
+```javascript
 // index.html
 
 // First load at.js
@@ -48,7 +48,7 @@ All event mappings to Adobe Target requires a custom flag of 'ADOBETARGET.MBOX' 
 
 For example, to perform a basic track event call:
 
-```
+```javascript
 const customAttrs = {foo: 'bar'};
 const customFlags = {
     'ADOBETARGET.MBOX': 'fooBox'
@@ -59,7 +59,7 @@ mParticle.logEvent('custom event name', mParticle.EventType.Other, customAttrs, 
 
 will map to the following:
 
-```
+```javascript
 adobe.target.trackEvent({
     mbox: 'fooBox',
     params: {
@@ -81,7 +81,7 @@ The following custom flags call will map to `adobe.target.getOffer`.
 | ADOBETARGET.SUCCESS  | function | no        | mParticle automatically invokes `applyOffer`. You can pass any additional logic to process after `applyOffer` is invoked. This has a single argument which is the returned `offer`. |
 | ADOBETARGET.ERROR    | function | no        | Pass any additional logic to to process inside of the `getOffer` error handler. This has 2 arguments, the `status`, and `error`                                                     |
 
-```
+```javascript
 const customAttrs = {foo: 'bar'};
 const customFlags = {
     'ADOBETARGET.MBOX': 'fooBox',
@@ -95,7 +95,7 @@ mParticle.logEvent('[Your Event Name]', mParticle.EventType.Other, customAttrs, 
 
 will map to the following:
 
-```
+```javascript
 window.adobe.target.getOffer({
     mbox: MBOXNAME,
     params: customAttrs,
@@ -113,7 +113,7 @@ window.adobe.target.getOffer({
 
 mParticle also maps product purchase events to Adobe Target. See below for an example of the mapping
 
-```
+```javascript
 const product1 = mParticle.eCommerce.createProduct('iphone', 'iphoneSKU', 1000);
 const product2 = mParticle.eCommerce.createProduct('galaxy', 'galaxySKU', 800);
 
@@ -130,7 +130,7 @@ mParticle.eCommerce.logProductAction(mParticle.ProductActionType.Purchase, [prod
 
 will map to the following:
 
-```
+```javascript
 adobe.target.trackEvent({
   mbox: 'fooBox',
   params: {

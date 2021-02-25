@@ -65,13 +65,15 @@ mParticle.eCommerce.Cart.add([iPhone, Android], true);
 ```
 
 It is not possible to remove more than 1 cart item at a time.
-```
+
+```javascript
 mParticle.eCommerce.Cart.remove(iPhone, true);
 ```
 
 #### Login
 A `customerid` or `email` must be provided to the mParticle.Identity.login() method in order to initiate a Login event to Dynamic Yield. If neither is provided, no Login event will be sent. If an email is provided, mParticle will SHA256 encode a lowercased string version of the email as required by Dynamic Yield.
-```
+
+```javascript
 var identityApiData = {
     userIdentities: {
         customerid: 'customerid1',
@@ -83,13 +85,15 @@ mParticle.Identity.login(identityApiData);
 
 #### Custom Event
 Custom events are sent using the standard mParticle.logEvent method call:
-```
+
+```javascript
 mParticle.logEvent('Add Friend', mParticle.EventType.Social, {gender: 'male', age: 45});
 ```
 
 #### Keyword Search
 The query string that you want to capture should be added as an attribute with key `Keywords` on the event. The name of the event will not be sent to Dynamic Yield.
-```
+
+```javascript
 mParticle.logEvent('Test Search', mParticle.EventType.Search, {Keywords: 'iMac computer'});
 ```
 

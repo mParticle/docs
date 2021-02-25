@@ -79,7 +79,7 @@ $ curl --location --request POST 'https://sso.auth.mparticle.com/oauth/token' \
 
 #### Example Response
 
-```
+```javascript
 {
     "access_token": "YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-",
     "expires_in" : 28800,
@@ -89,7 +89,7 @@ $ curl --location --request POST 'https://sso.auth.mparticle.com/oauth/token' \
 
 Subsequent requests to the HTTP API should be authorized by setting the `Authorization` header to the value of `access_token`:
 
-```
+```javascript
 Authorization: Bearer YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-
 ```
 

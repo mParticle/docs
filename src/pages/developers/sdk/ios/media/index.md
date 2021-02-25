@@ -309,7 +309,7 @@ Note: Depending on your player, you will need to either enable the callback meth
 
 ### Example Event
 
-```
+```javascript
 {
     "event_type": "custom_event",
     "data": {

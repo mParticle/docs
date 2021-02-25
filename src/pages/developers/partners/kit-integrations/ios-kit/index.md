@@ -23,7 +23,7 @@ Get the example kit implementation [here](https://github.com/mparticle-integrati
 
 In your fork you will find a repository with a directory structure as following:
 
-```
+```sh
 mparticle-apple-integration-example
 |
 |–– mParticle-CompanyName

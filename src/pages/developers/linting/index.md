@@ -32,7 +32,7 @@ If you haven't already done so, download your data plan from the mParticle platf
 
 > Note: the example below assumes you saved the downloaded file as `plan.json` in the root of your repository. If you used a different path or filename, adjust the `dataPlanVersion` field accordingly.
 
-```
+```javascript
 {
     "planningConfig": {
         "dataPlanVersionFile": "./plan.json"
@@ -197,7 +197,7 @@ To get started, ensure you have a data plan downloaded and referenced properly i
 
 If you haven't already done so, download your data plan from the mParticle platform and save it to a file in your source repository. Reference this in the `mp.config.json`file to tell the linter where to find the data plan file.
 
-```
+```javascript
 {
     "planningConfig": {
         "dataPlanVersionFile": "./plan.json"
@@ -229,7 +229,7 @@ Since our plugin is built on ESLint's architecture, it also also works with Type
 1.  If you are self-hosting, include `declare module "@mparticle/web-sdk"` in your root folder's `index.d.ts` file.
 2.  `npm install --save-dev @typescript-eslint/parser` and include `@typescript-eslint/parser` as your `parser` in your .eslintrc file:
 
-```
+```javascript
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@mparticle/eslint-plugin"],

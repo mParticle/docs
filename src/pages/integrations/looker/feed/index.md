@@ -28,9 +28,9 @@ You can find Looker's documentation on this integration [here](https://github.co
 For every identity you want to recieve from Looker, you must create a dimension in the LookML to map the Looker identifier to its corresponding mParticle identifier. 
 
 Sample LookML:
-```
+```sql
 dimension: email {
-	tags: [“mp_email”]
+	tags: ["mp_email"]
 	sql: ${TABLE}.email ;;
 }
 ```
@@ -56,7 +56,7 @@ mParticle Field | Looker Tag | Description
 User Attribute | `mp_user_attribute` | To send Looker user attributes to mParticle you must create a dimension in the LookML to map the Looker attribute to the `mp_user_attribute` tag.<br><br> All looker dimensions with this tag will get sent over as user attributes to mParticle with the following name: `looker_<looker_view_name>.<looker_dimension_name>`
 
 Sample LookML:
-```
+```sql
 dimension: ltv {
 	type: number
 	sql: ${TABLE}.ltv ;;
@@ -78,7 +78,7 @@ Event Attributes | `mp_custom_attribute` | To send Looker user attributes to mPa
 Device Info | `mp_device_info` | To send Looker attributes to mParticle as device info attributes you must create a dimension in the LookML to map the Looker attribute to the `mp_device_info` tag.<br><br>Looker dimensions with this tag will get sent to mParticle as device_info fields only if the dimension name matches one of mParticle's [predefined device_info fields](https://docs.mparticle.com/developers/server/json-reference/#device_info).
 
 Sample LookML:
-```
+```sql
 dimension: category {
 	type: number
 	sql: ${TABLE}.category ;;

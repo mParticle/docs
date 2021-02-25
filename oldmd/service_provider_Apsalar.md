@@ -33,7 +33,7 @@ These parameters will be sent automatically with every event.
 Apsalar Field | mParticle Mapping  | Notes
 |------------------------------------------------------|
 Apple Advertising ID (`idfa`)  | `device_info.ios_advertising_id`  | Only one of four possible Device IDs is required.
-Apple Vedonr ID (`idfv`)  | `device_info.ios_idfv`  | Only one of four possible Device IDs is required.
+Apple Vendor ID (`idfv`)  | `device_info.ios_idfv`  | Only one of four possible Device IDs is required.
 Android Advertising ID (`aifa`)  | `device_info.android_advertising_id`  | Only one of four possible Device IDs is required.
 Android UUID (`andi`)  | `device_info.android_uuid`  | Only one of four possible Device IDs is required.
 IP address (`ip`) | `ip` | Raw IP address for the device.

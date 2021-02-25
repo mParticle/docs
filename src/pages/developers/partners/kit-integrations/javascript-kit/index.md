@@ -27,7 +27,7 @@ Get the example kit implementation [here](https://github.com/mparticle-integrati
 
 In your fork you will find a repository with a directory structure as follows. Asterisked files are the only files you will update. Do not touch any code inside of any of the boilerplate files or folders.
 
-```
+```sh
 mparticle-javascript-integration-example
 |
 |-- build/
@@ -116,7 +116,7 @@ Once you have verified that your integration works properly, there are a few add
 ## Additional eCommerce Helpers
 mParticle provides a public API used for simplifying commerce events: `mParticle.eCommerce.expandEcommerceEvent(event)`. This will output an array of objects with easy to read mapped items. Common schemas are below
 
-```
+```javascript
 // Purchases Example code:
 var productName = 'iPhone',
     sku = 'iPhone123'

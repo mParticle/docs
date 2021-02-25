@@ -294,7 +294,7 @@ For mParticle to access your cluster, the IPs of mParticle servers need to be wh
   * the `redshift_port` is that redshift port of your cluster
   *  the `is_vpc` represents if your cluster is in VPC or not
 
-  ```
+  ```javascript
     {
         "security_group_id": "security group id created in step 1", 
         "redshift_port": 5439, 

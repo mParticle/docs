@@ -404,12 +404,14 @@ mParticle.logEvent('Foo conversion event', eventType, attributes, customFlags);
 
 Optimizely works great on Single Page Applications (SPAs). Review [this in depth article](https://help.optimizely.com/Build_Campaigns_and_Experiments/Support_for_dynamic_websites%3A_Use_Optimizely_on_single_page_applications) about how to set up your Optimizely settings and pages properly in order to avoid issues with Optimizely on your SPA. mParticle's Optimizely Web Client SDK provides the `logPageView` method which allows you to apply a page context for manually activating a page, allowing for full flexibility for sites with dynamic content or challenging URL patterns. View more information [here](https://docs.developers.optimizely.com/web/docs/dynamic-websites#manual). The following example performs a mapping of the page `watchedVideo` as seen [here](https://docs.developers.optimizely.com/web/docs/api-functions#function_setpage).
 
-```
+```javascript
 var tags = {category: 'Kitchen', subcategory: 'blenders'}
 mParticle.logPageView('watchedVideo', tags);
 ```
-will map to the following.
-```
+
+will map to the following:
+
+```javascript
 window['optimizely'].push({
   type: 'page',
   pageName: 'watchedVideo',

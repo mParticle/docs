@@ -14,7 +14,7 @@ After initializing each instance, all methods that were previously invoked via `
 In this example, we will initiate 2 instances, one named `starWarsInstance`, and another named `starTrekInstance` with our Amplitude integration. 
 
 First, in your terminal window:
-```
+```sh
 npm i @mparticle/web-sdk
 npm i @mparticle/web-amplitude-kit
 ```

@@ -37,7 +37,7 @@ The `beemray_segment_ids` and `beemray_segment_descriptions` arrays share a comm
 
 Below is an example of the user attributes set by the beemray feed:
 
-```
+```javascript
 "user_attributes": {
     "beemray_segment_descriptions": [
         "Possible Parisians",

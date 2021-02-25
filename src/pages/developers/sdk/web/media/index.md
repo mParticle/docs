@@ -421,7 +421,7 @@ For example:
 
 ### Example Event
 
-```
+```javascript
 {
     "event_type": "custom_event",
     "data": {
@@ -454,7 +454,7 @@ In cases where you may need to handle some custom functionality when a media eve
 
 For example, if you need to trigger a custom function when Play or Pause occurs:
 
-```
+```javascript
 const myCallback = function(mediaEvent) {
     // Some custom callback method defined by user
     // Should only trigger when play or pause is fired
