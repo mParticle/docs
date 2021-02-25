@@ -1,5 +1,8 @@
 const path = require('path');
 
+const pathPrefix = process.env.PATH_PREFIX || '';
+const imagePathPrefix = pathPrefix ? pathPrefix.replace(/\/?$/, '/') : '/';
+
 module.exports = {
     module: {
         rules: [
@@ -30,7 +33,7 @@ module.exports = {
                         options: {
                             lessOptions: {
                                 modifyVars: {
-                                    '@prefix': '/',
+                                    '@prefix': imagePathPrefix,
                                 },
                             },
                         },
