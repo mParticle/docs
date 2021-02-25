@@ -75,6 +75,7 @@ module.exports = {
             },
           },
           `gatsby-plugin-markdown-code-selector`, // custom plugin in plugins folder
+          `gatsby-plugin-markdown-tabs`,
           'gatsby-remark-a11y-emoji', // emojis
           {
             resolve: `gatsby-remark-autolink-headers`,

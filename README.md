@@ -11,6 +11,7 @@ This is the repo for the [mParticle doc site](https://docs.mparticle.com/). You 
         -   [Develop and Building Locally](#local)
 -   [Sending a Pull Request](#sendingpr)
 -   [Example Contribution](#example)
+-   [Custom Markdown](#custommarkdown)
 
 <a name="cla"></a>
 
@@ -106,3 +107,45 @@ After your PR gets approved, you should squash and merge your PR. Squashing and 
 7. Push your changes to a "feature" branch, and submit a pull request. @mParticle/docs-admin will automatically be added as a reviewer.
 8. You may be prompted to sign our CLA. Do so and then comment `@cla-bot check` to confirm you've signed.
 9. Once your PR is approved and merged into development, your changes will be automatically merged to development and released within an hour (during weekdays).
+
+<a name='custommarkdown'>
+
+## Custom Markdown
+
+This project implements some custom markdown tags for html rendering
+
+### Tabs
+
+Simple add the following markdown code in your `.md` file to generate a series of tabs in your generated pages:
+
+```markdown
+<tabs>
+
+<tab label='Tab 1'>
+
+This is a test tab
+
+</tab>
+
+<tab label='Tab 2'>
+
+This is a second tab
+
+</tab>
+
+<tab label='Tab 3'>
+
+This is the third tab
+
+</tab>
+
+</tabs>
+```
+
+This will generate the proper html and css to render tabs in your pages, and provide the proper click/toggle functionality.
+
+The tabs support any custom markdown within the `<tab></tab>` tags. The html generated will create the tabs and control the toggling functionality.
+
+#### Tabs Demo
+
+![Tabs Custom Markdonw](./static/images/custom-markdown-tabs.gif)

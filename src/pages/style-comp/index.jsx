@@ -5,6 +5,7 @@ const StyleComp = () => (
         <div className='markdown'>
             <h1>(H1) Section Title L3 Graphik SB 32px/40 #1F1F1F</h1>
             <h2>(H2) Page Title L4 - Graphik Regular 26px/32 #007387</h2>
+            <a href='markdown'>Markdown Comps</a>
             <p className='large'>
             (Body Large) 1-2 sentences at the beginning of every page. Roboto Regular 16px/26 #545C62 The Android SDK can be incorporated into native Android apps running on smartphones and other platforms.
             </p>

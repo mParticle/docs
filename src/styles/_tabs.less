@@ -1,0 +1,49 @@
+@import './_colors.less';
+.tabs {
+    display: flex;
+    flex-flow: wrap;
+    .tab {
+        &-content {
+            display: none;
+            display: none;
+
+            order: 2;
+            flex-grow: 1;
+            width: 100%;
+        }
+        &-toggle {
+            display: none;
+            &-label {
+                font-family: Roboto, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.57;
+                color: @mp-heading-black;
+
+                display: inline-block;
+                padding: 20px;
+                border-bottom: 1px solid @mp-header-light-2;
+                position: relative;
+                top: 1px;
+
+                text-align: center;
+
+                order: 1;
+            }
+        }
+    }
+
+    input {
+        &:checked + label {
+            border-bottom: 3px solid @mp-header-light-2;
+        }
+        &:checked + .content {
+            display: block;
+        }
+        &:not(:checked) + label {
+            &:hover {
+                border-bottom: 3px solid @mp-header-light-2;
+            }
+        }
+    }
+}

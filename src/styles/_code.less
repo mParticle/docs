@@ -177,6 +177,20 @@ pre.language-text {
         }
     }
 
+    input.code-toggle-typescript {
+        &:checked {
+            & ~ .gatsby-highlight > pre.language-typescript {
+                display: block;
+            }
+            & ~ .gatsby-highlight > pre > code.language-typescript {
+                display: block;
+            }
+            & ~ pre > code.language-typescript {
+                display: block;
+            }
+        }
+    }
+
     input.code-toggle-kotlin {
         &:checked {
             & ~ .gatsby-highlight > pre.language-kotlin {

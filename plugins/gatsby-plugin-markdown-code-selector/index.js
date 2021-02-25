@@ -27,6 +27,7 @@ const codeBlockLabels = {
     "ruby": "Cocoapods",
     "groovy": "Gradle",
     "javascript": "Javascript",
+    "typescript": "Typescript",
     "cs": "Unity",
     "swift": "Swift",
     "kotlin": "Kotlin",

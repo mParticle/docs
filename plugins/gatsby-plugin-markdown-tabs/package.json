@@ -1,0 +1,6 @@
+{
+    "name": "gatsby-plugin-markdown-tabs",
+    "dependencies": {
+        "unist-util-visit": "^2.0.2"
+    }
+}
