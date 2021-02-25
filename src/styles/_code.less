@@ -1,143 +1,79 @@
-// code stylings found at https://highlightjs.org/static/demo/
-// current style taken from Atom One Light
+// Gatsby/PrismJS code overrides: https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+@import '../styles/_colors';
 
-// TEMPORARY - look at _prismcode.less to see what new class names are being used
+@prism-background-color: #2d2d2d;
 
-code {
-    border: solid 1px #f0f0f0;
-    color: @mp-code;
-    background-color: @mp-code-background;
-    border-color: #f0f0f0;
-    border-radius: 3px;
-    font-size: 13px;
-    font-family: 'Roboto Mono';
-    word-wrap: break-word;
-    line-height: 1.4;
+// Override for line numbers
+.line-numbers-rows {
+    padding: 13px;
+    border-right: none !important;
 }
 
-pre code {
-        display: block;
-        overflow-x: auto;
-        background-color: @mp-code-background;
-        padding: 15px 13px;
+// Override for code sample font sizes
+code[class*='language-'],
+pre[class*='language-'] {
+    font-size: 13px !important;
+    font-family: 'Roboto Mono' !important;
+}
 
-        .copy {
-            .icon-image(@icon-copy-grey);
-            width: 14px;
-            height: 17px;
-        }
-
-        .token.keyword {
-            color: #a626a4;
-        }
-
-        .token.punctuation {
-
-        }
-
-        .token.string {
-            color: #50a14f;
-        }
-
-        .token.function {
-            color: #c18401;
-        }
-
-        .token.comment {
-            color: #a0a1a7;
-            font-style: italic;
-        }
-
-        .token.class-name {
-
-        }
-
-        .token.builtin {
-            color: #986801;
-        }
-
-        .hljs-string {
-            color: #50a14f;
-        }
-
-        
-        .hljs-keyword {
-            color: #a626a4;
-        }
-
-        .hljs-comment {
-            color: #a0a1a7;
-            font-style: italic;
-        }
-
-        // built-in not supported -> changed to function
-        .hljs-built_in {
-            color: #c18401;
-        }
-
-        .hljs-class {
-            .hljs-title {
-                color: #c18401;
-            }
-        }
-
-        .hljs-name, .hljs-section, .hljs-selector-tag, .hljs-deletion, .hljs-subst {
-            color: #e45649;
-        }
-
-        .hljs-title {
-            color: #4078f2;
-        }
-
-        .hjls-attr, .hljs-variable, .hljs-template-variable, .hljs-type, .hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-number {
-            color: #986801;
-        }
-        
-
+// Overrides for inline code blocks
+:not(pre) > code.language-text,
+pre.language-text {
+    color: @mp-code;
+    background-color: @mp-code-background;
 }
 
 // code block toggle styling
 .code-selector-block {
+    background-color: @prism-background-color;
+    padding: 17px 25px;
     code {
         display: none;
     }
-
-    >input {
+    pre {
         display: none;
+    }
 
-        &:checked+label {
-            border-bottom: 1px solid @mp-code-background;
+    > input {
+        display: none;
+        background-color: @prism-background-color;
+
+        &:checked + label {
+            border-bottom: 3px solid #fff;
             font-weight: 700;
         }
-        &:not(:checked)+label {
-            background-color: #fff;
+        &:not(:checked) + label {
             &:hover {
-                background-color: @mp-grey;
+                border-bottom: 3px solid #fff;
             }
         }
     }
-    >label {
-        display:inline-block;
+    > label {
+        color: #ccc;
+        display: inline-block;
         height: 24px;
         line-height: 24px;
         font-size: 0.875em;
-        padding: 0 14px;
-        background-color: @mp-code-background;
-        border: 1px solid #f0f0f0;
+        margin: 0 10px;
+        background-color: @prism-background-color;
         position: relative;
         top: 1px;
+        cursor: pointer;
 
-        &~label {
+        & ~ label {
             border-left: 0;
         }
     }
 
-     input.code-toggle-ruby {
+    input.code-toggle-ruby {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-ruby {
+            & ~ .gatsby-highlight > pre.language-ruby {
                 display: block;
             }
-            & ~ pre>code.language-ruby {
+            & ~ .gatsby-highlight > pre > code.language-ruby {
+                display: block;
+            }
+            & ~ pre > code.language-ruby {
                 display: block;
             }
         }
@@ -145,10 +81,13 @@ pre code {
 
     input.code-toggle-groovy {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-groovy {
+            & ~ .gatsby-highlight > pre.language-groovy {
                 display: block;
             }
-            & ~ pre>code.language-groovy {
+            & ~ .gatsby-highlight > pre > code.language-groovy {
+                display: block;
+            }
+            & ~ pre > code.language-groovy {
                 display: block;
             }
         }
@@ -156,10 +95,13 @@ pre code {
 
     input.code-toggle-swift {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-swift {
+            & ~ .gatsby-highlight > pre.language-swift {
                 display: block;
             }
-            & ~ pre>code.language-swift {
+            & ~ .gatsby-highlight > pre > code.language-swift {
+                display: block;
+            }
+            & ~ pre > code.language-swift {
                 display: block;
             }
         }
@@ -167,10 +109,13 @@ pre code {
 
     input.code-toggle-objectivec {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-objectivec {
+            & ~ .gatsby-highlight > pre.language-objectivec {
                 display: block;
             }
-            & ~ pre>code.language-objectivec {
+            & ~ .gatsby-highlight > pre > code.language-objectivec {
+                display: block;
+            }
+            & ~ pre > code.language-objectivec {
                 display: block;
             }
         }
@@ -178,10 +123,13 @@ pre code {
 
     input.code-toggle-nodesdk {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-javascript {
+            & ~ .gatsby-highlight > pre.language-javascript {
                 display: block;
             }
-            & ~ pre>code.language-javascript {
+            & ~ .gatsby-highlight > pre > code.language-javascript {
+                display: block;
+            }
+            & ~ pre > code.language-javascript {
                 display: block;
             }
         }
@@ -189,10 +137,13 @@ pre code {
 
     input.code-toggle-java {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-java {
+            & ~ .gatsby-highlight > pre.language-java {
                 display: block;
             }
-            & ~ pre>code.language-java {
+            & ~ .gatsby-highlight > pre > code.language-java {
+                display: block;
+            }
+            & ~ pre > code.language-java {
                 display: block;
             }
         }
@@ -200,10 +151,13 @@ pre code {
 
     input.code-toggle-bash {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-bash {
+            & ~ .gatsby-highlight > pre.language-bash {
                 display: block;
             }
-            & ~ pre>code.language-bash {
+            & ~ .gatsby-highlight > pre > code.language-bash {
+                display: block;
+            }
+            & ~ pre > code.language-bash {
                 display: block;
             }
         }
@@ -211,10 +165,13 @@ pre code {
 
     input.code-toggle-javascript {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-javascript {
+            & ~ .gatsby-highlight > pre.language-javascript {
                 display: block;
             }
-            & ~ pre>code.language-javascript {
+            & ~ .gatsby-highlight > pre > code.language-javascript {
+                display: block;
+            }
+            & ~ pre > code.language-javascript {
                 display: block;
             }
         }
@@ -222,10 +179,13 @@ pre code {
 
     input.code-toggle-kotlin {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-kotlin {
+            & ~ .gatsby-highlight > pre.language-kotlin {
                 display: block;
             }
-            & ~ pre>code.language-kotlin {
+            & ~ .gatsby-highlight > pre > code.language-kotlin {
+                display: block;
+            }
+            & ~ pre > code.language-kotlin {
                 display: block;
             }
         }
@@ -233,10 +193,13 @@ pre code {
 
     input.code-toggle-json {
         &:checked {
-            & ~ .gatsby-highlight>pre>code.language-json {
+            & ~ .gatsby-highlight > pre.language-json {
                 display: block;
             }
-            & ~ pre>code.language-json {
+            & ~ .gatsby-highlight > pre > code.language-json {
+                display: block;
+            }
+            & ~ pre > code.language-json {
                 display: block;
             }
         }

@@ -91,7 +91,12 @@ module.exports = {
                 className: 'anchor'
             }
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true
+            }
+          },
           `gatsby-remark-smartypants`
         ],
       },

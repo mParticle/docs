@@ -3,6 +3,9 @@
 import { addGlobalEventListener } from './src/utils/misc';
 import { getRouteData } from './src/utils/routes';
 import './src/styles/custom-code-buttons.less';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import 'prismjs/plugins/command-line/prism-command-line.css';
 
 /* This function adds redirects for any 'page' that sets a redirect property
     Currently used for redirecting a parent page like 'Android' to the first of
