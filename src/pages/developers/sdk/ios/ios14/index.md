@@ -153,7 +153,7 @@ ATTrackingManager.requestTrackingAuthorization { status in
 
 ### Server-to-Server
 
-The ATT properties should provided be whenever available, when sending data for an iOS device. In the future, the ATT status will be *required* when providing the IDFA (`ios_advertising_id`) field.
+The ATT properties should be provided whenever available, when sending data for an iOS device. In the future, the ATT status will be *required* when providing the IDFA (`ios_advertising_id`) field.
 
 ```json
 {
@@ -169,5 +169,5 @@ The ATT properties should provided be whenever available, when sending data for 
 }
 ```
 
-Please [see the HTTP reference](http://0.0.0.0:8000/developers/server/json-reference/) to more information.
+Please [see the HTTP reference](/developers/server/json-reference/) for more information.
 
