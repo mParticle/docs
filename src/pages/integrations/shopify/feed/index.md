@@ -2,9 +2,11 @@
 title: Feed
 ---
 
-## Integration coming soon.
-
 [Shopify](https://www.shopify.com) is an ecommerce platform that has everything you need to sell online, on social media, or in person.  The mParticle Shopify integration uses [Webhooks](https://shopify.dev/docs/admin-api/rest/reference/events/webhook). 
+
+## Data Processing Notes
+
+* Shopify will [remove configured webhooks](https://help.shopify.com/en/manual/orders/notifications/webhooks) if the webhook destination repeatedly returns a non-200 status response.
 
 ## Enable the Integration
 
@@ -124,4 +126,3 @@ default_address.zip | $zip
 ### User Identities
 
 * Email
-
