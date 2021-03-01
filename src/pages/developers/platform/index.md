@@ -39,7 +39,7 @@ curl --request POST \
 
 **Sample Raw HTTP Request**
 
-~~~
+~~~http
 POST /oauth/token HTTP/1.1
 Host: sso.auth.mparticle.com
 Content-Type: application/json
@@ -56,7 +56,7 @@ Content-Type: application/json
 
 A successful POST request to the token endpoint will result in a JSON response as follows:
 
-~~~
+~~~json
 {
   "access_token": "YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-",
   "expires_in" : 28800,
@@ -2182,7 +2182,7 @@ curl \
 
 ##### Example Response
 
-~~~
+~~~json
 {
     "data": [
         {
@@ -2209,7 +2209,7 @@ curl \
 
 Returns a list of all feed subscriptions for a workspace. A subscription is a connection between a feed and an output configuration.
 
-~~~
+~~~json
 {
     "data": [
         {
@@ -2269,7 +2269,7 @@ curl \
 
 ##### Example Response
 
-~~~
+~~~json
 {
     "data": [
         {
