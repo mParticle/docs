@@ -30,7 +30,7 @@ This is an H6
 
 <tabs>
 
-<tab label='Android'>
+<tab label='Android' group='hello-world'>
 
 :::code-selector-block
 
@@ -52,7 +52,7 @@ class HelloWorld {
 
 </tab>
 
-<tab label='iOS'>
+<tab label='iOS' group='hello-world'>
 
 :::code-selector-block
 
@@ -77,7 +77,7 @@ print("Hello, World!")
 
 </tab>
 
-<tab label='Web'>
+<tab label='Web' group='hello-world'>
 
 :::code-selector-block
 

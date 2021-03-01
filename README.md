@@ -121,19 +121,19 @@ Simple add the following markdown code in your `.md` file to generate a series o
 ```markdown
 <tabs>
 
-<tab label='Tab 1'>
+<tab label='Tab 1' group='my-group'>
 
 This is a test tab
 
 </tab>
 
-<tab label='Tab 2'>
+<tab label='Tab 2' group='my-group'>
 
 This is a second tab
 
 </tab>
 
-<tab label='Tab 3'>
+<tab label='Tab 3' group='my-group'>
 
 This is the third tab
 
@@ -145,6 +145,8 @@ This is the third tab
 This will generate the proper html and css to render tabs in your pages, and provide the proper click/toggle functionality.
 
 The tabs support any custom markdown within the `<tab></tab>` tags. The html generated will create the tabs and control the toggling functionality.
+
+Please make sure that you provide a `group` for your collection as this may break the click/toggle functionality
 
 #### Tabs Demo
 

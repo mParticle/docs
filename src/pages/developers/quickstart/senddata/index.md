@@ -14,7 +14,9 @@ Open your workspace and generate iOS API credentials on the [Setup](https://app.
 
 You can add the SDK via CocoaPods, Carthage or Swift Package Manager.
 
-#### CocoaPods
+<tabs>
+
+<tab label='CocoaPods' group='ios'>
 
 Specify our SDK in your [Podfile](https://guides.cocoapods.org/syntax/podfile.html):
 
@@ -25,8 +27,10 @@ target '<Your Target>' do
     pod 'mParticle-Apple-SDK', '~> 7.0'
 end
 ```
+</tab>
 
-#### Carthage
+
+<tab label='Carthage' group='ios'>
 
 Specify our SDK in your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
@@ -34,13 +38,20 @@ Specify our SDK in your [Cartfile](https://github.com/Carthage/Carthage/blob/mas
 github "mparticle/mparticle-apple-sdk" ~> 7.0
 ```
 
-#### Swift Package Manager
+</tab>
+
+
+<tab label='Swift Package Manager' group='ios'>
 
 To integrate the SDK using Swift Package Manager, open your Xcode project and navigate to File > Swift Packages > Add Package Dependency
 
 Enter the repository URL `https://github.com/mParticle/mparticle-apple-sdk` and click Next.
 
 You can leave the version settings as default and click Next one more time to complete adding the package dependency.
+
+</tab>
+
+</tabs>
 
 ### 3. Initialize the SDK
 
@@ -209,7 +220,9 @@ Create a <strong>Custom Feed</strong> on the [Setup](https://app.mparticle.com/s
 ### 2. Send an HTTP request
 Use <strong>curl</strong> or <strong>Postman</strong> to send an HTTP request with your access credentials to our server-to-server [endpoint](https://docs.mparticle.com/developers/server/http/#endpoint) `https://s2s.mparticle.com/v2/events`.  
 
-#### curl
+<tabs>
+
+<tab label='curl' group='http'>
 
 Create `data.json` with the contents of your request.
 
@@ -243,7 +256,10 @@ Run `curl` from the same directory.
 curl -u YOUR_API_KEY:YOUR_API_SECRET -vX POST -H "Content-Type: application/json" -d @data.json https://s2s.mparticle.com/v2/events
 ~~~
 
-#### Postman 
+</tab>
+
+<tab label='Postman' group='http'>
+
 <span class="postman-widget">[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/110be1299a8ddcb786a3)</span>
 
 Once you're in the Postman app, follow these steps to make your request:
@@ -251,6 +267,12 @@ Once you're in the Postman app, follow these steps to make your request:
 1. Set your API <strong>key</strong> and <strong>secret</strong> as the `Username` and `Password` in the <strong>Authorization</strong> tab of the Postman request builder. The <strong>Type</strong> dropdown on the <strong>Authorization</strong> tab should be set to <strong>Basic Auth</strong> for the builder to show those fields.</aside>
 
 1. [Optional] Go to the <strong>Body</strong> tab to view the JSON payload. You can change values in the payload to customize the event you sent to mParticle. Learn more about our JSON Schema [here](/developers/server/json-reference/#overall-structure).
+
+
+</tab>
+
+</tabs>
+
 
 ### 3. Verify
 Go to the [Live Stream](https://app.mparticle.com/dm/livestream) and watch new events come in as you send requests.
@@ -324,7 +346,10 @@ Create a <strong>Custom Feed</strong> on the [Setup](https://app.mparticle.com/s
 ### 2. Add the mParticle SDK dependency
 Our Java SDK is available via Gradle or Maven.
 
-#### Gradle
+<tabs>
+
+<tab label='Gradle' group='android'>
+
 Add the SDK dependency to your `build.gradle` file.
 ~~~groovy
 dependencies {
@@ -332,7 +357,10 @@ dependencies {
 }
 ~~~
 
-#### Maven
+</tab>
+
+<tab label='Maven' group='android'>
+
 Add the SDK dependency to your `pom.xml` file.
 ~~~xml
 <dependency>
@@ -341,6 +369,10 @@ Add the SDK dependency to your `pom.xml` file.
   <version>2.0.0</version>
 </dependency>
 ~~~
+
+</tab>
+
+</tabs>
 
 ### 3. Call the Events API
 Now you can integrate mParticle in your Java application.

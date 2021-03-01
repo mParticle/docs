@@ -29,6 +29,7 @@ const transformTabs = ({ markdownAST }) => {
     let tabGroupid = 0;
     let tabId = 0;
     let firstTabChecked = false;
+    let currentGroup = '';
 
     visit(markdownAST, 'html', (node) => {
         if (node.value === '<tabs>') {
@@ -41,16 +42,37 @@ const transformTabs = ({ markdownAST }) => {
 
     visit(markdownAST, 'html', (node) => {
         if (node.value.indexOf('<tab ') >= 0) {
-            const label = node.value.match(/label='(.*)'/)[1];
+            const labelMatcher = node.value.match(/label='([a-zA-Z0-9-_ ]+)'/);
+            if (!labelMatcher) {
+                console.error('A tab group has an invalid label', node);
+            }
+            const label = labelMatcher[1];
+
+            const groupMatcher = node.value.match(/group='([a-zA-Z0-9-_]+)'/);
+            if (!groupMatcher) {
+                console.error('A tab group has an invalid group name', node);
+            }
+            const group = groupMatcher[1];
+
             const slug = getSlug(label);
 
             // Push slug to tabs array for css processing later
             tabs.push(slug);
 
-            // First tab should be checked by default
+            // Check to see if we're starting a new tab
+            // group so we can set first element to checked
+
+            // Reset check status
             let checked = false;
+
+            // Reset check if we're in a new group
+            if (currentGroup !== group) {
+                currentGroup = group;
+                firstTabChecked = false;
+            }
+
+            // First tab should be checked by default
             if (!firstTabChecked) {
-                console.log('first tab reset', tabId);
                 checked = true;
                 firstTabChecked = true;
             }
@@ -58,7 +80,7 @@ const transformTabs = ({ markdownAST }) => {
             node.type = 'html';
 
             node.value = [
-                generateLabel(slug, label, tabGroupid, tabId++, checked),
+                generateLabel(slug, label, group, tabId++, checked),
                 `<div class="tab-content tab-content-${slug} ">`,
             ].join('');
 
