@@ -72,7 +72,7 @@ In the Airship platform:
 
     **Note:** Part of Airship's wizard for setting up a new app involves sending a test message to your app. This process assumes you are using the regular Airship SDK instead of mParticle. You will not receive a test message in your app at this stage but, in order to proceed with setting up your app, you need to 'confirm' that you received the test push notification, when asked by the setup wizard.
 
-3. Navigate to **Settings** > **APIs & Integrations** your Key, App Secret, and App Master Secret are displayed.
+3. Navigate to **Settings** > **APIs & Integrations** your Key and App Secret.
 
 For an in-depth definitions of App Keys and Security, see Airship's [App Keys & Security: Security](https://docs.airship.com/reference/security/app-keys-secrets/) topic.
 
@@ -143,7 +143,6 @@ If your Airship configuration is for Web only, enter an App Key, and enable the 
 | ---|---|---|---|
 | App Key | `string` |  | <unset> | Airship generated string identifying the app setup. Used in the application bundle. |
 | App Secret | `string` | <unset> | Airship generated string identifying the app setup secret. Used in the application bundle, and only used for Mobile configurations. |
-| App Master Secret (deprecated) | `string` | <unset> | Airship generated string used for Events API access. This should never be shared or placed in an application bundle, and only used for Mobile configurations. This setting is replaced by 'token' in Connection Settings |
 | Domain | `enum` | US | The Airship site your credentials belong to, either 'US' or 'EU'. |
 | App Key is for Web | `boolean` | false | If enabled, this configuration will only be used for Web configurations. |
 

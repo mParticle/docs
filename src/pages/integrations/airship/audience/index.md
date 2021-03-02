@@ -6,7 +6,7 @@ title: Audience
 
 ## Prerequisites 
 
-In order to forward mParticle audiences to Airship, you will need your App Key, Secret and Master Secret - one for each App that you are planning to forward audiences to.
+In order to forward mParticle audiences to Airship, you will need your App Key and App Secret - one for each App that you are planning to forward audiences to.
 
 To find your Key/Secrets, do the following:
 1. Sign into your Airship account at [https://go.urbanairship.com/accounts/login/](https://go.urbanairship.com/accounts/login). 
@@ -41,7 +41,6 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 App Key | `string` | | Airship generated string identifying the app setup. Used in the application bundle.
 App Secret |`string` | | Airship generated string identifying the app setup secret. Used in the application bundle.
-App Master Secret (deprecated) | `string` | | Airship generated string used for Events API access. This should never be shared or placed in an application bundle. This setting is replaced by 'Token'.
 Token | `string` | | Airship generated string identifying the Bearer token.
 Domain | `enum` | US | The Airship site your credentials belong to, either 'US' or 'EU'.
 
