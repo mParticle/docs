@@ -48,7 +48,11 @@ This is an example of a JSON payload generated and forwarded by mParticle to Zen
                 "type": "email",
                 "value": "some@email.com"
             }
-        ]
+        ],
+        "attributes": {
+            "some_attribute_1": "some-attribute-value-1",
+            "some_attribute_2": "some-attribute-value-2"
+        }
     },
     "event": {
         "type": "some-app-event-name",
@@ -72,6 +76,7 @@ Profile mappings:
 | [Event Source](#connection-settings) | profile.source | Taken from [Configuration Settings](#connection-settings), default is `mParticle`
 | [Profile Type](#connection-settings) | profile.type | Taken from [Configuration Settings](#connection-settings), default is `customer`
 | user_attributes | profile.name | If `$FirstName` and `$LastName` attributes are defined, `name` attribute will be included
+| user_attributes | profile.attributes | Will include all defined attributes except `$FirstName` and `$LastName`
 | user_identities | profile.identifiers | Must include an email identity type
 
 Event mappings:
