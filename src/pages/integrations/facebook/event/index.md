@@ -49,6 +49,24 @@ If you run into issues with either of the above steps, please repeat the steps d
 * The iOS/tvOS and Android integrations forward App State Transition, Commerce, Custom, Screen View, and Session Start events.
 * The Web integration forwards Commerce, Custom, Screen View, and Session Start / End events.
 
+### iOS14 Update for Device Data Mapping
+
+The Facebook `advertiser_tracking_enabled` field is set based on the `att_authorization_status` and `limit_ad_tracking` fields as defined below.  Check the [iOS14 Implementation guide](/developers/sdk/ios/ios14#implementation-guide) for more information. 
+
+If `att_authorization_status` is available:
+
+| `att_authorization_status` | `advertiser_tracking_enabled` |
+| --- | --- |
+| `authorized` |  `1` |
+| All other values | `0` |
+
+If `att_authorization_status` is not available, the `limit_ad_tracking` field is evaluated:
+
+| `limit_ad_tracking` | `advertiser_tracking_enabled` |
+| --- | --- |
+| Not available or `false` | `1` |
+| `true` | `0` |
+
 ### User Data Mappings
 
 mParticle will send a variety of user data fields to Facebook for advanced matching. The specific fields sent depends on if Facebook Pixel server-side forwarding is enabled or not.
