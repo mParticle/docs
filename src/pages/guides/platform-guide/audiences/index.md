@@ -202,6 +202,14 @@ Segment users by their location these two options available under **Users**, **L
 1. `Equals`: Segment users that are in a specific city, state, zip or DMA, using geolocation of the users [IP address](https://docs.mparticle.com/developers/server/json-reference/#overall-structure).
 2. `Within`: Segment users that are within a set distance to any global city, using [latitude & longitude coordinates](https://docs.mparticle.com/developers/server/json-reference/#location).
 
+### Cart criteria
+
+When using our Ecommerce events, you can easily target users that have added products to their cart, but not completed a purchase by using `cart abandonment` criteria:
+- Cart abandonment: `New criteria` -> `Ecommerce` -> `Shopping - Cart Level ` -> `Cart Abandonment`
+
+From here you can define how long to wait without seeing a [purchase event](../../developers/server/json-reference/#commerce_event) to include them in this audience.
+
+![](/images/audience-cart-abandonment.png)
 
 ## Setup an Audience Output
 
