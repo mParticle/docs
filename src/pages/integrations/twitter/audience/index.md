@@ -6,7 +6,8 @@ mParticle's Twitter Tailored Audience integration enables app owners to push aud
 
 ## Prerequisites
 
-In order to enable audience forwarding to Twitter, you will need the account credentials for a Twitter account that is linked to your app's Twitter Ads account. The integration activation process in Audience Manager will prompt you to log into your Twitter account, and once authorized, mParticle will automatically retrieve the credentials that it needs to forward audiences to Twitter.
+In order to enable audience forwarding to Twitter, you will need the account credentials for a Twitter account that is linked to your app's Twitter Ads account.  The integration activation process in Audience Manager will prompt you to log into your Twitter account, and once authorized, mParticle will automatically retrieve the credentials that it needs to forward audiences to Twitter. The account you login with will need a permission level of Account Administrator to connect an affiliated Ad Account.
+
 
 ## Data Processing Notes
 
