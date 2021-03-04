@@ -2,20 +2,17 @@
 title: Event
 ---
 
-
-The [Zendesk](https://www.zendesk.com/) event integration supplements customer support by providing them additional context about their users; allowing them to provide a more personalized experience.
-
-## Supported Features
-
-This integration with Zendesk uses the Sunshine Events API [to track events against a Sunshine profile](https://developer.zendesk.com/rest_api/docs/sunshine/events_api#track-event-against-a-sunshine-profile).
+[Zendesk](https://www.zendesk.com) is a customer service platform. It’s designed for companies that want to create customer relationships that are more meaningful, personal, and productive.  The Zendesk event integration supplements customer support by providing them additional context about their users; allowing them to provide a more personalized experience.
 
 ## Prerequisites
 
-The Zendesk integration uses the Sunshine Events API to track events against a Sunshine profile. You need to ensure your Sunshine plan is properly configured to use the integration. You can check this by accessing the subscription page of your account at h<span>ttps://</span>**your-zendesk-subdomain**.zendesk.com/admin/billing/subscription
+The Zendesk integration uses the [Sunshine Events API](https://developer.zendesk.com/rest_api/docs/sunshine/events_api#track-event-against-a-sunshine-profile) to track events against a Sunshine profile. You need to ensure your Sunshine plan is properly configured to use the integration by selecting Admin > Settings > Subscription at h<span>ttps://</span>**your-zendesk-subdomain**.zendesk.com/admin/billing/subscription.  
+
+The following items are required:
 
 1.  A [Zendesk](https://www.zendesk.com) Account.
 2.  A Zendesk Sunshine Professional Plan or higher. 
-    * Zendesk Sunshine Professional is the minimum required, but we recommend Enterprise or higher to avoid hitting the Sunshine API limit. 
+    * Zendesk Sunshine Professional is the minimum required, but we recommend Enterprise or higher to avoid hitting Sunshine API limits. 
     * For more information check [Plan Availability](https://developer.zendesk.com/rest_api/docs/sunshine/introduction#plan-availability).
 3.  Account Verification. 
     * See [verifying an end user's email address](https://support.zendesk.com/hc/en-us/articles/203663786-Verifying-a-user-s-email-address) for more details.
@@ -23,22 +20,22 @@ The Zendesk integration uses the Sunshine Events API to track events against a S
 
 ## Data Processing Notes
 
-When you create a connection to Zendesk, forwarding for all existing data points will initially be set to 'off', and forwarding new data points by default will be disabled. You must enable all data points that you wish to forward to Zendesk.
+When you create a connection to Zendesk, forwarding for all existing data points will initially be set to *off*, and send new data points by default will be disabled. You must enable the specific data points that you wish to forward to Zendesk.
 
 mParticle recommends working with your Zendesk account manager before forwarding all events to your Zendesk account in the event [Filter](/guides/platform-guide/data-filter/). This will ensure that you have a sufficient plan to handle the additional events.
 
 mParticle will only forward events to Zendesk if:
 
 1.  An email address has been provided as identity in the event
-2.  The payload is lower than ~2 Kilobytes - [Event maximum payload](https://develop.zendesk.com/hc/en-us/community/posts/360034212634-Event-maximum-payload)
+2.  The payload is less than ~2 Kilobytes - [Event maximum payload](https://develop.zendesk.com/hc/en-us/community/posts/360034212634-Event-maximum-payload)
 3.  If a commerce payload is greater than ~2  Kilobytes, it will be split into separate requests for each product.  The description property will contain information on the set it belongs to; e.g., 1 of N. Please see specific commerce event types to learn more.
 
-### Enabling User Profiles And Events In Zendesk
+## Enabling User Profiles And Events In Zendesk
 
-After you have finished configuring the integration in mParticle, and it has began forwarding events to Zendesk, you have to enable which of these 'user profiles' and events **that have already been forwarded** will be visible in the 'customer context'. To do this please follow the instructions on how to [Add Sunshine user profiles and events to customer context in a ticket](https://support.zendesk.com/hc/en-us/articles/360044235113)
+After you have finished configuring the integration in mParticle, and began forwarding events to Zendesk, you have to enable which of these *user profiles* and events **that have already been forwarded** will be visible in the *customer context*. To do this please follow the instructions on how to [Add Sunshine user profiles and events to customer context in a ticket](https://support.zendesk.com/hc/en-us/articles/360044235113)
 
 ## Forwarded JSON Payload Example
-This is an example of a JSON payload generated and forwarded by mParticle to Zendesk API
+This is an example of a JSON payload send to the Zendesk API with Event Source set to mParticle and Profile Type set to customer.
 ~~~json
 {
     "profile": {
@@ -63,13 +60,14 @@ This is an example of a JSON payload generated and forwarded by mParticle to Zen
             }
         }
     }
+  }
 }
 ~~~
 ## Event Data Mapping
 
-The following field mappings apply for all supported events in this integration.
+The following field mappings apply for all supported events.
 
-Profile mappings:
+### Profile mappings
 
 | Parameter | Zendesk Field | mParticle Details
 |---|---|---
@@ -79,16 +77,28 @@ Profile mappings:
 | user_attributes | profile.attributes | Will include all defined attributes except `$FirstName` and `$LastName`
 | user_identities | profile.identifiers | Must include an email identity type
 
-Event mappings:
+### Event mappings
 
 | Parameter | Zendesk Field | mParticle Details
 |---|---|---
-| [Event Source](#connection-settings) | event.source | Taken from [Configuration Settings](#connection-settings), default is `mParticle`
+| Event Source| event.source | Specified in [Connection Settings](#connection-settings)
 | - | event.type | Check specific type of event for respective mapping of this field
 | custom_attributes | event.properties.custom_attributes | All attribute items will be added to custom_attributes property
 | - | event.description | Only set on commerce events that have been split into a set of events, it will contain a text describing the part of the set it belongs to; e.g., 1 of N.
 
-### Screen View Events
+The event.type is set based on the type of event:
+
+| mParticle Event Type | event.type
+|---|---
+screen_view | Screen View
+custom_event | The event_name specified in the custom event
+commerce_event (Product Action) | eCommerce - product_action
+commerce_event (Promotion Action) |eCommerce - Promotion promotion_action
+commerce_event (Impression) | eCommerce - Impression
+
+## Screen View Events
+
+The following field mappings apply for Screen View events.
 
 | Parameter | Zendesk Field | mParticle Details
 |---|---|---
@@ -109,11 +119,13 @@ Screen View (event) JSON Sample
 }
 ~~~
 
-### Custom Events
+## Custom Events
+
+The following field mappings apply for Custom Events.
 
 | Parameter | Zendesk Field | mParticle Details
 |---|---|---
-| event_name | event.type | The value sent in event_name property in the event
+| event_name | event.type | The event_name specified in the custom event
 | custom_event_type | event.properties.custom_event_type | The value sent in custom_event_type property in the event. e.g.: UserPreference, Navigation, ProductCheckout
 
 Custom Event (event) JSON Sample
@@ -130,9 +142,11 @@ Custom Event (event) JSON Sample
 }
 ~~~
 
-### Commerce Events
+## Commerce Events
 
-#### Product-based
+The following field mappings apply for Product Commerce Events.
+
+### Product-based
 | Parameter | Zendesk Field | mParticle Details
 |---|---|---
 | event_name | event.type | The value sent in event_name property in the event
@@ -184,7 +198,10 @@ Product-Based JSON Sample
 
 <aside class="notice">If request size is greater than ~2 Kilobytes, we will try to split it into multiple request messages, each containing a specific product (1 of N). If the request can't be split or split requests are still too big, the main request will be dropped</aside>
 
-#### Promotion-based
+### Promotion-based
+
+The following field mappings apply for Promotion Commerce Events.
+
 | Parameter | Zendesk Field | mParticle Details
 |---|---|---
 | event_name | event.type | The value sent in event_name property in the event
@@ -215,7 +232,10 @@ Promotion-Based JSON Sample
 
 <aside class="notice">If request size is greater than ~2 Kilobytes, the integration will try to split it into multiple request messages, each containing a specific promotion (1 of N). If the request can't be split or split requests are still too big, the main request will be dropped</aside>
 
-#### Impression-based
+### Impression-based
+
+The following field mappings apply for Impression Commerce Events.
+
 | Parameter | Zendesk Field | mParticle Details
 |---|---|---
 | event_name | event.type | The value sent in event_name property in the event
@@ -269,7 +289,3 @@ Impression-Based JSON Sample
 | ---|---|---|---|-----
 | Event Source | `string` | mParticle | All | Application which sent the event |
 | Profile Type | `string` | customer | All | Is a user-defined name that lets you create different kinds of profiles for a given source. Example: "customer" for the customer profiles |
-
-<aside class="notice">'zendesk' is a protected source name for Zendesk standard events. Any attempts to use this source when creating an event results in an error</aside>
-
-<aside class="notice">When saving Connection Settings, access to Zendesk platform will be validated using the provided information (auth. email, api token and subdomain), if this process fail, an error will be shown in the configuration screen</aside>
