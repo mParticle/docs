@@ -18,10 +18,16 @@ To set up the Adikteev integration, you will need your Customer ID, provided by 
 
 mParticle will forward the following IDs to Adikteev:
 
-* Google Advertising ID (GAID)
-* Apple Advertising ID (IDFA)
 * Customer ID
 * Email Address
+
+## Supported Device Identities
+
+mParticle will forward the following Device IDs to Adikteev:
+
+* Apple IDFA
+* Apple IDFV
+* Google Advertising ID (GAID)
 
 ## Data Processing Notes
 

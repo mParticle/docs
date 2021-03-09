@@ -10,7 +10,7 @@ To set up the Adikteev integration, you will need your Adikteev Customer ID, pro
 
 ## Supported User Identities
 
-mParticle will forward the following IDs to Adikteev:
+mParticle will forward the following User IDs to Adikteev:
  
 * Customer
 * Email 
@@ -19,8 +19,9 @@ mParticle will forward the following IDs to Adikteev:
 
 mParticle will forward the following Device IDs to Adikteev:
 
+* Apple IDFA
+* Apple IDFV
 * Google Advertising ID (GAID)
-* iOS Advertising ID (IDFA)
 
 ## Configuration Settings
 
