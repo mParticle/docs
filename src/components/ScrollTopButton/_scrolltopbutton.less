@@ -1,0 +1,33 @@
+@import "../../styles/_colors";
+@import "../../styles/_icons";
+@import "../../styles/_utils";
+
+.scrollTopButton {
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 46px;
+    font-family: 'Roboto';
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    border: none;
+    background-color: @mp-grey;
+    .icon-top {
+        .icon-image(@icon-arrow-up-black);
+        width: 14px;
+        height: 16px;
+    }
+
+    &:hover {
+        background-color: @mp-mint;
+    }
+}
