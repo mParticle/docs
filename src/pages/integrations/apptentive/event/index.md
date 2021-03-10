@@ -51,14 +51,14 @@ target '<Your Target>' do
 end
 ~~~
 
-~~~Java
+~~~java
 //Sample build.gradle
 dependencies {
     compile ('com.mparticle:android-apptentive-kit:5.+')
 }
 ~~~   
 
-~~~Kotlin
+~~~kotlin
 //Sample build.gradle
 dependencies {
     implementation 'com.mparticle:android-apptentive-kit:5+'
