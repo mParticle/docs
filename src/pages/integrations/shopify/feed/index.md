@@ -20,8 +20,8 @@ Configure the Shopify Input:
     * Environment
 5.  Click **Create**
 6.  Copy the Webhook URL.
-7.  Follow these instructions to configure a [Shopify webhooks](https://shopify.dev/tutorials/manage-webhooks#configuring-webhooks) to send events to mParticle.
-8.  The following webhook events/topics are supported:
+7.  Follow these instructions to configure the [Shopify webhooks](https://shopify.dev/tutorials/manage-webhooks#configuring-webhooks) using the copied mParticle Webhook URL to to send events to mParticle.
+8.  You will need to set up a webhook for each Shopify Topic that you want to send to mParticle with the Format set to 'JSON', and Webhook API version set to '2020-10'  
 
 Shopify Event | Shopify Topic 
 |---|---
