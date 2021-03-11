@@ -1,0 +1,64 @@
+@import '../../styles/_colors';
+@import '../../styles/_icons';
+@import '../../styles/_utils';
+@import '../../styles/_breakpoints';
+
+.link-widget {
+    a {
+        font-weight: 500;
+        font-family: 'Roboto';
+        font-size: 14px;
+        line-height: 1.57;
+        text-decoration: none;
+
+        cursor: pointer;
+
+
+        &.link-widget-link {
+            color: @mp-darkgrey-bodycopy;
+            text-decoration: none;
+
+            display: flex;
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            width: 152px;
+            height: 34px;
+
+            &:hover {
+                transition: all 0.3s ease;
+                background-color: @mp-mint-light;
+                text-decoration: none !important;
+                color: @mp-darkgrey-bodycopy !important;
+            }
+        }
+
+        .github-icon {
+            .icon-image(@icon-dev-github);
+            width: 20px;
+            height: 19px;
+            margin-right: 5px;
+            float: left;
+        }
+        .edit-icon {
+            .icon-image(@icon-edit-black);
+            width: 14px;
+            height: 12px;
+            margin-right: 5px;
+        }
+        .arrow-icon {
+            .icon-image(@icon-arrow-mint-med);
+            width: 14px;
+            height: 12px;
+            margin-left: 10px;
+        }
+        .arrow-right-icon {
+            .icon-image(@icon-arrow-right-mint);
+            width: 14px;
+            height: 12px;
+            margin-left: 10px;
+        }
+    }
+}
