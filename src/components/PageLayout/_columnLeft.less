@@ -1,0 +1,21 @@
+@import '../../styles/_breakpoints';
+
+.column-left {
+    width: 270px;
+    margin-top: 44px;
+    padding: 16px 20px 16px 52px;
+    font-size: 0.875em;
+    border-right: 1px solid #f0f0f0;
+}
+
+@media (max-width: @desk_sm_break) {
+    .column-left {
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: @tblt_break) {
+    .column-left {
+        display: none;
+    }
+}

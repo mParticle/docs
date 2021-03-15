@@ -1,0 +1,29 @@
+@import '../../styles/_breakpoints';
+
+.column-center {
+    flex-grow: 1;
+    padding: 60px 16px 16px 50px;
+    height: 100%;
+    position: relative;
+    max-width: @desk_sm_content;
+}
+
+@media (max-width: @desk_sm_break) {
+    .column-center {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: @tblt_break) {
+    .column-center {
+        padding: 28px 0;
+        margin: 0 20px;
+        width: @tblt_content;
+    }
+}
+
+@media (max-width: @mobile_max) {
+    .column-center {
+        width: @mobile_content;
+    }
+}
