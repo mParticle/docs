@@ -10,25 +10,17 @@ import './_docsheader.less';
 class DocsHeader extends React.Component {
     constructor(props) {
         super(props);
+
+        // TODO: Remove this when search is refactored
         this.state = { searchOpen: false };
-        this.quickstartActive = this.props.location.pathname.indexOf('/quickstart') >= 0;
-        this.developersActive = this.props.location.pathname.indexOf('/developers/') >= 0;
-        this.integrationsActive = this.props.location.pathname.indexOf('/integrations/') >= 0;
-        this.platformsActive = this.props.location.pathname.indexOf('/guides/') >= 0;
-        this.styleCompActive = this.props.location.pathname.indexOf('/style-comp') >= 0;
         this.closeSearch = false;
         this.homeActive = this.props.location.pathname === '/';
-        this.homeClass = this.homeActive ? 'home' : '';
+
         this.openSearch = this.openSearch.bind(this);
-        this.title = this.platformsActive
-            ? 'Guides'
-            : this.integrationsActive
-                ? 'Integration Center'
-                : this.developersActive
-                    ? 'Developer Documentation'
-                    : this.homeActive
-                        ? 'mParticle Documentation'
-                        : '';
+    }
+
+    isActive(pathname) {
+        return this.props.location.pathname.indexOf(pathname) >= 0;
     }
 
     openSearch(which) {
@@ -40,7 +32,7 @@ class DocsHeader extends React.Component {
     render() {
         return (
             <div className='docs-header-crumb'>
-                <div className={`docs-header ${this.homeClass}`}>
+                <div className={`docs-header ${this.homeActive ? 'home' : ''}`}>
                     <div className='pin-left'>
                         <a
                             className='mparticle-logo'
@@ -63,26 +55,20 @@ class DocsHeader extends React.Component {
                             <span>Home</span>
                         </Link>
                         <Link
-                            className={`header-links ${this.platformsActive ? 'active' : ''}`}
+                            className={`header-links ${this.isActive('/guides/') ? 'active' : ''}`}
                             to='/guides/'>
                             <span>Guides</span>
                         </Link>
                         <Link
-                            className={`header-links ${this.developersActive ? 'active' : ''}`}
+                            className={`header-links ${this.isActive('/developers/') ? 'active' : ''}`}
                             to='/developers/'>
                             <span>Developers</span>
                         </Link>
                         <Link
-                            className={`header-links ${this.integrationsActive ? 'active' : ''}`}
+                            className={`header-links ${this.isActive('/integrations/') ? 'active' : ''}`}
                             to='/integrations/'>
                             <span>Integrations</span>
                         </Link>
-
-                        {/* <Link
-                            className={`header-links ${this.styleCompActive ? 'active' : ''}`}
-                            to='/style-comp'>
-                            <span>Style Comp</span>
-                        </Link> */}
                     </div>
                     <div className='pin-right'>
                         <Search

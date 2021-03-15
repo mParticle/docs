@@ -1,7 +1,8 @@
-@import "../../styles/_colors";
-@import "../../styles/_icons";
-@import "../../styles/_utils";
-@import "../../styles/_fonts";
+@import '../../styles/_colors';
+@import '../../styles/_icons';
+@import '../../styles/_utils';
+@import '../../styles/_fonts';
+@import '../../styles/_breakpoints';
 
 .docs-header {
     display: flex;
@@ -24,20 +25,17 @@
     }
     .pin-left {
         margin-left: 60px;
-        // position: relative;
-        // left: 60px;
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
 
     .pin-middle {
-        // position: relative;
-        // left: 45px;
         display: flex;
         flex: 10;
         flex-direction: row;
         justify-content: center;
+
         .header-links {
             margin: 0 20px 0 20px;
             span {
@@ -71,27 +69,26 @@
 
     a {
         text-decoration: none;
-        color: white;
-        font-weight: normal;
-        letter-spacing: 0.2px;
-        font-family: "Roboto";
-        font-size: 16px;
+        transition: all 0.3s ease;
+
+        &.header-links{
+            color: #fff;
+            font-weight: normal;
+            letter-spacing: 0.2px;
+            font-family: "Roboto";
+            font-size: 16px;
+
+            &:hover {
+                color: @mp-mint;
+                transition: all 0.3s ease;
+            }
+
+        }
+
         &.header-pad {
           margin-right: 50px;
         }
 
-        &:hover {
-            color: @mp-mint;
-            transition: all 0.3s ease;
-        }
-
-
-        &.mparticle-logo::after {
-            content: '';
-            width: 10px;
-            height: 52px;
-            background-color: #093063;
-        }
         &.mparticle-logo {
             width: 198px;
             margin-right: 4px;
@@ -99,8 +96,8 @@
 
             > span {
                 display: inline-block;
-                width: 176px; //186px
-                height: 32px;  //28px
+                width: 176px;
+                height: 32px;
                 vertical-align: middle;
                 left: 0;
                 position: relative;
@@ -122,19 +119,17 @@
                 top: 14px;
                 background-color: #2f2f2f;
             }
-
-
-           
         }
 
         &.docs-header-home-link {
+            font-style: normal;
             font-size: 20px;
             font-weight: 400;
             letter-spacing: 0.4px;
             color: @mp-grey !important;
             vertical-align: middle;
             text-transform: uppercase;
-
+            display: inline;
         }
 
 
@@ -167,8 +162,17 @@
     }
 }
 
-@media (max-width: 1139px) {
-    .pin-middle, .pin-right {
+@media (max-width: @desk_md_break) {
+    .docs-header {
+        .pin-middle,
+        .pin-right {
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width: @desk_sm_break) {
+    .pin-middle {
         display: none !important;
     }
 
@@ -179,9 +183,6 @@
             .mparticle-logo {
                 width: 175px;
                 & > span {
-                    position: relative;
-                    left: 0;
-                    bottom: 13px;
                     height: 28px
                 }
                 &:after {
@@ -196,9 +197,8 @@
                         color: @mp-mint !important;
                     }
                 }
-                &> span {
-                    position: relative;
-                    bottom: 10px;
+                a {
+                    font-size: 16px;
                 }
             }
             a span {
@@ -209,6 +209,13 @@
                 font-family: 'Roboto Mono';
             }
         }
+    }
+}
+
+@media (max-width: @tblt_break) {
+    .pin-middle,
+    .pin-right {
+        display: none !important;
     }
 }
 
@@ -255,7 +262,7 @@
     }
 }
 
-@media(min-width: 1138px) {
+@media(min-width: @tblt_break) {
     .search-breadcrumb {
         display: none;
     }
