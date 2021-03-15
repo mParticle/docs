@@ -1,0 +1,101 @@
+@import '../../styles/_colors';
+@import '../../styles/_icons';
+@import '../../styles/_utils.less';
+
+.header .toc-link {
+    font-weight: bold;
+    margin-left: 20px;
+}
+.toc-body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-width: 270px;
+    & > .listing > .toc-header,
+    & > .listing > .toc-link {
+        font-weight: bold;
+    }
+}
+.toc-header {
+    list-style: none;
+    line-height: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+    user-select: none;
+    &-text {
+        margin-left: 8px;
+    }
+    &:focus {
+        outline: 0;
+    }
+    .icon {
+        background-size: contain !important;
+        display: inline-block;
+        &.left-arrow {
+            .icon-image(@icon-arrow-left-black);
+        }
+        &.down {
+            .icon-image(@icon-arrow-nav-down);
+            background-position: bottom;
+        }
+        &.right {
+            .icon-image(@icon-arrow-nav-right);
+        }
+        width: 12px;
+        height: 12px;
+    }
+
+    &:hover {
+        font-weight: bold;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+}
+
+.toc-children {
+    padding: 0;
+
+    &.border {
+        border-left: 1px solid @mp-header-light-2;
+    }
+
+    &.hidden {
+        display: none;
+        transition: all 0.3s ease;
+    }
+}
+
+// Left hand styles
+.left-nav-pane,
+.flyout-content {
+    .toc-children {
+        margin: 0 0 0 20px;
+    }
+    .header-section {
+        .listing .toc-link {
+            margin: 0;
+            .toc-link-text {
+                margin-left: 8px;
+            }
+            .icon {
+                background-size: contain !important;
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                &.left-arrow {
+                    .icon-image(@icon-arrow-left-black);
+                }
+            }
+        }
+    }
+    li.listing {
+        margin: 18px 0;
+        .toc-link {
+            margin-left: 20px;
+        }
+    }
+}

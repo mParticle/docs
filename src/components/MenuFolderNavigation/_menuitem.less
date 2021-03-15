@@ -1,0 +1,45 @@
+@import '../../styles/_colors';
+@import '../../styles/_icons';
+@import '../../styles/_utils.less';
+
+li.listing {
+    list-style: none;
+    line-height: 18px;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+    a {
+        box-sizing: border-box;
+        width: 100%;
+        display: block;
+        transition: all 0.3s ease;
+        &:focus {
+            outline: 0;
+        }
+        &:hover {
+            font-weight: bold;
+        }
+        &.offsite {
+            .icon {
+                .icon-image(@icon-arrow-diagonal-up-right-black);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                padding: 0 5px;
+            }
+        }
+        &.active {
+            font-weight: bold;
+            color: @mp-dark-mint;
+        }
+    }
+}
+.toc-link {
+    color: @mp-darkgrey-bodycopy;
+    text-decoration: none;
+}

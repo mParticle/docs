@@ -1,0 +1,57 @@
+@import '../../styles/_colors';
+@import '../../styles/_breakpoints';
+
+.right-hand-nav {
+    height: 100%;
+    &.mobile {
+        display: none;
+    }
+
+    &.sticky {
+        position: sticky;
+        top: 20px;
+        height: 20px; // Hack since we need a static height for sticky
+    }
+    .table-of-contents {
+        .header {
+            font-family: 'Graphik-Semibold', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            color: @mp-heading-black;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-children {
+            margin: 0;
+
+            &.border {
+                border-left: 1px solid @mp-header-light-2;
+            }
+
+            a.toc-link {
+                font-size: 12px;
+                cursor: pointer;
+            }
+        }
+
+        li.listing {
+            min-width: 230px;
+            margin: 12px 10px;
+        }
+    }
+}
+
+@media (max-width: @mobile_max) {
+    .right-hand-nav.mobile {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+}
