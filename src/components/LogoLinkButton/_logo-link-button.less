@@ -1,0 +1,117 @@
+@import '../../styles/_colors';
+@import '../../styles/_icons';
+@import '../../styles/_utils';
+
+.logo-link-button {
+    display: inline-flex;
+    width: 180px;
+    height: 50px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    // Workaround for non-MDX components
+    margin: 0 20px 20px 0;
+
+    background-color: @mp-grey;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+
+    letter-spacing: 0.2px;
+    text-decoration: none;
+
+    color: @mp-darkgrey-bodycopy !important;
+
+    &:hover {
+        background-color: @mp-mint-light;
+        text-decoration: none !important;
+    }
+
+    &-arrow {
+        .icon-image(@icon-arrow-right-mint-dark);
+        width: 15px;
+        height: 10px;
+        margin-left: 10px;
+    }
+
+    // Make sure each icon is represented in Storybook
+    &-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        &.icon {
+            background-size: contain !important;
+        }
+        &.appletv {
+            .icon-image(@icon-platform-appletv-black);
+            width: 40px;
+        }
+        &.android {
+            .icon-image(@icon-platform-android-black);
+        }
+        &.ios {
+            .icon-image(@icon-platform-ios-black);
+        }
+        &.javascript {
+            .icon-image(@icon-platform-javascript-black);
+            width: 40px;
+            height: 25px;
+        }
+        &.typescript {
+            .icon-image(@icon-platform-typescript-black);
+            width: 40px;
+            height: 25px;
+        }
+        &.roku {
+            .icon-image(@icon-platform-roku-black);
+            width: 25px;
+            height: 25px;
+        }
+        &.cordova {
+            .icon-image(@icon-platform-cordova-black);
+        }
+        &.xamarin {
+            .icon-image(@icon-platform-xamarin-black);
+        }
+        &.unity {
+            .icon-image(@icon-platform-unity-black);
+        }
+        &.amp {
+            .icon-image(@icon-platform-amp-black);
+        }
+        &.windows {
+            .icon-image(@icon-platform-windows-black);
+        }
+        &.xbox {
+            .icon-image(@icon-platform-xbox-black);
+            width: 40px;
+            height: 25px;
+        }
+        &.fire-tv {
+            .icon-image(@icon-platform-fire-tv-black);
+            width: 30px;
+            height: 30px;
+        }
+        &.alexa {
+            .icon-image(@icon-platform-alexa-black);
+        }
+        &.web {
+            .icon-image(@icon-platform-web);
+        }
+        &.get-started {
+            .icon-image(@icon-getting-started);
+        }
+        &.python {
+            .icon-image(@icon-dev-python-black);
+        }
+        &.ruby {
+            .icon-image(@icon-dev-ruby-black);
+        }
+        &.github {
+            .icon-image(@icon-dev-github);
+        }
+    }
+}

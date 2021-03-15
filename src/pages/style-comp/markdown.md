@@ -28,6 +28,92 @@ This is an H6
 <aside class='notice'>Just a notice</aside>
 <aside class='success'>Hey, success</aside>
 
+# LogoLink Buttons
+
+<LogoLinkButton icon='get-started' label='Get Started' path='/sdk-guides/client-side/android/getting-started/' />
+
+<LogoLinkButton icon='android' label='Source Code' path='https://github.com/mParticle/mparticle-android-sdk' />
+
+<LogoLinkButton icon='github' label='Source Code' path='https://github.com/mParticle/mparticle-android-sdk' />
+
+<LogoLinkButton
+    icon='appletv'
+    label='Apple TV'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='android'
+    label='Android'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='ios'
+    label='iOS'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='javascript'
+    label='JavaScript'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='typescript'
+    label='TypeScript'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='roku'
+    label='Roku'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='ruby'
+    label='Ruby'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='github'
+    label='Github'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='cordova'
+    label='Cordova'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='xamarin'
+    label='Xamarin'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='web'
+    label='Web'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='unity'
+    label='Unity'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='amp'
+    label='Google AMP'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='windows'
+    label='Windows'
+    path='https://docs.mparticle.com'
+/>
+<LogoLinkButton
+    icon='get-started'
+    label='Get Started'
+    path='https://docs.mparticle.com'
+/>
+
+# Tabs
+
 <tabs>
 
 <tab label='Android' group='hello-world'>

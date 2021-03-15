@@ -1,0 +1,50 @@
+@import '../../styles/_flex-mixin.less';
+@import '../../styles/_colors';
+@import '../../styles/_icons';
+@import '../../styles/_utils';
+@import '../../styles/_breakpoints';
+
+.logo-card {
+    border: 1px solid @mp-rule-light;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 8px;
+
+    height: 100px;
+    width: 160px;
+    text-decoration: none;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    &-logo {
+        padding: 0;
+        margin: 0;
+        border: none;
+        height: 45px;
+        img& {
+            max-width: 80px;
+        }
+    }
+    &-label {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+
+        text-align: center;
+        letter-spacing: 0.2px;
+
+        color: @mp-darkgrey-bodycopy;
+        display: block;
+    }
+    &:hover {
+        background-color: @mp-hover-grey;
+        .logo-card-label {
+            text-decoration: none;
+        }
+    }
+}
