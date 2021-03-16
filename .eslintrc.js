@@ -1,6 +1,8 @@
 module.exports = {
     env: {
         browser: true,
+        es6: true,
+        node: true,
     },
     globals: {
         cy: true,
@@ -8,8 +10,13 @@ module.exports = {
         beforeEach: true,
         it: true,
     },
-    extends: ['airbnb', 'eslint:recommended', 'plugin:react/recommended'],
-    plugins: ['react', 'jsx-a11y', 'import'],
+    extends: [
+        'airbnb',
+        'eslint:recommended',
+        'prettier',
+        'plugin:react/recommended',
+    ],
+    plugins: ['prettier', 'react', 'jsx-a11y', 'import'],
     rules: {
         'arrow-parens': ['error', 'always'],
         'comma-dangle': ['error', 'always-multiline'],
@@ -24,7 +31,10 @@ module.exports = {
         'react/button-has-type': ['warn'],
         'react/default-props-match-prop-types': ['warn'],
         'react/display-name': ['warn'],
-        'react/jsx-closing-bracket-location': ['error', 'after-props'],
+        'react/jsx-closing-bracket-location': [
+            1,
+            { selfClosing: 'line-aligned', nonEmpty: 'after-props' },
+        ],
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
         'react/destructuring-assignment': ['off'],
