@@ -258,7 +258,7 @@ When instrumenting your app with mParticle, you don't need to worry about the re
 
 ## API Reference
 
-Reference the complete [API reference](/developers/sdk/ios/appledocs/Classes/MPCommerce.html) for a deep dive into the commerce APIs.
+Reference the complete [API reference](/developers/sdk/ios/appledocs/Classes/MPCommerceEvent.html) for a deep dive into the commerce APIs.
 
 
 
