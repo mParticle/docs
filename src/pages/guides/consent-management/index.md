@@ -65,7 +65,7 @@ Note that the `consented` field indicates the users decision to the data process
 
 Consent state can be logged via the HTTP API simply by including a consent state object in a batch, mirroring the structure of the user profile (above):
 
-~~~
+~~~json
 "consent_state": {
   "gdpr": {
     "location_collection": {
@@ -149,7 +149,7 @@ If you set up a Forwarding Rule for an embedded kit integration, the iOS and And
 
 When the consent state of a profile changes, that change can be communicated to mParticle event integrations. If the `consent_state` object on an incoming event batch contains changes from the existing profile, mParticle adds a 'system notification' to the batch for each consent state change before the batch is sent to incoming forwarders. This notification contains the full old and new consent state objects:
 
-~~~
+~~~json
 "system_notifications": [
   {
     "data": {
@@ -190,7 +190,7 @@ There are currently two ways that consent state changes are forwarded to mPartic
     * [Webhook](/integrations/webhook/event/)
 
 2. mParticle is working with other partners to support forwarding consent state changes as a Custom Event. These events contain the new consent state information as custom attributes, a custom event type of `"Consent"`, and an event name of `"Consent Given"` or `"Consent Rejected"`. These consent events are forwarded to supporting partners as standard custom events.
-    ~~~
+    ~~~json
     {
       "data": {
         "event_name": "Consent Given",
