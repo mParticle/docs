@@ -1,7 +1,8 @@
 import path from 'path';
-import React from 'react'
-import IntegrationLayout from '../layouts/integration';
+import React from 'react';
 import { graphql } from 'gatsby';
+import IntegrationLayout from '../layouts/integration';
+import EditPageWidget from '../components/LinkWidget/EditPageWidget';
 import { routePropTypes } from '../utils/routes';
 
 class IntegrationMarkdownTemplate extends React.Component {
@@ -16,23 +17,14 @@ class IntegrationMarkdownTemplate extends React.Component {
         this.props.pageContext.slug,
         'index.md'
       );
-    const link = `https://github.com${linkPath}`;
 
     return (
       <IntegrationLayout currPageMetadata={metadata} location={this.props.location}>
         <div className="markdown">
           <h1>{post.frontmatter.title}</h1>
-          { location &&
-              <div className='edit-page-widget'>
-                  <a
-                      className='docs-header-home-link'
-                      href={link} target='_blank'
-                      rel='noopener noreferrer'>
-                      <span className='edit-icon' />Edit this Page
-                      <span className='arrow-icon' />
-                  </a>
-              </div>
-          }
+          <div className='linkWidgets'>
+            { linkPath && <EditPageWidget linkPath={linkPath} /> }
+          </div>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
       </IntegrationLayout>

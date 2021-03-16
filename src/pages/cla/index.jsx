@@ -3,6 +3,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import LinkWidget from '../../components/LinkWidget';
 import HeaderFooterLayout from '../../layouts/headerfooter';
 import { routePropTypes } from '../../utils/routes';
 
@@ -275,15 +276,12 @@ export default class DevContent extends React.Component {
             confirmation = (
                 <div>
                     <h2>Thanks for signing our CLA!</h2>
-                    <div className='cla-widget'>
-                        <a
-                            className='docs-header-home-link'
-                            href='https://github.com/mparticle/docs'>
-                            <span className='github-icon' />
-                            Go to Github
-                            <span className='arrow-right-icon' />
-                        </a>
-                    </div>
+                    <LinkWidget
+                        className='docs-header-home-link'
+                        url='https://github.com/mparticle/docs'
+                        label='Go to Github'
+                        icon='github-icon'
+                        arrowIcon='arrow-right-icon' />
                 </div>
             );
         } else if (formState === 'incomplete') {

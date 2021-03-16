@@ -1,7 +1,9 @@
 import path from 'path';
 import React from 'react';
-import LeftNavLayout from '../layouts/leftnav';
 import { graphql } from 'gatsby';
+import LeftNavLayout from '../layouts/leftnav';
+import EditPageWidget from '../components/LinkWidget/EditPageWidget';
+import SourceCodeWidget from '../components/LinkWidget/SourceCodeWidget';
 import { routePropTypes } from '../utils/routes';
 
 class MarkdownTemplate extends React.Component {
@@ -13,7 +15,6 @@ class MarkdownTemplate extends React.Component {
       this.props.pageContext.slug,
       'index.md'
     );
-    const link = `https://github.com${linkPath}`;
 
         const metadata = this.props.data.pageMetadata;
         const post = this.props.data.markdownRemark;
@@ -33,28 +34,12 @@ class MarkdownTemplate extends React.Component {
         <LeftNavLayout currPath={metadata.path} data={metadata} location={this.props.location}>
             <div className='markdown'>
                 <h1>{post.frontmatter.title}</h1>
-                { location &&
-                    <div className='edit-page-widget'>
-                        <a
-                            className='docs-header-home-link'
-                            href={link} target='_blank'
-                            rel='noopener noreferrer'>
-                            <span className='edit-icon' />Edit this Page
-                            <span className='arrow-icon' />
-                        </a>
-                    </div>
-                }
-                { sourceCode &&
-                  <div className='sdk-widget'>
-                    <a
-                        className='docs-header-home-link'
-                        href={sourceCode} target='_blank'
-                        rel='noopener noreferrer'>
-                        <span className='github-icon' />Source Code
-                        <span className='arrow-icon' />
-                    </a>
-                  </div>
-                }
+                <div className='linkWidgets'>
+                  { linkPath && <EditPageWidget linkPath={linkPath} /> }
+                  { sourceCode &&
+                      <SourceCodeWidget sourceCode={sourceCode} />
+                  }
+                </div>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
             </div>
         </LeftNavLayout>
@@ -82,4 +67,3 @@ export const pageQuery = graphql`
 MarkdownTemplate.propTypes = {
     location: routePropTypes.location.isRequired
 };
-

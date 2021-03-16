@@ -47,20 +47,26 @@ html {
 .docs-app {
     a {
         text-decoration: none;
+
+        // TODO: Kill this with nepalm and salt the ashes
         &:not(.header-links) {
             &:not(.docs-header-home-link) {
                 &:not(.toc-link) {
                     &:not(.nav-flyout-link) {
                         &:not(.result) {
-                            &:hover {
-                                text-decoration: underline !important;
-                                &:not(.footer-link) {
-                                    &:not(.dev-tile-header) {
-                                        &:not(.nav-flyout-link) {
-                                            color: @mp-mint-med !important;
-                                            h1, h2, h3, h4, h5, h6, p:not(.title), ul, ol, li, span {
-                                                color: @mp-mint-med !important;
-                                                transition: color 0.1s ease;
+                            &:not(.link-widget-link) {
+                                &:hover {
+                                    text-decoration: underline !important;
+                                    &:not(.footer-link) {
+                                        &:not(.dev-tile-header) {
+                                            &:not(.nav-flyout-link) {
+                                                &:not(.link-widget-link) {
+                                                    color: @mp-mint-med !important;
+                                                    h1, h2, h3, h4, h5, h6, p:not(.title), ul, ol, li, span {
+                                                        color: @mp-mint-med !important;
+                                                        transition: color 0.1s ease;
+                                                    }
+                                                }
                                             }
                                         }
                                     }

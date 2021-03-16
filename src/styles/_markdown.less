@@ -137,61 +137,10 @@
             }
         }
 
-        .sdk-widget, .edit-page-widget, .cla-widget {
+        .linkWidgets {
             position: absolute;
             right: 20px;
             top: 66px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 152px;
-            height: 34px;
-            &:hover {
-                transition: all 0.3s ease;
-                background-color: @mp-mint-light;
-                a {
-                    text-decoration: none;
-                    color: @mp-darkgrey-bodycopy !important;
-                }
-            }
-            a {
-                font-weight: 500;
-                color: @mp-darkgrey-bodycopy;
-                font-family: 'Roboto';
-                font-size: 14px;
-                line-height: 1.57;
-
-                .edit-icon, .arrow-icon {
-                    .icon-image(@icon-edit-black);
-                    width: 12px;
-                    height: 12px;
-                    margin-right: 5px;
-                }
-                .arrow-icon {
-                    .icon-image(@icon-arrow-mint-med);
-                    margin-left: 10px;
-                }
-            }
-        }
-
-        .sdk-widget {
-            top: 100px;
-            a {
-                .github-icon {
-                    .icon-image(@icon-dev-github);
-                    width: 20px;
-                    height: 19px;
-                    margin-right: 5px;
-                    float: left;
-                }
-                .arrow-icon {
-                    .icon-image(@icon-arrow-mint-med);
-                    width: 14px;
-                    height: 12px;
-                    margin-left: 10px;
-                }
-            }
         }
 
         .cla-labels {
