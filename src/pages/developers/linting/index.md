@@ -28,14 +28,24 @@ Download and install the latest Swift Linter `pkg` file from the repository's [r
 
 #### 3. Specify your Data Plan
 
-If you haven't already done so, download your data plan from the mParticle platform and save it to a file in your source repository. Reference this in the `mp.config.json`file to tell the linter where to find the data plan file:
+Download your data plan from the mParticle platform and save it to a file in your source repository.
 
-> Note: the example below assumes you saved the downloaded file as `plan.json` in the root of your repository. If you used a different path or filename, adjust the `dataPlanVersion` field accordingly.
+- Create a file `mp.config.json` in your repository root to tell the linter where to find the data plan file.
+- The example below assumes you saved the downloaded file as `plan.json` in the root of your repository. If you used a different path or filename, adjust the `dataPlanVersion` field accordingly.
+- We also strongly recommend that you include the `linting` section below (customizing the values of the `included` and `excluded` keys as appropriate for your project), in order to limit the number of files that get processed by the linter to those that contain your mParticle implementation, otherwise it can hang due to trying to parse a large number of swift source files.
 
 ```javascript
 {
-    "planningConfig": {
+    "planning": {
         "dataPlanVersionFile": "./plan.json"
+    },
+    "linting": {
+        "included": [
+            "MyViewController"
+        ],
+        "excluded": [
+            "ContentView.swift"
+        ]
     }
 }
 ```
