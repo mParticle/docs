@@ -281,7 +281,7 @@ Impression-Based JSON Sample
 | ---|---|---|---|
 | Authentication Email Address | `string` | <unset> | Email address for API authentication |
 | API Token | `string` | <unset> | API tokens are auto-generated passwords in the Support admin interface on Zendesk platform |
-| Subdomain | `string` | <unset> | The Subdomain can be identified from the Zendesk account’s URL.  For example: if your URL is <https://your-zendesk-subdomain.zendesk.com>, then the SubDomain value is `your-zendesk-subdomain` | 
+| Subdomain | `string` | <unset> | The subdomain can be identified from the Zendesk account’s URL.  For example: if your URL is <https://your-zendesk-subdomain.zendesk.com>, then the subdomain value is `your-zendesk-subdomain` | 
 
 ## Connection Settings
 
