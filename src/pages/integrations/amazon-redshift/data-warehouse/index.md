@@ -3,7 +3,7 @@ title: Data Warehouse
 ---
 
 <aside>
-  Please note that as of 1/29/2020 we expanded the range of IP Addresses used to forward customer data for redshift. The expanded IP range is availabe <a href="https://2g26abvcj4.execute-api.us-east-1.amazonaws.com/prod/redshift-ips">here</a>. Please ensure that your whitelist is up-to-date. Alternatively, to avoid having to make manual updates, we provide an <a href="#redshift-cluster-security-setup">AWS Lambda Function</a> which can be used to automatically sync your whitelist with the IP addresses used by mParticle.
+Please note that as of 1/29/2020 we expanded the range of IP addresses used to forward customer data for Redshift. The expanded IP range is available <a href="https://api.mparticle.com/ip-ranges">here</a>. Please ensure that your whitelist is up-to-date. Alternatively, to avoid having to make manual updates, we provide an example <a href="#redshift-cluster-security-setup">AWS Lambda function</a> which can be used to automatically sync your whitelist with the IP addresses used by mParticle.
 </aside>
 
 mParticle's Data Warehouse integration with Amazon Redshift forwards all your incoming data to a Redshift cluster, allowing you to query the raw data directly. 
@@ -339,4 +339,3 @@ mParticle provides [Looker Blocks](http://www.looker.com/product/blocks) that yo
 On all four dashboards, you can filter by date range and app platform. Note that in order for the user retention chart to be meaningful, please make sure the event date filter and install date filter have the same date range.
 
 Following the Looker data models and design patterns in the prebuilt Looker Blocks, you can build any Looker report you want that better suits your analytics needs. 
-
