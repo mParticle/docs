@@ -141,7 +141,7 @@ If your Airship configuration is for Web only, enter an App Key, and enable the 
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
-| App Key | `string` |  | <unset> | Airship generated string identifying the app setup. Used in the application bundle. |
+| App Key | `string` | <unset> | Airship generated string identifying the app setup. Used in the application bundle. |
 | App Secret | `string` | <unset> | Airship generated string identifying the app setup secret. Used in the application bundle, and only used for Mobile configurations. |
 | Domain | `enum` | US | The Airship site your credentials belong to, either 'US' or 'EU'. |
 | App Key is for Web | `boolean` | false | If enabled, this configuration will only be used for Web configurations. |
