@@ -901,7 +901,7 @@ product | string  | optional| Product
 device | string  | optional| Device Name
 android_uuid | string | optional| legacy Android ID
 device_manufacturer | string | optional| Device Manufacturer
-platform | string / enum | optional| "iOS" or "tvOS" or "Android"
+platform | string / enum | optional| "iOS",  "Android", "web", "tvOS", "roku", "out_of_band", "alexa", "smart_tv", "fire_tv", "xbox"
 os_version | string / Version | optional| Major.Minor.Revision of OS, e.g. 7.1.1
 device_model | string | optional| Name of Device Model, e.g. iPhone6,1
 screen_height| Int32 | optional| Screen height in pixels

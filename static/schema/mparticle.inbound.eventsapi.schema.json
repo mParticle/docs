@@ -865,11 +865,12 @@
                   "iOS",
                   "Android",
                   "web",
-                  "desktop",
                   "tvOS",
                   "roku",
                   "out_of_band",
+                  "alexa",
                   "smart_tv",
+                  "fire_tv",
                   "xbox"
                ]
             },
