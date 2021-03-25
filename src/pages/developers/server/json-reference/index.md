@@ -117,8 +117,7 @@ session_uuid | string | suggested | An optional universally unique identifier fo
 timestamp_unixtime_ms | Int64 | suggested | Timestamp of event.  The current server time will be used if not specified.
 location | location JSON | optional | The location the event occurred in.   
 device_current_state | device_current_state JSON | optional | An object with a number of properties describing the state the device was in at the time the event was logged.  See below for further details.
-custom_attributes | JSON key value pairs | optional | A dictionary of custom attributes
-
+custom_attributes | JSON key value pairs | optional | A dictionary of custom attributes.  If the Event API is called using Custom or Partner feed credentials, the `mParticle Source Feed` custom attribute is included which contains the name of the input feed configuration.  This attribute cannot be [filtered.](/guides/platform-guide/data-filter/)
 
 The details on location and device_current_state will be detailed after additional information on the event_type and the corresponding data nodes.
 
