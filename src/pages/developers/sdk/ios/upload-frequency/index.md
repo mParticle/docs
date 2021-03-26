@@ -28,12 +28,35 @@ If none of the above conditions occur, the SDK allows a maximum interval to elap
 
 :::code-selector-block
 ```objectivec
-//set upload interval in seconds
-[[MParticle sharedInstance] setUploadInterval:30];
-```
+// Assumes the SDK has been included as a dynamic library
+// Requires "Enable Modules (C and Objective-C)" in pbxproj
+@import mParticle_Apple_SDK; 
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //initialize mParticle
+    MParticleOptions *options = [MParticleOptions optionsWithKey:@"REPLACE WITH APP KEY"
+                                                          secret:@"REPLACE WITH APP SECRET"];
+    options.uploadInterval = 30;
+    [[MParticle sharedInstance] startWithOptions:options];
+
+    return YES;
+}
+```
 ```swift
-MParticle.sharedInstance().uploadInterval = 30
+import mParticle_Apple_SDK
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+    //initialize mParticle
+    let options = MParticleOptions(key: "REPLACE WITH APP KEY",
+                                         secret: "REPLACE WITH APP SECRET")
+                                         
+    options.uploadInterval = 30
+    MParticle.sharedInstance().start(with: options)
+        
+    return true
+}
 ```
 :::
 
