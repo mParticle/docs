@@ -8,8 +8,7 @@ mParticle's OneTrust integration operates in a unique way. While it is enabled a
 
 mParticle can, in turn, use this consent information to enable and disable other integrations, power consent forwarding rules, etc. Read our documentation on [Consent Management](/guides/consent-management/) to understand more about consent purposes.
 
-
-## Mobile
+<!-- ## Mobile
 
 mParticle's OneTrust integration requires that you add the OneTrust Kit to your iOS or Android app. When initialized, the OneTrust kit will map OneTrust's mobile consent group UUIDs to your mParticle consent purposes, according to the mapping you have defined in the [Connection Settings](#connection-settings).
 
@@ -21,20 +20,9 @@ The basic requirements to enable the OneTrust integration are:
 
 <aside>Using the OneTrust kit requires access to private repositories maintained by OneTrust. Request access from your OneTrust consultant before beginning the implementation.</aside>
 
-See the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/developers/sdk/android/kits/) guides to read more about kits.
+See the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/developers/sdk/android/kits/) guides to read more about kits. -->
 
-### How it Works
-
-The OneTrust integration works by syncing consent state between the current mParticle user and OneTrust SDK. You must separately initialize the OneTrust SDK and the mParticle SDK, and the integration simply works as a bridge between the two.
-
-The flow is as follows:
-1. Both SDKs are separately initialized.
-2. The mParticle SDK will detect and initialize the OneTrust kit if present.
-3. Whenever (a) consent state of the current user is mutated, or (b) the current user changes based on an mParticle IDSync API result, the mParticle kit will send the latest OneTrust-gathered consent state to the mParticle SDK.
-
-
-
-### iOS
+<!-- ### iOS
 
 Add the OneTrust podspec repositories as sources to your application's Podfile, then add the necessary pods:
 
@@ -115,13 +103,18 @@ OTSDK.initWithKeys(OT_PREFERENCE_CENTER_ID,
                        }
                    }
             );
-~~~
+~~~ -->
 
-## Web
+## Enabling the Integration
 
-### Enabling the Integration
+The OneTrust integration works by syncing consent state between the current mParticle user and OneTrust SDK. You must separately initialize the OneTrust SDK and the mParticle SDK, and the integration simply works as a bridge between the two.
 
-Before enabling the integration, include your customized script for OneTrust in the `<head>` of your page before the mParticle snippet.  You can get this from your OneTrust dashboard and it looks like:s
+The flow is as follows:
+1. Both SDKs are separately initialized.
+2. The mParticle SDK will detect and initialize the OneTrust kit if present.
+3. Whenever (a) consent state of the current user is mutated, or (b) the current user changes based on an mParticle IDSync API result, the mParticle kit will send the latest OneTrust-gathered consent state to the mParticle SDK.
+
+Before enabling the integration, include your customized script for OneTrust in the `<head>` of your page before the mParticle snippet.  You can get this from your OneTrust dashboard under `Preference & Consent Management > Cookie Compliance > Integrations > Scripts`. 
 
 ~~~javascript
 // OneTrust script from your admin dashboard
@@ -143,23 +136,21 @@ function OptanonWrapper() { }
 </script>
 ~~~
 
-To enable the OneTrust integration, just add it from the directory, and connect it to your Web input, as with any event integration. In the [Connection Settings](/integrations/onetrust/event#connection-settings), you need to map your OneTrust Cookie Groups to your mParticle consent purposes.
+To enable the OneTrust integration, configure OneTrust from mParticle's integrations directory and connect it to your Web input. In the [Connection Settings](/integrations/onetrust/event#connection-settings), you need to map your OneTrust Cookie Group IDs to your mParticle consent purposes.
 
-The ID of each of your Cookie Groups can be found in the OneTrust dashboard:
+The ID of each of your Cookie Groups can be found in the OneTrust dashboard under `Preference & Consent Management > Cookie Compliance > Categorizations > Categories`. 
 
-![](/images/onetrust-dashboard.png)
-
-In this example, Performance Cookies (group 2) are mapped to the "Performance" purpose, and Targeting Cookies (group 4) are mapped to the "Marketing" purpose:
+In this example, OneTrust Cookie Group "group 2" (Performance Cookies) are mapped to the "Performance" purpose, and OneTrust Cookie Group "group 4" (Targeting Cookies) are mapped to the "Marketing" purpose:
 
 ![](/images/onetrust-connection-settings.png)
 
-### How it Works
+## How it Works
 
-Whenever a user browses your site, OneTrust sets a `OnetrustActiveGroups` variable on the `window`. This variable is a comma-separated list of Cookie Groups the current user is part of. The value might look like `"2, 4"`.
+Whenever a user browses your site, OneTrust sets a `OnetrustActiveGroups` variable on the `window`. This variable is a comma-separated list of Cookie Groups the current user is part of. The value might look like `"group 2, group 4"`.
 
 When the OneTrust integration is enabled, the mParticle SDK checks the value of `OnetrustActiveGroups` and sets consent state for each mapped purpose. If the mapped Cookie Group ID is listed in `OnetrustActiveGroups`, mParticle will set the value of `consented` to `true` for the corresponding purpose. If the ID is not listed, mParticle sets `consented` to `false`. 
 
-For example, if your Cookie Groups are mapped as above, and the value of `OnetrustActiveGroups` is `"2"`, mParticle will set `consented` to `true` for the "Performance" purpose and `false` for the "Marketing" purpose.
+For example, if your Cookie Groups are mapped as above, and the value of `OnetrustActiveGroups` is `"group 2"`, mParticle will set `consented` to `true` for the "Performance" purpose and `false` for the "Marketing" purpose.
 
 The mParticle SDK will automatically update consent state if the user changes, or if the value of `OnetrustActiveGroups` changes.
 
@@ -167,5 +158,4 @@ The mParticle SDK will automatically update consent state if the user changes, o
 
 | Setting Name| Data Type | Platform | Description |
 |-------------|----------|----------------|-----------------|
-| Consent Groups | `string` |  `Web` |Mapping of your mParticle consent purposes to OneTrust consent groups. |
-| Consent Mapping | `string` |  `iOS`, `Android` | Mapping of your mParticle consent purposes to OneTrust consent mobile group UUIDs. |
+| Consent Mapping | `string` |  `Web` |Mapping of your mParticle consent purposes to OneTrust consent groups. |
