@@ -147,6 +147,37 @@ When setting IAM permissions, specify the following resources:
 
 Learn more about how to set IAM permissions when hosting a Rule [here](/guides/platform-guide/rules/#iam-user).
 
+### SFTP Servers
+
+When sending data to mParticle for file based integrations (Salesforce, Custom CSV, etc), the following hostname and IP should be used:
+
+<table style="width:120%; padding:10px;">
+  <tr>
+    <td rowspan="2">Australia</td>
+    <td><code>Hostname: sftp.au1.mparticle.com </code></td>
+  </tr>
+  <tr>
+    <td><code>IP: 13.55.216.94</code></td>
+  </tr>
+
+ <tr>
+    <td rowspan="2">EU</td>
+    <td><code>Hostname:  sftp.eu1.mparticle.com</code></td>
+  </tr>
+  <tr>
+    <td><code>IP: 18.157.92.224</code></td>
+  </tr>
+
+  <tr>
+    <td rowspan="2">US</td>
+    <td><code>Hostname: sftp.mparticle.com</code></td>
+  </tr>
+  <tr>
+    <td><code>IP: 34.199.76.170</code></td>
+  </tr>
+</table>
+
+
 ## Sending data out of mParticle
 
 The following features require data center dependent changes for data flowing out of mParticle.
