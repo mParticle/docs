@@ -9,7 +9,7 @@ At mParticle we welcome this change as we believe privacy is a fundamental human
 
 This guide walks through our latest recommendations for App Store compliance. This is not legal advice, and it is up to you to ensure you properly adhere to Apple’s guidelines and intentions.
 
-## Additional Reading
+## Additional reading
 
 Under these new privacy guidelines each app must ensure that all user data processing obeys user consent elections and ultimately protects them from breaching App Store Review guidelines.
 
@@ -40,7 +40,7 @@ The following is general guidance for all integrations:
 - Ensure you are populating the new App Tracking Transparency authorization status field detailed below. This field is required for several integrations such as Facebook and AppsFlyer
 - If you are using IDFA as the primary identifier for a given integration, you should a expect significant change to unique user counts and user history, as the IDFA becomes unavailable.
 
-## Implementation Guide
+## Implementation guide
 
 mParticle has introduced two new properties to the Events API, surfaced via the Apple SDK and server-to-server API, that can be associated with all of your iOS devices in the system. Today, these properties can be used by you in Rules to limit data collection and restrict data flow, and they are also forwarded or mapped to supported partner integrations.
 
@@ -66,7 +66,7 @@ The mParticle Apple SDK does not automatically collect the IDFA and it does not 
 
 [Please see Apple's App Tracking transparency guide](https://developer.apple.com/documentation/apptrackingtransparency) for how to request user authorization for tracking.
 
-#### Provide ATT Status
+#### Provide ATT status
 
 The mParticle SDK allows you to easily provide the user's current ATT status and timestamp if known. The SDK's `MPATTAuthorizationStatus` enumeration maps directly to Apple's [`ATTrackingManagerAuthorizationStatus` enumeration](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanagerauthorizationstatus).
 
@@ -171,3 +171,70 @@ The ATT properties should be provided whenever available, when sending data for 
 
 Please [see the HTTP reference](/developers/server/json-reference/) for more information.
 
+## App Store privacy questionnaire
+
+As part of your app's submission process, you need to complete a privacy [questionnaire](https://developer.apple.com/app-store/app-privacy-details/#linked-data) detailing the data you collect and how it is used. Your answers must cover all collection and usage of data, not just data collected through mParticle, and you are responsible for the accuracy and completeness of your responses.
+
+We provide the following information as a guide to mParticle's capabilities that are relevant to the questionnaire.
+
+### General Information
+
+As a part of your infrastructure, mParticle itself does not use your data for tracking.
+
+- Data does not leave the mParticle platform unless explicitly configured to do so by you
+- mParticle does not combine user data from your app with user data from other developers' apps
+- mParticle does not use your data for targeted advertisments
+
+Your answers to the questionnaire, including how data is used, and whether it is co-mingled with third-party data, will depend on what customer data you choose to capture with mParticle, which mParticle integrations you use, and which subset of your data you send to each integration.
+
+mParticle provides a suite of privacy-by-design tools to help you understand and manage the flow of data including:
+
+-  Extensive filtering options that allow you to send each datapoint only where it is needed.
+-  The ability to filter user data based on customer consent.
+-  A data catalog that records where each data point has been sent.
+
+### Types of data collection 
+
+Since mParticle allows you to collect custom event data and user attributes, it is possible to collect any of the data types outlined by the Apple Store Privacy Questionnaire. To answer the questions it will be necessary to conduct a thorough audit of your mParticle implementation. However, there are a few data types that the mParticle iOS SDK either collects automatically, or can be configured to collect automatically:
+
+| Data Type             | Collected Automatically by mParticle SDK                                                                                                                                                                          | May be collected through logging custom events, commerce events, user attributes or identities with mParticle |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| Contact Info          | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| Health and Fitness      | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| Financial Info | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| Location              | (Off by default) mParticle's iOS SDK can be configured to automatically collect location info.   | Yes - for custom location updates look for `updateLocation` in your code.                                     |
+| Sensitive Information | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| Contacts              | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| User Content          | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| Browsing History      | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| Search History        | No                                                                                                                                                                                                                | Yes                                                                                                           |
+| Identifiers           | Yes - IDFV (Vendor ID) is automatically collected by the mParticle SDK. IDFA is no longer automatically collected. See our docs for more on collecting device IDs in iOS 14.                                      | Yes - Can be set as user attributes or set via IDSync                                                         |
+| Purchases             | No                                                                                                                                                                                                                | Yes - Usually collected as commerce events.                                                                   |
+| Usage Data            | Yes - The mParticle SDK automatically tracks Application State Transitions can be configured to automatically track sessions. For more info, see here.                                                            | Yes                                                                                                           |
+| Diagnostics           | Yes - mParticle automatically collects some diagnostic information, such as battery life. The SDK can also be configured for automatic exception tracking. Look for `beginUncaughtExceptionLogging` in your code. | Yes                                                                                                           |
+| Other Data            | Yes - mParticle automatically collects metadata about the device, including screen size, battery percentage, orientation.                               | Yes                                                                                                           |
+
+### Data use
+
+For each of the above data types, the App Store Privacy Questionnaire asks about six categories of data use:
+
+1.  Third-Party advertising
+2.  Developer's Advertising or Marketing
+3.  Analytics
+4.  Product Personalization
+5.  App Functionality
+6.  Other
+
+mParticle can enable any of the above uses through our suite of event and audience integrations, data warehouse integrations, Profile API, etc. To answer this section, you will need to conduct a thorough audit of where you send your data outside of mParticle and how it is used.
+
+### Data linked to the user
+
+Data in mParticle is linked to a unique identifier (mParticle ID) which can also be linked to a customer ID, email address and device IDs. Additionally, you can choose to forward these identifiers to third-party partners via our event and audience integrations. See the [integrations catalog](/integrations) for information on which identifiers are forwarded to each integration.
+
+### Tracking
+
+In the wording of the Apple Store Privacy Questionnaire:
+
+> "Tracking" refers to linking data collected from your app about a particular end-user or device, such as a user ID, device ID, or profile, with Third-Party Data for targeted advertising or advertising measurement purposes, or sharing data collected from your app about a particular end-user or device with a data broker.
+
+mParticle itself does not use any data for "Tracking". By default, data is not forwarded to any external services, and is not linked with any third-party data. However, several third-party integrations can use data collected by mParticle for tracking. To answer this question, you will need to conduct a thorough audit of your mParticle implementation and the integrations you use. The [Data Master](/guides/data-master/) catalog is a valuable resource for understanding all data you capture through mParticle, where it comes from, and where it is forwarded.
