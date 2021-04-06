@@ -4,6 +4,8 @@ title: Event
 
 Amazon Kinesis is a platform for streaming data on AWS, offering powerful services to make it easy to load and analyze streaming data, and also providing the ability for you to build custom streaming data applications for specialized needs.
 
+The Amazon Kinesis Firehose Event Integration supports data from all platforms.
+
 ## Prerequisites 
 
 mParticle's Event Integration with Amazon Kinesis sends data to a Kinesis Delivery Stream. To set up a Delivery Stream, follow Amazon's instructions [here](http://docs.aws.amazon.com/firehose/latest/dev/before-you-begin.html). To set up the integration, you will need to:
@@ -41,95 +43,22 @@ mParticle's Event Integration with Amazon Kinesis sends data to a Kinesis Delive
      ~~~
 4. [Assign Customer Policy to User](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html#attach-managed-policy-console)
 
-## User Identity Mapping
-
-When forwarding audience data to Amazon Kinesis, mParticle will send the following identifiers:
-
-### Device IDs
-
-* Android ID
-* Google Advertising ID (GAID)
-* Apple Vendor ID (IDFV)
-* Apple Advertising ID (IDFA)
-* Roku Advertising ID
-
-### User IDs
-
-* Customer ID
-* Email Address
-* Facebook ID
-* Google ID
-* Microsoft ID
-* Twitter ID
-* Yahoo ID
-* Other
-* Other 2
-* Other 3
-* Other 4
-* Other 5
-* Other 6
-* Other 7
-* Other 8
-* Other 9
-* Other 10
-
 ## Data Format
 
-mParticle will forward messages to Amazon Kinesis whenever a user is added or removed from the Audience. Messages are in JSON format and include the following properties:
-
-* `DeliveryStreamName` - the name of your Kinesis Delivery Stream
-* `MembershipChangedTimestamp` - Unix timestamp for the message
-* `AudienceName` - Name of the audience. This is derived from the name of the Audience in the mParticle UI. External Name is used as first preference, Internal Name is used if External Name is not provided.
-* `AudienceId` - Unique identifier for the audience. This value is immutable, even if the audience name is changed.
-* `IsMember` - `true` if user is being added to audience, `false` if user is being removed.
-* `UserIdentities` - Object containing all available identities for the user. See [above](#user-identity-mapping) for a complete list of possible identities.
-
-The `Data` node of each message will be 64-bit encoded, but the examples below are left unencoded for clarity.
-
-### Member Added
+mParticle will forward event data to Amazon Kinesis Firehose as base64 encoded JSON. An example is below (for readability the example has been left  unencoded). You can control which events and attributes are forwarded in the [Connection Settings](#connection-settings). The contents of the 'Data' key match the [JSON](/developers/server/json-reference) format.
 
 ~~~json
 {
-    "DeliveryStreamName": "mPTravelAudiences",
+    "DeliveryStreamName": "my-stream",
     "Record": {
         "Data": {
-            "MembershipChangedTimestamp" : "1234565788",
-            "AudienceId" : 123123,
-            "AudienceName" : "LowEngagement",
-            "IsMember": true,
-             "UserIdentities" : {
-                "CustomerId": "p.fogg138" ,
-                "Email": "phileas@travelers.com",
-                "Other": "balloondude83",
-                "FacebookId": "phileas83",
-                "GoogleAdvertisingIdentifier" : "phileas83"
-             }
+           
+           "events":[{"data":{"event_name":"Level_Achieved"},"event_type":"custom_event"}],"unique_id":"abc123123","message_id":"521e0ae1-164d-  4495-8e41-95be88fa7e42","message_type":"events","schema_version":1,"device_info":{"ios_advertising_id":"68b7032b-1c2d-4533-92b8-3fb143ebeadf","android_advertising_id":"f9f1b997-f228-415f-99e1-ed7c223e238d","limit_ad_tracking":false,"is_dst":false},"application_info":{"application_version":"1.3","package":"test-app-id-550854415"}}
         }
     }
 }
 ~~~
 
-### Member Removed
-
-~~~json
-{
-    "DeliveryStreamName": "mPTravelAudiences",
-    "Record": {
-        "Data": {
-            "MembershipChangedTimestamp" : "1234565788",            
-            "AudienceId" : 123123,
-            "AudienceName" : "LowEngagement",
-            "IsMember": false,
-             "UserIdentities" : {
-                "CustomerId": "p.fogg138" ,
-                "Email": "phileas@travelers.com",
-                "Other": "balloondude83",
-                "FacebookId": "phileas83"
-             }
-        }
-    }
-}
-~~~
 
 ## Rate Limits
 
@@ -147,5 +76,23 @@ Setting Name | Data Type | Default Value | Description
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---
-| Stream Name | `string` | <unset> | This is your Kinesis Firehose Delivery Stream name. |
-| Kinesis Service Region | `string` | us-east-1 | Endpoint for the Kinesis Firehose instance. Defaults to US East (N. Virginia) also known as us-east-1 |
+| Delivery Stream Name | `string` | <unset> | This is your Kinesis Firehose Delivery Stream name. |
+| AWS Region Endpoint | `string` | us-east-1 | Endpoint for the Kinesis Firehose instance. Defaults to US East (N. Virginia) also known as us-east-1 |
+  | Unique ID | `string` | <unset> | An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
+| Send Lifecycle Events | `bool` | True | If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
+| Send Screen Views | `bool` | True | If enabled, screen view events will be forwarded. |
+| Send Crash Events | `bool` | True | If enabled, app crashes will be forwarded. |
+| Send Network Performance Events | `bool` | True | If enabled, network performance events will be forwarded. |
+| Send Custom Events | `bool` | True | If enabled, custom app events will be forwarded. |
+| Send Push Registrations and Receipts | `bool` | True | If enabled, push registration and receipt notifications will be forwarded. |
+| Send as Batch | `bool` | True | If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
+| Wait for Complete Batch | `bool` | False | If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
+| Include Location Information | `bool` | True | If enabled, location data will be forwarded with event data whenever possible. |
+| Send Profile Change Events | `bool` | True | If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
+| Send Commerce Events | `bool` | True | If enabled, commerce events will be forwarded. |
+| Include Metadata | `bool` | True | If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
+| Include User Attribute Change Events | `bool` | False | If enabled, User Attribute Change Events will be forwarded. |
+| Include User Identity Change Events | `bool` | False | If enabled, User Identity Change Events will be forwarded. |
+| Send Batches without Events | `bool` | True | A way to send eventless batches |
+| Include MP DeviceId | `bool` | False | If enabled, MP DeviceId will be forwarded with event batches. |
+| Metadata Field Exclusion | `CustomField` | | A way to exclude specific fields of metadata properties in the output. |
