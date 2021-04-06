@@ -58,6 +58,10 @@ One of the most important decisions to make when setting up your Google Analytic
 * Client ID (`cid`) must be a UUIDv4.
 * User ID (`uid`) can be any string but must not contain personally identifiable information.
 
+### AMP Connections
+
+When configuring a configuration that will be used with AMP connections, please select AMP for the `Client ID Type` to ensure the best results. This will use the AMP ID when available and otherwise use the `mpdevice_id` field.
+
 ### Client ID
 
 There are two basic options for generating Client ID. The default is to have mParticle generate a `cid` for you. If you select this option, mParticle will generate a UUIDv4 for each device based on device and application metadata. This option is recommended if your app is not already being tracked in Google Analytics.
@@ -388,7 +392,7 @@ $gclid| gclid | Google AdWords ID |
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
 | Tracking ID | `string` | <unset> | The tracking ID / web property ID. The format is UA-XXXX-Y. |
-| Client ID Type | `enum` | `Default` | The Client ID type to forward to Google. The Default option opts out of any passed in Client ID. |
+| Client ID Type | `enum` | `Default` | The Client ID type to forward to Google. The Default option opts out of any passed in Client ID. Note: If using this configuration with AMP connections, select 'AMP' instead of 'Default'. |
 | Use Classic Analytics | `bool` | False | Use this setting if you have not yet upgraded your account to Universal Analytics.  |
 
 
