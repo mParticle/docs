@@ -122,7 +122,7 @@ exports.onCreateWebpackConfig = ({
     ];
       const pages = []
       const defaultMarkdown = path.resolve("src/templates/markdownpage.js");
-      const integration = path.resolve("src/templates/integrationmarkdownpage.js");
+      const integrationsTemplate = path.resolve('src/templates/IntegrationsTemplate.jsx');
       // Query for all markdown "nodes" and for the slug we previously created.
         await graphql(
           `
@@ -261,7 +261,7 @@ exports.onCreateWebpackConfig = ({
             else {
               // All values passed in the 'context' object can be exposed in a GraphQL page query
               // https://www.gatsbyjs.org/docs/page-query/
-              const targetComponent = path.indexOf('/integrations') === 0 ? integration : defaultMarkdown;
+              const targetComponent = path.indexOf('/integrations') === 0 ? integrationsTemplate : defaultMarkdown;
               createPage({
                 path: path, // required
                 component: targetComponent,
