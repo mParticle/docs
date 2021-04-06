@@ -53,9 +53,19 @@ To find the ID of an audience in the mParticle Dashboard, look for your audience
 | `microsoftid` | `string` | Microsoft ID |
 | `mpid` | `int` | mParticle ID |
 | `otheruserid` | `string` | Other User ID |
+| `otheruserid2` | `string` | Other User ID 2 |
+| `otheruserid3` | `string` | Other User ID 3 |
+| `otheruserid4` | `string` | Other User ID 4 |
+| `otheruserid5` | `string` | Other User ID 5 |
+| `otheruserid6` | `string` | Other User ID 6 |
+| `otheruserid7` | `string` | Other User ID 7 |
+| `otheruserid8` | `string` | Other User ID 8 |
+| `otheruserid9` | `string` | Other User ID 9 |
+| `otheruserid10` | `string` | Other User ID 10 |
 | `pushtoken` | `string` | Push Token |
 | `rokuaid` | `string` | Roku Advertising ID |
 | `rokupublisherid` | `string` | Roku Publisher ID |
+| `fireadvertisingid` | `string` | Fire Advertising ID |
 | `timestamp` | `string` | Unix timestamp for the update |
 | `twitterid` | `string` | Twitter ID |
 | `yahooid` | `string` | Yahoo ID |

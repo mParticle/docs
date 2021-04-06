@@ -12,6 +12,8 @@ Contact your LiveRamp rep and request that uploads from mParticle be enabled. Le
 
 The LiveRamp integration only supports SFTP for uploading data to LiveRamp. 
 
+The LiveRamp integration currently only supports forwarding real-time audiences and cannot be used for standard audiences.
+
 At this time the integration only supports LiveRamp in the United States, not the United Kingdom, Canada or France.
 
 ## Activate the Integration
