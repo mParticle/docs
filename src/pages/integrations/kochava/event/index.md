@@ -112,6 +112,19 @@ MParticle.getInstance().logEvent("My Spatial Event", MParticle.EventType.Other, 
 ~~~
 :::
 
+### iOS 14 Update for ApplicationTrackingTransparency
+
+For iOS 14, mParticle will send the following ATT fields based on the `att_authorization_status` to Kochava within the `att` and `att-detail` fields. Check the [iOS14 Implementation guide](/developers/sdk/ios/ios14#implementation-guide) for more information. 
+
+If `att_authorization_status` is available:
+
+| `att_authorization_status` | `att` | `att-detail` |
+| --- | --- | --- |
+| `authorized` | true | `authorized` |
+| `denied` | false | `denied` |
+| `not_determined` | false | `not_determined` |
+| `restricted` | false | `restricted` |
+
 ## User Identity Mapping
 
 With each batch of events forwarded to Kochava, mParticle will also forward available identities to Kochava's [Identity Link API](https://support.kochava.com/server-to-server-integration/identitylink-setup) which is intended to associate Device IDs with other available identifiers.
