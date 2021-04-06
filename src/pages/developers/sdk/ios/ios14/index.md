@@ -32,13 +32,28 @@ You can now associate any iOS device data with an ATT status. mParticle has intr
 
 ### Integrations
 
-mParticle is continuously updating all integrations in support of iOS 14. We expect there to be continual updates across integrations as the App Tracking Transparency framework is enforced. [Please see the documentation](/integrations) for your integrations to determine if there's anything you need to do to ensure compatibility once iOS 14.5 is released.
+All integrations that perform cross-app tracking or accept the IDFA will be affected by App Tracking Transparency. We expect there to be continual updates across integrations as the ATT framework is enforced. [Please see the documentation](/integrations) for your integrations to determine if there's anything you need to do to ensure compatibility once iOS 14.5 is released.
 
 The following is general guidance for all integrations:
 
 - For kit integrations, ensure that you are on the latest version of the kit and the respective partner SDK
 - Ensure you are populating the new App Tracking Transparency authorization status field detailed below. This field is required for several integrations such as Facebook and AppsFlyer
 - If you are using IDFA as the primary identifier for a given integration, you should a expect significant change to unique user counts and user history, as the IDFA becomes unavailable.
+
+**Integrations with Updates for iOS 14**
+
+The following integrations have introduced new server-side APIs such as to accept the new App Tracking Transparency status, or have been updated to move away from IDFA usage.
+
+- [Facebook](/integrations/facebook/event/#ios14-update-for-device-data-mapping)
+- [AppsFlyer](/integrations/appsflyer/event/)
+- [Google Ads](/integrations/google-ads/event/)
+- [Adjust](/integrations/adjust/event/)
+- [Kochava](/integrations/kochava/event/)
+- [Braze](/integrations/braze/event/)
+
+**Request an Integration Update**
+
+mParticle is updating integrations for iOS 14 in priority order based on usage and identified potential impact. Please reach out via your Account Manager if there are any integrations that you'd like to request a specific update for or if there is an integration that you'd like more information about.
 
 ## Implementation guide
 
