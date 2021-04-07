@@ -51,7 +51,7 @@ If you run into issues with either of the above steps, please repeat the steps d
 
 ### iOS14 Update for Device Data Mapping
 
-The Facebook `advertiser_tracking_enabled` field is set based on the `att_authorization_status` and `limit_ad_tracking` fields as defined below.  Check the [iOS14 Implementation guide](/developers/sdk/ios/ios14#implementation-guide) for more information. 
+The Facebook `advertiser_tracking_enabled` field is set based on the `att_authorization_status` and `limit_ad_tracking` fields as defined below.  Check the [iOS14 Implementation guide](/developers/sdk/ios/ios14#implementation-guide) for more information.
 
 If `att_authorization_status` is available:
 
@@ -254,3 +254,14 @@ There are several fields only accepted by server-to-server Web connections. Thes
 | Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side |
 | External User Identity Type | `string` | Customer ID | All | Hash of the User Identity to send to Facebook as External ID |
 | Send CCPA Limited Data Use | `enum` | Never | All | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with country and state user attributes defined or for Pixel connections with client IP defined. |
+
+## Ensuring Redundant Event Deduplication
+
+To ensure redundant events sent through Facebook Pixel and the Facebook Conversions API are correctly deduplicated when they reach Facebook, two conditions must be met:
+
+* Events must have the same `event_name`.
+* Events must have the same `event_id`. For this, the [field `source_message_id`](https://docs.mparticle.com/developers/server/json-reference/#common-event-data-node-properties) may be used to manually set the Event ID sent to Facebook.
+
+If you use the mParticle web SDK and server-side web integration, then this will be automatically handled.
+
+Visit the [Facebook Business Help Center](https://www.facebook.com/business/help/823677331451951?id=1205376682832142) and [Facebook For Developers](https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events) for more information on the subject of deduplication.
