@@ -47,7 +47,7 @@ mParticle forwards the following event types to Google Pub/Sub:
 | Project | `string` | <unset> | All| Google Pub/Sub project name |
 | Topic | `string` | <unset> | All| Google Pub/Sub topic name |
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
-| Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
+| Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in approximately 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as it is received. |
 | Send Crash Events | `bool` | True | All| If enabled, app crashes will be forwarded. |
 | Send Custom Events | `bool` | True | All| If enabled, custom app events will be forwarded. |
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
