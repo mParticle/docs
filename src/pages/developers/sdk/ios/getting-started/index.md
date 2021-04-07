@@ -339,9 +339,9 @@ MParticle.sharedInstance().upload()
 :::
 
 
-## Crash Reporter
+## Crash Reporting
 
-You can read detailed instructions for including the Crash Reporter at its repository: [mParticle-CrashReporter](https://github.com/mParticle/mParticle-CrashReporter)
+You can read detailed instructions for implementing crash reporting in the [error tracking documentation](/developers/sdk/ios/error-and-exception-tracking/) under [crash reporting](/developers/sdk/ios/error-and-exception-tracking/#crash-reporting).
 
 ## tvOS
 
