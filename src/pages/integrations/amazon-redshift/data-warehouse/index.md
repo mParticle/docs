@@ -231,7 +231,7 @@ Each table has the following common columns.
 
 ### Event and User Attribute Columns
 
-Each individual event name table also has one column per event attribute, named like: "ea_[attribute_name]", and one column per user attribute, named like "ua_[attribute_name]". 
+Each individual event name table (not including otherevents) also has one column per event attribute, named like: "ea_[attribute_name]", and one column per user attribute, named like "ua_[attribute_name]". 
 
 The benefit of these individual attribute columns is that you don't have to use slower JSON parse functions in your query to extract attribute values from either EventAttributes or UserAttributes columns. If you wish, individual User Attribute columns can be turned off by disabling the `Send user attribute columns` setting.
 
