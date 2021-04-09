@@ -142,3 +142,16 @@ mParticle can forward app events and commerce events received via our [Events AP
 2. The data you send server-side must include a device ID, so that mParticle can lookup the AppsFlyer ID for the user.
 
 <aside class="warning">The AppsFlyer Kit must be included in your app - the server integration may only be used as a complement to the Kit integration.</aside>
+
+### iOS 14 Update for ApplicationTrackingTransparency
+
+For iOS 14, mParticle will send the `att` field based on the `att_authorization_status` to AppsFlyer in their expected [format](https://support.appsflyer.com/hc/en-us/articles/207034486-Server-to-server-events-API-for-mobile-S2S-mobile-#att-3). Check the [iOS14 Implementation guide](/developers/sdk/ios/ios14#implementation-guide) for more information. 
+
+If `att_authorization_status` is available:
+
+| `att_authorization_status` | `att` |
+| --- | --- |
+| `authorized` | 3 |
+| `denied` | 2 |
+| `not_determined` | 0 |
+| `restricted` | 1 |
