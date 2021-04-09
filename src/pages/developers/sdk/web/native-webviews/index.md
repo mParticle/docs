@@ -24,13 +24,13 @@ There are two different approaches for using the web SDK in a web view:
 
 ### Hybrid
 
-If the *same* JavaScript will potentially be loaded in a web browser *and* a native app's web view, you should instrument the Web SDK as normal, but for iOS, set the `mParticle.config.isIOS` flag to `true` when your web app is loaded in a web view.
+If the *same* JavaScript will potentially be loaded in a web browser *and* a native app's web view, you should instrument the Web SDK as normal.
 
 This setup will cause the SDK to send data via the web input, when in a browser, and via the native SDK when in a web view.
 
 ### Web view only
 
-If your web app will only ever be loaded in your native apps' web views, there's no need to create a web input for your app. You can use the static snippet below to include the web SDK without an API key.
+If your web app will only ever be loaded in your native apps' web views, there's no need to create a web input for your app. You can use the static snippet below to include the web SDK without an API key. For iOS, you should set the `mParticle.config.isIOS` flag to `true` when your web app is loaded in a web view.
 
 ```javascript
 <script type="text/javascript">
