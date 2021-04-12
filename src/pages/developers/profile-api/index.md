@@ -38,7 +38,7 @@ The JSON body of the request must contain:
 
 **Curl Syntax**
 
-~~~
+~~~curl
 curl --request POST \
   --url https://sso.auth.mparticle.com/oauth/token \
   --header 'content-type: application/json' \
@@ -47,7 +47,7 @@ curl --request POST \
 
 **Sample Raw HTTP Request**
 
-~~~
+~~~http
 POST /oauth/token HTTP/1.1
 Host: sso.auth.mparticle.com
 Content-Type: application/json
@@ -64,7 +64,7 @@ Content-Type: application/json
 
 A successful POST request to the token endpoint will result in a JSON response as follows:
 
-~~~
+~~~json
 {
   "access_token": "YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-",
   "expires_in" : 28800,
@@ -94,7 +94,7 @@ Name | Type | Required | Description
 
 #### Curl example
 
-~~~
+~~~curl
 curl \
   -X GET \
   -H "Authorization: Bearer <access token>" \
@@ -201,7 +201,7 @@ Name | Type | Required | Description
 
 #### Curl example
 
-~~~
+~~~curl
 curl \
   -X POST \
   -H "Authorization: Bearer <access token>" \
