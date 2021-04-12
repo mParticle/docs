@@ -45,10 +45,10 @@ The following is general guidance for all integrations:
 The following integrations have introduced new server-side APIs such as to accept the new App Tracking Transparency status, or have been updated to move away from IDFA usage.
 
 - [Facebook](/integrations/facebook/event/#ios14-update-for-device-data-mapping)
-- [AppsFlyer](/integrations/appsflyer/event/)
+- [AppsFlyer](/integrations/appsflyer/event/#ios-14-update-for-applicationtrackingtransparency)
 - [Google Ads](/integrations/google-ads/event/)
 - [Adjust](/integrations/adjust/event/)
-- [Kochava](/integrations/kochava/event/)
+- [Kochava](/integrations/kochava/event/#ios-14-update-for-applicationtrackingtransparency)
 - [Braze](/integrations/braze/event/)
 
 **Request an Integration Update**
