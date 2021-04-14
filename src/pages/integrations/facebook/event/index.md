@@ -35,6 +35,44 @@ You need to perform a few steps in Facebook to create a [Facebook Pixel S2S](htt
 2. **Connect a New Data Source**:  Select `Web` with a connection method of `Conversions API`.
 3. **Create an Access Token:** Open the settings for the new Pixel Data Source, scroll to the `Conversions API` > `Set up manually` section and click `Create Access Token`. Follow the steps described and copy the [Access Token](https://developers.facebook.com/docs/marketing-api/conversions-api/get-started#access-token) for setup in mParticle.
 
+### Configuring Duplicate Events
+
+Facebook recommends sending the same pixel event twice - once from the browser and once from the server. If done incorrectly, this can result in duplicate events appearing in Facebook. The following steps walk through how to configure this within mParticle.
+
+#### Using only the mParticle Web SDK (Recommended)
+
+To do this using mParticle, you will need to perform the following steps:
+
+1. Setup the mParticle Web SDK in your application
+2. Setup two configurations for mParticle's Facebook integration. One of these configurations must have `Use Pixel Server-Side Forwarding` enabled and the other must not. Both must have an access token set.
+3. Connect both of these configurations to your `Web` input. The configuration with server-side Pixel forwarding enabled, must also have `Forward Web Requests Server Side` enabled. Similarly, the connection with Pixel server-side forwarding disabled, must have `Forward Web Requests Server Side` disabled.
+
+#### Other Scenarios
+
+Ideally, all Web data sent to mParticle will be sent through the mParticle Web SDK, but it is still possible to deduplicate events outside of this flow if necessary. To ensure redundant events sent through Facebook Pixel and the Facebook Conversions API are correctly deduplicated when they reach Facebook, two conditions must be met:
+
+* Events must have consistent `event_name` values.
+* Events must have consistent `event_id` values. For this, the [field `source_message_id`](https://docs.mparticle.com/developers/server/json-reference/#common-event-data-node-properties) may be used to manually set the Event ID sent to Facebook.
+
+If you use the mParticle Web SDK and server-side web integration, then this will be automatically handled.
+
+If you need to manually assign a `source_message_id` via the web SDK and server-side separately, use the following API:
+
+~~~javascript
+mParticle.logBaseEvent({
+    messageType: 4, // see https://github.com/mParticle/mparticle-web-sdk/blob/master/src/types.js#L1-L14 for other values for message types
+    name: 'Test Event',
+    data: {attr1: 'value1'}, // custom attributes
+    eventType: mParticle.EventType.Navigation,
+    customFlags: {flag1: 'flagValue1'},
+    sourceMessageId: 'source_message_id'
+});
+~~~
+
+Note that your workspace will need to be on event batching in order to leverage passing a custom `source_message_id` to the Web SDK for this to work.  If you are not on web batching, please contact your customer success manager.
+
+Visit the [Facebook Business Help Center](https://www.facebook.com/business/help/823677331451951?id=1205376682832142) and [Facebook For Developers](https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events) for more information on the subject of deduplication.
+
 #### Troubleshooting Facebook Pixel Issues
 
 Please run through the following steps to confirm your settings are correct:
@@ -254,14 +292,3 @@ There are several fields only accepted by server-to-server Web connections. Thes
 | Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side |
 | External User Identity Type | `string` | Customer ID | All | Hash of the User Identity to send to Facebook as External ID |
 | Send CCPA Limited Data Use | `enum` | Never | All | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with country and state user attributes defined or for Pixel connections with client IP defined. |
-
-## Ensuring Redundant Event Deduplication
-
-To ensure redundant events sent through Facebook Pixel and the Facebook Conversions API are correctly deduplicated when they reach Facebook, two conditions must be met:
-
-* Events must have the same `event_name`.
-* Events must have the same `event_id`. For this, the [field `source_message_id`](https://docs.mparticle.com/developers/server/json-reference/#common-event-data-node-properties) may be used to manually set the Event ID sent to Facebook.
-
-If you use the mParticle web SDK and server-side web integration, then this will be automatically handled.
-
-Visit the [Facebook Business Help Center](https://www.facebook.com/business/help/823677331451951?id=1205376682832142) and [Facebook For Developers](https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events) for more information on the subject of deduplication.
