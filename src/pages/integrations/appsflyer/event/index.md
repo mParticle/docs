@@ -35,9 +35,12 @@ mParticle's AppsFlyer integration requires that you add the AppsFlyer Kit to you
 - Google Play Install Referrer will be forwarded (Android only - see below).
 
 
-mParticle publishes the AppsFlyer Kit as separate iOS and Android libraries which have a transitive dependency on the mParticle core libraries. You can add them to your app via Carthage, Cocoapods, or Gradle:
+mParticle publishes the AppsFlyer Kit as separate iOS and Android libraries which have a transitive dependency on the mParticle core libraries. You can add them to your app via Carthage, Cocoapods, Swift Package Manager, or Gradle:
 
-:::code-selector-block
+<tabs>
+
+<tab label='CocoaPods' group='add-kit'>
+
 ~~~ruby
 # Sample Podfile
 
@@ -50,15 +53,41 @@ target '<Your Target>' do
 end
 ~~~
 
+</tab>
+
+<tab label='Carthage' group='add-kit'>
+
+~~~ogdl
+github "mparticle-integrations/mparticle-apple-integration-appsflyer" "~> 8.0"
+~~~
+
+</tab>
+
+<tab label='Swift' group='add-kit'>
+
+~~~md
+To integrate the SDK using Swift Package Manager, open your Xcode project and navigate to File > Swift Packages > Add Package Dependency
+
+Enter the repository URL `https://github.com/mparticle-integrations/mparticle-apple-integration-appsflyer` and click Next.
+
+You can leave the version settings as default and click Next one more time to complete adding the package dependency.
+~~~
+
+</tab>
+
+<tab label='Gradle' group='add-kit'>
+
 ~~~groovy
 // Sample build.gradle
-
 dependencies {
     // Ensure the Kit version matches that of the mParticle Core SDK that you're using
     implementation 'com.mparticle:android-appsflyer-kit:5+'
 }
 ~~~
-:::
+
+</tab>
+
+</tabs>
 
 Refer to the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/developers/sdk/android/kits/) guides to read more about kits.
 
