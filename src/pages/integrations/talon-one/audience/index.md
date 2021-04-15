@@ -39,3 +39,9 @@ Setting Name | Data Type | Default Value | Description
 | Deployment URL | `string` | | URL of your Talon.One deployment
 | User ID | `string` | | Select which user identity to forward to Talon.One as your customer's user ID.
 | Run Rule Engine | `boolean` | False | Dictates whether the [Rule Engine](https://help.talon.one/hc/en-us/articles/360005130799-The-Rule-Builder/?utm_source=mparticle&utm_medium=docs&utm_campaign=partners) should be run after each membership change.
+
+## Connection Settings
+
+Setting Name | Data Type | Default Value | Description
+|---|---|---|---
+Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection. Note that Talon.One will prefix mParticle's reserved attributes with `mp_` (e.g. `$age` will be `mp_age`). Otherwise, Talon.One will only accept user attributes with alphanumeric characters and underscores.
