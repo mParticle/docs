@@ -396,7 +396,7 @@ mParticle.logPageView('Destination Details', {rating: 'five', property_type: 'ho
 // ...is equivalent to this Adobe code
 window.s.prop1 = 'five';
 window.s.eVar1 = 'hotel';
-window.s.pageName = 'Destination Details'; // if no pageName is provided, Adobe defaults to "PageView"
+window.s.pageName = 'Destination Details'; // if no pageName is provided, "PageView" will be sent to Adobe
 window.s.t(); // logs the current window object with Adobe
 window.s.clearVars(); //clears the current window object so the next event can be logged
 
@@ -496,6 +496,11 @@ Now, a product variable forwarded to Adobe will look like:
 &&products=flights;JFK-IBZ;2;800;event1=9.34;evar1=Super Spring Sale
 ~~~
 
+## Custom Flags on Web
+| Custom Flag |  Data Type    |  Description |
+| ---|---|---|
+| `Adobe.PageName` | `string` | The value assigned to `pageName` in the payload sent to Adobe.  If no value is passed for custom and commerce events, then `window.document.title` will be used. If no value is passed for `logPageView` calls, the event name passed to `logPageView` is used, otherwise `PageView` is sent.
+| `Adobe.LinkName` | `string` | The value assigned to the linkName parameter (`pev2`). If no value is passed, this will remain empty.
 
 ## Configuration Settings
 
