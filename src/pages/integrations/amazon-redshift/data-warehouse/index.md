@@ -76,7 +76,7 @@ From the main page for your Redshift configuration, select the **Settings** tab 
 | Events Threshold | `number` | 10000 | The number of times a custom or commerce event name must be received in 30 day period for mParticle to create a dedicated table for that event.
 | Delay Between Loading Sessions in Minutes |`number` | 15 | Allows you to adjust how often you want to load data into the data warehouse. Note that the minimum time is 1 minute and the maximum time is 24 hours (60 minutes x 24).|
 | Send user attribute columns | `bool` | `true` | If enabled, individual columns are created for each user attribute |
-| Store device stamp | `bool` | false | Store device application stamp in the mParticleDeviceID column. |
+| Store device stamp | `bool` | false | Store device application stamp in the mParticleDeviceID column. Note that this change does not apply retroactively to tables that have already been created. Data deletion and a replay will be needed in order for existing tables to include this column. |
 | Hygiene Permissions | `bool` | true | If enabled, every 24 hours, mParticle will purge data over a certain age and perform vacuum and analyze commands on your database. |
 | Number of Days | `number` | 90 | If Data Hygiene is enabled, this is the age in days past which data is purged.
 
