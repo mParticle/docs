@@ -12,6 +12,7 @@ import { routePropTypes, getQueryMap } from '../../utils/routes';
 import { getUpdatedIntegrations } from '../../services/integrations';
 import partners from '../../services/partners.json';
 import HeaderFooterLayout from '../../layouts/headerfooter';
+import SEO from '../../components/SEO'
 import CategoryChooser from '../../components/CategoryChooser/categorychooser';
 import LeftNavPane from '../../components/LeftNavPane/leftnavpane';
 import IntegrationFilter from '../../components/IntegrationFilter/integrationfilter';
@@ -195,6 +196,10 @@ class Integrations extends React.Component {
 
         return (
             <HeaderFooterLayout className='integrations' metadata={this.props.data.pageMetadata} location={this.props.location}>
+                <SEO
+                    title='mParticle integration documentation'
+                    description='Learn more about using mParticle to connect data to tools and systems with detailed integration documentation.'
+                />
                 <LeftNavPane currPath={this.props.location.pathname}>
                     <CategoryChooser location={this.props.location} />
                 </LeftNavPane>

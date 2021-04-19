@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { routePropTypes } from '../../utils/routes';
 import HeaderFooterLayout from '../../layouts/headerfooter';
+import SEO from '../../components/SEO'
 import DevTile from './tile';
 
 import './_developers.less';
@@ -182,6 +183,10 @@ const MEDIA = {
 };
 const DevContent = (props) => (
     <HeaderFooterLayout location={props.location} metadata={props.data.pageMetadata}>
+        <SEO
+            title='mParticle developer documentation'
+            description='Learn more about implementing mParticle with detailed documentation on our client SDKs and HTTP APIs.'
+        />
         <div className='developer main-content'>
             <h1 id='developer-hub-title'>Developers</h1>
             <p className='large'>

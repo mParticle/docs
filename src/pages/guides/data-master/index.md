@@ -1,5 +1,7 @@
 ---
 title: Data Master
+seoTitle: mParticle Data Master documentation
+seoDescription: Learn how Data Master helps you validate customer data before it gets shared across systems, applications and teams with this documentation guide.
 ---
 
 Data Master allows you to standardize and validate customer data before it gets shared across systems, applications and teams. It encompasses the following features:

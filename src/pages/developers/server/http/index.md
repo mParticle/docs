@@ -1,6 +1,8 @@
 ---
 title: HTTP API
 order: 1
+seoTitle: mParticle Events API documentation
+seoDescription: Learn how to collect data from your backend systems with mParticle's HTTP-based Events API.
 ---
 
 ## Overview   

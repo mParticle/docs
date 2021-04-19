@@ -2,41 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Helmet } from 'react-helmet';
 import cx from 'classnames';
+import SEO from '../components/SEO';
 import '../styles/main.less';
 
 const MainLayout = (props) => {
-    const { children, metadata, seoTitle } = props;
+    const { children } = props;
 
-    let title = `${seoTitle ? `${seoTitle} | ` : ''} mParticle Documentation`;
+    const title = 'mParticle documentation';
     const description =
         'mParticle Developer Documentation, API Reference and SDK Guides';
 
-    if (metadata) {
-        if (metadata.title) {
-            title = metadata.title;
-        }
-        if (
-            metadata.metadataParent &&
-            metadata.metadataParent.title &&
-            metadata.metadataParent.title !== title
-        ) {
-            const parentTitle = metadata.metadataParent.title;
-            if (metadata.title) {
-                title = `${parentTitle} | ${title}`;
-            } else {
-                title = parentTitle;
-            }
-        }
-    }
-
     return (
         <div className={cx('docs-app')}>
-            <Helmet>
-                <title>{title}</title>
-                <meta name='description' content={description} />
-            </Helmet>
+            <SEO title={title} description={description} />
             {children}
         </div>
     );
@@ -50,12 +29,10 @@ MainLayout.propTypes = {
         }),
         title: PropTypes.string,
     }),
-    seoTitle: PropTypes.string,
 };
 
 MainLayout.defaultProps = {
     metadata: {},
-    seoTitle: null,
 };
 
 export default MainLayout;

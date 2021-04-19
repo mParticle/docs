@@ -5,13 +5,14 @@ import { graphql } from 'gatsby';
 import path from 'path';
 import IntegrationLayout from '../layouts/integration';
 import EditPageWidget from '../components/LinkWidget/EditPageWidget';
+import SEO, { getSeoTitleFromMetaData } from '../components/SEO';
 import { routePropTypes } from '../utils/routes';
 
 const IntegrationsMarkdownTemplate = (props) => {
     const { location, data, pageContext } = props;
     const { currPageMetadata: metadata, markdownRemark: post } = data;
     const { frontmatter, html } = post;
-    const { title } = frontmatter;
+    const { title, seoTitle, seoDescription } = frontmatter;
 
     const linkPath = path.join(
         '/mparticle/docs/blob/development/src/pages',
@@ -21,6 +22,11 @@ const IntegrationsMarkdownTemplate = (props) => {
 
     return (
         <IntegrationLayout currPageMetadata={metadata} location={location}>
+            <SEO
+                title={seoTitle || getSeoTitleFromMetaData(metadata)}
+                // Gastsby will return null if field does not exist
+                description={seoDescription || undefined}
+            />
             <div className='markdown'>
                 <h1>{title}</h1>
                 <div className='linkWidgets'>
@@ -46,6 +52,8 @@ export const pageQuery = graphql`
             html
             frontmatter {
                 title
+                seoTitle
+                seoDescription
             }
         }
     }

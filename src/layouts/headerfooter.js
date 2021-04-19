@@ -138,32 +138,15 @@ class RootTemplate extends React.Component {
     render() {
         const homeActive = this.props.location.pathname === '/';
         const homeClass = homeActive ? 'home' : '';
-        let title = 'mParticle Documentation';
         let helpfulNeeded = false;
 
         const metadata = this.props.metadata;
         if (metadata) {
-            if (metadata.title) {
-                title = metadata.title;
-            }
-            if (
-                metadata.metadataParent
-                && metadata.metadataParent.title
-                && metadata.metadataParent.title !== title
-            ) {
-                const parentTitle = metadata.metadataParent.title;
-                if (metadata.title) {
-                    title = `${parentTitle} | ${title}`;
-                } else {
-                    title = parentTitle;
-                }
-            }
             if (metadata.path) {
                 helpfulNeeded = metadata.path.split('/').length > 3;
             }
         }
 
-        let description = '';
         /* TODO - Get the first paragraph of the body as a description
         if (data.body) {
             const body = data.body;
@@ -175,8 +158,8 @@ class RootTemplate extends React.Component {
         return (
             <div className={`docs-app ${homeClass} ${this.state.platform.className}`}>
                 <Helmet>
-                    <title>{title}</title>
-                    <meta name='description' content={description} />
+                    <title>mParticle documentation</title>
+                    <meta name='description' content='mParticle Developer Documentation, API Reference and SDK Guides' />
                     {/*
                     <script type='text/javascript'>
                         {`

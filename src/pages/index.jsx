@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 import { routePropTypes } from '../utils/routes';
 import HeaderFooterLayout from '../layouts/headerfooter';
 import OffsiteButton from '../components/OffsiteButton/offsiteButton';
+import SEO from '../components/SEO'
 import './_home.less';
 
 const DOMORETILESROW = [
@@ -200,6 +201,10 @@ const TILESBOTTOM = [
 
 const Home = (props) => (
     <HeaderFooterLayout location={props.location}>
+        <SEO
+            title='mParticle documentation'
+            description='Learn more about how mParticle helps you collect, validate, and connect customer data with guides and developer documentation.'
+        />
         <div className='docs-home docs-app'>
             <div className='docs-content centered-fixed-width'>
                 <section className='what-is-mparticle'>
