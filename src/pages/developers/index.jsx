@@ -130,6 +130,11 @@ const TILES = [
         route: 'idsync/',
     },
     {
+        title: 'iOS 14 ATT Guide',
+        content: 'Recommended timeframes and implementation overviews of what should be updated for iOS 14.',
+        route: 'sdk/ios/ios14',
+    },
+    {
         title: 'Rules',
         content: 'mParticle rules allow you to cleanse and transform data before it\'s sent to each output.',
         route: 'rules',

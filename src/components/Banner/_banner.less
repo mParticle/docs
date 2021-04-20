@@ -1,0 +1,40 @@
+@import "../../styles/_icons";
+@import "../../styles/_flex-mixin.less";
+@import "../../styles/_utils";
+@import "../../styles/_colors";
+
+.banner {
+    padding: 11px 16px;
+    background: @mp-aero-blue;
+    color: @mp-darkgrey-bodycopy;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+
+    a {
+        color: @mp-darkgrey-bodycopy;
+        text-decoration: underline;
+        font-weight: 500;
+        padding-left: 10px;
+    
+        i {
+            .icon-image(@icon-arrow-right-black-thin);
+            height: 12px;
+            width: 14px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+    }
+
+    i.close {
+        .icon-image(@icon-close-black);
+        height: 12px;
+        width: 12px;
+        float: right;
+        position: absolute;
+        right: 50px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

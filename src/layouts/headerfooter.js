@@ -10,6 +10,7 @@ import { getPlatformCookie,
     removeGlobalEventListener } from '../utils/misc';
 import { routePropTypes, getRouteData } from '../utils/routes';
 import Helpful from '../components/Misc/helpful';
+import Banner from "../components/Banner/banner";
 
 import '../styles/main.less';
 
@@ -67,6 +68,11 @@ function removeHTML(html) {
     return html.replace(/<[^>]*>/g, '');
 }
 
+const BannerClosedKey = 'is-banner-closed';
+const ios14BannerText = 'iOS 14 Resources: Get ready for iOS 14 privacy updates';
+const ios14BannerLearnMoreLink = '/developers/sdk/ios/ios14';
+const ios14BannerExpirationDateInMs = 1625097599; // 2021-06-30 23:59:59
+
 class RootTemplate extends React.Component {
     constructor(props) {
         super(props);
@@ -79,17 +85,29 @@ class RootTemplate extends React.Component {
 
         this.state = {
             platform: savedPlatform,
-            showPlatformChooser: true,
+            showTopBanner: false,
         };
 
         this.setPlatformCallback = this.setPlatformCallback.bind(this);
 
         this.handleInternalLinkClick = this.handleInternalLinkClick.bind(this);
+        this.handleBannerClose = this.handleBannerClose.bind(this);
     }
 
     componentDidMount() {
         addGlobalEventListener('onclick', this.handleInternalLinkClick);
         this.checkLegacyRedirect();
+
+        if (window.sessionStorage) {
+            if (window.sessionStorage.getItem(BannerClosedKey) === null) {
+                window.sessionStorage.setItem(BannerClosedKey, false);
+            }
+
+            // show the banner when the sesionStorage key "is-banner-close" is false.
+            this.setState({
+                showTopBanner: window.sessionStorage.getItem(BannerClosedKey) === 'false',
+            })
+        }
     }
 
     componentWillUnmount() {
@@ -135,6 +153,11 @@ class RootTemplate extends React.Component {
         }
     }
 
+    handleBannerClose() {
+        window.sessionStorage.setItem(BannerClosedKey, true);
+        this.setState({ showTopBanner:  false});
+    }
+
     render() {
         const homeActive = this.props.location.pathname === '/';
         const homeClass = homeActive ? 'home' : '';
@@ -155,6 +178,11 @@ class RootTemplate extends React.Component {
             const firstPara = body.slice(firstParaStart, firstParaEnd);
             description = removeHTML(firstPara);
         } */
+
+        // Show the top only when session storage key 'is-banner-close' is false and also 
+        // when the current time in ms is less than iOS14 banner expiry date.
+        const currentTimeInMs = Math.round(new Date()/1000);
+        const showBanner = this.state.showTopBanner && currentTimeInMs < ios14BannerExpirationDateInMs;
         return (
             <div className={`docs-app ${homeClass} ${this.state.platform.className}`}>
                 <Helmet>
@@ -179,6 +207,11 @@ class RootTemplate extends React.Component {
                     <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charSet="UTF-8" data-domain-script={`1142f80e-497b-42e1-b63d-30e44eff76b3${activeEnv === 'development' ? '-test' : ''}`} />
                     <script type="text/javascript">{`function OptanonWrapper() { window.dataLayer.push({ event: "OneTrustGroupsUpdated" })};`}</script>`
                 </Helmet>
+                <Banner
+                    text={ios14BannerText}
+                    learnMoreLink={ios14BannerLearnMoreLink}
+                    closeBanner={this.handleBannerClose}
+                    isVisible={showBanner} />
                 <DocsHeader
                     location={this.props.location} />
                 <div className='docs-content centered-fixed-width'>
