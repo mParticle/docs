@@ -329,7 +329,6 @@ mediaSDK.logMediaSessionStart({
 | media_session_end_time         | Timestamp for media session completed, ended, or quit                                                                                                                                                                                                  |
 | media_session_ad_objects       | Array of all ad_content_ids consumed                                                                                                                                                                                                                   |
 | media_session_custom_attribute | Custom media session attribute                                                                                                                                                                                                                         |
-| stream_type                    | Encoded audio and video streams are assembled in a container "bitstream" such as MP4, FLV, WebM, ASF or ISMA stream types                                                                                                                              |
 | stream_format                  | The video stream is compressed using a video coding format to make the file size smaller. Video coding formats include H.264, HEVC, VP8 or VP9                                                                                                         |
 | content_type                   | Content type name                                                                                                                                                                                                                                      |
 | content_id                     | Unique content identifier                                                                                                                                                                                                                              |
@@ -440,7 +439,6 @@ For example:
             "content_duration": "120000",
             "content_id": "1234567",
             "content_type": "Video",
-            "stream_type": "LiveStream",
             "media_session_id": "96a023b8-b0c7-47b7-b687-09f73b9dfac3",
             "playhead_position": "110123"
         }
