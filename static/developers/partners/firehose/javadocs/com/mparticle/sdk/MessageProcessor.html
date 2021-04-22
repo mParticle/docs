@@ -13,8 +13,7 @@
 <!--[if IE]>
 <script type="text/javascript" src="../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../jquery/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="../../../jquery/jquery-migrate-3.0.1.js"></script>
+<script type="text/javascript" src="../../../jquery/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="../../../jquery/jquery-ui.js"></script>
 </head>
 <body>
@@ -61,6 +60,30 @@ loadScripts(document, 'script');</script>
 </ul>
 </div>
 <div class="subNav">
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<ul class="navListSearch">
+<li><label for="search">SEARCH:</label>
+<input type="text" id="search" value="search" disabled="disabled">
+<input type="reset" id="reset" value="reset" disabled="disabled">
+</li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
@@ -76,16 +99,9 @@ loadScripts(document, 'script');</script>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
-<ul class="navListSearch">
-<li><label for="search">SEARCH:</label>
-<input type="text" id="search" value="search" disabled="disabled">
-<input type="reset" id="reset" value="reset" disabled="disabled">
-</li>
-</ul>
-</div>
 <a id="skip.navbar.top">
 <!--   -->
-</a>
+</a></div>
 <!-- ========= END OF TOP NAVBAR ========= -->
 </div>
 <div class="navPadding">&nbsp;</div>
@@ -137,21 +153,17 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Summary</h3>
-<div class="memberSummary">
-<table>
+<table class="memberSummary">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Constructor</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
-<tbody>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">MessageProcessor</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-</tbody>
 </table>
-</div>
 </li>
 </ul>
 </section>
@@ -162,186 +174,180 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Summary</h3>
-<div class="memberSummary">
-<div role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="memberSummary_tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="activeTableTab">All Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="tableTab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="tableTab" onclick="show(4);">Abstract Methods</button><button role="tab" aria-selected="false" aria-controls="memberSummary_tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t4" class="tableTab" onclick="show(8);">Concrete Methods</button></div>
-<div id="memberSummary_tabpanel" role="tabpanel">
-<table aria-labelledby="t0">
+<table class="memberSummary">
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
-<tbody>
-<tr class="altColor" id="i0">
+<tr id="i0" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#log(java.lang.String)">log</a></span>&#8203;(java.lang.String&nbsp;message)</code></th>
 <td class="colLast">
 <div class="block">Logs a message.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i1">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processApplicationStateTransitionEvent(com.mparticle.sdk.model.eventprocessing.ApplicationStateTransitionEvent)">processApplicationStateTransitionEvent</a></span>&#8203;(<a href="model/eventprocessing/ApplicationStateTransitionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ApplicationStateTransitionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ApplicationStateTransitionEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i2">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processAttributionEvent(com.mparticle.sdk.model.eventprocessing.AttributionEvent)">processAttributionEvent</a></span>&#8203;(<a href="model/eventprocessing/AttributionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">AttributionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor" id="i3">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="model/audienceprocessing/AudienceMembershipChangeResponse.html" title="class in com.mparticle.sdk.model.audienceprocessing">AudienceMembershipChangeResponse</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processAudienceMembershipChangeRequest(com.mparticle.sdk.model.audienceprocessing.AudienceMembershipChangeRequest)">processAudienceMembershipChangeRequest</a></span>&#8203;(<a href="model/audienceprocessing/AudienceMembershipChangeRequest.html" title="class in com.mparticle.sdk.model.audienceprocessing">AudienceMembershipChangeRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing audience membership changes.</div>
 </td>
 </tr>
-<tr class="altColor" id="i4">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="model/audienceprocessing/AudienceSubscriptionResponse.html" title="class in com.mparticle.sdk.model.audienceprocessing">AudienceSubscriptionResponse</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processAudienceSubscriptionRequest(com.mparticle.sdk.model.audienceprocessing.AudienceSubscriptionRequest)">processAudienceSubscriptionRequest</a></span>&#8203;(<a href="model/audienceprocessing/AudienceSubscriptionRequest.html" title="class in com.mparticle.sdk.model.audienceprocessing">AudienceSubscriptionRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing audience subscriptions.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i5">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processCCPAConsentStateNotification(com.mparticle.sdk.model.eventprocessing.notification.CCPAConsentStateNotification)">processCCPAConsentStateNotification</a></span>&#8203;(<a href="model/eventprocessing/notification/CCPAConsentStateNotification.html" title="class in com.mparticle.sdk.model.eventprocessing.notification">CCPAConsentStateNotification</a>&nbsp;notification)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing CCPA Consent State system notifications</div>
 </td>
 </tr>
-<tr class="altColor" id="i6">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processCustomEvent(com.mparticle.sdk.model.eventprocessing.CustomEvent)">processCustomEvent</a></span>&#8203;(<a href="model/eventprocessing/CustomEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">CustomEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing CustomEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i7">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processErrorEvent(com.mparticle.sdk.model.eventprocessing.ErrorEvent)">processErrorEvent</a></span>&#8203;(<a href="model/eventprocessing/ErrorEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ErrorEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ErrorEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i8">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="model/eventprocessing/EventProcessingResponse.html" title="class in com.mparticle.sdk.model.eventprocessing">EventProcessingResponse</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processEventProcessingRequest(com.mparticle.sdk.model.eventprocessing.EventProcessingRequest)">processEventProcessingRequest</a></span>&#8203;(<a href="model/eventprocessing/EventProcessingRequest.html" title="class in com.mparticle.sdk.model.eventprocessing">EventProcessingRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing event processing request.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i9">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processGDPRConsentStateNotification(com.mparticle.sdk.model.eventprocessing.notification.GDPRConsentStateNotification)">processGDPRConsentStateNotification</a></span>&#8203;(<a href="model/eventprocessing/notification/GDPRConsentStateNotification.html" title="class in com.mparticle.sdk.model.eventprocessing.notification">GDPRConsentStateNotification</a>&nbsp;notification)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing GDPR Consent State system notifications</div>
 </td>
 </tr>
-<tr class="altColor" id="i10">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processImpressionEvent(com.mparticle.sdk.model.eventprocessing.ImpressionEvent)">processImpressionEvent</a></span>&#8203;(<a href="model/eventprocessing/ImpressionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ImpressionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ImpressionEvents.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i11">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="model/Message.html" title="class in com.mparticle.sdk.model">Message</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processMessage(com.mparticle.sdk.model.Message)">processMessage</a></span>&#8203;(<a href="model/Message.html" title="class in com.mparticle.sdk.model">Message</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Parses the message and invokes specific handler.</div>
 </td>
 </tr>
-<tr class="altColor" id="i12">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPrivacySettingChangeEvent(com.mparticle.sdk.model.eventprocessing.PrivacySettingChangeEvent)">processPrivacySettingChangeEvent</a></span>&#8203;(<a href="model/eventprocessing/PrivacySettingChangeEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PrivacySettingChangeEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PrivacySettingChangeEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i13">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processProductActionEvent(com.mparticle.sdk.model.eventprocessing.ProductActionEvent)">processProductActionEvent</a></span>&#8203;(<a href="model/eventprocessing/ProductActionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ProductActionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ProductActionEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i14">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPromotionActionEvent(com.mparticle.sdk.model.eventprocessing.PromotionActionEvent)">processPromotionActionEvent</a></span>&#8203;(<a href="model/eventprocessing/PromotionActionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PromotionActionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PromotionActionEvents.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i15">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPushMessageReceiptEvent(com.mparticle.sdk.model.eventprocessing.PushMessageReceiptEvent)">processPushMessageReceiptEvent</a></span>&#8203;(<a href="model/eventprocessing/PushMessageReceiptEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PushMessageReceiptEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PushMessageReceiptEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i16">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processPushSubscriptionEvent(com.mparticle.sdk.model.eventprocessing.PushSubscriptionEvent)">processPushSubscriptionEvent</a></span>&#8203;(<a href="model/eventprocessing/PushSubscriptionEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">PushSubscriptionEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing PushSubscriptionEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i17">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>abstract <a href="model/registration/ModuleRegistrationResponse.html" title="class in com.mparticle.sdk.model.registration">ModuleRegistrationResponse</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processRegistrationRequest(com.mparticle.sdk.model.registration.ModuleRegistrationRequest)">processRegistrationRequest</a></span>&#8203;(<a href="model/registration/ModuleRegistrationRequest.html" title="class in com.mparticle.sdk.model.registration">ModuleRegistrationRequest</a>&nbsp;request)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing module registration request.</div>
 </td>
 </tr>
-<tr class="altColor" id="i18">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processScreenViewEvent(com.mparticle.sdk.model.eventprocessing.ScreenViewEvent)">processScreenViewEvent</a></span>&#8203;(<a href="model/eventprocessing/ScreenViewEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">ScreenViewEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing ScreenViewEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i19">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processSessionEndEvent(com.mparticle.sdk.model.eventprocessing.SessionEndEvent)">processSessionEndEvent</a></span>&#8203;(<a href="model/eventprocessing/SessionEndEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">SessionEndEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing SessionEndEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i20">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processSessionStartEvent(com.mparticle.sdk.model.eventprocessing.SessionStartEvent)">processSessionStartEvent</a></span>&#8203;(<a href="model/eventprocessing/SessionStartEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">SessionStartEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing SessionStartEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i21">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processUserAttributeChangeEvent(com.mparticle.sdk.model.eventprocessing.UserAttributeChangeEvent)">processUserAttributeChangeEvent</a></span>&#8203;(<a href="model/eventprocessing/UserAttributeChangeEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">UserAttributeChangeEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing UserAttributeChangeEvent.</div>
 </td>
 </tr>
-<tr class="altColor" id="i22">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#processUserIdentityChangeEvent(com.mparticle.sdk.model.eventprocessing.UserIdentityChangeEvent)">processUserIdentityChangeEvent</a></span>&#8203;(<a href="model/eventprocessing/UserIdentityChangeEvent.html" title="class in com.mparticle.sdk.model.eventprocessing">UserIdentityChangeEvent</a>&nbsp;event)</code></th>
 <td class="colLast">
 <div class="block">Handler for processing UserIdentityChangeEvent.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i23">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLogger(com.mparticle.sdk.Logger)">setLogger</a></span>&#8203;(<a href="Logger.html" title="interface in com.mparticle.sdk">Logger</a>&nbsp;logger)</code></th>
 <td class="colLast">
 <div class="block">Sets logger.</div>
 </td>
 </tr>
-</tbody>
 </table>
-</div>
-</div>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -827,6 +833,24 @@ extends java.lang.Object</pre>
 </ul>
 </div>
 <div class="subNav">
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../allclasses.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+</div>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
@@ -842,10 +866,9 @@ extends java.lang.Object</pre>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
-</div>
 <a id="skip.navbar.bottom">
 <!--   -->
-</a>
+</a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
 </nav>
 </footer>
