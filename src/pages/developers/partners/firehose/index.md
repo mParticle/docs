@@ -232,6 +232,17 @@ You need to select which platforms you want your integration to receive data fro
 
 See the example below or [the javadocs](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/registration/EventProcessingRegistration.html#setSupportedRuntimeEnvironments-java.util.List-) for more information on populating the `Permissions` object in your `ModuleRegistrationResponse` response.
 
+#### iOS App Tracking Transparency Policy
+
+<aside>Note, this feature was added as of version 2.6 of the Java SDK.</aside>
+
+There are two fields in [IosRuntimeEnvironment](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/eventprocessing/IosRuntimeEnvironment.html) and [TVOSRuntimeEnvironment](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/eventprocessing/TVOSRuntimeEnvironment.html) to support App Tracking Transparency policy. Learn more about Apple's App Tracking Transparency in our [iOS 14 Guide.](/developers/sdk/ios/ios14):
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `AttAuthorizationStatus` | Enum: [AttAuthorizationStatus](/developers/partners/firehose//javadoc/com/mparticle/sdk/model/eventprocessing/AttAuthorizationStatus.html) | Contains the assigned ATT Authorization status value. |
+| `AttTimestampUnixtimeMs` | `long` | Contains the timestamp of when the authorization status was given. |
+
 ### 4. Account Settings
 
 Once we enable your Firehose integration, all mParticle customers will have access to enable it for their account. To allow your integration to correctly identify which customer your data belongs to, and how it should be processed, mParticle enables you to create custom settings for the customer to provide when they set up the account. For example, if your service uses an API key for authentication:
@@ -312,7 +323,6 @@ This setting lets mParticle know if historical events can be sent to your integr
 EventProcessingRegistration eventProcessingRegistration = new EventProcessingRegistration();
 eventProcessingRegistration.setMaxDataAgeHours(24)
 ```
-
 ### 6. Push Messaging Provider ID 
 
 If you have registered for Push Message Receipt events, you must provide the Provider ID key used in the payload of your platform's Push messages. This ensures that you only receive events related to Push messages from your platform. Work with mParticle to ensure the you are providing the correct Provider ID.
