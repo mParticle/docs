@@ -180,7 +180,7 @@ mParticle data can contain information about the device being used, including de
 
    `permissions.setAllowDeviceInformation(true);`
 
-For a full list of possible device information, see our [JSON reference](/developers/server/json-reference#device-info). Note that even if you don't set this permission, the Device Identites you registered for [above](/developers/partners/firehose#2-permissions) will still be forwarded.
+For a full list of possible device information, see our [JSON reference](/developers/server/json-reference#device_info). Note that even if you don't set this permission, the Device Identites you registered for [above](/developers/partners/firehose#2-permissions) will still be forwarded.
 
 #### User Attributes
 
@@ -240,7 +240,7 @@ There are two fields in [IosRuntimeEnvironment](/developers/partners/firehose/ja
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `AttAuthorizationStatus` | Enum: [AttAuthorizationStatus](/developers/partners/firehose//javadoc/com/mparticle/sdk/model/eventprocessing/AttAuthorizationStatus.html) | Contains the assigned ATT Authorization status value. |
+| `AttAuthorizationStatus` | Enum: [AttAuthorizationStatus](/developers/partners/firehose/javadoc/com/mparticle/sdk/model/eventprocessing/AttAuthorizationStatus.html) | Contains the assigned ATT Authorization status value. |
 | `AttTimestampUnixtimeMs` | `long` | Contains the timestamp of when the authorization status was given. |
 
 ### 4. Account Settings
