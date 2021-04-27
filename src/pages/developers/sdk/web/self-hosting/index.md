@@ -127,3 +127,4 @@ While most of our web-kits have been developed internally and so follow a simila
 | SimpleReach         | [@mparticle/web-simplereach-kit](https://www.npmjs.com/package/@mparticle/web-simplereach-kit)               |
 | Taplytics           | [@mparticle/web-taplytics-kit](https://www.npmjs.com/package/@mparticle/web-taplytics-kit)                   |
 | Twitter             | [@mparticle/web-twitter-kit](https://www.npmjs.com/package/@mparticle/web-twitter-kit)                       |
+| UserLeap             | [@userleap/mparticle-web-kit](https://www.npmjs.com/package/@userleap/mparticle-web-kit)                       |
