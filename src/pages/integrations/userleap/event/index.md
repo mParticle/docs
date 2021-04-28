@@ -18,7 +18,6 @@ mParticle's UserLeap integration requires that you add the UserLeap Kit to your 
 
 mParticle publishes the UserLeap Kit as separate iOS libraries which have a transitive dependency on the mParticle core libraries. You can add them to your app via Carthage, Cocoapods, or Gradle:
 
-:::code-selector-block
 ~~~ruby
 # Sample Podfile
 
@@ -28,7 +27,6 @@ target '<Your Target>' do
     pod 'mParticle-UserLeap'
 end
 ~~~
-:::
 
 Reference the [Apple SDK](/developers/sdk/ios/kits/) guide to read more about kits.
 
