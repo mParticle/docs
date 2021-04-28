@@ -4,7 +4,7 @@ title: Event
 
 This integration supports forwarding commerce events to Facebook's Offline Conversions API.
 
-**Note:** This integration is intended _only_ to forward commerce events occuring outside of your app, which have been uploaded to mParticle via a custom feed. Data from your app platforms should be forwarded to Facebook via the main [Facebook event integration](/integrations/facebook/event/).
+**Note:** This integration is intended _only_ to forward commerce events occurring outside of your app, which have been uploaded to mParticle via a custom feed. Data from your app platforms should be forwarded to Facebook via the main [Facebook event integration](/integrations/facebook/event/).
 
 ## Prerequisites
 
