@@ -120,7 +120,7 @@ The code below shows the following:
 [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
     switch (status) {
         case ATTrackingManagerAuthorizationStatusAuthorized:
-        [[MParticle sharedInstance]]setATTState:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusAuthorized withATTStatusTimestampMillis:nil];
+        [[MParticle sharedInstance]] setATTStatus:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusAuthorized withATTStatusTimestampMillis:nil];
 
         // Now that we are authorized we can get the IDFA, supple to mParticle Identity API as needed
         MPIdentityApiRequest *identityRequest = [MPIdentityApiRequest requestWithEmptyUser];
@@ -128,16 +128,16 @@ The code below shows the following:
         [[[MParticle sharedInstance] identity] modify:identityRequest completion:identityCallback];
         break;
     case ATTrackingManagerAuthorizationStatusDenied:
-        [[MParticle sharedInstance]]setATTState:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusDenied withATTStatusTimestampMillis:nil];
+        [[MParticle sharedInstance]] setATTStatus:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusDenied withATTStatusTimestampMillis:nil];
         break;
     case ATTrackingManagerAuthorizationStatusNotDetermined:
-        [[MParticle sharedInstance]]setATTState:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusNotDetermined withATTStatusTimestampMillis:nil];
+        [[MParticle sharedInstance]] setATTStatus:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusNotDetermined withATTStatusTimestampMillis:nil];
         break;
     case ATTrackingManagerAuthorizationStatusRestricted:
-        [[MParticle sharedInstance]]setATTState:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusRestricted withATTStatusTimestampMillis:nil];
+        [[MParticle sharedInstance]] setATTStatus:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusRestricted withATTStatusTimestampMillis:nil];
         break;
     default:
-        [[MParticle sharedInstance]]setATTState:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusNotDetermined withATTStatusTimestampMillis:nil];
+        [[MParticle sharedInstance]] setATTStatus:(MPATTAuthorizationStatus)ATTrackingManagerAuthorizationStatusNotDetermined withATTStatusTimestampMillis:nil];
         break;
     }
 }];
@@ -146,20 +146,20 @@ The code below shows the following:
 ATTrackingManager.requestTrackingAuthorization { status in
     switch status {
     case .authorized:
-        MParticle.sharedInstance().setATTState((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
+        MParticle.sharedInstance().setATTStatus((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
     
         // Now that we are authorized we can get the IDFA, supply to mParticle Identity API as needed
         var identityRequest = MPIdentityApiRequest.withEmptyUser()
         identityRequest.setIdentity(ASIdentifierManager.shared().advertisingIdentifier.uuidString, identityType: MPIdentity.iOSAdvertiserId)
         MParticle.sharedInstance().identity.modify(identityRequest, completion: identityCallback)
     case .denied:
-        MParticle.sharedInstance().setATTState((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
+        MParticle.sharedInstance().setATTStatus((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
     case .notDetermined:
-        MParticle.sharedInstance().setATTState((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
+        MParticle.sharedInstance().setATTStatus((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
     case .restricted:
-        MParticle.sharedInstance().setATTState((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
+        MParticle.sharedInstance().setATTStatus((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
     @unknown default:
-        MParticle.sharedInstance().setATTState((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
+        MParticle.sharedInstance().setATTStatus((MPATTAuthorizationStatus)status, withTimestampMillis: nil)
     }
 }
 ```
