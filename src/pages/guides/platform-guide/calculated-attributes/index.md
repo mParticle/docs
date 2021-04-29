@@ -88,6 +88,8 @@ For example:
 * Unique game titles played
 * Unique product categories viewed in the last 30 days
 
+There’s a limit on how many unique values are kept on a CA. It’s limited to the first seen 100 values. When returning the list, it’s sorted alphabetically.
+
 ### Calculation Details
 The following table defines the details of all supported calculations. All timestamp values are in ISO 8601 format in the UTC timezone. Several calculations produce results with types that depend on the type of the event attribute selected, for example `First Value` will return a string if the event attribute selected is a string.
 
