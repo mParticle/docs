@@ -22,7 +22,7 @@ Implementing mParticle can range based upon your objectives. Depending on if you
 ## Who owns the data? 
 We take data ownership very seriously which means your data is your data and yours alone. You decide what you want to do with it. We do not combine data across clients for our own marketing purposes or co-mingle client data in any way.
 
-## How long do you keep my data active for
+## How long do you keep my data active?
 It varies by plan, and each plan can be customized further depending on how long you want your data to be readily available.
 
 ## What happens to my data if I cancel my subscription?
@@ -81,7 +81,7 @@ The SDKs automatically capture:
     * In some cases, a [Screen View](/developers/server/json-reference/#screen_view) event, capturing the title of the screen or page a user is viewing.
 * Information about the user's location at the time of an event - mParticle performs a reverse geo-lookup to provide a best-guess approximation of the user's location. This can be based on the user's IP address, which is automatically captured, or on optional location tracking methods, which can be implemented manually.
 
-The SDKs **DO NOT** automatically capture
+The SDKs **DO NOT** automatically capture:
 
 * Actions taken by the user in your app - to capture information about user actions, you must use the SDKs provided methods to instrument events.
 * Taps, clicks or user input - to capture user input you must use the SDK's provided methods to instrument events and user attributes.
@@ -92,4 +92,4 @@ mParticle is not a screen recorder and cannot be used to capture the current sta
 * Values of text boxes or UI controls
 * Keystrokes
 
-For more information, refer to our [privacy policy](https://www.mparticle.com/privacypolicy)
+For more information, refer to our [privacy policy](https://www.mparticle.com/privacypolicy).
