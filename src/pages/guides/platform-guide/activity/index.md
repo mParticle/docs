@@ -182,7 +182,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 | Missing Locale Country | Google Adwords | The request was missing required locale country.
 | Missing Locale Language | Google Adwords | The request was missing required locale language.
 | Missing Model | Google Adwords | The request was missing required device model.
-|Missing OS Version | Singular, Google Adwords | OS Version is required and is missing in the event batch.
+|Missing OS Version | Singular, Google Adwords, Facebook | OS Version is required and is missing in the event batch.
 |Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Tune, Urban Airship | Package Name is required, and the application is not presenting one in the event batch. For Tune, you can override the Package Name in the configuration settings.
 | Missing Required Setting | Appboy, Appsflyer, Fiksu, Double Click, Facebook, Quantcast, Salesforce | A required setting is missing.
 | Missing Device Application Stamp | Leanplum | Missing Device Application Stamp for Device ID.
