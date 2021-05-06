@@ -10,7 +10,7 @@ mParticle forwards custom events, screen views, user attributes and user identit
 
 ## Data Processing Notes
 
-1. Event Attributes - Only 10 event attributes can be sent to SessionM per event.  If an event has more than 10 attributes, the additional attributes are dropped.  
+1. Event Attributes - Only 10 event attributes can be sent to SessionM per event.  If an event has more than 10 attributes, the additional attributes are dropped.
 2. User Attributes - There is a 200 custom user attribute limit for profiles in SessionM.  This includes attributes defined in SessionM and those sent to mParticle.  If the limit is reached, not all attributes will be available in SessionM.
 3. Only logged in users should be sent to SessionM using the Id Sync [Forwarding Rules](https://docs.mparticle.com/guides/platform-guide/connections/#forwarding-rules)
 
@@ -30,6 +30,34 @@ mParticle forwards custom events, screen views, user attributes and user identit
 ## User Identities
 
 mParticle will always forward the mParticle Identity (MPID) to SessionM.  Additional User Identities can be sent to SessionM by enabling them in filters.
+
+## User Attributes
+
+mParticle forwards user attributes to SessionM as profile attributes. mParticle will send at most 200 user attributes and will normalize user attribute keys as described below. Note that all attribute values will be forwarded as strings.
+
+
+### User Attribute Key Normalization
+
+When mParticle forwards user attributes to SessionM, the following normalization steps will be performed:
+
+
+1. Replace any non-alphanumeric characters with `_`
+2. Remove any leading `_`
+
+### Reserved Attributes
+
+Some mParticle user attributes are mapped to SessionM reserved fields. These are mapped according to the table below.
+
+| mParticle User Attribute | SessionM Field |
+| --- | --- |
+| $FirstName | first_name |
+| $LastName | last_name |
+| $Gender | gender |
+| $Country | country |
+| $State | state |
+| $City | city |
+| $Zip | zip |
+| $Address | address |
 
 ## Configuration Settings
 
