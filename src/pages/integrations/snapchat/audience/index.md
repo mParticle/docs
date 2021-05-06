@@ -32,7 +32,12 @@ In order to enable the mParticle integration with Snapchat you will need the acc
 
 ## User Identity Mapping
 
-When forwarding audience data to Snapchat, mParticle will send SHA-256 hash of IDFAs, Google Advertising IDs, and Emails based on the values of the Connection Settings.
+When forwarding audience data to Snapchat, mParticle will send SHA-256 hash of the following identities based on the values of the Connection Settings:
+* Emails
+* Device IDs (IDFA or Google Advertising ID)
+* Phone Numbers (Mobile Telephone Number, Phone Number 2, Phone Number 3, and `$mobile` reserved user attribute)
+
+<aside class="notice">When enabling <b>Phone Numbers</b>, please make sure to include country code in phone numbers since it's required by Snap. Ex: +1 800-555-1111.</aside>
 
 ## Upload Frequency
 
@@ -49,5 +54,6 @@ Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---|
-Forward emails | `bool` | True | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (Email)"
-Forward device IDs | `bool` | True | If enabled, mParticle will forward the SHA-256 hash of that users' device IDs (IDFA for Apple OS or Google Advertising ID) to the audience "&lt;Audience Name&gt; (Device Id)".
+Forward Emails | `bool` | True | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience "&lt;Audience Name&gt; (Email)"
+Forward Device IDs | `bool` | True | If enabled, mParticle will forward the SHA-256 hash of that users' device IDs (IDFA for Apple OS or Google Advertising ID) to the audience "&lt;Audience Name&gt; (Device Id)".
+Forward Phone Numbers | `bool` | False | If enabled, and any of the user's phone numbers are available, the SHA-256 hash of those phone numbers will be added to the audience "&lt;Audience Name&gt; (Phone)"
