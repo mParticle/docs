@@ -60,6 +60,39 @@ window.mParticle.ready(
 );
 ```
 
+## Upload Interval / Batching
+
+<aside>
+If your mParticle workspace was created before 5/6/2021, please reach out to your customer support manager to enable event batching on your account. To confirm if your workspace has event batching enabled:<br>
+  <ul> 
+    <li>Load your `mparticle.js` file in a new browser window (ie. navigate to https://jssdkcdns.mparticle.com/js/v2/YOUR-APIKEY/mparticle.js)</li>
+    <li> Search for `window.mParticle.config.flags` at the top of the file</li>
+    <li> If `eventsV3` is set to `100`, your workspace is enabled for event batching. If it is `0`, your workspace is not enabled for event batching.</li>
+  </ul>
+</aside>
+
+All new workspaces created on or after 5/6/2021 will be enabled for event batching on web. To save bandwidth and improve site performance, mParticle will assemble events into batches and each batch will be uploaded every 5 seconds or based on specific triggers. When a trigger is fired, the SDK will:
+
+- Query for the current events stored in memory
+- Assemble batches of events, enriching the batch with user, device, and other application state information
+- Attempt to upload each batch by order of creation
+- Continuously retry failed uploads whenever there is another trigger.
+
+Batches are individually deleted from the device only upon successful upload. Additional benefits of batching include:
+
+- Support for User Identity Change events
+- Support for User Attribute Change events
+- Event batches are fired upon user closing a browser window
+
+There are several events that trigger SDK batch creation and upload:
+
+- Every 5 seconds
+- A commerce event is recorded
+- `mParticle.upload()` is manually invoked
+- A user closes the window or closes/switches to another tab
+
+mParticle uses a modern web API, `sendBeacon` (see [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) for more) to upload batches. If a user closes the window or closes/switches tabs, `sendBeacon` is responsible for still sending a the batchesto mParticle's servers. To ensure maximum [browser compatibility](/developers/sdk/web/browser-compatibility/) and to capture every event, if `sendBeacon` is not available, the SDK will use `window.fetch` or `XHR`. `XHR` is used if `window.fetch` is unavailable. For `window.fetch` and `XHR` requests, events are sent to our servers as they are recorded.
+
 ## SDK Configuration
 
 The web SDK evaluates the `window.mParticle.config` object for configuration upon initialization. The complete list of configuration options is as follows and several detailed examples are below.
