@@ -188,6 +188,7 @@ These values are case sensitive and must be entered exactly.
 | Timestamp Enabled | `bool` | True | If enabled, the timestamp will be included in messages sent to Adobe |
 | Send Messages Securely | `bool` | True | If enabled, mParticle will forward all data to Adobe using SSL |
 | Offline Tracking Enabled | `bool` | True | If enabled, any messages that are received when the device is offline will be forwarded |
+| Experience Cloud Identity Server  | `string` | <unset> | Set the domain name used by calls to the Experience Cloud Identity Service. By default this value is "dpm.demdex.net". Enter the full value (ie. "YourSubdomainName.demdex.net"), and not just the subdomain. |
 
 
 ## Connection Settings
