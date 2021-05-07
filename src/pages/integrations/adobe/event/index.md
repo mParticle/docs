@@ -180,7 +180,7 @@ These values are case sensitive and must be entered exactly.
 ## Configuration Settings
 
 | Setting Name |  Data Type    | Default Value  | Description |
-| ---|---|---|---|---
+| ---|---|---|---|
 | Media Tracking Server | `string` |  | Web Only. The URL of the Adobe media tracking server.  When this is filled in, Adobe Heartbeat is loaded. Leave this box blank if you do not want to load Adobe Heartbeat|
 | Report Suite IDs | `string` | <unset> | The report suite ID from Adobe settings page. Multiple IDs can be entered, separated by commas |
 | Tracking Server | `string` | <unset> | The URL of the Adobe tracking server |
