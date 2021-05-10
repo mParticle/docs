@@ -142,7 +142,7 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Access Key ID | `string` | <unset> | This is your IAM user's Access Key Id, which can be found on your IAM dashboard, or in the credentials.csv file that you might have downloaded after creating the IAM user. |
 | Secret Access Key | `string` | <unset> | This is your IAM user's Secret Access Key, which can be found in the credentials.csv file that you might have downloaded after creating the IAM user. |
-
+| Send Remove On Identity Change | `bool` | True |	If checked and a user identity has changed, we will send an message with 'IsMember = false' to remove the user from the audience and another message with 'IsMember = true' to readd the user with its updated identities.  If unchecked we will only send the 'IsMember = true' message with the updated identities. 
 
 ## Connection Settings
 
@@ -150,8 +150,9 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Delivery Stream Name | `string` | <unset> | This is your Kinesis Firehose Delivery Stream name. |
 | AWS Region Endpoint | `string` | us-east-1 | Endpoint for the Kinesis Firehose instance. Defaults to US East (N. Virginia) also known as us-east-1 |
+| Send Anonymous Users | `bool` | True | If enabled, users that are only identified by their mParticle ID will be sent.|
 | Forward Email Addresses | `bool` | True | If enabled, and the user's e-mail address is available, it will be added to the audience |
 | Forward Customer IDs | `bool` | True | If enabled, and the user's Customer ID is available, it will be added to the audience |
 | Forward IDFAs | `bool` | True | If enabled, and the user's IDFA is available, it will be added to the audience |
 | Forward Google Advertising IDs | `bool` | True | If enabled, and the user's Google Advertising ID is available, it will be added to the audience |
-| Send Anonymous Users | `bool` | True | If enabled, users that are only identified by their mParticle ID will be sent.|
+
