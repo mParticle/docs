@@ -26,8 +26,6 @@ The following trigger request values are supported for the mParticle configurati
 * pageview for page tracking
 * app events for event tracking
 
-## 
-
 ## AMP Page tracking
 
 Page tracking allows you to measure the number of views you had for a particular page on your website.  Pageview hits can be sent by setting the trigger `request` value to `pageview`.
@@ -115,6 +113,11 @@ The following example uses the `selector` attribute of the trigger to send an ev
           "customFlags_Keys": ["custom flag1", "custom flag2"],
           "customFlags_Values": ["[100, 200]", "[test val1, test val2]"],
           "appVersion": "1.0"
+        },
+        "extraUrlParams": {
+          "consent_state": {
+            ...
+          }
         }
       }
     }
@@ -140,3 +143,55 @@ location |  | no | The location where the event occurred represented as [lat,lon
 customFlags_Keys |  | no | An array of custom flags.
 customFlags_Values |  | no | An array of custom flag values, corresponding to the customFlags_Keys.
 appVersion |  | no | Your application version.
+
+### Consent State
+
+You can send consent state data in the optional `extraUrlParams` property of the trigger.
+
+~~~json
+"extraUrlParams": {
+  "consent_state": {
+    "gdpr": {
+      "location_collection": {
+        "consented": true,
+        "document": "location_collection_agreement_v4",
+        "timestamp_unixtime_ms": "${timestamp}",
+        "location": "17 Cherry Tree Lane",
+        "hardware_id": "IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"
+      },
+      "parental": {
+        "consented": false,
+        "document": "parental_consent_agreement_v2",
+        "timestamp_unixtime_ms": "${timestamp}",
+        "location": "17 Cherry Tree Lane",
+        "hardware_id": "IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"     
+      }
+    },
+    "ccpa":{
+      "data_sale_opt_out":{
+        "consented": true,
+        "document": null,
+        "timestamp_unixtime_ms": "${timestamp}",
+        "location": null,
+        "hardware_id": null
+      }
+    }
+  }
+}
+~~~
+
+The `consent_state` object accepts two types of regulations: `gdpr` and `ccpa`.
+Both the `gdpr` and `ccpa` objects have the same signature as a key-value mapping between `purpose` and `consent data`.
+For GDPR, the `purpose` object in the above example is shown as `location_collection` and `parental`, but should be named according to your needs. For CCPA, the `purpose` is always `data_sale_opt_out`.
+
+
+#### Consent Data Object
+
+
+Value| Data Type| Required | Example Value(s) | Description
+|---|---|---|---|---
+document | `string` | no | `"v23.2b"` | An identifier for the document, document version, or experience that the user may have consented to.
+consented | `bool` | yes | `true` / `false` | The user’s decision on a prompted consent purpose. If the user agreed: `true`.  If the user rejected: `false`.
+timestamp_unixtime_ms | `number` | yes | `1510949166`, `"${timestamp}"`<sup>*</sup> | The timestamp (Unix time) representing when the consent data was created. <sup>*</sup>[`${timestamp}` is a special amp-analytics variable.](https://github.com/ampproject/amphtml/blob/master/spec/amp-var-substitutions.md#timestamp)
+location | `string` | no | `"example.com"`, `"123 My Street"` | The location where the user gave consent. This property exists only to provide additional context. It may be a physical or digital location.
+hardware_id | `string` | no | `"IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"` | A hardware ID for the device or browser used to give consent. This property exists only to provide additional context and is not used to identify users.

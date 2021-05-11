@@ -101,6 +101,7 @@ For detailed definitions of how to report consent state, please see our SDK and 
 * [Web SDK](/developers/sdk/web/consent-management)
 * [iOS SDK](/developers/sdk/ios/consent-management)
 * [Android SDK](/developers/sdk/android/consent-management)
+* [AMP SDK](/developers/sdk/amp/getting-started/#consent-state)
 * [HTTP API](/developers/server/json-reference/#consent_state)
 
 ## Using consent state
