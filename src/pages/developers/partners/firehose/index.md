@@ -102,6 +102,7 @@ The base `MessageProcessor` implementation is responsible for parsing incoming `
 
 To get started creating your `MessageProcessor`, if you're using the [sample project](https://github.com/mParticle/lambda-extension-sample), open and edit `SampleExtension.java`. Otherwise, create a class that extends `com.mparticle.sdk.MessageProcessor`.
 
+All response messages must contain an `id` element, which contains a guid, and can be the same id sent in the request.
 
 ## Module Registration
 
