@@ -59,7 +59,7 @@ LiveRamp will also create segments with names based on the External Name of the 
 
 ## LiveRamp File Limits
 
-LiveRamp enforces [certain file limitations](https://liveramp.elevio.help/en/articles/92953) for all files sent to LiveRamp. If you attempt to send data to LiveRamp that does not meet these criteria LiveRamp may not process the files.
+LiveRamp enforces [certain file limitations](https://docs.liveramp.com/connect/en/product-limits-and-guidelines.html#recommended-file-limits) for all files sent to LiveRamp. If you attempt to send data to LiveRamp that does not meet these criteria LiveRamp may not process the files.
 
 ## Connection Settings
 
