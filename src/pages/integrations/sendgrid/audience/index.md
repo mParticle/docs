@@ -4,6 +4,8 @@ title: Audience
 
 SendGrid is a leading provider of cloud-based email services, with both marketing and transactional email automation capabilities.  App marketers can leverage mParticle's integration with SendGrid to target email marketing efforts to app user audiences created with mParticle's Audience Manager.
 
+<aside>This audience integration is disabled for maintenance.</aside>
+
 ## Prerequisites
 
 In order to forward an mParticle audience to SendGrid you will need your SendGrid Username and Password.  These are the same credentials used for your Send Grid SMTP settings, and for logging into the SendGrid website.
