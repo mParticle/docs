@@ -158,18 +158,54 @@ In order to activate the Braze integration, you will need your Braze API key and
 
 ## Event Data Mapping
 
-### Purchases
+### Commerce Events
 
-All commerce events will forwarded as purchase events to Braze, if the following event attributes are defined:
+All commerce events are expanded based on the number of products. In other words, a single incoming event with 2 unique products would result in at least 2 outgoing Braze events.
 
-* `transaction_id`
-* `price`
+#### Purchase Events
 
-We also pass the `currency_code` attribute of the corresponding `MPProduct` object, or assume that the currency is USD if it's not defined.
+A purchase event is expanded and mapped to Braze purchase event(s). For each product, a single outgoing Braze event is generated.
 
-If `quantity` is greater than 1, we will forward Braze a purchase event for each individual unit of the product (i.e. we'll send two identical purchase events if `quantity` equals 2).
+In addition to the [Common Commerce Fields](#common-commerce-fields), the following information is also captured, if defined:
 
-Product attributes are mapped to the `properties` node of the Braze purchase.
+| Commerce Event Field | Braze Purchase Event Field | Data Type | Required | Description | Example |
+|---|---|---|---|---|---|
+| CurrencyCode | currency | `string` | No | Currency Code. If not specified, this will default to "USD". | USD |
+| ProductAction.Products[].Id | product_id | `string` | No | The ID associated with the given product. | "123456" |
+| ProductAction.Products[].Price | price | `double` | No | The price associated with 1 unit of the given product. | 1.99 |
+| ProductAction.Products[].Quantity | quantity | `int` | No | The quantity associated with the given product. | 2 |
+| ProductAction.TotalAmount | properties["Total Amount"] | `string` | No | The total amount associated with the given transaction. | 25.00 |
+| ProductAction.ShippingAmount | properties["Shipping Amount"] | `string` | No | The shipping amount associated with the given transaction. | 2.99 |
+| ProductAction.TaxAmount | properties["Tax Amount"] | `string` | No | The tax amount associated with the given transaction. | 1.37 |
+
+#### Other Commerce Events
+
+All other e-commerce event types are expanded and mapped to Braze custom events. Note:
+* Each product results in the generation of a single Braze event.
+* If a refund, an additional event representing the **total** is also generated.
+
+As such, all relevant product and transaction information is conveyed via the `properties` field.
+
+In addition to the [Common Commerce Fields](#common-commerce-fields), the following information is also captured, if defined:
+
+| Commerce Event Field | Braze Custom Event Field | Data Type | Required | Description | Example |
+|---|---|---|---|---|---|
+| ProductAction.Products[].Id | properties["Id"] | `string` | No | The ID associated with the given product. | "123456" |
+| ProductAction.Products[].Price | properties["Price"] | `double` | No | The price associated with 1 unit of the given product. | 1.99 |
+| ProductAction.Products[].Quantity | properties["Quantity"] | `int` | No | The quantity associated with the given product. | 2 |
+
+#### Common Commerce Fields
+
+All commerce events, regardless of type, capture these common fields in the `properties` dictionary in the following way:
+
+| Commerce Event Field | Braze Event Field | Data Type | Required | Description | Example |
+|---|---|---|---|---|---|
+| ProductAction.TransactionId | properties["Transaction Id"] | `string` | No | The ID associated with the given transaction. | "123456" |
+| ProductAction.Products[].Name | properties["Name"] | `string` | No | The name associated with the given product. | "MyProduct" |
+| ProductAction.Products[].Category | properties["Category"] | `string` | No | The category associated with the given product. | "Clothing" |
+| ProductAction.Products[].Brand | properties["Brand"] | `string` | No | The brand associated with the given product. | "MyBrand" |
+| ProductAction.Products[].TotalProductAmount | properties["Total Product Amount"] | `string` | No | The total amount associated with the given product for the given transaction. | "MyBrand" |
+| ProductAction.Products[].Attributes["myProductAttribute"] | properties["myProductAttribute"] | `string` | No | A custom attribute associated with the given product. | "myProductAttribute" |
 
 ### Screen Views
 
