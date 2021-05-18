@@ -508,6 +508,7 @@ Now, a product variable forwarded to Adobe will look like:
 | ---|---|---|---|
 | Report Suite IDs | `string` | <unset> | The report suite ID from Adobe settings page.  Multiple IDs can be entered, separated by commas |
 | Tracking Server | `string` | <unset> | The URL of the Adobe tracking server |
+| Experience Cloud Identity Server | `string` | <unset> | Set the domain name used by calls to the Experience Cloud Identity Service. By default this value is "dpm.demdex.net". Enter the full value (ie. "YourSubdomainName.demdex.net"), and not just the subdomain.
 | Send Messages Securely | `bool` | True | If enabled, mParticle will forward all data to Adobe using SSL |
 | Timestamp Enabled | `enum` | Timestamps Optional | Matches your Reporting Suite's timestamp settings. A report suite can have it's timestamps configured as one of: not allowed, required, or optional. Timestamps Optional is the default setting for all new report suites. |
 
@@ -518,6 +519,8 @@ Now, a product variable forwarded to Adobe will look like:
 | ---|---|---|---|---
 | User Identification | `enum` | Marketing Cloud ID | All| Type of ID to forward to Adobe. Currently, only Marketing Cloud ID is supported. |
 | Marketing Cloud Organization ID | `string` | | All | Your Adobe Marketing Cloud Organization ID, available from your Adobe Marketing Cloud dashboard. |
+| Adobe Launch App ID | `string` | <unset> | iOS, Android | Adobe Launch App ID is used to initialize and configure your Adobe Mobile Core and Media Analytics. You can find it within the Environment Tab of your Mobile property within the Adobe Launch Platform.
+| Media Tracking Server	| `string` | <unset> | Web | Tracking server for media analytics. This is different from your analytics tracking server. When this is filled in, we will load Adobe Heartbeat. If you do not want Adobe Heartbeat functionality, leave this blank. |
 | Context Variables | `Custom Field` | <unset> | All| Mapping of your application's event attributes to Adobe context variables |
 | Events | `Custom Field` | <unset> | All| Mapping of your application's custom event names to Adobe event numbers |
 | Props | `Custom Field` | <unset> | All| Mapping of your application's custom event attributes to Adobe props |
@@ -525,8 +528,8 @@ Now, a product variable forwarded to Adobe will look like:
 | Hier Variables | `Custom Field` | <unset> | All| Mapping of your application's screen view attributes to Adobe hier variables |
 | Product Incrementors | `Custom Field` | <unset> | All| Mapping of your application's custom event names to Adobe product incrementor event numbers |
 | Merchandising Variables| `Custom Field` | <unset> | All| Mapping of your application's event attributes to Adobe product merchandising |
-| Page Specific Product Actions (deprecated) | `Custom Field` | <unset> | iOS, Android | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction`. This is mostly useful for Promotion or Impression events. |
-| Forward as Track State Events | `Custom Field` | <unset> | iOS, Android | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction`. This is mostly useful for Promotion or Impression events. |
+| Page Specific Product Actions (deprecated) | `Custom Field` | <unset> | iOS, Android, tvOS, FireTV | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction`. This is mostly useful for Promotion or Impression events. |
+| Forward as Track State Events | `Custom Field` | <unset> | iOS, Android, tvOS, FireTV | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction`. This is mostly useful for Promotion or Impression events. |
 | Attach pageName to non-page view event logging | `bool` | `false` | Web | Attach pageName to non-page view event logging. |
 | Set Global Window Object |  `bool` | `true` | Web | Set the instance of AppMeasurement created by this connection to the global window.s object.
 | Set trackExternalLinks |  `bool` | `false` | Web | Automatically track all exit links.
