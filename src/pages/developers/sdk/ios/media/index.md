@@ -25,8 +25,8 @@ To integrate the SDK using CocoaPods, specify it in your [Podfile](https://guide
 use_frameworks!
 
 target '<Your Target>' do
-    pod 'mParticle-Apple-SDK', '~> 7.12.0'
-    pod 'mParticle-Apple-Media-SDK', '~> 1.0-beta.1'
+    pod 'mParticle-Apple-SDK', '~> 8.0'
+    pod 'mParticle-Apple-Media-SDK', '~> 1.0'
 end
 ```
 
@@ -35,9 +35,17 @@ end
 To integrate the SDK using Carthage, specify it in your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
 ```ogdl
-github "mparticle/mparticle-apple-sdk" ~> 7.12
+github "mparticle/mparticle-apple-sdk" ~> 8.0
 github "mparticle/mparticle-apple-media-sdk" ~> 1.0
 ```
+
+### Swift Package Manager
+
+To integrate the SDK using Swift Package Manager, open your Xcode project and navigate to File > Swift Packages > Add Package Dependency
+
+Enter the repository URL `https://github.com/mParticle/mparticle-apple-media-sdk` and click Next.
+
+You can leave the version settings as default and click Next one more time to complete adding the package dependency.
 
 ## Creating an instance of a Media Session
 
