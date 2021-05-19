@@ -77,6 +77,7 @@ Your full account name may include [region](https://docs.snowflake.com/en/user-g
 
 ![](/images/Snowflake-mParticle-Settings-042019.png)
 
+### Configuration Settings
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
 | Account | `string` | | Your Snowflake account name.  Your full account name may include [region.](https://docs.snowflake.com/en/user-guide/intro-regions.html#specifying-region-information-in-your-account-hostname)|
@@ -92,6 +93,13 @@ Your full account name may include [region](https://docs.snowflake.com/en/user-g
 If you check the `Use same settings for Development and Production` box, the same configuration is used for both development and production environments.
 
 Once your Data Warehouse integration is configured, connect individual inputs to the Snowflake output from the **Connections** page. You must connect every input for which you want to store data.
+
+### Connection Settings
+| Setting Name | Data Type | Default Value | Platform | Description |
+| ---|---|---|---|---|
+| Snowflake Table Name | `string` | | Out of Band | Table name for this partner feed. If not set, the partner name will be used.  Only applicable to feeds inputs, no effect on apps inputs. If "Split Partner Feed Data by Event Name" checkbox is enabled, this setting is not used. |
+| Split Partner Feed Data by Event Name | `boolean` | False | Out of Band | If enabled, split partner feed data by event name. Otherwise load data into the same table. |
+| Send Batches without Events | `boolean` | True | All | If enabled, an event batch that contains no events will be forwarded. |
 
 ## Data Schema
 
@@ -220,7 +228,7 @@ If you have chosen to create an IP whitelist as part of your Snowflake [Network 
 
 ## Partner Feed Data
 
-Events from each connected Partner Feed will be stored under a single table. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
+Events from each connected Partner Feed will be stored under a single table unless the `Split Partner Feed Data by Event Name` checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
 
 ![medium](/images/snowflake-partner-feed.png)
 

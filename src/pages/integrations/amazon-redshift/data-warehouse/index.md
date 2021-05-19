@@ -63,6 +63,7 @@ From the main page for your Redshift configuration, select the **Settings** tab 
 
 ![](/images/redshift-settings-042019.png)
 
+### Configuration Settings
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
 | Cluster Endpoint | `string` | | Endpoint string shown on Configuration tab on your Redshift Dashboard. |
@@ -81,6 +82,13 @@ From the main page for your Redshift configuration, select the **Settings** tab 
 | Number of Days | `number` | 90 | If Data Hygiene is enabled, this is the age in days past which data is purged.
 
 Once your Data Warehose integration is configured, connect individual inputs to the Amazon Redshift output from the **Connections** page. You must connect every input you want to store data for.
+
+### Connection Settings
+| Setting Name | Data Type | Default Value | Platform | Description |
+| ---|---|---|---|---|
+| Redshift Table Name | `string` | | Out of Band | Table name for this partner feed. If not set, the partner name will be used.  Only applicable to feeds inputs, no effect on apps inputs. If "Split Partner Feed Data by Event Name" checkbox is enabled, this setting is not used. |
+| Split Partner Feed Data by Event Name | `boolean` | False | Out of Band | If enabled, split partner feed data by event name. Otherwise load data into the same table. |
+| Send Batches without Events | `boolean` | True | All | If enabled, an event batch that contains no events will be forwarded. |
 
 <!--
 ### Optional Setup
@@ -305,7 +313,7 @@ For mParticle to access your cluster, the IPs of mParticle servers need to be wh
 
 ## Partner Feed Data
 
-Events from each connected Partner Feed will be stored under a single table. You can choose the table name for each Feed in the Connection Settings. 
+Events from each connected Partner Feed will be stored under a single table unless the `Split Partner Feed Data by Event Name` checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. 
 <aside>
 If you do not provide a name, mParticle will use the name of the Partner.
 </aside>

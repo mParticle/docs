@@ -42,6 +42,13 @@ Note: In the mParticle app, if you do not have Admin rights, you will be able to
 * Optionally, you may configure a data retention policy.
 5. Connect individual inputs to the BigQuery output from the **Connections** page. You must connect every input you want to store data for.
 
+### Connection Settings
+| Setting Name | Data Type | Default Value | Platform | Description |
+| ---|---|---|---|---|
+| BigQuery Table Name | `string` | | Out of Band | Table name for this partner feed. If not set, the partner name will be used.  Only applicable to feeds inputs, no effect on apps inputs. If "Split Partner Feed Data by Event Name" checkbox is enabled, this setting is not used. |
+| Split Partner Feed Data by Event Name | `boolean` | False | Out of Band | If enabled, split partner feed data by event name. Otherwise load data into the same table. |
+| Send Batches without Events | `boolean` | True | All | If enabled, an event batch that contains no events will be forwarded. |
+
 ### Optional Steps
 
 You can upload your own JSON BigQuery service account credentials using the **Google Service Account Key JSON (Optional)** field in the **Data Warehouse** > **Settings** page. If you do not provide your custom credentials, mParticle's Google service account credentials will used. The image below shows a sample JSON configuration file.
@@ -231,7 +238,7 @@ shoppingcart.**product_totalproductamount** |  FLOAT  |  NULLABLE  |   Total pro
 
 ## Partner Feed Data
 
-Events from each connected Partner Feed will be stored under a single table. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
+Events from each connected Partner Feed will be stored under a single table unless the `Split Partner Feed Data by Event Name` checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
 
 ![medium](/images/big-query-feed.png)
 
