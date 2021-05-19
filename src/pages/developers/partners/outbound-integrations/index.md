@@ -105,8 +105,14 @@ Endpoint Requirements:
 1. mParticle will send calls with an Authorization header.  You can choose whether to authenticate mParticle as the caller with this header.  The format will be "Authorization : Token [token]".   This token value will be provided to you by email, encoded with a PGP encryption key you provide. To generate a token, mParticle needs to be able to import the ModuleRegistrationResponse, so this response should not require authentication.
 1. Responses
     * mParticle expects to receive a 200 (OK) or a 202 (Accepted) response for all requests.
-    * Retries will occur only if a 429 (Too Many Requests) response is received. A given message will retry 5 times before being dropped.
-    * All 5XX errors will not be retried.
+    * By default, retries will occur for the following responses. mParticle will attempt a limited number of retries in an exponential backoff pattern.
+      * 408 - Request Timeout
+      * 429 - Too Many Requests
+      * 500 - Internal Server Error (generic error message)
+      * 502 - Bad Gateway
+      * 503 - Service Unavailable
+      * 504 - Gateway Timeout
+    * All other error codes will not be retried.
 
 The endpoint must accept the same JSON format as the Lambda API.   Samples of the JSON requests can be found [here](https://github.com/mParticle/mparticle-firehose-java-sdk/tree/master/examples/json).  The following methods should be supported:
 
