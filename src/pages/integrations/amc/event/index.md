@@ -131,7 +131,7 @@ For other OSs -- such as Roku -- the MID will either need to:
 
 For the native integrations, the embedded kit retrieves the Adobe Marketing Cloud ID (MID) for the user, but sends no data directly to Adobe. All data forwarding is done server-to-server via `GET` requests to Adobe's [Data Insertion API](https://github.com/AdobeDocs/analytics-1.4-apis/blob/master/docs/data-insertion-api/index.md).
 
-On web, the Marketing Cloud ID is always retrieved using client-side code, but you can choose to send data to Adobe by a client-side or server-side path via the **Forward Web Requests Server Side** Connection Setting.
+On web, the Marketing Cloud ID is always retrieved using client-side code, but you can choose to send data to Adobe either client-side or the server-side, via the **Forward Web Requests Server Side** Connection Setting. If you are using a snippet to load the mParticle web SDK, simply clicking this setting is enough to send data server side.  If you are self-hosting, there is an additional step. We offer 2 different npm modules, one to send data to Adobe [client-side](https://www.npmjs.com/package/@mparticle/web-adobe-client-kit), and another to send it [server-side](https://www.npmjs.com/package/@mparticle/web-adobe-server-kit). To send data server side in a self-hosting environment, you must both check the setting and use the server-side kit. Checking the setting and using the client side kit may result in duplicate data, with the client sending the data, and then our servers also sending the data.
 
 Once you have created your data plan in Adobe, you need to map mParticle event and attribute names to their counterparts in Adobe. Mapping for a limited set of standard events and attributes are handled automatically. We'll cover these later. Your custom events and attributes need to be mapped manually.
 
@@ -533,4 +533,4 @@ Now, a product variable forwarded to Adobe will look like:
 | Attach pageName to non-page view event logging | `bool` | `false` | Web | Attach pageName to non-page view event logging. |
 | Set Global Window Object |  `bool` | `true` | Web | Set the instance of AppMeasurement created by this connection to the global window.s object.
 | Set trackExternalLinks |  `bool` | `false` | Web | Automatically track all exit links.
-| Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, mParticle will not initialize the full Adobe integration on the web client. Instead, web data will be forwarded to Adobe via server-to-server API.
+| Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, mParticle will not initialize the full Adobe integration on the web client. Instead, web data will be forwarded to Adobe via server-to-server API. If self-hosting, it is required to use the [Adobe server-side kit](https://www.npmjs.com/package/@mparticle/web-adobe-server-kit), along with this setting. See [Data Mapping](/integrations/amc/event/#data-mapping) for more details.
