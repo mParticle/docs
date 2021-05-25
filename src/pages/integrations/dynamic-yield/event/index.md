@@ -12,7 +12,7 @@ mParticle's Dynamic Yield integration is available only for the Web platform.
 
 After adding the Dynamic Yield integration as an event output from the mParticle admin portal, add it as a Connected Output from the Web platform connection page. Enter the `Site Id` provided by Dynamic Yield in the [Connection Settings](#connection-settings).
 
-You do not need to add the Dynamic Yield snippet to your code, but if you have, will not load it again and instead use the already loaded Dynamic Yield window object (window.DY). If you do not load it yourself, mParticle will load the script for you.
+While allowing mParticle to automatically load Dynamic Yield reduces the amount of code you need to write, you may choose to initialize Dynamic Yield yourself to prevent "flickering" in the case where a Dynamic Yield experiment is expected to alter the UI immediately on load. If you do add the Dynamic Yield snippet to your code, mParticle will not load it again and instead use the already loaded Dynamic Yield window object (window.DY). If you do not load it yourself, mParticle will load the script for you. 
 
 ### Create Page Context
 Dynamic Yield requires each page to have a Page Context. You will need to add the Page Context to each `<head>` tag on the page. See [here](http://support.dynamicyield.com/article/page-context/) for additional information regarding Page Context.
@@ -44,13 +44,45 @@ See below for some call outs when using the above support event types
 You can send a single product through mParticle's logPurchase method, or an array of products:
 
 ```javascript
-var iPhone = mParticle.eCommerce.createProduct('iPhone', 'SKU123', 599, 1);
-var transactionAttributes1 = mParticle.eCommerce.createTransactionAttributes('ID123', null, null, 599);
-mParticle.eCommerce.logPurchase(transactionAttributes1, iPhone, true);
+// 1. Create the product
+var product1 = mParticle.eCommerce.createProduct(
+    'Double Room - Econ Rate',  // Name
+    'econ-1',                   // SKU
+    100.00,                     // Price
+    4                           // Quantity
+);
 
-var Android = mParticle.eCommerce.createProduct('Galaxy', 'SKU234', 699, 1);
-var transactionAttributes2 = mParticle.eCommerce.createTransactionAttributes('ID123', null, null, 1,298);
-mParticle.eCommerce.logPurchase(transactionAttributes2, [iPhone, Android], true);
+var product2 = mParticle.eCommerce.createProduct(
+    'Double Room - Econ Rate',
+    'econ-1', 
+    100.00, 
+    4
+);
+
+// 2. Summarize the transaction
+var transactionAttributes = {
+    Id: 'foo-transaction-id',
+    Revenue: 430.00,
+    Tax: 30
+};
+
+// 3. Log the purchase event (optional custom attributes an custom flags depending on your );
+var customAttributes = {sale: true}; // if not passing any custom attributes, pass null
+var customFlags = {'Google.Category': 'travel'} // if not passing any custom flags, pass null
+
+mParticle.eCommerce.logProductAction(
+    mParticle.ProductActionType.Purchase,
+    product1,
+    customAttributes,
+    customFlags,
+    transactionAttributes);
+
+mParticle.eCommerce.logProductAction(
+    mParticle.ProductActionType.Purchase,
+    [product1, product2],
+    customAttributes,
+    customFlags,
+    transactionAttributes);
 ```
 
 #### Add to Cart / Remove from Cart
@@ -58,16 +90,16 @@ Dynamic Yield does not support adding multiple items to a cart at once. When add
 
 ```javascript
 // results in a single Add to Cart event sent to DY
-mParticle.eCommerce.Cart.add(iPhone, true); 
+mParticle.eCommerce.logProductAction(mParticle.ProductActionType.AddToCart, product1, customAttributes);
 
 // results in an Add to Cart event sent to DY for each product
-mParticle.eCommerce.Cart.add([iPhone, Android], true); 
+mParticle.eCommerce.logProductAction(mParticle.ProductActionType.AddToCart, [product1, product2], customAttributes);
 ```
 
 It is not possible to remove more than 1 cart item at a time.
 
 ```javascript
-mParticle.eCommerce.Cart.remove(iPhone, true);
+mParticle.eCommerce.logProductAction(mParticle.ProductActionType.RemoveFromCart, product1, customAttributes);
 ```
 
 #### Login
