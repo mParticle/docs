@@ -85,4 +85,4 @@ Connect inputs to the Adjust output configuration:
 | ---|---|---|---|-----
 | Event Tokens | `Custom Field` | <unset> | All| Define the mapping from incoming events to the Adjust event token previously setup in your Adjust dashboard. |
 | Revenue Token | `string` | <unset> | All| Specify the revenue event token from your Adjust dashboard.  This will be used if an event token is not provided for the 'eCommerce - Purchase' event |
-| Send Partner Params | `bool` | `false` | If enabled, attributes are sent to `partner_params` as well as `callback_params` |
+| Send Partner Params | `bool` | `false` | All | If enabled, attributes are sent to `partner_params` as well as `callback_params` |
