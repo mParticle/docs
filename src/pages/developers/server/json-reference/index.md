@@ -789,14 +789,22 @@ location_source | string | optional| One of "unknown", "ip_lookup", or "lat_long
 }
 ~~~
 
-Custom flags are used to trigger specific behavior and send specific data-points to particular providers. By design, custom flags are sent only to the specific provider for which they are required. This differs from generic, custom event attributes, which mParticle will send to all of your configured services which support generic key/value event data. Custom Flags cannot be used within an audience definition.
+Custom flags are:
+* used to trigger behaviors for predefined data-points to a specific integration.
+* sent to the specific integration, and to all raw data event integrations (i.e. Amazon Kinesis, Amazon S3, Amazon SNS, Amazon SQS, Apache Kafka, Google Cloud Storage, Google Pub/Sub, Microsoft Azure Blob Storage, Microsoft Azure Event Hubs, Slack, and Webhook).  This differs from custom_attributes, which are will sent to all connected integrations which support generic key/value attributes.
+* cannot be used within an audience definition.
 
 Reference the guide for each integration to see if you need to instrument custom flags. Custom flags are supported by the following partners:
 
-* [Google Analytics](/integrations/google-analytics/event/#event-tracking)
+* [Adobe Marketing Cloud](/integrations/amc/event/#custom-flags-on-web)
 * [AgilOne](/integrations/agilone/event/#custom-flags)
-* [Web Trends](/integrations/webtrends/event/#event-data-mapping)
+* [Facebook](/integrations/facebook/event/#user-data-mappings)
+* [Google Analytics](/integrations/google-analytics/event/#event-tracking)
+* [Google Marketing Platform Offline Conversions](/integrations/google-marketing-platform-offline/event/#user-data-mapping)
+* [Quantcast](/integrations/quantcast/event/#quantcast-custom-flags)
 * [Simple Reach](/integrations/simplereach/event/#event-data-mapping)
+* [The Trade Desk](/integrations/the-trade-desk/event/#custom-flags)
+* [Web Trends](/integrations/webtrends/event/#event-data-mapping)
 
 
 ## `device_current_state`
