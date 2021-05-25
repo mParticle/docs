@@ -47,35 +47,23 @@ Push notifications work a bit differently for web and for mobile.
 
 ##### Web
 
-mParticle integrates with Braze to allow web push notifications to further engage your visitors. We integrated Braze's [Soft Push Prompts](https://www.braze.com/documentation/Web/#soft-push-prompts), which allows you to ask your user if they'd like to stay in touch before the browser alerts them to allow notifications. This is done since the browser throttles how often you can prompt the user for push notifications, and if the user denies permission, you can never ask them again. See below for directions on how to implement push notifications, which customizes Braze's [implementation instructions](https://www.braze.com/documentation/Web/#push-notifications) to work with mParticle.
+mParticle integrates with Braze to allow web push notifications to further engage your visitors. We integrated Braze's [Soft Push Prompts](https://www.braze.com/documentation/Web/#soft-push-prompts), which allows you to ask your user if they'd like to stay in touch before the browser alerts them to allow notifications. This is done since the browser throttles how often you can prompt the user for push notifications, and if the user denies permission, you can never ask them again. See below for directions on how to implement push notifications, which customizes Braze's [implementation instructions](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/push_notifications/integration/) to work with mParticle.  
 
-1. To support browsers based on Chromium 51 and earlier, create a [Firebase Cloud Messaging Project](https://console.firebase.google.com/).
-    * Select the gear icon next to your project name and select `Project Settings`.
-    * Select the `Cloud Messaging` tab and note the `Server Key` and `Sender ID`.
-2. Configure your site
-    * Add `<link rel="manifest" href="/manifest.json" />` to the `<head>` section of your website. Add a manifest.json file in the root of your site and enter the content below:
-    ```javascript
-    {
-        "gcm_sender_id": "YOUR_CLOUD_MESSAGING_SENDER_ID"
-    }
-    ```
-
+1. Configure your site
     * Create a `service-worker.js` file to your root directory. Inside your `service-worker.js` file, include
 
     ```javascript
     self.importScripts('https://static.mparticle.com/sdk/js/braze/service-worker.js');
     ```
     
-    mParticle hosts Braze's service worker in order to prevent unpredictable versioning issues. Do not use Braze's service-worker.js cdn.
+    mParticle hosts Braze's service worker in order to prevent unpredictable versioning issues. Do not use Braze's service-worker.js CDN.
 
-3. Set your Cloud Messaging Key
-    * In the [app settings tab of the Manage App Group Page](https://dashboard-01.braze.com/app_settings/app_settings) of Braze's dashboard, select your Web App and enter your Cloud Messaging Server Key in the field under the `Push Notifications` section.
-4. Configure Safari Push
+2. Configure Safari Push
     * [Generate a Safari Push Certificate following these "Registering with Apple" Instructions](https://developer.apple.com/library/mac/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/PushNotifications/PushNotifications.html#//apple_ref/doc/uid/TP40013225-CH3-SW33)
     * In the Braze dashboard, on the [app settings page](https://dashboard-01.braze.com/app_settings/app_settings) (where your API keys are located), select your Web app. Click “Configure Safari Push” and follow the instructions, uploading the push certificate you just generated.
     * In your mParticle dashboard, open your Braze connection settings. Under `Safari Website Push ID`, type in your `Website Push ID` you used when generating your Safari Push Certificate (beginning with `web`) and click `Save`.
 
-5. Create a “Prime for Push” in-app messaging Campaign on the Braze dashboard.
+3. Create a “Prime for Push” in-app messaging Campaign on the Braze dashboard. Note that this is an `In-App Messaging` Campaign, and not a `Push Notification` messaging campaign.
     * Make it a “Modal” In-App Message. Give it whatever text and styling you wish to present to the user (“Can we stay in touch?”).
     * Give the in-app message a Button 1 Text value of “OK” (or whatever affirmative text you wish), and set the On-Click Behavior to “Close Message.”
     * Under the gear composer section, add a key-value pair. Give it a key of `msg-id` and a value of `push-primer`.
@@ -85,6 +73,11 @@ mParticle integrates with Braze to allow web push notifications to further engag
         * Let's say that you want to rename your `service-worker.js` file to `braze-push-worker.js` and store it in inside a directory in your root folder called `thirdParty/`.
         * In your mParticle dashboard, open your Braze connection settings. Under `Push Notification Service Worker File Location`, type in `/thirdParty/braze-push-worker.js` and click `Save`.
         *  __Warning__  - Setting a value here limits the scope of push notifications on your site. For instance, in the above example, because the service worker file is located within the `/thirdParty/` directory, asking for push notifications MAY ONLY BE CALLED from web pages that start with http://yoursite.com/thirdParty/.
+
+##### Web Troubleshooting Tips
+* Firefox - starting with version 72, Firefox requires user interaction before showing a full push permission dialogue box. See [here](https://blog.mozilla.org/futurereleases/2019/11/04/restricting-notification-permission-prompts-in-firefox/) for more details.
+* Ensure that your OS-wide notifications for the browser you are testing are not disabled.
+* If you have previously allowed or rejected push requests while testing, you will need to clear local storage/cookies as well as the browser's notification preference for your development URL for optimal testing.
 
 #### Mobile
 
