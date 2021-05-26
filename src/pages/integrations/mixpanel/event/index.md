@@ -19,7 +19,6 @@ In order to enable mParticle’s integration with Mixpanel, you will need an acc
 
 ## Data Processing Notes
 
-* mParticle will only forward events to Mixpanel if the data is less than 5 days old - <https://mixpanel.com/help/reference/http>.
 * User and Event attributes with string values of `"true"` or `"false"` (not case sensitive), will be converted to boolean values before being forwarded to Mixpanel.
 
 ## Supported Features
@@ -137,6 +136,13 @@ Mixpanel's SDK Method | mParticle's SDK Method
 --------------------- | ----------------------
 track with properties | `logEvent` with event attributes or `logEcommerceTransactionWithProduct`
 track with no properties | `logScreen` or `logEvent` with no event attributes
+
+### Historical Event Tracking
+
+mParticle sends data to different Mixpanel endpoints depending on the age of the events:
+
+1. Events that are less than or equal to 5 days old are sent to the [track](https://developer.mixpanel.com/reference/events#track-event) endpoint.
+2. Events that are greater than 5 days old are sent to the [import](https://developer.mixpanel.com/reference/events#import-events) endpoint. For events that are older than 5 days, Mixpanel provides a [different endpoint](https://developer.mixpanel.com/reference/events#import-events) to import them. In order for mParticle to send the historical data to Mixpanel, you must provide the [API Secret](#configuration-settings). If not provided, mParticle will drop these events.
 
 ### Super Property Tracking
 
@@ -272,7 +278,7 @@ If a push notification token has been set using the mParticle SDK, mParticle wil
 | ---|---|---|---|
 | Token | `string` | <unset> | Project token, found by clicking the gear icon in your project. |
 | External Identity Type | `string` | Customer ID | The mParticle User Identity type to forward as an External Id to Mixpanel. |
-
+| API Secret | `string` | <unset> | Your Mixpanel API Secret which can be found by clicking on your name in the upper right hand corner under Project Settings. |
 
 ## Connection Settings
 
