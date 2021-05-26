@@ -248,6 +248,7 @@ By default, mParticle forwards all available user attributes to Braze, including
 | External Identity Type | `enum` | Customer ID | The mParticle User Identity Type to forward as an External ID to Braze. |
 | Email Identity Type | `enum` | Email | The mParticle User Identity Type to forward as the Email to Braze. |
 |  Braze Instance | `enum` | US 03 Cluster | Specify which cluster your Braze data will be forwarded to. Please ensure you are contractually authorized to use the EU cluster if you select that option. If you choose 'Custom', you will need to provide separate endpoints for your SDK, Server, and Web data.
+| Enable Event Stream Forwarding | `bool` | False | If enabled, all events will be forwarded in real time. If not, all events will be forwarded in bulk. Real time forwarding has lower latency, but requires higher rate limits within Braze. Please reach out to your Braze customer success manager for more information about increasing your [rate-limits](https://www.braze.com/docs/api/basics/#api-limits). |
 
 
 ## Connection Settings
