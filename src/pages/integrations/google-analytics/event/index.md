@@ -204,17 +204,16 @@ ProductQuantity | iq |Yes | The quantity of a product. If missing, mParticle wil
 
 You can associate Google Analytics custom flags with an event via the [Custom Flags APIs](/developers/sdk/android/event-tracking/#custom-flags) provided by the mParticle SDKs. See the table below to determine the correct Custom Flag to append to an event for your desired Google Analytics category, label, and value. The name of the event is passed as the Event Action (Google Analytics ea parameter).
 
-mParticle Custom Flag | Google Analytics Parameter
---------------------- | --------------------------
-Google.Category | ec
-Google.HitType | t
-Google.Label | el
-Google.NonInteraction | in
-Google.Page | dp
-Google.Value | ev
-Google.CGNumber | cg<groupIndex>
-
-For HitType, by default on web, pageviews are logged as HitType `pageview`, and all other events including commerce events are logged as HitType `event`. While these are the default and most common HitTypes, you can customize these using Custom Flags to be any types that [Google allows](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#t) (`pageview`, `screenview`, `event`, `transaction`, `item`, `social`, `exception`, `timing`).
+mParticle Custom Flag | Google Analytics Parameter | Description
+--------------------- | -------------------------- | -----
+Google.Category | ec |
+Google.HitType | t | By default on web, pageviews are logged as HitType `pageview`, and all other events including commerce events are logged as HitType `event`. While these are the default and most common HitTypes, you can customize these using Custom Flags to be any type that [Google allows](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#t)
+Google.Label | el |
+Google.NonInteraction | in |
+Google.Page | dp | 
+Google.Value | ev |
+Google.CGNumber | cg<groupIndex> |
+Google.DocumentReferrer | dr | 
 
 See the code samples below and the SDK docs for help setting custom flags with the mParticle iOS and Android SDKs.
 
@@ -244,12 +243,12 @@ logEvent with EventType set | GAIDictionaryBuilder.createEventWithCategory:actio
 
 mParticle maps logged events to Google Analytic's event structure as follows:
 
- Google Analytics's Event Field| mParticle Event |
------------------ | -------------------------
-Event Category| Google.Category custom flag if present, mParticle SDK **$Category** attribute if present, otherwise EventType. |
-Event Action| EventName
-Event Label| Google.Label custom flag if present, mParticle SDK **label** attribute if present, otherwise it is not sent with the event |
-Event Value| Google.Value custom flag if present, mParticle SDK **value** attribute if present. If the event value is not an integer then mParticle will disregard and not forward to Google Analytics.|
+ Google Analytics's Event Field| Google Analytics Parameter | mParticle Event |
+----------------- | ------------------------- | ------
+Event Category| ec | Google.Category custom flag if present, mParticle SDK **$Category** attribute if present, otherwise EventType. |
+Event Action| ea | EventName
+Event Label| el | Google.Label custom flag if present, mParticle SDK **label** attribute if present, otherwise it is not sent with the event |
+Event Value| ev | Google.Value custom flag if present, mParticle SDK **value** attribute if present. If the event value is not an integer then mParticle will disregard and not forward to Google Analytics.|
 
 ### Screen Tracking
 
@@ -278,7 +277,7 @@ Read more about logging page views through our Web SDK [here](/developers/sdk/we
 
 mParticle's session management scheme will be used, which is different from Google Analytics. mParticle will forward session start and end messages to Google Analytics as follows:
 
-mParticle's SDK Method | Google Analytic's SDK Method| Parameter | Description
+mParticle's SDK Method | Google Analytic's SDK Method| Google Analytics Parameter | Description
 --------------- | ---------------------- |----- |---
 beginSession / endSession | set:kGAISessionControl | sc| Session control parameter.  Set to **start** for SessionStart, **end** for SessionEnd
 
@@ -364,7 +363,7 @@ mParticle.logEvent('Update Profile', mParticle.EventType.Navigation, customAttri
 ```
 will map the following query parameter values to Google Analytics:
 
- GA User Timing Event Parameter | GA Event Parameter | Value |
+ GA User Timing Event Parameter | Google Analytics Parameter | Value |
 ------------- | ----------------- | -----------------
 utc | ec | 'Profile' (would default to 'Navigation' in this example if Google.Category was not included) |
 utt | -- | 1914 |
@@ -375,7 +374,7 @@ utl | el | 'Foo-label' |
 
 To handle Campaign Parameters, mParticle will forward user attributes to Google Analytics as noted below.
 
-User Attribute | Google Analytics Mapping | Description |
+User Attribute | Google Analytics Parameter | Description |
 |---|---|---|
  $utm_content | cc | Campaign Content |
  $campaign_id | ci | Campaign ID |
