@@ -379,9 +379,12 @@ This event **fails** validation: The `label` attribute is unplanned and `custom_
 
 If you're looking for an example of how to implement events that conform to your data plan, download your data plan and [check out this tool](https://mparticle.github.io/data-planning-snippets/). This tool will show you how to create a valid event for every point in your data plan and in any of our SDKs.
 
+#### How are attribute types validated?
+Since various mParticle features (Audiences, Calculated Attributes, Forwarding Rules, some integrations) will automatically convert string representations of numbers and booleans to their respective types, data planning does not distinguish between raw numeric or boolean values (e.g. `42` or `true`) and their string representation (e.g. `"42"` or `"true"`).  In summary, as long as the value can be converted to a type, it is considered valid.
+
 #### How can I validate specific event, user and identity attributes?
 
-You can validate specific attributes differently depending on type.
+You can validate specific attributes differently depending on *detected* type. Learn more about [how type validation works here](#how-are-attribute-types-validated).
 
 ##### Numbers
 
