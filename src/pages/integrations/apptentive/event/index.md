@@ -114,11 +114,15 @@ By default, Apptentive inherits global app styles. To override those and update 
 * [iOS](https://learn.apptentive.com/knowledge-base/interface-customization-ios/)
 * [Android](https://learn.apptentive.com/knowledge-base/android-interface-customization/)
 
- 
-
 ## Configuration Settings
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
 | Apptentive App Key | `string` | <unset> | Apptentive App Key, available from the API and Development page in the Apptentive dashboard. |
 | Apptentive App Signature | `string` | <unset> | Apptentive App Signature, available from the API and Development page in the Apptentive dashboard. |
+
+# Connection Settings
+
+| Setting Name |  Data Type    | Default Value | Platform | Description |
+| ---|---|---|---|----
+| Initialize Apptentive Immediately | `bool` | True | iOS| Initialize Apptentive Immediately - when disabled, the mParticle SDK will not automatically initialize the Apptentive SDK. You must manually initialize Apptentive using client side APIs. |
