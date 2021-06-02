@@ -291,13 +291,98 @@ For larger changes, we recommend creating a new plan version. Creating a new pla
 
 #### Step 6: Block unplanned data from being forwarded to downstream systems
 
-<aside class="warning">The Block feature currently only blocks data sent to server-side integrations. Learn more about this limitation <a href="#limitations">here</a>.</aside>
+Once you are confident that your plan reflects the data you want to collect, you can block unplanned data from being forwarded to downstream systems. Learn more about blocking data in [the next section](#blocking-bad-data).
 
-Once you are confident that your plan reflects the data you want to collect, you can block unplanned data from being forwarded to downstream systems. You can think of this feature as a **whitelist for the data you want to capture with mParticle**: Any event, event attributes or user attribute that is not included in the whitelist can be blocked from further processing.
+### Blocking Bad Data
+
+<aside class="warning">Enabling blocking will impact your data stream and can lead to data loss. Work closely with your mParticle representative when implementing this feature for your production data stream.</aside>
+
+Using Data Plans, you can block unplanned data from being forwarded to downstream systems. You can think of this feature as an allowlist (sometimes called a _whitelist_) for the data you want to capture with mParticle: any event, event attribute, or user attribute that is not included in the allowlist can be blocked from further processing.
 
 ![](/images/dataplanning/block/block_settings_page.png)
 
-To learn more about this feature, make sure to [read our FAQ](#what-do-i-need-to-know-before-enabling-block-settings).
+#### Limitations
+
+- You cannot replay blocked data through the UI. If you have set up a [Quarantine Connection](#quarantine-connections), we offer instructions and sample scripts for replaying blocked data in our [backfill guide](/guides/data-master/blocked-data-backfill-guide).
+- Only `custom_attributes` are currently supported for event attribute blocking from kits. Other unplanned event attributes will not be blocked client-side. Learn more at [Blocking data sent to mParticle Kits](#blocking-data-sent-to-mparticle-kits).
+
+#### Quarantine Connections
+
+To prevent blocked data from being lost, you can opt for blocked data to be forwarded to an Output with a Quarantine Connection. To illustrate a typical workflow, assume you choose to configure an Amazon S3 bucket as your Quarantine Output:
+
+![](/images/dataplanning/block/block_settings_page.png)
+
+Anytime a Data Point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configured Amazon S3 bucket. You will then be able to:
+
+- Examine the blocked data in greater detail.
+- Backfill data that was mistakenly blocked by following our [backfill guide](/guides/data-master/blocked-data-backfill-guide).
+
+#### Blocking data sent to mParticle Kits
+
+##### What's a kit?
+
+In most cases, data collected by the mParticle SDK is sent to mParticle and then forwarded on to an integration partner server-to-server. However, in cases where a server-to-server integration cannot support all required functionality for an integration, an embedded kit can be used instead. 
+
+<aside class="notice">A kit is a client-side wrapper of an integration’s SDK. Some kits (e.g. Appsflyer, Apptentive, Branch, Braze) will forward data directly to the integration partner from your client application.
+</aside>
+
+You can learn which integrations are kits for a given SDK, here:
+- [Web](https://github.com/mparticle-integrations?q=javascript&type=&language=)
+- [iOS](https://github.com/mParticle/mParticle-apple-SDK#currently-supported-kits)
+- [Android](https://github.com/mParticle/mparticle-android-sdk#kits)
+
+##### How do I block data before it is sent to a kit?
+
+By default, the current Block feature supports blocking for server-side integrations. If you would like to enable blocking for mParticle kits, you need to follow additional steps outlined below for each of our most popular SDKs: Web, Android and iOS.
+
+###### Step 1: Build a data plan and reference it in your code
+Before you can enable the blocking feature, you need to create a data plan and initialize the respective SDK with a data plan id in your code. Read our ["Getting Started" section](#getting-started) for detailed guidance on how to accomplish this.
+
+###### Step 2: Ensure that you are using the right SDK version
+
+<aside class="warning">Our SDKs are served by a CDN that caches SDK configuration, including your data plan, for some period of time (the "TTL"). As a result, updates to a data plan can take time before they are reflected in your client code. To avoid caching a plan version while you are iterating on it, you can <a href="https://docs.mparticle.com/guides/data-master/#step-3-validate-incoming-data-with-your-plan" target="_blank">explicitly mention the plan version in your code</a>, create a new plan version when you make changes, and finally update the plan version in your code to point to the latest version. The resulting changes in the url will sidestep previously cached versions.
+</aside>
+
+<table style="width:100%; padding:10px;">
+<tr>
+    <th style="padding-left: 20px;">Platform</th>
+    <th style="padding-left: 20px;">Versions</th>
+    <th style="padding-left: 20px;">TTL</th>
+    <th style="padding-left: 20px;">Repo</th>
+</tr>
+<tr>
+  <td>Web</td>
+  <td>v2.1.1 or later</td>
+  <td>60 min</td>
+  <td><a href="https://github.com/mParticle/mparticle-web-sdk" target="_blank">Github</a></td>
+</tr>
+<tr>
+  <td>iOS</td>
+  <td>v8.1.0 or later</td>
+  <td>10 min</td>
+  <td><a href="https://github.com/mParticle/mparticle-apple-sdk" target="_blank">Github</a></td>
+</tr>
+<tr>
+  <td>Android</td>
+  <td>v5.15.0 or later</td>
+  <td>10 min</td>
+  <td><a href="https://github.com/mParticle/mparticle-android-sdk" target="_blank">Github</a></td>
+</tr>
+</table>
+
+###### Step 3: Turn on Block settings for your plan version
+You can now turn on Block settings for the type of data you would like to block by completing the following steps:
+1. Open your data plan version in the UI and navigate to the Block tab.
+1. Enable “Block unplanned events” or any other block setting (note: events are typically a good place to start)
+
+###### Step 4: Verify that data is being blocked before it is forwarded to a kit integration
+For Web, you can use the developer console to verify when a kit's underlying SDK uploads an event to the partner's API. For iOS and Android, you can typically use verbose console logs or a proxy such as Charles Proxy. Depending on your block settings, you should see unplanned data removed from payloads. For example, if you have not planned "Bad Event A", "Bad Event A" will not be forwarded to a specific partner integration. 
+
+<aside class="notice">"Bad Event A" will still be uploaded to mParticle, so mParticle can report the blocked event in Live Stream and in your data planning report.
+</aside>
+
+###### Step 5: Deploy your changes
+Follow your usual software development process to deploy your code changes to production. Remember to also promote your data plan version to prod through the mParticle UI to start blocking production data that does not match your plan. Plan versions active on production are locked in the UI to prevent accidental updates. The recommended flow for updating a production plan is to clone the latest version and to deploy a new version after testing.
 
 ### FAQ
 
@@ -460,28 +545,6 @@ An invalid attribute will cause the Data Point to also be marked as invalid.
 ##### Unplanned Attribute
 
 The means the attribute was *not* defined within the matched Data Point. An unplanned attribute will cause the Data Point to also be marked as invalid.
-
-#### What do I need to know before enabling block settings?
-
-<aside class="warning">Enabling blocking will impact your data stream and can lead to data loss. Work closely with your mParticle representative when implementing this feature for your production data stream.</aside>
-
-##### Limitations
-
-- We currently only support blocking data before it is sent to server-side integrations. mParticle Kits are not yet supported.
-- You cannot replay blocked data through the UI. If you have set up a [Quarantine Connection](#quarantine-connections), we offer instructions and sample scripts for replaying blocked data in our [backfill guide](/guides/data-master/blocked-data-backfill-guide).
-
-##### Quarantine Connections
-
-To prevent blocked data from being lost, you can opt for blocked data to be forwarded to an Output with a Quarantine Connection. To illustrate a typical workflow, assume you choose to configure an Amazon S3 bucket as your Quarantine Output.
-
-![](/images/dataplanning/block/block_settings_page.png)
-
-Anytime a Data Point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configure Amazon S3 bucket. You will then be able to:
-
-- Examine the blocked data in greater detail
-- Backfill data that was mistakenly blocked by following our backfill guide
-
-Learn more about how to use quarantined data [here](/guides/data-master/blocked-data-backfill-guide).
 
 ## Live Stream
 
