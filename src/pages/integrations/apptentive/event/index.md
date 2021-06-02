@@ -121,7 +121,7 @@ By default, Apptentive inherits global app styles. To override those and update 
 | Apptentive App Key | `string` | <unset> | Apptentive App Key, available from the API and Development page in the Apptentive dashboard. |
 | Apptentive App Signature | `string` | <unset> | Apptentive App Signature, available from the API and Development page in the Apptentive dashboard. |
 
-# Connection Settings
+## Connection Settings
 
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|----
