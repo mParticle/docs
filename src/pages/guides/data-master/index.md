@@ -546,6 +546,38 @@ An invalid attribute will cause the Data Point to also be marked as invalid.
 
 The means the attribute was *not* defined within the matched Data Point. An unplanned attribute will cause the Data Point to also be marked as invalid.
 
+#### What do I need to know before enabling block settings?
+
+<aside class="warning">Enabling blocking will impact your data stream and can lead to data loss. Work closely with your mParticle representative when implementing this feature for your production data stream.</aside>
+
+##### Limitations
+
+- We currently only support blocking data before it is sent to server-side integrations. mParticle Kits are not yet supported.
+- You cannot replay blocked data through the UI. If you have set up a [Quarantine Connection](#quarantine-connections), we offer instructions and sample scripts for replaying blocked data in our [backfill guide](/guides/data-master/blocked-data-backfill-guide).
+
+##### What happens to blocked data?
+
+Blocked data is dropped from your data stream before it is consumed by other mParticle features, such as:
+- **User Profiles**, as viewed in [User Activity View](/guides/platform-guide/activity/#user-activity) and accessed through the [Profile API](/developers/profile-api)
+- [Filters](/guides/platform-guide/data-filter)
+- [Catalog](#catalog)
+- [Audiences](/guides/platform-guide/audiences)
+
+For debugging and reporting purposes, blocked data is shown in [Live Stream](/guides/platform-guide/live-stream) and the [Data Plan Report](#step-4-monitor-your-plan). Unless you create a [Quarantine Connection](#quarantine-connections), you won't be able to recover blocked data.
+
+##### Quarantine Connections
+
+To prevent blocked data from being lost, you can opt for blocked data to be forwarded to an Output with a Quarantine Connection. To illustrate a typical workflow, assume you choose to configure an Amazon S3 bucket as your Quarantine Output.
+
+![](/images/dataplanning/block/block_settings_page.png)
+
+Anytime a Data Point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configure Amazon S3 bucket. You will then be able to:
+
+- Examine the blocked data in greater detail
+- Backfill data that was mistakenly blocked by following our backfill guide
+
+Learn more about how to use quarantined data [here](/guides/data-master/blocked-data-backfill-guide).
+
 ## Live Stream
 
 Live Stream gives you a real time view of data coming in and out of mParticle. It allows you to: 
