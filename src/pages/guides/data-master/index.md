@@ -490,31 +490,34 @@ String can be validated in three ways:
 
 #### Where in mParticle's data pipeline are plans enforced?
 
-mParticle can validate that the data you send in matches what you expect. Data ingestion, validation, and federation occurs in the following sequence:
+Ingestion, plan validation (and blocking), and event forwarding occur in the following sequence:
 
-![](/images/dataplanning/planflow2.png)
+![](/images/dataplanning/dp_data_flow.png)
 
-##### Step 1: Data Collection 
+##### Step 1: Client logs an mParticle event batch
 
-Use any API client or SDK to send data into the Events API, and tag the data with your plan ID, version, and environment. See the [developer guide](#developer-guide) below for more information.
+Use any API client or SDK to send data to the Events API, and tag the data with your plan ID and, optionally, a plan version. See the [this step](#step-1-create-your-plan) in the *Getting Started* guide for more information.
 
-##### Step 2: Rules Engine
+<aside class="notice">If you are using an mParticle kit to forward data to a destination and you have enabled blocking of bad data, you can configure popular client SDKs to block bad data before it is forwarded to a kit. Learn more about blocking bad data before it is sent to kits <a href="/guides/data-master/#blocking-data-sent-to-mparticle-kits">here</a>.
+</aside>
 
-Your data then passes through the [mParticle Rules engine](/guides/platform-guide/rules/). You can use your rules to further mutate, enrich, or even fix your data.
+##### Step 2: Rules are applied
 
-##### Step 3: Plan Validation
+Your data then passes through the [mParticle Rules engine](/guides/platform-guide/rules/). You can use your Rules to further enrich or fix your data.
 
-Data is then validated. "Validation results" are generated for stats and can also be sent to your integrations.
+##### Step 3: Plan Validation and Blocking
+
+Data is then validated and, optionally, blocked. You can see dev data being validated in real-time with [Live Stream](#step-3-validate-incoming-data-with-your-plan).
 
 ##### Stage 4: Profile Storage
 
-Data is then sent through the mParticle profile storage system. In the near future, you'll be able to drop data before this stage to prevent corruption of your user profile storage. 
+Data is then sent to the mParticle profile storage system. When you block bad data, it is dropped before being stored on a profile. Learn more about what happens when data is blocked [here](#what-happens-to-blocked-data).
 
 ##### Step 5: Outbound Integrations 
 
 Your data then passes through the rest of the mParticle platform and is sent outbound, including:
-- Outbound rules
-- the mParticle audience system
+- Outbound Rules
+- the mParticle Audience system
 - all Event and Audience-based integrations
 
 #### What do the different violations mean?
