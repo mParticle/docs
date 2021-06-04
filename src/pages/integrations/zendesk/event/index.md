@@ -22,13 +22,14 @@ The following items are required:
 
 When you create a connection to Zendesk, forwarding for all existing data points will initially be set to *off*, and send new data points by default will be disabled. You must enable the specific data points that you wish to forward to Zendesk.
 
-mParticle recommends working with your Zendesk account manager before forwarding all events to your Zendesk account in the event [Filter](/guides/platform-guide/data-filter/). This will ensure that you have a sufficient plan to handle the additional events.
+mParticle recommends working with your Zendesk account manager before forwarding all events to your Zendesk account in the event [Filter](/guides/platform-guide/data-filter/). This will ensure that you have a sufficient plan to handle the additional events - check [Zendesk rate limits](https://developer.zendesk.com/rest_api/docs/sunshine/introduction#rate-limits).
 
 mParticle will only forward events to Zendesk if:
 
 1.  An email address has been provided as identity in the event
 2.  The payload is less than ~2 Kilobytes - [Event maximum payload](https://develop.zendesk.com/hc/en-us/community/posts/360034212634-Event-maximum-payload)
 3.  If a commerce payload is greater than ~2  Kilobytes, it will be split into separate requests for each product.  The description property will contain information on the set it belongs to; e.g., 1 of N. Please see specific commerce event types to learn more.
+
 
 ## Enabling User Profiles And Events In Zendesk
 
