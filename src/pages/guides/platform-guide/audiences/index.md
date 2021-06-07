@@ -445,6 +445,8 @@ There is no limit to the number of tags you can create, but each tag name is lim
 
 If you clone an audience, it's tags will be cloned, also.
 
+![AudienceTagOriginal.gif](https://s6.gifyu.com/images/AudienceTagOriginal.gif)
+
 ## Audience Faults
 
 If mParticle encounters errors forwarding an audience to an output, it will mark the connection as faulted. Audience Faults are visible from the Audience Manager, the Audience Connection screen, and the Audience tab on the **Setup > Outputs** page.
