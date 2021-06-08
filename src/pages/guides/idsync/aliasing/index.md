@@ -32,7 +32,7 @@ Clark Griswold downloads the mPTravel app and, while browsing, clicks on a recom
 Clark eventually completes his purchase. As part of the purchase funnel, he creates an account and provides an email address. Since he is now a known user, the purchase is attributed to his new known user profile.
 
 * If mPTravel uses the aliasing feature to link Clark's anonymous and known user profiles, he will match the audience definition.
-* If mPtravel does not use aliasing, neither Clark's anonymous profile, nor his new known user profile will fulfil the requirements of the audience definition and he will not be part of the audience.
+* If mPtravel does not use aliasing, neither Clark's anonymous profile, nor his new known user profile will fulfill the requirements of the audience definition and he will not be part of the audience.
 
 ## Basic Workflow
 
@@ -79,7 +79,7 @@ However, the mParticle SDKs provide a method for copying user attributes, identi
 ## Aliasing Results in the mParticle Platform
 
 * The [Live Stream](/guides/platform-guide/live-stream/) will show alias requests for developer troubleshooting.
-* The [User Activity view](/guides/platform-guide/activity/#user-activity) will show a complete view of the events timeleine for the destination profile, including events copied from the source profile.
+* The [User Activity view](/guides/platform-guide/activity/#user-activity) will show a complete view of the events timeline for the destination profile, including events copied from the source profile.
 * In Audience Builder, you can create audiences where the customer has fulfilled one part of the condition in an anonymous state, and another part in a known state. The source profile will be **excluded** as a member from that audience.
 
 
