@@ -6,7 +6,7 @@ title: Event
 
 ## Prerequisites
 
-The Zendesk integration uses the [Sunshine Events API](https://developer.zendesk.com/rest_api/docs/sunshine/events_api#track-event-against-a-sunshine-profile) to track events against a Sunshine profile. You need to ensure your Sunshine plan is properly configured to use the integration by selecting Admin > Settings > Subscription at h<span>ttps://</span>**your-zendesk-subdomain**.zendesk.com/admin/billing/subscription.  
+The Zendesk integration uses the [Sunshine Events API](https://developer.zendesk.com/rest_api/docs/sunshine/events_api#track-event-against-a-sunshine-profile) which is currently part of an [Early Access Program](https://support.zendesk.com/hc/en-us/articles/360044235113) to track events against a Sunshine profile. You need to ensure your Sunshine plan is properly configured to use the integration by selecting Admin > Settings > Subscription at h<span>ttps://</span>**your-zendesk-subdomain**.zendesk.com/admin/billing/subscription.  
 
 The following items are required:
 
