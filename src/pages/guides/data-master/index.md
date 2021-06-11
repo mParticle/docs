@@ -555,7 +555,6 @@ The means the attribute was *not* defined within the matched Data Point. An unpl
 
 ##### Limitations
 
-- We currently only support blocking data before it is sent to server-side integrations. mParticle Kits are not yet supported.
 - You cannot replay blocked data through the UI. If you have set up a [Quarantine Connection](#quarantine-connections), we offer instructions and sample scripts for replaying blocked data in our [backfill guide](/guides/data-master/blocked-data-backfill-guide).
 
 ##### What happens to blocked data?
