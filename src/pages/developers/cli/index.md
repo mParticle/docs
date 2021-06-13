@@ -233,7 +233,7 @@ For example:
 $ mp planning:data-plans:update --dataPlanId=XXXXX --dataPlanFile=/path/to/dataplan/file
 ```
 
-To create a Data Plan Version, simply use `mp planning:data-plan-versions:update` and pass a `dataPlanId` as a secondary flag.
+To create a Data Plan Version, simply use `mp planning:data-plan-versions:update`, `--dataPlanVersionFile`, and pass a `dataPlanId` as a secondary flag.
 
 #### Deleting a Data Plan and Data Plan Versions
 
