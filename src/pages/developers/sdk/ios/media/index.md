@@ -54,11 +54,11 @@ The Apple iOS Media SDK provides a `MPMediaSession` object. Each `MPMediaSession
 ```swift
 let mediaSession = MPMediaSession.init(
     coreSDK:  MParticle.sharedInstance(), // mParticle SDK Instance
-    mediaContentId: '1234567',            // Custom media ID
-    title: 'Funny internet cat video',    // Custom media Title
-    duration: 120000,                     // Duration in milliseconds
-    contentType: .video,                  // Content Type (Video or Audio)
-    streamType: .onDemand                 // Stream Type (OnDemand, Live, etc.)
+    mediaContentId: '1234567',            // Custom media ID, added as content_id for media events
+    title: 'Funny internet cat video',    // Custom media Title, added as content_title for media events
+    duration: 120000,                     // Duration in milliseconds, added as content_duration for media events
+    contentType: .video,                  // Content Type (Video or Audio), added as content_type for media events
+    streamType: .onDemand                 // Stream Type (OnDemand, Live, etc.), added as stream_type for media events
 )
 ```
 
@@ -167,25 +167,23 @@ In most cases, advertising comes in as a series of `Ad Breaks` each containing n
 1. Fire an `AdBreakStart` event
 
 ```swift
-let adBreak = MPMediaAdBreak.init(title: "pre-roll", id: "123456")
-adBreak.duration = 6000
-mediaSession.logAdBreakStart(adBreak)
+let adBreak = MPMediaAdBreak.init(title: "pre-roll", id: "123456")  // included as ad_break_title and ad_break_id for Ad Break Start/End and Summary events
+adBreak.duration = 6000                                             // ad_break_duration 
+mediaSession.logAdBreakStart(adBreak)                               // logs Ad Break Start event
 ```
 
 2. Trigger an `AdStart` event
 
 ```swift
-let adContent = MPMediaAdContent.init(title: "What?! Nobody rips off my kids but me!", id: "4423210")
-adContent.advertiser = "Mom's Friendly Robot Company"
-adContent.campaign = "MomCorp Galactic Domination Plot 3201"
-adContent.duration = 60000
-adContent.creative = "A Fishful of Dollars"
-adContent.siteId = "moms"
-adContent.placement = "first"
-adContent.position = 0
-mediaSession.logAdStart(adContent: adContent)
-let adBreak = MPMediaAd.init(title: "pre-roll", id: "123456")
-mediaSession.logAdBreakStart(adBreak)
+let adContent = MPMediaAdContent.init(title: "What?! Nobody rips off my kids but me!", id: "4423210")   // included as ad_content_title and ad_content_id for Ad Start/End and Summary events 
+adContent.advertiser = "Mom's Friendly Robot Company"                                                   // ad_content_advertiser 
+adContent.campaign = "MomCorp Galactic Domination Plot 3201"                                            // ad_content_campaign 
+adContent.duration = 60000                                                                              // ad_content_duration 
+adContent.creative = "A Fishful of Dollars"                                                             // ad_content_creative
+adContent.siteId = "moms"                                                                               // ad_content_site_id
+adContent.placement = "first"                                                                           // ad_content_placement
+adContent.position = 0                                                                                  // ad_content_position
+mediaSession.logAdStart(adContent: adContent)                                                           // logs Ad Start event
 ```
 
 3. Fire `AdEnd` or `AdSkip` when appropriate
