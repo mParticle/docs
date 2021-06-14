@@ -49,11 +49,11 @@ The Web Media SDK provides a `MediaSession` object. Each `MediaSession` object r
 ```javascript
 const mediaSession = new MediaSession(
     mParticle,                    // mParticle SDK Instance
-    '1234567',                    // Custom media ID
-    'Funny Internet cat video',   // Custom media Title
-    120000,                       // Duration in milliseconds
-    'Video',                      // Content Type (Video or Audio)
-    'OnDemand'                    // Stream Type (OnDemand or LiveStream)
+    '1234567',                    // Custom media ID, added as content_id fir media events
+    'Funny Internet cat video',   // Custom media Title, added as content_title for media events
+    120000,                       // Duration in milliseconds, added as content_duration for media events
+    'Video',                      // Content Type (Video or Audio), added as content_type for media events
+    'OnDemand'                    // Stream Type (OnDemand or LiveStream), added as stream_type for media events
 );
 
 // optionally set percentage at which you consider content completed
@@ -219,9 +219,9 @@ In most cases, advertising comes in as a series of `Ad Breaks` each containing n
 
 ```javascript
 mediaSession.logAdBreakStart({
-  id: '123456',
-  title: 'pre-roll',
-  duration: 6000
+  id: '123456',             // ad_break_id for Ad Break Start/End and Summary events
+  title: 'pre-roll',        // ad_break_title
+  duration: 6000            // ad_break_duration
 });
 ```
 
@@ -229,15 +229,15 @@ mediaSession.logAdBreakStart({
 
 ```javascript
 mediaSession.logAdStart({
-  id: '4423210',
-  advertiser: "Mom's Friendly Robot Company",
-  title: 'What?! Nobody rips off my kids but me!',
-  campaign: 'MomCorp Galactic Domination Plot 3201',
-  duration: 60000,
-  creative: 'A Fishful of Dollars',
-  siteid: 'moms',
-  placement: 'first',
-  position: 0
+  id: '4423210',                                        // ad_content_id for Ad Start/End and Summary events
+  advertiser: "Mom's Friendly Robot Company",           // ad_content_advertiser
+  title: 'What?! Nobody rips off my kids but me!',      // ad_content_title
+  campaign: 'MomCorp Galactic Domination Plot 3201',    // ad_content_campaign
+  duration: 60000,                                      // ad_content_duration
+  creative: 'A Fishful of Dollars',                     // ad_content_creative
+  siteid: 'moms',                                       // ad_content_site_id
+  placement: 'first',                                   // ad_content_placement
+  position: 0                                           // ad_content_position
 });
 ```
 
