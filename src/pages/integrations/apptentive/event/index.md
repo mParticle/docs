@@ -79,7 +79,7 @@ dependencies {
 1.  Select **Connections**.
 2.  Select the Input for the connection definition.
 3.  Click **Connect Output**.
-4.  Select the **Apptimize** configuration.
+4.  Select the **Apptentive** configuration.
 5.  Enter your connection configuration settings.
 6. Toggle the Status to **Sending**.
 7. Click **Save**.
