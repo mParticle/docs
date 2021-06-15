@@ -43,6 +43,8 @@ mParticle's Audience Integration with Amazon Kinesis sends Audience data to a Ki
 
 ## User Identity Mapping
 
+By default, Amazon Kinesis Firehose will forward the list of Device and User identities defined below for a given user. However, you can individually set which of these are excluded in the Connection Settings dialog.
+
 When forwarding audience data to Amazon Kinesis, mParticle will send the following identifiers:
 
 ### Device IDs
@@ -155,4 +157,4 @@ Setting Name | Data Type | Default Value | Description
 | Forward Customer IDs | `bool` | True | If enabled, and the user's Customer ID is available, it will be added to the audience |
 | Forward IDFAs | `bool` | True | If enabled, and the user's IDFA is available, it will be added to the audience |
 | Forward Google Advertising IDs | `bool` | True | If enabled, and the user's Google Advertising ID is available, it will be added to the audience |
-
+| Identities to Exclude | `List` | <unset> |  Indicate all user and device identities which should be excluded from outgoing data.
