@@ -1326,8 +1326,10 @@ Described above is the format required for sending data to mParticle via the Eve
 * [Amazon S3](/integrations/amazons3/event/)
 * [Amazon SNS](/integrations/amazonsns/event/)
 * [Amazon SQS](/integrations/amazonsqs/event/)
+* [Apache Kafka](/integrations/kafka/event/)
 * [Google Cloud Storage](/integrations/google-cloud-storage/event/)
 * [Google Pub/Sub](/integrations/google-pubsub/event/)
+* [Microsoft Azure Blob Storage](/integrations/azure-blob-storage/event/)
 * [Microsoft Azure Event Hub](/integrations/microsoft-azure-event-hubs/event/)
 * [Slack](/integrations/slack/event/)
 * [Webhooks](/integrations/webhook/event/)
@@ -1343,6 +1345,7 @@ Some notable differences include:
 * mParticle adds a top-level batch timestamp -- `timestamp_unixtime_ms` -- representing the time the batch was received by mParticle. This field is created by mParticle and should not be set manually when sending data via the Events API.
 * Some fields are set automatically by one or more native SDKs. For example, the Android SDK automatically sets an `activity_type` of `activity_started` or `activity_stopped` on Screen View events. This field is used by some event integrations to determine how to forward the event.
 * The `system_notifications` field is currently used by mParticle to forward [changes in consent state](/guides/consent-management/#forwarding-consent-state-to-partners) to some partners. In outbound JSON this field will be present but empty unless you are instrumenting Consent Management.
+* mParticle may add a top-level batch `unique_id ` field if you enter a value for the Unique ID connection setting.
 
 ### Outgoing User Identities
 
