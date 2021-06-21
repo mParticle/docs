@@ -159,6 +159,7 @@ mParticle's Facebook integration supports [custom mappings](/guides/platform-gui
 * Added Payment Info
 * Added to Cart
 * Added to Wishlist
+* Added to Wishlist - Automotive
 * Completed Registration
 * Completed Tutorial
 * Contact
@@ -166,17 +167,39 @@ mParticle's Facebook integration supports [custom mappings](/guides/platform-gui
 * Donate
 * Find Location
 * Initiated Checkout
+* Initiated Checkout - Travel
 * Lead
+* Lead - Automotive
 * Page View
 * Purchased
+* Purchased - Travel
 * Rated
 * Schedule
 * Searched
+* Searched - Automotive
+* Searched - Travel
 * Spent Credits
 * Start Trial
+* Submit Application
 * Subscribe
 * Unlocked Achievement
 * Viewed Content
+* Viewed Content - Automotive
+* Viewed Content - Travel
+
+#### fb_content_type
+
+When setting up the custom mappings, the fb_content_type can provide additional information on the event to be used for [Collaborative Ads] (https://developers.facebook.com/docs/marketing-api/collaborative-ads/).  The acceptable values for fb_content_type are:
+
+* product
+* product_group
+* destination
+* flight
+* hotel
+* vehicle
+* ["product", "local_service_business"]
+
+If a value provided for fb_content_type is not in the above list, the value sent will be `product`.
 
 ### Product Events
 
