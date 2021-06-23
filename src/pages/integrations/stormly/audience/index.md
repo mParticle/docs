@@ -30,7 +30,7 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Stormly API Key | `string` | <unset> | Your Stormly API key. Visit the Setup Data page, then open the dropdown "Use tracking code". Select "mParticle" and copy & paste the API key here.
 
-## Connection Settings
+### Connection Settings
 
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
