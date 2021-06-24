@@ -137,6 +137,13 @@ Mixpanel's SDK Method | mParticle's SDK Method
 track with properties | `logEvent` with event attributes or `logEcommerceTransactionWithProduct`
 track with no properties | `logScreen` or `logEvent` with no event attributes
 
+### Historical Event Tracking
+
+mParticle sends data to different Mixpanel endpoints depending on the age of the events:
+
+1. Events that are less than or equal to 5 days old are sent to the [track](https://developer.mixpanel.com/reference/events#track-event) endpoint.
+2. Events that are greater than 5 days old are sent to the [import](https://developer.mixpanel.com/reference/events#import-events) endpoint.  In order for mParticle to send the historical data to Mixpanel, you must provide the [API Secret](#configuration-settings). If not provided, mParticle will drop these events.
+
 ### Super Property Tracking
 
 Super properties allow certain properties that you want to include with each event you send. Generally, these are things you know about the user rather than about a specific event, for example, the user's age, gender, or source. These super properties will be automatically included with all tracked events. Super properties are saved to device storage, and will persist across invocations of your app.
@@ -263,14 +270,18 @@ addPushDeviceToken | set pushNotificationToken
 
 If a push notification token has been set using the mParticle SDK, mParticle will forward it to Mixpanel by setting the `$ios_devices` or `$android_devices` parameter accordingly.
 
+### EU Data Residency
 
+By default, mParticle sends data to Mixpanel's US Servers, but offers an EU Data Residency option for their [ingestion API](https://developer.mixpanel.com/reference/overview), which allows data to be sent and stored in the Mixpanel EU Data Center (see Mixpanel's docs on [Storing Your Data in the European Union](https://developer.mixpanel.com/docs/privacy-security#storing-your-data-in-the-european-union)). This EU Residency is not automatically set within a Mixpanel project. You can find steps on how to set EU Data Residency for your Mixpanel project within their [Data Residency in EU docs](https://help.mixpanel.com/hc/en-us/articles/360039135652-Data-Residency-in-EU). In mParticle, the [Mixpanel Target Server Configuration Setting](#configuration-settings) must be set to `EU Residency Server`.
 
 ## Configuration Settings
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
 | Token | `string` | <unset> | Project token, found by clicking the gear icon in your project. |
+| API Secret | `string` | <unset> | Your Mixpanel API Secret which can be found by clicking on your name in the upper right hand corner under Project Settings. This is required to forward [Historical Data](#historical-event-tracking). |
 | External Identity Type | `string` | Customer ID | The mParticle User Identity type to forward as an External Id to Mixpanel. |
+| Mixpanel Target Server | `string` | Standard Server | Mixpanel Server where the data will be stored. You can set up EU Residency in your Mixpanel project settings. |
 
 ## Connection Settings
 
