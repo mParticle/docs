@@ -111,6 +111,10 @@ const EVENTS = [{
 {
     title: 'Ruby SDK',
     route: 'ruby',
+},
+{
+    title: 'Java SDK',
+    route: 'java',
 }];
 
 const TILES = [
