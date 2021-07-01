@@ -95,4 +95,5 @@ Setting Name | Data Type | Default Value | Description
 | Include User Identity Change Events | `bool` | False | If enabled, User Identity Change Events will be forwarded. |
 | Send Batches without Events | `bool` | True | A way to send eventless batches |
 | Include MP DeviceId | `bool` | False | If enabled, MP DeviceId will be forwarded with event batches. |
+| Include Event Batch Location | `bool` | False | If enabled, event batch context.location data will be forwarded with event data. |
 | Metadata Field Exclusion | `CustomField` | | A way to exclude specific fields of metadata properties in the output. |
