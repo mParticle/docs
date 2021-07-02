@@ -143,8 +143,8 @@ Setting Name | Data Type | Default Value | Description
 
 ## Connection Settings
 
-Setting Name | Data Type | Default Value | Description
-|---|---|---|---
+Setting Name | Data Type | Default Value | Platform | Description
+|---|---|---|---|---
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
@@ -155,4 +155,5 @@ Setting Name | Data Type | Default Value | Description
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
 | Send Batches without Events	 | `bool` | True | All| A way to send eventless batches |
 | Include MP DeviceId	 | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
+| Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
 | Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. | 
