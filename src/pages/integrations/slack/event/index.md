@@ -62,5 +62,6 @@ Connect inputs to the Slack output configuration
 | Send Alias Requests | `bool` | False | All | If enabled, alias request events will be forwarded. |  
 | Send Validation Results | `bool` | False | All| Determines if we should send data planning validation result events. |
 | Include MP DeviceId | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
+| Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
 | Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
 
