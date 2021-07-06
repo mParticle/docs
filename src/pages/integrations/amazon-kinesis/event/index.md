@@ -144,3 +144,4 @@ The event data will be forwarded as JSON objects.  Please refer to the [JSON](/d
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
 | Send Batches without Events | `bool` | True | All | If enabled, batches with no events will be forwarded. |
+| Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
