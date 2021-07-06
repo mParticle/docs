@@ -47,4 +47,5 @@ Google Cloud Storage accepts data from all platform types. All event types are s
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
 | Send Batches without Events | `bool` | True | All | If enabled, batches with no events will be forwarded. |
 | Include MP DeviceId | `bool` | False | All | If enabled, MP DeviceId will be forwarded with event batches. |
+| Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
 | Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
