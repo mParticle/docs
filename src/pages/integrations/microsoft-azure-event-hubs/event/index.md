@@ -41,7 +41,8 @@ The event data will be forwarded as raw JSON objects.  Please refer to the [JSON
 | Include Location Information | `bool` | True | If enabled, location data will be forwarded with event data whenever possible. |
 | Send Profile Change Events | `bool` | True | If enabled, mParticle will forward ID profile events, such as user sign ups, logins, logouts, updates, and deletes. |  
 | Send Commerce Events | `bool` | True | If enabled, commerce events will be forwarded. |
-| Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
-| Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
-| Send Batches without Events | `bool` | True | All | If enabled, batches with no events will be forwarded. |
-| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
+| Include User Attribute Change Events | `bool` | False |If enabled, User Attribute Change Events will be forwarded. |
+| Include User Identity Change Events | `bool` | False | If enabled, User Identity Change Events will be forwarded. |
+| Send Batches without Events | `bool` | True | If enabled, batches with no events will be forwarded. |
+| Include Event Batch Location | `bool` | False | If enabled, event batch context.location data will be forwarded with event data. |
+| Metadata Field Exclusion | Custom Field |  | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
