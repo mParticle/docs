@@ -81,4 +81,4 @@ The event data will be forwarded as JSON objects.  Please refer to the [JSON](/d
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
 | Send Batches without Events | `bool` | True | All | If enabled, batches with no events will be forwarded. |
 | Include MP DeviceId | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
-
+| Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
