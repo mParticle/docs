@@ -98,7 +98,7 @@ buildscript {
     }
     dependencies {
         ...
-        classpath 'com.mparticle:android-plugin:5.12.10'
+        classpath 'com.mparticle:android-plugin:5.18.1' // See our latest version on [Maven](https://search.maven.org/artifact/com.mparticle/android-plugin)
     }
 }
 ```
