@@ -2,7 +2,7 @@
 title: Feed
 ---
 
-[AdPredictive](http://www.adpredictive.com) is a customer intelligence platform that empowers modern marketers to enhance business outcomes.
+[AdPredictive](http://www.adpredictive.com) unlocks a smarter approach to marketing with a powerful and transparent customer intelligence platform. We put simple, proven tools + data in the hands of marketers so they can deliver effective, sustainable growth.
 
 ## Enable the Integration
 
