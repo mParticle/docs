@@ -246,22 +246,22 @@ There are two fields in [IosRuntimeEnvironment](/developers/partners/firehose/ja
 
 ### 4. Account Settings
 
-Once we enable your Firehose integration, all mParticle customers will have access to enable it for their account. To allow your integration to correctly identify which customer your data belongs to, and how it should be processed, mParticle enables you to create custom settings for the customer to provide when they set up the account. For example, if your service uses an API key for authentication:
+Once we enable your Firehose integration, all mParticle customers will have access to enable it for their account. To allow your integration to correctly identify which customer your data belongs to, and how it should be processed, mParticle enables you to create custom settings for the customer to provide when they set up the account. For example, if your service uses an `API Key` for authentication:
 
-1. Your integration must include an account setting representing the API key  (marking it as **required and confidential**) in the `ModuleRegistrationResponse`.
-2. When customers configure your integration through mParticle, they will see the API Key setting in a dialogue, and will need to provide a key before they can enable the integration.
+1. Your integration must include an account setting representing the API Key  (marking it as **required and confidential**) in the `ModuleRegistrationResponse`.
+2. When customers configure your integration through mParticle, they will see the API Key setting in a dialogue, and will need to enter their API Key in order to enable the integration.
 
    ![medium](/images/firehose-settings.png)
 
-3. Once enabled, mParticle will send data to your integration, including the value of the API key associated with that customer.
-4. Your integration can then use that API key to make authenticated calls to your API or service.
+3. Once enabled, mParticle will send data to your integration, including the value of the API Key associated with that customer.
+4. Your integration can then use that API Key to make authenticated calls to your API or service.
 
 Settings need to be registered individually for Event and Audience-based integrations. Each setting will appear in the mParticle UI (unless marked as not-visible), and must contain the following:
 
-1. An ID - you will use this in step `4` above to extract the setting value.
-2. A short, human-readable name.
-3. A description of what the setting means in the context of your service. This is used as the tooltip in the mParticle platform and so should be kept relatively short. Please refrain from including markdown or external links in these descriptions.
-4. The data type of the setting
+1. ID - you will use this in step `4` above to extract the setting value.
+2. Name - A short, human-readable name which will be shown in the mParticle platform
+3. Description - A description of the setting in the context of your service. This is used as the tooltip in the mParticle platform and so should be kept relatively short. Please refrain from including markdown or external links in these descriptions.
+4. Data Type - The data type of the setting.
 5. Required flag - if true, mutual customers will be required to enter a value for this setting to configure the integration
 6. Confidential flag - if true, the value entered will be masked in the mParticle UI once set
 
@@ -272,7 +272,7 @@ List<Setting> eventSettings = new ArrayList<>();
 Setting apiKey = new TextSetting("apiKey", "API Key")
     .setIsRequired(true)
     .setIsConfidential(true)
-    .setDescription("Your API key issued by <insert company here>.");
+    .setDescription("Your API Key issued by <insert company here>.");
 eventSettings.add(apiKey);
 eventProcessingRegistration.setAccountSettings(eventSettings);
 
