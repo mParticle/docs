@@ -186,6 +186,24 @@ The ATT properties should be provided whenever available, when sending data for 
 
 Please [see the HTTP reference](/developers/server/json-reference/) for more information.
 
+### Configuring a Default Status
+We recommend you explicitly set the ATT status for all of your iOS users via Apple SDK or API methods described above. However, you can choose a default ATT status via the `Apple Tracking Transparency (ATT) Default` setting available in the platform. This may helpful to handle scenarios such as:
+- Existing profiles previously sent to mParticle who have not visited your app since the iOS 14.5 release.
+- Apple device data received from additional data inputs, such as partner data feeds, where an ATT status has not been provided.
+
+Configuring an ATT default status will have the following effects:
+- Selected status will be applied on user’s Apple devices when an ATT status is not available (not explicitly set by either the Apple SDK or API)
+- Selected status will be available to downstream applications including Event connections, Audiences, and the Profile API. 
+- This will have an effect on data flow to downstream integrations for e.g. limited access to user identities and other data for non Authorized statuses. For specific details per integration please see [Integrations with Updates for iOS 14.](/developers/sdk/ios/ios14/#integrations)
+
+Default status available are per Apple’s [ATT Authorization Status](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/authorizationstatus):
+- **Authorized**: User authorizes access to app-related data (such as IDFA) for sharing with other companies for the purpose of tracking across apps and websites.
+- **Denied**: User denies access to app-related data for tracking.
+- **Restricted**: User's device has a restricted status. This has the same effect as `denied` within mParticle however, may be treated differently in downstream integrations.
+- **Not Determined**: Your app has not yet determined the user's authorization status. This has the same effect as `denied` within mParticle however, may be treated differently in downstream integrations.
+
+ATT status default can be found under Privacy settings. Please note, only users with the `Compliance Admin` role have access to update this setting. Please see [User Roles](/guides/platform-guide/users/#roles) for details on adding a Compliance Admin role. This setting can be modified at any time.
+
 ## App Store privacy questionnaire
 
 As part of your app's submission process, you need to complete a privacy [questionnaire](https://developer.apple.com/app-store/app-privacy-details/#linked-data) detailing the data you collect and how it is used. Your answers must cover all collection and usage of data, not just data collected through mParticle, and you are responsible for the accuracy and completeness of your responses.
