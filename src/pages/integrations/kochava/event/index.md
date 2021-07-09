@@ -14,17 +14,24 @@ From attribution and analytics to optimization, the Kochava platform provides pr
 
 ## Data Processing Notes
 
+<aside class="warning"><strong>Deprecation Notice:</strong> mParticle Core SDK and mParticle Kochava Kit versions supporting hybrid mode data forwarding are partially deprecated. Update to mParticle Core SDK 8.4.0 or later and mParticle Kochava Kit 8.1.0 or later to migrate to client mode data forwarding. This supports SKAd conversion events including the SKAd conversionValue to ensure accurate data for Kochava.</aside>
+
 If the mParticle SDK is used to send data, the minimum acceptable SDK version is 3.0 for iOS and 2.0 for Android. Data sent from earlier SDK versions will not be forwarded to Kochava.
 
 Due to a known bug in the mParticle iOS SDK prior to version 5.1.4, install events may or may not be forwarded. If install events are missing in Kochava's platform, please make sure you are using the latest version of the mParticle SDK.
 
 mParticle supports the following modes when forwarding data to Kochava:
 
-1. Hybrid mode
+* **Recommended: Client mode** - The forwarding of events from mParticle to Kochava is handled entirely client side. (on the device)
+    * If you include the mParticle Kochava Integration, it automatically initializes the Kochava SDK and forwards all events applicable from the mParticle SDK to the Kochava SDK.
+    * This allows Kochava to be aware of SKAd conversion events so that they may have more accurate conversionValues.
+    * This mode is the primary mode as of [release 8.1.0](https://github.com/mparticle-integrations/mparticle-apple-integration-kochava/releases/tag/8.1.0); if you pull in the latest Apple SDK, it will automatically use this mode.
+* **Server mode** - The forwarding of events from mParticle to Kochava is handled entirely S2S.
+    * If data is sent to mParticle S2S API or Kochava's SDK is not initialized in the app, mParticle will forward installs, post-install events, and any user identities to Kochava S2S.
+* **Hybrid mode** - The forwarding of events from mParticle to Kochava is partially done client side and partially S2S.
     * If the Kochava SDK is initialized in the app, it sends install events to Kochava servers.
     * Post-install events and any user identities are sent via the mParticle SDK to mParticle servers and forwarded to Kochava S2S.
-2. Server mode
-    * If data is sent to mParticle S2S API or Kochava's SDK is not initialized in the app, mParticle will forward installs, post-install events, and any user identities to Kochava S2S
+    * Only supported with versions of the SDKs prior to [release 8.4.0](https://github.com/mParticle/mparticle-apple-sdk/releases/tag/8.4.0) of the mParticle Apple SDK and [release 8.1.0](https://github.com/mparticle-integrations/mparticle-apple-integration-kochava/releases/tag/8.1.0) of the mParticle Kochava Integration.
 
 mParticle will forward Apple Search Ad Attribution values, if provided.
 
