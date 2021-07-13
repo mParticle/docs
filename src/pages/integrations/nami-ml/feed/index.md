@@ -6,8 +6,8 @@ Built for the subscription and in-app purchase era, [Nami ML](https://www.namiml
 
 ## Enable the Integration
 
-1. Create a feed configuration in mParticle to produce API key/secret values. 
-2. Provide these credentials to your Nami ML Account Rep.
+1. Select the Nami ML integration from the directory and add the **Feed** integration. The Nami ML Feed supports "act as" functionality, which means it acts like an input from your iOS or Android app and is forwarded to partners as such. If you want to use the feed for both iOS and Android, you will need to create two configurations. When you select an 'act as' platform and name the configuration, you will receive an API key and secret. Save these for the next step.
+2. Provide these credentials to your Nami ML Account Rep and inform them of which platform (if any) the credentials are intended for.
 3. With your Nami ML Account Rep, determine which Nami ML identity type to map to mParticle's Customer ID to ensure your Nami ML data is connected to the right user profiles. Nami ML will also send `namiml_user_id` as a Partner Identity.
 <!-- 2. In the Nami ML Control Center, enter your mParticle credentials. -->
 <!-- 3. In the Nami ML Control Center, map the appropriate Nami ML identity type to mParticle's Customer ID identifier. Nami ML will also send namiml_user_id as a Partner Identity. -->
@@ -30,6 +30,10 @@ Nami ML will send the following events to mParticle as Custom Events of type `tr
 | renewal_in_grace_period  | `namiml_event_category`, `namiml_event_subcategory1`, `event_platform` | The renewal in grace period event occurs when the store platform was successful in recovering payment while a user was in grace period. |
 | renewed  | `namiml_event_category`, `namiml_event_subcategory1`, `event_platform` | The renewed event is produced each time a payment is processed on a subscription with an active entitlement after the initial purchase.  If there was a gap where the entitlement was not active then a new purchase will produce a purchased event instead of a renewed event. |
 | resumed  | `namiml_event_category`, `namiml_event_subcategory1`, `event_platform` | The resumed event occurs when a subscription becomes active again after a pause.  Android only.  |
+| trial_converted | `namiml_event_category`, `namiml_event_subcategory1`, `event_platform` | The trial_converted event occurs when a customer's free trial ends and they are billed for a paying subscription for the first time. This will occur at the same time as a renewed event. |
+| trial_did_not_convert | `namiml_event_category`, `namiml_event_subcategory1`, `event_platform` | The trial_did_not_convert event occurs when a customer ends their free trial and does not continue on to a paying subscription. This will occur at the same time as a an expired event. |
+| trial_started | `namiml_event_category`, `namiml_event_subcategory1`, `event_platform` | The trial_started event occurs when a customer begins a free trial. This will occur at the same time as a purchased event. |
+
 
 Nami ML will send the following events to mParticle as Custom Events of type `impression`.
 
