@@ -248,7 +248,7 @@ is_non_interactive | Boolean | optional| is non interactive
 	"tax_amount" : "",
 	"shipping_amount" : "",
 	"coupon_code" : "",
-	"products" : [{}],
+	"products" : [{}]
 }
 ~~~
 
@@ -335,7 +335,7 @@ products | array of objects | optional| products
 	"coupon_code" : "",
 	"added_to_cart_time_ms" : "",
 	"total_product_amount" : "",
-	"custom_attributes" : {},
+	"custom_attributes" : {}
 }
 ~~~
 
