@@ -387,9 +387,9 @@ Follow your usual software development process to deploy your code changes to pr
 ### FAQ
 
 #### How do I enable validation?
-To enable validation, you need to point your code to a **data plan id** with **at least one active version**. For a version to be considered active, it's status has to be set to `dev` or `dev & prod`.
+To enable validation, you need to point your code to a **data plan id** with **at least one active version**. For a version to be considered active, its status has to be set to `dev` or `dev & prod`.
 
-You can either pin your code to specific data plan version or omit the version, in which case mParticle will match your data with the latest plan version that is active in a given envronment (`dev` or `prod`). Learn more about how to implement a data plan in our [Getting Started](/guides/data-master/#getting-started) guide.
+You can either pin your code to a specific data plan version or omit the version, in which case mParticle will match the data you send with the latest plan version that is active in a given envronment (`dev` or `prod`). Learn more about how to implement a data plan in our [Getting Started](/guides/data-master/#getting-started) guide.
 
 ![](/images/dataplanning/anatomy_of_data_plan_version.png)
 
