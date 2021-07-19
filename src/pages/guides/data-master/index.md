@@ -386,8 +386,14 @@ Follow your usual software development process to deploy your code changes to pr
 
 ### FAQ
 
-#### Which events are supported?
+#### How do I enable validation?
+To enable validation, you need to point your code to a **data plan id** with **at least one active version**. For a version to be considered active, it's status has to be set to `dev` or `dev & prod`.
 
+You can either pin your code to specific data plan version or omit the version, in which case mParticle will match your data with the latest plan version that is active in a given envronment (`dev` or `prod`). Learn more about how to implement a data plan in our [Getting Started](/guides/data-master/#getting-started) guide.
+
+![](/images/dataplanning/anatomy_of_data_plan_version.png)
+
+#### Which events are supported?
 You can plan for and validate the following events:
 
 - Custom Events (including events emitted by the Media SDK)
@@ -400,7 +406,6 @@ The following events are not yet included:
 - Attribution Events
 
 #### How do I validate the shape of event schemas?
-
 Here's an example schema configuration for a screen event called "Sandbox Page View":
 
 ![](/images/dataplanning/existence.png)
@@ -461,14 +466,12 @@ This event **fails** validation: The `label` attribute is unplanned and `custom_
 ![](/images/dataplanning/allow.png)
 
 #### What do valid events look like on the developer side?
-
 If you're looking for an example of how to implement events that conform to your data plan, download your data plan and [check out this tool](https://mparticle.github.io/data-planning-snippets/). This tool will show you how to create a valid event for every point in your data plan and in any of our SDKs.
 
 #### How are attribute types validated?
 Since various mParticle features (Audiences, Calculated Attributes, Forwarding Rules, some integrations) will automatically convert string representations of numbers and booleans to their respective types, data planning does not distinguish between raw numeric or boolean values (e.g. `42` or `true`) and their string representation (e.g. `"42"` or `"true"`).  In summary, as long as the value can be converted to a type, it is considered valid.
 
 #### How can I validate specific event, user and identity attributes?
-
 You can validate specific attributes differently depending on *detected* type. Learn more about [how type validation works here](#how-are-attribute-types-validated).
 
 ##### Numbers
