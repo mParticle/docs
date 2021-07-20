@@ -476,7 +476,10 @@ You can validate specific attributes differently depending on *detected* type. L
 
 ##### Numbers
 
-Select a numeric range or an enumeration of allowed values.
+Number can be validated in two ways:
+
+1. An inclusive numeric range as implemented by JSON Schema's `minimum` and `maximun` keywords. Learn more [here](https://json-schema.org/understanding-json-schema/reference/numeric.html#range).
+2. A fixed list of integers as implemented by JSON Schemas's `enum` keyword. Learn more [here](https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values).
 
 ![](/images/dataplanning/number_validation.png)
 
@@ -485,7 +488,7 @@ Select a numeric range or an enumeration of allowed values.
 
 String can be validated in three ways:
 
-1. A fixed list of allowed strings
+1. A fixed list of allowed strings as implemented by JSON Schema's `enum` keyword. Learn more [here](https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values).
 1. A regex pattern
 1. A list of pre-defined formats defined by the [JSON Schema standard](https://json-schema.org/understanding-json-schema/reference/type.html), including email, URI, date, time, datetime and others.
 
