@@ -4,56 +4,31 @@ title: Feed
 
 [Airship](https://www.airship.com/) provides push messaging services, including segmentation and targeting capabilities.
 
-## Input Data Details
+## Enable the Integration
 
-The following types of data can be configured to be sent from Airship to mParticle
+The Airship integration supports the following inputs: iOS, Android, Web, and Unbound. If you want to capture data for multiple platforms, you must configure one instance of the feed for each platform in mParticle.  Airship uses their [Real-time Data Streaming API](https://docs.airship.com/api/connect/) and translates the data from Airship format to mParticle [JSON](/developers/server/json-reference).
 
-* Control
-* In-App Message Display
-* In-App Message Resolution
-* In-App Message Expiration
-* Open
-* Rich Delivery
-* Rich Read
-* Rich Delete
-* Region
-* Send
-* Tag Change (note that tags are mapped to user attributes, and forwarded to mParticle as a batch containing no events)
-* Uninstall
-* Web Click
+NOTE:  The integration maps Airship channels to mParticle platforms. For example, you set iOS in the Airship RTDS configuration page to map to iOS on the mParticle platform. iOS, Android, and Web have direct matches on the mParticle’s side. Airship email and SMS data are sent as Unbound data to mParticle. Another option is to configure all Airship data to be sent as unbound traffic. In this case, you will not select a platform in the mParticle configuration.
 
-Each event type you wish to send needs to be enabled in Airship:
+### mParticle setup
 
-![](/images/airship-feed-types.png)
+The Airship feed supports "act as" functionality, which means it acts like data is received from native platform inputs (i.e. iOS, Android, Web).  Create a different configuration for each input including the unbound input specifying different names, platform.  mParticle will generate a Server-to-server Key and Secret for each configuration.
 
-## Airship Event Mapping
-The Airship field mapping referred to in the table below can be found in the Airship Connect Schema, found at:
+1. Click on the Airship tile from the directory and select the Feed option, or Click on Setup » Inputs » Feeds and click the plus button to create a configuration.
+3. Enter a unique name in the Configuration Name field.
+4. Select the appropriate option from the list in the Platform field: iOS, Android, or Web. For the Unbound feed, leave this field unselected.
+5. Click Save to complete your setup.
+6. Copy the Server to Server Key/Secret for setup in Airship.
 
-* [Airship Real-Time Data Streaming API Reference](https://docs.airship.com/api/connect)
+### Airship setup
 
-Airship data is mapped as follows:
+For each created input, mParticle will provide a Server to Server Key and Secret. Copy these credentials for [Airship setup](https://docs.airship.com/partners/mparticle/#mparticle-setup), making sure to note which feed each pair of credentials is for. For each platform that you want to set up, complete the following steps:
 
-Airship Field | mParticle Mapping | Description
-|---|---|---
-type | Event Type = Custom Event<br> Custom Event Type = Other<br> Event Name = type<br> where type is:<br>  CONTROL <br>  RICH_DELIVERY <br>  RICH_READ<br> RICH_DELETE<br> REGION<br> IN_APP_MESSAGE_DISPLAY<br> IN_APP_MESSAGE_RESOLUTION<br> IN_APP_MESSAGE_EXPIRATION <br>OPEN <br>SEND <br>WEB_CLICK  <br>Event Type = Uninstall Event, when type is UNINSTALL | Event Type
-occurred | timestamp_unixtime_ms | Unix timestamp in milliseconds
-os_channel for iOS<br>android_channel or amazon_channel for Android | Platform | Channel Identifier
-named_user_id | Customer ID User Identity | Customer ID
-com.urbanairship.idfa |iOS Advertising ID| IDFA
-com.urbanairship.vendor | IDFV | IDFV
-com.urbanairship.aaid |Android Advertising ID | Android Advertising ID
-com.urbanairship.limited_ad_tracking_enabled | LimitAdTracking | Indicates if the user has enabled limit ad tracking
-app_package_name | Package Name | A unique identifier for the app name
-app_version | Application Version | The version of the application
-device_model |Device Model | The device model
-device_os |OS Version | The device operating system
-carrier | Network Carrier | The carrier of the device
-Tags | User Attributes | Airship tags are sorted into groups. mParticle creates a user attribute list for each tag group. The key is prefixed with `Airship`. For example, a tag group `loyalty`, containing tags `silver_member` and `special_offers` would be mapped as: `"Airship loyalty" : ["silver_member", "special_offers"]`.
-
-Any additional fields provided by Airship with each event, are mapped to mParticle custom event attributes. The key for the attribute will be the full path in dot notation, as it appears in [Airship's schema](https://docs.airship.com/api/connect/#schema-tag/events). For example `"body.campaigns.categories"`
-
-## Configuration
-
-Information about configuring the Airship output for mParticle can be found at the [Airship Partner Integrations documents](https://docs.airship.com/partners/mparticle/). 
-
-You will need to work with your Airship Account Manager to setup the Airship to mParticle Feed.
+1. In Airship, go to Settings » Real-Time Data Streaming, click mParticle and enter a name and description.
+2. Choose an mParticle environment and an mParticle Data Center.
+3. Configure platforms with Server to Server Keys and Secrets copied from mParticle.
+4. In the User Identity Type field, select Customer ID. You may also select Other if you prefer
+users to be identified by their device IDs – either Identifier for Vendor (IDFV) or Google
+Advertising ID (AAID).
+5. Select the event types that you want to send to mParticle.
+6. Click Activate to complete the configuration.
