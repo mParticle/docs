@@ -3,11 +3,11 @@ title: Identity
 order: 2
 ---
 
-The React Native SDK surfaces a series of APIs allowing you to manage user-identity state. These client-side APIs work in tandem with the mParticle Identity HTTP API and your configured Identity "strategy." These APIs are designed generically but identity management requirements vary by app - so it's crucial that you use the APIs correctly per your requirements.
+The React Native SDK surfaces a series of APIs allowing you to manage user-identity state. These client-side APIs work in tandem with mParticle's [Identity API](/developers/idsync/http-api/) and your configured [Identity strategy](/guides/idsync/introduction/). Identity management requirements vary by app, so it's crucial that you use the APIs correctly per your requirements.
 
 <!-- See the [mParticle IDSync overview](/developers/idsync/) for a platform-agnostic overview of the key operations you can perform and read below for how the API is surfaced for React Native. -->
 
-## Allowed Identity Types
+## Supported Identity Types
 
 | IdentityType    |   Description
 |---|---|
@@ -23,18 +23,16 @@ The React Native SDK surfaces a series of APIs allowing you to manage user-ident
 
 ## Creating a Request
 
-The mParticle Identity APIs surface four key operations (`identify`, `login`, `logout`, and `modify`). In the context of the React Native SDK, the original 'Identify' request should be handled in your iOS or Android native code during initialization. See the iOS and Android docs for more information.
+The mParticle [Identity APIs](/developers/idsync/http-api) surface four key operations (`identify`, `login`, `logout`, and `modify`). `identify` is called automatically when the mParticle SDK is initialized. When using the React Native SDK, the initial request should be handled [in your iOS or Android native code during SDK initialization](/developers/sdk/react-native/getting-started/). See our [iOS](/developers/sdk/ios/idsync) and [Android](/developers/sdk/android/idsync) docs for more info on how to identify a user when the SDK initializes. 
 
-The `login`, `logout` and `modify` requests each accept an optional request object and a callback. Populating the request object correctly is crucial to managing the state of your users.
+Once the SDK has initialized, you can use the `login`, `logout` and `modify` methods supported by the React Native SDK. Each method accepts an optional request object and a callback. Populating the request object correctly is crucial to managing the state of your users.
 
-The `IdentityRequest` object is a holder for a set of identities that you would like to associate with the user. opulating the request object correctly is crucial to managing the state of your users. When you invoke any of the key Identity APIs with a request object, the identities it holds will be associated with the *resulting* user. 
+The `IdentityRequest` object is a holder for a set of identities that you would like to associate with the user. Populating the request object correctly is crucial to managing the state of your users. When you invoke any of the key [Identity APIs](/developers/idsync/http-api/) with a request object, the identities it holds will be associated with the *resulting* user. 
 
 ```javascript
 var request = new MParticle.IdentityRequest();
 request.email = 'h.jekyll.md@example.com';
 ```
-
-
 ### User Aliasing
 
 The Identity API lets you *transition* the SDK and data from one user to a new or different user. The React Native SDK maintains values in persistence that are associated with the current user, such as user attributes. If while transitioning you'd like to copy this data from the old user to the new user, you can define an `onUserAlias` callback to be invoked on a successful transition from one user to the next.
