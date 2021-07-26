@@ -195,3 +195,6 @@ The following User IDs will be included in the IdentityLink message if available
 | External User Identity Type | `enum` | Customer ID | All | The mParticle User Identity type to forward as an External Id to Kochava. |
 | External Email Identity Type | `enum` | Email | All | The mParticle User Identity type to forward as an Email to Kochava. |
 | External Custom Device Type | `enum` | Other | All | The mParticle User Identity type to forward as a custom device type to Kochava. |
+| Enable App Tracking Transparency | `bool` | False | iOS | Informs Kochava on startup as to whether or not you are using App Tracking Transparency. |
+| Enable Automatic ATT Prompt | `bool` | False | iOS | Determines if Kochava should prompt the user for App Tracking Transparency. |
+| ATT Status Wait Interval | `integer` | 30 | iOS | If enableATTPrompt is set to true, this determines how long Kochava allows for the user to answer the ATT authorization prompt. The default is 30 seconds. |
