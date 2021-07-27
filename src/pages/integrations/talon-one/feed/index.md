@@ -7,7 +7,7 @@ title: Feed
 ## Enable the Integration
 
 1. In your mParticle workspace, set up a Talon.One feed configuration  in order to generate API key/secret values.
-2. In Talon.One, configure a [webhook](https://developers.talon.one/Tutorials-and-Guides/Webhooks) to send data to mParticle. 
+2. In Talon.One, configure a [webhook](https://docs.talon.one/docs/dev/tutorials/creating-a-webhook) to send data to mParticle. 
 
 * The webhook should post requests to the mParticle [Endpoint](/developers/partners/inbound-integrations/)
 * Use basic authorization for your authorization header. You can follow the steps shown [here](/developers/server/http/#authentication) to translate your API Key/secret to the required format.
