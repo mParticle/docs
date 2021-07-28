@@ -40,7 +40,11 @@ Mautic will accept the following event types:
 
 ## Data Processing Notes
 
-Mautic will not accept data for more than 24 hours old.
+* Mautic will not accept data for more than 24 hours old.
+* Users must have a valid email address in order to be added to a Mautic Campaign Studio instance
+* Mautic will register a user if they do not already exist in your Mautic instance
+* User events will be added to your Mautic Campaign Studio instance in approximately 1-2 minutes
+
 
 ## Settings
 

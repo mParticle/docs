@@ -21,6 +21,12 @@ title: Audience
 * Apple IDFA
 * Google Advertising ID
 
+## Data Processing Notes
+
+* Users must have a valid email address in order to be added to a Mautic Campaign Studio instance
+* Mautic will register a user if they do not already exist in your Mautic instance
+* After initially connecting an audience, additional users will be added to your Mautic Campaign Studio instance in approximately 1-2 minutes
+
 ## Settings
 
 ### Configuration Settings
