@@ -51,9 +51,12 @@ When forwarding audience data to Amazon Kinesis, mParticle will send the followi
 
 * Android ID
 * Google Advertising ID (GAID)
-* Apple Vendor ID (IDFV)
 * Apple Advertising ID (IDFA)
+* Apple Vendor ID (IDFV)
+* Fire Advertising ID
+* Microsoft Advertising ID
 * Roku Advertising ID
+* Roku Publisher ID
 
 ### User IDs
 
@@ -62,8 +65,7 @@ When forwarding audience data to Amazon Kinesis, mParticle will send the followi
 * Facebook ID
 * Google ID
 * Microsoft ID
-* Twitter ID
-* Yahoo ID
+* mParticle ID (MPID)
 * Other
 * Other 2
 * Other 3
@@ -74,7 +76,8 @@ When forwarding audience data to Amazon Kinesis, mParticle will send the followi
 * Other 8
 * Other 9
 * Other 10
-* mParticle ID (MPID)
+* Twitter ID
+* Yahoo ID
 
 ## Data Format
 
