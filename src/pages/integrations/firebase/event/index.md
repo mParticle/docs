@@ -83,7 +83,7 @@ mParticle will automatically map commerce events to Firebase event names based o
 
 | Firebase Event | Android | iOS
 | -------------  | ------------------------ | --|
-| `ecommerce_purchase` | `Product.PURCHASE` | `MPCommerceEventActionPurchase`
+| `purchase` | `Product.PURCHASE` | `MPCommerceEventActionPurchase`
 | `add_to_cart` | `Product.ADD_TO_CART` | `MPCommerceEventActionAddToCart`
 | `remove_from_cart` | `Product.REMOVE_FROM_CART` | `MPCommerceEventActionRemoveFromCart`
 | `add_to_wishlist` | `Product.ADD_TO_WISHLIST` | `MPCommerceEventActionAddToWishList`
@@ -91,7 +91,7 @@ mParticle will automatically map commerce events to Firebase event names based o
 | `set_checkout_option` | `Product.CHECKOUT_OPTION` | `MPCommerceEventActionCheckoutOptions`
 | `select_content` | `Product.CLICK` | `MPCommerceEventActionClick`
 | `view_item` | `Product.DETAIL` | `MPCommerceEventActionViewDetail`
-| `purchase_refund` | `Product.REFUND` |  `MPCommerceEventActionRefund`
+| `refund` | `Product.REFUND` |  `MPCommerceEventActionRefund`
 | `remove_from_wishlist` | `Product.REMOVE_FROM_WISHLIST` | No mapping
 
 
