@@ -103,7 +103,9 @@ The CLI provides two key commands:
 
 ### Smartype `init`
 
-Smartype `init`  will ask you a series of questions and then create a Smartype configuration file.
+Smartype `init`  will ask you a series of questions and then create a Smartype configuration file.  
+
+**When choosing a folder for Smartype files to be written to, as part of the `generate` step, be sure to create a new folder specific to Smartype so the new files don't pollute existing folders.**
 
 ```bash
 # With mvnx:
