@@ -188,21 +188,21 @@ For Android and FireTV installs, mParticle forwards UTM Referrer information to 
 | Campaign Source | `a.referrer.campaign.source` | `application_info.install_referrer` |
 | Campaign Term | `a.referrer.campaign.term` | `application_info.install_referrer` |
 
-For Web page view events, mParticle forwards UTM Referrer information to Adobe. The data should be sent in a custom flag with the following format: `utm_campaign=my_campaign&utm_source=google&utm_medium=cpc&utm_term=my_keyword&utm_content=ad_variation1`.
+For Web page view events, mParticle forwards UTM Referrer information to Adobe. The data should be sent in a [custom flag](/developers/sdk/web/event-tracking/#custom-flags) with the following format: `utm_campaign=my_campaign&utm_source=google&utm_medium=cpc&utm_term=my_keyword&utm_content=ad_variation1`.
 
-| Adobe Dimension | Adobe Context Variable | mParticle mapping |
+| Adobe Dimension | Adobe Context Variable | Custom Flag |
 | ------| ------- | ------------ |
-| Campaign | `a.referrer.campaign.name`  | `data.custom_flags.Adobe.UTM` |
-| Campaign Content | `a.referrer.campaign.content`  | `data.custom_flags.Adobe.UTM` |
-| Campaign Medium | `a.referrer.campaign.medium`  | `data.custom_flags.Adobe.UTM` |
-| Campaign Source | `a.referrer.campaign.source` | `data.custom_flags.Adobe.UTM` |
-| Campaign Term | `a.referrer.campaign.term` | `data.custom_flags.Adobe.UTM` |
+| Campaign | `a.referrer.campaign.name`  | `Adobe.UTM` |
+| Campaign Content | `a.referrer.campaign.content`  | `Adobe.UTM` |
+| Campaign Medium | `a.referrer.campaign.medium`  | `Adobe.UTM` |
+| Campaign Source | `a.referrer.campaign.source` | `Adobe.UTM` |
+| Campaign Term | `a.referrer.campaign.term` | `Adobe.UTM` |
 
 For Web page view events, mParticle forwards Referrer URL information to Adobe:
 
-| Adobe Dimension | Adobe Variable | mParticle mapping |
+| Adobe Dimension | Adobe Variable | Custom Flag |
 | ------| ------- | ------------ |
-| Referrer | `r`  | `data.custom_flags.Adobe.Referrer` |
+| Referrer | `r`  | `Adobe.Referrer` |
 
 ## Context Variables
 
