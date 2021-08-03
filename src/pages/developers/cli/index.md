@@ -73,7 +73,7 @@ Simply use `npm install -g @mparticle/cli` to upgrade to the latest version.
 
 To perform commands on the CLI, you pass in flags such as authentication credentials or record identifiers. Some of these parameters can be added to an optional configuration file, `mp.config.json`, to be shared between commands or other mParticle applications.
 
-The CLI will automatically search in the current working directory for a valid json filed named `mp.config.file`.
+The CLI will automatically search in the current working directory for a valid json filed named `mp.config.json`.
 
 Alternatively, a json file can be passed in with the `--config=/path/to/config` flag.
 
