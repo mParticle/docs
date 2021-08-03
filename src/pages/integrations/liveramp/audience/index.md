@@ -14,7 +14,7 @@ The LiveRamp integration only supports SFTP for uploading data to LiveRamp.
 
 The LiveRamp integration currently only supports forwarding real-time audiences and cannot be used for standard audiences.
 
-At this time the integration only supports LiveRamp in the United States, not the United Kingdom, Canada or France.
+The Liveamp integration is only available in the US data center - see [Data Localization.](/developers/data-localization).
 
 ## Activate the Integration
 
