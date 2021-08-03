@@ -10,7 +10,7 @@ mParticle's Consent Management framework is designed to give brands the tools th
 
 This guide will introduce you to mParticle's consent management functionality and show you how to collect individual's consent and apply it to your data flows.
 
-## Common Uses of Consent management
+## Common Uses of Consent Management
 Our consent management tools are designed for flexibility and customizability: to allow you to build any data flow or consent-based logic you need.
 
 You can use mParticle's consent management to help comply with CCPA's "do not sell my data" requirement by collecting users who opt-out and blocking those users' data from flowing to any 'data sale' output by:
@@ -33,7 +33,7 @@ To get started, enable GDPR and/or CCPA compliance features on your workspace fr
 
 ![](/images/workspace-settings-ccpa.png)
 
-For GDPR, you must next create a set of consent "purposes". These purposes define the scope of data collection and processing to which the user may consent. GDPR recognizes several different purposes for data collection and covers the possibility of a user consenting to some purposes of data collection but not others. mParticle does not limit you to a specific set of purposes, but rather lets you define your own purposes when you setup a workspace.
+For GDPR, you must next create a set of purposes. A purpose defines the scope of data collection and processing to which the user may consent. GDPR recognizes several different purposes for data collection including the possibility of a user consenting to some purposes of data collection but not others. mParticle does not limit you to a specific set of purposes, but rather lets you define your own purposes when you set up a workspace.
 
 You can add purposes from **Setup > Privacy Settings** in the dashboard. Once a purpose has been added it cannot be removed.
 
@@ -41,7 +41,7 @@ For CCPA, once it is enabled in your workspace it will automatically have a purp
 
 ![](/images/privacy-settings.png)
 
-## Consent properties
+## Consent Properties
 
 The mParticle format for a single record of a user decision on a privacy prompt, aka a ".consent", is our `consent_state` object. This is used for both GDPR-style opt-in consent and for CCPA-style opt-out.
 
@@ -94,7 +94,7 @@ Consent state can be logged via the HTTP API simply by including a consent state
 
 
 
-## Collecting consent state
+## Collecting Consent State
 
 For detailed definitions of how to report consent state, please see our SDK and API specific [developer documentation](/developers/):
 
@@ -104,7 +104,7 @@ For detailed definitions of how to report consent state, please see our SDK and 
 * [AMP SDK](/developers/sdk/amp/getting-started/#consent-state)
 * [HTTP API](/developers/server/json-reference/#consent_state)
 
-## Using consent state
+## Using Consent State
 
 ### User Profiles
 Consent state is maintained per person on the User Profile using the structure defined above.
@@ -146,7 +146,7 @@ For GDPR, you may want a forwarding rule to only send data when a single purpose
 
 If you set up a Forwarding Rule for an embedded kit integration, the iOS and Android SDKs will check consent status for the user on initialization. If the rule condition fails, the kit will not be initialized. Note that kits are only initialized when a session begins or on user change, so if consent status changes in the course of a session, while mParticle will immediately stop forwarding data to the kit, it is possible that an embedded kit may remain active and independently forwarding data to a partner from the client until the session ends.
 
-### Forwarding consent state to partners
+### Forwarding Consent State to Partners
 
 When the consent state of a profile changes, that change can be communicated to mParticle event integrations. If the `consent_state` object on an incoming event batch contains changes from the existing profile, mParticle adds a 'system notification' to the batch for each consent state change before the batch is sent to incoming forwarders. This notification contains the full old and new consent state objects:
 
