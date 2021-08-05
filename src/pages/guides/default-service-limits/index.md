@@ -38,12 +38,18 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Average events per user within 24 hours | 150 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
 | Average events per user within 30 days | 175 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
 
-## Events and User Profile API
+## Events API
 
 | Resource | Limits | Details |
 | -------- | ------ | --- |
-| Requests per minute | Variable but starting at 360 requests per minute | Actual limits scale up and down with demand. If you exceed the limit, the mParticle API will return an HTTP 429 response code. Set up your S2S implementation to respect 429 responses and retry the request in an exponential backoff pattern.
+| Requests per second | Variable but starting at 270 batches per second | Actual limits scale up and down with demand. If you exceed the limit, the mParticle API will return an HTTP 429 response code. Set up your S2S implementation to respect 429 responses and retry the request in an exponential backoff pattern.
 | Total Request Size | 256kb | Whether using the `/events` or `/bulkevents` endpoint, the total request size must be under 256kb.
+
+## Profile API
+
+| Resource | Limits | Details |
+| -------- | ------ | --- |
+| Requests per second | Variable but starting at 15 requests per second | Actual limits scale up and down with demand. If you exceed the limit, the mParticle API will return an HTTP 429 response code. Set up your implementation to respect 429 responses and retry the request in an exponential backoff pattern.
 
 ## Data Storage
 
