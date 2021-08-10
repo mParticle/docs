@@ -2,9 +2,9 @@
 title: Event
 ---
 
-[Taplytics](https://taplytics.com/) is an intelligent customer experience cloud specializing in turning first-time users into lifetime customers through magical moments.
+[Taplytics](https://taplytics.com/) is an A/B Testing, Feature Management and Behavioral Messaging platform that helps companies turn first-time users into lifetime customers.
 
-The Taplytics integration is an embedded kit integration and supports the Android, iOS, tvOS, and Web platforms.
+The Taplytics integration is an embedded kit integration and supports the Android, AndroidTV/FireTV, iOS, tvOS, and Web platforms.
 
 ## Prerequisites
 
