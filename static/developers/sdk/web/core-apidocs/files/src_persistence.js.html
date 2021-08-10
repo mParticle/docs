@@ -17,7 +17,7 @@
                 <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 2.11.15</em>
+            <em>API Docs for: 2.14.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -475,7 +475,7 @@ export default function _Persistence(mpInstance) {
         data.gs.c = store.context;
         data.gs.ssd = store.sessionStartDate
             ? store.sessionStartDate.getTime()
-            : null;
+            : 0;
         data.gs.ia = store.integrationAttributes;
 
         return data;
@@ -544,9 +544,15 @@ export default function _Persistence(mpInstance) {
         mpInstance.Logger.verbose(Messages.InformationMessages.CookieSearch);
 
         for (i = 0, l = cookies.length; i &lt; l; i++) {
-            parts = cookies[i].split(&#x27;=&#x27;);
-            name = mpInstance._Helpers.decoded(parts.shift());
-            cookie = mpInstance._Helpers.decoded(parts.join(&#x27;=&#x27;));
+            try {
+                parts = cookies[i].split(&#x27;=&#x27;);
+                name = mpInstance._Helpers.decoded(parts.shift());
+                cookie = mpInstance._Helpers.decoded(parts.join(&#x27;=&#x27;));
+            } catch (e) {
+                mpInstance.Logger.verbose(
+                    &#x27;Unable to parse cookie: &#x27; + name + &#x27;. Skipping.&#x27;
+                );
+            }
 
             if (key &amp;&amp; key === name) {
                 result = mpInstance._Helpers.converted(cookie);

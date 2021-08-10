@@ -132,8 +132,6 @@
 		
 		<option value="//api/name/beginTimedEvent:">- beginTimedEvent:</option>
 		
-		<option value="//api/name/beginUncaughtExceptionLogging">- beginUncaughtExceptionLogging</option>
-		
 		<option value="//api/name/clearIntegrationAttributesForKit:">- clearIntegrationAttributesForKit:</option>
 		
 		<option value="//api/name/continueUserActivity:restorationHandler:">- continueUserActivity:restorationHandler:</option>
@@ -149,8 +147,6 @@
 		<option value="//api/name/endSession">- endSession</option>
 		
 		<option value="//api/name/endTimedEvent:">- endTimedEvent:</option>
-		
-		<option value="//api/name/endUncaughtExceptionLogging">- endUncaughtExceptionLogging</option>
 		
 		<option value="//api/name/eventWithName:">- eventWithName:</option>
 		
@@ -177,6 +173,8 @@
 		<option value="//api/name/leaveBreadcrumb:eventInfo:">- leaveBreadcrumb:eventInfo:</option>
 		
 		<option value="//api/name/logCommerceEvent:">- logCommerceEvent:</option>
+		
+		<option value="//api/name/logCrash:stackTrace:plCrashReport:">- logCrash:stackTrace:plCrashReport:</option>
 		
 		<option value="//api/name/logError:">- logError:</option>
 		
@@ -211,6 +209,8 @@
 		<option value="//api/name/openURL:sourceApplication:annotation:">- openURL:sourceApplication:annotation:</option>
 		
 		<option value="//api/name/reset">- reset</option>
+		
+		<option value="//api/name/setATTStatus:withATTStatusTimestampMillis:">- setATTStatus:withATTStatusTimestampMillis:</option>
 		
 		<option value="//api/name/setIntegrationAttributes:forKit:">- setIntegrationAttributes:forKit:</option>
 		
@@ -2746,6 +2746,69 @@ of <a href="../Classes/MPEvent.html">MPEvent</a> and calls <a href="#//api/name/
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/setATTStatus:withATTStatusTimestampMillis:" title="setATTStatus:withATTStatusTimestampMillis:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setATTStatus:withATTStatusTimestampMillis:">&ndash;&nbsp;setATTStatus:withATTStatusTimestampMillis:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the ATT Authorization state with the supplied timestamp, or uses the current time if none is supplied.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setATTStatus:(MPATTAuthorizationStatus)<em>status</em> withATTStatusTimestampMillis:(nullable NSNumber *)<em>attStatusTimestampMillis</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>status</code></th>
+						<td><p>The authorization state of ATT, determines whether the user has approved access to app-related data that can be used for tracking the user or the device.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>attStatusTimestampMillis</code></th>
+						<td><p>The time at which the authorization status change. If not supplied, current time will be used.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Sets the ATT Authorization state with the supplied timestamp, or uses the current time if none is supplied.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/attributionInfo" title="attributionInfo"></a>
 	<h3 class="method-title"><code><a href="#//api/name/attributionInfo">&ndash;&nbsp;attributionInfo</a></code>
 </h3>
@@ -2794,98 +2857,6 @@ of <a href="../Classes/MPEvent.html">MPEvent</a> and calls <a href="#//api/name/
 					
 				</ul>
 			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">mParticle.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/beginUncaughtExceptionLogging" title="beginUncaughtExceptionLogging"></a>
-	<h3 class="method-title"><code><a href="#//api/name/beginUncaughtExceptionLogging">&ndash;&nbsp;beginUncaughtExceptionLogging</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Enables mParticle exception handling to automatically log events on uncaught exceptions.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)beginUncaughtExceptionLogging</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Enables mParticle exception handling to automatically log events on uncaught exceptions.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">mParticle.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/endUncaughtExceptionLogging" title="endUncaughtExceptionLogging"></a>
-	<h3 class="method-title"><code><a href="#//api/name/endUncaughtExceptionLogging">&ndash;&nbsp;endUncaughtExceptionLogging</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Disables mParticle automatic exception handling.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)endUncaughtExceptionLogging</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Disables mParticle automatic exception handling.</p>
-			</div>
-			
-
-			
-
 			
 
 			
@@ -3264,6 +3235,74 @@ of <a href="../Classes/MPEvent.html">MPEvent</a> and calls <a href="#//api/name/
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Logs an exception and a context.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/logCrash:stackTrace:plCrashReport:" title="logCrash:stackTrace:plCrashReport:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/logCrash:stackTrace:plCrashReport:">&ndash;&nbsp;logCrash:stackTrace:plCrashReport:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Logs a crash report with additional exception information.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)logCrash:(nullable NSString *)<em>message</em> stackTrace:(nullable NSString *)<em>stackTrace</em> plCrashReport:(NSString *)<em>plCrashReport</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>message</code></th>
+						<td><p>An error message to associate with the crash which occurred</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>stackTrace</code></th>
+						<td><p>The stack trace from the crash which occurred</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>plCrashReport</code></th>
+						<td><p>Plausible Labs crash report file (required not nil)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Logs a crash report with additional exception information.</p>
 			</div>
 			
 
@@ -5152,7 +5191,7 @@ existing key will remove the session attribute.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-02-24</p>
+						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-07-29</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

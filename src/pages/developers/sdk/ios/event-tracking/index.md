@@ -86,12 +86,9 @@ event.customAttributes = @{@"category":@"Destination Intro",
 [[MParticle sharedInstance] logEvent:event];
 ```
 ```swift
-let event = MPEvent(name: "Video Watched", type: MPEventType.navigation)
-
-event?.customAttributes = ["category": "Destination Intro", "title": "Paris"]; 
-
-if (event != nil) {
-    MParticle.sharedInstance().logEvent(event!)
+if let event = MPEvent(name: "Video Watched", type: MPEventType.navigation) {
+    event.customAttributes = ["category": "Destination Intro", "title": "Paris"]
+    MParticle.sharedInstance().logEvent(event)
 }
 ```
 :::
@@ -117,12 +114,35 @@ MPEvent *event = [[MPEvent alloc] initWithName:@"Set Interest"
 ```
 
 ```swift
-let event = MPEvent(name: "Set Interest", type: MPEventType.userPreference)
+if let event = MPEvent(name: "Set Interest", type: MPEventType.userPreference) {
+    event.addCustomFlag("Adventure Travel", withKey: "Lotame.Interest")
+    MParticle.sharedInstance().logEvent(event)
+}
+```
+:::
 
-event?.addCustomFlag("Adventure Travel", withKey: "Lotame.Interest")
+## Exclude Events from mParticle Server Upload
 
-if (event != nil) {
-    MParticle.sharedInstance().logEvent(event!)
+If you have a high-volume event that you would like to forward to kits but exclude from uploading mParticle, set a boolean flag per event.
+
+By default, all events upload to the mParticle server unless explicitly set not to.
+
+**Note**: This can also be done in the same manner for Commerce Events.
+
+:::code-selector-block
+```objectivec
+MPEvent *event = [[MPEvent alloc] initWithName:@"Set Interest"
+                                          type:MPEventTypeUserPreference;
+
+event.shouldUploadEvent = NO;
+
+[[MParticle sharedInstance] logEvent:event];
+```
+
+```swift
+if let event = MPEvent(name: "Set Interest", type: MPEventType.userPreference) {
+    event.shouldUploadEvent = false
+    MParticle.sharedInstance().logEvent(event)
 }
 ```
 :::

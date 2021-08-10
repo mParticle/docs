@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":42,"i9":10,"i10":9,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":42,"i10":10,"i11":9,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -192,29 +192,35 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#customFlags-java.util.Map-">customFlags</a></span>(java.util.Map&lt;java.lang.String,java.util.List&lt;java.lang.String&gt;&gt;&nbsp;customFlags)</code>
+<div class="block">Bulk add custom flags to this event.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#duration-double-">duration</a></span>(double&nbsp;durationMillis)</code>
 <div class="block">The total length of this event, in milliseconds.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#endTime--">endTime</a></span>()</code>
 <div class="block">Events can have a duration associate with them.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#eventName-java.lang.String-">eventName</a></span>(java.lang.String&nbsp;eventName)</code>
 <div class="block">The name of the event to be tracked, required not null.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#eventType-com.mparticle.MParticle.EventType-">eventType</a></span>(<a href="../../com/mparticle/MParticle.EventType.html" title="enum in com.mparticle">MParticle.EventType</a>&nbsp;eventType)</code>
 <div class="block">The type of the event to be tracked.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#info-java.util.Map-">info</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;info)</code>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
@@ -224,25 +230,31 @@ extends java.lang.Object</pre>
 </div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#internalNavigationDirection-boolean-">internalNavigationDirection</a></span>(boolean&nbsp;entering)</code>
 <div class="block">Beta API, subject to change.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static <a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#parseString-java.lang.String-">parseString</a></span>(java.lang.String&nbsp;builderString)</code>
 <div class="block">Use this method to deserialize the result of <a href="../../com/mparticle/MPEvent.Builder.html#toString--"><code>toString()</code></a>.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
+<td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#shouldUploadEvent-boolean-">shouldUploadEvent</a></span>(boolean&nbsp;shouldUploadEvent)</code>
+<div class="block">Manually choose to skip uploading this event to mParticle server and only forward to kits.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#startTime--">startTime</a></span>()</code>
 <div class="block">Events can have a duration associate with them.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.Builder.html#toString--">toString</a></span>()</code>
 <div class="block">Use this method to serialize an event builder to persist the object across app sessions.</div>
@@ -380,6 +392,22 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a name="customFlags-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>customFlags</h4>
+<pre>public&nbsp;<a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a>&nbsp;customFlags(java.util.Map&lt;java.lang.String,java.util.List&lt;java.lang.String&gt;&gt;&nbsp;customFlags)</pre>
+<div class="block">Bulk add custom flags to this event. This will replace any flags previously set via <a href="../../com/mparticle/MPEvent.Builder.html#addCustomFlag-java.lang.String-java.lang.String-"><code>addCustomFlag(String, String)</code></a></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>customFlags</code> - (required) a map containing the custom flags for the MPEvent</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>returns this builder for easy method chaining</dd>
+</dl>
+</li>
+</ul>
 <a name="category-java.lang.String-">
 <!--   -->
 </a>
@@ -490,6 +518,25 @@ public&nbsp;<a href="../../com/mparticle/MPEvent.Builder.html" title="class in c
 </dl>
 </li>
 </ul>
+<a name="shouldUploadEvent-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldUploadEvent</h4>
+<pre>public&nbsp;<a href="../../com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a>&nbsp;shouldUploadEvent(boolean&nbsp;shouldUploadEvent)</pre>
+<div class="block">Manually choose to skip uploading this event to mParticle server and only forward to kits.
+
+ Note that if this method is not called, the default is to upload to mParticle as well as
+ forward to kits to match the previous behavior.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>shouldUploadEvent</code> - </dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>returns this builder for easy method chaining</dd>
+</dl>
+</li>
+</ul>
 <a name="build--">
 <!--   -->
 </a>
@@ -503,7 +550,7 @@ public&nbsp;<a href="../../com/mparticle/MPEvent.Builder.html" title="class in c
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>returns the MPEvent object to be logged</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><code>MParticle#logEvent(MPEvent)</code></dd>
+<dd><a href="../../com/mparticle/MParticle.html#logEvent-com.mparticle.BaseEvent-"><code>MParticle.logEvent(BaseEvent)</code></a></dd>
 </dl>
 </li>
 </ul>

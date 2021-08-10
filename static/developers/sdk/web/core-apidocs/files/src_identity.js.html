@@ -17,7 +17,7 @@
                 <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 2.11.15</em>
+            <em>API Docs for: 2.14.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -281,6 +281,7 @@ export default function Identity(mpInstance) {
                     source_mpid: aliasRequest.sourceMpid,
                     start_unixtime_ms: aliasRequest.startTime,
                     end_unixtime_ms: aliasRequest.endTime,
+                    scope: aliasRequest.scope,
                     device_application_stamp: mpInstance._Store.deviceId,
                 },
             };
@@ -365,7 +366,7 @@ export default function Identity(mpInstance) {
                             &#x27;Identify request sent to native sdk&#x27;
                         );
                     } else {
-                        mpInstance._APIClient.sendIdentityRequest(
+                        mpInstance._IdentityAPIClient.sendIdentityRequest(
                             identityApiRequest,
                             &#x27;identify&#x27;,
                             callback,
@@ -439,7 +440,7 @@ export default function Identity(mpInstance) {
                             &#x27;Logout request sent to native sdk&#x27;
                         );
                     } else {
-                        mpInstance._APIClient.sendIdentityRequest(
+                        mpInstance._IdentityAPIClient.sendIdentityRequest(
                             identityApiRequest,
                             &#x27;logout&#x27;,
                             callback,
@@ -527,7 +528,7 @@ export default function Identity(mpInstance) {
                             &#x27;Login request sent to native sdk&#x27;
                         );
                     } else {
-                        mpInstance._APIClient.sendIdentityRequest(
+                        mpInstance._IdentityAPIClient.sendIdentityRequest(
                             identityApiRequest,
                             &#x27;login&#x27;,
                             callback,
@@ -604,7 +605,7 @@ export default function Identity(mpInstance) {
                             &#x27;Modify request sent to native sdk&#x27;
                         );
                     } else {
-                        mpInstance._APIClient.sendIdentityRequest(
+                        mpInstance._IdentityAPIClient.sendIdentityRequest(
                             identityApiRequest,
                             &#x27;modify&#x27;,
                             callback,
@@ -762,7 +763,7 @@ export default function Identity(mpInstance) {
                     var aliasRequestMessage = mpInstance._Identity.IdentityRequest.createAliasNetworkRequest(
                         aliasRequest
                     );
-                    mpInstance._APIClient.sendAliasRequest(
+                    mpInstance._IdentityAPIClient.sendAliasRequest(
                         aliasRequestMessage,
                         callback
                     );
@@ -1307,6 +1308,10 @@ export default function Identity(mpInstance) {
                     this.getUserIdentities().userIdentities,
                     mpInstance._APIClient.prepareForwardingStats
                 );
+                mpInstance._CookieSyncManager.attemptCookieSync(
+                    null,
+                    this.getMPID()
+                );
             },
             isLoggedIn: function() {
                 return isLoggedIn;
@@ -1511,6 +1516,7 @@ export default function Identity(mpInstance) {
     ) {
         var prevUser = mpInstance.Identity.getUser(previousMPID),
             newUser,
+            mpidIsNotInCookies,
             identityApiResult,
             indexOfMPID,
             newIdentitiesByType = {},
@@ -1548,6 +1554,13 @@ export default function Identity(mpInstance) {
                 if (prevUser) {
                     mpInstance._Persistence.setLastSeenTime(previousMPID);
                 }
+
+                if (
+                    !mpInstance._Persistence.getFirstSeenTime(
+                        identityApiResult.mpid
+                    )
+                )
+                    mpidIsNotInCookies = true;
                 mpInstance._Persistence.setFirstSeenTime(
                     identityApiResult.mpid
                 );
@@ -1625,7 +1638,8 @@ export default function Identity(mpInstance) {
 
                     mpInstance._CookieSyncManager.attemptCookieSync(
                         previousMPID,
-                        identityApiResult.mpid
+                        identityApiResult.mpid,
+                        mpidIsNotInCookies
                     );
 
                     self.checkIdentitySwap(

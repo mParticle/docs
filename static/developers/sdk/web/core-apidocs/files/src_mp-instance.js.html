@@ -17,7 +17,7 @@
                 <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 2.11.15</em>
+            <em>API Docs for: 2.14.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -123,6 +123,9 @@ import ServerModel from &#x27;./serverModel&#x27;;
 import ForwardingStatsUploader from &#x27;./forwardingStatsUploader&#x27;;
 import Identity from &#x27;./identity&#x27;;
 import Consent from &#x27;./consent&#x27;;
+import KitBlocker from &#x27;./kitBlocking&#x27;;
+import ConfigAPIClient from &#x27;./configAPIClient&#x27;;
+import IdentityAPIClient from &#x27;./identityApiClient&#x27;;
 
 var Messages = Constants.Messages,
     HTTPCodes = Constants.HTTPCodes;
@@ -149,14 +152,13 @@ export default function mParticleInstance(instanceName) {
     this._SessionManager = new SessionManager(this);
     this._Persistence = new Persistence(this);
     this._Helpers = new Helpers(this);
-    this._Forwarders = new Forwarders(this);
-    this._APIClient = new APIClient(this);
     this._Events = new Events(this);
     this._CookieSyncManager = new CookieSyncManager(this);
     this._ServerModel = new ServerModel(this);
     this._Ecommerce = new Ecommerce(this);
     this._ForwardingStatsUploader = new ForwardingStatsUploader(this);
     this._Consent = new Consent(this);
+    this._IdentityAPIClient = new IdentityAPIClient(this);
     this._preInit = {
         readyQueue: [],
         integrationDelays: {},
@@ -174,16 +176,16 @@ export default function mParticleInstance(instanceName) {
     this.Identity = this._Identity.IdentityAPI;
     this.generateHash = this._Helpers.generateHash;
     this.getDeviceId = this._Persistence.getDeviceId;
-
-    if (window.mParticle &amp;&amp; window.mParticle.config) {
-        if (window.mParticle.config.hasOwnProperty(&#x27;rq&#x27;)) {
-            this._preInit.readyQueue = window.mParticle.config.rq;
+    if (typeof window !== &#x27;undefined&#x27;) {
+        if (window.mParticle &amp;&amp; window.mParticle.config) {
+            if (window.mParticle.config.hasOwnProperty(&#x27;rq&#x27;)) {
+                this._preInit.readyQueue = window.mParticle.config.rq;
+            }
         }
     }
-
     this.init = function(apiKey, config) {
         if (!config) {
-            window.console.warn(
+            console.warn(
                 &#x27;You did not pass a config object to init(). mParticle will not initialize properly&#x27;
             );
         }
@@ -198,7 +200,7 @@ export default function mParticleInstance(instanceName) {
                 !config.hasOwnProperty(&#x27;requestConfig&#x27;) ||
                 config.requestConfig
             ) {
-                self._APIClient.getSDKConfiguration(
+                new ConfigAPIClient().getSDKConfiguration(
                     apiKey,
                     config,
                     completeSDKInitialization,
@@ -208,7 +210,7 @@ export default function mParticleInstance(instanceName) {
                 completeSDKInitialization(apiKey, config, this);
             }
         } else {
-            window.console.error(
+            console.error(
                 &#x27;No config available on the window, please pass a config object to mParticle.init()&#x27;
             );
             return;
@@ -372,11 +374,12 @@ export default function mParticleInstance(instanceName) {
     /**
      * Logs a Base Event to mParticle&#x27;s servers
      * @param {Object} event Base Event Object
+     * @param {Object} [eventOptions] For Event-level Configuration Options
      */
-    this.logBaseEvent = function(event) {
+    this.logBaseEvent = function(event, eventOptions) {
         if (!self._Store.isInitialized) {
             self.ready(function() {
-                self.logBaseEvent(event);
+                self.logBaseEvent(event, eventOptions);
             });
             return;
         }
@@ -395,7 +398,7 @@ export default function mParticleInstance(instanceName) {
             return;
         }
 
-        self._Events.logEvent(event);
+        self._Events.logEvent(event, eventOptions);
     };
     /**
      * Logs an event to mParticle&#x27;s servers
@@ -404,11 +407,24 @@ export default function mParticleInstance(instanceName) {
      * @param {Number} [eventType] The eventType as seen [here](http://docs.mparticle.com/developers/sdk/web/event-tracking#event-type)
      * @param {Object} [eventInfo] Attributes for the event
      * @param {Object} [customFlags] Additional customFlags
+     * @param {Object} [eventOptions] For Event-level Configuration Options
      */
-    this.logEvent = function(eventName, eventType, eventInfo, customFlags) {
+    this.logEvent = function(
+        eventName,
+        eventType,
+        eventInfo,
+        customFlags,
+        eventOptions
+    ) {
         if (!self._Store.isInitialized) {
             self.ready(function() {
-                self.logEvent(eventName, eventType, eventInfo, customFlags);
+                self.logEvent(
+                    eventName,
+                    eventType,
+                    eventInfo,
+                    customFlags,
+                    eventOptions
+                );
             });
             return;
         }
@@ -437,13 +453,16 @@ export default function mParticleInstance(instanceName) {
             return;
         }
 
-        self._Events.logEvent({
-            messageType: Types.MessageType.PageEvent,
-            name: eventName,
-            data: eventInfo,
-            eventType: eventType,
-            customFlags: customFlags,
-        });
+        self._Events.logEvent(
+            {
+                messageType: Types.MessageType.PageEvent,
+                name: eventName,
+                data: eventInfo,
+                eventType: eventType,
+                customFlags: customFlags,
+            },
+            eventOptions
+        );
     };
     /**
      * Used to log custom errors
@@ -473,11 +492,11 @@ export default function mParticleInstance(instanceName) {
         var data = {
             m: error.message ? error.message : error,
             s: &#x27;Error&#x27;,
-            t: error.stack,
+            t: error.stack || null,
         };
 
         if (attrs) {
-            var sanitized = self._Helpers.sanitizeAttributes(attrs);
+            var sanitized = self._Helpers.sanitizeAttributes(attrs, data.m);
             for (var prop in sanitized) {
                 data[prop] = sanitized[prop];
             }
@@ -530,11 +549,12 @@ export default function mParticleInstance(instanceName) {
      * @param {String} eventName The name of the event. Defaults to &#x27;PageView&#x27;.
      * @param {Object} [attrs] Attributes for the event
      * @param {Object} [customFlags] Custom flags for the event
+     * @param {Object} [eventOptions] For Event-level Configuration Options
      */
-    this.logPageView = function(eventName, attrs, customFlags) {
+    this.logPageView = function(eventName, attrs, customFlags, eventOptions) {
         if (!self._Store.isInitialized) {
             self.ready(function() {
-                self.logPageView(eventName, attrs, customFlags);
+                self.logPageView(eventName, attrs, customFlags, eventOptions);
             });
             return;
         }
@@ -567,13 +587,16 @@ export default function mParticleInstance(instanceName) {
             }
         }
 
-        self._Events.logEvent({
-            messageType: Types.MessageType.PageView,
-            name: eventName,
-            data: attrs,
-            eventType: Types.EventType.Unknown,
-            customFlags: customFlags,
-        });
+        self._Events.logEvent(
+            {
+                messageType: Types.MessageType.PageView,
+                name: eventName,
+                data: attrs,
+                eventType: Types.EventType.Unknown,
+                customFlags: customFlags,
+            },
+            eventOptions
+        );
     };
     /**
      * Forces an upload of the batch
@@ -708,7 +731,7 @@ export default function mParticleInstance(instanceName) {
         setCurrencyCode: function(code) {
             if (!self._Store.isInitialized) {
                 self.ready(function() {
-                    self.setCurrencyCode(code);
+                    self.eCommerce.setCurrencyCode(code);
                 });
                 return;
             }
@@ -852,13 +875,15 @@ export default function mParticleInstance(instanceName) {
          * @param {Object} [attrs] attributes related to the product action
          * @param {Object} [customFlags] Custom flags for the event
          * @param {Object} [transactionAttributes] Transaction Attributes for the event
+         * @param {Object} [eventOptions] For Event-level Configuration Options
          */
         logProductAction: function(
             productActionType,
             product,
             attrs,
             customFlags,
-            transactionAttributes
+            transactionAttributes,
+            eventOptions
         ) {
             if (!self._Store.isInitialized) {
                 self.ready(function() {
@@ -867,7 +892,8 @@ export default function mParticleInstance(instanceName) {
                         product,
                         attrs,
                         customFlags,
-                        transactionAttributes
+                        transactionAttributes,
+                        eventOptions
                     );
                 });
                 return;
@@ -878,7 +904,8 @@ export default function mParticleInstance(instanceName) {
                 product,
                 attrs,
                 customFlags,
-                transactionAttributes
+                transactionAttributes,
+                eventOptions
             );
         },
         /**
@@ -934,21 +961,35 @@ export default function mParticleInstance(instanceName) {
          * @param {Object} promotion promotion object
          * @param {Object} [attrs] boolean to clear the cart after logging or not
          * @param {Object} [customFlags] Custom flags for the event
+         * @param {Object} [eventOptions] For Event-level Configuration Options
          */
-        logPromotion: function(type, promotion, attrs, customFlags) {
+        logPromotion: function(
+            type,
+            promotion,
+            attrs,
+            customFlags,
+            eventOptions
+        ) {
             if (!self._Store.isInitialized) {
                 self.ready(function() {
                     self.eCommerce.logPromotion(
                         type,
                         promotion,
                         attrs,
-                        customFlags
+                        customFlags,
+                        eventOptions
                     );
                 });
                 return;
             }
             self._SessionManager.resetSessionTimer();
-            self._Events.logPromotionEvent(type, promotion, attrs, customFlags);
+            self._Events.logPromotionEvent(
+                type,
+                promotion,
+                attrs,
+                customFlags,
+                eventOptions
+            );
         },
         /**
          * Logs a product impression
@@ -957,20 +998,27 @@ export default function mParticleInstance(instanceName) {
          * @param {Object} impression product impression object
          * @param {Object} attrs attributes related to the impression log
          * @param {Object} [customFlags] Custom flags for the event
+         * @param {Object} [eventOptions] For Event-level Configuration Options
          */
-        logImpression: function(impression, attrs, customFlags) {
+        logImpression: function(impression, attrs, customFlags, eventOptions) {
             if (!self._Store.isInitialized) {
                 self.ready(function() {
                     self.eCommerce.logImpression(
                         impression,
                         attrs,
-                        customFlags
+                        customFlags,
+                        eventOptions
                     );
                 });
                 return;
             }
             self._SessionManager.resetSessionTimer();
-            self._Events.logImpressionEvent(impression, attrs, customFlags);
+            self._Events.logImpressionEvent(
+                impression,
+                attrs,
+                customFlags,
+                eventOptions
+            );
         },
         /**
          * Logs a refund
@@ -1206,8 +1254,12 @@ export default function mParticleInstance(instanceName) {
     };
 }
 
+// Some (server) config settings need to be returned before they are set on SDKConfig in a self hosted environment
 function completeSDKInitialization(apiKey, config, mpInstance) {
-    // Some (server) config settings need to be returned before they are set on SDKConfig in a self hosted environment
+    var kitBlocker = createKitBlocker(config, mpInstance);
+
+    mpInstance._APIClient = new APIClient(mpInstance, kitBlocker);
+    mpInstance._Forwarders = new Forwarders(mpInstance, kitBlocker);
     if (config.flags) {
         if (config.flags.hasOwnProperty(Constants.FeatureFlags.EventsV3)) {
             mpInstance._Store.SDKConfig.flags[Constants.FeatureFlags.EventsV3] =
@@ -1395,6 +1447,67 @@ function completeSDKInitialization(apiKey, config, mpInstance) {
     }
 }
 
+function createKitBlocker(config, mpInstance) {
+    var kitBlocker, dataPlanForKitBlocker, kitBlockError, kitBlockOptions;
+
+    /*  There are three ways a data plan object for blocking can be passed to the SDK:
+            1. Manually via config.dataPlanOptions (this takes priority)
+            If not passed in manually, we user the server provided via either
+            2. Snippet via /mparticle.js endpoint (config.dataPlan.document)
+            3. Self hosting via /config endpoint (config.dataPlanResult)
+    */
+
+    if (config.dataPlanOptions) {
+        mpInstance.Logger.verbose(&#x27;Customer provided data plan found&#x27;);
+        kitBlockOptions = config.dataPlanOptions;
+
+        dataPlanForKitBlocker = {
+            document: {
+                dtpn: {
+                    vers: kitBlockOptions.dataPlanVersion,
+                    blok: {
+                        ev: kitBlockOptions.blockEvents,
+                        ea: kitBlockOptions.blockEventAttributes,
+                        ua: kitBlockOptions.blockUserAttributes,
+                        id: kitBlockOptions.blockUserIdentities,
+                    },
+                },
+            },
+        };
+    }
+
+    if (!dataPlanForKitBlocker) {
+        // config.dataPlan.document returns on /mparticle.js endpoint
+        if (config.dataPlan &amp;&amp; config.dataPlan.document) {
+            if (config.dataPlan.document.error_message) {
+                kitBlockError = config.dataPlan.document.error_message;
+            } else {
+                mpInstance.Logger.verbose(&#x27;Data plan found from mParticle.js&#x27;);
+                dataPlanForKitBlocker = config.dataPlan;
+            }
+        }
+        // config.dataPlanResult returns on /config endpoint
+        else if (config.dataPlanResult) {
+            if (config.dataPlanResult.error_message) {
+                kitBlockError = config.dataPlanResult.error_message;
+            } else {
+                mpInstance.Logger.verbose(&#x27;Data plan found from /config&#x27;);
+                dataPlanForKitBlocker = { document: config.dataPlanResult };
+            }
+        }
+    }
+
+    if (kitBlockError) {
+        mpInstance.Logger.error(kitBlockError);
+    }
+
+    if (dataPlanForKitBlocker) {
+        kitBlocker = new KitBlocker(dataPlanForKitBlocker, mpInstance);
+    }
+
+    return kitBlocker;
+}
+
 function runPreConfigFetchInitialization(mpInstance, apiKey, config) {
     mpInstance.Logger = new Logger(config);
     mpInstance._Store = new Store(config, mpInstance);
@@ -1411,7 +1524,7 @@ function runPreConfigFetchInitialization(mpInstance, apiKey, config) {
         );
     } catch (e) {
         mpInstance.Logger.warning(
-            &#x27;localStorage is not available, using cookies if avaialble&#x27;
+            &#x27;localStorage is not available, using cookies if available&#x27;
         );
         mpInstance._Store.isLocalStorageAvailable = false;
     }

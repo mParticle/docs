@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -194,14 +194,22 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/BaseEvent.html#getType--">getType</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/BaseEvent.html#setCustomAttributes-java.util.Map-">setCustomAttributes</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;customAttributes)</code>&nbsp;</td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/BaseEvent.html#isShouldUploadEvent--">isShouldUploadEvent</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/BaseEvent.html#setCustomAttributes-java.util.Map-">setCustomAttributes</a></span>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;customAttributes)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/BaseEvent.html#setCustomFlags-java.util.Map-">setCustomFlags</a></span>(java.util.Map&lt;java.lang.String,java.util.List&lt;java.lang.String&gt;&gt;&nbsp;flags)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/BaseEvent.html#setShouldUploadEvent-boolean-">setShouldUploadEvent</a></span>(boolean&nbsp;shouldUploadEvent)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/BaseEvent.html#setType-com.mparticle.BaseEvent.MessageType-">setType</a></span>(<a href="../../com/mparticle/BaseEvent.MessageType.html" title="interface in com.mparticle">BaseEvent.MessageType</a>&nbsp;type)</code>&nbsp;</td>
 </tr>
@@ -262,6 +270,24 @@ extends java.lang.Object</pre>
 <pre>protected&nbsp;void&nbsp;setType(<a href="../../com/mparticle/BaseEvent.MessageType.html" title="interface in com.mparticle">BaseEvent.MessageType</a>&nbsp;type)</pre>
 </li>
 </ul>
+<a name="isShouldUploadEvent--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isShouldUploadEvent</h4>
+<pre>public&nbsp;boolean&nbsp;isShouldUploadEvent()</pre>
+</li>
+</ul>
+<a name="setShouldUploadEvent-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShouldUploadEvent</h4>
+<pre>protected&nbsp;void&nbsp;setShouldUploadEvent(boolean&nbsp;shouldUploadEvent)</pre>
+</li>
+</ul>
 <a name="getCustomFlags--">
 <!--   -->
 </a>
@@ -307,7 +333,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setCustomAttributes</h4>
-<pre>protected&nbsp;void&nbsp;setCustomAttributes(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;customAttributes)</pre>
+<pre>public&nbsp;void&nbsp;setCustomAttributes(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;customAttributes)</pre>
 </li>
 </ul>
 <a name="getMessage--">

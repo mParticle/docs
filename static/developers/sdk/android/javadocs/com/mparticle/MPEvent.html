@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":42,"i6":10,"i7":10,"i8":10,"i9":10,"i10":42,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":42,"i6":10,"i7":10,"i8":10,"i9":10,"i10":42,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -237,6 +237,10 @@ extends <a href="../../com/mparticle/BaseEvent.html" title="class in com.mpartic
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.html#setScreenEvent-boolean-">setScreenEvent</a></span>(boolean&nbsp;screenEvent)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../com/mparticle/MPEvent.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -246,7 +250,7 @@ extends <a href="../../com/mparticle/BaseEvent.html" title="class in com.mpartic
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.mparticle.<a href="../../com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a></h3>
-<code><a href="../../com/mparticle/BaseEvent.html#getCustomAttributes--">getCustomAttributes</a>, <a href="../../com/mparticle/BaseEvent.html#getCustomFlags--">getCustomFlags</a>, <a href="../../com/mparticle/BaseEvent.html#getType--">getType</a>, <a href="../../com/mparticle/BaseEvent.html#setCustomFlags-java.util.Map-">setCustomFlags</a>, <a href="../../com/mparticle/BaseEvent.html#setType-com.mparticle.BaseEvent.MessageType-">setType</a></code></li>
+<code><a href="../../com/mparticle/BaseEvent.html#getCustomAttributes--">getCustomAttributes</a>, <a href="../../com/mparticle/BaseEvent.html#getCustomFlags--">getCustomFlags</a>, <a href="../../com/mparticle/BaseEvent.html#getType--">getType</a>, <a href="../../com/mparticle/BaseEvent.html#isShouldUploadEvent--">isShouldUploadEvent</a>, <a href="../../com/mparticle/BaseEvent.html#setCustomFlags-java.util.Map-">setCustomFlags</a>, <a href="../../com/mparticle/BaseEvent.html#setShouldUploadEvent-boolean-">setShouldUploadEvent</a>, <a href="../../com/mparticle/BaseEvent.html#setType-com.mparticle.BaseEvent.MessageType-">setType</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -356,6 +360,15 @@ public&nbsp;void&nbsp;setInfo(java.util.Map&lt;java.lang.String,java.lang.String
 <li class="blockList">
 <h4>isScreenEvent</h4>
 <pre>public&nbsp;boolean&nbsp;isScreenEvent()</pre>
+</li>
+</ul>
+<a name="setScreenEvent-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setScreenEvent</h4>
+<pre>protected&nbsp;<a href="../../com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a>&nbsp;setScreenEvent(boolean&nbsp;screenEvent)</pre>
 </li>
 </ul>
 <a name="getEventHash--">

@@ -17,7 +17,7 @@
                 <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 2.11.15</em>
+            <em>API Docs for: 2.14.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -119,14 +119,16 @@ function mParticle() {
     this.CommerceEventType = Types.CommerceEventType;
     this.PromotionType = Types.PromotionActionType;
     this.ProductActionType = Types.ProductActionType;
-    this.isIOS =
-        window.mParticle &amp;&amp; window.mParticle.isIOS
-            ? window.mParticle.isIOS
-            : false;
-    this.config =
-        window.mParticle &amp;&amp; window.mParticle.config
-            ? window.mParticle.config
-            : {};
+    if (typeof window !== &#x27;undefined&#x27;) {
+        this.isIOS =
+            window.mParticle &amp;&amp; window.mParticle.isIOS
+                ? window.mParticle.isIOS
+                : false;
+        this.config =
+            window.mParticle &amp;&amp; window.mParticle.config
+                ? window.mParticle.config
+                : {};
+    }
 
     /**
      * Initializes the mParticle instance. If no instanceName is provided, an instance name of &#x60;default_instance&#x60; will be used.
@@ -139,7 +141,7 @@ function mParticle() {
      */
     this.init = function(apiKey, config, instanceName) {
         if (!config &amp;&amp; (window.mParticle &amp;&amp; window.mParticle.config)) {
-            window.console.warn(
+            console.warn(
                 &#x27;You did not pass a config object to mParticle.init(). Attempting to use the window.mParticle.config if it exists. Please note that in a future release, this may not work and mParticle will not initialize properly&#x27;
             );
             config = window.mParticle ? window.mParticle.config : {};
@@ -224,15 +226,22 @@ function mParticle() {
     this.endSession = function() {
         self.getInstance().endSession();
     };
-    this.logBaseEvent = function(event) {
-        self.getInstance().logBaseEvent(event);
+    this.logBaseEvent = function(event, eventOptions) {
+        self.getInstance().logBaseEvent(event, eventOptions);
     };
-    this.logEvent = function(eventName, eventType, eventInfo, customFlags) {
+    this.logEvent = function(
+        eventName,
+        eventType,
+        eventInfo,
+        customFlags,
+        eventOptions
+    ) {
         self.getInstance().logEvent(
             eventName,
             eventType,
             eventInfo,
-            customFlags
+            customFlags,
+            eventOptions
         );
     };
     this.logError = function(error, attrs) {
@@ -244,8 +253,13 @@ function mParticle() {
     this.logForm = function(selector, eventName, eventType, eventInfo) {
         self.getInstance().logForm(selector, eventName, eventType, eventInfo);
     };
-    this.logPageView = function(eventName, attrs, customFlags) {
-        self.getInstance().logPageView(eventName, attrs, customFlags);
+    this.logPageView = function(eventName, attrs, customFlags, eventOptions) {
+        self.getInstance().logPageView(
+            eventName,
+            attrs,
+            customFlags,
+            eventOptions
+        );
     };
     this.upload = function() {
         self.getInstance().upload();
@@ -335,14 +349,16 @@ function mParticle() {
             product,
             attrs,
             customFlags,
-            transactionAttributes
+            transactionAttributes,
+            eventOptions
         ) {
             self.getInstance().eCommerce.logProductAction(
                 productActionType,
                 product,
                 attrs,
                 customFlags,
-                transactionAttributes
+                transactionAttributes,
+                eventOptions
             );
         },
         logPurchase: function(
@@ -360,19 +376,27 @@ function mParticle() {
                 customFlags
             );
         },
-        logPromotion: function(type, promotion, attrs, customFlags) {
+        logPromotion: function(
+            type,
+            promotion,
+            attrs,
+            customFlags,
+            eventOptions
+        ) {
             self.getInstance().eCommerce.logPromotion(
                 type,
                 promotion,
                 attrs,
-                customFlags
+                customFlags,
+                eventOptions
             );
         },
-        logImpression: function(impression, attrs, customFlags) {
+        logImpression: function(impression, attrs, customFlags, eventOptions) {
             self.getInstance().eCommerce.logImpression(
                 impression,
                 attrs,
-                customFlags
+                customFlags,
+                eventOptions
             );
         },
         logRefund: function(
@@ -531,8 +555,11 @@ function mParticle() {
 }
 
 var mparticleInstance = new mParticle();
-window.mParticle = mparticleInstance;
-window.mParticle._BatchValidator = new _BatchValidator();
+
+if (typeof window !== &#x27;undefined&#x27;) {
+    window.mParticle = mparticleInstance;
+    window.mParticle._BatchValidator = new _BatchValidator();
+}
 
 export default mparticleInstance;
 

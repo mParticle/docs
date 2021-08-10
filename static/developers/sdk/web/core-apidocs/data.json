@@ -5,7 +5,7 @@
         "url": "https://github.com/mParticle/mparticle-sdk-javascript",
         "logo": "https://static.mparticle.com/sdk/nuget_logo.png",
         "path": "src/",
-        "version": "2.11.15"
+        "version": "2.14.0"
     },
     "files": {
         "src/consent.js": {
@@ -75,7 +75,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/consent.js",
-            "line": 171,
+            "line": 226,
             "description": "Invoke these methods on a consent state object.\n<p>\nUsage: var consent = mParticle.Consent.createConsentState()\n<br>\nconsent.setGDPRCoonsentState()"
         },
         "mParticle.Identity": {
@@ -87,7 +87,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/identity.js",
-            "line": 227,
+            "line": 228,
             "description": "Invoke these methods on the mParticle.Identity object.\nExample: mParticle.Identity.getCurrentUser()."
         },
         "mParticle.Identity.getCurrentUser()": {
@@ -99,7 +99,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/identity.js",
-            "line": 762,
+            "line": 763,
             "description": "Invoke these methods on the mParticle.Identity.getCurrentUser() object.\nExample: mParticle.Identity.getCurrentUser().getAllUserAttributes()"
         },
         "mParticle.Identity.getCurrentUser().getCart()": {
@@ -111,7 +111,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/identity.js",
-            "line": 1234,
+            "line": 1239,
             "description": "Invoke these methods on the mParticle.Identity.getCurrentUser().getCart() object.\nExample: mParticle.Identity.getCurrentUser().getCart().add(...);",
             "deprecated": true
         },
@@ -124,7 +124,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/mp-instance.js",
-            "line": 41,
+            "line": 44,
             "description": "<p>All of the following methods can be called on the primary mParticle class. In version 2.10.0, we introduced <a href=\"https://docs.mparticle.com/developers/sdk/web/multiple-instances/\">multiple instances</a>. If you are using multiple instances (self hosted environments only), you should call these methods on each instance.</p>\n<p>In current versions of mParticle, if your site has one instance, that instance name is 'default_instance'. Any methods called on mParticle on a site with one instance will be mapped to the `default_instance`.</p>\n<p>This is for simplicity and backwards compatibility. For example, calling mParticle.logPageView() automatically maps to mParticle.getInstance('default_instance').logPageView().</p>\n<p>If you have multiple instances, instances must first be initialized and then a method can be called on that instance. For example:</p>\n<code>\n mParticle.init('apiKey', config, 'another_instance');\n mParticle.getInstance('another_instance').logPageView();\n</code>"
         },
         "mParticle.Consent": {
@@ -136,7 +136,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/mp-instance.js",
-            "line": 504,
+            "line": 527,
             "description": "Invoke these methods on the mParticle.Consent object.\nExample: mParticle.Consent.createConsentState()"
         },
         "mParticle.eCommerce": {
@@ -148,7 +148,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/mp-instance.js",
-            "line": 543,
+            "line": 566,
             "description": "Invoke these methods on the mParticle.eCommerce object.\nExample: mParticle.eCommerce.createImpresion(...)"
         },
         "mParticle.eCommerce.Cart": {
@@ -160,7 +160,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "src/mp-instance.js",
-            "line": 549,
+            "line": 572,
             "description": "Invoke these methods on the mParticle.eCommerce.Cart object.\nExample: mParticle.eCommerce.Cart.add(...)",
             "deprecated": true
         }
@@ -169,7 +169,7 @@
     "classitems": [
         {
             "file": "src/consent.js",
-            "line": 181,
+            "line": 236,
             "description": "Add a GDPR Consent State to the consent state object",
             "itemtype": "method",
             "name": "addGDPRConsentState",
@@ -187,7 +187,7 @@
         },
         {
             "file": "src/consent.js",
-            "line": 228,
+            "line": 283,
             "description": "Remove a GDPR Consent State to the consent state object",
             "itemtype": "method",
             "name": "removeGDPRConsentState",
@@ -201,7 +201,7 @@
         },
         {
             "file": "src/consent.js",
-            "line": 244,
+            "line": 299,
             "description": "Gets the GDPR Consent State",
             "itemtype": "method",
             "name": "getGDPRConsentState",
@@ -213,7 +213,7 @@
         },
         {
             "file": "src/consent.js",
-            "line": 255,
+            "line": 310,
             "description": "Sets a CCPA Consent state (has a single purpose of 'data_sale_opt_out')",
             "itemtype": "method",
             "name": "setCCPAConsentState",
@@ -228,7 +228,7 @@
         },
         {
             "file": "src/consent.js",
-            "line": 281,
+            "line": 336,
             "description": "Gets the CCPA Consent State",
             "itemtype": "method",
             "name": "getCCPAConsentStatensent",
@@ -240,7 +240,7 @@
         },
         {
             "file": "src/consent.js",
-            "line": 291,
+            "line": 346,
             "description": "Removes CCPA from the consent state object",
             "itemtype": "method",
             "name": "removeCCPAConsentState",
@@ -254,7 +254,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 234,
+            "line": 235,
             "description": "Initiate a logout request to the mParticle server",
             "itemtype": "method",
             "name": "identify",
@@ -275,7 +275,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 307,
+            "line": 308,
             "description": "Initiate a logout request to the mParticle server",
             "itemtype": "method",
             "name": "logout",
@@ -296,7 +296,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 396,
+            "line": 397,
             "description": "Initiate a login request to the mParticle server",
             "itemtype": "method",
             "name": "login",
@@ -317,7 +317,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 469,
+            "line": 470,
             "description": "Initiate a modify request to the mParticle server",
             "itemtype": "method",
             "name": "modify",
@@ -338,7 +338,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 546,
+            "line": 547,
             "description": "Returns a user object with methods to interact with the current user",
             "itemtype": "method",
             "name": "getCurrentUser",
@@ -350,7 +350,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 571,
+            "line": 572,
             "description": "Returns a the user object associated with the mpid parameter or 'null' if no such\nuser exists",
             "itemtype": "method",
             "name": "getUser",
@@ -369,7 +369,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 594,
+            "line": 595,
             "description": "Returns all users, including the current user and all previous users that are stored on the device.",
             "itemtype": "method",
             "name": "getUsers",
@@ -381,7 +381,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 621,
+            "line": 622,
             "description": "Initiate an alias request to the mParticle server",
             "itemtype": "method",
             "name": "aliasUsers",
@@ -402,13 +402,13 @@
         },
         {
             "file": "src/identity.js",
-            "line": 693,
+            "line": 694,
             "description": "Create a default AliasRequest for 2 MParticleUsers. This will construct the request\n        using the sourceUser's firstSeenTime as the startTime, and its lastSeenTime as the endTime.\n        \n        In the unlikely scenario that the sourceUser does not have a firstSeenTime, which will only\n        be the case if they have not been the current user since this functionality was added, the \n        startTime will be populated with the earliest firstSeenTime out of any stored user. Similarly,\n        if the sourceUser does not have a lastSeenTime, the endTime will be populated with the current time\n        \n        There is a limit to how old the startTime can be, represented by the config field 'aliasMaxWindow', in days.\n        If the startTime falls before the limit, it will be adjusted to the oldest allowed startTime. \n        In rare cases, where the sourceUser's lastSeenTime also falls outside of the aliasMaxWindow limit, \n        after applying this adjustment it will be impossible to create an aliasRequest passes the aliasUsers() \n        validation that the startTime must be less than the endTime",
             "class": "mParticle.Identity"
         },
         {
             "file": "src/identity.js",
-            "line": 770,
+            "line": 771,
             "description": "Get user identities for current user",
             "itemtype": "method",
             "name": "getUserIdentities",
@@ -420,7 +420,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 796,
+            "line": 797,
             "description": "Get the MPID of the current user",
             "itemtype": "method",
             "name": "getMPID",
@@ -432,7 +432,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 804,
+            "line": 805,
             "description": "Sets a user tag",
             "itemtype": "method",
             "name": "setUserTag",
@@ -447,7 +447,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 817,
+            "line": 818,
             "description": "Removes a user tag",
             "itemtype": "method",
             "name": "removeUserTag",
@@ -462,7 +462,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 830,
+            "line": 831,
             "description": "Sets a user attribute",
             "itemtype": "method",
             "name": "setUserAttribute",
@@ -482,7 +482,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 913,
+            "line": 914,
             "description": "Set multiple user attributes",
             "itemtype": "method",
             "name": "setUserAttributes",
@@ -497,7 +497,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 935,
+            "line": 936,
             "description": "Removes a specific user attribute",
             "itemtype": "method",
             "name": "removeUserAttribute",
@@ -512,7 +512,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 998,
+            "line": 999,
             "description": "Sets a list of user attributes",
             "itemtype": "method",
             "name": "setUserAttributeList",
@@ -532,7 +532,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1106,
+            "line": 1107,
             "description": "Removes all user attributes",
             "itemtype": "method",
             "name": "removeAllUserAttributes",
@@ -540,7 +540,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1139,
+            "line": 1140,
             "description": "Returns all user attribute keys that have values that are arrays",
             "itemtype": "method",
             "name": "getUserAttributesLists",
@@ -552,7 +552,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1160,
+            "line": 1161,
             "description": "Returns all user attributes",
             "itemtype": "method",
             "name": "getAllUserAttributes",
@@ -564,7 +564,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1187,
+            "line": 1188,
             "description": "Returns the cart object for the current user",
             "itemtype": "method",
             "name": "getCart",
@@ -575,7 +575,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1199,
+            "line": 1200,
             "description": "Returns the Consent State stored locally for this user.",
             "itemtype": "method",
             "name": "getConsentState",
@@ -586,7 +586,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1207,
+            "line": 1208,
             "description": "Sets the Consent State stored locally for this user.",
             "itemtype": "method",
             "name": "setConsentState",
@@ -601,7 +601,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1242,
+            "line": 1247,
             "description": "Adds a cart product to the user cart",
             "itemtype": "method",
             "name": "add",
@@ -623,7 +623,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1310,
+            "line": 1315,
             "description": "Removes a cart product from the current user cart",
             "itemtype": "method",
             "name": "remove",
@@ -645,7 +645,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1368,
+            "line": 1373,
             "description": "Clears the user's cart",
             "itemtype": "method",
             "name": "clear",
@@ -654,7 +654,7 @@
         },
         {
             "file": "src/identity.js",
-            "line": 1401,
+            "line": 1406,
             "description": "Returns all cart products",
             "itemtype": "method",
             "name": "getCartProducts",
@@ -667,7 +667,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 128,
+            "line": 130,
             "description": "Resets the SDK to an uninitialized state and removes cookies/localStorage. You MUST call mParticle.init(apiKey, window.mParticle.config)\nbefore any other mParticle methods or the SDK will not function as intended.",
             "itemtype": "method",
             "name": "setLogLevel",
@@ -682,7 +682,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 138,
+            "line": 140,
             "description": "Resets the SDK to an uninitialized state and removes cookies/localStorage. You MUST call mParticle.init(apiKey, window.mParticle.config)\nbefore any other mParticle methods or the SDK will not function as intended.",
             "itemtype": "method",
             "name": "reset",
@@ -690,7 +690,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 172,
+            "line": 174,
             "description": "A callback method that is invoked after mParticle is initialized.",
             "itemtype": "method",
             "name": "ready",
@@ -705,7 +705,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 184,
+            "line": 186,
             "description": "Returns the mParticle SDK version number",
             "itemtype": "method",
             "name": "getVersion",
@@ -717,7 +717,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 192,
+            "line": 194,
             "description": "Sets the app version",
             "itemtype": "method",
             "name": "setAppVersion",
@@ -732,7 +732,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 201,
+            "line": 203,
             "description": "Gets the app name",
             "itemtype": "method",
             "name": "getAppName",
@@ -744,7 +744,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 209,
+            "line": 211,
             "description": "Sets the app name",
             "itemtype": "method",
             "name": "setAppName",
@@ -759,7 +759,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 217,
+            "line": 219,
             "description": "Gets the app version",
             "itemtype": "method",
             "name": "getAppVersion",
@@ -771,7 +771,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 225,
+            "line": 227,
             "description": "Stops tracking the location of the user",
             "itemtype": "method",
             "name": "stopTrackingLocation",
@@ -779,7 +779,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 233,
+            "line": 235,
             "description": "Starts tracking the location of the user",
             "itemtype": "method",
             "name": "startTrackingLocation",
@@ -795,7 +795,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 248,
+            "line": 250,
             "description": "Sets the position of the user",
             "itemtype": "method",
             "name": "setPosition",
@@ -815,7 +815,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 267,
+            "line": 269,
             "description": "Starts a new session",
             "itemtype": "method",
             "name": "startNewSession",
@@ -823,7 +823,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 274,
+            "line": 276,
             "description": "Ends the current session",
             "itemtype": "method",
             "name": "endSession",
@@ -831,20 +831,26 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 283,
+            "line": 285,
             "description": "Logs a Base Event to mParticle's servers",
             "params": [
                 {
                     "name": "event",
                     "description": "Base Event Object",
                     "type": "Object"
+                },
+                {
+                    "name": "eventOptions",
+                    "description": "For Event-level Configuration Options",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "class": "mParticle & mParticleInstance"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 311,
+            "line": 314,
             "description": "Logs an event to mParticle's servers",
             "itemtype": "method",
             "name": "logEvent",
@@ -871,13 +877,19 @@
                     "description": "Additional customFlags",
                     "type": "Object",
                     "optional": true
+                },
+                {
+                    "name": "eventOptions",
+                    "description": "For Event-level Configuration Options",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "class": "mParticle & mParticleInstance"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 359,
+            "line": 378,
             "description": "Used to log custom errors",
             "itemtype": "method",
             "name": "logError",
@@ -898,7 +910,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 404,
+            "line": 423,
             "description": "Logs `click` events",
             "itemtype": "method",
             "name": "logLink",
@@ -931,7 +943,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 421,
+            "line": 440,
             "description": "Logs `submit` events",
             "itemtype": "method",
             "name": "logForm",
@@ -964,7 +976,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 438,
+            "line": 457,
             "description": "Logs a page view",
             "itemtype": "method",
             "name": "logPageView",
@@ -985,13 +997,19 @@
                     "description": "Custom flags for the event",
                     "type": "Object",
                     "optional": true
+                },
+                {
+                    "name": "eventOptions",
+                    "description": "For Event-level Configuration Options",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "class": "mParticle & mParticleInstance"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 489,
+            "line": 512,
             "description": "Forces an upload of the batch",
             "itemtype": "method",
             "name": "upload",
@@ -999,7 +1017,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 511,
+            "line": 534,
             "description": "Creates a CCPA Opt Out Consent State.",
             "itemtype": "method",
             "name": "createCCPAConsent",
@@ -1038,7 +1056,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 523,
+            "line": 546,
             "description": "Creates a GDPR Consent State.",
             "itemtype": "method",
             "name": "createGDPRConsent",
@@ -1077,7 +1095,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 535,
+            "line": 558,
             "description": "Creates a Consent State Object, which can then be used to set CCPA states, add multiple GDPR states, as well as get and remove these privacy states.",
             "itemtype": "method",
             "name": "createConsentState",
@@ -1089,7 +1107,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 556,
+            "line": 579,
             "description": "Adds a product to the cart",
             "itemtype": "method",
             "name": "add",
@@ -1111,7 +1129,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 576,
+            "line": 599,
             "description": "Removes a product from the cart",
             "itemtype": "method",
             "name": "remove",
@@ -1133,7 +1151,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 596,
+            "line": 619,
             "description": "Clears the cart",
             "itemtype": "method",
             "name": "clear",
@@ -1142,7 +1160,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 613,
+            "line": 636,
             "description": "Sets the currency code",
             "itemtype": "method",
             "name": "setCurrencyCode",
@@ -1157,7 +1175,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 634,
+            "line": 657,
             "description": "Creates a product",
             "itemtype": "method",
             "name": "createProduct",
@@ -1224,7 +1242,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 674,
+            "line": 697,
             "description": "Creates a promotion",
             "itemtype": "method",
             "name": "createPromotion",
@@ -1257,7 +1275,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 691,
+            "line": 714,
             "description": "Creates a product impression",
             "itemtype": "method",
             "name": "createImpression",
@@ -1277,7 +1295,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 701,
+            "line": 724,
             "description": "Creates a transaction attributes object to be used with a checkout",
             "itemtype": "method",
             "name": "createTransactionAttributes",
@@ -1322,7 +1340,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 729,
+            "line": 752,
             "description": "Logs a checkout action",
             "itemtype": "method",
             "name": "logCheckout",
@@ -1354,7 +1372,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 757,
+            "line": 780,
             "description": "Logs a product action",
             "itemtype": "method",
             "name": "logProductAction",
@@ -1386,13 +1404,19 @@
                     "description": "Transaction Attributes for the event",
                     "type": "Object",
                     "optional": true
+                },
+                {
+                    "name": "eventOptions",
+                    "description": "For Event-level Configuration Options",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "class": "mParticle.eCommerce"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 795,
+            "line": 822,
             "description": "Logs a product purchase",
             "itemtype": "method",
             "name": "logPurchase",
@@ -1431,7 +1455,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 840,
+            "line": 867,
             "description": "Logs a product promotion",
             "itemtype": "method",
             "name": "logPromotion",
@@ -1457,13 +1481,19 @@
                     "description": "Custom flags for the event",
                     "type": "Object",
                     "optional": true
+                },
+                {
+                    "name": "eventOptions",
+                    "description": "For Event-level Configuration Options",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "class": "mParticle.eCommerce"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 864,
+            "line": 905,
             "description": "Logs a product impression",
             "itemtype": "method",
             "name": "logImpression",
@@ -1483,13 +1513,19 @@
                     "description": "Custom flags for the event",
                     "type": "Object",
                     "optional": true
+                },
+                {
+                    "name": "eventOptions",
+                    "description": "For Event-level Configuration Options",
+                    "type": "Object",
+                    "optional": true
                 }
             ],
             "class": "mParticle.eCommerce"
         },
         {
             "file": "src/mp-instance.js",
-            "line": 886,
+            "line": 934,
             "description": "Logs a refund",
             "itemtype": "method",
             "name": "logRefund",
@@ -1528,7 +1564,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 931,
+            "line": 979,
             "description": "Sets a session attribute",
             "itemtype": "method",
             "name": "setSessionAttribute",
@@ -1548,7 +1584,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 983,
+            "line": 1031,
             "description": "Set opt out of logging",
             "itemtype": "method",
             "name": "setOptOut",
@@ -1563,7 +1599,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 1013,
+            "line": 1061,
             "description": "Set or remove the integration attributes for a given integration ID.\nIntegration attributes are keys and values specific to a given integration. For example,\nmany integrations have their own internal user/device ID. mParticle will store integration attributes\nfor a given device, and will be able to use these values for server-to-server communication to services.\nThis is often useful when used in combination with a server-to-server feed, allowing the feed to be enriched\nwith the necessary integration attributes to be properly forwarded to the given integration.",
             "itemtype": "method",
             "name": "setIntegrationAttribute",
@@ -1583,7 +1619,7 @@
         },
         {
             "file": "src/mp-instance.js",
-            "line": 1089,
+            "line": 1137,
             "description": "Get integration attributes for a given integration ID.",
             "itemtype": "method",
             "name": "getIntegrationAttributes",
@@ -1602,7 +1638,7 @@
         },
         {
             "file": "src/mparticle-instance-manager.js",
-            "line": 42,
+            "line": 44,
             "description": "Initializes the mParticle instance. If no instanceName is provided, an instance name of `default_instance` will be used.\n<p>\nIf you'd like to initiate multiple mParticle instances, first review our <a href=\"https://docs.mparticle.com/developers/sdk/web/multiple-instances/\">doc site</a>, and ensure you pass a unique instance name as the third argument as shown below.",
             "itemtype": "method",
             "name": "init",
@@ -1629,13 +1665,13 @@
         },
         {
             "file": "src/persistence.js",
-            "line": 1083,
+            "line": 1089,
             "description": "set the \"first seen\" time for a user. the time will only be set once for a given\nmpid after which subsequent calls will be ignored",
             "class": ""
         },
         {
             "file": "src/persistence.js",
-            "line": 1106,
+            "line": 1112,
             "description": "returns the \"last seen\" time for a user. If the mpid represents the current user, the\nreturn value will always be the current time, otherwise it will be to stored \"last seen\"\ntime",
             "class": ""
         }
@@ -1647,19 +1683,19 @@
         },
         {
             "message": "Missing item type\nCreate a default AliasRequest for 2 MParticleUsers. This will construct the request\n        using the sourceUser's firstSeenTime as the startTime, and its lastSeenTime as the endTime.\n        \n        In the unlikely scenario that the sourceUser does not have a firstSeenTime, which will only\n        be the case if they have not been the current user since this functionality was added, the \n        startTime will be populated with the earliest firstSeenTime out of any stored user. Similarly,\n        if the sourceUser does not have a lastSeenTime, the endTime will be populated with the current time\n        \n        There is a limit to how old the startTime can be, represented by the config field 'aliasMaxWindow', in days.\n        If the startTime falls before the limit, it will be adjusted to the oldest allowed startTime. \n        In rare cases, where the sourceUser's lastSeenTime also falls outside of the aliasMaxWindow limit, \n        after applying this adjustment it will be impossible to create an aliasRequest passes the aliasUsers() \n        validation that the startTime must be less than the endTime",
-            "line": " src/identity.js:693"
+            "line": " src/identity.js:694"
         },
         {
             "message": "Missing item type\nLogs a Base Event to mParticle's servers",
-            "line": " src/mp-instance.js:283"
+            "line": " src/mp-instance.js:285"
         },
         {
             "message": "Missing item type\nset the \"first seen\" time for a user. the time will only be set once for a given\nmpid after which subsequent calls will be ignored",
-            "line": " src/persistence.js:1083"
+            "line": " src/persistence.js:1089"
         },
         {
             "message": "Missing item type\nreturns the \"last seen\" time for a user. If the mpid represents the current user, the\nreturn value will always be the current time, otherwise it will be to stored \"last seen\"\ntime",
-            "line": " src/persistence.js:1106"
+            "line": " src/persistence.js:1112"
         }
     ]
 }

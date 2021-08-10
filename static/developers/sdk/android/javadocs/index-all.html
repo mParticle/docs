@@ -176,7 +176,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#APPBOY">APPBOY</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/mparticle/BuildConfig.html#APPLICATION_ID">APPLICATION_ID</a></span> - Static variable in class com.mparticle.<a href="com/mparticle/BuildConfig.html" title="class in com.mparticle">BuildConfig</a></dt>
+<dt><span class="memberNameLink"><a href="com/mparticle/Configuration.html#apply-T-">apply(T)</a></span> - Method in interface com.mparticle.<a href="com/mparticle/Configuration.html" title="interface in com.mparticle">Configuration</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#APPSEE">APPSEE</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
 <dd>&nbsp;</dd>
@@ -240,6 +240,22 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/networking/BaseNetworkConnection.html#BaseNetworkConnection-android.content.SharedPreferences-">BaseNetworkConnection(SharedPreferences)</a></span> - Constructor for class com.mparticle.networking.<a href="com/mparticle/networking/BaseNetworkConnection.html" title="class in com.mparticle.networking">BaseNetworkConnection</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#blockEventAttributes-boolean-">blockEventAttributes(boolean)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">This flag determines if unplanned event attributes should be blocked</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#blockEvents-boolean-">blockEvents(boolean)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">This flag determines if unplanned events should be blocked</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#blockUserAttributes-boolean-">blockUserAttributes(boolean)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">This flag determines if unplanned user attributes should be blocked</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#blockUserIdentities-boolean-">blockUserIdentities(boolean)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">This flag determines if unplanned user identities should be blocked</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#BLUESHIFT">BLUESHIFT</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#BRANCH_METRICS">BRANCH_METRICS</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
@@ -286,6 +302,10 @@
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.Builder.html#build--">build()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></dt>
 <dd>
 <div class="block">Builds this Builder into an MParticleOptions object which can be used to start the SDK.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#build--">build()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">Transform the Builder instance into an immutable <a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle"><code>MParticleOptions.DataplanOptions</code></a> instance.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MPEvent.Builder.html#build--">build()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></dt>
 <dd>
@@ -348,6 +368,8 @@
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/IdentityApiRequest.Builder.html#Builder--">Builder()</a></span> - Constructor for class com.mparticle.identity.<a href="com/mparticle/identity/IdentityApiRequest.Builder.html" title="class in com.mparticle.identity">IdentityApiRequest.Builder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#builder-android.content.Context-">builder(Context)</a></span> - Static method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.html#builder--">builder()</a></span> - Static method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle">MParticleOptions.DataplanOptions</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MPEvent.Builder.html#Builder-java.lang.String-com.mparticle.MParticle.EventType-">Builder(String, MParticle.EventType)</a></span> - Constructor for class com.mparticle.<a href="com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></dt>
 <dd>
@@ -470,6 +492,14 @@
 <dd>
 <div class="block">Override the url of outbound Config requests.</div>
 </dd>
+<dt><a href="com/mparticle/Configuration.html" title="interface in com.mparticle"><span class="typeNameLink">Configuration</span></a>&lt;<a href="com/mparticle/Configuration.html" title="type parameter in Configuration">T</a>&gt; - Interface in <a href="com/mparticle/package-summary.html">com.mparticle</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.Builder.html#configuration-com.mparticle.Configuration-">configuration(Configuration)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></dt>
+<dd>
+<div class="block">Register a <a href="com/mparticle/Configuration.html" title="interface in com.mparticle"><code>Configuration</code></a>n.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/Configuration.html#configures--">configures()</a></span> - Method in interface com.mparticle.<a href="com/mparticle/Configuration.html" title="interface in com.mparticle">Configuration</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/consent/CCPAConsent.Builder.html#consented-boolean-">consented(boolean)</a></span> - Method in class com.mparticle.consent.<a href="com/mparticle/consent/CCPAConsent.Builder.html" title="class in com.mparticle.consent">CCPAConsent.Builder</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/consent/GDPRConsent.Builder.html#consented-boolean-">consented(boolean)</a></span> - Method in class com.mparticle.consent.<a href="com/mparticle/consent/GDPRConsent.Builder.html" title="class in com.mparticle.consent">GDPRConsent.Builder</a></dt>
@@ -523,6 +553,14 @@
 <dd>
 <div class="block">Set the IdentityType MParticle.IdentityType.CustomerId.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/commerce/CommerceEvent.Builder.html#customFlags-java.util.Map-">customFlags(Map&lt;String, List&lt;String&gt;&gt;)</a></span> - Method in class com.mparticle.commerce.<a href="com/mparticle/commerce/CommerceEvent.Builder.html" title="class in com.mparticle.commerce">CommerceEvent.Builder</a></dt>
+<dd>
+<div class="block">Bulk add custom flags to this event.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MPEvent.Builder.html#customFlags-java.util.Map-">customFlags(Map&lt;String, List&lt;String&gt;&gt;)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></dt>
+<dd>
+<div class="block">Bulk add custom flags to this event.</div>
+</dd>
 </dl>
 <a name="I:D">
 <!--   -->
@@ -531,6 +569,22 @@
 <dl>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.Builder.html#dataplan-java.lang.String-java.lang.Integer-">dataplan(String, Integer)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.Builder.html#dataplanOptions-com.mparticle.MParticleOptions.DataplanOptions-">dataplanOptions(MParticleOptions.DataplanOptions)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></dt>
+<dd>
+<div class="block">Set the <a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle"><code>MParticleOptions.DataplanOptions</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#dataplanVersion-java.lang.String-">dataplanVersion(String)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">Sets/Gets the Data Plan Version to use when evaluating block and transformation settings</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#dataplanVersion-org.json.JSONObject-">dataplanVersion(JSONObject)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">Sets/Gets the Data Plan Version to use when evaluating block and transformation settings</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html#dataplanVersion-java.util.Map-">dataplanVersion(Map&lt;String, Object&gt;)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle">MParticleOptions.DataplanOptions.Builder</a></dt>
+<dd>
+<div class="block">Sets/Gets the Data Plan Version to use when evaluating block and transformation settings</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/BuildConfig.html#DEBUG">DEBUG</a></span> - Static variable in class com.mparticle.<a href="com/mparticle/BuildConfig.html" title="class in com.mparticle">BuildConfig</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/messaging/ProviderCloudMessage.html#describeContents--">describeContents()</a></span> - Method in class com.mparticle.messaging.<a href="com/mparticle/messaging/ProviderCloudMessage.html" title="class in com.mparticle.messaging">ProviderCloudMessage</a></dt>
@@ -675,8 +729,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/messaging/ProviderCloudMessage.html#FLAG_RECEIVED">FLAG_RECEIVED</a></span> - Static variable in class com.mparticle.messaging.<a href="com/mparticle/messaging/ProviderCloudMessage.html" title="class in com.mparticle.messaging">ProviderCloudMessage</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/mparticle/BuildConfig.html#FLAVOR">FLAVOR</a></span> - Static variable in class com.mparticle.<a href="com/mparticle/BuildConfig.html" title="class in com.mparticle">BuildConfig</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#FLURRY">FLURRY</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#FORESEE_ID">FORESEE_ID</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
@@ -762,6 +814,12 @@
 <div class="block">The ConfigManager is tasked with incorporating server-based, run-time, and XML configuration,
  and surfacing the result/winner.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#getConfiguration-java.lang.Class-">getConfiguration(Class&lt;T&gt;)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#getConfigurations--">getConfigurations()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#getConfigurationsForTarget-java.lang.Class-">getConfigurationsForTarget(Class&lt;T&gt;)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#getConnectionTimeout--">getConnectionTimeout()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleUser.html#getConsentState--">getConsentState()</a></span> - Method in interface com.mparticle.identity.<a href="com/mparticle/identity/MParticleUser.html" title="interface in com.mparticle.identity">MParticleUser</a></dt>
@@ -805,7 +863,13 @@
 <dd>
 <div class="block">Retrieve the custom flags set on this event.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.html#getDataplan--">getDataplan()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle">MParticleOptions.DataplanOptions</a></dt>
+<dd>
+<div class="block">Query the dataplan version document</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#getDataplanId--">getDataplanId()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#getDataplanOptions--">getDataplanOptions()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#getDataplanVersion--">getDataplanVersion()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
 <dd>&nbsp;</dd>
@@ -1129,6 +1193,8 @@
 <dd>
 <div class="block">Query for the hashed session ID.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/Session.html#getSessionStartTime--">getSessionStartTime()</a></span> - Method in class com.mparticle.<a href="com/mparticle/Session.html" title="class in com.mparticle">Session</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.html#getSessionTimeout--">getSessionTimeout()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticle.html" title="class in com.mparticle">MParticle</a></dt>
 <dd>
 <div class="block">Retrieves the current session timeout setting in seconds</div>
@@ -1152,6 +1218,8 @@
 <dt><span class="memberNameLink"><a href="com/mparticle/networking/MPConnection.html#getSSLSocketFactory--">getSSLSocketFactory()</a></span> - Method in interface com.mparticle.networking.<a href="com/mparticle/networking/MPConnection.html" title="interface in com.mparticle.networking">MPConnection</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/AliasRequest.html#getStartTime--">getStartTime()</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/AliasRequest.html" title="class in com.mparticle.identity">AliasRequest</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClientImpl.html#getStringValue-com.mparticle.MParticle.IdentityType-">getStringValue(MParticle.IdentityType)</a></span> - Static method in class com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClientImpl.html" title="class in com.mparticle.identity">MParticleIdentityClientImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.html#getSurveyUrl-int-">getSurveyUrl(int)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticle.html" title="class in com.mparticle">MParticle</a></dt>
 <dd>
@@ -1268,6 +1336,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClient.html#identify-com.mparticle.identity.IdentityApiRequest-">identify(IdentityApiRequest)</a></span> - Method in interface com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClient.html" title="interface in com.mparticle.identity">MParticleIdentityClient</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClientImpl.html#identify-com.mparticle.identity.IdentityApiRequest-">identify(IdentityApiRequest)</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClientImpl.html" title="class in com.mparticle.identity">MParticleIdentityClientImpl</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.Builder.html#identify-com.mparticle.identity.IdentityApiRequest-">identify(IdentityApiRequest)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></dt>
 <dd>
 <div class="block">Register an IdentityApiRequest which will be passed to an <a href="com/mparticle/identity/IdentityApi.html#identify-com.mparticle.identity.IdentityApiRequest-"><code>IdentityApi.identify(IdentityApiRequest)</code></a>
@@ -1367,8 +1437,6 @@
  Data attributes to associate with the event.</span></div>
 </div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#INSTABOT">INSTABOT</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/mparticle/InstallReferrerHelper.html" title="class in com.mparticle"><span class="typeNameLink">InstallReferrerHelper</span></a> - Class in <a href="com/mparticle/package-summary.html">com.mparticle</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/InstallReferrerHelper.html#InstallReferrerHelper--">InstallReferrerHelper()</a></span> - Constructor for class com.mparticle.<a href="com/mparticle/InstallReferrerHelper.html" title="class in com.mparticle">InstallReferrerHelper</a></dt>
@@ -1415,6 +1483,22 @@
 <dd>
 <div class="block">Retrieves the current setting of automatic screen tracking.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.html#isBlockEventAttributes--">isBlockEventAttributes()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle">MParticleOptions.DataplanOptions</a></dt>
+<dd>
+<div class="block">Query whether unplanned event attributes should be blocked</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.html#isBlockEvents--">isBlockEvents()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle">MParticleOptions.DataplanOptions</a></dt>
+<dd>
+<div class="block">Query whether unplanned events should be blocked</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.html#isBlockUserAttributes--">isBlockUserAttributes()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle">MParticleOptions.DataplanOptions</a></dt>
+<dd>
+<div class="block">Query whether unplanned user attributes should be blocked</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.html#isBlockUserIdentities--">isBlockUserIdentities()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle">MParticleOptions.DataplanOptions</a></dt>
+<dd>
+<div class="block">Query whether unplanned user identities should be blocked</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/BaseIdentityTask.html#isComplete--">isComplete()</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/BaseIdentityTask.html" title="class in com.mparticle.identity">BaseIdentityTask</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleTask.html#isComplete--">isComplete()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleTask.html" title="class in com.mparticle">MParticleTask</a></dt>
@@ -1457,6 +1541,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MPEvent.html#isScreenEvent--">isScreenEvent()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/BaseEvent.html#isShouldUploadEvent--">isShouldUploadEvent()</a></span> - Method in class com.mparticle.<a href="com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/AliasResponse.html#isSuccessful--">isSuccessful()</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/AliasResponse.html" title="class in com.mparticle.identity">AliasResponse</a></dt>
 <dd>
 <div class="block">Whether or not the request was successful</div>
@@ -1477,8 +1563,6 @@
 </a>
 <h2 class="title">K</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#KAHUNA">KAHUNA</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#KOCHAVA">KOCHAVA</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -1498,6 +1582,8 @@
 <div class="block">Leave a breadcrumb to be included with error and exception logging, as well as
  with regular session events.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/BuildConfig.html#LIBRARY_PACKAGE_NAME">LIBRARY_PACKAGE_NAME</a></span> - Static variable in class com.mparticle.<a href="com/mparticle/BuildConfig.html" title="class in com.mparticle">BuildConfig</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#LOCALYTICS">LOCALYTICS</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/consent/CCPAConsent.Builder.html#location-java.lang.String-">location(String)</a></span> - Method in class com.mparticle.consent.<a href="com/mparticle/consent/CCPAConsent.Builder.html" title="class in com.mparticle.consent">CCPAConsent.Builder</a></dt>
@@ -1548,6 +1634,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClient.html#login-com.mparticle.identity.IdentityApiRequest-">login(IdentityApiRequest)</a></span> - Method in interface com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClient.html" title="interface in com.mparticle.identity">MParticleIdentityClient</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClientImpl.html#login-com.mparticle.identity.IdentityApiRequest-">login(IdentityApiRequest)</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClientImpl.html" title="class in com.mparticle.identity">MParticleIdentityClientImpl</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.LogLevel.html#logLevel">logLevel</a></span> - Variable in enum com.mparticle.<a href="com/mparticle/MParticle.LogLevel.html" title="enum in com.mparticle">MParticle.LogLevel</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.Builder.html#logLevel-com.mparticle.MParticle.LogLevel-">logLevel(MParticle.LogLevel)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle">MParticleOptions.Builder</a></dt>
@@ -1575,6 +1663,8 @@
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/IdentityApi.html#logout-com.mparticle.identity.IdentityApiRequest-">logout(IdentityApiRequest)</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/IdentityApi.html" title="class in com.mparticle.identity">IdentityApi</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClient.html#logout-com.mparticle.identity.IdentityApiRequest-">logout(IdentityApiRequest)</a></span> - Method in interface com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClient.html" title="interface in com.mparticle.identity">MParticleIdentityClient</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClientImpl.html#logout-com.mparticle.identity.IdentityApiRequest-">logout(IdentityApiRequest)</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClientImpl.html" title="class in com.mparticle.identity">MParticleIdentityClientImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.html#logPushRegistration-java.lang.String-java.lang.String-">logPushRegistration(String, String)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticle.html" title="class in com.mparticle">MParticle</a></dt>
 <dd>&nbsp;</dd>
@@ -1665,6 +1755,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClient.html#modify-com.mparticle.identity.IdentityApiRequest-">modify(IdentityApiRequest)</a></span> - Method in interface com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClient.html" title="interface in com.mparticle.identity">MParticleIdentityClient</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClientImpl.html#modify-com.mparticle.identity.IdentityApiRequest-">modify(IdentityApiRequest)</a></span> - Method in class com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClientImpl.html" title="class in com.mparticle.identity">MParticleIdentityClientImpl</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/BuildConfig.html#MP_CONFIG_URL">MP_CONFIG_URL</a></span> - Static variable in class com.mparticle.<a href="com/mparticle/BuildConfig.html" title="class in com.mparticle">BuildConfig</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/networking/NetworkOptionsManager.html#MP_CONFIG_URL">MP_CONFIG_URL</a></span> - Static variable in class com.mparticle.networking.<a href="com/mparticle/networking/NetworkOptionsManager.html" title="class in com.mparticle.networking">NetworkOptionsManager</a></dt>
@@ -1732,6 +1824,10 @@
 <dd>&nbsp;</dd>
 <dt><a href="com/mparticle/identity/MParticleIdentityClient.html" title="interface in com.mparticle.identity"><span class="typeNameLink">MParticleIdentityClient</span></a> - Interface in <a href="com/mparticle/identity/package-summary.html">com.mparticle.identity</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/mparticle/identity/MParticleIdentityClientImpl.html" title="class in com.mparticle.identity"><span class="typeNameLink">MParticleIdentityClientImpl</span></a> - Class in <a href="com/mparticle/identity/package-summary.html">com.mparticle.identity</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/identity/MParticleIdentityClientImpl.html#MParticleIdentityClientImpl-android.content.Context-ConfigManager-com.mparticle.MParticle.OperatingSystem-">MParticleIdentityClientImpl(Context, ConfigManager, MParticle.OperatingSystem)</a></span> - Constructor for class com.mparticle.identity.<a href="com/mparticle/identity/MParticleIdentityClientImpl.html" title="class in com.mparticle.identity">MParticleIdentityClientImpl</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle"><span class="typeNameLink">MParticleOptions</span></a> - Class in <a href="com/mparticle/package-summary.html">com.mparticle</a></dt>
 <dd>
 <div class="block">class used for passing optional settings to the SDK when it is started.</div>
@@ -1739,6 +1835,10 @@
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.html#MParticleOptions-com.mparticle.MParticleOptions.Builder-">MParticleOptions(MParticleOptions.Builder)</a></span> - Constructor for class com.mparticle.<a href="com/mparticle/MParticleOptions.html" title="class in com.mparticle">MParticleOptions</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mparticle/MParticleOptions.Builder.html" title="class in com.mparticle"><span class="typeNameLink">MParticleOptions.Builder</span></a> - Class in <a href="com/mparticle/package-summary.html">com.mparticle</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle"><span class="typeNameLink">MParticleOptions.DataplanOptions</span></a> - Class in <a href="com/mparticle/package-summary.html">com.mparticle</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/mparticle/MParticleOptions.DataplanOptions.Builder.html" title="class in com.mparticle"><span class="typeNameLink">MParticleOptions.DataplanOptions.Builder</span></a> - Class in <a href="com/mparticle/package-summary.html">com.mparticle</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/mparticle/MParticleTask.html" title="class in com.mparticle"><span class="typeNameLink">MParticleTask</span></a>&lt;<a href="com/mparticle/MParticleTask.html" title="type parameter in MParticleTask">MParticleTaskResult</a>&gt; - Class in <a href="com/mparticle/package-summary.html">com.mparticle</a></dt>
 <dd>&nbsp;</dd>
@@ -2307,6 +2407,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/commerce/TransactionAttributes.html#setRevenue-java.lang.Double-">setRevenue(Double)</a></span> - Method in class com.mparticle.commerce.<a href="com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce">TransactionAttributes</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MPEvent.html#setScreenEvent-boolean-">setScreenEvent(boolean)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MPEvent.html" title="class in com.mparticle">MPEvent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/AttributionError.html#setServiceProviderId-int-">setServiceProviderId(int)</a></span> - Method in class com.mparticle.<a href="com/mparticle/AttributionError.html" title="class in com.mparticle">AttributionError</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/AttributionResult.html#setServiceProviderId-int-">setServiceProviderId(int)</a></span> - Method in class com.mparticle.<a href="com/mparticle/AttributionResult.html" title="class in com.mparticle">AttributionResult</a></dt>
@@ -2316,6 +2418,8 @@
 <div class="block">Set a single <i>session</i> attribute.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/commerce/TransactionAttributes.html#setShipping-java.lang.Double-">setShipping(Double)</a></span> - Method in class com.mparticle.commerce.<a href="com/mparticle/commerce/TransactionAttributes.html" title="class in com.mparticle.commerce">TransactionAttributes</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/BaseEvent.html#setShouldUploadEvent-boolean-">setShouldUploadEvent(boolean)</a></span> - Method in class com.mparticle.<a href="com/mparticle/BaseEvent.html" title="class in com.mparticle">BaseEvent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/networking/MPConnection.html#setSSLSocketFactory-javax.net.ssl.SSLSocketFactory-">setSSLSocketFactory(SSLSocketFactory)</a></span> - Method in interface com.mparticle.networking.<a href="com/mparticle/networking/MPConnection.html" title="interface in com.mparticle.networking">MPConnection</a></dt>
 <dd>&nbsp;</dd>
@@ -2351,6 +2455,14 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/messaging/ProviderCloudMessage.html#shouldDisplay--">shouldDisplay()</a></span> - Method in class com.mparticle.messaging.<a href="com/mparticle/messaging/ProviderCloudMessage.html" title="class in com.mparticle.messaging">ProviderCloudMessage</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/commerce/CommerceEvent.Builder.html#shouldUploadEvent-boolean-">shouldUploadEvent(boolean)</a></span> - Method in class com.mparticle.commerce.<a href="com/mparticle/commerce/CommerceEvent.Builder.html" title="class in com.mparticle.commerce">CommerceEvent.Builder</a></dt>
+<dd>
+<div class="block">Manually choose to skip uploading this event to mParticle server and only forward to kits.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MPEvent.Builder.html#shouldUploadEvent-boolean-">shouldUploadEvent(boolean)</a></span> - Method in class com.mparticle.<a href="com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></dt>
+<dd>
+<div class="block">Manually choose to skip uploading this event to mParticle server and only forward to kits.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.ServiceProviders.html#SINGULAR">SINGULAR</a></span> - Static variable in interface com.mparticle.<a href="com/mparticle/MParticle.ServiceProviders.html" title="interface in com.mparticle">MParticle.ServiceProviders</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/commerce/Product.Builder.html#sku-java.lang.String-">sku(String)</a></span> - Method in class com.mparticle.commerce.<a href="com/mparticle/commerce/Product.Builder.html" title="class in com.mparticle.commerce">Product.Builder</a></dt>
@@ -2424,6 +2536,8 @@
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.EventType.html#toString--">toString()</a></span> - Method in enum com.mparticle.<a href="com/mparticle/MParticle.EventType.html" title="enum in com.mparticle">MParticle.EventType</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MParticle.InstallType.html#toString--">toString()</a></span> - Method in enum com.mparticle.<a href="com/mparticle/MParticle.InstallType.html" title="enum in com.mparticle">MParticle.InstallType</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/mparticle/MParticleOptions.DataplanOptions.html#toString--">toString()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MParticleOptions.DataplanOptions.html" title="class in com.mparticle">MParticleOptions.DataplanOptions</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/mparticle/MPEvent.Builder.html#toString--">toString()</a></span> - Method in class com.mparticle.<a href="com/mparticle/MPEvent.Builder.html" title="class in com.mparticle">MPEvent.Builder</a></dt>
 <dd>

@@ -124,5 +124,25 @@ MParticle.getInstance().logEvent(event)
 ```
 :::
 
+## Exclude Events from mParticle Server Upload
 
+If you have a high-volume event that you would like to forward to kits but exclude from uploading mParticle, set a boolean flag per event.
 
+By default, all events upload to the mParticle server unless explicitly set not to.
+
+**Note**: This can also be done in the same manner for Commerce Events.
+
+:::code-selector-block
+```java
+MPEvent event = new MPEvent.Builder("Set Interest", MParticle.EventType.UserPreference)
+    .shouldUploadEvent(false)
+    .build();
+MParticle.getInstance().logEvent(event);
+```
+```kotlin
+val event = MPEvent.Builder("Set Interest", MParticle.EventType.UserPreference)
+    .shouldUploadEvent(false)
+    .build()
+MParticle.getInstance().logEvent(event)
+```
+:::

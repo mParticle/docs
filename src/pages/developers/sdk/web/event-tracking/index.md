@@ -94,4 +94,20 @@ mParticle.logEvent(
 );
 ```
 
+## Exclude Events from mParticle Server Upload
 
+If you have a high-volume event that you would like to forward to kits but exclude from uploading mParticle, set a boolean flag per event.
+
+By default, all events upload to the mParticle server unless explicitly set not to.
+
+**Note**: This can also be done in the same manner for Commerce Events when calling `logCommerceEvent`.
+
+```javascript
+mParticle.logEvent(
+  'Set Interest',
+  mParticle.EventType.UserPreference,
+  {},
+  {},
+  {shouldUploadEvent: false}
+);
+```
