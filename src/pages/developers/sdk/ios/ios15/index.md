@@ -3,7 +3,7 @@ title: iOS 15 FAQ
 order: 2.5
 ---
 
-Apple's iOS 15 is pre-lease (beta), with a final version expected in the fall of 2021.
+Apple's iOS 15 is a prerelease (beta), with a final version expected in the fall of 2021.
 
 ## When will mParticle support iOS 15?
 
@@ -16,14 +16,14 @@ The latest iOS SDK version 8.5.0 is compatible with Xcode 12, the latest Xcode 1
 
 ## Will mParticle release a beta version of the SDK in support of iOS 15?
 
-We don't expect to need a beta release. The latest iOS SDK version 8.x is compatible with Xcode 12, the latest Xcode 13 beta, and the latest iOS 15 beta. As Apple releases new beta versions of Xcode 13 and iOS 15, we'll assess and test each version.
+We don't expect to need a beta release. The latest iOS SDK version 8.5.0 is compatible with Xcode 12, the latest Xcode 13 beta, and the latest iOS 15 beta. As Apple releases new beta versions of Xcode 13 and iOS 15, we'll assess and test each version.
 If Xcode 13 contains a breaking change, we will announce and release a beta.
 
 ## How are kits affected by iOS 15?
 
 Since the release of Apple SDK 8 last year, all kit releases are decoupled and can be upgraded in isolation of the core Apple SDK. Also, kits have been set to use "wildcard" dependencies. Several partners have already updated their SDKs and will continue to do so up to and after the release of Xcode 13 and iOS 15. You can update your kits at any time to the latest partner SDK version. mParticle continuously verifies partner SDKs for breaking changes and we will update this page if and when any breaking changes are found. 
 
-If you have question about a specific kit, please reach out to your customer success manager.
+If you have question about a specific kit, please contact mParticle Customer Success.
 
 ## Do Apple's changes to IP address access affect mParticle's data collection?
 
