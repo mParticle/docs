@@ -141,10 +141,10 @@ Using `https://` or a trailing `/` in your endpoint address will cause errors.
 
 ## Prerequisites
 
-In order to activate the Braze integration, you will need your Braze API key and your "App Group REST API Key" if using the S2S API.
+In order to activate the Braze integration, you will need your Braze App Identifier API key and your "App Group REST API Key" if using the S2S API.
 
 1.  Sign into your Braze Account.
-2.  Click on App Settings in the left navigation to get your API Key
+2.  Click on Developer Console in the left navigation, then API Settings, Identification, and choose the Identifier for the platform you're building to.
 3.  If you are sending data to mParticle via the S2S API, your "App Group REST API Key" value is required.  Click on the Developer Console in the left navigation to get this value.
 
 ![AppBoy Settings](/images/AppGroupIdentifiers.png)
@@ -244,7 +244,7 @@ By default, mParticle forwards all available user attributes to Braze, including
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
-| API Key | `string` | <unset> | Your app's API Key can be found in your Braze dashboard. |
+| App Identifier API Key | `string` | <unset> | Your app's App Identifier API Key can be found in your Braze dashboard in Developer Console > API Settings > Identification > Identifier.  This value is used for certain API calls to Braze (_e.g._ Push Token) and also used to intialize the Braze SDK via the client side kit|
 | External Identity Type | `enum` | Customer ID | The mParticle User Identity Type to forward as an External ID to Braze. |
 | Email Identity Type | `enum` | Email | The mParticle User Identity Type to forward as the Email to Braze. |
 |  Braze Instance | `enum` | US 03 Cluster | Specify which cluster your Braze data will be forwarded to. Please ensure you are contractually authorized to use the EU cluster if you select that option. If you choose 'Custom', you will need to provide separate endpoints for your SDK, Server, and Web data.
