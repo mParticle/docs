@@ -3,26 +3,32 @@ title: Media
 order: 11.8
 ---
 
-Collecting media data is critical for tracking user behavior when your customers consume video or audio content through [Android](../../android/media) and [iOS](../../ios/media) mobile applications or on the web. mParticle provides a toolset for integrating media analytics into your customer experience.
+Collecting media data is critical for tracking user behavior when your customers consume video or audio content through [Android](/developers/sdk/android/media) and [iOS](/developers/sdk/ios/media) mobile applications or on the web. The mParticle Media SDK (Media SDK) is a toolset for integrating media analytics into your customer experience.
 
-The mParticle Media SDK provides a dedicated API for tracking common media events including session start, play, pause, milestones, and end, as well as logging recurring advertising impressions and chapters for segmented content. 
+- Provides a dedicated API for tracking common media events including session start, play, pause, milestones, and end, as well as logging recurring advertising impressions and chapters for segmented content. 
 
-The mParticle Media SDK works hand in hand with the mParticle platform. Data logged from the Media SDK is forwarded to the Web SDK and then forwarded to any included integrations.
+- Works hand in hand with the mParticle platform. Data logged from the Media SDK is forwarded to the Web SDK and then forwarded to any included integrations.
 
-The mParticle Media SDK is compatible with [Adobe Analytics for Media](https://docs.adobe.com/content/help/en/media-analytics/using/media-overview.html), supporting the full range of media-related events including heartbeat events. This simplifies an otherwise complicated and error-prone process of setting up media session event tracking and Adobe Heartbeat yourself. 
+- Compatible with [Adobe Analytics for Media](https://docs.adobe.com/content/help/en/media-analytics/using/media-overview.html), supporting the full range of media-related events including heartbeat events. This simplifies an otherwise complicated and error-prone process of setting up media session event tracking and Adobe Heartbeat yourself. 
 
-## Getting Started
+## Get Started
 
-Before you can begin using the Media SDK, you need to have a working instance of the mParticle core SDK. At present, we offer support for our Media SDK in a `self-hosting` environment. For more information on this, please refer to the [self-hosting](/developers/sdk/web/self-hosting/) documentation.
+Set up the appropriate client SDK, and then the Media SDK.
 
-1. Install relevant npm packages for your project. The below example uses our [Adobe Client](https://www.npmjs.com/package/@mparticle/web-adobe-client-kit) web integration. When adding Adobe as an output for Javascript in the mParticle web app, there is a setting for Media Tracking Server. When you fill this out, mParticle will load the Heartbeat SDK and send media events to it.
+### Set Up a Client SDK
+
+To use the Media SDK, you need a working instance of [an mParticle client SDK](/developers/) in a `self-hosting` environment. For more information, see the [self-hosting](/developers/sdk/web/self-hosting/) documentation.
+
+### Set Up the Media SDK
+
+1. Install the relevant npm packages for your project. The following example uses our [Adobe Client](https://www.npmjs.com/package/@mparticle/web-adobe-client-kit) web integration. When adding Adobe as an output for JavaScript in the mParticle web app, there is a setting for Media Tracking Server. When you fill this out, mParticle will load the Heartbeat SDK and send media events to it.
 
 ```javascript
 // command line
 npm i @mparticle/web-sdk @mparticle/web-media-sdk @mparticle/web-adobe-client-kit
 ```
 
-2. In your main js file, import these modules, and add an mParticle configuration:
+2. In your main JavaScript file, import the mParticle, MediaSession, and Adobe modules, and then add an mParticle configuration:
 
 ```javascript
 // Import each library
@@ -42,9 +48,9 @@ Adobe.register(mParticleConfig);
 mParticle.init('your-api-key', mParticleConfig);
 ```
 
-## Creating an instance of a Media Session
+## Create an Instance of a Media Session
 
-The Web Media SDK provides a `MediaSession` object. Each `MediaSession` object represents a single end to end media experience and relates one-to-one to a piece of content. For example, if a customer is watching a video, pausing, seeking and scrubbing, that is considered a single **session**. If they stop the video, and play another piece of content, that is a new **session**.
+The Web Media SDK provides a `MediaSession` object. Each `MediaSession` object represents a single media experience and relates one-to-one to a piece of content. For example, if a customer is watching a video, pausing, seeking and scrubbing, that is considered a single session. If a customer stops the video, and plays another piece of content, that is a new session.
 
 ```javascript
 const mediaSession = new MediaSession(
@@ -60,9 +66,7 @@ const mediaSession = new MediaSession(
 mediaSession.mediaContentCompleteLimit = 90;
 ```
 
-You can access the source code and contribute to the [mParticle Media SDK Github repo here](https://github.com/mParticle/mparticle-web-media-sdk).
-
-## Media Session Properties
+### Media Session Properties
 
 | Property         | Type    | Description                          |
 | ---------------- | ------- | ------------------------------------ |
@@ -75,13 +79,11 @@ You can access the source code and contribute to the [mParticle Media SDK Github
 | pageEventToggle  | boolean | Should this log a page event?        |
 | mediaEventToggle | boolean | Should this log a media event?       |
 
-## Summary Events
-
-Summary events are automated events that contain an accumulated record of what occured during a session, individual segments, and individual ads.
+Now that you have an instance of a media session, you can process the session summary events: segment summary events, and ad events. Summary events are automated events that contain an accumulated record of what occured during a session, individual segments, and individual ads.
 
 ### Session Summary Events
 
-A Session Summary event tracks from when a `MediaSession` is initialized to when it's de-initialized or when `logMediaSessionEnd` is called. The more accurate and detailed developers are with `logPlay`, `logPause`, `logAdStart`, and other media events, the more accurate the summary data will be.
+A Session Summary event tracks from when a `MediaSession` is initialized to when it's de-initialized or when `logMediaSessionEnd` is called. The more accurate and detailed you are with `logPlay`, `logPause`, `logAdStart`, and other media events, the more accurate the summary data will be.
 
 The following table explains the different parts of the Session Summary event.
 
@@ -136,9 +138,9 @@ The following table explains the different parts of the Ad Summary event.
 | "ad_completed" | True if `logAdEnd` was called to end the segment. |
 | "ad_skipped" | True if `logAdSkip` was called to end the segment. |
 
-## Logging Media Events
+## Log Media Events
 
-Once your session is instantiated, you will need to trigger a `SessionStart`. This should be done _at the moment the user interacts with your content_. For example, if the media is set to trigger on a user click, and your player fires a `play` event when the content starts, the session must begin before the `play` event.
+Once your session is instantiated, you will need to trigger a `SessionStart`. This should be done at the moment the user interacts with your content. For example, if the media is set to trigger on a user click, and your player fires a `play` event when the content starts, the session must begin before the `play` event.
 
 1. Start a session
 
@@ -211,7 +213,7 @@ const options = {
 mediaSession.logMediaSessionEnd(options);
 ```
 
-## Logging Advertising
+## Log Advertising
 
 In most cases, advertising comes in as a series of `Ad Breaks` each containing numerous `Ads`. The Media SDK provides both sets of functionality so that you can track this behavior.
 
@@ -253,9 +255,9 @@ mediaSession.logAdEnd();
 mediaSession.logAdBreakEnd();
 ```
 
-## Generating Custom Events
+## Generate Custom Events
 
-The Media SDK will generate a `MediaEvent` for client-side kits such as Adobe Media Analytics, however the event can be converted to look just like a typical mParticle custom event that may be used to create audiences, used in calculated attributes, and sent to most mParticle integrations for analysis and activation.
+The Media SDK generates a `MediaEvent` for client-side kits such as Adobe Media Analytics, however the event can be converted to look just like a typical mParticle custom event that may be used to create audiences, used in calculated attributes, and sent to most mParticle integrations for analysis and activation.
 
 To enable Custom event generation, pass a boolean to the initialization of your `MediaSession` to enable the Log Page Event (aka Custom Event) feature:
 
@@ -302,6 +304,14 @@ The Media SDK exposes methods that will trigger Media Events based on the most c
 | mediaSession.logSegmentEnd() | 'Segment End' |
 | mediaSession.logSegmentSkip() | 'Segment Skip' |
 | mediaSession.logUpdateQoS() | 'Update QoS' |
+
+---
+**NOTE**
+
+The API method `mediaSession.logPlayheadPosition()` and `mediaSession.logUpdateQoS()` don't generate custom events.
+See [Playhead Position and Quality of Service](#capture-playhead-position-and-quality-of-service) for more information about using them.
+
+---
 
 #### Event Attributes
 
@@ -380,9 +390,9 @@ mediaSDK.logMediaSessionStart({
 | qos_dropped_frames             | Quality of service (QoS) dropped frames                                                                                                                                                                                                                |
 | other_attribute                | Replace "other_attribute" with any attribute name you wish to capture. The system will create an object with that name and store the value provided.                                                                                                   |
 
-#### Vendor specific attributes
+#### Vendor-specific Attributes
 
-In some cases a third-party vendors, such as Adobe, may require custom attributes to be submitted a differnt format as our own, such as `content_show` vs `s:meta:a.media.show`, which would require duplicate information to be passed. In these cases, we provide vendor-specific mappings for some of our custom attributes, which should reduce this duplication.
+In some cases third-party vendors, such as Adobe, may require custom attributes to be submitted in a differnt format from mParticle's format, such as `content_show` vs `s:meta:a.media.show`, which would require duplicate information to be passed. In these cases, we provide vendor-specific mappings for some of our custom attributes to reduce duplication.
 
 For example:
 
@@ -446,9 +456,9 @@ For example:
 }
 ```
 
-## Using the Event Listener
+## Use the Event Listener
 
-In cases where you may need to handle some custom functionality when a media event occurs, the Media SDK provides a `mediaEventListener` which will provide a callback.
+In cases where you may need to handle some custom functionality when a media event occurs, the Media SDK provides a `mediaEventListener` for use with callbacks.
 
 For example, if you need to trigger a custom function when Play or Pause occurs:
 
@@ -471,6 +481,54 @@ const myCallback = function(mediaEvent) {
 mediaSession.mediaEventListener(myCallback);
 ```
 
+## Capture Playhead Position and Quality of Service
+
+When creating media events, the Media SDK automatically includes relevant attributes, including media ID and title. Two of the most important attributes are the current playhead position, and the current quality of the media.
+
+To capture these attributes, call `logPlayheadPosition()` and `logUpdateQoS()` at consistent intervals in each session.
+
+### Playhead Position
+
+Use `logPlayheadPosition()` to continuously update the playhead position, so that your media events show the correct time.
+
+Your media player provides at least one API method to query for the playhead position. There are two approaches to logging playhead position, depending on the capabilities of your player. The examples below both use JWPlayer, but any player should provide similar APIs.
+
+If you are generating media custom events, note that `logPlayheadPosition()` doesn't generate a custom event, so it is safe to call this method as often as necessary. 
+
+#### Event-driven (Preferred)
+
+Most media players emit an event when the playhead position changes. You can listen for this event and call `logPlayheadPosition()` whenever it occurs. This example uses JWPlayer's time event.
+
+```javascript
+// The 'time' event is emitted whenever the playhead position changes
+jwplayer().on('time', function(obj) {
+    mediaSession.logPlayheadPosition(obj.position);
+});
+```
+
+#### Cron-driven (Alternative)
+
+If your media player does not emit an event when playhead position changes, query your player once per second to update the playhead. You must call `logPlayheadPosition()` at regular intervals. Adobe Heartbeat requires this to track the playhead position, in order to know how far a user has progressed through a media session. 
+
+You can query less often than once per second, depending on your needs. However, make sure that the query fires at a constant rate.
+
+This example uses JWPlayer's time event.
+
+```javascript
+const intervalID = window.setInterval(updatePlayhead, 1000);
+
+function updatePlayhead() {
+  if (mediaSession) {
+    const currentPosition = jwplayer().getPosition()
+    mediaSession.logPlayheadPosition(currentPosition);
+  }
+}
+```
+
 ## API Reference
 
-Visit the complete [API Reference](/developers/sdk/web/media-apidocs/index.html) for a deep dive into the Media SDK
+Visit the complete [API Reference](/developers/sdk/web/media-apidocs/index.html) for a deep dive into the Media SDK.
+
+## Contribute to the Media SDK GitHub Repo
+
+You can access the source code and contribute to the [mParticle Media SDK GitHub repo](https://github.com/mParticle/mparticle-web-media-sdk).
