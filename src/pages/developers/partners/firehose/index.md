@@ -59,7 +59,7 @@ mParticle has created a sample project to get you started quicker, but it may al
 
 ### Cloning the Sample Project
 
-In order to get started quicker, you can clone the sample project located here: 
+In order to get started quicker, you can clone the sample project located here:
 
 https://github.com/mParticle/firehose-sample
 
@@ -72,9 +72,9 @@ The sample project takes care of the basics of creating a lambda function for yo
  * Sample AWS Lambda Endpoint
  */
 public class SampleLambdaEndpoint implements RequestStreamHandler {
-    
+
     MessageSerializer serializer = new MessageSerializer(); //mParticle class for deserialization
-    
+
     @Override
     public void handleRequest(InputStream input, OutputStream output, Context context) throws IOException {
         SampleExtension processor = new SampleExtension(); //you will implement this class in a later step
@@ -112,7 +112,7 @@ The details of the registration response are outlined below. For a full example 
 
 ### 1. Creating your `ModuleRegistrationResponse` and Describing your Service
 
-mParticle users will see the result of your module registration response in our integrations directory. You should set a human-readable title for your service (such as your company's name), as well as a short description of your company including a link to your company's website with optional tracking parameters. Your description must be less than 230 characters. 
+mParticle users will see the result of your module registration response in our integrations directory. You should set a human-readable title for your service (such as your company's name), as well as a short description of your company including a link to your company's website with optional tracking parameters. Your description must be less than 230 characters.
 
 This information will be also shown on [https://docs.mparticle.com/integrations/](https://docs.mparticle.com/integrations/) and [https://www.mparticle.com/integrations.](https://www.mparticle.com/integrations)
 
@@ -135,7 +135,7 @@ You can also easily configure that mParticle hash each of these identities in th
 
 #### Partner Identities
 
-Partner IDs are unique identifiers associated with a user, but specific to a partner system. They can be ingested by mParticle via Partner Feed or S2S, and can be sent to downstream connections associated with the given partner (including a Firehose integration). In order for this to occur, the Partner's unique `identity type name` needs to be pre-registered with mParticle, which can be accomplished by simply adding a permission for it.  
+Partner IDs are unique identifiers associated with a user, but specific to a partner system. They can be ingested by mParticle via Partner Feed or S2S, and can be sent to downstream connections associated with the given partner (including a Firehose integration). In order for this to occur, the Partner's unique `identity type name` needs to be pre-registered with mParticle, which can be accomplished by simply adding a permission for it.
 
 Currently, only a **single** Partner ID permission can be registered. Similarly, the name **cannot be changed or removed** once registered.
 
@@ -146,7 +146,7 @@ An example for mParticle could be: `mParticle_mpid`
 
 Cookie Sync IDs are special Partner IDs that pertain to individual users, and are associated with mParticle Cookie Sync Integrations. If your organization has both a Cookie Sync and Firehose integration with mParticle, you can also configure your Firehose integration's incoming traffic to include this ID -- just as you would for a general Partner ID.
 
-In order to register a Cookie Sync ID, add a Partner ID permission with `"type": "$cookie_sync_id"` 
+In order to register a Cookie Sync ID, add a Partner ID permission with `"type": "$cookie_sync_id"`
 
 #### Device Application Stamp
 
@@ -168,7 +168,7 @@ All mParticle event data can also be associated with location information, and y
 
 Data can be sent into the mParticle platform via one of our native or web SDKs, as well as our Events APIs, and will have an associated IP address and HTTP user agent header of the originating client. If your service needs access to the IP address, you must request access by setting the following:
 
-   `permissions.setAllowAccessIpAddress(true);`  
+   `permissions.setAllowAccessIpAddress(true);`
    `permissions.setAllowAccessHttpUserAgent(true);`
 
 See the example below or [the javadocs](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/registration/Permissions.html) for more information on populating the `Permissions` object in your `ModuleRegistrationResponse` response.
@@ -324,7 +324,7 @@ This setting lets mParticle know if historical events can be sent to your integr
 EventProcessingRegistration eventProcessingRegistration = new EventProcessingRegistration();
 eventProcessingRegistration.setMaxDataAgeHours(24)
 ```
-### 6. Push Messaging Provider ID 
+### 6. Push Messaging Provider ID
 
 If you have registered for Push Message Receipt events, you must provide the Provider ID key used in the payload of your platform's Push messages. This ensures that you only receive events related to Push messages from your platform. Work with mParticle to ensure the you are providing the correct Provider ID.
 
@@ -417,7 +417,7 @@ Refer to the sample project or the simple example below, which shows how to subs
       audienceRegistration
          .setAudienceConnectionSettings(subscriptionSettings)
          .setAccountSettings(settings);
-         
+
       // Set the response
       ModuleRegistrationResponse response = new ModuleRegistrationResponse("Your Company Name", "1.0");
       response
@@ -489,7 +489,7 @@ The audience membership change event tells your integration whenever users are a
 
 ### Verification Requests
 
-To ensure a continuous connection with your integration, mParticle will periodically send audience membership change requests, even if there are no new changes in audience membership. Your integration must be able to accept an empty audience membership change request (a request with no "user_profiles" fields, as shown below) and return a standard [audience membership change response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/master/examples/json/AudienceMembershipChangeResponse.json).
+To ensure a continuous connection with your integration, mParticle will periodically send audience membership change requests, even if there are no new changes in audience membership. Your integration must be able to accept an empty audience membership change request (a request with no "user_profiles" fields, as shown below) and return a standard [audience membership change response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/master/examples/json/AudienceMembershipChangeResponse.json). If a user's configuration should be [faulted](/guides/platform-guide/audiences/#audience-faults) due to a non-transient error (an expired API token, for example), you can set `suspend_subscription` to `true` in the response. This will stop mParticle from sending requests until the user resumes the configuration.
 
 ```json
 {
@@ -539,7 +539,7 @@ In order to ensure that your lambda function works correctly, we recommend unit 
 
 ### Integration Testing
 
-You can send JSON messages manually into your lambda function via the AWS-lambda console. 
+You can send JSON messages manually into your lambda function via the AWS-lambda console.
 
 [See here for sample JSON that you can use](https://github.com/mParticle/mparticle-firehose-java-sdk/tree/master/examples/json).
 
