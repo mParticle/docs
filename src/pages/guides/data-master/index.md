@@ -87,6 +87,8 @@ Your event Data Points may include attributes, and the details view shows every 
 
 ### Stats view
 
+<aside class="notice">Dates and times shown on the Stats view are in UTC.</aside>
+
 For Data Points, the stats view shows two important groups of statistics for a selected date:
 
 * **Input** stats show how many instances of the event have been received, by platform and channel.
