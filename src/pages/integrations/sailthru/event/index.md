@@ -18,7 +18,7 @@ In order to forward events to Sailthru you will need your Sailthru API Key and S
 
 ## Data Processing Notes
 
-Sailthru will not accept data more than 24 hours old.
+Sailthru will not accept data more than 14 days old.
 
 ## User Identity Mapping
 
