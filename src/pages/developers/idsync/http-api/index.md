@@ -240,6 +240,7 @@ Modify must be performed on an existing mParticle ID. It will mutate an existing
 | 400 Bad Request | See the response body for detailed error message.
 | 401 Unauthorized | Request failed authentication.
 | 429 Too Many Requests | Retry the request after the interval specified in the `Retry-After` header. 
+| 5xx Server Error | A server-side error has occured, please try your request again. 
 
 ### Error Body
 
