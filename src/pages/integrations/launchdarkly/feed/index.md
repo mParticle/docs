@@ -15,9 +15,13 @@ title: Feed
   * Customer ID
   * Email Address
   * Facebook ID
-  * Facebook Audience ID
   * Google ID
   * Microsoft ID
+  * mParticle ID (MPID)
+  * Other
+  * Other 2
+  * Other 3
+  * Other 4
   * Twitter Handle
   * Yahoo ID
 
@@ -31,6 +35,9 @@ Setup the Launch Darkly feed to get your key/secret. Enter these credentials int
 
 You also need to instrument your app with the LaunchDarkly SDK to send events.
 
+Depending on your LaunchDarkly SDK implementation, when you create the [mParticle destination in LaunchDarkly](https://docs.launchdarkly.com/home/data-export/mparticle) you may need to select different values for LaunchDarkly's `User Identifier` and `Anonymous User Identifier`. Coordinate with your LaunchDarkly and mParticle account teams to confirm you are mapping user identities appropriately. 
+
+Reference LaunchDarkly's documentation for more information on [associating anonymous users with logged-in users.](https://docs.launchdarkly.com/home/users/anonymous-users#associating-anonymous-users-with-logged-in-users)
 
 ## Event Details
 <!--
@@ -115,4 +122,3 @@ For more details on the events sent via this feed, see [LaunchDarkly's Documenta
 | value | The value of the feature flag returned by feature flag evaluation. |
 | variation_name | The evaluated variation's name, if it exists. If the evaluated variation doesn't have a name, this field doesn't appear. |
 | version | The version of event schema.|
-
