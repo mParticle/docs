@@ -45,7 +45,11 @@ mParticleConfig = {
    identifyRequest: {
       userIdentities: { email: 'h.jekyll.md@example.com', customerid: 'h.jekyll.md' }
    },
-   identityCallback: myIdentityCallback
+   identityCallback: function(result) {
+      // Do something once an identity call has been made.
+      // For more information, see https://docs.mparticle.com/developers/sdk/web/idsync/#sdk-initialization-and-identify
+      console.log(result);
+   }
 }
 ~~~
 
@@ -76,7 +80,11 @@ var mParticleConfig = {
    identifyRequest: {
       userIdentities: { email: 'h.jekyll.md@example.com', customerid: 'h.jekyll.md' }
    },
-   identityCallback: myIdentityCallback
+   identityCallback: function(result) {
+      // Do something once an identity call has been made.
+      // For more information, see https://docs.mparticle.com/developers/sdk/web/idsync/#sdk-initialization-and-identify
+      console.log(result);
+    },
 };
 
 mixpanelKit.register(mParticleConfig);

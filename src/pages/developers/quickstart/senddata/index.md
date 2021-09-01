@@ -195,7 +195,11 @@ Copy this code snippet and place it in the `<head>` tag of each page of your web
                   customerid: '123456',
               },
           },
-          identityCallback: myIdentityCallback,
+          identityCallback: function(result) {
+            // Do something once an identity call has been made.
+            // For more information, see https://docs.mparticle.com/developers/sdk/web/idsync/#sdk-initialization-and-identify
+            console.log(result);
+          },
           dataPlan: {
             planId: 'my_plan_id',
             planVersion: 2
