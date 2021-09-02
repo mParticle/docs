@@ -71,7 +71,7 @@ Canvas Entry | `in_control_group`, `canvas_id`, `canvas_variation_id`
 Email Bounce | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
 Email Click | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
 Email Delivery | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Mark As Span | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Email Mark As Spam | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
 Email Open | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
 Email Send | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
 Email Unsubscribe | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
