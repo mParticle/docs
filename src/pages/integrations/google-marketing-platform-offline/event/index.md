@@ -4,6 +4,8 @@ title: Event
 
 [Google Marketing Platform Offline Conversions](https://marketingplatform.google.com/about/enterprise/) helps marketers plan, buy, measure and optimize digital media and customer experiences in one place.
 
+This integration utilizes Google’s [Campaign Manager 360 API](https://developers.google.com/doubleclick-advertisers/guides/conversions_upload).
+
 ## Supported Features
 
 * Attribution
