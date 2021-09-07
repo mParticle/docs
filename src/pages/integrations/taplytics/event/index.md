@@ -2,15 +2,15 @@
 title: Event
 ---
 
-[Taplytics](https://taplytics.com/) is an intelligent customer experience cloud specializing in turning first-time users into lifetime customers through magical moments.
+[Taplytics](https://taplytics.com/) is an A/B testing, feature management, and behavioral messaging platform that helps companies turn first-time users into lifetime customers.
 
 The Taplytics integration is an embedded kit integration and supports the Android, iOS, tvOS, and Web platforms.
 
 ## Prerequisites
 
-In order to enable mParticle's integration with Taplytics, you will need your Project Key, available from your Taplytics Project Settings page.
+In order to enable mParticle's integration with Taplytics, you need a project key, available from your Taplytics Project Settings page.
 
-### Adding the kit to your iOS/ Android app
+### Adding the kit to your iOS or Android app
 
 mParticle's Taplytics integration requires that you add the Taplytics Kit to your iOS or Android app.
 
