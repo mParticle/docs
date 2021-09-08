@@ -510,7 +510,7 @@ Standard Audiences are managed separately from Real-time audiences. Choose **Aud
 
 Just as with Real-time audiences, you can define which inputs you want to calculate the audience from. For Standard Audiences you also need to define a date range. You can choose **All available data** or define any period within the available range. When you’re ready, click **Create**. The start and end dates are inclusive and it uses the UTC timezone.
 
-![medium](/images/standard-define-range.png)
+![medium](/images/lifetime-define-range.png)
 
 #### 3 - Define Audience Criteria
 
