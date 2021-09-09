@@ -206,14 +206,18 @@ You can associate Google Analytics custom flags with an event via the [Custom Fl
 
 mParticle Custom Flag | Google Analytics Parameter | Description
 --------------------- | -------------------------- | -----
-Google.Category | ec |
+Google.Category | ec | Specifies the event category.
 Google.HitType | t | By default on web, pageviews are logged as HitType `pageview`, and all other events including commerce events are logged as HitType `event`. While these are the default and most common HitTypes, you can customize these using Custom Flags to be any type that [Google allows](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#t)
-Google.Label | el |
-Google.NonInteraction | in |
-Google.Page | dp | 
-Google.Value | ev |
-Google.CGNumber | cg<groupIndex> |
-Google.DocumentReferrer | dr | 
+Google.Label | el | Specifies the event label.
+Google.NonInteraction | in | Specifies the item name. Required for item hit type.
+Google.Location | dl | Use this parameter to send the full URL (document location) of the page on which content resides. Example: `http://example.com/example`
+Google.Hostname | dh | Specifies the hostname from which content was hosted. Example: `example.com`
+Google.Page | dp | The path portion of the page URL beginning with '/'. Example: `/example`
+Google.Value | ev | Specifies the event value. Values must be non-negative.
+Google.CG{#} (Web only)| cg{#} | Where {#} is 1, 2, 3, 4, or 5 (ie. Google.CG1, Google.CG2) You can have up to 5 content groupings, each of which has an associated index between 1 and 5, inclusive. Each content grouping can have up to 100 content groups. The value of a content group is hierarchical text delimited by '/". All leading and trailing slashes will be removed and any repeated slashes will be reduced to a single slash. For example, '/a//b/' will be converted to 'a/b'.
+Google.DocumentReferrer | dr | Specifies which referral source brought traffic to a website. This value is also used to compute the traffic source. The format of this value is a URL.
+
+For `pageview` hits to be valid, either `dl` or both `dh` and `dp` must be set. When `dl` is set, its hostname and page can be overwritten using the `dh` and `dp` parameters respectively.
 
 See the code samples below and the SDK docs for help setting custom flags with the mParticle iOS and Android SDKs.
 
