@@ -118,16 +118,22 @@ Data Plans are underpinned by the [Data Planning API](/developers/dataplanning-a
 
 Navigate to the [Data Planning API guide](/developers/dataplanning-api) for more information.
 
+### Limits
+
+* Similar to our event limit for workspaces, data plans support up to 1,000 data points.
+* Managing plans with more than 400 data points in the UI becomes unwieldy. Manage plans outside of the UI for larger plans. For more information, see the [Data Planning API guide](/developers/dataplanning-api).
+* You can block data only for unplanned violations: events and attributes with names that diverge from the schema defined in a data plan.
+
 ### Getting Started
 
-To start using Data Plans, you can follow these steps:
+To start using Data Plans:
 
 1. **Create** a Data Plan that captures your expectations for incoming data.
-1. **Activate** your plan to start verifying incoming data against your expectations. 
-1. **Validate** your incoming data with the expectations you've defined in your plan. You'll need a developer to complete this step.
-1. **Monitor** your event stream over time to measure and continuously improve the quality of your data.
-1. **Update** your data plan as the data you collect changes over time.
-1. **[NEW] Block** unplanned data from being forwarded to downstream systems
+2. **Activate** your plan to start verifying incoming data against your expectations. 
+3. **Validate** your incoming data with the expectations you've defined in your plan. You'll need a developer to complete this step.
+4. **Monitor** your event stream over time to measure and continuously improve the quality of your data.
+5. **Update** your data plan as the data you collect changes over time.
+6. **[NEW] Block** unplanned data from being forwarded to downstream systems
 
 #### Step 1: Create your plan
 

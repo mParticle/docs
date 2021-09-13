@@ -67,3 +67,9 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Max Users | 200 | Admins are prevented from creating additional users. This limit can be raised by arrangement.
 | Audience Name Length| 100 | Audience name and external name fields are limited to 100 characters.
 | Tag length | 18 | Tag names are limited to 18 characters.
+
+## Data Plans
+
+* Similar to our event limit for workspaces, data plans support up to 1,000 data points.
+* Managing plans with more than 400 data points in the UI becomes unwieldy. Manage plans outside of the UI for larger plans. For more information, see the [Data Planning API guide](/developers/dataplanning-api).
+* You can block data only for unplanned violations: events and attributes with names that diverge from the schema defined in a data plan.
