@@ -8,6 +8,8 @@ mParticle's OneTrust integration operates in a unique way. While it is enabled a
 
 mParticle can, in turn, use this consent information to enable and disable other integrations, power consent forwarding rules, etc. Read our documentation on [Consent Management](/guides/consent-management/) to understand more about GDPR consent purposes.
 
+For specifics on GDPR and CCPA implementation within the One Trust integration, please review [Mapping Consent States](#mapping-consent-states) below.
+
 ## How it Works
 
 Whenever a user browses your site or uses your mobile app, OneTrust provides a collection of cookie groups IDs representing the GDPR consent purposes a user has consented to, or declined.
@@ -266,3 +268,9 @@ In this example, OneTrust Cookie Group "group 2" (Performance Cookies) are mappe
 | Setting Name    | Data Type | Description                                                                 |
 | --------------- | --------- | --------------------------------------------------------------------------- |
 | Consent Mapping | `string`  | Mapping of your mParticle GDPR consent purposes to OneTrust consent groups. |
+
+## Mapping Consent States
+
+The mParticle OneTrust integration supports both GDPR and CCPA consent states transparently. Currently, any OneTrust Cookie Group that is mapped to a consent purpose of `data_sale_opt_in` will be automatically assigned a CCPA consent state. All other consent purposes are mapped as GDPR.
+
+Read our documentation on [Consent Management](/guides/consent-management/) to understand more about GDPR and CCPA consent purposes.
