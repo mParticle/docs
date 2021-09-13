@@ -36,6 +36,10 @@ Amplitude requires either a Device ID or a User ID. User ID can be mapped as Ema
 
 By default, mParticle forwards web data to Amplitude client-side, by directly invoking Amplitude's Javascript methods. Optionally, you can choose to forward web data server-to-server in the [Connection Settings](#connection-settings). Note that if you choose this option, your incoming data must have your selected User ID to be forwarded.
 
+## Data Residency
+
+By default, mParticle sends data to Amplitude's US organizations API [HTTP API](https://developers.amplitude.com/docs/http-api-v2), but Amplitude offers a different endpoint for EU organizations. In mParticle, the [Amplitude Organization Configuration Setting](#configuration-settings) allows you to select a target Amplitude organization location.
+
 ## Event Data Mapping
 
 ### Screen Views
@@ -132,6 +136,7 @@ mParticle will also populate `device_brand` and `device_model` from the HTTP use
 | Setting Name | Data Type | Default Value | Description |
 | --- | --- | --- | --- |
 | API Key | `string` | <unset> | Your app's Amplitude API Key. You can find this on the "My Account" page of Amplitude's dashboard. |
+| Amplitude Organization | `string` | US Organization |  The Amplitude datacenter that is configured for your Amplitude organization. |
 | Use Batch API Endpoint | `bool` | False | If enabled, the Amplitude [batch API](https://developers.amplitude.com/docs/batch-event-upload-api) endpoint will be used. The endpoint has a higher rate limit but may have a slight delay in delivering events. Please note that if the request is replayed, the batch API endpoint will always be used regardless of this configuration value. |
 
 ## Connection Settings
