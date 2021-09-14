@@ -55,24 +55,24 @@ In-App Message Click | `button_id`, `app_id`, `campaign_id`, `canvas_step_id`, `
 News Feed Impression | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
 News Feed Card Impression | `app_id`, `card_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
 News Feed Card Click | `app_id`, `card_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Push Notification Send | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Push Notification Open | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Push Notification Bounce | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
+Push Notification Sends | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
+Push Notification Opens | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
+Push Notification Bounces | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
 Uninstall (iOS & Android only) | `app_id`
 
 ### Unbound Feed
 
 Events | Custom Attributes
 ------ | ---------
-Campaign Control Group Enrollment | `campaign_id`
-Campaign Conversion | `campaign_id`
-Canvas Conversion | `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Canvas Entry | `in_control_group`, `canvas_id`, `canvas_variation_id`
-Email Bounce | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Click | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Delivery | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Mark As Span | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Open | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Send | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Unsubscribe | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Webhook Send | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Campaign Control Group Enrollments | `campaign_id`
+Campaign Conversions | `campaign_id`
+Canvas Conversions | `canvas_step_id`, `canvas_id`, `canvas_variation_id`
+Canvas Entries | `in_control_group`, `canvas_id`, `canvas_variation_id`
+Email Bounces | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Email Clicks | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Email Deliveries | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Email Marks As Span | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Email Opens | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Email Sends | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Email Unsubscribes | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+Webhook Sends | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
