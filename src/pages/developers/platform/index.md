@@ -169,7 +169,7 @@ curl \
 
 #### Get All Accounts
 
-`GET /accounts`
+`GET /accounts?accountId=1`
 
 
 ~~~bash
