@@ -213,7 +213,7 @@ Engagement | any | Engagement attribution events allow you to attribute actions 
 
 There are 3 core variations of the commerce_event.  
 
-1. **Product-based** - Used to measure measured datapoints associated with one or more products.<br>
+1. **Product-based** - Used to measure datapoints associated with one or more products.<br>
 *These have a product_action and do NOT have a promotion_action or a product_impressions*
 
 2. **Promotion-based** - Used to measure datapoints associated with internal promotions or campaigns.<br>
