@@ -123,7 +123,7 @@ if let event = MPEvent(name: "Set Interest", type: MPEventType.userPreference) {
 
 ## Exclude Events from mParticle Server Upload
 
-If you have a high-volume event that you would like to forward to kits but exclude from uploading mParticle, set a boolean flag per event.
+If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set a boolean flag per event.
 
 By default, all events upload to the mParticle server unless explicitly set not to.
 

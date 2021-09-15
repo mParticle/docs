@@ -227,6 +227,29 @@ MParticle.logCommerceEvent(event)
 MParticle.logScreenEvent('Test screen', { 'Test key': 'Test value' })
 ```
 
+### Exclude App and Commerce Events from mParticle Server Upload
+
+If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set a boolean flag per event.
+
+By default, all events upload to the mParticle server unless explicitly set not to.
+
+```js
+// Events
+var event = new MParticle.Event()
+    .setName('Test event')
+    .setType(MParticle.EventType.Other)
+    .setInfo({ 'Test key': 'Test value' })
+    .setShouldUploadEvent(false) // Set false to prevent uploading, true or omit to upload
+MParticle.logMPEvent(event)
+
+// Commerce Events
+const product = new MParticle.Product('Test product for cart', '1234', 19.99)
+const transactionAttributes = new MParticle.TransactionAttributes('Test transaction id')
+var commerceEvent = MParticle.CommerceEvent.createProductActionEvent(MParticle.ProductActionType.AddToCart, [product], transactionAttributes)
+commerceEvent.setShouldUploadEvent(false) // Set false to prevent uploading, true or omit to upload
+MParticle.logCommerceEvent(commerceEvent)
+```
+
 <!--
 
 ### User Attributes

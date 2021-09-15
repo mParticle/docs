@@ -65,10 +65,10 @@ The Xamarin SDK simply provides bindings for mParticle's [iOS](/developers/sdk/i
 #### App Events
 
 ~~~cs
-MParticle.Instance.LogEvent (
-        "Hello world", 
-        EventType.Navigation, 
-        new Dictionary<string, string>{{ "foo", "bar" }}
+MParticle.Instance.LogEvent(
+    "Hello world", 
+    EventType.Navigation, 
+    new Dictionary<string, string>{{ "foo", "bar" }}
 );
 ~~~
 
@@ -92,7 +92,7 @@ transactionAttributes.Shipping = 10;
 transactionAttributes.Tax = 15;
 transactionAttributes.Affiliation = "foo affiliation";
 transactionAttributes.CouponCode = "foo coupon code";
-CommerceEvent eCommEvent = new CommerceEvent (
+CommerceEvent eCommEvent = new CommerceEvent(
     ProductAction.Purchase, 
     products, 
     transactionAttributes
@@ -107,6 +107,29 @@ MParticle.Instance.LogScreenEvent
 (
     "Test screen", 
     new Dictionary<string, string>{{ "Test key 1", "Test value 1" }}
+);
+~~~
+
+#### Exclude App and Commerce Events from mParticle Server Upload
+
+If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set a boolean flag per event.
+
+By default, all events upload to the mParticle server unless explicitly set not to.
+
+~~~cs
+// App events
+MParticle.Instance.LogEvent(
+    "Hello world", 
+    EventType.Navigation, 
+    new Dictionary<string, string>{{ "foo", "bar" }},
+    false // Set false to prevent uploading, true or omit to upload
+);
+
+// Commerce events
+// Use the same code shown above to create the eCommEvent object
+MParticle.Instance.LogCommerceEvent(
+    eCommEvent,
+    false // Set false to prevent uploading, true or omit to upload
 );
 ~~~
 

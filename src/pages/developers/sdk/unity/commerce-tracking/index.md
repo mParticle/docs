@@ -56,3 +56,15 @@ CommerceEvent eCommEvent = new CommerceEvent (
 MParticle.Instance.LogCommerceEvent(eCommEvent);   
 ~~~
 
+#### Exclude App and Commerce Events from mParticle Server Upload
+
+If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set a boolean flag per event.
+
+By default, all events upload to the mParticle server unless explicitly set not to.
+
+~~~cs
+CommerceEvent eCommEvent = new CommerceEvent(ProductAction.Purchase, products, transactionAttributes) {
+    ShouldUploadEvent = false // Set false to prevent uploading, true or omit to upload
+};
+MParticle.Instance.LogCommerceEvent(eCommEvent);  
+~~~

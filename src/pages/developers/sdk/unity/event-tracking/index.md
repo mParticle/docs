@@ -12,13 +12,13 @@ MParticle.Instance.LogEvent (new MPEvent("Hello world", EventType.Navigation) {
     Duration = 1000,
     StartTime = 123456789,
     EndTime = 1234557789,
-      Info = new Dictionary<string, string>{{ "foo", "bar" }},
-      CustomFlags = new Dictionary<string, List<string>> {
+    Info = new Dictionary<string, string>{{ "foo", "bar" }},
+    CustomFlags = new Dictionary<string, List<string>> {
       { "custom flag 1", new List<string> () { "one", "two", "five" } },
       { "custom flag 2", new List<string> () { } },
       { "custom flag 3", new List<string> () { "singleVal" } }
     }
-    }
+  }
 );
 ~~~
 
@@ -52,3 +52,24 @@ mParticle uploads all queued events whenever a session ends. This may be after a
 In all other cases, mParticle uploads events at a set interval: 10 seconds in development, 10 minutes in production.
 
 
+#### Exclude App and Commerce Events from mParticle Server Upload
+
+If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set a boolean flag per event.
+
+By default, all events upload to the mParticle server unless explicitly set not to.
+
+~~~cs
+MParticle.Instance.LogEvent (new MPEvent("Hello world", EventType.Navigation) {
+    Duration = 1000,
+    StartTime = 123456789,
+    EndTime = 1234557789,
+    Info = new Dictionary<string, string>{{ "foo", "bar" }},
+    CustomFlags = new Dictionary<string, List<string>> {
+      { "custom flag 1", new List<string> () { "one", "two", "five" } },
+      { "custom flag 2", new List<string> () { } },
+      { "custom flag 3", new List<string> () { "singleVal" } }
+    },
+    ShouldUploadEvent = false // Set false to prevent uploading, true or omit to upload
+  }
+);
+~~~
