@@ -1422,7 +1422,7 @@ The response body will be empty.
 
 Use this endpoint to create or update a draft of your Calculated Attribute definition. When a Calculated Attribute is updated, the `draft_definition` is changed. Once the Calculated Attribute is activated, the `draft_defintiion` is moved into the `active_definition` and the new definition is used to calculate values.  The `active_definition` property cannot be updated directly.
 
-You can only rename a Calculated Attribute before it has been activated; Once activated, the `name` is read-only.
+You can only rename a Calculated Attribute before it has been activated; Once activated, the `name` is read-only. The only property you will be allowed to update in this state is the `description`.
 
 `PUT /workspaces/1234/calculatedattributes/5678`
 
