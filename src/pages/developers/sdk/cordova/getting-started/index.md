@@ -10,7 +10,7 @@ The mParticle plugin allows you to access the mParticle APIs from your app built
 cordova plugin add cordova-plugin-mparticle
 ```
 
-Grab your mParticle key and secret from [your app's dashboard](https://app.mparticle.com/apps).
+Grab your mParticle key and secret from [your app's dashboard](https://app.mparticle.com/setup/inputs/apps).
 
 
 ### iOS
@@ -98,7 +98,7 @@ Please see [Identity](http://docs.mparticle.com/developers/sdk/ios/identity/) fo
 
 ### Android
 
-1. Get your mParticle key and secret from [your workspace's dashboard](https://app.mparticle.com/apps) and construct an `MParticleOptions` object.
+1. Get your mParticle key and secret from [your workspace's dashboard](https://app.mparticle.com/setup/inputs/apps) and construct an `MParticleOptions` object.
 
 2. Call `start` from the `onCreate` method of your app's `Application` class. It's crucial that the SDK be started here for proper session management. If you don't already have an `Application` class, create it and then specify its fully-qualified name in the `<application>` tag of your app's `AndroidManifest.xml`.
 

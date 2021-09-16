@@ -191,7 +191,7 @@ The SDK provides an interface to the mParticle HTTP API by way of the EventsApi 
 
 ### Configuration
 
-At minimum, the `EventsApi` must be initialized with an mParticle key and secret. You can find your mParticle key and secret by navigating to the [Apps](https://app.mparticle.com/apps) section of the mParticle platform UI.
+At minimum, the `EventsApi` must be initialized with an mParticle key and secret. You can find your mParticle key and secret by navigating to the [Apps](https://app.mparticle.com/setup/inputs/apps) section of the mParticle platform UI.
 
 > You must associate your data with the correct key and secret. If your app is multi-platform, for example, be sure to send your Android data to your Android key/secret, and your iOS data to your iOS key/secret.
 
