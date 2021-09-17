@@ -27,3 +27,4 @@ title: Audience
 | Setting Name | Data Type | Default Value | Description |
 | ---|---|---|---
 | Tagging Hash | `string` | | Static client tagging hash identifier which you can receive from your RTB House Customer Service Manager. |
+| Send Email | `boolean` | False | If enabled, email user identities will be forwarded. |
