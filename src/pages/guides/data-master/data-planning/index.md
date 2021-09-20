@@ -12,15 +12,15 @@ A Data Plan is a set of expectations about the extent and shape of your data col
 - **Name**: a descriptive label for the plan. Keep in mind several teams may reference this name and share the plan. Plans may be renamed after they are created.
 - **ID**: a URL-safe slug. **This value will never change** and is automatically generated based on the original plan name. The ID will be used by your teams to refer to the plan in their code when they send data into mParticle.
 - **Version (Optional)**: an integer value. You can create new versions of a plan as you evolve your schema. When the version is omitted the latest active version in an environment will be chosen.
-- **Description (Optional)**: an optional freeform field to describe the plan
+- **Description (Optional)**: an optional freeform field to describe the plan.
 - **Data Points**: a list encompassing all of the data (events, event attributes, user attributes, and user identites) you expect to receive.
 
 ## Data Planning API
 
 Data plans are underpinned by the [Data Planning API](/developers/dataplanning-api). Use the Data Planning API instead of the Data Planning UI if you:
 
-- Store your Data Plans in your source code, and use your own SDLC and approval processes to define your data model
-- Integrate mParticle's suite of Data Planning tools to perform compile-time and runtime data quality verification
+- Store your Data Plans in your source code, and use your own SDLC and approval processes to define your data model.
+- Integrate mParticle's suite of Data Planning tools to perform compile-time and runtime data quality verification.
 - Manage plans with more than [400 data points](#limits).
 
 ## Limits
@@ -38,7 +38,7 @@ To start using Data Plans:
 3. **Validate** your incoming data with the expectations you've defined in your plan. You'll need a developer to complete this step.
 4. **Monitor** your event stream over time to measure and continuously improve the quality of your data.
 5. **Update** your data plan as the data you collect changes over time.
-6. **[NEW] Block** unplanned data from being forwarded to downstream systems
+6. **[NEW] Block** unplanned data from being forwarded to downstream systems.
 
 ### Step 1: Create your plan
 
@@ -290,7 +290,7 @@ Our SDKs are served by a CDN that caches SDK configuration, including your data 
 ##### Step 3: Turn on Block settings for your plan version
 You can now turn on Block settings for the type of data you would like to block by completing the following steps:
 1. Open your data plan version in the UI and navigate to the Block tab.
-1. Enable “Block unplanned events” or any other block setting (note: events are typically a good place to start)
+2. Enable “Block unplanned events” or any other block setting. Events are a good place to start blocking.
 
 ##### Step 4: Verify that data is being blocked before it is forwarded to a kit integration
 For Web, you can use the developer console to verify when a kit's underlying SDK uploads an event to the partner's API. For iOS and Android, you can typically use verbose console logs or a proxy such as Charles Proxy. Depending on your block settings, you should see unplanned data removed from payloads. For example, if you have not planned "Bad Event A", "Bad Event A" will not be forwarded to a specific partner integration. 
