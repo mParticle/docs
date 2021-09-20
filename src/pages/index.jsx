@@ -20,7 +20,7 @@ const DOMORETILESROW = [
             title: 'Data Master',
             icon: 'icon-dm',
             text: 'View and enforce your data quality',
-            url: 'guides/data-master/'
+            url: 'guides/data-master/introduction/'
         },
         {
             title: 'Audiences',

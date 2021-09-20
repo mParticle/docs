@@ -1,11 +1,11 @@
 ---
 title: Blocked Data Backfill Guide
-order: 1
+order: 10
 ---  
 
 Backfilling is the process of importing previously blocked data from a Quarantine Output, optionally transforming it, and then uploading it back into mParticle. We provide instructions and helper scripts for you to backfill blocked data to mParticle's Events API below. <strong>You cannot replay blocked data through the UI.</strong>
 
-Read more about our Blocking feature [here](/guides/data-master/#step-6-block-unplanned-data-from-being-forwarded-to-downstream-systems).
+Read more about our Blocking feature [here](/guides/data-master/data-planning/#step-6-block-unplanned-data-from-being-forwarded-to-downstream-systems).
 
 ## Considerations
 

@@ -43,5 +43,5 @@ Well done! You've sent data and have validated that mParticle is receiving it.
 Some suggestions on next steps:
 
 * [Step 3: Connect an output](/developers/quickstart/connect-an-event-output/)
-* [Data Master Deep Dive](/guides/data-master/)
+* [Data Master](/guides/data-master/introduction/)
 * [User Activity View Deep Dive](/guides/platform-guide/activity/#user-activity)

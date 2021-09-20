@@ -755,7 +755,7 @@ location_source | string | optional| One of "unknown", "ip_lookup", or "lat_long
 }
 ~~~
 
-The context field lets you enable additional mParticle features such as Data Planning. By providing your plan's id and version, you can start validating incoming data against your expectations. Learn more about Data Planning [here](/guides/data-master/#data-plans).
+The context field lets you enable additional mParticle features such as Data Planning. By providing your plan's id and version, you can start validating incoming data against your expectations. Learn more about Data Planning [here](/guides/data-master/data-planning/).
 
 Property | Data Type | Required| Description
 ---------|------------|---|---

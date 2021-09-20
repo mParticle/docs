@@ -78,8 +78,20 @@ const Links = [
         title: 'Data Master',
         content: 'Explore every data point in your workspace and manage your data quality.',
         links: [{
-            text: 'Backfill Blocked Data',
-            link: 'blocked-data-backfill-guide',
+            text: 'Data Master Introduction',
+            link: 'introduction',
+        },
+        {
+            text: 'Catalog',
+            link: 'catalog',
+        },
+        {
+            text: 'Live Stream',
+            link: 'live-stream',
+        },
+        {
+            text: 'Data Plan',
+            link: 'data-planning',
         }],
     },
     {

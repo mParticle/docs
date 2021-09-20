@@ -4,11 +4,11 @@ title: Smartype
 
 ## Overview
 
-Smartype is a powerful code generation tool, built for mParticle's [Data Master](/guides/data-master), that allows you to turn your Data Plans into useable, type-safe code.
+Smartype is a powerful code generation tool, built for mParticle's [Data Master](/guides/data-master/introduction/), that allows you to turn your Data Plans into useable, type-safe code.
 
 It aims to completely eliminate an entire class of data quality bugs 🐛 by generating statically-typed data models based on the popular [JSON schema](https://json-schema.org/) standard.
 
-- Smartype is built to translate [mParticle Data Plans](/guides/data-master/#data-plans) into type-safe models  
+- Smartype is built to translate [mParticle Data Plans](/guides/data-master/data-planning/) into type-safe models  
 - It gives you auto-complete for your data model in your IDE of choice  
 - It's open source and extensible via a plugin system   
 
@@ -42,8 +42,8 @@ Smartype is designed to work with mParticle Data Plans. If you haven't yet creat
 
 ### Create a Data Plan
 
-- [See the documentation](/guides/data-master/#data-plans) for how to create your Data Plan in mParticle.
-- You can also [reference the Data Planning API](/developers/dataplanning-api/) for a deeper look into the contents of a Data Plans as well as how to programmatically maintain them.
+- [See the documentation](/guides/data-master/data-planning/) for how to create your Data Plan in mParticle.
+- You can also [read the Data Planning API](/developers/dataplanning-api/) for a deeper look into the contents of a Data Plans as well as how to programmatically maintain them.
 
 ### Download a Data Plan
 

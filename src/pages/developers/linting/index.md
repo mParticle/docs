@@ -2,7 +2,7 @@
 title: Linting Tools
 ---
 
-At mParticle, we have developed tools to allow you to statically lint code against your data plan as you develop. This allows you to adhere to your company's data plan and ensures that high quality data is logged to your workspace. [Click here](/guides/data-master/) to learn more about Data Plans and Data Master.
+At mParticle, we have developed tools to allow you to statically lint code against your data plan as you develop. This allows you to adhere to your company's data plan and ensures that high quality data is logged to your workspace. [Click here](/guides/data-master/introduction/) to learn more about Data Plans and Data Master.
 
 ## Setup
 

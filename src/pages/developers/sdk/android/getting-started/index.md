@@ -157,9 +157,7 @@ All development data will appear in your workspace's live stream. In order to se
 
 ### Data Master
 
-[Data Master](/guides/data-master/) allows you to define the format of any data being sent to the mParticle SDK. After creating a data plan in the mParticle UI, you simply set the data plan ID in the `MParticleOptions` object along with the optional data plan version and initialize the SDK as normal. When you return to the mParticle UI and visit the Live Stream section to view incoming data, you'll find warnings for any data that has been recieved that does not conform to your data plan.
-
-See the [Data Planning Developer Guide](/guides/data-master/#developer-guide) for more information.
+[Data Master](/guides/data-master/introduction/) allows you to define the format of any data being sent to the mParticle SDK. After creating a data plan in the mParticle UI, you simply set the data plan ID in the `MParticleOptions` object along with the optional data plan version and initialize the SDK as normal. When you return to the mParticle UI and visit the Live Stream section to view incoming data, you'll find warnings for any data that has been recieved that does not conform to your data plan.
 
 :::code-selector-block
 ```java

@@ -177,7 +177,7 @@ Be mindful of which downstream systems are connected to the "Calculated Attribut
 
 ### Live Stream, User Activity View & Profile API
 
-Calculated attributes can be viewed alongside other user attributes in the [Live Stream](../../../guides/data-master#live-stream), [User Activity view](../activity/#user-activity) and are accessible via the [Profile API](../../../developers/profile-api/).
+Calculated attributes can be viewed alongside other user attributes in the [Live Stream](../../../guides/data-master/live-stream/), [User Activity view](../activity/#user-activity) and are accessible via the [Profile API](../../../developers/profile-api/).
 
 ![](/images/ca-uav.png)
 

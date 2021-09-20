@@ -179,7 +179,7 @@ This configuration file can then be referenced via the cli flag `--config`. Addi
 
 ### Data Planning
 
-For customers subscribed to [Data Master](https://docs.mparticle.com/guides/data-master/), the CLI exposes commands to allow for Creating, Fetching, Updating, and Deleting data plans, as well as validating your events against a downloaded Data Plan.
+For customers subscribed to [Data Master](/guides/data-master/introduction/), the CLI exposes commands to allow for Creating, Fetching, Updating, and Deleting data plans, as well as validating your events against a downloaded Data Plan.
 
 Please be aware that all of these services require Platform API authentication credentials via `mp.config.json` or via CLI arguments: `clientId`, `clientSecret` and `workspaceId` as well as Data Planning access.
 
