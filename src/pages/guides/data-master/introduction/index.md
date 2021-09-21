@@ -6,9 +6,9 @@ seoDescription: Learn how Data Master helps you validate customer data before it
 ---
 
 Data Master allows you to standardize and validate customer data before it gets shared across systems, applications and teams. It encompasses the following features:
-- [**Catalog**](catalog/) provides an overview of data collected, including detailed collection statistics. You can add descriptions and other information about data points in the catalog.
-- [**Data Plans**](data-planning/) allow you to define and then validate the extent and shape of the data that is collected.
-- [**Live Stream**](live-stream/) allows you to observe data streaming into mParticle in realtime and to identify violations quickly if you are using a Data Plan to validate your data.
+- [**Catalog**](/guides/data-master/catalog/) provides an overview of data collected, including detailed collection statistics. You can add descriptions and other information about data points in the catalog.
+- [**Data Plans**](/guides/data-master/data-planning/) allow you to define and then validate the extent and shape of the data that is collected.
+- [**Live Stream**](/guides/data-master/live-stream/) allows you to observe data streaming into mParticle in realtime and to identify violations quickly if you are using a Data Plan to validate your data.
 
 ## Undertanding Data Points and Data Plans
 
