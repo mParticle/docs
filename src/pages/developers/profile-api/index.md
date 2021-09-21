@@ -24,6 +24,8 @@ A simple example of a personalization service implemented with Node and Express 
 ## Authentication
 Once provisioned, credentials can only be issued over encrypted communications, so you will need to provide a public key. If you don't have a public key, you can make one with simple free software on [Mac](https://gpgtools.org/) or [Windows](https://www.gpg4win.org/).
 
+<aside>You can create and manage your mParticle access tokens with the <a href="/developers/credential-management">API Credentials interface</a>.</aside>
+
 Once your API credentials have been issued, you can authenticate by issuing a POST request to mParticle's SSO token endpoint.
 
 `https://sso.auth.mparticle.com/oauth/token`

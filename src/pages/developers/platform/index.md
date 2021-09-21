@@ -14,7 +14,7 @@ Before you can authenticate to the Platform API you must first contact your acco
 
 ## Authentication
 
-<aside>Note that our previous token endpoint, which used the username and password of an mParticle user, has been deprecated. Please contact your account representative to obtain a Client ID and Secret for the new endpoint.</aside>
+<aside>You can create and manage your mParticle access tokens with the <a href="/developers/credential-management">API Credentials interface</a>.</aside>
 
 Once your API user is set up, you can authenticate by issuing a POST request to mParticle's SSO token endpoint.
 

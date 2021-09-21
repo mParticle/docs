@@ -139,6 +139,8 @@ The CLI provides a `--help` flag which reveals all acceptable parameters and fla
 
 Any CLI command that requires any mParticle HTTP API resources allows two options for authentication. You can pass credentials via either 1. command line or 2. an `mp.config.json` file in the root of your project.
 
+<aside>You can create and manage your mParticle access tokens with the <a href="/developers/credential-management">API Credentials interface</a>.</aside>
+
 Both of these methods will internally generate a bearer token on your behalf, as describe in [Platform API Authentication](https://docs.mparticle.com/developers/platform/#authentication).
 
 Credentials Required:
