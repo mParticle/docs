@@ -21,7 +21,9 @@ When connecting an mParticle audience to Talon.One using the disbled `Run Rule E
 
 5. Connect the Audience with a status of `Active`
 
-When configuring [user attribute forwarding](/guides/platform-guide/audiences/#user-attribute-sharing), note that Talon.One will prefix mParticle's reserved attributes with `mp_` (e.g. `$age` will be `mp_age`). Otherwise, Talon.One will only accept user attributes with alphanumeric characters and underscores.
+When configuring [user attribute forwarding](/guides/platform-guide/audiences/#user-attribute-sharing), note that Talon.One will prefix mParticle's reserved attributes with `mp_` (e.g. `$age` will be `mp_age`). Otherwise, Talon.One will only accept user attributes with alphanumeric characters and underscores. 
+
+<aside>Note: User attributes not conforming to these requirements must be excluded, otherwise Talon.One will return an error.</aside>
 
 ## Supported Identities
 
