@@ -81,32 +81,41 @@ Content-Type: application/json
 Authorization: Basic <your-token-here>
 
 {
- "regulation": "gdpr",
- "subject_request_id":"a7551968-d5d6-44b2-9831-815ac9017798",
- "subject_request_type":"erasure",
- "submitted_time":"2018-10-02T15:00:00Z",
- "subject_identities":[
-   {
-      "identity_type":"email",
-      "identity_value":"johndoe@example.com",
-      "identity_format":"raw"
-   }
- ],
- "api_version":"2.0",
- "status_callback_urls":[
-   "https://exampleurl.com/opendsr/callbacks"
- ],
-  "extensions": {
-    "opendsr.mparticle.com": {
-      "mpids": [1234567890, 5678901234],
-      "identities": [
+    "regulation": "gdpr",
+    "subject_request_id": "a7551968-d5d6-44b2-9831-815ac9017798",
+    "subject_request_type": "erasure",
+    "submitted_time": "2018-10-02T15:00:00Z",
+    "subject_identities":
+    [
         {
-          "identity_type": "other1",
-          "identity_value": "test@test1.com"
+            "identity_type": "email",
+            "identity_value": "johndoe@example.com",
+            "identity_format": "raw"
         }
-      ]
+    ],
+    "api_version": "2.0",
+    "status_callback_urls":
+    [
+        "https://exampleurl.com/opendsr/callbacks"
+    ],
+    "extensions":
+    {
+        "opendsr.mparticle.com":
+        {
+            "mpids":
+            [
+                1234567890,
+                5678901234
+            ],
+            "identities":
+            [
+                {
+                    "identity_type": "other1",
+                    "identity_value": "test@test1.com"
+                }
+            ]
+        }
     }
-  } 
 }
 ~~~
 
@@ -177,11 +186,11 @@ waCrLx7WV5y9TMDCf+2FILOJM/MwTUy1dLZiaFHhGdzld2AjbjK1CfVzyPssch0iQYYtbR49GhumvkYl
 jfkDkSEgAevXQwVJWBNf18bMIEgdH2usF/XauQoyrne7rcMIWBISPgtBPj3mhcrwscjGVsxqJva8KCVC
 KD/4Axmo9DISib5/7A6uczJxQG2Bcrdj++vQqK2succ=
 {
-"expected_completion_time":"2018-11-01T15:00:01Z",
-"received_time":"2018 10 02T15:00:01Z",
-"encoded_request":"<BASE64 ENCODED REQUEST>"
-"subject_request_id":"a7551968-d5d6-44b2-9831-815ac9017798",
-"controller_id": "3622"
+    "expected_completion_time":"2018-11-01T15:00:01Z",
+    "received_time":"2018 10 02T15:00:01Z",
+    "encoded_request":"<BASE64 ENCODED REQUEST>",
+    "subject_request_id":"a7551968-d5d6-44b2-9831-815ac9017798",
+    "controller_id": "3622"
 }
 ~~~
 
@@ -194,9 +203,11 @@ KD/4Axmo9DISib5/7A6uczJxQG2Bcrdj++vQqK2succ=
     "controller_id": "3622",
     "expected_completion_time": "2018-05-07T20:53:48.322652",
     "subject_request_id": "a7551968-d5d6-44b2-9831-815ac9017798",
+    "group_id": null,
     "request_status": "pending",
     "api_version": "2.0",
-    "results_url": null
+    "results_url": null,
+    "extensions": null    
 }
 ~~~
 
@@ -205,9 +216,44 @@ KD/4Axmo9DISib5/7A6uczJxQG2Bcrdj++vQqK2succ=
 | `controller_id` | string | A unique ID representing the data controller.  |
 | `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed. |
 | `subject_request_id` | UUID v4 string | The controller-provided identifier of the request in a GUID v4 format. |
+| `group_id` | string  | The group_id can be used to relate different subject requests together. | 
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
 | `api_version` | string | The API version for this request. The current version is "2.0". |
-|  `results_url` | string | For Access/Portability requests, a download link to the request results data. This will be `null` unless the request is complete. Once a request is completed, the `results_url` will be valid for 7 days. After that time, attempting to access this URL will result in a `410 Gone` HTTP response. |
+| `results_url` | string | For Access/Portability requests, a download link to the request results data. This field contains `null` unless the request is complete. After a request completes, the `results_url` is valid for 7 days. After that time, attempting to access this URL results in a `410 Gone` HTTP response. |
+| `extensions` | array |  Extensions related to DSR Distribution.
+
+### Get the status of all OpenDSR requests in a Group
+`GET /requests?group_id={my-group}`
+
+#### Example Response Body
+
+The response is a collection of DSR subject requests tha match the group_id.
+
+~~~http
+[
+  {
+    "controller_id": "3622",
+    "expected_completion_time": "2021-09-07T10:00:00.322652",
+    "subject_request_id": "a7551968-d5d6-44b2-9831-815ac9017798",
+    "group_id": "my-group",
+    "request_status": "pending",
+    "api_version": "2.0",
+    "results_url": null,
+    "extensions": null
+  },
+  {
+    "controller_id": "3622",
+    "expected_completion_time": "2021-09-06T10:15:00.259842",
+    "subject_request_id": "cab0a1fc-cfcd-475a-a2a5-e93eb060332f",
+    "group_id": "my-group",
+    "request_status": "pending",
+    "api_version": "2.0",
+    "results_url": null,
+    "extensions": null
+  }
+]
+~~~
+
 
 ### Cancel a request
 `DELETE /requests/{RequestID}`
@@ -335,6 +381,26 @@ P7f3LwgHVcDt8/26hziIGx56oVWGonkt6od7AY1VQBLsnIeh0K/z55GDmlrB7rbfd05RGUqqgjw4tekA
 
 ## Errors
 
-Status Code  | Retriable  | Description
----  | ---  | ---
-409  | No  | There is an in progress request with the same identities and extensions and its status is pending. Please do not retry the request.
+The following errors may be returned by the API with additonal details as shown.  
+
+~~~http
+{
+    "code": 400,
+    "message": "Subject request already exists.",
+    "errors": [
+        {
+            "domain": "Validation",
+            "reason": "InvalidOperationException",
+            "message": "Subject request already exists."
+        }
+    ]
+}
+~~~
+
+
+Status Code | Retriable | Message
+---  | --- | ---
+400  | No  | Invalid data was detected
+400  | No  | Subject request already exists
+401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication).
+409  | No  | There is an in progress request with the same identities, extensions and type.  
