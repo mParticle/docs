@@ -73,6 +73,6 @@ mParticle.logEvent('foo', mParticle.MessageTypes.Other, attributes, customFlags)
 | ---|---|---|---|---
 | Install Event Mapping | `string` | <unset> | All| The corresponding group tag and activity tag strings set up in Floodlight for install event, separated by ';', e.g., 'conversion_group;install' |
 | Custom Event Mapping | `Custom Field` | <unset> | All| Pick events and enter the corresponding group tag and activity tag strings set up in Floodlight, separated by ';', e.g., you may pick event name 'Login', and enter 'conversion_group;login' |
-| Custom Variable Mapping | `Custom Field` | <unset> | All| Allows you to map your mParticle event attributes and user attributes to the corresponding custom variable setup in Floodlight. |
+| Custom Variable Mapping | `Custom Field` | <unset> | All| Allows you to map your mParticle event attributes and user attributes to the corresponding custom variable setup in Floodlight.  On web, given the kit component of the integration, any mParticle events not mapped to GMP variables will cause Floodlight to populate an alert in the console: _Event not mapped. Event not sent._ |
 
 
