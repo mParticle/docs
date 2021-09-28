@@ -489,6 +489,10 @@ Blocked data is dropped from your data stream before it is consumed by other mPa
 
 For debugging and reporting purposes, blocked data is shown in [Live Stream](/guides/platform-guide/live-stream) and the [Data Plan Report](#step-4-monitor-your-plan). Unless you create a [Quarantine Connection](#quarantine-connections), you won't be able to recover blocked data.
 
+### Does blocking data impact how mParticle counts MTU or events?
+
+Blocking data does not impact MTU or (ingested) event counts. 
+
 #### Quarantine Connections
 
 To prevent blocked data from being lost, you can opt for blocked data to be forwarded to an Output with a Quarantine Connection. To illustrate a typical workflow, assume you choose to configure an Amazon S3 bucket as your Quarantine Output.

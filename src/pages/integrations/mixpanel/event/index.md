@@ -270,9 +270,9 @@ addPushDeviceToken | set pushNotificationToken
 
 If a push notification token has been set using the mParticle SDK, mParticle will forward it to Mixpanel by setting the `$ios_devices` or `$android_devices` parameter accordingly.
 
-### EU Data Residency
+### EU Data Localization
 
-By default, mParticle sends data to Mixpanel's US Servers, but offers an EU Data Residency option for their [ingestion API](https://developer.mixpanel.com/reference/overview), which allows data to be sent and stored in the Mixpanel EU Data Center (see Mixpanel's docs on [Storing Your Data in the European Union](https://developer.mixpanel.com/docs/privacy-security#storing-your-data-in-the-european-union)). This EU Residency is not automatically set within a Mixpanel project. You can find steps on how to set EU Data Residency for your Mixpanel project within their [Data Residency in EU docs](https://help.mixpanel.com/hc/en-us/articles/360039135652-Data-Residency-in-EU). In mParticle, the [Mixpanel Target Server Configuration Setting](#configuration-settings) must be set to `EU Residency Server`.
+By default, mParticle sends data to Mixpanel's US Servers, but offers an EU Data Localization option for their [ingestion API](https://developer.mixpanel.com/reference/overview), which allows data to be sent and stored in the Mixpanel EU Data Center (see Mixpanel's documentation on [Storing Your Data in the European Union](https://developer.mixpanel.com/docs/privacy-security#storing-your-data-in-the-european-union)). This EU Residency is not automatically set within a Mixpanel project. You can find steps on how to set EU Data Localization for your Mixpanel project within [the Mixpanel documentation](https://help.mixpanel.com/hc/en-us/articles/360039135652-Data-Residency-in-EU). In mParticle, the [Mixpanel Target Server Configuration Setting](#configuration-settings) must be set to `EU Residency Server`.
 
 ## Configuration Settings
 
