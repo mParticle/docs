@@ -270,6 +270,10 @@ mParticle forwards the following event types:
 
 On iOS, Android and Full Stack these events are mapped to Optimizely's `track` API and will include the name of the event, custom attributes, user attributes, and your configured user ID. On Web, the events are pushed into the `window.optimizely` queue to be sent to the server.
 
+## Custom Mapping
+
+You can create [custom mappings](/guides/platform-guide/connections/#custom-mappings) from an event attribute to the Optimizely `value` attribute.
+
 ## Reserved Tags
 
 Optimizely supports several "reserved" event tags including "revenue" and "value". See the sections below for how mParticle maps to these tags.
