@@ -289,7 +289,7 @@ There are several fields only accepted by server-to-server Web connections. Thes
 
 | Facebook Field Name | Description | mParticle Field |
 | --- | --- | --- |
-| `event_source_url` | The browser URL where the event happened. | `Facebook.EventSourceUrl` [custom flag](/developers/server/json-reference/#custom_flags) |
+| `event_source_url` | The browser URL where the event happened. This flag is **required** if the Default Action Source is set to Website in the connection configuration. | `Facebook.EventSourceUrl` [custom flag](/developers/server/json-reference/#custom_flags) |
 | `opt_out` | A flag that indicates Facebook should not use this event for ads delivery optimization. | [CCPA Opt Out Status](https://docs.mparticle.com/guides/consent-management/) |
 | Custom Data Fields | Additional data used for ads delivery optimization. | [Custom attributes](https://docs.mparticle.com/developers/server/json-reference/#common-event-data-node-properties)* |
 
