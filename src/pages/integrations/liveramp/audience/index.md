@@ -2,7 +2,7 @@
 title: Audience
 ---
 
-[LiveRamp](https://liveramp.com/) LiveRamp gives companies and their partners the power to connect, control, and activate data to transform customer experiences and generate more valuable business outcomes. Our integration with LiveRamp enables you to push user audiences created in Audience Manager into your LiveRamp account to execute various marketing use cases.
+[LiveRamp](https://liveramp.com/) gives companies and their partners the power to connect, control, and activate data to transform customer experiences and generate more valuable business outcomes. Our integration with LiveRamp enables you to push user audiences created in Audience Manager into your LiveRamp account to execute various marketing use cases.
 
 ## Prerequisites
 
