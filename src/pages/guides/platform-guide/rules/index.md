@@ -128,7 +128,7 @@ Assign this role to each Lambda function you plan to deploy as an mParticle Rule
 
 ## Creating a Rule in the Dashboard
 
-1. Create a Rule by navigating to **Setup > Rules** 
+1. Create a Rule by navigating to **Data Master > Rules** 
 2. Click **New Rule**.
 
 ![Rules](/images/Platform-Update-Rules-Overview-042019.png)
