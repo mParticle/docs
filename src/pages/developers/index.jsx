@@ -174,8 +174,8 @@ const TILES = [
         route: 'cli',
     },
     {
-        title: 'Data Localization',
-        content: 'Process your data in a non-US region.',
+        title: 'Data Hosting Locations',
+        content: 'mParticle Organizations are hosted in localized regions around the world. This impacts the login URL for the dashboard, API Endpoints, and other services. ',
         route: 'data-localization/',
     },
     {
