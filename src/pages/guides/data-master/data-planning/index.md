@@ -508,8 +508,12 @@ Learn more about how to use quarantined data [here](/guides/data-master/blocked-
 
 ## Linting (beta)
 
+<aside>Linting is in Beta. Submit your feedback <a href="https://docs.google.com/forms/d/1KAJv3yTSG7Ue5CjCU7bHDwemA6t4yUpDGxO2mCGqgQw/prefill">here</a>.</aside>
+
 We've developed tools for you to be able to lint your Swift, Kotlin/Java, and JavaScript/TypeScript code. For more details, click [here](/developers/linting/).
 
 ## Snippets (beta)
+
+<aside>Snippets is in Beta. Submit your feedback <a href="https://docs.google.com/forms/d/1KAJv3yTSG7Ue5CjCU7bHDwemA6t4yUpDGxO2mCGqgQw/prefill">here</a>.</aside>
 
 We've developed a tool for you to easily create snippets of code that conform to your data plan. To use this tool, click [here](https://mparticle.github.io/data-planning-snippets/) and for more detailed documentation [check out the Github repo](https://github.com/mParticle/data-planning-snippets).

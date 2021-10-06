@@ -3,6 +3,8 @@ title: Data Planning API
 ---
 ## Overview
 
+<aside>The Data Planning API is in Beta. Submit your feedback <a href="https://docs.google.com/forms/d/1KAJv3yTSG7Ue5CjCU7bHDwemA6t4yUpDGxO2mCGqgQw/prefill">here</a>.</aside>
+
 [Data Master](/guides/data-master/introduction/) is underpinned by the **Data Planning API**. This guide covers the underlying data model and describes how you can use Data Master programmatically via an HTTP API. Some example use cases you can achieve with the Data Planning API are:
 
 - Store your Data Plans in your source code, and use your own SDLC and approval processes to define your data model
