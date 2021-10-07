@@ -28,3 +28,9 @@ title: Audience
 | ---|---|---|---
 | Tagging Hash | `string` | | Static client tagging hash identifier which you can receive from your RTB House Customer Service Manager. |
 | Send Email | `boolean` | False | If enabled, email user identities will be forwarded. |
+
+## Connection Settings
+
+Setting Name | Data Type | Default Value | Description
+|---|---|---|---
+Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection.
