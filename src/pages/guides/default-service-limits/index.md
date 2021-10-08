@@ -71,5 +71,6 @@ mParticle can recieve data across many channels, and limits are not always enfor
 ## Data Plans
 
 * Similar to our event limit for workspaces, data plans support up to 1,000 data points.
+* You can upload data plan JSON files smaller than 10 MB.
 * Managing plans with more than 400 data points in the UI becomes unwieldy. Manage plans outside of the UI for larger plans. For more information, see the [Data Planning API guide](/developers/dataplanning-api).
 * You can block data only for unplanned violations: events and attributes with names that diverge from the schema defined in a data plan.
