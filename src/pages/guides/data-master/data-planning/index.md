@@ -121,6 +121,8 @@ Data Plan Builder is a Google Sheet add-on and template that helps you create a 
 
 ![image of main page of Data Plan Builder](/images/dataplanning/data-plan-builder.png)
 
+#### Industry Templates
+
 Choose from one of the industry-specific templates or the generic template.
 
 * [Generic](https://docs.google.com/spreadsheets/d/1b_iHA4uYX6sY6yvGcrT7WWr3G5DSRHN9gi1yRHB4fNg/)
