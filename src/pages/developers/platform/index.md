@@ -80,9 +80,8 @@ Subsequent updates to the API that introduce breaking changes will be published 
 
 ### Specifying your Account ID
 
-All API calls require you to pass AccountId as a querystring parameter when making the request, with the exception of a GET /accounts which lists all accounts. Forgetting to add the AccountId parameter when required will result in a 401 Unauthorized response.
-
-If you are unsure what your Account ID is, you can make a GET request to `https://api.mparticle.com/v1/accounts` .  This will return a list of Accounts within your Organization, and from there you can choose an Account ID to work with.  All subsequent entities that you work with will be within the scope of the chosen Account ID.  Attempting to access or modify entities outside of the specified Account ID scope will return 404 - Not Found.
+All API calls require you to pass AccountId as a querystring parameter when making the request. Forgetting to add the AccountId parameter when required will result in a 401 Unauthorized response.
+All subsequent entities that you work with will be within the scope of the chosen Account ID.  Attempting to access or modify entities outside of the specified Account ID scope will return 404 - Not Found.
 
 <aside class="warning">Please note that all subsequent examples include ?accountId=1. This accountId will not work for you and must be changed to your account number.</aside>
 
@@ -169,7 +168,7 @@ curl \
 
 #### Get All Accounts
 
-`GET /accounts`
+`GET /accounts?accountId=1`
 
 
 ~~~bash
@@ -185,11 +184,18 @@ curl \
 {
   "data": [
     {
-      "name": "My Account",
+      "name": "My Account 1",
       "last_modified_on": "2014-11-14T22:46:38.673",
       "data_type": "account",
       "id": 1,
       "created_on": "2013-07-23T18:49:38.547"
+    },
+    {
+      "name": "My Account 2",
+      "last_modified_on": "2014-11-14T22:46:38.673",
+      "data_type": "account",
+      "id": 2,
+      "created_on": "2013-07-25T18:49:38.547"
     }
   ],
   "dataType": "account",
