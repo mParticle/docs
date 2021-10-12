@@ -5,8 +5,6 @@ seoTitle: mParticle Live Stream documentation
 seoDescription: Learn how to use data planning to manage the extent and shape of your data collection.
 ---
 
-## Live Stream
-
 Live Stream gives you a real time view of data coming in and out of mParticle. It allows you to: 
 
 - Review data sent into the Events API to ensure correct SDK and/or server-to-server implementation
