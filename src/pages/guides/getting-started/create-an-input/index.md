@@ -20,7 +20,7 @@ The tutorials in this guide follow the process of setting up mParticle in the mP
 Later on in this guide, you'll learn about sending data from mParticle to some of our many integration partners. As examples, the tutorials use services which are simple to set up and verify, and which offer a free account tier, so that you will be able follow the examples exactly if you wish. However, mParticle is agnostic about which integrations you choose and you can follow the same basic steps from this guide to implement any of our integrations.
 
 
-## Inputs and outputs
+## Inputs and Outputs
 
 One of the key functions of mParticle is to receive your data from wherever it originates, and send it wherever it needs to go. The sources of your data are called "inputs" and the places it needs to go are "outputs". 
 
@@ -37,7 +37,7 @@ Examples of an output can include:
 
 To get started with mParticle, you need some data, which means you need to create at least one input.
 
-## Create access credentials
+## Create Access Credentials
 
 The first thing you need to do is to to create a set of access credentials that will allow a client-side SDK or a server-side application to forward data to this workspace. 
 
@@ -53,11 +53,20 @@ The first thing you need to do is to to create a set of access credentials that 
 4. Copy and save the generated Key and Secret.
    ![](/images/gs-copy-keys.png)
 
-## Install and initialize the mParticle SDK
+## About Access Credentials
 
-You’ll probably need a developer to help you with this part. See the Getting Started guides for the [iOS](/developers/sdk/ios/getting-started/), [Android](/developers/sdk/android/getting-started/) or [Javascript](/developers/sdk/web/getting-started/) SDKs to get set up before continuing.
+mParticle labels the credentials you create for an integration the key and secret, but they are not exactly like an API key and secret, since you embed these credentials in the app. However, this is not the security risk that exposing API credentials would be:
 
-## Verify: Look for incoming data in the Live Stream
+* The client-side key and secret can't read data from the system.
+* You can [block bad data](data-master/data-planning/#blocking-bad-data) to stop any traffic that doesn't match the data you expect as defined in your schema.
+
+Most anonymous client-server architectures, including Adobe, Braze, Firebase, Google Analytics, and Segment don't have per-session or per-instance credentials, nor does mParticle.
+
+## Install and Initialize an mParticle SDK
+
+You need a developer to help you install and initialize an SDK. See the Getting Started guides for the [iOS](/developers/sdk/ios/getting-started/), [Android](/developers/sdk/android/getting-started/) or [Javascript](/developers/sdk/web/getting-started/) SDKs to get set up before continuing.
+
+## Verify: Look for Incoming Data in the Live Stream
 
 1. Navigate to **Activity > Live Stream** in the left column. The Live Stream lets you inspect all incoming data from your development environments. It's an easy way to check that you've correctly initialized mParticle in your app. When you first open up the Live Stream, it will be empty, as we haven't yet started sending data.
    ![](/images/gs-empty-livestream.png)
@@ -71,6 +80,6 @@ If you don't see data appearing in the Live Stream within the first few minutes 
 * Check that you have copied your Key and Secret correctly
 * Check that you have properly included the mParticle SDK in your project and it is correctly initialized. The necessary steps will differ depending on the platform. Check our [iOS](/developers/sdk/ios/getting-started/#), [Android](/developers/sdk/android/getting-started/) and [Web](/developers/sdk/web/getting-started/) docs for more.
 
-## Next steps
+## Next Steps
 
 Congratulations, you've established a working data input. Now it's time to [start capturing some data](/guides/getting-started/start-capturing-data).
