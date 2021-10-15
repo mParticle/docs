@@ -1575,7 +1575,7 @@ A DataPoint represents a unique data item that has been detected by our system. 
 
 `GET /apps/1/datapoints`
 
-Retrieves a list of DataPoints that exist for an App.
+Retrieves a list of DataPoints that exist for an App. The 1 after /apps/ is a placeholder for the Application Family ID. 
 
 ~~~bash
 curl \
