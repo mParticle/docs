@@ -229,7 +229,7 @@ When sending data to mParticle for file based integrations (Salesforce, Custom C
 
 The following features require mParticle Pod-dependent changes for data flowing out of mParticle:
 
-* [AWS Resions](#aws-regions)
+* [AWS Regions](#aws-regions)
 * [Amazon S3 Bucket](#amazon-s3-bucket)
 * [IP Whitelisting](#ip-whitelisting)
 
