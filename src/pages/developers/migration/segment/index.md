@@ -10,29 +10,28 @@ This guide is designed to help you migrate from Segment to mParticle. At a high 
 
 ## Server-Side Integration
 
-Below are key differences in the way Segment is setup S2S as compared to mParticle, underneath key differences are more specific details throughout the integration implementation.
+Both Segment and mParticle support JSON-based server-side APIs, with some high-level differences:
 
 | Component      | Segment | mParticle|
 | ----------- | ----------- | ----------- |
 | S2S Endpoints   | Separate `identify`, `track`, and `page` endpoints  | A single `/events` and `/bulkevents` endpoint which combines these concepts |
 | S2S Authentication   | Basic authentication with "write key" and no password     | Basic authentication with API key and secret as username and password        |
 
-Use the API mapping snippets below to map the concepts and APIs you're using today to the same concepts and APIs within mParticle.
+Reference the JSON snippets later in this guide to map your Segment implementation to mParticle's analagous APIs.
 
 <aside><a href="/developers/server/http/">Navigate to the mParticle S2S documentation</a> for a complete server-side implementation guide.</aside>
-
 
 
 ### Batching Data
 
 mParticle's server-side API supports two core endpoints:
 
-- `https://s2s.mparticle.com/v2/events`: This receives an array of events, attributes, and identities for a single user
+- `https://s2s.mparticle.com/v2/events`: This receives an array of events, attributes, and identities for a single user.
 - `https://s2s.mparticle.com/v2/bulkevents`: This supports an array of the same payload as above, so that you can transmit many users at one.
 
 ### Server-Side SDK Support
 
-If you prefer to use a library rather than direct JSON implementation, mParticle has several open-source SDKs compatible with the server-side API:
+If you prefer to use a library rather than a direct JSON implementation, mParticle has several open-source SDKs built for the server-side API:
 
 - [Java](https://github.com/mParticle/mparticle-java-events-sdk)
 - [Python](https://github.com/mParticle/mparticle-python-sdk)
@@ -43,11 +42,11 @@ If you prefer to use a library rather than direct JSON implementation, mParticle
 
 ### Backfilling Data
 
-If you would like to backfill your data into the mParticle Identiy, Profile, and Audience systems, [you can use the "historical" endpoint](/developers/server/http/#v2bulkeventshistorical).
+If you would like to backfill your data into the mParticle Identity, Profile, and Audience systems, [you can use the "historical" endpoint](/developers/server/http/#v2bulkeventshistorical).
 
 ## Client-Side Integration
 
-mParticle offers open-source libraries for many platforms and supports the most popular package managers:
+mParticle offers open-source SDKs for many client-side platforms and frameworks:
 
 - [iOS Quickstart Guide](/developers/sdk/ios/getting-started/)
 - [Android Quickstart Guide](/developers/sdk/android/getting-started/)
@@ -58,7 +57,7 @@ Use the guide below to map your Segment SDK implementation to an mParticle SDKs 
 
 ### iOS SDK Installation
 
-Reference the table below update your iOS app dependency based on your preferred package manager.
+Reference the table below to update your iOS app build based on your preferred package manager.
 
 | Package Manager      | Segment | mParticle|
 | ----------- | ----------- | ----------- |
@@ -68,7 +67,7 @@ Reference the table below update your iOS app dependency based on your preferred
 
 ### iOS SDK Initialization
 
-Both Segment and mParticle are expected to be initializes on app startup with your API credentials.
+Both Segment and mParticle are expected to be initialized on app startup with your API credentials.
 
 #### Segment
 
@@ -120,7 +119,7 @@ dependencies {
 
 ### Android SDK Initialization
 
-Both Segment and mParticle are expected to be initializes on app startup with your API credentials.
+Just as with Segment, you can quickly initialize the mParticle SDK on app startup with your API credentials.
 
 #### Segment
 
@@ -151,6 +150,8 @@ MParticle.start(options);
 :::
 
 ## Identify
+
+Segment and mParticle enable you to associate data with users and their devices via similar "identify" concepts.
 
 ### Segment
 
@@ -197,7 +198,7 @@ Analytics.shared()
 
 ### mParticle
 
-mParticle supports associating users with identifiers as well as freeform attributes. In addition to `identify`, mParticle also supports `login`, `logout`, and `modify`. Reference the code below for a basic migration guide, and also navigate to the [mParticle Identity Guide](/guides/idsync/introduction) to learn more.
+In addition to `identify`, mParticle also supports `login`, `logout`, and `modify`. Reference the code below for a basic migration guide, and navigate to the [mParticle Identity Guide](/guides/idsync/introduction) to learn more.
 
 HTTP Endpoint: `POST https://s2s.mparticle.com/v2/events`
 
@@ -263,6 +264,8 @@ request.customerId = @"019mr8mf4r";
 
 ## Track
 
+Whereas Segment supports a single "track" call and event structure, mParticle has both a generic "Custom Event" as well as several pre-defined structures, which allows mParticle more deterministically map data to downstream integrations.
+
 HTTP Endpoint: `POST https://api.segment.io/v1/track`
 
 ### Segment
@@ -311,8 +314,7 @@ Analytics.shared()
 
 HTTP Endpoint: `POST https://s2s.mparticle.com/v2/events`
 
-
-mParticle surfaces both a generic "Custom Event" API as well as an "Commerce Event" API. Depending on the type of event that you're migrating from Segment, you may choose to use a Custom Event or a Commerce Event:
+The examples below include two core event types -  "Custom Event" API as well as an "Commerce Event". Depending on the type of event that you're migrating from your Segment `track` call, you may choose to use a Custom Event or a Commerce Event:
 
 :::code-selector-block
 ```json
@@ -481,6 +483,8 @@ event.transactionAttributes = attributes;
 :::
 
 ## Page
+
+You can migrate your `page` calls to the mParticle Screen View event type.
 
 ### Segment
 
