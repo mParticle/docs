@@ -2,32 +2,35 @@
 title: Migrating from Segment
 ---
 
-This guide is designed to help you migrate from Segment to mParticle. At a high level both mParticle and Segment support:
+This guide is designed to help you migrate from Segment to mParticle. At a high level, both mParticle and Segment support:
 
-- User and event data ingestion via server-side API
-- Client SDKs across all popular platforms (eg iOS, Android, Web, etc)
-- Additionally, the mParticle APIs and event models are similar to Segment's with many overlapping concepts and expectations, making for a straightforward transition
+- User and event data ingestion via server-side API.
+- Client SDKs across all popular platforms (eg iOS, Android, Web, etc).
+
+Additionally, the mParticle APIs and event models are similar to Segment's with many overlapping concepts and expectations, making for a straightforward migration.
+
+<aside>The endpoints listed for mParticle are for the most common pod, US1. If your mParticle account manager has indicated that you are located on a different pod, see <a href="/developers/data-localization">Data Hosting Locations</a> for the corresponding endpoints.</aside>
 
 ## Server-Side Integration
 
-Both Segment and mParticle support JSON-based server-side APIs, with some high-level differences:
+Both Segment and mParticle support JSON-based server-side (S2S) APIs, with some high-level differences:
 
-| Component      | Segment | mParticle|
+| Component      | <div style="width:290px">Segment</div> | mParticle|
 | ----------- | ----------- | ----------- |
 | S2S Endpoints   | Separate `identify`, `track`, and `page` endpoints  | A single `/events` and `/bulkevents` endpoint which combines these concepts |
 | S2S Authentication   | Basic authentication with "write key" and no password     | Basic authentication with API key and secret as username and password        |
 
-Reference the JSON snippets later in this guide to map your Segment implementation to mParticle's analagous APIs.
+Use the JSON snippets throughout this guide to map your Segment implementation to mParticle's analagous APIs.
 
-<aside><a href="/developers/server/http/">Navigate to the mParticle S2S documentation</a> for a complete server-side implementation guide.</aside>
+<aside>See <a href="/developers/server/http/">the mParticle S2S documentation</a> for a complete server-side implementation guide.</aside>
 
 
 ### Batching Data
 
-mParticle's server-side API supports two core endpoints:
+The mParticle [server-side API](/developers/server/http) supports two core endpoints:
 
-- `https://s2s.mparticle.com/v2/events`: This receives an array of events, attributes, and identities for a single user.
-- `https://s2s.mparticle.com/v2/bulkevents`: This supports an array of the same payload as above, so that you can transmit many users at one.
+- `https://s2s.mparticle.com/v2/events`: This endpoint receives an array of events, attributes, and identities for a single user.
+- `https://s2s.mparticle.com/v2/bulkevents`: This endpoint receives an array of the same payload as above, so that you can transmit many users at one.
 
 ### Server-Side SDK Support
 
@@ -42,7 +45,7 @@ If you prefer to use a library rather than a direct JSON implementation, mPartic
 
 ### Backfilling Data
 
-If you would like to backfill your data into the mParticle Identity, Profile, and Audience systems, [you can use the "historical" endpoint](/developers/server/http/#v2bulkeventshistorical).
+If you would like to backfill your data into the mParticle Identity, Profile, and Audience systems, [use the historical endpoint](/developers/server/http/#v2bulkeventshistorical).
 
 ## Client-Side Integration
 
@@ -53,11 +56,11 @@ mParticle offers open-source SDKs for many client-side platforms and frameworks:
 - [Web Quickstart Guide](/developers/sdk/web/getting-started/)
 - [Additional Platforms](/developers/)
 
-Use the guide below to map your Segment SDK implementation to an mParticle SDKs implementation.
+Use the following iOS and Android sections to map your Segment SDK implementation to mParticle.
 
 ### iOS SDK Installation
 
-Reference the table below to update your iOS app build based on your preferred package manager.
+To update your iOS app build, update your preferred package manager.
 
 | Package Manager      | Segment | mParticle|
 | ----------- | ----------- | ----------- |
@@ -67,7 +70,7 @@ Reference the table below to update your iOS app build based on your preferred p
 
 ### iOS SDK Initialization
 
-Both Segment and mParticle are expected to be initialized on app startup with your API credentials.
+Both Segment and mParticle are initialized on app startup with your API credentials.
 
 #### Segment
 
@@ -102,10 +105,9 @@ MParticleOptions *options = [MParticleOptions optionsWithKey:@"APP KEY"
 ```
 :::
 
-
 ### Android SDK Installation
 
-Both Segment and mParticle publish to Maven Central. Reference the snippet below to update your Gradle build to use mParticle's SDK:
+Both Segment and mParticle publish to Maven Central. The following snippet shows how to update your Gradle build to use mParticle's SDK:
 
 ```groovy
 dependencies {
@@ -122,7 +124,6 @@ dependencies {
 Just as with Segment, you can quickly initialize the mParticle SDK on app startup with your API credentials.
 
 #### Segment
-
 
 ```java
 Analytics analytics = new Analytics.Builder(context, YOUR_WRITE_KEY)
@@ -151,7 +152,7 @@ MParticle.start(options);
 
 ## Identify
 
-Segment and mParticle enable you to associate data with users and their devices via similar "identify" concepts.
+Segment and mParticle enable you to associate data with users and their devices via similar identify concepts.
 
 ### Segment
 
@@ -201,7 +202,6 @@ Analytics.shared()
 In addition to `identify`, mParticle also supports `login`, `logout`, and `modify`. Reference the code below for a basic migration guide, and navigate to the [mParticle Identity Guide](/guides/idsync/introduction) to learn more.
 
 HTTP Endpoint: `POST https://s2s.mparticle.com/v2/events`
-
 
 :::code-selector-block
 ```json
@@ -264,11 +264,11 @@ request.customerId = @"019mr8mf4r";
 
 ## Track
 
-Whereas Segment supports a single "track" call and event structure, mParticle has both a generic "Custom Event" as well as several pre-defined structures, which allows mParticle more deterministically map data to downstream integrations.
-
-HTTP Endpoint: `POST https://api.segment.io/v1/track`
+Segment supports a single `track` call that accepts only one event structure, while mParticle has both a generic Custom Event as well as several pre-defined structures for different domains such as Commerce. These features allows mParticle to more deterministically map data to downstream integrations.
 
 ### Segment
+
+HTTP Endpoint: `POST https://api.segment.io/v1/track`
 
 :::code-selector-block
 ```json
@@ -314,7 +314,7 @@ Analytics.shared()
 
 HTTP Endpoint: `POST https://s2s.mparticle.com/v2/events`
 
-The examples below include two core event types -  "Custom Event" API as well as an "Commerce Event". Depending on the type of event that you're migrating from your Segment `track` call, you may choose to use a Custom Event or a Commerce Event:
+The following examples illustrate two core event types:  Custom Event and Commerce Event. Depending on the type of event that you're migrating from your Segment `track` call, use either a Custom Event or a Commerce Event:
 
 :::code-selector-block
 ```json
@@ -484,9 +484,11 @@ event.transactionAttributes = attributes;
 
 ## Page
 
-You can migrate your `page` calls to the mParticle Screen View event type.
+You can migrate Segment `page` calls to the mParticle `screen_view` event type.
 
 ### Segment
+
+HTTP Endpoint: `POST https://api.segment.io/v1/page`
 
 :::code-selector-block
 ```json
@@ -526,6 +528,8 @@ Analytics.shared().screen("Photo Feed", properties: ["Feed Type": "private"])
 :::
 
 ### mParticle
+
+HTTP Endpoint: `POST https://s2s.mparticle.com/v2/events`
 
 :::code-selector-block
 ```json
@@ -586,4 +590,4 @@ NSDictionary *screenInfo = @{@"rating":@"5",
 
 ## Next Steps
 
-The API mapping guide above is designed to help you assess a basic migration. Both platforms have many APIs and capabilities - please reach out to support@mparticle.com if you have specific questions about your migration.
+The API mapping guide above is designed to help you assess a basic migration. Both platforms have many APIs and capabilities, so reach out to support@mparticle.com if you have specific questions about your migration.
