@@ -375,7 +375,8 @@ P7f3LwgHVcDt8/26hziIGx56oVWGonkt6od7AY1VQBLsnIeh0K/z55GDmlrB7rbfd05RGUqqgjw4tekA
     "subject_request_id":"372fcd8b-d723-452e-ac60-36bd17372321",
     "request_status":"pending",
     "api_version":"2.0",
-    "results_url":null
+    "results_url":null,
+    "extensions": null
 }
 ~~~
 

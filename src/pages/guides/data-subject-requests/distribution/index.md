@@ -103,9 +103,18 @@ Example Response Body
 }
 ~~~
 
+The `extensions` element is a collection of information on the current state of sending the distribution request per partner.  The fields are:
+
+| Field Name| Data Type	| Description |
+| --- | ---	| --- |
+| `domain` | string | The domain of the partner.
+| `name` | string | The name entered when configuring the DSR configuration for the partner.
+| `status` | string | The current status of the distribution to the partner - see [Status Definitions](/guides/data-subject-requests/distribution/#check-distribution-status).
+| `status_message` | string |  Additional details for the `skipped` and `failed` status.
+
 ## DSR Distribution Status Definitions
 
-The `status_message` contains additional details for `skipped` and `failed` status.
+The `status` field can be one of the following:
 
 | Status | Description |
 | :--- | :--- |
@@ -145,4 +154,44 @@ If you have enabled DSR distributions, additional identity validation is perform
 | `code` | integer | HTTP status code
 | `message` | string | Detailed validation message 
 | `errors` | collection | A collection of validation errors containing a domain, reason and message. |
+
+## Callbacks
+
+General callback info can be found in the [Data Subject Request API](/developers/dsr-api#callbacks).  To support distribution, an `extensions` element will be included.  The format of the `extensions` element is the same as in the [distribution status](/guides/data-subject-requests/distribution/#check-distribution-status).
+
+### Example Callback Request
+~~~http
+POST /opendsr/callbacks HTTP/1.1
+Host: opendsr.mparticle.com
+Content Type: application/json
+X-OpenDSR-Processor-Domain: opendsr.mparticle.com
+X-OpenDSR-Signature:
+P7f3LwgHVcDt8/26hziIGx56oVWGonkt6od7AY1VQBLsnIeh0K/z55GDmlrB7rbfd05RGUqqgjw4tekA3gjmABSwzEUFNAuAE2KNgNHcxzxzHBb9b0Nc/PBUAVKXHgY2Q6c7W0XKMOF5dLO67HUimtl2lJPZ10Y26uEd1ePkcUc5B/4likkd+kQQq7X6S6+GD20S1211NQ5+Xqk1WG2yxUryTHhovEblAuirOI4S/q03k5cmy0r0RuGzku0gNF5lMHJC6uRNXXisldcFpPJwTCGzJBbvkGCBmKPKfKV7cETFEayygi6GshimVnnQOsa4owvkWvze3ACd5DcNCfPrYw==
+{
+    "controller_id":"4308",
+    "expected_completion_time":"2018-05-31T16:27:28.679094",
+    "subject_request_id":"372fcd8b-d723-452e-ac60-36bd17372321",
+    "request_status":"pending",
+    "api_version":"2.0",
+    "results_url":null,
+    "extensions": {
+        "opendsr.mparticle.com": {
+            "distribution_status": [
+                {
+                    "domain": "kochava.com",
+                    "name": "Kochava DSR Federation",
+                    "status": "pending",
+                    "status_message": null
+                },
+                {
+                    "domain": "blueshift.com",
+                    "name": "Blueshift DSR Federation",
+                    "status": "sent",
+                    "status_message": null
+                }
+            ]
+        }
+    }
+}
+~~~
 
