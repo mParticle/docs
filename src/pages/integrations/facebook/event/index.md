@@ -203,6 +203,8 @@ If a value provided for fb_content_type is not in the above list, the value sent
 
 ### Product Events
 
+<aside>You need to turn on sending Purchase Product data through the Facebook Connection Settings modal in the mParticle app to forward product events.</aside>
+
 mParticle forwards the mParticle product events Added to Cart and Added to Wishlist to Facebook using Facebook's corresponding pre-defined event names.  mParticle Product Views are forwarded to Facebook as the pre-defined event "Viewed Content".  The unit price, currency, product category, and SKU are passed to Facebook as well.  See below for a sample Added to Cart event call using the Facebook SDK, and an equivalent call using the mParticle SDK.
 
 :::code-selector-block
