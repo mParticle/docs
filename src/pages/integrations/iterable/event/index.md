@@ -98,10 +98,10 @@ var transactionAttributes = {
     Tax: 30
 };
 
-// 3. Optional event properties
-var customAttributes = { // Iterable campaignId and templateId values can be passed in customAttributes
+// 3. Optional event properties can include Iterable's campaign and template ID values
+var customAttributes = {
     "sale": true,
-    "membershipTier": "bronze",
+    "membershipTier": "Gold",
     "campaignId": 314159,
     "templateId": 265358
 };
