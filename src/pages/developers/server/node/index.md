@@ -110,9 +110,9 @@ batch.events = [session_start, session_end];
 
 ### Consent State
 
-To conform to the ever growing global regulations on data privacy, mParticle supports a [Consent Management](https://docs.mparticle.com/guides/consent-management/) configuation.
+To conform to the ever growing global regulations on data privacy, mParticle supports [Data Privacy Controls](/guides/data-privacy-controls/).
 
-This is initially configured in the dashboard and is attached via an batch's `consent_state`.
+This is initially configured in the dashboard and is attached via a batch's `consent_state`.
 
 #### CCPA
 

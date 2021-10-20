@@ -91,7 +91,7 @@ Like the Event Filter, Forwarding Rules let you filter out events from being sen
 
 * **Attribution:** Attribution rules filter events according to Publisher information. You can choose to exclude events attributed to a specific publisher, or forward only events attributed to that publisher.
 
-* **Consent**: Consent rules allow you to filter events based on whether a user has given consent to a particular data collection purpose. See our [Consent Management](/guides/consent-management/) guide for more information about consent.
+* **Consent**: [Data privacy controls](/guides/data-privacy-controls/) allow you to filter events based on whether a user has given consent to a particular data collection purpose.
 
 * **ID Sync**: ID Sync rules allow you to only forward data from logged-in users. A logged in user is one with at least one [Login ID](/guides/idsync/components#login-ids), as defined by your Identity Strategy.
 

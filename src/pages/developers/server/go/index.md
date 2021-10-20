@@ -127,9 +127,9 @@ sessionEndEvent.Data.SessionDurationMS = int32(time.Now().Unix())
 
 ### Consent State
 
-To conform to the ever growing global regulations on data privacy, mParticle supports a [Consent Management](https://docs.mparticle.com/guides/consent-management/) configuation.
+To conform to the ever growing global regulations on data privacy, mParticle provides [Data Privacy Controls](/guides/data-privacy-controls/).
 
-This is initially configured in the dashboard and is attached via an batch's `consent_state`.
+Data privacy controls are initially configured in the dashboard and are attached via a batch's `consent_state`.
 
 #### GDPR
 

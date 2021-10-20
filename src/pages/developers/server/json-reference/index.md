@@ -1074,7 +1074,7 @@ In order to find out a given integration's ID, you can check the corresponding `
 
 ## `consent_state`
 
-Used to communicate the GDPR [consent state](/guides/consent-management/#consent-state-properties) for the user. For GDPR, you must define the purposes (shown here as `location_collection` and `parental`) in the mParticle UI. For CCPA, only the below purpose is allowed and it does not need to be defined. Pass `consented: true` to register a users opt-out to CCPA data sale.
+Used to communicate the GDPR [consent state](/guides/data-privacy-controls/#consent-state-properties) for the user. For GDPR, you must define the purposes (shown here as `location_collection` and `parental`) in the mParticle UI. For CCPA, only the below purpose is allowed and it does not need to be defined. Pass `consented: true` to register a users opt-out to CCPA data sale.
 
 <aside className='warning'>
 	You must use platform (iOS, Android, etc) or Custom Feed credentials to update user Consent State. Partner feeds are not supported.
@@ -1344,7 +1344,7 @@ Some notable differences include:
 * Outbound JSON will include an `event_start_unixtime_ms` field. In almost all cases this will be the same as the main event `timestamp_unixtime_ms` field. It exists to support timed event use cases.
 * mParticle adds a top-level batch timestamp -- `timestamp_unixtime_ms` -- representing the time the batch was received by mParticle. This field is created by mParticle and should not be set manually when sending data via the Events API.
 * Some fields are set automatically by one or more native SDKs. For example, the Android SDK automatically sets an `activity_type` of `activity_started` or `activity_stopped` on Screen View events. This field is used by some event integrations to determine how to forward the event.
-* The `system_notifications` field is currently used by mParticle to forward [changes in consent state](/guides/consent-management/#forwarding-consent-state-to-partners) to some partners. In outbound JSON this field will be present but empty unless you are instrumenting Consent Management.
+* The `system_notifications` field is currently used by mParticle to forward [changes in consent state](/guides/data-privacy-controls/#forwarding-consent-state-to-partners) to some partners. In outbound JSON this field is present but empty unless you are instrumenting data privacy controls.
 * mParticle may add a top-level batch `unique_id ` field if you enter a value for the Unique ID connection setting.
 
 ### Outgoing User Identities

@@ -141,9 +141,9 @@ background.timestamp_unixtime_ms = example_timestamp
 
 ### Consent State
 
-To conform to the ever growing global regulations on data privacy, mParticle supports a [Consent Management](https://docs.mparticle.com/guides/consent-management/) configuation.
+To conform to the ever growing global regulations on data privacy, mParticle provides [Data Privacy Controls](/guides/data-privacy-controls/).
 
-This is initially configured in the dashboard and is attached via an batch's `consent_state`.
+Data privacy is configured in the dashboard and is attached via a batch's `consent_state`.
 
 #### CCPA
 

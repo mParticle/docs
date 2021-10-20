@@ -42,7 +42,7 @@ Personalization of Customer Experience (CX) is a top priority for marketers. Per
 
 ## Privacy Compliance
 
-The ability to provide evidence that demonstrates that your organization is in regulatory compliance is important to every Chief Privacy Officer and corporate information security executive. GDPR and CCPA consent management and traceability are core to mParticle's user profile data policies. In addition, the IDSync Search capability can verify that a matching User Profile exists. It can also be used after a GDPR or CCPA User Profile Delete Request has been processed, to validate that the process has completed successfully and thereby validate compliance.
+The ability to provide evidence that demonstrates that your organization is in regulatory compliance is important to every Chief Privacy Officer and corporate information security executive. GDPR and CCPA data privacy controls and traceability are core to mParticle's user profile data policies. In addition, the IDSync Search capability can verify that a matching User Profile exists. It can also be used after a GDPR or CCPA User Profile Delete Request has been processed, to validate that the process has completed successfully and thereby validate compliance.
 
 ## Mutable Identities
 

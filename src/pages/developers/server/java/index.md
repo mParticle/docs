@@ -148,8 +148,3 @@ Call<Void> singleResult = api.uploadEvents(batch);
 Response<Void> singleResponse = singleResult.execute();
 System.out.println("Returned code: " + singleResponse.code());
 ```
-
-
-
-
-

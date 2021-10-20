@@ -1,13 +1,15 @@
 ---
-title: Consent Management
+title: Data Privacy Controls
 order: 3.5
 ---
 
-mParticle's Consent Management framework is designed to give brands the tools they need to manage their customer or visitor consent and privacy obligations under the European Union's General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
+Data Privacy Controls give brands the tools they need to manage their customer or visitor consent and privacy obligations under the European Union's General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
 
-Before instrumenting Consent State in your app, be sure to read our [GDPR Consent Management Guide](/guides/consent-management).
+Before instrumenting consent state in your app, be sure to read [Data Privacy Controls](/guides/data-privacy-controls).
 
-Consent state can be logged in the SDK using the Consent State API. Once a consent state is set, it cannot be modified. To change the consent state for a given purpose, you can either remove it, or replace it with a new complete consent state object.
+Consent state can be logged in the SDK using the [Events API](/server/json-reference/#consent_state).
+
+Once a consent state is set, it can't be modified. To change the consent state for a given purpose, you can either remove it, or replace it with a new complete consent state object.
 ### Setting GDPR Consent
 
 ~~~javascript

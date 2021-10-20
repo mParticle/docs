@@ -37,7 +37,7 @@ One of the core benefits of mParticle is the ability to capture data once and fo
 ## Manage your GDPR Obligations
 
 If you have users in the European Union, you may have obligations as a Data Controller under the General Data Processing Regulation. mParticle provides tools, available as premium features, to help you manage two aspects of GDPR compliance:
-* [User Consent](/guides/consent-management/)
+* [User Consent](/guides/data-privacy-controls/)
 * [Data Subject Requests](/guides/data-subject-requests/)
 
 ## Know your limits

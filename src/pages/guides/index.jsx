@@ -95,8 +95,8 @@ const Links = [
         }],
     },
     {
-        route: 'consent-management',
-        title: 'Consent Management',
+        route: 'data-privacy-controls',
+        title: 'Data Privacy Controls',
         content: 'Collect and leverage consumer consent and opt-outs towards compliance with GDPR and CCPA.',
         links: [{}],
     },

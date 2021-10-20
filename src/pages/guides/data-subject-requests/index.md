@@ -5,9 +5,9 @@ Both the General Data Protection Regulation (GDPR) and the California Consumer P
 
 This page does not provide legal advice, only a description of how to use mParticle's compliance-related features. The information provided here is solely for understanding and using mParticle features and is not intended to be legally compliant or specific enough for compliance.
 
-This document adopts the GDPR-style language and terminology for simplicity.
+This document uses GDPR language and terminology for simplicity.
 
-mParticle has a distinct set of functionality to help you comply with the compliance requirements around consent and data sale opt out, read more here: [Consent Management](/guides/consent-management).
+mParticle provides [data privacy controls](/guides/data-privacy-controls) to help you comply with the compliance requirements around consent and data sale opt-out.
 
 ## Roles
 

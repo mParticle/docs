@@ -213,7 +213,7 @@ mParticle allows clients to record consent for data collection from their users.
 If enabled, the current consent state will be forwarded for users at the time of the event.
 
 To learn more about the consent state object, reference the following:
-- [Consent Management Guide](/guides/consent-management)
+- [Data Privacy Controls](/guides/data-privacy-controls)
 - [Javadocs for ConsentState](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/eventprocessing/consent/ConsentState.html)
 
 ### 3. Supported Runtimes

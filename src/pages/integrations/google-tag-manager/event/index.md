@@ -100,7 +100,7 @@ Web
 
 ## Capturing Consent
 
-mParticle allows you to explicitly capture consent from the user as shown in the code samples below. Using mParticle and GTM allows you to comply with GDPR with a unified API. For more information about consent, see [GDPR Consent Management](/guides/consent-management/).
+mParticle allows you to explicitly capture consent from the user as shown in the code samples below. Using mParticle and GTM allows you to comply with GDPR with a unified API. For more information about consent, see [Data Privacy Controls](/guides/data-privacy-controls/).
 
 ## Explaining Containers and Data Layers
 

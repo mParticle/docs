@@ -35,7 +35,6 @@ curl \
     "https://api.mparticle.com/oauth2/token"
 ~~~
 
-
 **Sample Raw HTTP Request**
 
 ~~~
@@ -105,7 +104,6 @@ invalid_client | Missing (or too large) basic credentials header | Missing crede
 invalid_client | Authorization header is malformed | Ensure that header is username:password.|
 invalid_client | Authorization header is wrong type | Check the format of your Authorization header |
 
-
 ### Revoke a token
 
 To revoke a token, send a POST request to `https://api.mparticle.com/oauth2/invalidate_token` with the same Basic Authorization header as the token request, and a JSON body of `{"access_token": "<token>"}`.
@@ -118,7 +116,6 @@ curl
   -d '{"access_token":"YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-"}' \
   "https://api.mparticle.com/oauth2/invalidate_token"
 ~~~
-
 
 ## API Usage
 
@@ -286,9 +283,6 @@ curl \
   "https://api.mparticle.com/v1/app/{workspaceid}/consumerprofile/search"
 ~~~
 
-
-
-
 ### User Event History
 
 `POST /v1/app/{workspaceid}/events/search`
@@ -319,12 +313,3 @@ curl \
   -H "Authorization: Bearer YWIxMjdi341GHhnDnjsdKAJQxNjdjYuOJABbg6HdI.8V6HhxW-" \
   "https://api.mparticle.com/v1/app/{workspaceid}/events/search"
 ~~~
-
-
-
-
-
-
-
-
-

@@ -4,11 +4,12 @@ title: Event
 
 [OneTrust](http://www.onetrust.com/) is a global leader for GDPR and privacy management.
 
-mParticle's OneTrust integration operates in a unique way. While it is enabled as an event integration, no event data is passed from mParticle to OneTrust. The purpose of the integration is to allow you to map OneTrust cookie/consent groups to mParticle's consent "purposes".
+mParticle's OneTrust integration operates in a unique way. While it is enabled as an event integration, no event data is passed from mParticle to OneTrust. The purpose of the integration is to allow you to map OneTrust cookie/consent groups to mParticle's consent purposes.
 
-mParticle can, in turn, use this consent information to enable and disable other integrations, power consent forwarding rules, etc. Read our documentation on [Consent Management](/guides/consent-management/) to understand more about GDPR consent purposes.
+mParticle can, in turn, use this consent information to enable and disable other integrations, power consent forwarding rules, and more. 
 
-For specifics on GDPR and CCPA implementation within the One Trust integration, please review [Mapping Consent States](#mapping-consent-states) below.
+* For more about consent purposes, see [Data Privacy Controls](/guides/data-privacy-controls/).
+* For specifics on GDPR and CCPA implementation within the One Trust integration, please review [Mapping Consent States](#mapping-consent-states).
 
 ## How it Works
 
@@ -273,4 +274,4 @@ In this example, OneTrust Cookie Group "group 2" (Performance Cookies) are mappe
 
 The mParticle OneTrust integration supports both GDPR and CCPA consent states transparently. Currently, any OneTrust Cookie Group that is mapped to a consent purpose of `data_sale_opt_in` will be automatically assigned a CCPA consent state. All other consent purposes are mapped as GDPR.
 
-Read our documentation on [Consent Management](/guides/consent-management/) to understand more about GDPR and CCPA consent purposes.
+To learn more about GDPR and CCPA consent purposes, see [Data Privacy Controls](/guides/data-privacy-controls/).
