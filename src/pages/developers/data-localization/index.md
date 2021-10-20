@@ -22,7 +22,7 @@ You can login to your localized mParticle Pod using the following URLs:
 
 | Region | Pod | Login URL |
 | --- |--- | --- | 
-| United States | US1 | [https://app.mparticle.com](https://app.mparticle.com) |
+| United States | US1 | [https://app.mparticle.com](https://app.mparticle.com),  [https://app.us1.mparticle.com](https://app.us1.mparticle.com) |
 | United States | US2 | [https://app.us2.mparticle.com](https://app.us2.mparticle.com) |
 | Europe | EU1 | [https://app.eu1.mparticle.com](https://app.eu1.mparticle.com) |
 | Australia | AU1 | [https://app.au1.mparticle.com](https://app.au1.mparticle.com) |
@@ -48,15 +48,15 @@ Our Events API has the following data center specific URLs. Learn more about our
   <tr>
     <td rowspan="3">US1</td>
     <td>events</td>
-    <td><code>https://s2s.us1.mparticle.com/v2/events</code></td>
+    <td><code>https://s2s.mparticle.com/v2/events</code>, <code>https://s2s.us1.mparticle.com/v2/events</code></td>
   </tr>
     <tr>
     <td>bulkevents</td>
-    <td><code>https://s2s.us1.mparticle.com/v2/bulkevents</code></td>
+    <td><code>https://s2s.mparticle.com/v2/bulkevents</code>, <code>https://s2s.us1.mparticle.com/v2/bulkevents</code></td>
   </tr>
     <tr>
     <td>bulkevents/historical</td>
-    <td><code>https://s2s.us1.mparticle.com/v2/bulkevents/historical</code></td>
+    <td><code>https://s2s.mparticle.com/v2/bulkevents/historical</code>, <code>https://s2s.us1.mparticle.com/v2/bulkevents/historical</code></td>
   </tr>  
   <tr>
     <td rowspan="3">US2</td>
@@ -97,7 +97,7 @@ Our Events API has the following data center specific URLs. Learn more about our
     <td>bulkevents/historical</td>
     <td><code>https://s2s.au1.mparticle.com/v2/bulkevents/historical</code></td>
   </tr>  
-</table
+</table>
 
 ### Rules
 
@@ -194,7 +194,7 @@ When sending data to mParticle for file based integrations (Salesforce, Custom C
   </tr>
    <tr>
     <td rowspan="2">US1</td>
-    <td><code>Hostname: sftp.mparticle.com</code></td>
+    <td><code>Hostname: sftp.mparticle.com</code>, <code>Hostname: sftp.us1.mparticle.com</code></td>
   </tr>
   <tr>
     <td><code>IP: 34.199.76.170</code></td>
