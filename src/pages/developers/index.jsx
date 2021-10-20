@@ -86,6 +86,10 @@ const SDKS = [{
 {
     title: 'Alexa',
     route: 'alexa',
+},
+{
+    title: 'Flutter',
+    route: 'flutter',
 }];
 
 const EVENTS = [{

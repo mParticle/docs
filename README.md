@@ -85,7 +85,7 @@ The site uses the [Gatsby static site generator](https://github.com/gatsbyjs/gat
     ```sh
     npm run develop
     ```
-6. Navigate to `0.0.0.0:8000` in a web browser. As you make changes, the docsite wil be rebuilt and hotloaded automatically.
+6. Navigate to `0.0.0.0:8000` in a web browser. As you make changes, the docsite will be rebuilt and hotloaded automatically.
 7. (optional) You can build the actual static site with `npm run build`.
 
 <a name="sendingpr"></a>
@@ -108,7 +108,7 @@ After your PR gets approved, you should squash and merge your PR. Squashing and 
 8. You may be prompted to sign our CLA. Do so and then comment `@cla-bot check` to confirm you've signed.
 9. Once your PR is approved and merged into development, your changes will be automatically merged to development and released within an hour (during weekdays).
 
-<a name='custommarkdown'>
+<a name='custommarkdown'></a>
 
 ## Custom Markdown
 
