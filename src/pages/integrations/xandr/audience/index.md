@@ -18,7 +18,7 @@ When forwarding audience data to Xandr, mParticle will send IDFAs, Google Advert
 
 The Xandr Integration uses Bulk Forwarding. Bulk Forwarding means that, instead of uploading updates to an audience in real time, mParticle compiles updates into a queue until either a given amount of time has passed since the last upload, or until a certain number of updates are waiting to be sent.
 
-By default, mParticle uploads to Xandr every five minutes.
+By default, mParticle uploads to Xandr every five hours.
 
 ## Configuration Settings
 
