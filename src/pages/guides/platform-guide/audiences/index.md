@@ -416,6 +416,24 @@ The Manifest file will be in JSON format. See the following example for included
 }
 ~~~
 
+## Deleting an Audience
+An audience can be deleted in the UI in a few ways, described as follows.
+
+In the Audience Overview:
+
+![Audience Delete -- Portal](/images/audienceportalfordelete.png)
+
+In the Audience itself:
+
+![Audience Delete -- Audience](/images/nestedaudiencedeletemodal.png)
+
+An audience can also be deleted with the [Platform API](https://docs.mparticle.com/developers/platform/#delete-an-audience) using the `/audiences` endpoint.
+
+<aside class="notice">
+To note, an audience that is nested in another audience for exclusion or inclusion criteria cannot be deleted.  It must be removed as nesting criteria for all audiences before being deleted.  If attempting to delete an audience that's nested in other audiences, a modal will pop up notifying the user of what audiences it's nested in and who created them with the option to notify the creators.
+</aside>
+
+
 
 ## Bulk Audience Connections
 
