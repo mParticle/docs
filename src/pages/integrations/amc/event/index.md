@@ -76,8 +76,11 @@ end
 // Sample build.gradle
 
 dependencies {
-    // Ensure the Kit version matches that of the mParticle Core SDK that you're using
-    compile 'com.mparticle:android-adobe-kit:4.16.4'
+    // To send media data to Adobe, you must use the adobemedia-kit, which also contains all functionality of the adobe-kit
+    compile 'com.mparticle:android-adobemedia-kit:5.31.0'
+
+    // Otherwise uncomment below for the non-media Adobe integration
+    // compile 'com.mparticle:android-adobe-kit:5.31.0'
 }
 ~~~
 :::
