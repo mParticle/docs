@@ -249,7 +249,7 @@ For mParticle to access your cluster, the IPs of mParticle servers need to be wh
 
 1. Create a new VPC security group and note the security group ID and the AWS region. Leave the inbound rules empty as they will be managed by the Lambda function.
 2. Create a new AWS Lambda function. Do not select a template. 
- - Download [this zip file](http://static.mparticle.com/public/downloads/redshift-ip-whitelist.zip) that containing the Python code for the Lambda function. The source code is available on GitHub at [https://github.com/mParticle/redshift-ip-whitelist](https://github.com/mParticle/redshift-ip-whitelist).
+ - Download [this zip file](https://static.mparticle.com/public/downloads/redshift-ip-whitelist.zip) that containing the Python code for the Lambda function. The source code is available on GitHub at [https://github.com/mParticle/redshift-ip-whitelist](https://github.com/mParticle/redshift-ip-whitelist).
  - Set the runtime of the Lambda function to Python, upload the zip file, and set the Lambda function handler to `client.lambda_handler`.
  - Create a new role for the Lambda function.
  - Set the timeout value to 1 min to give enough time for the function to run. 
