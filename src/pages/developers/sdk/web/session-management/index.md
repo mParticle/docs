@@ -3,21 +3,13 @@ title: Session Management
 order: 10
 ---
 
-<!-- Splitting it out, I see this language is not all accurate for web. Need to dig into how timeout works on web -->
-
-The mParticle platform tracks user sessions. Sessions track a common pattern, in which a given user opens an app and interacts with it for a period of time, then moves on to another app, or stops using their device. Various Output partners use sessions to group user interactions. All events tracked during a session will also share a Session ID. The mParticle platform translates the sessions it detects into a consumable format for each Output partner.
-
-The mParticle SDKs provide APIs to allow you to customize the measurement of sessions. 
+The mParticle platform tracks user sessions.  All events tracked during a session will share the same Session ID.  The mParticle SDKs provide APIs to allow you to customize the measurement of sessions.
 
 ## Session Timeout
 
-When a user launches your app, the mParticle SDK will begin a new session. This session is maintained for as long as your app is in the foreground and all events logged during this time will be associated with the session. 
+When a user browses to your website for the first time, a session will start.  There is a default session timeout of 30 minutes, which can be configured by setting `window.mParticle.config.sessionTimeout` to the desired time in minutes. See [SDK Configuration](/developers/sdk/web/getting-started/#sdk-configuration/) to set that up.  
 
-If a user navigates away, or sends your app to the background, the SDK starts a timer to expire the current session. If the user brings your app back to the foreground before the session times out, the same session is continued. Otherwise, the session will expire and a new session will begin the next time the app is used.
-
-
-By default the session timeout is 30 minutes, but can be customized by setting `window.mParticle.config.sessionTimeout` to the desired time in minutes.
-
+Each time an event is logged, the session timeout resets.  If a user is on your webpage without any activity for the session timeout period, a session end event will automatically fire.  If the user browses away and comes back within the session timeout period, any events fired will be part of the same session.  If the user browses away and comes back outside of the session timeout period, the previous session will end and a new session will begin.
 
 ## Session Attributes
 
@@ -25,6 +17,14 @@ You can associate attributes with a session. When the user's session ends, or ti
 
 ~~~javascript
 mParticle.setSessionAttribute("level_achieved", "11");
+~~~
+
+## Session End
+
+We provide flexibility in our SDK to allow ending sessions manually.
+
+~~~javascript
+mParticle.endSession();
 ~~~
 
 
