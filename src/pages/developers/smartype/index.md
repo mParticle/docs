@@ -110,7 +110,7 @@ Smartype `init`  will ask you a series of questions and then create a Smartype c
 mvnx com.mparticle:smartype-generator init
 
 # Or directly execute the pre-downloaded jar
-java -jar smartype.jar init
+java -jar smartype-generator-[version].jar init
 ```
 
 ### Smartype `generate`
@@ -122,7 +122,7 @@ Smartype `generate` will read your configuration file and output binaries that a
 mvnx com.mparticle:smartype-generator generate
 
 # Or directly execute the pre-downloaded jar
-java -jar smartype.jar generate
+java -jar smartype-generator-[version].jar generate
 ```
 
 ## Integrating Generated Code
@@ -146,7 +146,7 @@ The following command will generate an iOS "fat" framework containing all archit
 mvnx com:mparticle:smartype-generator generate
 
 # Or directly execute the pre-downloaded jar
-java -jar smartype.jar generate
+java -jar smartype-generator-[version].jar generate
 ```
 
 #### 2. Add the Framework
@@ -204,7 +204,7 @@ The following command will generate an `aar`. You can customize the output direc
 mvnx com:mparticle:smartype-generator generate
 
 # Or directly execute the pre-downloaded jar
-java -jar smartype.jar generate
+java -jar smartype-generator-[version].jar generate
 ```
 
 #### 2. Add dependencies
