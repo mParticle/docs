@@ -205,4 +205,5 @@ These values are case sensitive and must be entered exactly.
 | Props | `Custom Field` | <unset> | All| Mapping of your application's custom event attributes to Adobe props |
 | eVars | `Custom Field` | <unset> | All| Mapping of your application's custom event attributes to Adobe eVars |
 | Hier Variables | `Custom Field` | <unset> | All| Mapping of your application's screen view attributes to Adobe hier variables |
+| Forward as Track State Events | `Custom Field` | <unset> | iOS, Android, tvOS, FireTV | Allows you to log eCommerce events as `trackState` (screen view), rather than `trackAction` |
 | App and Device Attributes | `string` | <unset> | All| A [comma separated list of app and device attributes](#app-and-device-attributes) to forward as context variables |
