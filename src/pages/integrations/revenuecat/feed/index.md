@@ -7,7 +7,7 @@ title: Feed
 ## Enable the Integration
 
 1. The RevenueCat SDK and mParticle SDKs should both be implemented in your environment, which allows RevenueCat to collect the MPID in order to use it as an identifier.
-2. Create a feed configuration via mParticle's integrations directory to produce API key/secret values.
+2. Create a feed configuration via mParticle's integrations directory to produce API key/secret values. The RevenueCat Feed supports "act as" functionality, which means it acts like an input and is forwarded to partners as such. When you select an 'act as' platform and name the configuration, you will receive an API key and secret associated with the selected input platform. Save these for the next step.
 3. Complete the RevenueCat setup as described [here.](https://docs.revenuecat.com/docs/mparticle)
 
 ## Supported Event Types
@@ -59,7 +59,9 @@ For commerce events sent by RevenueCat, please note the following:
 
 * Apple IDFA
 * Apple IDFV
+* Fire Advertising ID
 * Google Advertising ID
+
 
 ### User Attributes
 | User Attribute | Type | Description
