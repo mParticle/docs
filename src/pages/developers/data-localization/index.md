@@ -262,31 +262,106 @@ Create your downstream AWS services in the following AWS Regions aligned to your
 
 ### Amazon S3 Bucket
 
-When setting up the AWS S3 bucket policy, use the following Principal:
+If you are using role-based authentication, create an S3 bucket with a custom bucket policy.
+
+Use this link [docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-s3) for information on S3 ARN Syntax.
+
+To create the bucket and set the custom bucket policy:
+
+1. [Create an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html). The bucket name must begin with `mp-forwarding-`.
+  <aside> Note the full name of your bucket so that you can provide it in the next step.</aside>
+
+2. Create a New Policy from the AWS S3 Bucket Policy Template below and be sure to: 
+    1.  Replace the word ``{bucket}`` with the name of the S3 bucket created in step 1.  
+    2.  Replace ``{arn1}`` and ``{arn2}`` with the ARN details below.
+
+3. [Assign Policy to Bucket](http://docs.aws.amazon.com/AmazonS3/latest/UG/EditingBucketPermissions.html). In the Bucket Policy Editor
+    1. Click Properties.
+    2. Click Permissions.
+    3. Click Add bucket policy.
+    4. Paste the JSON from step 2 above.
+
+#### AWS S3 Bucket Policy Principal
 
 <table style="width:100%; padding:10px;">
    <tr>
     <th>Pod</th>
+    <th>ARN #</th>
     <th>AWS S3 Bucket Policy Principal</th>
   </tr>
   <tr>
-    <td rowspan="1">US1</td>
+    <td rowspan="2">US1</td>
+    <td>{arn1}</td>
     <td><code>arn:aws:iam::338661164609:role/Prod-Role-DG12-Default</code></td>
   </tr>
   <tr>
-    <td rowspan="1">US2</td>
+    <td>{arn2}</td>
+    <td><code>arn:aws:iam::338661164609:role/role-lambda-verifyrequest</code></td>
+  </tr>
+  <tr>
+    <td rowspan="2">US2</td>
+    <td>{arn1}</td>
     <td><code>arn:aws:iam::386705975570:role/Prod-Role-DG12-Default</code></td>
+   </tr>
+  <tr> 
+    <td>{arn2}</td>
+    <td><code>arn:aws:iam::386705975570:role/verifyrequest_lambda</code></td>
   </tr>  
   <tr>
-    <td rowspan="1">EU1</td>
+    <td rowspan="2">EU1</td>
+    <td>{arn1}</td>
     <td><code>arn:aws:iam::583371261087:role/Prod-Role-DG12-Default</code></td>
+    </tr>
+  <tr>
+    <td>{arn2}</td>
+    <td><code>arn:aws:iam::583371261087:role/verifyrequest_lambda</code></td>
   </tr>
    <tr>
-    <td rowspan="1">AU1</td>
+    <td rowspan="2">AU1</td>
+    <td>{arn1}</td>
     <td><code>arn:aws:iam::526464060896:role/Prod-Role-DG12-Default</code></td>
+   </tr>
+   <tr>
+    <td>{arn2}</td>
+    <td><code>arn:aws:iam::526464060896:role/verifyrequest_lambda</code></td>
   </tr>
-
 </table>
+
+#### AWS S3 Bucket Policy Template
+
+~~~json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::{bucket}/*",
+            "Principal": {
+                "AWS": [
+                    "{arn1}"
+                ]
+            }
+        },
+        {
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::{bucket}/*",
+            "Principal": {
+                "AWS": [
+                    "{arn2}"
+                ]
+            }
+        }
+    ]
+}
+~~~
 
 Learn more about how to set your bucket policy [here](/integrations/amazons3/event/#aws-s3-bucket-policy-template).
 
