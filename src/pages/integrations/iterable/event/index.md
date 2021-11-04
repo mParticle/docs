@@ -111,6 +111,7 @@ mParticle.eCommerce.logProductAction(
     mParticle.ProductActionType.Purchase,
     [product1, product2],
     customAttributes,
+    null,
     transactionAttributes);
 ~~~
 
