@@ -162,7 +162,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 |Error Parsing SDK Version |  Kochava| The SDK version in the event batch is invalid.
 |Event Arrived Late | Adjust, Mixpanel | A message arrived which is older than can be supported by the integration and will be discarded.
 |Feature Unsupported by SDK Version | Kochava | The forwarding of events is not supported by the current SDK version - A later version of the mParticle SDK is required.
-|Identifier Too Long | Leanplum |The Device ID or Customer ID exceeds the length which the integration supports.
+|Identifier Too Long | Leanplum, Algolia |The Device ID or Customer ID exceeds the length which the integration supports.
 |Invalid Credentials |  AgilOne, SFDC Email | A token cannot be obtained due to invalid credentials.
 |Missing Android ID | Appboy, AgilOne, Fiksu, Leanplum | Android ID is required, and is missing in the event batch.
 |Missing App Info | AgilOne, Appboy, Google Adwords, Google Analytics, Kochava, Krux, Oracle BlueKai, Tune, Webtrends | Application Info is required, and is missing in the event batch.  
@@ -188,8 +188,8 @@ The report displays the number of alerts in each category for a 12-hour time per
 | Missing Device Application Stamp | Leanplum | Missing Device Application Stamp for Device ID.
 | Missing Roku Channel Client ID | Leanplum | The Roku channel client ID is not present.
 | Missing Roku Advertiser ID | Leanplum | The Roku advertising ID is not present.
-| Invalid Required Attribute | Simplereach, Aloha | The request has a required attribute that's in an invalid format.
-| Missing Required Attribute | Simplereach, Facebook | The request has a required attribute that's missing.
+| Invalid Required Attribute | Simplereach, Aloha, Algolia | The request has a required attribute that's in an invalid format.
+| Missing Required Attribute | Simplereach, Facebook, Algolia | The request has a required attribute that's missing.
 | Missing Screen Name | Zendesk | Screen name is required, and is missing in the event batch.
 | Missing User Agent |Facebook Atlas, Google DoubleClick |User Agent is required, and is missing in the event batch.
 |No Route Available | Appboy, Airship | The source of the event batch is not supported.  This is used to indicate that the source of the event batch was not from a native client with the extended SDK (appropriate kit included) or the mParticle Events API.
