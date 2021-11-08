@@ -107,7 +107,7 @@ To install the Iterable Kit for iOS:
 ~~~ruby
 # Sample Podfile
 
-pod 'mParticle-iterable', '~> 8.0.2'
+pod 'mParticle-Iterable', '~> 8.1.0'
 ~~~
 
 - For Carthage, add the following dependency to your Cartfile:
