@@ -316,5 +316,7 @@ There are several fields only accepted by server-to-server Web connections. Thes
 | Pixel ID | `string` | <unset> | Web | Facebook Pixel ID |
 | Default Action Source | `string` | other | Web, Out of Band | The default value for a conversion's action source. This value will be used if the Facebook.ActionSource custom flag is not set on the event. Please see the documentation for information on setting the custom flag.
 | Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side |
+| Disable Automatic Page Logging | `bool` | False | Web | **Single Page Applications Only** - By default, the Facebook Pixel has an HTML5 History State API listener activated. Whenever a new state is pushed into History, it will automatically fire a PageView event (outside of mParticle). This could lead to duplicate PageViews in Facebook. If you want all PageViews to be tracked via mParticle instead, check this box to disable this listener.  
+ |
 | External User Identity Type | `string` | Customer ID | All | Hash of the User Identity to send to Facebook as External ID |
 | Send CCPA Limited Data Use | `enum` | Never | All | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with country and state user attributes defined or for Pixel connections with client IP defined. |
