@@ -90,7 +90,7 @@ class CategoryChooser extends React.Component {
                 'Tag Management',
             ],
             Privacy: [
-                'Data Privacy Controls',
+                'Consent Management',
             ],
             Security: [
                 'Access Management',
