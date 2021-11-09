@@ -30,7 +30,7 @@ In order to leverage the mParticle/TikTok integration you must give mParticle Au
 
 ## Data Processing Notes
 
-It may take several hours to see data in TikTok's Ads Manager as audiences take time to fully populate. A connected audience must contain at least 1000 unique users before the audience is reflected within your TikTok account.
+It may take several hours to see data in TikTok's Ads Manager as audiences take time to fully populate. A connected audience must contain at least 50000 unique users before the audience is reflected within your TikTok account.
 
 ## Supported Identities
 
