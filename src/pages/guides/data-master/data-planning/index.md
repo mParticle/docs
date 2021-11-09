@@ -86,6 +86,8 @@ The following client SDKs support Data Planning:
 </tr>
 </table>
 
+Optionally, you can review [the JSON Reference](/developers/server/json-reference/) to learn more about the full JSON structure.
+
 ## Getting Started
 
 To create and implement a data plan:
