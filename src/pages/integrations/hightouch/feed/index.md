@@ -76,3 +76,8 @@ By formatting SQL query results when you [create a Hightouch model in step 2](#s
 3. Create a Hightouch [destination](https://hightouch.io/docs/get-started/create-a-destination/) for mParticle using Hightouch Feed credentials from mParticle’s integrations directory.
 4. Create a Hightouch [sync](https://hightouch.io/docs/get-started/create-a-sync/) to map your model to mParticle Custom Events, Commerce Events, or User Data.
 5. For more information check the [Hightouch documentation for mParticle](https://hightouch.io/docs/destinations/mparticle/).
+
+Hightouch will send data to mParticle using the [mParticle Events API.](/developers/server/json-reference/) and will use different endpoints based on the age of the data:
+
+* /v2/bulkevents/historical for data older than 28 days
+* /v2/bulkevents for data newer than 28 days
