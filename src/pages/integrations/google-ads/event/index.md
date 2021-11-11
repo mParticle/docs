@@ -103,17 +103,22 @@ You need to create a Conversion ID before you can use the Web integration for Go
 
 * [Set up your conversion for your website](https://support.google.com/google-ads/answer/6095821?co=ADWORDS.IsAWNCustomer%3Dtrue&oco=0)
 
-It is recommended to click the **New** tab and follow the instructions on that page to generate a new Conversion ID. 
+1. It is recommended to click the **New** tab and follow the instructions on that page to generate a new Conversion ID. 
 
-Once you have followed the steps to create a Conversion ID, you must select the Conversion IDs for the **Event snippet**. You will see a similar dialogue box as below.
+2. Once you have followed the steps to create a Conversion ID, you must select the Conversion IDs for the **Event snippet**. You will see a similar dialogue box as below.
 
 ![](/images/GoogleAdWords-Conversion-Action-tags-to-use-052019.png)
 
-In the "gtag" function invokation, the last argument is an object with a key of "send_to" and a value in the format of "AW-CONVERSIONID/LABEL". In the above example, the Conversion ID is `753728982`. Enter your Conversion ID in the Configuration Settings when you add an event output (seen below). The Label in the above example is `nl4-CKuq25wBENb7s-cC`. This is used to map events in the Connection Settings once you connect Google Ads to Javascript as an output.
+3. In the `gtag` function invocation, the last argument is an object with a key of `send_to` and a value in the format of "AW-CONVERSIONID/LABEL". In the above example, the Conversion ID is `753728982` and the label is `nl4-CKuq25wBENb7s-cC` Enter your Conversion ID in the Event Configuration Settings when you add an event output:
 
 ![](/images/GoogleAdWords-Event-Configuration-Screen-102019.png)
 
-In the mParticle app, you will be required to set up the configuration (explained in the [Configuration Settings](#connection-settings) section), and then configure the connection (explained in the [Connection Settings](#connection-settings) section).
+4. Enter your label in the Connection Settings once you connect Google Ads to Javascript as an output:
+
+![](/images/GoogleAdWords-Event-Configuration-Screen-112021.png)
+
+
+5. In the mParticle app, set up the configuration (explained in the [Configuration Settings](#connection-settings) section), and then configure the connection (explained in the [Connection Settings](#connection-settings) section).
 
 
 ## Using mParticle's Events API
@@ -172,6 +177,59 @@ NSString *buildId(void) {
 }
 ```
 :::
+
+## Enhanced Conversions
+When using the Google Ads web integration, you have the option of leveraging Google's Enhanced Conversions.  This allows you to send first-party customer data to Google in a secure way. Read more about Google's Enhanced Conversions and how to set it up on Google's side [here](https://support.google.com/google-ads/answer/9888656?hl=en-GB). Google's Enhanced Conversions product is currently in beta.  
+
+### Prerequisites
+* mParticle prequisites:
+  * Your web workspace needs to be configured for event batching in order to leverage Enhanced Conversions.  If it is not configured for event batching, please contact your customer success manager. To determine if you are on web batching, follow the instructions [here](/developers/sdk/web/getting-started/#upload-interval--batching).
+  * Check both `Enable Google Site Tag` and `Enable Enhanced Conversions` in connection settings.
+* Google prequisites:
+  * Enhanced Conversion is currently a beta Google product.  As such, you must work with your Google Ads representative to whitelist your account.
+
+### Creating a Conversion ID and Label
+
+As with non-enhanced conversions, you will need to create a Conversion ID.  Follow those directions from [above](/integrations/google-ads/event/#creating-a-conversion-id-and-label).
+
+Additionally, there are a few extra steps to set up enhanced conversions in Google's set up page:
+  1. Under `Enhanced conversions`, select `Turn on enhanced conversions`.
+  2. Under `Implementation Method`, select `Global site tag or Google Tag Manager` and press `NEXT`.
+  3. You will be prompted for your URL. Enter that into the text field and click `CHECK URL`.  Google will then tell you that the tracking tag was not detected. This is expected because mParticle loads Gtag dynamically for you.  Click on `select one manually`.
+  
+  ![](/images/GoogleAdWords-Enhanced-Conversions-1-112021.png)
+
+  4. Click the `Global site tag` radio button and press `NEXT`.
+
+  ![](/images/GoogleAdWords-Enhanced-Conversions-2-112021.png)
+
+  5. Select `Edit code` from the drop down for how you want to set up enhanced conversions.
+
+  ![](/images/GoogleAdWords-Enhanced-Conversions-3-112021.png)
+
+After completing the set up from Google's side, you are ready to send Enhanced Conversions via mParticle to Google.  Following the `Test Search` example from above, simply pass unhashed first-party data, to the custom flag `"GoogleAds.ECData"`.  The format of your first party data should follow Google's support docs [here](https://support.google.com/google-ads/answer/9888145#zippy=%2Cconfigure-your-conversion-page-global-site-tag) under `Identify and define your enhanced conversions variables`.  See below for a full example:
+
+~~~javascript
+mParticle.logEvent(
+  'Test Search',
+  mParticle.EventType.Search,
+  { attr1: 'value1' },
+  { "GoogleAds.ECData": {
+    email: 'test@gmail.com',
+    phone_number: '1-911-867-5309',
+    first_name: 'John',
+    last_name: 'Doe',
+    home_address: {
+        street: '123 Main St',
+        city: 'San Francisco',
+        region: 'CA',
+        postal_code: '12345',
+        country: 'US',
+    }}
+}); 
+~~~
+
+Per Google's [best practices](https://support.google.com/google-ads/answer/6386790?hl=en-GB&ref_topic=3165803), mParticle passes a unique ID for each event to Google in the form of a `transaction_id` in order to de-duplicate events.  If you are logging a [purchase event](/developers/sdk/web/commerce-tracking/#tracking-basic-purchases), you are required to provide a transaction ID. Otherwise, the mParticle Web SDK automatically assigns all non-purchase commerce events, page views, and custom events a `transaction_id`.
 
 ## mParticle App Configuration/Connection Settings (Native Apps/Web)
 Regardless of whether you're configuring/sending data from a Native Apps/Web platform, the following parameters must be set in the mParticle app. The tables below will guide you through what the parameters are and the platform to which they apply.
