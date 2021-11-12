@@ -1264,7 +1264,7 @@ between_dates | No | No | No | Yes
 
 Name | Data Type | Required | Description
 |--|--|--|--
-`type` | string | Required | One of "all", "since", or "within".
+`type` | string | Required | "since" or "within"
 `date` | string | Conditionally Required | A date string in ISO 8601 format. Optional for type "all".
 `within_unit` | string | Conditionally Required | Required if type is `within`. Value is one of "days" or "weeks".
 `within` | integer | Conditionally Required | Required if type is `within`. Value corresponds to the unit chosen in `within_unit`.
@@ -1285,6 +1285,9 @@ Message | Description
 Field 'name' is required. | The calculate attribute's name is missing. |
 Field 'name' must be unique. | A calculated attribute with that name already exists in the workspace. |
 Field 'draft_definition' is required. | The calculated attribute is missing the draft_definition field. |
+Field 'time_period.type' = 'all' is not supported. | The time period type `all` is not supported. |
+'time_period.date' must be on or after the earliest date available of {date} | The date isn't available according to the audience retention period of your subscription plan. |
+The within time period cannot exceed your configured retention period of {N} days for Calculated Attributes | The date specified for the `within` calculation date range exceeds the audience retention period of your subscription plan. |
 Invalid recipe type | Only type `event` is currently supported. |
 Invalid calculation type | The `draft_definition.calculation_type` field is missing or invalid. See schema definition for enum values. |
 Invalid time period specification | The `draft_definition.time_period` field is missing or invalid. |
