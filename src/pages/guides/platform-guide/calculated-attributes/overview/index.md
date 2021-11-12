@@ -42,7 +42,7 @@ Calculations are either **synchronous** (sent with the batch of data being proce
 
 * Synchronous calculations are evaluated immediately and updated values are included in the same outgoing event batch.
 
-* Asynchronous calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the next outgoing event batch **and** to outputs connected to the special feed input named Calculated Attributes ([more about this feed](guides/platform-guide/calculated-attributes/using-calculated-attributes/#forward-calculated-attributes-in-the-calculated-attributes-feed)).
+* Asynchronous calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the next outgoing event batch **and** to outputs connected to the special feed input named Calculated Attributes ([more about this feed](/guides/platform-guide/calculated-attributes/using-calculated-attributes/#forward-calculated-attributes-in-the-calculated-attributes-feed)).
   
 For more information about calculation types, see [Calculated Attributes Reference](/guides/platform-guide/calculated-attributes/reference/#calculations).
 
