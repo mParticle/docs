@@ -6,7 +6,10 @@ title: Feed
 
 ## Data Processing Notes
 
-* Shopify will [remove configured webhooks](https://help.shopify.com/en/manual/orders/notifications/webhooks) if the webhook destination repeatedly returns a non-200 status response.
++ Shopify will [remove configured webhooks](https://help.shopify.com/en/manual/orders/notifications/webhooks) if the webhook destination repeatedly returns a non-200 status response.
++ Any request with a supported [topic](/integrations/shopify/feed/#supported-events) and domain will return a 202 (Accepted) response.
++ Any request that does not contain an email will return a 202 (Accepted) response, indicate the missing identity, but will not be processed.
++ Any request that contains an unsupported [topic](/integrations/shopify/feed/#supported-events) will return a 400 (Bad Request) response and won't be processed.
 
 ## Enable the Integration
 
