@@ -396,4 +396,4 @@ See the table below and the complete [API reference](https://docs.mparticle.com/
 | `Google`                   | The user's Google ID                                                           |
 | `Twitter`                  | The user's Twitter ID                                                          |
 | `Microsoft`                | The user's Microsoft ID                                                        |
-| `Yahoo`                    | The user's Yahoo ID      
+| `Yahoo`                    | The user's Yahoo ID                                                            |  
