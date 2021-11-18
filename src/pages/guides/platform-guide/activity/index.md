@@ -212,7 +212,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 
 ## Event Forwarding
 
-![](/images/Platform-Update-Activity-Event-Forwarding-042019.png)
+![](/images/activity-event-forwarding.png)
 
 The Event Forwarding report provides information on your app’s incoming event data and the data that is forwarded to enabled output event services. This is where you can verify how much data mParticle captured per event, and how much data was forwarded.  If multiple configurations are enabled for an integration, the data sent to each configuration will be shown separately. We recommend checking this report if you notice any discrepancies in your vendor dashboards.
 
