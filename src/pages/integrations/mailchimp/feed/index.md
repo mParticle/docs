@@ -6,11 +6,11 @@ Mailchimp provides an email marketing platform. Features include campaign design
 
 ## Prerequisites
 
-In order to configure the mParticle Webhook for MailChimp, Manager user level or higher is required.
+In order to configure the mParticle Webhook for Mailchimp, Manager user level or higher is required.
 
 ## Input Data Details
 
-The following types of data can be configured to be sent from MailChimp to mParticle:
+The following types of data can be configured to be sent from Mailchimp to mParticle:
 
 * Subscribes
 * Unsubscribes
@@ -19,7 +19,7 @@ The following types of data can be configured to be sent from MailChimp to mPart
 * Email Address Changes
 * Campaigns Sending Status
 
-## MailChimp Event Mapping
+## Mailchimp Event Mapping
 
 MailChimp events are mapped as follows:
 
@@ -34,18 +34,18 @@ data[merges][FNAME] | Reserved User Attribute First Name
 data[merges][LNAME] | Reserved User Attribute Last Name
 fired_at | Timestamp
 
-<aside>All fields listed above along with any additional fields provided by MailChimp with each event are mapped to mParticle custom event attributes.</aside>
+<aside>All fields listed above along with any additional fields provided by Mailchimp with each event are mapped to mParticle custom event attributes.</aside>
 
 ## Configuration
 
 Configure the Mailchimp Input: 
 
-1.  Select **Directory**, and click the MailChimp tile
-2.  Click **Add MailChimp to Setup**
+1.  Select **Directory**, and click the Mailchimp tile
+2.  Click **Add Mailchimp to Setup**
 3.  Select the **Input Feed** Integration Type and click **Add to Setup**
 4.  Select the **Mailchimp** input configuration group to specify the configuration parameters:
   * Configuration Name
   * Environment
 5.  Click **Create**
 6.  Copy the Webhook URL.
-7.  Follow these instructions to configure the Webhook in [MailChimp](http://kb.mailchimp.com/integrations/api-integrations/how-to-set-up-webhooks)
+7.  Follow these instructions to configure the Webhook in [Mailchimp](http://kb.mailchimp.com/integrations/api-integrations/how-to-set-up-webhooks)
