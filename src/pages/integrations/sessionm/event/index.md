@@ -35,6 +35,11 @@ mParticle will always forward the mParticle Identity (MPID) to SessionM.  Additi
 
 mParticle forwards user attributes to SessionM as profile attributes. mParticle will send at most 200 user attributes and will normalize user attribute keys as described below. Note that all attribute values will be forwarded as strings.
 
+SessionM requires that the casing of forwarded user attributes match that of the casing in SessionM's Custom User Profile Attributes page. We strongly recommend ensuring that your user attributes are implemented with consistent casing prior to sending user attributes to SessionM. You can use [data plans](https://docs.mparticle.com/guides/data-master/data-planning/) to monitor for and ensure consistent casing of the user attributes.
+
+However, if there are different cases used for the same user attributes in your workspace and you intend to forward enriched user attributes to SessionM, you can write a [Rule](https://docs.mparticle.com/guides/platform-guide/rules/) to standardize the casing to match what is expected from SessionM. 
+
+
 
 ### User Attribute Key Normalization
 
