@@ -71,6 +71,50 @@ The Iterable integration supports the following event types:
 * Push Message Open
 * User Identity Change
 
+### Tracking Purchases
+
+You can map a Product Action event to Iterable's [track purchase](https://api.iterable.com/api/docs#commerce_trackPurchase) api call. Here is an example Product Action event from mParticle's web SDK that maps to an Iterable purchase.
+
+~~~javascript
+// 1. Create the product
+var product1 = mParticle.eCommerce.createProduct(
+    'Double Room - Econ Rate',  // Name
+    'econ-1',                   // SKU
+    100.00,                     // Price
+    4                           // Quantity
+);
+
+var product2 = mParticle.eCommerce.createProduct(
+    'Double Room - Econ Rate',
+    'econ-1', 
+    100.00, 
+    4
+);
+
+// 2. Summarize the transaction
+var transactionAttributes = {
+    Id: 'foo-transaction-id',
+    Revenue: 430.00,
+    Tax: 30
+};
+
+// 3. Optional event properties can include Iterable's campaign and template ID values
+var customAttributes = {
+    "sale": true,
+    "membershipTier": "Gold",
+    "campaignId": 314159,
+    "templateId": 265358
+};
+
+// 4. Log the purchase event
+mParticle.eCommerce.logProductAction(
+    mParticle.ProductActionType.Purchase,
+    [product1, product2],
+    customAttributes,
+    null,
+    transactionAttributes);
+~~~
+
 ### Subscription Preferences
 
 You can map a custom event to Iterable's [Update User Subscriptions](https://support.iterable.com/hc/en-us/articles/204780579-API-Overview-and-Sample-Payloads#users) api call. See the [Platform Guide](/platform-guide/connections#custom-mappings) for general help with Custom Mappings. The 'Update Subscriptions' event takes the following attributes, all optional.
