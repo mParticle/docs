@@ -55,7 +55,7 @@ dependencies {
 
 Reference the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/developers/sdk/android/kits/) guides to read more about kits.
 
-## User ID Mapping
+## User Identity and Property Mapping
 
 You can configure the integration to automatically map the following identities to Firebase's "setUserId" API:
 
@@ -63,9 +63,7 @@ You can configure the integration to automatically map the following identities 
 - mParticle ID
 - Email
 
-## User Attributes Mapping
-
-mParticle will map user attributes to Firebase user properties by invoking Firebase's `setUserProperty` API. 
+The Firebase integration will also map mParticle's `user_attributes` to [user properties](https://firebase.google.com/docs/analytics/user-properties). Learn how to set `user_attributes` through our Events API [here](/developers/server/json-reference/#json-schema).
 
 ## Event Mapping
 
