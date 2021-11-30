@@ -37,42 +37,8 @@ All events from the Braze Feed will include any available user/device identifier
 
 ## Events
 
-The Braze Feed sends events for tracking campaign performance. Included as custom attributes for each event are Braze's IDs for the relevant Campaign, News Feed Card, Button, Canvas, etc. You can find the ID's in the relevant sections of the Braze Dashboard under **API Identifier**. 
-
-![](/images/appboy-api-identifier.png)
+The Braze Feed sends events for tracking campaign performance. Included as custom attributes for each event are Braze's IDs for the relevant Campaign, News Feed Card, Button, Canvas, etc. You can find the ID's in the relevant sections of the Braze Dashboard under **API Identifier**. See [Braze's Identifier Types](https://www.braze.com/docs/api/identifier_types/) for more details.
 
 You can also see a full list of your API Identifiers on Braze's **Developer Console**.
 
-A full list of events and their allowed attributes are listed below. For events with both `campaign_id` and the `canvas_id`, `canvas_step_id`, and `canvas_variation_id` listed, an individual event may have a `campaign_id`, the `canvas_*` attributes, or neither.
-
-
-### Platform Feed (iOS, Android, Web)
-
-Events | Custom Attributes
------- | ---------
-In-App Message Impression | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-In-App Message Click | `button_id`, `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-News Feed Impression | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-News Feed Card Impression | `app_id`, `card_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-News Feed Card Click | `app_id`, `card_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Push Notification Sends | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Push Notification Opens | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Push Notification Bounces | `app_id`, `campaign_id`, `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Uninstall (iOS & Android only) | `app_id`
-
-### Unbound Feed
-
-Events | Custom Attributes
------- | ---------
-Campaign Control Group Enrollments | `campaign_id`
-Campaign Conversions | `campaign_id`
-Canvas Conversions | `canvas_step_id`, `canvas_id`, `canvas_variation_id`
-Canvas Entries | `in_control_group`, `canvas_id`, `canvas_variation_id`
-Email Bounces | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Clicks | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Deliveries | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Marks As Span | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Opens | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Sends | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Email Unsubscribes | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
-Webhook Sends | `campaign_id`, `campaign_name`, `canvas_id`, `canvas_name`, `canvas_step_id`, `canvas_variation_id`, `dispatch_id`, `message_variation_id`
+A full list of events and their allowed attributes can be found in [Braze's Documentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/customer_data_platform/mParticle/mparticle_for_currents/#integration-details). For events with `campaign_id`, `canvas_id`, `canvas_step_id`, and `canvas_variation_id` listed note that an individual event may have a `campaign_id`, the `canvas_*` attributes, or neither.
