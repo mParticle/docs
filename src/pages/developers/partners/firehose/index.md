@@ -32,7 +32,7 @@ dependencies {
     compile (
             'com.amazonaws:aws-lambda-java-core:1.1.0',
             'com.amazonaws:aws-lambda-java-events:1.1.0',
-            'com.mparticle:java-sdk:2.5.+'
+            'com.mparticle:java-sdk:2.7.+'
     )
 }
 ```
@@ -337,13 +337,31 @@ eventProcessingRegistration.setPushMessagingProviderId("your-push-messaging-prov
 Audience Registration will allow your integration to receive Audience Subscription and Membership messages. During registration, your integration needs to specify the settings required to map and send audience data from mParticle to your service:
 1. [Account Settings](#4-account-settings) are required, user-modifiable settings for your integration.
 2. Audience Subscription Settings are optional, audience-specific settings such as an audience ID from your service. These settings can be set manually by the user or can be set programatically.
-  - To allow users to set and modify the subscription setting's value, mark a subscription setting as not visible. The user will be prompted to enter a value when connecting an audience and you will see this value in your [audience subscription requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionRequest.json) and [audience membership change requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceMembershipChangeRequest.json).
-  - To set a subscription setting's value programatically, mark a subscription setting as visible. You will set the value after a user connects an audience as part of your audience subscription [response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionResponse.json). Subsequent membership change requests will contain the returned value.
+  - To allow users to set and modify a subscription setting value, mark the subscription setting as visible. The user will be prompted to enter a value when connecting an audience and you will see this value in your [audience subscription requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionRequest.json) and [audience membership change requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceMembershipChangeRequest.json).
+  - To set a subscription setting value programmatically, mark a subscription setting as not visible. You will set the value after a user connects an audience as part of your audience subscription [response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionResponse.json). Subsequent membership change requests will contain the returned value.
 
 Audience Subscription Settings can be included in your module registration response as shown [here](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/ModuleRegistrationResponse.json#L74).
 
-[See here for more info on AudienceProcessingRegistration](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/registration/AudienceProcessingRegistration.html)
+[More information about AudienceProcessingRegistration](/developers/partners/firehose/javadocs/com/mparticle/sdk/model/registration/AudienceProcessingRegistration.html)
 
+   <aside>Note, Authentication settings were added as of version 2.7 of the Java SDK.</aside>
+
+3. Authentication is optional. These settings allow customers to add authentication when configuring your integration in mParticle. Currently, we support OAuth2 authentication, which gets the Access Token and forwards it in requests to your integration. While OAuth2 is a standard protocol, its implementation can differ by identity provider so some parameters may be optional. Depending on the OAuth2 provider, you must include the relevant parameters.
+
+| Field Name | Required | Description |
+| ---------- | -------- | ----------- |
+|Type|Required|The authentication type (only OAuth 2.0 is supported). The allowed values are: <ul><li>`OAUTH2`</li></ul>|
+|Authorization URL|Required|The Authorization URL initiates the authorization process, authenticating the user with the identity provider.|
+|Refresh URL|Optional|If the access token has an expiration time the Refresh URL will be used to get a new token.|
+|Token URL|Required|The Token URL will be used to get the access token after the identity provider returns the Auth Code.|
+|Grant Type|Optional|The Grant Type specifies the way mParticle gets an access token. The allowed values are: <ul><li>`AUTHORIZATION_CODE`|</li></ul>
+|Default Expires In|Optional|If the access token expires, this indicates the lifetime (in seconds) of the Access Token.|
+|Client ID|Required|The Client ID is the public identifier for your application in the identity provider.|
+|Access Token Type|Optional|The allowed values are: <ul><li>`BEARER` The Bearer Token is a security scheme to send the token with the following structure `Authorization: Bearer <token>`.</li><li>`CUSTOM_HEADER` The Custom Header type will use a custom HTTP Header to send the access token. The name of the header needs to be specified in the `Custom Header Name` property.</li></ul>|
+|Custom Header Name|Optional|If `Access Token Type` is set to `CUSTOM_HEADER` you need to specify the name of the Custom Header in which the identity provider can expect the Access Token.|
+|Param Client ID Name|Optional|The OAuth2 Standard protocol refers to Client ID as `client_id`. If your identity provider uses a different name for communications you need to specify that name.|
+|Param Secret Name|Optional|The OAuth2 Standard protocol refers to Client Secret as `client_secret`. If your identity provider uses a different name for communications you need to specify that name.|
+|Scopes|Optional|The list of scopes in which your application may access a user's account.<br>* Name: Name of the scope<br>* Description: Description of the scope|
 
 ## Sample Registration
 
@@ -409,6 +427,26 @@ Refer to the sample project or the simple example below, which shows how to subs
             .setIsVisible(false)
       );
 
+      // Set up Audience Registration.
+      AudienceProcessingRegistration audienceRegistration = new AudienceProcessingRegistration();
+      OAuth2Authentication authentication = new OAuth2Authentication();
+
+      authentication
+         .setAuthorizationUrl("Authorization URL")
+         .setRefreshUrl("Refresh URL")
+         .setTokenUrl("Token URL")
+         .setGrantType(OAuth2Authentication.GrantType.AUTHORIZATION_CODE)
+         .setDefaultExpiresIn(2000)
+         .setClientId("Client ID")
+         .setAccessTokenType(OAuth2Authentication.AccessTokenType.CUSTOM_HEADER)
+         .setCustomHeaderName("Custom Header Name")
+         .setParamClientIdName("Param Client ID Name")
+         .setParamSecretName("Param Secret Name")
+         .setScopes(new ScopeDetail[]{new ScopeDetail()
+               .setName("Scope Name")
+               .setDescription("Scope Description")
+         });
+
       // Segmentation/Audience registration and processing is treated separately from Event processing.
       // Audience integrations are configured separately in the mParticle UI.
       // Customers can configure a different set of account-level settings (such as API key here), and
@@ -416,7 +454,8 @@ Refer to the sample project or the simple example below, which shows how to subs
       AudienceProcessingRegistration audienceRegistration = new AudienceProcessingRegistration();
       audienceRegistration
          .setAudienceConnectionSettings(subscriptionSettings)
-         .setAccountSettings(settings);
+         .setAccountSettings(settings)
+         .setAuthentication(authentication);
 
       // Set the response
       ModuleRegistrationResponse response = new ModuleRegistrationResponse("Your Company Name", "1.0");
