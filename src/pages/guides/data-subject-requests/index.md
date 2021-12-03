@@ -146,7 +146,7 @@ A sample portability response can be downloaded [here](/downloads/portability-re
 
 ## Managing Data Subject Requests in the mParticle Dashboard
 
-In addition to the OpenGDPR API, users with the [Compliance role](/guides/platform-guide/users#roles) can create, delete and monitor DSRs directly in the mParticle Dashboard.
+In addition to the Data Subject Request API, users with the [Compliance role](/guides/platform-guide/users#roles) can create, delete and monitor DSRs directly in the mParticle Dashboard.
 
 <aside>To see these privacy pages you must be in a role of "Compliance Admin" or "Compliance".</aside>
 
