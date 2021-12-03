@@ -124,13 +124,13 @@ A delete request will also not prevent additional data concerning the subject fr
 Access and Portability requests are handled exactly the same way, as follows:
 
 1. mParticle identifies the MPIDs that match the request.
-2. Just after midnight each Monday and Thursday, mParticle searches for data related to each MPID, including the user profile and historical event batches. Inferred data, such as audience memberships, is not included.
+2. Just after midnight UTC each Monday and Thursday, mParticle searches for data related to each MPID, including the user profile and historical event batches. Inferred data, such as audience memberships, is not included.
 3. mParticle compiles the data into a single text file.
 4. mParticle sends a callback to any specified Callback URLs indicating that the request has been completed. The callback will contain a secure download link to the text file containing the Subject's data.
 
 
 <aside>
-Access / Portability requests are processed every 3 days on the start of Mondays and Thursdays.
+Access / Portability requests are processed at the start of Mondays and Thursdays.
 </aside>
 
 #### Portability Response Format
