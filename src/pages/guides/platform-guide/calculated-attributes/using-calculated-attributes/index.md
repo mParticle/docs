@@ -3,6 +3,9 @@ title: Using Calculated Attributes
 order: 4.2
 ---
 
+Create, activate, and use calculated attributes from the mParticle user interface.
+You can then view calculated attributes along with other user attributes in the UI or via the Profile API.
+
 ## Step One: Create a Calculated Attribute
 
 1. Within the **Data Master** section of your dashboard’s side navigation panel, select **Calculated Attributes**, and then select **+ Calculated Attribute**.
@@ -57,7 +60,7 @@ If an active calculated attribute has the same name as a user attribute, only th
 
 ### Forward Calculated Attributes in the Calculated Attributes Feed
 
-The Calculated Attributes feed allows you to send calculated attributes downstream whenever they change, without an event from the user; this feed is especially useful for keeping calculated attributes with delayed calculations synchronized throughout your stack and for sending calculated attributes downstream alongside kit integrations. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their delayed CAs were calculated will be sent. This feed sends an update when calculated attributes change (both instant & delayed), it does not send user attributes.
+The Calculated Attributes feed allows you to send calculated attributes downstream whenever they change, without an event from the user; this feed is especially useful for keeping calculated attributes with asynchronous calculations synchronized throughout your stack, and for sending calculated attributes downstream alongside kit integrations. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their asynchronous CAs were calculated will be sent. This feed sends an update when calculated attributes change (both synchronous & asynchronous), it does not send user attributes.
 
 Control which downstream system receives these updates by intentionally connecting specific platforms to receive the calculated attribute updates. You can also filter out calculated attributes you do not wish to forward using the platform filters page.
 

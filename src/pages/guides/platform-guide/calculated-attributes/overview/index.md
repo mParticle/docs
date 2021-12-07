@@ -3,9 +3,9 @@ title: Calculated Attributes Overview
 order: 4.1
 ---
 
-<aside class="note">The Calculated Attributes feature is currently in Early Access and is available upon request. If you're interested in using it prior to general availability, please contact your success manager.</aside>
-
 A calculated attribute (CA) is a read-only value about a particular attribute of a single user that mParticle keeps up-to-date over time. You define a calculated attribute in mParticle and, once activated, they are computed automatically over time by using the raw data stream of events and user information. 
+
+<aside>Calculated attributes are a paid premium feature. Contact your mParticle representative if you’re interested in using calculated attributes.</aside>
 
 You can define calculated attributes to track almost anything on an individual user, from counting the number of logins in the last 30 days or knowing the last product category viewed, to more complex calculations like the customer's average order revenue or the most frequent purchase.
 
@@ -42,7 +42,7 @@ Calculations are either **synchronous** (sent with the batch of data being proce
 
 * Synchronous calculations are evaluated immediately and updated values are included in the same outgoing event batch.
 
-* Asynchronous calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the next outgoing event batch **and** to outputs connected to the special feed input named Calculated Attributes ([more about this feed](/guides/platform-guide/calculated-attributes/using-calculated-attributes/#forward-calculated-attributes-in-the-calculated-attributes-feed)).
+* Asynchronous calculations are evaluated with a small delay (usually a few minutes) and updated values are included in the next outgoing event batch or when the feed input named Calculated Attributes is connected ([more about this feed](/guides/platform-guide/calculated-attributes/using-calculated-attributes/#forward-calculated-attributes-in-the-calculated-attributes-feed)). If your event output doesn't support the Calculated Attributes feed, user attribute values may grow stale until mParticle receives the next event or batch for the relevant user.
   
 For more information about calculation types, see [Calculated Attributes Reference](/guides/platform-guide/calculated-attributes/reference/#calculations).
 
@@ -81,3 +81,17 @@ Seeding requires two pieces of information:
 
 * The seed values: the values required to calculate the attribute.
 * The seed cut-off date: any data prior to this date is processed by your team into seed values, and mParticle only uses live data on or after this date in the calculation, combining the result with seed values. Using the correct cut-off date ensures an accurate transition into mParticle and avoids duplications of data in calculating a calculated attribute.
+
+<aside class="note">After a calculated attribute is already in use, receiving data via historical API doesn't automatically trigger a recalculation. You must either create a new calculated attribute or update the definition to trigger a recalculation.</aside>
+<!-- Ask Yuan Ren to review. Update https://stackoverflow.com/c/mparticle/questions/2228 once published. -->
+
+## Forwarding Calculated Attributes in an Audience Integration
+
+If a partner supports user attribute forwarding, you can forward calculated attributes in an audience integration alongside user attributes. Different partners have implemented user attribute forwarding in different ways. 
+
+For example, [Salesforce](/integrations/salesforce-email/audience/#forward-additional-subscriber-data) uses a separate data extension while [Google BigQuery](/integrations/google-bigquery/audience/#configuration-settings) uses the configuration setting Send User Attributes.
+<!-- Ask Geoff to review. Update https://stackoverflow.com/c/mparticle/questions/1027 once published. -->
+
+## More Examples
+
+To walk through several different scenarios for using calculated attributes, download the [Calculated Attributes Use Case Guide](https://go.pardot.com/l/398262/2021-11-29/bt6yd4/398262/1638185505S5gEJYOk/Calculated_Attributes_Use_Case_Book.pdf).

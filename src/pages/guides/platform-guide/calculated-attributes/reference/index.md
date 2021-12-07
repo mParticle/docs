@@ -28,7 +28,10 @@ Be aware of the following before creating your calculation attributes:
 
 * All timestamp values are in ISO 8601 format in the UTC timezone. 
 * Several calculations produce results with types that depend on the type of the event attribute selected, for example `First Value` returns a string if the event attribute selected is a string.* Calculation speeds listed are after the values have been initialized. 
-* Setting the date range to **Within the Last** causes all calculations to synchronous.
+* Setting the date range to **Within the Last** causes all calculations to be synchronous. Additionally, after the range has expired, the caluclated attribute value returns to zero or null. This happens in approximately 10% of the time specified or less. For example, if you set **Within the Last** to one day, the reset takes place within one day plus two hours. If you set the value to 10 days, the reset takes place within 11 days.
+<!-- Update https://stackoverflow.com/c/mparticle/questions/1320 when this is published. Ask Yuan Ren to review -->
+* For unique lists, up to 100 values are returned. The values are selected based roughly on the order in which mParticle received the data, though the ordering is not guaranteed. 
+<!-- Update https://stackoverflow.com/c/mparticle/questions/2257 when this is published. Ask Yuan Ren to review. -->
 
 ## Calculation Date Range
 
