@@ -130,7 +130,7 @@ const TILES = [
     {
         title: 'Data Subject Request API',
         content: 'Submit data subject requests for GDPR and CCPA compliance via the OpenDSR API.',
-        route: 'dsr-api',
+        route: 'dsr-api/v3',
     },
     {
         title: 'IDSync',
