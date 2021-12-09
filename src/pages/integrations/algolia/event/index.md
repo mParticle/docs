@@ -20,7 +20,7 @@ title: Event
 
 ## Supported User Identities
 
-mParticle will forward one of the following identity types to Algolia based on the `User Token` setting.  The user token must be an alpha-numeric string with a maximum of 64 characters.
+mParticle will forward one of the following identity types to Algolia based on the `User Token` setting.  The [user token](https://www.algolia.com/doc/rest-api/insights/#method-param-usertoken) must be an alpha-numeric string with a maximum of 128 characters and meet the following format: [a-zA-Z0-9_-=]{1,128}.
 
 * Customer ID
 * mParticle ID (MPID)
