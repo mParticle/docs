@@ -71,20 +71,22 @@ The Iterable integration supports the following event types:
 * Push Message Open
 * User Identity Change
 
-### Tracking Purchases
+### Commerce Events
+
+#### Purchase Events
 
 You can map a Product Action event to Iterable's [track purchase](https://api.iterable.com/api/docs#commerce_trackPurchase) api call. Here is an example Product Action event from mParticle's web SDK that maps to an Iterable purchase.
 
 ~~~javascript
 // 1. Create the product
-var product1 = mParticle.eCommerce.createProduct(
+const product1 = mParticle.eCommerce.createProduct(
     'Double Room - Econ Rate',  // Name
     'econ-1',                   // SKU
     100.00,                     // Price
     4                           // Quantity
 );
 
-var product2 = mParticle.eCommerce.createProduct(
+const product2 = mParticle.eCommerce.createProduct(
     'Double Room - Econ Rate',
     'econ-1', 
     100.00, 
@@ -92,14 +94,14 @@ var product2 = mParticle.eCommerce.createProduct(
 );
 
 // 2. Summarize the transaction
-var transactionAttributes = {
+const transactionAttributes = {
     Id: 'foo-transaction-id',
     Revenue: 430.00,
     Tax: 30
 };
 
 // 3. Optional event properties can include Iterable's campaign and template ID values
-var customAttributes = {
+const customAttributes = {
     "sale": true,
     "membershipTier": "Gold",
     "campaignId": 314159,
@@ -113,6 +115,29 @@ mParticle.eCommerce.logProductAction(
     customAttributes,
     null,
     transactionAttributes);
+~~~
+
+#### Add To Cart Events
+
+An add to cart event is mapped to Iterable's [updateCart](https://api.iterable.com/api/docs#commerce_updateCart) commerce event. Each outgoing event overwrites a user's cart contents, so it's important to include the entirety of a cart's contents in each commerce event.
+
+~~~javascript
+// Adding/Removing items to/from your cart
+const product1 = mParticle.eCommerce.createProduct(
+    'Red Ball',  // Name
+    'red-1',     // SKU
+    10.00,       // Price
+    1            // Quantity
+);
+
+const product2 = mParticle.eCommerce.createProduct(
+    'Blue Frisbee',
+    'blue-1', 
+    8.00, 
+    2
+);
+
+mParticle.eCommerce.logProductAction(mParticle.ProductActionType.AddToCart, [product1, product2]);
 ~~~
 
 ### Subscription Preferences
