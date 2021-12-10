@@ -27,7 +27,7 @@ You must upgrade to version 3 in order to forward DSR requests of type erasure.
 
 Follow the steps below to upgrade from version 1 or version 2 to version 3.
 
-1. Update to the v3 endpoint https://opendsr.mparticle.com/v3.
+1. Update to the v3 endpoint `https://opendsr.mparticle.com/v3`.
 2. Update the `api_version` to 3.0.
 3. Update the format in the `subject_identities` element as described [below.](#the-subject_identities-object)
 4. Change the format of the `opendsr.mparticle.com` extensions as described [below.](#the-subject_identities-object)
