@@ -18,9 +18,10 @@ Click on the name of your current Workspace in the top-left corner of the Dashbo
 From the Workspace Settings page, you can:
 
 * View daily, monthly and quarterly statistics across all workspaces in this account, including data from both development and production environments.
-* Browse a list of all Workspaces from your account.
+* Browse a list of all Workspaces in your account.
 * Create a new Workspace - all you need to do is provide a name for the new Workspace.
 * Delete a Workspace - this will also delete all the Workspace's data and connection settings. This action cannot be undone, so proceed with caution.
+* Edit a Workspace - view the [Apple App Transparency Tracking (ATT) Defaults](/developers/sdk/ios/ios14/), enable GDPR and CCPA [regulations](/guides/data-privacy-controls/), and retrieve the workspace Key/Secret to use with the [OpenDSR API](/developers/dsr-api).
 
 <aside>
 	You will not be able to delete a Workspace that is part of a <a href="/platform-guide/audiences#create-audience">Multi Workspace Audience</a>. First delete or modify the Multi Workspace Audience, then you will be able to delete the Workspace.
