@@ -311,7 +311,7 @@ MParticle.getInstance().Identity().login()
 
             // Create and send the alias request
             AliasRequest request = AliasRequest
-                    .builder(previousUser, newUser,)
+                    .builder(previousUser, newUser)
                     .build();
             MParticle.getInstance().Identity().aliasUsers(request);
         }
@@ -320,14 +320,14 @@ MParticle.getInstance().Identity().login()
 // Call alias at any time 
 
 // The getUsers() API now returns users in reverse chronological order
-MParticleUser sourceUser = MParticle.getInstance().Identity().getUsers()[1];
-MParticleUser destinationUser = MParticle.getInstance().Identity().getUsers()[0];
+MParticleUser sourceUser = MParticle.getInstance().Identity().getUsers().get(1);
+MParticleUser destinationUser = MParticle.getInstance().Identity().getUsers().get(0);
 
-AliasRequest request = AliasRequest.Builder()
-    .setSourceMpid(sourceUser.getId())
-    .setDestinationMpid(destinationUser.getId())
-    .setStartTime(sourceUser.getFirstSeenTime()) // must be within 90 days
-    .setEndTime(sourceUser.getLastSeenTime()) // must be between StartTime and now
+AliasRequest request = AliasRequest.builder()
+    .sourceMpid(sourceUser.getId())
+    .destinationMpid(destinationUser.getId())
+    .startTime(sourceUser.getFirstSeenTime()) // must be within 90 days
+    .endTime(sourceUser.getLastSeenTime()) // must be between StartTime and now
     .build();
 MParticle.getInstance().Identity().aliasUsers(request);
 ```
@@ -396,4 +396,4 @@ See the table below and the complete [API reference](https://docs.mparticle.com/
 | `Google`                   | The user's Google ID                                                           |
 | `Twitter`                  | The user's Twitter ID                                                          |
 | `Microsoft`                | The user's Microsoft ID                                                        |
-| `Yahoo`                    | The user's Yahoo ID      
+| `Yahoo`                    | The user's Yahoo ID                                                            |
