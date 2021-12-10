@@ -245,8 +245,6 @@ The `status` field returns the current status of the distribution to the partner
 | Status Value | Description |
 | :--- | :--- |
 | `pending` | The request has been queued for forwarding. |
-| `in_progress` |   | The request has been queued for forwarding.  |
-| `completed` | The request has been forwarded to the partner.  |
 | `skipped` | Request was not forwarded due to missing identities. |
 | `sent` | The request has been forwarded. |
 | `failed` | The request could not be sent. For example, the request may have invalid credentials or partner API errors occurred.  |
