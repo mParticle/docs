@@ -55,6 +55,10 @@ const tagOptions = [{
     value: 'Event',
 },
 {
+    name: 'Data Subject Request',
+    value: 'Data Subject Request',
+},
+{
     name: 'Feed',
     value: 'Feed',
 },

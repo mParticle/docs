@@ -91,6 +91,7 @@ class CategoryChooser extends React.Component {
             ],
             Privacy: [
                 'Consent Management',
+                'Data Subject Request',
             ],
             Security: [
                 'Access Management',
