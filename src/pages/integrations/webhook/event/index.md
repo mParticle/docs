@@ -43,6 +43,7 @@ The [JSON](/developers/server/json-reference/) documentation describes the forma
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
+| Metadata Field Exclusion | `Custom Field` | | All| A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |  
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device. If disabled, mParticle will POST each event to you individually, as its received. This setting is ignored if "Wait for Complete Batch" is enabled.<br><br> If both "Send as Batch" and "Wait for Completed Batch" are selected, the configuration cannot be saved and an error message displays until one of these options is de-selected.|
 | Wait for Complete Batch | `bool` | False | All| If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
 | Send Crash Events | `bool` | True | All| If enabled, app crashes will be forwarded. |
@@ -61,5 +62,4 @@ The [JSON](/developers/server/json-reference/) documentation describes the forma
 | Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
 | Send Alias Requests | `bool` | False | All | If enabled, alias request events will be forwarded. |
 | Send Validation Results | `bool` | False | All| Determines if we should send data planning validation result events. |
-| Metadata Field Exclusion | Custom Field | | All| A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
 | Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
