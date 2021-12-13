@@ -43,7 +43,7 @@ By default, Google Cloud Storage will forward all available Device and User iden
 
 ## Validation
 
-Upon saving a new audience subscription, mParticle will attempt to upload an empty file called `mparticle-validation.txt` to the bucket and folder to verify it is configured correctly.
+Upon saving a new audience subscription, mParticle will attempt to upload an empty file called `mparticle-validation-[time stamp].txt` to the bucket and folder to verify it is configured correctly. In order to guarantee the file name is unique we add the time stamp to it. This will generate a new file every time you save the audience subscription.
 
 If there is any error in the subscription settings, the connection won't be saved, and an error message will be displayed.
 
