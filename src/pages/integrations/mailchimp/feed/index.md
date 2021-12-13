@@ -21,9 +21,9 @@ The following types of data can be configured to be sent from Mailchimp to mPart
 
 ## Mailchimp Event Mapping
 
-MailChimp events are mapped as follows:
+Mailchimp events are mapped as follows:
 
-MailChimp Field | mParticle Mapping
+Mailchimp Field | mParticle Mapping
 |---|---
 type | Event Type = Custom Event, Custom Event Type = Other, Event Name = `type`, where type is subscribe, unsubscribe, profile, cleaned or campaign.  <br>Event Type = User Identity Change Event, when type is upemail
 data[email] | Email User Identity

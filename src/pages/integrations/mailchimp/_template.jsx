@@ -1,5 +1,5 @@
 export const frontmatter = {
     partnerId: 20,
-    title: 'MailChimp',
+    title: 'Mailchimp',
     redirect: '/integrations/mailchimp/audience/'
 };
