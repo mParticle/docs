@@ -13,7 +13,7 @@ title: Event
 
 ## Prerequisites
 
-In order to activate mParticle's integration with Amplitude, you will need the Amplitude API Key for each app that you'd like to setup.  Your API key can be found on the Settings page of the Amplitude dashboard.
+To activate mParticle's integration with Amplitude, you need the Amplitude API Key for each app that you'd like to set up.  Your API key is listed on the [Amplitude Project Settings page](https://help.amplitude.com/hc/en-us/articles/360058073772#view-and-edit-your-project-information).
 
 ## Data Processing Notes
 
