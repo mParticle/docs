@@ -24,7 +24,7 @@ There are two key reasons why you might want to self-host:
 
 In your project folder, install the [main package](https://www.npmjs.com/package/@mparticle/web-sdk), plus client-side code for any integrations you want to include, from the command line.
 
-~~~
+~~~bash
 npm i @mparticle/web-sdk
 npm i @mparticle/web-mixpanel-kit
 ~~~
