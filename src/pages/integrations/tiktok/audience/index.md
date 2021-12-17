@@ -33,6 +33,9 @@ Only TikTok Advertiser Accounts can utilize the mParticle/TikTok integration. In
 
 It may take several hours to see data in TikTok's Ads Manager as audiences take time to fully populate. A connected audience must contain at least 1000 unique users before the audience is reflected within your TikTok account.
 
+### Delete / Disconnect an audience
+TikTok Ads Manager does not allow audiences used by ad groups to be deleted. Before deleting or disconnecting an audience in mParticle, check your TikTok Ads Manager Account to be sure there are no Ads associated with the audience.
+
 ## Supported Identities
 
 ### Device Identities
