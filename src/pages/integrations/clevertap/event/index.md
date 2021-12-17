@@ -4,22 +4,15 @@ title: Event
 
 [CleverTap](https://www.clevertap.com/) helps consumer brands retain their users for life. Over 8,000 global brands, including Star, Sony, Vodafone, Domino’s, DC Comics, and DealsPlus, trust CleverTap to help them connect with users and grow their mobile apps.
 
-The CleverTap integration supports:
-* Android
-* iOS
-* tvOS 
-* Web
-* SmartTV platforms.
-
-## Embedded Kit vs server-to-server integration
-
-This integration supports two ways to send data to CleverTap. You can include the CleverTap embedded kit in your iOS or Android app and send data directly from the client. In addition, any data from supported platforms where the kit was not present will be forwarded server-to-server.
-
 ## Prerequisites
 
 In order to enable mParticle's integration with CleverTap, you will need your Account ID, Passcode, and Token, available from your CleverTap Dashboard. You will also need to know your CleverTap data center region. This is available from your CleverTap Customer Success Manager. 
 
-### Adding the kit to your iOS/ Android app
+## Embedded Kit vs Server-to-Server Integration
+
+This integration supports two ways to send data to CleverTap. You can include the CleverTap embedded kit in your iOS or Android app and send data directly from the client. In addition, any data from supported platforms where the kit was not present will be forwarded server-to-server.
+
+## Adding the kit to your iOS/ Android app
 
 Sending data to CleverTap directly from your iOS or Android app requires that you add the CleverTap Kit.
 
@@ -53,6 +46,15 @@ For iOS, note that the CleverTap SDK is a static library. Reference our document
 -->
 
 Reference the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/developers/sdk/android/kits/) guides to read more about kits.
+
+## Supported Platforms
+
+* Android
+* Data Feeds
+* iOS
+* tvOS 
+* SmartTV
+* Web
 
 ## Supported Device Identity Types
 
