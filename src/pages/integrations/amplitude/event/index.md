@@ -135,7 +135,7 @@ mParticle will also populate `device_brand` and `device_model` from the HTTP use
 
 | Setting Name | Data Type | Default Value | Description |
 | --- | --- | --- | --- |
-| API Key | `string` | <unset> | Your app's Amplitude API Key. You can find this on the "My Account" page of Amplitude's dashboard. |
+| API Key | `string` | <unset> | The [Amplitude API Key](https://help.amplitude.com/hc/en-us/articles/360058073772#view-and-edit-your-project-information) for each app that you set up. |
 | Amplitude Organization | `string` | US Organization |  The Amplitude datacenter that is configured for your Amplitude organization. |
 | Use Batch API Endpoint | `bool` | False | If enabled, the Amplitude [batch API](https://developers.amplitude.com/docs/batch-event-upload-api) endpoint will be used. The endpoint has a higher rate limit but may have a slight delay in delivering events. Please note that if the request is replayed, the batch API endpoint will always be used regardless of this configuration value. |
 
