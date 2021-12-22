@@ -181,7 +181,7 @@ The `identify`, `search`, `login`, and `logout` return a body with the following
 
 ### `/search`
  
-The `search` path should be used when you wish to determine the existence of a user identity. A typical use case is to confirm that a [GDPR erasure request](/guides/data-subject-requests/#erasure) has been successfully completed. It is similar to `identify` in that it accepts a set of known identities and returns an mParticle ID. You should provide all available identifying information for the given user. However, the `search` path is different from `identify` in that if there are no matches, it will not create a new mParticle ID, it will return a user not found error message.
+The `search` path should be used when you wish to determine the existence of a user identity. It is similar to `identify` in that it accepts a set of known identities and returns an mParticle ID. You should provide all available identifying information for the given user. However, the `search` path is different from `identify` in that if there are no matches, it will not create a new mParticle ID, it will return a user not found error message.
 
 #### Request / Response
 
