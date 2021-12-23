@@ -2,10 +2,16 @@
 title: Event
 ---
 
-[Radar](https://radar.io) is the location platform for mobile apps. Radar helps companies build better products and make better decisions with location data.
+[Radar](https://radar.com) is the leading geofencing and location tracking platform. You can use Radar SDKs and APIs to build a wide range of location-based product and service experiences, including pickup and delivery tracking, location-triggered notifications, location verification, store locators, address autocomplete, and more.
 
-## Supported Features
-* Location Tracking
+## Implementation Scenarios
+* Geofencing from 10 meters to an entire country
+* Foreground and background location tracking
+* Location-triggered messaging and notifications
+* Contextual in-app experience based on real time location
+* Trip tracking for pickup, delivery, and fleet tracking
+* Real time ETA updates and arrival notifications during a trip
+* Location-informed audience segmentation
 
 ## Prerequisites
 
@@ -13,7 +19,7 @@ In order to enable mParticle's integration with Radar, you will need an account 
 
 ## mParticle Radar Implementation
 
-mParticle's Radar integration requires that you add the Radar kit to your iOS or Android app.  
+mParticle's Radar integration requires that you add the Radar kit to your iOS, Android, or web app.  
 
 * The mParticle SDK will automatically initialize the Radar SDK using your Publishable API Key.
 * If the Run Automatically setting is `enabled`, Radar will automatically track users if location permissions have been granted.
@@ -45,7 +51,7 @@ dependencies {
 ~~~   
 :::
 
-For more information, see Radar's [SDK](https://radar.io/documentation/sdk) and [mParticle integration](https://radar.io/documentation/integrations#event-integrations-mparticle-kit) documentation.
+For more information, see Radar's [SDK](https://radar.com/documentation/sdk) and [mParticle integration](https://radar.com/documentation/integrations#event-integrations-mparticle-kit) documentation.
 
 ## Configuration Settings
 
