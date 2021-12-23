@@ -124,6 +124,7 @@ For partners that support custom mappings, the Output Service's events are liste
 The following integrations support custom mappings:
 
 * AgilOne
+* Algolia
 * Amazon Mobile Analytics
 * AppLovin
 * AppsFlyer
@@ -131,7 +132,11 @@ The following integrations support custom mappings:
 * Facebook
 * Fiksu
 * Google Analytics for Firebase
+* Iterable
+* NCR Aloha
+* Optimizely
 * SimpleReach
+* Snapchat
 * Tune
 
 If an event has a Custom Mapping for a particular connection, it will be displayed with an icon in the Event Filter
