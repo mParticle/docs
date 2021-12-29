@@ -954,6 +954,7 @@ is_dst | nullable bool | optional| Is Daylight Savings Time
 {
     "application_name":  "App Name",
     "application_version": "1.0.1",
+    "application_build_number": "42",
     "install_referrer":  "utm_campaign=my_campaign&utm_source=google&utm_medium=cpc&utm_term=my_keyword&utm_content=ad_variation1",
     "package": "com.mparticle.test",
     "apple_search_ads_attributes":{
@@ -978,11 +979,12 @@ is_dst | nullable bool | optional| Is Daylight Savings Time
 
 Property | Data Type | Required| Description
 ---------|------------|---|---
-application_name | string | optional| Name of application
-application_version | string | optional| Version of application
-install_referrer | string | optional| Android Only - Provided by Google Play Store
-package | string | optional| Package name
-apple_search_ads_attributes | dictionary| optional | Apple App Store Search Ads attribution arguments
+application_name | string | optional| Name of application 
+application_version | string | optional| Version of application 
+application_build_number | string | optional| Build of the application 
+install_referrer | string | optional| Android Only - Provided by Google Play Store 
+package | string | optional| Package name 
+apple_search_ads_attributes | dictionary| optional | Apple App Store Search Ads attribution arguments 
 
 ## `user_attributes`
 
@@ -1184,6 +1186,7 @@ is_historical | string | If true, data was received via the [historical](/develo
   "application_info": {
     "application_name": "App Name",
     "application_version": "1.0.1",
+    "application_build_number": "42",
     "install_referrer": "utm_campaign=my_campaign&utm_source=google&utm_medium=cpc&utm_term=my_keyword&utm_content=ad_variation1",
     "package": "com.newco.myapp"
   },
