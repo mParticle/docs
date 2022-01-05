@@ -12,8 +12,8 @@ There are two versions of this API that we support:
 
 Version  | Framework | API Endpoint
 ---  | --- | ---
-1.0  | [OpenGDPR](https://github.com/opengdpr/OpenDSR/tree/opengdpr_v1)  | https://opengdpr.mparticle.com/v1
-2.0  | [OpenDSR](https://github.com/opengdpr/OpenDSR/) |  https://opendsr.mparticle.com/v2
+1.0  | [OpenGDPR](https://github.com/opengdpr/OpenDSR/tree/opengdpr_v1)  | `https://opengdpr.mparticle.com/v1`
+2.0  | [OpenDSR](https://github.com/opengdpr/OpenDSR/) |  `https://opendsr.mparticle.com/v2`
 
 This is noted in the two endpoints supported below, and in the `api_version` field in many of the resources below.
 

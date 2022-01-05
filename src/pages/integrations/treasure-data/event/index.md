@@ -12,7 +12,7 @@ title: Event
 
 To set up the Treasure Data integration, you will need your Treasure Data API Key and the database name and table you want to write data to.
 
-See [Treasure Data's documentation](https://docs.treasuredata.com/articles/get-apikey) for help finding your API Key. Consult your Treasure Data account manager if you are unsure of your database/table name.
+See the [Treasure Data documentation](https://docs.treasuredata.com/display/public/PD/Getting+Your+API+Keys) for help finding your API Key. Consult your Treasure Data account manager if you are unsure of your database/table name.
 
 ## Supported User Identities
 
@@ -28,7 +28,7 @@ Treasure Data will not accept data more than a week old.
 
 ### Storage Format
 
-Treasure Data will initially store mParticle data as a two-column table. The first column contains a timestamp, and the second contains the raw JSON data received from mParticle. Further schema can be applied to the data within Treasure Data. See the [Treasure Data](https://docs.treasuredata.com/articles/schema#default-schema-time-and-v) documentation for more information.
+Treasure Data will initially store mParticle data as a two-column table. The first column contains a timestamp, and the second contains the raw JSON data received from mParticle. Further schema can be applied to the data within Treasure Data. See the [Treasure Data documentation](https://docs.treasuredata.com/display/public/PD/Schema+Management)  for more information.
 
 ## Supported Events
 

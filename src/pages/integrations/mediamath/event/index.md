@@ -2,7 +2,7 @@
 title: Event
 ---
 
-[MediaMath](https://mediamath.com) unites audience, media and intelligence in a single omnichannel platform. We give marketers the tools to execute smart marketing at scale and to drive truly incremental business value.
+[MediaMath](https://www.mediamath.com) unites audience, media and intelligence in a single omnichannel platform. We give marketers the tools to execute smart marketing at scale and to drive truly incremental business value.
 
 MediaMath’s mParticle partnership enables advertisers to onboard real-time first party data in a secure and streamlined way. Shared clients can segment and activate audiences in MediaMath’s DMP and measure the impact of omnichannel campaigns in MediaMath’s DSP. No traditional pixel placement required! To get started, please reach out to your MediaMath client services representative.
 

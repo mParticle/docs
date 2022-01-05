@@ -15,10 +15,10 @@ After adding the Dynamic Yield integration as an event output from the mParticle
 While allowing mParticle to automatically load Dynamic Yield reduces the amount of code you need to write, you may choose to initialize Dynamic Yield yourself to prevent "flickering" in the case where a Dynamic Yield experiment is expected to alter the UI immediately on load. If you do add the Dynamic Yield snippet to your code, mParticle will not load it again and instead use the already loaded Dynamic Yield window object (window.DY). If you do not load it yourself, mParticle will load the script for you. 
 
 ### Create Page Context
-Dynamic Yield requires each page to have a Page Context. You will need to add the Page Context to each `<head>` tag on the page. See [here](http://support.dynamicyield.com/article/page-context/) for additional information regarding Page Context.
+Dynamic Yield requires each page to have a Page Context. You will need to add the Page Context to each `<head>` tag on the page. See [the Dynamic Yield documentation](http://support.dynamicyield.com/article/page-context/) for additional information regarding Page Context.
 
 #### Single Page Apps
-Implementing Dynamic Yield inside of a Single Page App (SPA) has additional implications. See [here](https://support.dynamicyield.com/article/working-with-single-page-applications/) for help setting up Dynamic Yield on an SPA.
+Implementing Dynamic Yield inside of a Single Page App (SPA) has additional implications. See [the Dynamic Yield documentation](https://support.dynamicyield.com/hc/en-us/articles/360022956414-Support-for-Websites-using-Single-Page-Applications-SPA-) for help setting up Dynamic Yield on an SPA.
 
 #### Implementation Helper
 

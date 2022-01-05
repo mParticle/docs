@@ -9,17 +9,11 @@ title: Feed
 1. In your mParticle workspace, set up a Talon.One feed configuration  in order to generate API key/secret values.
 2. In Talon.One, configure a [webhook](https://docs.talon.one/docs/dev/tutorials/creating-a-webhook) to send data to mParticle. 
 
-* The webhook should post requests to the mParticle [Endpoint](/developers/partners/inbound-integrations/)
-* Use basic authorization for your authorization header. You can follow the steps shown [here](/developers/server/http/#authentication) to translate your API Key/secret to the required format.
-* The request body must leverage mParticle's [Events API](/developers/server/json-reference/) format
+   * The webhook should post requests to the mParticle [Endpoint](/developers/partners/inbound-integrations/).
+   * Use basic authorization for your authorization header. You can follow the steps shown [here](/developers/server/http/#authentication) to translate your API Key/secret to the required format.
+   * The request body must leverage mParticle's [Events API](/developers/server/json-reference/) format.
 
-<aside>
-If you are using the <a href="https://docs.mparticle.com/integrations/talon-one/audience/">Talon.One Audience Integration</a>, you can set up a webhook supporting profile enrichment exclusively. In this configuration, Talon.One will only send data to mParticle for users that have previously been sent to Talon.One via a connected audience.
-
-Alternatively, you can map any value in Talon.One to the appropriate user or device identity field in mParticle. This would allow Talon.One to create user profiles in mParticle in the event that a customer is not already known to mParticle. 
-
-Additional details on configuring your webhooks are shown below. 
-</aside>
+    If you are using the [Talon.One Audience Integration](/integrations/talon-one/audience/), you can set up a webhook supporting profile enrichment exclusively. [In this configuration](#profile-enrichment-webhooks-with-mparticle-id), Talon.One will only send data to mParticle for users that have previously been sent to Talon.One via a connected audience. Alternatively, you can map any value in Talon.One to the appropriate user or device identity field in mParticle. [This general configuration](#general-webhooks) allows Talon.One to create user profiles in mParticle if a customer is not already known to mParticle. 
 
 ## Profile Enrichment Webhooks with mParticle ID
 

@@ -15,7 +15,8 @@ Primer - Instantly deploy native screens personalized for every new user.
 
 In order to enable mParticle’s integration with Primer you will need the SDK Token for your Primer project, and to manually set up and start the Primer SDK.
 
-1.  Sign up for an account with [Primer](https://goprimer.com/) and get your Token from the General tab in the [Settings page](https://goprimer.com/dashboard#/project//edit?tab=general).
+1.  Sign up for an account with [Primer](https://goprimer.com/) and get your Token from the General tab in the project dashboard Settings page.
+
 2.  Whitelist Primer’s domain:
 
     ~~~objectivec
@@ -55,4 +56,4 @@ In order to enable mParticle’s integration with Primer you will need the SDK T
 1. Start the SDK in `-application:didFinishLaunchingWithOptions:` prior to starting the mParticle SDK
 2. Present an onboarding experience by calling the presentation method in the `-viewDidLoad` of your first view controller to be presented to the user on app load.
 
-For more information, and additional optional integration features, please refer to the [Primer iOS SDK Documentation](http://ios.goprimer.com/).
+For more information, and additional optional integration features, please refer to the [Primer iOS SDK Documentation](https://github.com/goprimer/primer-ios-sdk).

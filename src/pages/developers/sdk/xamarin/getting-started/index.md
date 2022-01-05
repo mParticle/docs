@@ -159,8 +159,8 @@ To verify that the kit was successfully detected, look for a string that matches
 
 Additional information on troubleshooting Xamarin bindings can be found here for Android and iOS:
 
-- Android: https://developer.xamarin.com/guides/android/advanced_topics/binding-a-java-library/troubleshooting-bindings/
-- iOS: https://developer.xamarin.com/guides/ios/troubleshooting/mtouch-errors/
+* [Android](https://docs.microsoft.com/en-us/xamarin/android/platform/binding-java-library/troubleshooting-bindings)
+* [iOS](https://developer.xamarin.com/guides/ios/troubleshooting/mtouch-errors/)
 
 ## Building this project
 

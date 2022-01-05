@@ -13,7 +13,7 @@ There are many use cases for Audiences - here's a couple of high-level examples.
 
 Let's say you want to engage with users that have recently installed your app but haven't used your app very much.  Your objective is to drive higher engagement and convert those new users to high lifetime value users.  You want to accomplish this across multiple channels: push notification and email.  Therefore, your audience qualification criteria is that the user has installed your app in the last 72 hours and has less than three sessions.  
 
-With Audience Manager, you can easily and visually define this audience, then configure audience integrations to push notification and email partners - in this example, let's use Kahuna for push and Mailchimp for email.  Once you configure the respective integrations in the Audience Manager, mParticle instantiates a corresponding audience in Kahuna and updates the corresponding email marketing list in Mailchimp.  No coding is necessary.
+With Audience Manager, you can easily and visually define this audience, then configure audience integrations to push notification and email partners - in this example, let's use Button for push and Mailchimp for email.  Once you configure the respective integrations in the Audience Manager, mParticle instantiates a corresponding audience in Button and updates the corresponding email marketing list in Mailchimp.  No coding is necessary.
 
 ### Drive App Downloads
 

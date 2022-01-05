@@ -22,7 +22,7 @@ For a complete integration with Button, you will need the following:
 
 ## Enable the Button Integration
 
-1. Add the mParticle SDKs to your iOS, Android, and/or Web apps. See the docs for [your platform here](http://docs.mparticle.com/developers/).
+1. Add the mParticle SDKs to your iOS, Android, and/or Web apps. See the docs for [your platform](http://docs.mparticle.com/developers/).
 2. Connect your iOS, Android, and/or web workspaces to Button. You will need to input your Button Application ID, which you can access from your organization's [Button dashboard](https://app.usebutton.com/account/login/?next=/settings/organization) (login required). For more information on setting up a new mParticle connection, see the [Platform Guide](http://docs.mparticle.com/platform-guide/).
 
     #### Configuration Settings
@@ -33,7 +33,7 @@ For a complete integration with Button, you will need the following:
 
 ## Event collection
 
-Button requires the reporting of eCommerce orders via mParticle's eCommerce APIs. mParticle's integration with the Button API has similar requirements as [documented here by Button](https://developer.usebutton.com/guides/merchants/ios/button-merchant-integration-guide#report-orders-to-buttons-order-api). 
+Button requires the reporting of eCommerce orders via mParticle's eCommerce APIs. mParticle's integration with the Button API has similar requirements as [documented by Button](https://developer.usebutton.com/guides/merchants/ios/button-merchant-integration-guide#report-orders-to-buttons-order-api). 
 
 <aside>
 Note that the default integration method shown is iOS, change the integration method by choosing the intregration type from the drop-down at the top of the screen.
@@ -166,7 +166,3 @@ if (button != null) {
 }
 ~~~
 :::
-
-## Read More
-
-[See here for Button's documentation](https://www.usebutton.com/guides/mparticle) covering app setup, mParticle's integration, and interacting with the Button API. (default view is iOS, change to the particular implementatino by using the drop-down button at the top of the page).

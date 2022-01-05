@@ -6,8 +6,8 @@ TUNE was acquired by Branch in 2018 and this integration is now **deprecated**.
 
 If you're looking to send data from mParticle to Branch please use the 
 
-* Client-side integration [here](https://docs.mparticle.com/integrations/branch-metrics/event/) 
-* Server-to-server integration [here](https://docs.mparticle.com/integrations/branch-metrics-server/event/). 
+* Client-side integration [here](/integrations/branch-metrics/event/) 
+* Server-to-server integration [here](/integrations/branch-metrics-server/event/). 
 
 If you're looking to send data from Branch to mParticle please refer to Branch's docs [here](https://help.branch.io/using-branch/docs/mparticle-export).
 

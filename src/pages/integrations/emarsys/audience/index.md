@@ -16,7 +16,7 @@ mParticle forwards email addresses to Emarsys.
 
 ## User Attribute Forwarding
 
-Along with each email address, mParticle can forward a limited section of user attributes. These can be used for [personalizing content](https://help.emarsys.com/hc/en-us/articles/115002931425-Email-Content#personalizing_content) in Emarsys. The following [Emarsys fields](https://dev.emarsys.com/v2/personalization/contact-system-fields#emarsys-system-fields-and-their-ids) are forwarded where possible:
+Along with each email address, mParticle can forward a limited section of user attributes. These can be used for personalizing content in Emarsys. The following [Emarsys fields](https://help.emarsys.com/hc/en-us/articles/115004637665-Overview-The-Emarsys-system-fields) are forwarded where possible:
 
 * First Name
 * Last Name

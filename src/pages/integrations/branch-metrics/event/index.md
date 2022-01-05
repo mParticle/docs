@@ -62,7 +62,7 @@ The mParticle iOS SDK (version 5.4.1 and later) will automatically call the foll
 
 #### Apple Search Ads
 
-If you have enabled [Apple Search Ads](https://docs.branch.io/pages/deep-linked-ads/apple/#enable-apple-search-ads-check) for your Branch implementation, you must also check 'Enable Apple Search Ads' in the [Connection Settings](#connection-settings).
+If you have enabled [Apple Search Ads](https://help.branch.io/using-branch/docs/apple-search-ads) for your Branch implementation, you must also check 'Enable Apple Search Ads' in the [Connection Settings](#connection-settings).
 
 ### Android Implementation
 

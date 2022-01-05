@@ -17,8 +17,8 @@ You will need a Kissmetrics account and your Kissmetrics API Key, available in y
 
 For more info, see the Kissmetrics documentation
 
-* [Kissmetrics API Reference](http://support.kissmetrics.com/article/show/23938-api-specifications)
-* [Kissmetrics revenue reporting reference](http://support.kissmetrics.com/article/show/revenue-report)
+* [Kissmetrics API Reference](https://support.kissmetrics.io/reference/api-specifications-1)
+* [Kissmetrics revenue reporting reference](https://support.kissmetrics.io/docs/revenue-report-1)
 
 
 ## Supported Features

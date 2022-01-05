@@ -6,7 +6,7 @@ title: Feed
 
 ## Enable the Integration
 
-You will set up a separate Bluedot feed configuration in mParticle for each Bluedot input platform you connect. For example, to receive Bluedot events from your iOS and Android platforms you will create two feeds. One feed will set the "Act as Application" field to "iOS" and the other feed will be set to "Android." You will receive an API key and secret for each configuration, and will  add these credentials in your Bluedot admin panel. For additional details, see the [Bluedot mParticle Feed documentation](https://docs.bluedot.io/mparticle-integration/)
+You will set up a separate Bluedot feed configuration in mParticle for each Bluedot input platform you connect. For example, to receive Bluedot events from your iOS and Android platforms you will create two feeds. One feed will set the "Act as Application" field to "iOS" and the other feed will be set to "Android." You will receive an API key and secret for each configuration, and will  add these credentials in your Bluedot admin panel. For additional details, see the [Bluedot mParticle Feed documentation](https://docs.bluedot.io/integrations/mparticle-integration/)
 
 ## Supported Event Types
 

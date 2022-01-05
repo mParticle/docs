@@ -52,23 +52,23 @@ MParticle.getInstance().checkForDeepLink(new DeepLinkListener() {
 
 ## Server to Server Integration
 
-mParticle forwards events to Singular via their [Event API](http://support.apsalar.com/customer/en/portal/articles/1394852-apsalar-event-api). If you choose to forward 'Launch' events to Singular, a Launch event will be sent each time a session begins in your app. Singular will interpret the first Launch event for a device as an Install event. All App events, Screenview events and Commerce events will be forwarded. If you are using the mParticle SDKs in your app, standard device information will be forwarded automatically, along with a dictionary of product attributes, for commerce events, or event attributes, for app events and screenviews.
+mParticle forwards events to Singular via their [Server-to-Server API](https://support.singular.net/hc/en-us/articles/360048588672). If you choose to forward 'Launch' events to Singular, a Launch event will be sent each time a session begins in your app. Singular will interpret the first Launch event for a device as an Install event. All App events, Screenview events and Commerce events will be forwarded. If you are using the mParticle SDKs in your app, standard device information will be forwarded automatically, along with a dictionary of product attributes, for commerce events, or event attributes, for app events and screenviews.
 
 
 ## Prerequisites
 
 To activate mParticle's Singular integration, you will need the  API Key for each app that you'd like to setup.  Please contact your Singular account representative if you need help locating your API Key. To use the embedded kit, you will also need your API Secret.
 
-mParticle forwards events to Singular via their [Event API](http://docs.singularservertoserverintegration.apiary.io/#reference). If you choose to forward 'Launch' events to Singular, a Launch event will be sent each time a session begins in your app. Singular will interpret the first Launch event for a device as an Install event. All App events, Screenview events and Commerce events will be forwarded. If you are using the mParticle SDKs in your app, standard device information will be forwarded automatically, along with a dictionary of product attributes, for commerce events, or event attributes, for app events and screenviews.
+mParticle forwards events to Singular via their [Server-to-Server API](https://support.singular.net/hc/en-us/articles/360048588672). If you choose to forward 'Launch' events to Singular, a Launch event will be sent each time a session begins in your app. Singular will interpret the first Launch event for a device as an Install event. All App events, Screenview events and Commerce events will be forwarded. If you are using the mParticle SDKs in your app, standard device information will be forwarded automatically, along with a dictionary of product attributes, for commerce events, or event attributes, for app events and screenviews.
 
 ## Data Processing Notes
 
 * Event Names may be truncated to 32 characters.  
 * Singular allows a maximum of 400 unique event names
-* For the additional attributes JSON object, Keys are restricted to a maximum of 255 characters, and values to a maximum of 500 characters.
+* For the additional attributes JSON object, keys are restricted to a maximum of 255 characters, and values to a maximum of 500 characters.
 * The entire query string cannot exceed 4000 characters. Any attributes that would cause this limit to be exceeded will be dropped.
 
-See Singular's [Restrictions document](http://support.apsalar.com/customer/en/portal/articles/772147-restrictions-on-event-name-attribute-name-and-attribute-value) for more information.
+See Singular's documentation for the latest information about event limitations.
 
 ## Event Data Mapping
 

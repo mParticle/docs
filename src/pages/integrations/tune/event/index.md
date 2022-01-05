@@ -4,12 +4,12 @@ title: Event
 
 TUNE was acquired by Branch in 2018 and this integration is now **deprecated**. 
 
-If you're looking to send data from mParticle to Branch please use the 
+To send data from mParticle to Branch, use the following documentation: 
 
-* Client-side integration [here](https://docs.mparticle.com/integrations/branch-metrics/event/) 
-* Server-to-server integration [here](https://docs.mparticle.com/integrations/branch-metrics-server/event/). 
+* [Client-side integration](/integrations/branch-metrics/event/) 
+* [Server-to-server integration](/integrations/branch-metrics-server/event/) 
 
-If you're looking to send data from Branch to mParticle please refer to Branch's docs [here](https://help.branch.io/using-branch/docs/mparticle-export).
+If you want to send data from Branch to mParticle please refer to the [Branch's documentation](https://help.branch.io/using-branch/docs/mparticle-export).
 
 ## Supported Features
 
@@ -18,7 +18,7 @@ If you're looking to send data from Branch to mParticle please refer to Branch's
 
 ## Data Processing Notes
 
-Tune has limits around the number of unique event names and attributes their platform can process as noted here: [http://developers.mobileapptracking.com/mobile-sdks-app-events-intro/](http://developers.mobileapptracking.com/mobile-sdks-app-events-intro/)
+Tune has limits around the number of unique event names and attributes their platform can process. Tune may change these values, so consult Tune documentation for the latest limits.
 
 * 100 events
 
@@ -30,9 +30,9 @@ mParticle will forward Apple Search Ad Attribution values, if provided.
 
 ## Prerequisites
 
-In order to enable mParticle's integration with Tune, you will need an account with Tune in order to obtain your Advertiser Id.  Your Advertiser Id is available on your Mobile Apps details page.  Click [here](https://developers.mobileapptracking.com/finding-advertiser-id-conversion-key/) for information on finding your Advertiser ID and Conversion Key and [here](https://help.tune.com/marketing-console/finding-your-attribution-analytics-site-id/) to find your Site ID.
+In order to enable mParticle's integration with Tune, you will need an account with Tune in order to obtain your Advertiser Id.  Your Advertiser Id is available on the Tune Mobile Apps details page.
 
-You will also need your Private Key and Consumer Key to configure the Tune Integration.  See [Tune's documentation](https://developers.tune.com/measurement-docs/obtaining-your-private-api-key/) for help finding your Private Key and Consumer Key. When you set up your key, be sure to leave the **Whitelist IP Addresses** field blank to leave access unrestricted.
+You will also need your Private Key and Consumer Key to configure the Tune Integration. When you set up your key, be sure to leave the **Whitelist IP Addresses** field blank to leave access unrestricted.
 
 ## General Parameters
 

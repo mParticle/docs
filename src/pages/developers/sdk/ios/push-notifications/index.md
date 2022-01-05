@@ -52,7 +52,6 @@ The following Kit integrations can receive Push Notifications:
 
 * [Braze](/integrations/braze/event/#kit-integration)
 * [Iterable](/integrations/iterable/event)
-* [Kahuna](/integrations/kahuna/event#push-notifications)
 * [Leanplum](/integrations/leanplum/event/#kit-integration)
 * [Localytics](/integrations/localytics/event/#push-notifications)
 * [Urban Airship](/integrations/urbanairship/event/#3-push-notifications)

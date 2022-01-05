@@ -127,12 +127,9 @@ mParticle has a single API that wraps both of these callbacks, and the respectiv
 The `onAppOpenAttribution` method parses the data and returns it via an `NSDictionary` (Hash Map) object on iOS or `Map` object on Android. This is true when using app specific attribution links, URL schemes or shortened OneLinks.
 However, when users deep link directly using universal or app links, the onAppOpenAttribution method returns the full link unparsed since the app opens directly without going through AppsFlyer first. You can read more about AppsFlyer's deep linking methods [here](https://support.appsflyer.com/hc/en-us/articles/208874366-OneLink-deep-linking-guide#deep-linking-data-accessing-conversion-data-for-deferred-deep-linking).
 
-The keys returned in these results will match the result of the AppsFlyer SDK, documented here:
+The keys returned in these results will match the result of the AppsFlyer SDK, documented [here](https://support.appsflyer.com/hc/en-us/articles/207032096#SDK-Implementation).
 
-- [iOS](https://support.appsflyer.com/hc/en-us/articles/207032096-Accessing-AppsFlyer-Attribution-Conversion-Data-from-the-SDK-iOS-Deferred-Deeplinking-)
-- [Android](https://support.appsflyer.com/hc/en-us/articles/207032176-Accessing-AppsFlyer-Attribution-Conversion-Data-from-the-SDK-Deferred-Deeplinking-)
-
-See the deeplinking documentation for [iOS](/developers/sdk/ios/kits#deep-linking) and [Android](/developers/sdk/android/kits#deep-linking) for more information.
+See the deep linking documentation for [iOS](/developers/sdk/ios/kits#deep-linking) and [Android](/developers/sdk/android/kits#deep-linking) for more information.
 
 ### Test Scenarios
 

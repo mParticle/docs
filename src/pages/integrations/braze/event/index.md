@@ -72,7 +72,7 @@ mParticle integrates with Braze to allow web push notifications to further engag
     * Optionally, you can change the name and location of `service-worker.js`. The following example will clarify the steps:
         * Let's say that you want to rename your `service-worker.js` file to `braze-push-worker.js` and store it in inside a directory in your root folder called `thirdParty/`.
         * In your mParticle dashboard, open your Braze connection settings. Under `Push Notification Service Worker File Location`, type in `/thirdParty/braze-push-worker.js` and click `Save`.
-        *  __Warning__  - Setting a value here limits the scope of push notifications on your site. For instance, in the above example, because the service worker file is located within the `/thirdParty/` directory, asking for push notifications MAY ONLY BE CALLED from web pages that start with http://yoursite.com/thirdParty/.
+        *  __Warning__  - Setting a value here limits the scope of push notifications on your site. For instance, in the above example, because the service worker file is located within the `/thirdParty/` directory, asking for push notifications MAY ONLY BE CALLED from web pages that start with `http://your-site-name.com/thirdParty/`.
 
 ##### Web Troubleshooting Tips
 * Firefox - starting with version 72, Firefox requires user interaction before showing a full push permission dialogue box. See [here](https://blog.mozilla.org/futurereleases/2019/11/04/restricting-notification-permission-prompts-in-firefox/) for more details.
