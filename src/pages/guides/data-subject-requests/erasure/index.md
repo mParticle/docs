@@ -65,7 +65,7 @@ After the DSR forwarding is configured, use either the mParticle user interface 
 
 Before you forward DSR for erasure, consider the following:
 
-* To avoid profile resolution complexities and subsequent conflation of user data deletion downstream, only a single profile is resolved. All other identities known for the resolved user profile are enriched onto the user deletion message sent downstream.
+* To avoid profile resolution complexities and subsequent conflation of user data deletion downstream, only a single user profile is resolved. All other identities associated with the resolved user profile are included in the user deletion message sent to downstream partners.
 * When using the API or user interface, only a single identity of the same identity type is allowed when DSR for erasure forwarding has been enabled, such as a single customer ID, email address, or IDFA. You can send in multiple identities of different types such as Customer ID and email address. See [API error messages](#api-error-messages) for ID validation rules.
 * To forward DSR for erasure for multiple user profiles, send one erasure request per user profile.
 * mParticle forwards erasure requests on receipt of the request. The general processing time specified in [General Request Workflow](/guides/data-subject-requests/#general-request-workflow) only applies to the mParticle fulfillment processing and does not apply to DSR for erasure forwarding. 
