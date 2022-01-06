@@ -114,7 +114,7 @@ The details of the registration response are outlined below. For a full example 
 
 mParticle users will see the result of your module registration response in our integrations directory. You should set a human-readable title for your service (such as your company's name), as well as a short description of your company including a link to your company's website with optional tracking parameters. Your description must be less than 230 characters.
 
-This information will be also shown on [/integrations/](https://docs.mparticle.com/integrations/) and [https://www.mparticle.com/integrations.](https://www.mparticle.com/integrations)
+This information will be also shown on the mParticle [documentation](https://docs.mparticle.com/integrations/) and [marketing](https://www.mparticle.com/integrations) sites.
 
 Override the `processRegistrationRequest` method in your `MessageProcessor` and add the following code, customized for your service:
 
