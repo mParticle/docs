@@ -154,7 +154,9 @@ const Guides = (props) => (
                     <li>
                         For information about our SDKs, APIs, and tools, visit
                         the
+                        {' '}
                         <Link to='/developers/'>Developers</Link>
+                        {' '}
                         section.
                     </li>
                     <li>
