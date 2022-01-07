@@ -109,9 +109,9 @@ To create and implement a data plan:
 
 2. [Activate](#step-2-activate-your-plan) your plan so it is ready to validate incoming data.
   
-3. [Tag](#step-3-plan-validation-and-blocking) your incoming data so that it is validated against the plan. You'll need a developer to complete this step.     
+3. [Tag](#step-3-validate-incoming-data-with-your-plan) your incoming data so that it is validated against the plan. You'll need a developer to complete this step.   
 4. [Monitor](#step-4-monitor-your-plan) your event stream to measure and continuously improve the quality of your data. To monitor data, review violations reports, and then fix your implmentation or adjust your data plan. 
-5. [Update](#step-5-deploy-your-changes) your data plan as you learn more about the data you collect, or as it changes over time. You can also move plans from one environment to another.
+5. [Update](#step-5-update-your-plan) your data plan as you learn more about the data you collect, or as it changes over time. You can also move plans from one environment to another.
 6. [Block](#step-6-block-unplanned-data-from-being-forwarded-to-downstream-systems) unplanned data from being stored in mParticle and forwarded to downstream systems.
 
 ### More About Data Plan Builder and Templates
