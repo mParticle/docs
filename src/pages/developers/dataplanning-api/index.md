@@ -394,7 +394,7 @@ const createdPlan = await dataPlanService.createDataPlan(plan)
 Name | Type | Description
 |---|---|---
 workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `integer` | The ID of the Data Plan to retrieve
+plan_id | `string` | The ID of the Data Plan to retrieve
 
 #### Example Request
 
@@ -426,7 +426,7 @@ The response will contain the entire Data Plan including all versions. [See abov
 Name | Type | Description
 |---|---|---
 workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `integer` | The ID of the Data Plan to retrieve
+plan_id | `string` | The ID of the Data Plan to retrieve
 
 #### Example Request
 
@@ -597,7 +597,7 @@ The response will contain the entire Data Plan Version including all versions. [
 Name | Type | Description
 |---|---|---
 workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `integer` | The ID of the Data Plan to retrieve
+plan_id | `string` | The ID of the Data Plan to retrieve
 version | `integer` | The version of the Data Plan to retrieve
 
 #### Example Request
@@ -635,7 +635,7 @@ The response will contain the entire Data Plan version. [See above](#example-res
 Name | Type | Description
 |---|---|---
 workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `integer` | The ID of the Data Plan to retrieve
+plan_id | `string` | The ID of the Data Plan to retrieve
 version | `integer` | The version of the Data Plan to retrieve
 
 #### Example Request
