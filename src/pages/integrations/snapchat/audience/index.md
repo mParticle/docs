@@ -28,7 +28,8 @@ In order to enable the mParticle integration with Snapchat you will need the acc
 
 ## Data Processing Notes
 
-* **Minimum** - An audience is selectable for targeting in Snapchat as long as it has a minimum of 1000 users.  
+* **Minimum** - An audience is selectable for targeting in Snapchat as long as it has a minimum of 1000 users.
+* Snapchat has a limit of 1000 [custom audiences](https://businesshelp.snapchat.com/s/article/ads-manager-limits?language=en_US) per ad account.
 
 ## User Identity Mapping
 
