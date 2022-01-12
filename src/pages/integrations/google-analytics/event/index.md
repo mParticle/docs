@@ -209,7 +209,7 @@ mParticle Custom Flag | Google Analytics Parameter | Description
 Google.Category | ec | Specifies the event category.
 Google.HitType | t | By default on web, pageviews are logged as HitType `pageview`, and all other events including commerce events are logged as HitType `event`. While these are the default and most common HitTypes, you can customize these using Custom Flags to be any type that [Google allows](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#t)
 Google.Label | el | Specifies the event label.
-Google.NonInteraction | in | Specifies the item name. Required for item hit type.
+Google.NonInteraction | ni | Specifies that a hit be considered non-interactive.
 Google.Location | dl | Use this parameter to send the full URL (document location) of the page on which content resides. Example: `http://example.com/example`
 Google.Hostname | dh | Specifies the hostname from which content was hosted. Example: `example.com`
 Google.Page | dp | The path portion of the page URL beginning with '/'. Example: `/example`
