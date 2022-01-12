@@ -2,26 +2,21 @@
 title: Feed
 ---
 
-<aside>The Hightouch integration is currently available in Beta. If you're interested in using it, please contact an mParticle representative.</aside>
-
 [Hightouch](https://www.hightouch.io/) is the easiest way to sync data from your warehouse to any downstream marketing or sales tools via SQL, no scripts or APIs.
 
 The Hightouch-mParticle integration enables you to query, map, and forward data from your data warehouse(s) to mParticle via Hightouch’s platform. 
 
 You will need to write SQL to query your data warehouse(s) and format the data to meet mParticle’s Events API schema. Hightouch provides a configuration interface that will let you map your query results to mParticle’s API fields as described below.
 
-## Beta Guidelines
+## Best Practices
 
-- The Hightouch integration is subject to change.
 - You should first use this integration with limited data and with the mParticle environment set to “Development” to ensure the data meets your expectations. Use mParticle’s Live Stream to verify sample data is successfully processed.
-- If there are any mParticle features or fields which are not available and which you would like to leverage, please notify an mParticle representative.
 - If there are any questions on how to configure Hightouch models or syncs please reach out to your Hightouch account manager.
 - See [Hightouch’s Best Practices](https://hightouch.notion.site/hightouch/Hightouch-mParticle-Best-Practices-7ed2d631da2147cdb9799f25fbf58119) for the Hightouch-mParticle integration.
 
 ## Prerequisites
 
 - SQL competency is required to configure models in Hightouch. To use this integration successfully, you should have a strong foundation in both SQL and the [mParticle Events API.](/developers/server/json-reference/)
-- To use the Hightouch feed integration, mParticle and Hightouch must first grant access in each respective platform. 
 - You must maintain and have access to a supported [Hightouch Source](https://www.hightouch.io/integrations) from which you will send data (e.g. Snowflake or BigQuery).
 
 ## Supported Configurations
