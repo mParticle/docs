@@ -18,3 +18,9 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---|
 Liftoff App ID| `string` | | Liftoff-specific ID for your app. Each app has a unique ID. Your Liftoff account executive will provide IDs for each app.
 Liftoff API Key| `string` | | API key for your Liftoff account. Your Liftoff account executive will provide this key.
+
+## Connection Settings
+
+Setting Name | Data Type | Default Value | Description
+|---|---|---|---
+Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection.
