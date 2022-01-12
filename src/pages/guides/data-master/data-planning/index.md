@@ -371,7 +371,7 @@ To prevent blocked data from being lost, you can opt for blocked data to be forw
 
 ![](/images/dataplanning/block/block_settings_page.png)
 
-Anytime a Data Point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configured Amazon S3 bucket. You will then be able to:
+Anytime a data point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configured Amazon S3 bucket. You will then be able to:
 
 - Examine the blocked data in greater detail.
 - Backfill data that was mistakenly blocked by following our [backfill guide](/guides/data-master/blocked-data-backfill-guide).
@@ -655,7 +655,7 @@ To prevent blocked data from being lost, you can opt for blocked data to be forw
 
 ![](/images/dataplanning/block/block_settings_page.png)
 
-Anytime a Data Point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configure Amazon S3 bucket. You will then be able to:
+Anytime a data point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configure Amazon S3 bucket. You will then be able to:
 
 - Examine the blocked data in greater detail.
 - Backfill data that was mistakenly blocked.
