@@ -5,7 +5,7 @@ order: 3
 
 ## Overview
 
-The mParticle platform supports many different types of "events," and the web SDK is a stateful HTTP client for the mParticle [events API](/developers/server/). The SDK maintains a current user state (as mentioned in the [IDSync](/developers/sdk/web/idsync/) and [user](/developers/sdk/web/users/) guides)
+The mParticle platform supports many different types of "events," and the web SDK is a stateful HTTP client for the mParticle [Events API](/developers/server/http/). The SDK maintains a current user state (as mentioned in the [IDSync](/developers/sdk/web/idsync/) and [user](/developers/sdk/web/users/) guides)
 
 The web SDK will queue uploads until the first MPID has been resolved via IDSync, otherwise all uploads are performed immediately on invocation of an API such as `logEvent()`. When the SDK performs an upload it does so as an XHR HTTP POST containing:
 

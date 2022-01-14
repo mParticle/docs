@@ -2,7 +2,7 @@
 title: Custom Feed
 ---
 
-Custom Feeds allow you to stream data into mParticle from any data source using mParticle's [Events API](/developers/server/), including, but not limited to: 
+Custom Feeds allow you to stream data into mParticle from any data source using mParticle's [Events API](/developers/server/http/), including, but not limited to: 
 
 * Marketing automation  
 * CRMs  

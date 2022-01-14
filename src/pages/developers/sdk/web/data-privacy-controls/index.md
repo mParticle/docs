@@ -7,7 +7,7 @@ Data Privacy Controls give brands the tools they need to manage their customer o
 
 Before instrumenting consent state in your app, be sure to read [Data Privacy Controls](/guides/data-privacy-controls).
 
-Consent state can be logged in the SDK using the [Events API](/server/json-reference/#consent_state).
+Consent state can be logged in the SDK using `consent_state` in the [Events API](/developers/server/json-reference/#consent_state).
 
 Once a consent state is set, it can't be modified. To change the consent state for a given purpose, you can either remove it, or replace it with a new complete consent state object.
 ### Setting GDPR Consent

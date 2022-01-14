@@ -40,7 +40,7 @@ A special case is the `subscribers.csv` file since this file doesn't contain the
    * Modify the primary keys of the data extensions
    * Add/delete a field of type email to any of the data extensions, you will need to refresh the integration
    * Change the External Key for the data extension
-* **Web** data will only be forwarded if sent to mParticle via the [Events API](/developers/server/)
+* **Web** data will only be forwarded if sent to mParticle via the [Events API](/developers/server/http/)
 
 ## Prerequisites
 

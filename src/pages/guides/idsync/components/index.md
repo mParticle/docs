@@ -7,14 +7,14 @@ There are five key components to IDSync: Identity Records, The Identity API, Ide
 
 ## Identity Records
 
-Behind the scenes, mParticle maintains a User Profile for each user. You can think of a User Profile as a big folder of data: events, user attributes, identities, attribution info, device info. User Profiles are used to drive the Audience Builder and to enrich incoming data with all relevant information about a user before forwarding it to an Output service. The main purpose of IDSync is to assign incoming data to the correct User Profile. However, to identify users in real time, IDSync doesn&#39;t look at the entire User Profile, but at that Profile&#39;s Identity Record. Think of the Identity Record as a label on the front of your folder of data. The Identity Record contains a list of all identities that can currently be used to &quot;look up&quot; that folder. Identity Records have a 1:1 relationship with User Profiles. Anytime a new User Profile is created, a matching Identity Record is also created. Some key things to note about User Profiles vs. Identity Records:
+Behind the scenes, mParticle maintains a User Profile for each user. You can think of a User Profile as a big folder of data: events, user attributes, identities, attribution info, device info. User Profiles are used to drive the Audience Builder and to enrich incoming data with all relevant information about a user before forwarding it to an Output service. The main purpose of IDSync is to assign incoming data to the correct User Profile. However, to identify users in real time, IDSync doesn't look at the entire User Profile, but at that Profile's Identity Record. Think of the Identity Record as a label on the front of your folder of data. The Identity Record contains a list of all identities that can currently be used to look up that folder. Identity Records have a 1:1 relationship with User Profiles. Anytime a new User Profile is created, a matching Identity Record is also created. Some key things to note about User Profiles vs. Identity Records:
 
 - Some uses of IDSync force identities to be unique to a single Identity Record. Email Addresses are a good example. See [Unique Identities](#unique-ids) for more information.
 - The Identity Record might not contain every possible type of Identifier available in a User Profile, but only the types you have specified in your Identity Priority.
 
 ## Identity API
 
-The Identity API is used by all of mParticle&#39;s SDKs to log users in and out of your app, to search for, and to modify a current user&#39;s identities. It is also available as an HTTP API.
+The Identity API is used by all of mParticle's SDKs to log users in and out of your app, to search for, and to modify a current user's identities. It is also available as an HTTP API.
 
 ### Identify a User
 
@@ -33,13 +33,13 @@ These four endpoints are called in response to different user actions, but they 
 
 ### Modify a User
 
-A Modify request is different from an Identity Request, in that it must include the unique mParticle ID for the current user and never returns a new mParticle ID. Instead, it instructs mParticle to update the current user&#39;s identities based on the identifying information in the request. For example, a modify request might be used to update a user&#39;s email address.
+A Modify request is different from an Identity Request, in that it must include the unique mParticle ID for the current user and never returns a new mParticle ID. Instead, it instructs mParticle to update the current user's identities based on the identifying information in the request. For example, a modify request might be used to update a user's email address.
 
 When an Identity request is received, mParticle determines how to respond to the request by referring to your chosen Identity Strategy.
 
 ## Identity Scope
 
-mParticle data is organized in three tiers: Organization → Account → Workspace. Identity Scope determines how user data is shared between workspaces and accounts under an Organization. An Identity Scope is a set of user data in which each user profile and each &#39;known user&#39; identity is required to be unique. Multiple accounts or workspaces under an mParticle Organization can share the same Identity Scope, but a workspace cannot be connected to more than one Identity Scope. For some use cases, it might be beneficial for an Organization to maintain more than one Identity Scope. For example:
+mParticle data is organized in three tiers: Organization → Account → Workspace. Identity Scope determines how user data is shared between workspaces and accounts under an Organization. An Identity Scope is a set of user data in which each user profile and each 'known user' identity is required to be unique. Multiple accounts or workspaces under an mParticle Organization can share the same Identity Scope, but a workspace cannot be connected to more than one Identity Scope. For some use cases, it might be beneficial for an Organization to maintain more than one Identity Scope. For example:
 
 - Food delivery apps have both customers and couriers as users of their app ecosystem, but analytics requirements for each group are very different. Additionally, a courier may also use the app as a customer. Storing the data from both roles against the same profile could create confusion. By creating a separate Identity Scope for each set of users, data is kept clean and relevant.
 - Large enterprise organization may not yet have a consistent way of identifying users across branches and subsidiaries. Creating separate Identity Scopes allow pools of differently identified users to be kept separate.
@@ -48,7 +48,7 @@ mParticle data is organized in three tiers: Organization → Account → Workspa
 
 ## Identity Priority
 
-An Identity Strategy must define order of precedence for matching user profiles. When an identity request is received, mParticle will lookup matching profiles for each identifier in the order defined by the Identity Priority until a single profile can be returned. Keep in mind that some Identity Strategies impose minimum requirements that a request must fulfil in order to return a User (See Login Identities), even if they match. For now, let&#39;s just look at how the Identity Priority can affect which profile is returned by a request.
+An Identity Strategy must define order of precedence for matching user profiles. When an identity request is received, mParticle will lookup matching profiles for each identifier in the order defined by the Identity Priority until a single profile can be returned. Keep in mind that some Identity Strategies impose [minimum requirements](#login-identity) that a request must fulfill in order to return a User even if they match. For now, lets just look at how the Identity Priority can affect which profile is returned by a request.
 
 ### Example
 
@@ -82,7 +82,7 @@ Identity Settings are rules that determine how mParticle should match IDSync API
 
 A Unique Identity (Unique ID) is a setting that specifies that that User Profile Identifier must be unique. This means that only one mParticle User Profile can have that value of the identifier. 
 
-If an Identify or Modify request to the [IDSync API](https://docs.mparticle.com/developers/idsync/http-api/#identify) would result in two Identity Records sharing the same value of a Unique Identity, mParticle will add or update the idendifer on the requested User Profile and remove it from any other User Profile to enforce uniqueness. *Note that this doesn&#39;t mean all other identifiers are removed from the User Profile. The history of that User Profile remains intact. But removing the conflicting identifier from the User Profile means it can no longer be used to lookup that profile. User Profiles with no remaining identifiers are effectively &#39;orphaned&#39;. They will not deleted, but can never be returned by an IDSync API request.*
+If an Identify or Modify request to the [IDSync API](https://docs.mparticle.com/developers/idsync/http-api/#identify) would result in two Identity Records sharing the same value of a Unique Identity, mParticle will add or update the idendifer on the requested User Profile and remove it from any other User Profile to enforce uniqueness. *Note that this doesn't mean all other identifiers are removed from the User Profile. The history of that User Profile remains intact. But removing the conflicting identifier from the User Profile means it can no longer be used to lookup that profile. User Profiles with no remaining identifiers are effectively 'orphaned'. They will not deleted, but can never be returned by an IDSync API request.*
 
 #### Example
 
@@ -98,12 +98,12 @@ A user signs up for your iOS mobile app with the email [ed.hyde@example.com](mai
 
 | **Unique Identity Setting** | **IDSync API Request** | **Results** |
 | --- | --- | --- |
-| Email | Type: `Modify`<br>MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email `h.jekyll.md@example.com`<br>IDFV: `1234` | The modify request **updates the email address of User Profile 1** to `h.jekyll.md@example.com`. Since emails must be unique, mParticle searches for other User Profiles with the same email address. **The duplicate email address is deleted from User Profile 2**, and since it was the only identifer, it results in leaving User Profle 2 effectively &#39;orphaned&#39;. |
+| Email | Type: `Modify`<br>MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email `h.jekyll.md@example.com`<br>IDFV: `1234` | The modify request **updates the email address of User Profile 1** to `h.jekyll.md@example.com`. Since emails must be unique, mParticle searches for other User Profiles with the same email address. **The duplicate email address is deleted from User Profile 2**, and since it was the only identifer, it results in leaving User Profle 2 effectively 'orphaned'. |
 | No Setting | Type: `Modify`<br>MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email `h.jekyll.md@example.com`<br>IDFV: `1234` | The modify request **updates the email of User Profile 1 only** to `h.jekyll.md@example.com`. Since email uniqueness is not enforced, both User Profile 1 and User Profile 2 now have the same email address identifier value. |
 
 ### Login Identity
 
-A Login Identity (Login ID) is a setting specifies that the identifier is for a user that has created an account with your app. Login IDs perform two important functions. They protect the integrity of known user profiles, and they can drive identity rules that determine when a new User Profile should be created.
+A Login Identity (Login ID) is a setting which specifies that the identifier is for a user that has created an account with your app. Login IDs perform two important functions. They protect the integrity of known user profiles, and they can drive identity rules that determine when a new User Profile should be created.
 
 #### Protect Known Identity Records
 
@@ -123,7 +123,7 @@ A Login ID identifies a single known user. In order to maintain the integrity of
 | --- | --- | --- |
 | Email & <br>Customer ID | Type: `Identify` <br>Email: `ed.hyde@example.com` | User Profile 1 has 2 login IDs, but we only need to match at least one to return the profile. **User Profile 1 is returned.** |
 | Email | Type: `Identify` <br>Email: `h.jekyll.md@example.com`<br>IDFV: `5678` | The request matches the Login ID of User Profile 2. **User Profile 2 is returned.** |
-| Email | Type: `Identify` <br>IDFV: `1234` | The IDFV matches User Profile 1, but since User Profile 1 includes a Login ID &#39;email&#39;, it cannot be returned to a request that doesn&#39;t also include the Login ID. mParticle does not have enough information so we do not assume that it User Profile 1. **A new User Profile 3 is created.** |
+| Email | Type: `Identify` <br>IDFV: `1234` | The IDFV matches User Profile 1, but since User Profile 1 includes a Login ID 'email', it cannot be returned to a request that doesn't also include the Login ID. mParticle does not have enough information so we do not assume that it User Profile 1. **A new User Profile 3 is created.** |
 
 
 #### Handle New Known Users

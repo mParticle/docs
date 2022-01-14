@@ -162,7 +162,7 @@ The source code for each kit, as well as sample apps, are available on Github:
 
 ## Server Integration
 
-mParticle can forward app events and commerce events received via our [Events API](/developers/server/) to [AppsFlyer's server-API](https://support.appsflyer.com/hc/en-us/articles/207034486-Server-to-Server-In-App-Events-API-HTTP-API-). Note that AppsFlyer requires data to be linked to a unique AppsFlyer ID, generated client-side by the AppsFlyer Kit. mParticle stores the AppsFlyer ID in its internal user profile. This means that:
+mParticle can forward app events and commerce events received via our [Events API](/developers/server/http/) to [AppsFlyer's server-API](https://support.appsflyer.com/hc/en-us/articles/207034486-Server-to-Server-In-App-Events-API-HTTP-API-). Note that AppsFlyer requires data to be linked to a unique AppsFlyer ID, generated client-side by the AppsFlyer Kit. mParticle stores the AppsFlyer ID in its internal user profile. This means that:
 
 1. You must have the AppsFlyer Kit included in your app to be able to forward data, and you can only forward data associated with your app users.
 2. The data you send server-side must include a device ID, so that mParticle can lookup the AppsFlyer ID for the user.

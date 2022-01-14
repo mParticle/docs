@@ -5,7 +5,7 @@ order: 3
 
 ## Overview
 
-The mParticle platform supports many different types of "events," and the iOS SDK is a stateful HTTP client for the mParticle [events API](/developers/server/). The SDK maintains a current user state (as mentioned in the [IDSync](/developers/sdk/iOS/identity/) and [user](/developers/sdk/ios/users/) guides), as well as a lightweight SQLite database to record events and ensure reliable delivery to the mParticle events API regardless of network coverage, app force-closes, and other challenging scenarios.
+The mParticle platform supports many different types of "events," and the iOS SDK is a stateful HTTP client for the mParticle [Events API](/developers/server/http/). The SDK maintains a current user state (as mentioned in the [IDSync](/developers/sdk/iOS/identity/) and [user](/developers/sdk/ios/users/) guides), as well as a lightweight SQLite database to record events and ensure reliable delivery to the mParticle events API regardless of network coverage, app force-closes, and other challenging scenarios.
 
 When the SDK performs an upload it does so as a "batch" of data which contains:
 
@@ -17,11 +17,11 @@ When the SDK performs an upload it does so as a "batch" of data which contains:
 - an "application info" object containing application metadata such as app version
 
 
-Please see the [events API reference](/developers/server/) for more information on the schema of mParticle batch uploads, and see the [iOS SDK configuration guide](/developers/sdk/ios/getting-started/#event-upload-interval) for more information on how events are persisted and uploaded.
+See the [Events API](/developers/server/http/) for more information on the schema of mParticle batch uploads, and see the [iOS SDK configuration guide](/developers/sdk/ios/getting-started/#event-upload-interval) for more information on how events are persisted and uploaded.
 
 ## Event Types
 
-An "event" can represent almost any form of activity in your app. Some events are collected automatically by the SDK whereas others must be collected manually.
+An event can represent almost any form of activity in your app. Some events are collected automatically by the SDK whereas others must be collected manually.
 
 #### Automatically tracked events
 
