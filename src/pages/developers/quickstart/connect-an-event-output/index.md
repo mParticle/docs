@@ -41,6 +41,6 @@ Go to the [Directory](https://app.mparticle.com/directory) page and search for t
 
 ## Next steps 🙌
 
-You're now well on your way to making great use of mParticle! Add as many integration as you like without the need to write a single line of code.
+You're now well on your way to making great use of mParticle! Add as many integrations as you like without the need to write a single line of code.
 
 Now that data is flowing through mParticle, we can also help you define and engage customer cohorts with the Audiences feature. Learn more about Audiences [here](/guides/platform-guide/audiences/).
