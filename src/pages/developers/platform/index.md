@@ -116,8 +116,8 @@ Statis | Code | Method | Notes
 |---|---|---|---
 200 | OK | GET | |
 201 | Created | POST | |
-202 | Accepted | PUT | |
-204 | No Content | HEAD/DELETE | |
+202 | Accepted | PUT/DELETE | |
+204 | No Content | HEAD | |
 400 | Bad Request | All | JSON Syntax is invalid. |
 401 | Unauthorized | All | User failed authentication. |
 403 | Forbidden | All | Identity is not authorized to invoke specified method. |
