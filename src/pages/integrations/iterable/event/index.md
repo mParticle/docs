@@ -71,6 +71,12 @@ The Iterable integration supports the following event types:
 * Push Message Open
 * User Identity Change
 
+### Tracking Commerce Events 
+
+Iterable will map mParticle purchase events to Iterable's [track purchase](https://api.iterable.com/api/docs#commerce_trackPurchase) api call. 
+
+An add to cart event is mapped to Iterable's [updateCart](https://api.iterable.com/api/docs#commerce_updateCart) commerce event. Iterable does not aggregate partial cart updates. As a result, each outgoing add to cart event from mParticle overwrites a user's cart contents, so the cart contents in Iterable will only reflect the most recent add to cart event's product(s).
+
 ### Subscription Preferences
 
 You can map a custom event to Iterable's [Update User Subscriptions](https://support.iterable.com/hc/en-us/articles/204780579-API-Overview-and-Sample-Payloads#users) api call. See the [Platform Guide](/platform-guide/connections#custom-mappings) for general help with Custom Mappings. The 'Update Subscriptions' event takes the following attributes, all optional.
