@@ -5,7 +5,7 @@ order: 10
 
 A Workspace is the basic container for data in an mParticle account.  When you first start using mParticle, your first Workspace will have already been created for you, but you can add more at any time.
 
-For most use cases, each Workspace is it's own domain, separate from other Workspaces. The major exception is the [Audiences](/platform-guide/audiences/) feature, which allows you to build an audience using data from more than one Workspace.
+For most use cases, each Workspace is its own domain, separate from other Workspaces. The major exception is the [Audiences](/platform-guide/audiences/) feature, which allows you to build an audience using data from more than one Workspace.
 
 There are no hard and fast rules for using Workspaces. Some mParticle accounts have over a dozen workspaces, while others have only one. How you organize data from your app ecosystem is entirely up to you.
 

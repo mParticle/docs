@@ -55,7 +55,7 @@ The Web Media SDK provides a `MediaSession` object. Each `MediaSession` object r
 ```javascript
 const mediaSession = new MediaSession(
     mParticle,                    // mParticle SDK Instance
-    '1234567',                    // Custom media ID, added as content_id fir media events
+    '1234567',                    // Custom media ID, added as content_id for media events
     'Funny Internet cat video',   // Custom media Title, added as content_title for media events
     120000,                       // Duration in milliseconds, added as content_duration for media events
     'Video',                      // Content Type (Video or Audio), added as content_type for media events

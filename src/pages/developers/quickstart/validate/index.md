@@ -33,7 +33,7 @@ A basic way to validate completeness is to count the distinct events received an
 
 #### User Activity View
 
-As you send user data to mParticle, we automatically build user profiles that help you segment users and personalize their experience. User Activity View let's you view a given user's profile and event history.
+As you send user data to mParticle, we automatically build user profiles that help you segment users and personalize their experience. User Activity View lets you view a given user's profile and event history.
 
    ![no-border](/images/uav.gif)
 
@@ -44,4 +44,4 @@ Some suggestions on next steps:
 
 * [Step 3: Connect an output](/developers/quickstart/connect-an-event-output/)
 * [Data Master](/guides/data-master/introduction/)
-* [User Activity View Deep Dive](/guides/platform-guide/activity/#user-activity)
+* [User Activity View](/guides/platform-guide/activity/#user-activity)
