@@ -212,6 +212,18 @@ curl \
     \"identity\": {\"type\": \"customer_id\",\"value\": \"12345\"}}"
 ~~~
 
+**Sample Raw HTTP Request**
+
+~~~http
+{
+    "environment_type": "production",
+    "identity": {
+        "type": "customer_id",
+        "value": "12345"
+    }
+}
+~~~
+
 #### Sample Response
 
 ~~~json
