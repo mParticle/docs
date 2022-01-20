@@ -194,28 +194,28 @@ When sending data to mParticle for file based integrations (Salesforce, Custom C
   </tr>
    <tr>
     <td rowspan="2">US1</td>
-    <td><code>Hostname: sftp.mparticle.com</code>, <code>Hostname: sftp.us1.mparticle.com</code></td>
+    <td><code>Hostname: sftp.mparticle.com:4422</code>, <code>Hostname: sftp.us1.mparticle.com:4422</code></td>
   </tr>
   <tr>
     <td><code>IP: 34.199.76.170</code></td>
   </tr>
    <tr>
     <td rowspan="2">US2</td>
-    <td><code>Hostname: sftp.us2.mparticle.com</code></td>
+    <td><code>Hostname: sftp.us2.mparticle.com:4422</code></td>
   </tr>
   <tr>
     <td><code>IP: 52.45.156.86</code></td>
   </tr>
     <tr>
     <td rowspan="2">EU1</td>
-    <td><code>Hostname:  sftp.eu1.mparticle.com</code></td>
+    <td><code>Hostname:  sftp.eu1.mparticle.com:4422</code></td>
   </tr>
   <tr>
     <td><code>IP: 18.157.92.224</code></td>
   </tr>
 <tr>
     <td rowspan="2">AU1</td>
-    <td><code>Hostname: sftp.au1.mparticle.com </code></td>
+    <td><code>Hostname: sftp.au1.mparticle.com:4422</code></td>
   </tr>
   <tr>
     <td><code>IP: 13.55.216.94</code></td>
