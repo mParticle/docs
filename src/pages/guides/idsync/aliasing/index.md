@@ -10,7 +10,7 @@ Aliasing is an advanced feature of mParticle's <a href="/guides/idsync/use-cases
 ### Known and anonymous user profiles
 mParticle's IDSync system supports the concept of "known" and "anonymous" user profiles:
 
-* A known user profiles has at least one [Login ID](/guides/idsync/components/#login-ids) (as defined in your [Identity Strategy](/guides/idsync/components/#identity-strategy)).
+* A known user profile has at least one [Login ID](/guides/idsync/components/#login-ids) (as defined in your [Identity Strategy](/guides/idsync/components/#identity-strategy)).
 * An anonymous user profile has no Login IDs.
 
 Known user profiles can only be returned in response to an Identity Request with at least one matching Login ID.
@@ -19,15 +19,15 @@ Known user profiles can only be returned in response to an Identity Request with
 
 As a user begins to engage with your website or app, their initial activity is stored against an anonymous profile. If your organization uses [Profile Link](/guides/idsync/profile-link-strategy/) or [Profile Conversion](/guides/idsync/profile-conversion-strategy/) strategies, the first appearance of a new Login ID will always cause a new known user profile to be created.
 
-Aliasing gives you control over the transition between the anonymous and known user profiles. You can choose to let the new known user profile be a completely blank slate. This may be necessary in order to comply with privacy legislation.
+Aliasing gives you control over the transition from an anonymous user profile to a known user profile. You can choose to create a new known user profile that does not include any historical data from the original anonymous user profile. This may be necessary to comply with local privacy legislation.
 
-Alternatively, you can choose to copy event and profile data from the original anonymous profile over to the new known profile. This allows you to keep a more complete picture of the user's history and allows you to create audiences where the user fulfilled one part of the condition in an anonymous state, and another part in a known state.
+Alternatively, you can choose to copy event and profile data from the original anonymous profile over to the new known profile to maintain a more complete picture of the user's journey. This allows you to create audiences of users who may have fulfilled some of the conditions to be included in the audience anonymously before their known user profiles were created.
 
 ### Example: Recommendation Conversions
 
-The mPTravel app wants to capture an audience of users who clicked on an in-app recommendation for a vacation package, and then went on to purchase the recommended package.
+The mPTravel app wants to capture an audience of users who clicked on an in-app recommendation for a vacation package before continuing to purchase the recommended package.
 
-Clark Griswold downloads the mPTravel app and, while browsing, clicks on a recommendation link for an all-inclusive European Vacation. Since he hasn't yet created an account, this action is attributed to his anonymous user profile.
+A user named Clark Griswold downloads the mPTravel app and, while browsing, clicks on a recommendation link for an all-inclusive European Vacation. Since he hasn't yet created an account, this action is attributed to his anonymous user profile.
 
 Clark eventually completes his purchase. As part of the purchase funnel, he creates an account and provides an email address. Since he is now a known user, the purchase is attributed to his new known user profile.
 
@@ -93,8 +93,6 @@ Aliasing is only available to clients using the [Profile Link](/guides/idsync/pr
 
 For an alias request to be successful: 
 
-* The source profile must be anonymous. It must have no Login IDs
-* The destination profile must be known. It must have at least one Login ID
 * The source profile must not have been the source profile for a previous alias request with an overlapping start or end date
 * The source profile must not have been the destination profile for a previous alias request
 * The destination profile must not have been the source profile for a previous alias request
