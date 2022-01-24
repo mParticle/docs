@@ -51,6 +51,10 @@ A Session Summary event tracks from when a `MediaSession` is initialized to when
 
 The following table explains the different parts of the Session Summary event.
 
+<aside>
+In the Android Media SDK 1.X releases timestamps are captured using 'System.currentTimeMillis()' in Kotlin and are therefore reported in milliseconds from the epoch format. Because iOS and web use different capture methods, timestamps of the same moment sometimes differ.
+</aside>
+
 | Session Summary Keys | Description |
 | --- | --- |
 |  "media_session_id" | A unique identifier automatically created for each session |

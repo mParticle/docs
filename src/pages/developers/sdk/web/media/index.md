@@ -87,6 +87,10 @@ A Session Summary event tracks from when a `MediaSession` is initialized to when
 
 The following table explains the different parts of the Session Summary event.
 
+<aside>
+In the Web Media SDK 1.X releases timestamps are captured using 'Date.now()' in Typescript and are therefore reported in milliseconds from epoch format. Because iOS and Android use different capture methods, timestamps of the same moment sometimes differ.
+</aside>
+
 | Session Summary Keys | Description |
 | --- | --- |
 |  "media_session_id" | A unique identifier automatically created for each session |

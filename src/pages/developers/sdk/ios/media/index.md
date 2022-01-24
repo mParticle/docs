@@ -75,6 +75,10 @@ A Session Summary event tracks from when a `MPMediaSession` is initialized to wh
 
 The following table explains the different parts of the Session Summary event.
 
+<aside>
+In the iOS Media SDK 1.X releases timestamps are captured using 'Date()' in Swift and are therefore reported as a [Swift Date object](https://developer.apple.com/documentation/foundation/date). Because Android and web use different capture methods, timestamps of the same moment sometimes differ.
+</aside>
+
 | Session Summary Keys | Description |
 | --- | --- |
 |  "media_session_id" | A unique identifier automatically created for each session |
