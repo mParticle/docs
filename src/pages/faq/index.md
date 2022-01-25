@@ -37,7 +37,7 @@ No! mParticle is a data and integration layer that makes it easier for you to us
 
 ## If I can't find what I'm looking for in the docs or I have other questions, where can I go for help?
 
-[Contact our customer support team](mailto:support@mparticle.com) - we love questions and feedback!
+[Contact our customer support team](https://support.mparticle.com/) - we love questions and feedback!
 
 ## Do I need to specify a minimum platform version for each Connection?
 
