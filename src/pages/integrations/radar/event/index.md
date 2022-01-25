@@ -2,10 +2,17 @@
 title: Event
 ---
 
-[Radar](https://radar.io) is the location platform for mobile apps. Radar helps companies build better products and make better decisions with location data.
+[Radar](https://radar.com) is the leading geofencing and location platform. Use Radar to build a range of location-based product and marketing experiences: pickup and delivery tracking, location-triggered notifications, and audience building.
 
-## Supported Features
-* Location Tracking
+## Implementation Scenarios
+
+* Geofencing from 10 meters to an entire country
+* Foreground and background location tracking
+* Location-triggered messaging and notifications
+* Contextual in-app experience based on real time location
+* Trip tracking for pickup, delivery, and fleet tracking
+* Real time ETA updates and arrival notifications during a trip
+* Location-informed audience segmentation
 
 ## Prerequisites
 
@@ -20,7 +27,7 @@ mParticle's Radar integration requires that you add the Radar kit to your iOS or
   * On Android, users that have granted location permissions will be tracked once on app open and persistently in the background.
   * On iOS, users that have granted foreground location permissions will be tracked once on app open. Users that have granted background location permissions will be tracked once on app open and persistently in the background.
 * If the Run Automatically is `disabled`, you can call Radar methods directly to track users.
-* You can also call Radar methods directly to receive Radar geofence entry and exit events.  For more information, see the [Radar SDK documentation](https://radar.io/documentation/sdk).
+* You can also call Radar methods directly to receive Radar geofence entry and exit events.  For more information, see the [Radar SDK documentation](https://radar.com/documentation/sdk).
 
 The source code for each kit is available if you would like to learn exactly how the method mapping occurs:
 
@@ -45,11 +52,11 @@ dependencies {
 ~~~   
 :::
 
-For more information, see Radar's [SDK](https://radar.io/documentation/sdk) and [mParticle integration](https://radar.io/documentation/integrations#event-integrations-mparticle-kit) documentation.
+For more information, see Radar's [SDK](https://radar.com/documentation/sdk) and [mParticle integration](https://radar.com/documentation/integrations#event-integrations-mparticle-kit) documentation.
 
 ## Configuration Settings
 
 | Setting Name |  Data Type    | Default Value  | Description |
 | ---|---|---|---|
-| Publishable API Key | `string` | <unset> | Your Radar publishable API key, found on the Organization page |
+| Publishable API Key | `string` | <unset> | Your Radar live/test publishable API key, found on the Get started page. |
 | Run Automatically | `bool` | True | If enabled, Radar will automatically track users if location permissions have been granted |
