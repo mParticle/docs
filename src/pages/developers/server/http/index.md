@@ -13,7 +13,14 @@ mParticle provides an HTTP-based Events API that can be used to collect data fro
 
 ## Endpoint  
 
-Our HTTP endpoint is: `https://s2s.mparticle.com`. If you are using a non-US data center, look up your endpoint [here](/developers/data-localization/#events-api).
+The [HTTP endpoint](/developers/data-localization/#events-api) to send data is based on which Pod your account is hosted:
+
+| Region | Pod |  URL |
+| --- |--- | --- | 
+| United States | US1 | [https://s2s.mparticle.com](https://s2s.mparticle.com),  [https://s2s.us1.mparticle.com](https://s2s.us1.mparticle.com) |
+| United States | US2 | [https://s2s.us2.mparticle.com](https://s2s.us2.mparticle.com) |
+| Europe | EU1 | [https://s2s.eu1.mparticle.com](https://s2s.eu1.mparticle.com) |
+| Australia | AU1 | [https://s2s.au1.mparticle.com](https://s2s.au1.mparticle.com) |
 
 ## JSON Format
 
