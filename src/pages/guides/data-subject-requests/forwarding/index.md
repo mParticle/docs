@@ -103,7 +103,7 @@ Erasure requests are handled as follows:
 
 
 <aside>
-Erasure requests are processed between 7 and up to 21 days after being received by mParticle. This delay provides an opportunity to cancel a pending deletion request before it is carried out. If you wish to remove users from audiences or from event forwarding during this period, set a User Attribute and apply audience criteria and/or forwarding rules to exclude them.
+Erasure requests are processed between 7 and up to 21 days after being received by mParticle. This delay provides an opportunity to cancel a pending deletion request before it is carried out. If you wish to remove users from audiences or from event forwarding during this period, set a User Attribute and apply audience criteria and/or forwarding rules to exclude them. Note that most privacy regulations simply require an acknowledgement of a request within an initial time window. Fulfillment timeframes for requests are typically more generous as they may require follow-up to validate additional details. We recommend consulting the requirements of your privacy regulation to understand your obligations.
 </aside>
 
 #### What data is deleted?
