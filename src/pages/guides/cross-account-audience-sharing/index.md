@@ -40,17 +40,31 @@ From your Settings page, navigate to the **Audience Settings** tab. From here yo
 
 Note that any changes to your defaults will _only_ be applied to any new audience created. Changing your defaults won't update existing sharing settings for current audiences.
 
-### See which Audiences are shared
+### See which audiences are shared
 
 View and edit the sharing settings for each audience from the main **Audiences** view.
 
 ![](/images/audience-sharing-list-view.png)
 
-### Update sharing permissions for an audience
+### Create or update a shared audience
 
-Any edits you make to the sharing settings of a specific audience will take precedence over your account defaults.
+<aside>Remember that any edits you make to the sharing settings of a specific audience take precedence over your account defaults.</aside>
 
-![medium](/images/audience-sharing-audience-permissions.png)
+1. To share an audience or to update the access settings for a shared audience, start by navigating to the main **Audiences** view.
+2. Select the audience you would like to change.
+3. Click the details icon to view the **Audience Details**.
+
+    ![](/images/audience-sharing-audience-details.png)
+
+4. Click the gear cog next to **Access Levels** to view the access sharing settings.
+
+    ![](/images/audience-sharing-audience-access-levels.png)
+
+5. Select an account within your organization to share the audience with by clicking the **+** button. You can change the [permission level](#audience-sharing-permissions) for each account via the dropdown menu under **Shared Level**.
+
+    ![medium](/images/audience-sharing-audience-permissions.png)
+
+6. Click **Save** to save any changes.
 
 ### Respond to an access request
 
@@ -58,7 +72,7 @@ Users of an account with "view only" access are able to submit a request for add
 
 ## Audience Receiver
 
-### See which Audiences are shared
+### See which audiences are shared
 
 You can access all audiences that are shared with you via the **Shared with me** tab of the **Audiences** page. The **Access** column shows the level of access your account as been granted.
 
