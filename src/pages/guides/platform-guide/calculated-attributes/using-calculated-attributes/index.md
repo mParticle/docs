@@ -60,15 +60,36 @@ If an active calculated attribute has the same name as a user attribute, only th
 
 ### Forward Calculated Attributes in the Calculated Attributes Feed
 
-The Calculated Attributes feed allows you to send calculated attributes downstream whenever they change, without an event from the user; this feed is especially useful for keeping calculated attributes with asynchronous calculations synchronized throughout your stack, and for sending calculated attributes downstream alongside kit integrations. This input will appear once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their asynchronous CAs were calculated will be sent. This feed sends an update when calculated attributes change (both synchronous & asynchronous), it does not send user attributes.
+The Calculated Attributes feed allows you to send calculated attributes downstream whenever they change, without an event from the user; this feed is especially useful for keeping calculated attributes with asynchronous calculations synchronized throughout your stack, and for sending calculated attributes downstream alongside kit integrations. 
 
-Control which downstream system receives these updates by intentionally connecting specific platforms to receive the calculated attribute updates. You can also filter out calculated attributes you do not wish to forward using the platform filters page.
+If your output partner supports the Calculated Attributes Feed, the input appears once you have activated a calculated attribute. When a new connection is made to this input, CA values for users who have not been seen since their asynchronous CAs were calculated will be sent. This feed sends an update when calculated attributes change (both synchronous & asynchronous), it does not send user attributes.
+
+To control which downstream system receives these updates, connect specific platforms to receive the calculated attribute updates. You can also filter out calculated attributes you do not wish to forward using the platform filters page.
 
 <aside>
-Be mindful of which downstream systems are connected to the "Calculated Attributes" input to avoid unintentional increases in API calls as this input can send lots of API calls.
+Be mindful of which downstream systems are connected to the Calculated Attributes input to avoid unintentional increases in API calls. This input may send a large volume of API calls.
 </aside>
 
 ![](/images/ca-delayed-connection.png)
+
+The calculated attributes feed is available with the following partners:
+
+* Amazon Kinesis
+* Amazon Kinesis Firehose
+* Amazon Redshift
+* Amazon S3
+* Amazon SNS
+* Amplitude
+* Apache Kafka
+* Braze
+* Google BigQuery
+* Google Cloud Storage
+* Google Pub/Sub
+* Microsoft Azure Blob Storage
+* Microsoft Azure Event Hubs
+* Slack
+* Snowflake
+* Webhook
 
 ## View Calculated Attributes in Live Stream, User Activity View or Profile API
 
@@ -117,3 +138,7 @@ After seeds have been sent to mParticle, any of the following changes make the p
 ### Updating Seeds
 
 If you need to update the seeds after already sending them to mParticle, simply send the updated seeds to mParticle again. mParticle overwrites previously received seeds.
+
+## Historical Data Loads Require Recalcuation
+
+If you are loading historical data uinsg [the historical endpoint of the HTTP API](/developers/server/http/#v2bulkeventshistorical), after the load you must recreate new calculated attributes or update the definition of an existing CA to trigger a recalculation.
