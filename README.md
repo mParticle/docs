@@ -81,12 +81,18 @@ The site uses the [Gatsby static site generator](https://github.com/gatsbyjs/gat
     ```sh
     npm install
     ```
-5. Still at a terminal:
+   #### Note for M1 Mac Users
+   > As of January 2022, a dependency of Gatsby may cause your `npm install` command to fail due to an incompatibility with libvips. As a workaround, you can manually install libvips via brew:
+   > ```sh
+   > brew install vips
+   > ```
+   > For more information, see a [discussion on Gatsby's GitHub page](https://github.com/gatsbyjs/gatsby/discussions/30528).
+6. Still at a terminal:
     ```sh
     npm run develop
     ```
-6. Navigate to `0.0.0.0:8000` in a web browser. As you make changes, the docsite will be rebuilt and hotloaded automatically.
-7. (optional) You can build the actual static site with `npm run build`.
+7. Navigate to `0.0.0.0:8000` in a web browser. As you make changes, the docsite will be rebuilt and hotloaded automatically.
+8. (optional) You can build the actual static site with `npm run build`.
 
 <a name="sendingpr"></a>
 
