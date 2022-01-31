@@ -171,7 +171,7 @@ options.dataPlanVersion = @(1)
 
 ### Log Level
 
-During development, set the `logLevel` property to control the verbosity of the mParticle SDK’s console output. For App Store-provisioned builds, this property will be ignored, and `MPILogLevelNone` will be used.
+The mParticle Apple SDK will not log any messages to the console by default, but you can set a log level between verbose and error to allow corresponding messages to be written out using NSLog. However, you should ensure the log level is only set for your development or Ad-Hoc builds and that the log level remains set to MPILogLevelNone (the default) in your production App Store apps. This is important to avoid leaking information and can be done with preprocessor directives or otherwise depending on your app's configuration.
 
 :::code-selector-block
 ```objectivec
@@ -185,6 +185,34 @@ options.logLevel = MPILogLevelVerbose;
 let options = MParticleOptions(key: "REPLACE WITH APP KEY",
                             secret: "REPLACE WITH APP SECRET")
 options.logLevel = MPILogLevel.verbose
+MParticle.sharedInstance().start(with: options)
+```
+:::
+
+### Custom Log Handler
+
+You can also set a custom logger block to be used in case you want to send the logs out to a remote server or do any other custom handling of the messages.
+
+Note that if you set a custom log handler, the SDK will only use that and will not log to the system log, but if you want the messages to show up in both places you can do so by simply calling NSLog within the log callback block.
+
+We strongly recommend you avoid inspecting the logs programmatically to determine SDK behavior unless it's 100% necessary for a temporary workaround--log messages are not guaranteed to be consistent between releases.
+
+:::code-selector-block
+```objectivec
+MParticleOptions *options = [MParticleOptions optionsWithKey:@"REPLACE WITH APP KEY"
+                                                      secret:@"REPLACE WITH APP SECRET"];
+options.customLogger = ^(NSString *message) {
+    // handle log message
+};
+[[MParticle sharedInstance] startWithOptions:options];
+
+```
+```swift
+let options = MParticleOptions(key: "REPLACE WITH APP KEY",
+                            secret: "REPLACE WITH APP SECRET")
+options.customLogger = { (message: String) in
+    // handle log message
+}
 MParticle.sharedInstance().start(with: options)
 ```
 :::
