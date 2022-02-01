@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.mparticle"},{"l":"com.mparticle.commerce"},{"l":"com.mparticle.consent"},{"l":"com.mparticle.identity"},{"l":"com.mparticle.media"},{"l":"com.mparticle.messaging"},{"l":"com.mparticle.networking"},{"l":"com.mparticle.segmentation"}]
