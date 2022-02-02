@@ -20,7 +20,7 @@ In order to enable mParticle's integration with Radar, you will need an account 
 
 ## mParticle Radar Implementation
 
-mParticle's Radar integration requires that you add the Radar kit to your iOS or Android app.  
+mParticle's Radar integration requires that you add the Radar kit to your iOS or Android app. This kit-only integration solely supports client-side data forwarding.
 
 * The mParticle SDK will automatically initialize the Radar SDK using your Publishable API Key.
 * If the Run Automatically setting is `enabled`, Radar will automatically track users if location permissions have been granted.

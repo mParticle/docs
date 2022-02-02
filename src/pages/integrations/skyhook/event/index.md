@@ -6,7 +6,7 @@ title: Event
 
 ## Skyhook Kit Integration
 
-mParticle supports Skyhook for iOS and Android devices. To use this integration, you need to include the Skyhook kit in your installation of the mParticle SDK.
+mParticle supports Skyhook for iOS and Android devices. To use this integration, you need to include the Skyhook kit in your installation of the mParticle SDK. This kit-only integration solely supports client-side data forwarding.
 
 Once the kit is included in your app, you can provide your API Key in the mParticle dashboard and enable the integration to begin sending location data to Skyhook, directly from your app. The source code for each kit is available on Github:
 

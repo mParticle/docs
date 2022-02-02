@@ -12,7 +12,7 @@ In order to enable mParticle's integration with Taplytics, you need a project ke
 
 ### Adding the kit to your iOS or Android app
 
-mParticle's Taplytics integration requires that you add the Taplytics Kit to your iOS or Android app.
+mParticle's Taplytics integration requires that you add the Taplytics Kit to your iOS or Android app. This kit-only integration solely supports client-side data forwarding.
 
 mParticle publishes the Taplytics Kit as separate iOS and Android libraries which have a transitive dependency on the mParticle core libraries. You can add them to your app via Carthage, Cocoapods, or Gradle:
 

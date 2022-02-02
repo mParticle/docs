@@ -21,7 +21,9 @@ The mParticle SDK then registers event listeners that act when OneTrust dispatch
 
 ## Implementation
 
-mParticle's OneTrust integration requires that you add the OneTrust SDK to your Web, iOS, or Android app. When initialized, the mParticle OneTrust kit will map OneTrust's consent group cookie IDs to your mParticle GDPR consent purposes according to the mapping you have defined in the [Connection Settings](#connection-settings).
+mParticle's OneTrust integration requires that you add the OneTrust SDK to your Web, iOS, or Android app. This kit-only integration solely supports client-side data forwarding.
+
+When initialized, the mParticle OneTrust kit will map OneTrust's consent group cookie IDs to your mParticle GDPR consent purposes according to the mapping you have defined in the [Connection Settings](#connection-settings).
 
 The basic requirements to enable the OneTrust integration are:
 
@@ -30,7 +32,7 @@ The basic requirements to enable the OneTrust integration are:
 -   Add the separate mParticle-OneTrust kit to your app
 -   Enable the integration in mParticle
 
-There may also be additional configuration required to implement the OneTrust UI for your application. Please consult the [OneTrust SDK Dev Portal](https://developer.onetrust.com/sdk/overview) for instructions
+There may also be additional configuration required to implement the OneTrust UI for your application. Please consult the [OneTrust SDK Dev Portal](https://developer.onetrust.com/sdk/overview) for instructions.
 
 <aside class='warning'>Using the OneTrust kit requires access to private repositories maintained by OneTrust. Request access from your OneTrust consultant before beginning the implementation.</aside>
 

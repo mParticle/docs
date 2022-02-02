@@ -4,7 +4,7 @@ title: Event
 
 Apptentive's mobile customer engagement platform empowers you to measure shifts in customer emotion, intelligently engage user segments, and gather actionable feedback through in-app messages, surveys, and ratings prompts.
 
-mParticle's Apptentive integration is provided via the Apptentive Kits for the mParticle Apple and Android SDKs.
+mParticle's Apptentive integration is provided via the Apptentive Kits for the mParticle Apple and Android SDKs. This kit-only integration solely supports client-side data forwarding.
 
 ## mParticle Apptentive Implementation Scenarios
 

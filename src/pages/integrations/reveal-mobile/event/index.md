@@ -17,7 +17,14 @@ In order to configure Reveal Mobile in the mParticle platform, you will need to 
 
 ## Reveal Mobile Kit Integration
 
-mParticle's Reveal Mobile integration requires that you add the Reveal Mobile kit to your iOS or Android app, and the mParticle SDK will initialize and automatically map mParticle method calls directly onto Reveal Mobile method calls. This approach means that *every feature* of the Reveal Mobile SDKs are supported, as if the app had integrated Reveal Mobile directly. The source code for each kit is available if you would like to learn exactly how the method mapping occurs:
+mParticle's Reveal Mobile integration requires that you add the Reveal Mobile kit to your iOS or Android app.
+
+The mParticle SDK will initialize and automatically map mParticle method calls directly onto Reveal Mobile method calls. This approach means:
+
+* Every feature of the Reveal Mobile SDKs is supported, as if the app had integrated Reveal Mobile directly. 
+* This is a kit-only integration that solely supports client-side data forwarding.
+
+The source code for each kit is available if you would like to learn exactly how the method mapping occurs:
 
 * [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-revealmobile)
 * [Android](https://github.com/mparticle-integrations/mparticle-android-integration-revealmobile)

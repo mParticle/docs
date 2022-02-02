@@ -41,7 +41,9 @@ Localytics provides funnel, attribution, re-targeting, and segmentation solution
 
 ### 2. Add the iOS/Android Kits
 
-mParticle's Localytics integration requires that you add the Localytics Kit to your iOS or Android app. Just by adding the binary to your app:
+mParticle's Localytics integration requires that you add the Localytics Kit to your iOS or Android app. This kit-only integration solely supports client-side data forwarding.
+
+Just by adding the binary to your app:
 
 - The mParticle SDK will initialize the Localytics SDK per their documentation, using the Localytics App Key provided above.. 
 - Push Notifications sent from Localytics will be displayed by the kit (see [Push Notifications](#push-notifications).

@@ -4,7 +4,7 @@ title: Event
 
 [Dynamic Yield](https://www.dynamicyield.com/) is an advanced machine learning engine that builds actionable customer segments in real time, enabling marketers to increase revenue via personalization, recommendations, automatic optimization & 1:1 messaging.
 
-mParticle's Dynamic Yield integration is available only for the Web platform.
+mParticle's Dynamic Yield integration is available only for the Web platform. This is a kit-only integration that solely supports client-side data forwarding.
 
 <aside>Dynamic Yield requires you to be logged into your account to read their documentation, so note that all links to Dynamic Yield docs below will only work if you are logged in.</aside>
 

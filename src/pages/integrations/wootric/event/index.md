@@ -16,6 +16,8 @@ Wootric is the platform for boosting customer happiness.  Collect customer feedb
 * **Customer happiness is now simple and turnkey.**  
   Start winning customers for life in just five minutes. 
 
+This is a kit-only integration that solely supports client-side data forwarding.
+
 ## Prerequisites
 
 In order to enable mParticle's integration with Wootric, you will need your Account Token, Client ID and Client Secret from your Wootric account.  These settings can be found on the settings page of the Wootric dashboard.  The View the Wootric Install Guide link displays the Account Token and the API link displays the Client ID and Client Secret.

@@ -4,7 +4,7 @@ title: Event
 
 The Twitter integration allows you to track the performance of your Twitter ads using <a href="https://business.twitter.com/en/help/campaign-measurement-and-analytics/conversion-tracking-for-websites.html" target="_blank"> Conversion Tracking</a> and target users across the Twitter platform using <a href="https://business.twitter.com/en/targeting/tailored-audiences.html" target="_blank"> Twitter’s Tailored Audiences</a>
 
-This integration is only supported for the Web platform.
+This integration is only supported for the Web platform. This kit-only integration solely supports client-side data forwarding.
 
 ## Supported Features
 * Conversion Tracking

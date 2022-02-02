@@ -4,6 +4,8 @@ title: Event
 
 Primer - Instantly deploy native screens personalized for every new user.
 
+This is a kit-only integration that solely supports client-side data forwarding.
+
 ## Supported Features
 
 * User Attributes

@@ -4,7 +4,7 @@ title: Event
 
 Embed the most [sophisticated contextual awareness engine](https://foursquare.com/products/pilgrim-sdk/) into your app, engaging users with personalized geo-aware content and providing businesses with a deeper understanding of their customers.
 
-mParticle's Pilgrim integration is an embedded kit integration supporting the iOS and Android platforms.
+mParticle's Pilgrim integration is an embedded kit integration supporting the iOS and Android platforms. This kit-only integration solely supports client-side data forwarding.
 
 ## Prerequisites
 

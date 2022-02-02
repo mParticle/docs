@@ -14,7 +14,12 @@ In order to enable mParticle’s integration with Apptimize, you will need your 
 
 ## Apptimize Kit Integration
 
-mParticle's Apptimize integration requires that you add the Apptimize kit to your iOS or Android app, and the mParticle SDK will initialize and automatically map mParticle method calls directly onto Apptimize method calls. This approach means that **every feature of the Apptimize SDKs are supported**, as if the app had integrated Apptimize directly. The source code for each kit is available if you would like to learn exactly how the method mapping occurs:
+mParticle's Apptimize integration requires that you add the Apptimize kit to your iOS or Android app, and the mParticle SDK will initialize and automatically map mParticle method calls directly onto Apptimize method calls. This approach means:
+
+* Every feature of the Apptimize SDKs is supported, as if the app had integrated Apptimize directly. 
+* This kit-only integration solely supports client-side data forwarding.
+
+The source code for each kit is available if you would like to learn exactly how the method mapping occurs:
 
 - [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-apptimize)
 - [Android](https://github.com/mparticle-integrations/mparticle-android-integration-apptimize)

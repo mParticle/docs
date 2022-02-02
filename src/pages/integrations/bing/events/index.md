@@ -4,6 +4,8 @@ title: Event
 
 [Bing Ads Universal Event Tracking (UET)](https://advertise.bingads.microsoft.com/en-us/solutions/audience-targeting/universal-event-tracking) you can create one UET tag and place it across your website, allowing you to collect data for tracking conversion goals and targeting audiences with remarketing lists.
 
+This is a kit-only integration that solely supports client-side data forwarding.
+
 ### Supported Features
 
 * Conversion Tracking

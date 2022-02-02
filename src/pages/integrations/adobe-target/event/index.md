@@ -29,9 +29,9 @@ Once you have set up your global functions and hosted your `at.js` file, see bel
   )("REPLACE WITH API KEY");
 </script>
 
-
-
 ```
+
+This is a kit-only integration that solely supports client-side data forwarding.
 
 ## Supported Features
 

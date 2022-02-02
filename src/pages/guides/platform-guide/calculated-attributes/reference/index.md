@@ -26,6 +26,7 @@ List | Unique List | Comma separated list of dynamic values; maximum of 100. | `
 
 Be aware of the following before creating your calculation attributes:
 
+* Calculated attributes require server-side forwarding. Therefore, this feature isn’t available for kit-only integrations that support solely client-side forwarding.
 * All timestamp values are in ISO 8601 format in the UTC timezone. 
 * Several calculations produce results with types that depend on the type of the event attribute selected, for example `First Value` returns a string if the event attribute selected is a string. All attribute values in our platform are stored as strings, including calculated attributes.
 * Calculation speeds listed are after the values have been initialized. 

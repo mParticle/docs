@@ -4,6 +4,8 @@ title: Event
 
 [Google Tag Manager](https://tagmanager.google.com/#/home) (GTM) is a free, unified advertising and analytics platform for the web. GTM utilizes JavaScript and HTML tags to unify tracking and analytics across several different diverse analytics products on websites. mParticle sends data to GTM through a shared data layer. You can then use triggers in GTM to capture the data passed from mParticle to GTM based on the schema of the mParticle data. For example, some triggers can be events or page views.
 
+This is a kit-only integration that solely supports client-side data forwarding.
+
 ## Prerequisites
 
 Before you can begin sending data to GTM, you must first have a GTM account. For more information about setting up a GTM account, see [Setup and install Google Tag Manager](https://support.google.com/tagmanager/answer/6103696?hl=en).
