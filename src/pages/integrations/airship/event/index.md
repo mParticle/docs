@@ -119,6 +119,8 @@ The mParticle kit integration can automatically set Airship tags when particular
 
 The S2S integration will forward Commerce, and Custom event types captured through the mParticle web SDK to Airship and allows for server-side dynamic enable/disable, configuration, and filtering.
 
+The S2S integration will not create users in Airship. When data is sent to Airship without a known [Named User](https://docs.airship.com/guides/messaging/user-guide/audience/segmentation/named-users/#associate) you will not see these events or users in your Airship account.
+
 Event Filters in mParticle will show all events supported between kit and S2S integrations. Because the S2S integration sends a subset of these events, only filters set on S2S-supported events will affect the forwarded data. 
 
 To configure an S2S integration, simply configure the connection according to the settings below.
