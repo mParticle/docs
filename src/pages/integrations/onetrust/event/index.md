@@ -101,7 +101,7 @@ When a user browses your web site, the OneTrust Web SDK sets a `OnetrustActiveGr
 
 When the OneTrust integration is enabled, the mParticle SDK checks the value of `OnetrustActiveGroups` and sets consent state for each mapped purpose. If the mapped Cookie Group ID is listed in `OnetrustActiveGroups`, mParticle will set the value of `consented` to `true` for the corresponding purpose. If the ID is not listed, mParticle sets `consented` to `false`.
 
-For example, if your Cookie Groups are mapped as above, and the value of `OnetrustActiveGroups` is `"group 2"`, mParticle will set `consented` to `true` for the "Performance" purpose and `false` for the "Marketing" purpose.
+For example, if your Cookie Groups are mapped as below, and the value of `OnetrustActiveGroups` is `"group 2"`, mParticle will set `consented` to `true` for the "Performance" purpose and `false` for the "Marketing" purpose.
 
 The mParticle SDK will automatically update consent state if the user changes, or if the value of `OnetrustActiveGroups` changes.
 
