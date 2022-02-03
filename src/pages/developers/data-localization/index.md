@@ -4,17 +4,15 @@ title: Data Hosting Locations
 
 Each mParticle customer tenant (aka “Organization”) exists in a specific segment (or “Pod”) of mParticle’s infrastructure. A Pod is a self-contained instance of the entire mParticle service for a subset of organizations. Pods are completely independent of each other with redundancy built into each layer of the architecture, including the application servers, database, IaaS, and CDN to ensure maximum availability.
 
-By default, mParticle Organizations are hosted in the a Pod residing in the US region.
-
 ## Data Localization
 
 mParticle offers the option of hosting a Pod in a localized data center outside of the US, in particular in the Europe and Australia regions. For customers interested in data localization outside of these regions, please [contact us](https://www.mparticle.com/contact).
 
 <aside> Data Localization is a premium feature, please reach out to your customer success manager to get started. </aside> 
 
-Our docs generally assume that your Organization is hosted in the default Pod (US1). As part of the onboarding process, your mParticle account manager will let you know which Pod your Organization resides in.
+As part of the onboarding process, your mParticle account manager will let you know which Pod your Organization resides in.
 
-If your Organization is hosted in an alternative Pod, you will need to note a few key differences described below.
+Depending on the pod your Organization is hosted in, you will need to note a few key differences described below.
 
 ## Logging into mParticle
 
