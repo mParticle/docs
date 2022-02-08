@@ -408,3 +408,4 @@ Status Code | Retriable | Message
 401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication).
 404  | No  | The specified subject request id could not be found.
 409  | No  | There is an in progress request with the same identities, extensions and type.  
+5xx  | Yes | A server-side error has occured, please try your request again.
