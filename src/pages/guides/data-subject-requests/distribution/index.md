@@ -1,4 +1,4 @@
 ---
-redirect: /guides/data-subject-requests/erasure/
-templatePath: /guidesdata-subject-requests/erasure/
+redirect: /guides/data-subject-requests/
+templatePath: /guidesdata-subject-requests/
 ---

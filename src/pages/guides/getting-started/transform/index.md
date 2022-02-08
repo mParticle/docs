@@ -1,5 +1,5 @@
 ---
-title: Transform and enhance your data
+title: Transform and Enhance Your Data
 order: 6
 ---
 
@@ -29,7 +29,7 @@ For most mParticle clients, the primary sources of data are native and web apps,
 One of the core benefits of mParticle is the ability to capture data once and forward it to multiple outputs. However, you probably don't want to send _all_ your data to _every_ output. mParticle provides you with a full set of tools to filter and transform your data. Use these tools to control the flow of Personally Identifiable Information (PII), to customize the data you send to each output and to control your costs.
 
 * The [Data Filter](/guides/platform-guide/data-filter/) allows you to individually filter each data point for each output.
-* [User Splits](/guides/platform-guide/connections/#user-splits) allow you to test competing services by dividing your users into groups and connecting each group to different outputs.
+* User Splits allow you to test competing services by dividing your users into groups and connecting each group to different outputs.
 * [Forwarding Rules](/guides/platform-guide/connections/#forwarding-rules) allow you to block data to an output according to simple predefined rules.
 * [User Sampling](/guides/platform-guide/connections/#user-sampling) allows you to send only a subset of your data to a given output. This is usually done to control costs for services that charge according to data volume or unique user counts.
 * For advanced transformations, the [Rules](/guides/platform-guide/rules/) feature allows you to host a custom function on AWS Lambda which can change almost any aspect of your data.
