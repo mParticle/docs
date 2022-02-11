@@ -14,13 +14,13 @@ Before you configure Amplitude to forward data subject requests, be aware of the
 
 To forward data subject requests to Amplitude, use the following process.
 
-### Step 1: Obtain Amplitude Access Credentials
+## Step 1: Obtain Amplitude Access Credentials
 
 Obtain [the API key, Secret Key, and Data Center](https://help.amplitude.com/hc/en-us/articles/360058073772#view-and-edit-your-project-information) for your project. 
 
 If you can't find the information, contact your Amplitude account representative.
 
-### Step 2: Create and Activate a DSR Output
+## Step 2: Create and Activate a DSR Output
 
 Create a DSR forwarding configuration for Amplitude and activate it:
 
@@ -42,7 +42,7 @@ Create a DSR forwarding configuration for Amplitude and activate it:
 
 <aside> From Setup > Outputs, you can also check the status of a DSR output configuration or delete it. To modify an existing configuration, click anywhere in the bar that contains the configuration name.</aside>
 
-### Step 3: Submit Requests for Erasure
+## Step 3: Submit Requests for Erasure
 
 After the DSR forwarding is configured, use either the mParticle user interface or API to submit requests for erasure.
 
@@ -51,22 +51,22 @@ After the DSR forwarding is configured, use either the mParticle user interface 
   
 <aside>Remember to set the configuration to Active (Step 2.5) to start forwarding erasure requests.</aside>
 
-### Step 4: Check Forwarding Status
+## Step 4: Check Forwarding Status
 
 You can check distribution status in the mParticle UI or using v3 of the mParticle DSR API.
 
-#### Check Status With UI
+### Check Status With UI
 
 To check status, visit **Privacy > Data Subject Requests**.
 
 To see more detail, click the request ID. 
 
-#### Check Status With API
+### Check Status With API
 
 To check forwarding status per partner, use the [`GET /requests/{RequestID}`](/developers/dsr-api/v3/#get-the-status-of-an-opendsr-request) resource. The status reported is for forwarding and does not indicate fulfillment status from the partner.
 
 See [Data Subject Request API](/developers/dsr-api#callbacks) for information about API callbacks and the `extensions` element that supports erasure.
 
-### Step 5: Verify Partner Fulfillment
+## Step 5: Verify Partner Fulfillment
 
 Once forwarded, mParticle cannot guarantee that data is deleted from your outputs. Always confirm that each partner fulfills the request. 
