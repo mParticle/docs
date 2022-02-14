@@ -248,3 +248,9 @@ In other cases (Adobe), we will actually manually bundle the partner's SDK in ou
 * If you locate the source of the partners SDK, the version will be in the source code
 * We will include the version that we are using in the commit message that made the change
 * [See the Adobe example here](https://github.com/mparticle-integrations/mparticle-javascript-integration-adobe/tree/915bd9c4421f0385cdc05b15e2f443e69ce5dd82)
+
+## Hard Reloading Browser to Test Changes
+
+When making changes in the mParticle UI such as adding or removing integrations (aka kits) or changing kit configurations, the configuration is cached for up to five minutes in our CDN layer, and is cached by the web browser for one hour. If you are testing configuration options, make sure to hard refresh your browser to clear the client-side cache after approximately 5 to 10 minutes to see the new changes.
+
+In Chrome, this is done by pressing Ctrl + F5 on Windows and Cmd + Shift + R on Mac. Other browsers may use different key combinations. 
