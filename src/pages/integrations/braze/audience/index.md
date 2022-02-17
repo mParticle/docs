@@ -20,9 +20,11 @@ Braze maintains several instances. As part of the [Configuration Settings](#conf
 | US 02 Cluster | https://dashboard-02.braze.com |
 | US 03 Cluster | https://dashboard-03.braze.com |
 | US 04 Cluster | https://dashboard-04.braze.com |
+| US 05 Cluster | https://dashboard-05.braze.com |
 | US 06 Cluster | https://dashboard-06.braze.com |
 | US 08 Cluster | https://dashboard-08.braze.com |
-| EU 01 Cluster | https://dashboard.braze.eu |
+| EU 01 Cluster | https://dashboard-01.braze.eu |
+| EU 02 Cluster | https://dashboard-02.braze.eu |
 
 Check with your Braze account manager if you are unsure which Braze instance you are using.
 
