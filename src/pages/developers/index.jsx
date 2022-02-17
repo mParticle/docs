@@ -133,9 +133,9 @@ const TILES = [
         route: 'dsr-api/v3',
     },
     {
-        title: 'IDSync',
+        title: 'IDSync API',
         content: 'The IDSync API allows you to manage user identities',
-        route: 'idsync/',
+        route: 'idsync/http-api/',
     },
     {
         title: 'iOS 14 ATT Guide',
