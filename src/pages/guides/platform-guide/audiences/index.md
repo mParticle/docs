@@ -183,11 +183,13 @@ If this audience is calculated at 1:00pm on September 9th 2018, then the earlies
 
 Date-based criteria are concerned with calendar dates in UTC time and are not defined in relation to when the audience is calculated.
 
-* Before/After date criteria are NOT inclusive of the given date. For example, `Before September 9th 2018` means that the latest qualifying event would occur at 11:59pm on Sepember 8th 2018 UTC. `After September 9th 2018` means that the earliest qualifying event would occur at 12:00am on Sepember 10th 2018 UTC.
+* Before date criteria is NOT INCLUSIVE of the given date. For example, `Before September 9th 2018` means that the latest qualifying event would occur at 11:59pm on Sepember 8th 2018 UTC. 
+
+* After date criteria is INCLUSIVE of the given date.  For example, `After September 9th 2018` means that the earliest qualifying event would occur at 12:00am on Sepember 9th 2018 UTC.
 
 * On Date criteria cover from 12:00am to 11:59pm UTC on a given calendar day.
 
-* Between Dates criteria are inclusive of the given dates. For example, `Between September 7th 2018 and September 9th 2018` means that the earliest qualifying event occurs at 12:00am UTC on September 7th, and the latest qualifying event occurs at 11:59pm UTC on September 9th.
+* Between Dates criteria are INCLUVSIVE of the given dates. For example, `Between September 7th 2018 and September 9th 2018` means that the earliest qualifying event occurs at 12:00am UTC on September 7th, and the latest qualifying event occurs at 11:59pm UTC on September 9th.
 
 ### Attribution criteria
 Attribution criteria can be used to segment users who have installed your app from a specific campaign and publisher or users who have purchased or re-engaged based on an engagement campaign. There are two ways to add attribution criteria:
