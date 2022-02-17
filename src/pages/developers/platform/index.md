@@ -125,6 +125,8 @@ Statis | Code | Method | Notes
 405 | Method Not Allowed | All | Specified HTTP method not supported. |
 422 | Unprocessable Entity | PUT/POST/DELETE | Request failed business logic rules. |
 500 | Internal Server Error | All | Contact mParticle support to resolve this error. |
+504 | Bad Gateway | All | mParticle server error, retry with exponential backoff. |
+
 
 ### Cross Origin Resource Sharing
 
