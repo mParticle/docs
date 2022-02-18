@@ -2,43 +2,32 @@
 title: Audience
 ---
 
-SendGrid is a leading provider of cloud-based email services, with both marketing and transactional email automation capabilities.  App marketers can leverage mParticle's integration with SendGrid to target email marketing efforts to app user audiences created with mParticle's Audience Manager.
-
-<aside>This audience integration is disabled for maintenance.</aside>
+[SendGrid](https://sendgrid.com/) helps marketers deliver transactional and marketing email through one reliable platform.  App marketers can leverage mParticle's integration with SendGrid to target email marketing efforts to app user audiences created with mParticle's Audience Manager.
 
 ## Prerequisites
 
-In order to forward an mParticle audience to SendGrid you will need your SendGrid Username and Password.  These are the same credentials used for your Send Grid SMTP settings, and for logging into the SendGrid website.
+To forward an mParticle audience to SendGrid you need your SendGrid username and password.  These are the same credentials used for your SendGrid SMTP settings, and for logging in to the SendGrid website. Once you log in to the SendGrid site, you can [create your API key](https://docs.sendgrid.com/ui/account-and-settings/api-keys). Be sure to copy the API key into the mParticle configuration setting. The API key must be either Full Access or Restricted Access with Marketing permissions.
 
 ## User Identity Mapping
 
-When forwarding audience data to SendGrid, mParticle will send Emails and any user attributes provided by the application.
+When forwarding audience data to SendGrid:
 
-## Audience Configuration
-
-### 1. Setup the SendGrid Account
-
-In the mParticle Audience Manager, create a new account specifying your SendGrid API user and key.
-
-### 2. Setup the Audience Subscription
-
-In the mParticle Audience Manager, specify the audience specific parameters for this subscription - SendGrid List Name.
+* You must select the mParticle identity which maps to the Sendgrid Email identity.
+* You can map mParticle user attributes to SendGrid [reserved fields.](https://docs.sendgrid.com/ui/managing-contacts/custom-fields#reserved-fields) with the `Reserved Attribute Mapping`
+* You can map mParticle user attributes to SendGrid [custom fields.](https://docs.sendgrid.com/ui/managing-contacts/custom-fields) with the `Custom Attribute Mapping` connection settings.  The custom fields will be created if they do not exist if the `Allow mParticle to send new custom fields` connection setting is True.  SendGrid supports up to 120 custom fields.
 
 ## Configuration Settings
 
-Setting Name | Data Type | Default Value | Description 
+Setting Name | Data Type | Default Value | Description
 |---|---|---|---
-API User|`string`| |Your SendGrid user name. This is the same credential used for your SendGrid SMTP settings, and for logging into the SendGrid website.
-API Key|`string` | | Your SendGrid password. This is the same credential used for your SendGrid SMTP settings, and for logging into the SendGrid website.
+API Key|`string` | | Your SendGrid API Key. You can generate one, once you're logged in SendGrid platform, and following the next steps [SendGrid API Key](https://docs.sendgrid.com/ui/account-and-settings/api-keys#creating-an-api-key).
 
 ## Connection Settings
 
-Setting Name | Data Type | Default Value | Description 
+Setting Name | Data Type | Default Value | Description
 |---|---|---|---
-List Name|`string` | | The list name that will appear in your SendGrid account.
-
-### 3. Configure User Attribute Sharing
-
-In the mParticle Audience Manager, setup user attribute sharing as described [here](/guides/platform-guide/audiences/#user-attribute-sharing). User attributes enabled via user attribute sharing will be automatically created as custom fields in SendGrid. 
-
-<aside>Note: please avoid deleting automatically created custom fields from SendGrid since that will cause all updates for users with that field to fail.</aside>
+List Name | `string` | | The list name that will appear in your SendGrid account.
+Required Email Mapping | enum | | Set the mParticle User Identity to be mapped with Email in SendGrid.
+Reserved Attribute Mapping | custom field | | Set mParticle fields with SendGrid reserved fields.
+Allow mParticle to Send New Custom Fields| `bool` | True | Allow mParticle to create Custom Fields if they don't exist in the SendGrid account.
+Custom Attribute Mapping| custom field | | Set mParticle user attributes and create custom fields in SendGrid.
