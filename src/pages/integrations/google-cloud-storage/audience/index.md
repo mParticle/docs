@@ -18,7 +18,11 @@ Optionally, you can create a folder in your bucket to store your mParticle data.
 
 ## Uploading Data
 
-Audience membership updates are uploaded in files no larger than `512 MB`. Depending on the volume of data received over a given amount of time, it may take up to `3` hours for data to be reflected within Google Storage.
+mParticle audience membership updates to GCS are handled in batch.  
+- The batch upload trigger is file-size-based or time-based, whichever criteria is met first.  
+- Those thresholds are currently set as 1GB and 3 hours, respectively.  
+- The data delivered to GCS is the delta of users added/removed from an audience since the previous upload, not a full snapshot of the audience.  
+- The size of the files that are sent to GCS will be no larger than 512 MB.  For example, if the bulk forwarder is triggered and there's 600 MB of data, the forwarder will split that into multiple files of < 512MB each.
 
 ### File structure
 
