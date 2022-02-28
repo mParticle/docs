@@ -104,9 +104,7 @@ The following Firebase attributes will be automatically be mapped to the equival
 * `item_brand`
 * `item_category`
 * `item_id`
-* `item_location_id`
 * `item_name`
-* `item_list`
 * `item_variant`
 * `price`
 * `quantity`
