@@ -124,6 +124,7 @@ The web SDK evaluates the `window.mParticle.config` object for configuration upo
 | `dataPlan.planVersion` | Number | `null` | The data plan version the mParticle Events API should use to validate your data. If ommitted, the lastest version that matches your environment will be used. See the [Data Planning](/guides/data-master/data-planning/) for more information.
 | `appVersion` | String | `null` | Web app version - a version string to associate with your web app and include in all uploads
 | `appName` | String | `null` | Web app name - an app name to associate with your web app and include in all uploads
+| `deviceId` | String | `null` | The SDK automatically initializes a device ID (also known as a device application stamp or `das`). If this setting is configured, the SDK uses the passed-in device ID instead.  See more info on device IDs here.
 | `logLevel` | String | `warning`| Sets the amount of logging in the console. `verbose` provides warnings, errors, and information. `warning` provides warnings and errors, and `none` disables all logging. See [Custom-Logger](/developers/sdk/web/custom-logger/) to customize further.
 | `sessionTimeout` | Number | `30` | Session timeout - an inactivity timeout in minutes after which a session will expire
 | `useCookieStorage` | Boolean | `false` | Flag to set the persistence storage to cookies. Defaults to `false` (the SDK will use local storage).
@@ -188,6 +189,19 @@ window.mParticle = {
 
 Although including mParticle via the snippet as documented above is recommended for most implementations, self-hosting is also supported. See the [Self-Hosting](/developers/sdk/web/self-hosting/) section for more information.
 
+## Device Id (Device Application Stamp)
+
+When the Web SDK initializes, mParticle generates a random UUIDv4-formatted string to be the browser's device id (`Device Application Stamp`, or `das`).  mParticle allows developers to retrieve this by calling `mParticle.getDeviceId()`.
+
+The device ID is unique to each browser's persistence layer. This means that a new device ID is generated for each browser, so if a user uses multiple browsers, then their MPID will have multiple device IDs associated with it.  Additionally, if a user clears cookies/local storage, or uses a browser's private browsing mode (ie. incognito mode), a new instance of persistence is created, resulting in another device ID.
+
+Furthermore, if multiple people use the same computer and browser (ie. families, public computers), then a single device ID will be associated with multiple users.
+
+mParticle allows an advanced use case for our customers to set the device ID via two different methods:
+1. During initialization - set `window.mParticle.config.deviceId`.
+2. Mid session - call `mParticle.setDeviceId('UUIDv2-formatted-string')`.
+
+Note that an invalid device ID will result in data not reaching our servers, so we recommend doing lots of manual testing if configuring the device ID.  One use case is passing the device ID between an iFrame and parent page when mParticle is on both pages. In this case, you should call `getDeviceId` from one level (for example the iFrame) and send that value to the other (for example the parent page).
 
 ## Determining Which Partner SDK Version is Being Used By a Kit
 
