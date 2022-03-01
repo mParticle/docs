@@ -216,6 +216,10 @@ The report displays the number of alerts in each category for a 12-hour time per
 
 The Event Forwarding report provides information on your app’s incoming event data and the data that is forwarded to enabled output event services. This is where you can verify how much data mParticle captured per event, and how much data was forwarded.  If multiple configurations are enabled for an integration, the data sent to each configuration will be shown separately. We recommend checking this report if you notice any discrepancies in your vendor dashboards.
 
+<aside class="warning">
+Event data receieved with an <a href="https://docs.mparticle.com/developers/server/json-reference/#custom_event" target="_blank">event timestamp</a> that is 72 hours older than the time it is received will not be captured in this report. For example: Today is February 24, 2022 at 11:00 UTC, I send an event to the API with event timestamp February 21, 2022 at 10:00 UTC. The report for February 21, 2022 view will not count the event. Please work with mParticle Support to pull a report of total event counts if sending backdated data.
+</aside>
+
 The report displays a daily summary of events, plus counts for each message type and event name, along with the inbound and outbound counts for each enabled service.  By default a summary of data for a full day is shown, but you can also select a specific hour to display hourly data.
 
 You may notice differences between an inbound data count and an outbound data count. There are several reasons these differences may occur. Here are some good questions to start with:
