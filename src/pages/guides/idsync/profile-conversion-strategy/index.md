@@ -17,8 +17,6 @@ Keeping the single profile supports anonymous to known audience conditions, such
 
 This strategy also supports multi-step registration flows, where multiple signup steps are collected in an anonymous state, as part of a funnel that ends in a logged-in state.
 
-This strategy does not cover aliasing of anonymous activity on multiple devices to a single logged-in profile.
-
 ## Identity Flow
 
 **Example Identity Priority:**
