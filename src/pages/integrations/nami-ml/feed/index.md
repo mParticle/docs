@@ -2,7 +2,7 @@
 title: Feed
 ---
 
-Built for the subscription and in-app purchase era, [Nami ML](https://www.namiml.com/) is an end-to-end solution powered by on-device machine learning to accelerate your mobile app business.
+[Nami ML](https://www.namiml.com/) helps you launch, grow and optimize your mobile app’s revenue using an in-app purchase and subscription model. 
 
 ## Enable the Integration
 
