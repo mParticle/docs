@@ -124,7 +124,7 @@ The web SDK evaluates the `window.mParticle.config` object for configuration upo
 | `dataPlan.planVersion` | Number | `null` | The data plan version the mParticle Events API should use to validate your data. If ommitted, the lastest version that matches your environment will be used. See the [Data Planning](/guides/data-master/data-planning/) for more information.
 | `appVersion` | String | `null` | Web app version - a version string to associate with your web app and include in all uploads
 | `appName` | String | `null` | Web app name - an app name to associate with your web app and include in all uploads
-| `deviceId` | String | `null` | The SDK automatically initializes a device ID (also known as a device application stamp or `das`). If this setting is configured, the SDK uses the passed-in device ID instead.  See more info on device IDs here.
+| `deviceId` | String | `null` | The SDK automatically initializes a device ID (also known as a device application stamp or `das`). If this setting is configured, the SDK uses the passed-in device ID instead. See more info on device IDs [here](/developers/sdk/web/getting-started/#device-id-device-application-stamp/).
 | `logLevel` | String | `warning`| Sets the amount of logging in the console. `verbose` provides warnings, errors, and information. `warning` provides warnings and errors, and `none` disables all logging. See [Custom-Logger](/developers/sdk/web/custom-logger/) to customize further.
 | `sessionTimeout` | Number | `30` | Session timeout - an inactivity timeout in minutes after which a session will expire
 | `useCookieStorage` | Boolean | `false` | Flag to set the persistence storage to cookies. Defaults to `false` (the SDK will use local storage).
