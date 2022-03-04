@@ -2,7 +2,7 @@
 title: Event
 ---
 
-[Crossing Minds](https://crossingminds.com/?utm_source=mparticle) is building the world’s best [Recommendation API](https://docs.api.crossingminds.com/index.html?highlight=recommendation%20api), ready to be deployed on your platform! Recommendation & personalization are simple ways to increase KPIs by making product suggestions based on historical behavior.
+Personalize your user experience and add recommendations like "Related Items" using the world's smartest recommendation API. [Crossing Minds](https://crossingminds.com/?utm_source=mparticle) understands user behavior to deliver extremely relevant products - without using cookies.
 
 ### Crossing Minds Setup
 
