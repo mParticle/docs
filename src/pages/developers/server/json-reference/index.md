@@ -149,7 +149,7 @@ Property | Data Type | Required  | Description
 ---------|------------|---|---
 event_name | string | required | The name of the event  
 custom_event_type | string / enum | required | The type of custom event reference the custom_event_type descriptions below
-custom_flags | JSON key value pairs | optional | A dictionary of custom flags. See [Custom Flags](#custom-flags) for more.
+custom_flags | JSON key value pairs | optional | A dictionary of custom flags. For more information, see [Custom Flags](#custom_flags).
 
 The allowed values of "custom_event_type" are:
 
@@ -700,7 +700,7 @@ label | string | required| Label
 
 ## `location`
 
-Note this is the location for an event, not an event batch. For information on setting event batch location, see [here](/developers/server/json-reference/#context).
+Note this is the location for an event, not an event batch. For information on setting event batch location, see [Context](/developers/server/json-reference/#context).
 
 ~~~json
 {
