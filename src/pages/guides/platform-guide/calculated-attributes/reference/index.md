@@ -32,6 +32,7 @@ Be aware of the following before creating your calculation attributes:
 * Calculation speeds listed are after the values have been initialized. 
 * Setting the date range to **Within the Last** causes all calculations to be synchronous. Additionally, after the range has expired, the caluclated attribute value returns to zero or null. This happens in approximately 10% of the time specified or less. For example, if you set **Within the Last** to one day, the reset takes place within one day plus two hours. If you set the value to 10 days, the reset takes place within 11 days.
 * For unique lists, up to 100 values are returned. The values are selected based roughly on the order in which mParticle received the data, though the ordering is not guaranteed.
+* When using aliasing to transition from an anonymous to a known user profile, mParticle doesn't copy the calculated attribute or trigger a recalculation on the resulting profile.
 * For aggregation CAs:
   
   * More than one attribute may occur the same number of times, creating a tie. To break the tie, mParticle sorts the attirbute name alphabetically and chooses the first attribute.

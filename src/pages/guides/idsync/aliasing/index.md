@@ -66,7 +66,7 @@ Clark eventually completes his purchase. As part of the purchase funnel, he crea
 
 The following information is not copied as a result of an alias request:
 * User Identities and Device Identities are not copied over to the destination profile. However, the destination profile should already contain the same Device IDs as the source profile, since it originates on the same device.
-* User Attributes are not automatically copied as part of an aliasing request. 
+* User attributes and calculated attributes are not automatically copied as part of an aliasing request. 
 * If you are using Data Privacy Controls, consent information is not copied.
 
 However, the mParticle SDKs provide a method for copying user attributes, identities and consent data any time the current user profile changes. For more information see the SDK docs for [iOS](/developers/sdk/ios/idsync/#user-aliasing), [Android](/developers/sdk/android/idsync/#user-aliasing), and [Web](/developers/sdk/web/idsync/#user-aliasing).
