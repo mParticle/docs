@@ -23,6 +23,4 @@ From the Workspace Settings page, you can:
 * Delete a Workspace - this will also delete all the Workspace's data and connection settings. This action cannot be undone, so proceed with caution.
 * Edit a Workspace - view the [Apple App Transparency Tracking (ATT) Defaults](/developers/sdk/ios/ios14/), enable GDPR and CCPA [regulations](/guides/data-privacy-controls/), and retrieve the workspace Key/Secret to use with the [OpenDSR API](/developers/dsr-api).
 
-<aside>
-	You will not be able to delete a Workspace that is part of a [Multi Workspace Audience](/guides/platform-guide/audiences#create-audience). First delete or modify the Multi Workspace Audience, then you will be able to delete the Workspace.
-</aside>
+Note that you can't delete a Workspace that is part of a [Multi Workspace Audience](/guides/platform-guide/audiences/#create-audience). First delete or modify the Multi Workspace Audience, then you can delete the Workspace.
