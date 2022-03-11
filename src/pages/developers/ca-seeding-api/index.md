@@ -2,8 +2,6 @@
 title: Calculated Attributes Seeding API
 ---
 
-<aside> Calculated attributes is currently in Early Access, please reach out to your customer success manager to get started.</aside>
-
 The Calculated Attributes (CA) Seeding API allows you to programmatically set calculated attribute seed values and user attributes for your users. Before using this API, we recommend that you read about the workflow of [calculated attribute seeding here](/guides/platform-guide/calculated-attributes/#seeding).
 
 ## Authentication
