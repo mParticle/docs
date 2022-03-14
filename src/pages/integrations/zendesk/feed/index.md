@@ -4,12 +4,29 @@ title: Feed
 
 Zendesk is a customer service platform. It’s designed for companies that want to create customer relationships that are more meaningful, personal, and productive.
 
-## Input Data Details
+## Configuration
 
-In order to send Zendesk data to mParticle, you will need to perform the following steps in Zendesk:
+To configure this integration, make changes in both mParticle and Zendesk:
+Step 1. In mParticle, configure the Zendesk feed:
 
-1.  Setup an [HTTP target](https://support.zendesk.com/hc/en-us/articles/204890268-Creating-integrations-using-the-HTTP-target)
-2.  Setup one or more [triggers or automations](https://support.zendesk.com/hc/en-us/articles/203662136#topic_cjz_eqa_vb) to forward data to mParticle.   Zendesk supports a variety of different actions and allows you to build condition statements for sending data to an HTTP Target.
+1.  Select **Directory**, and click the Zendesk tile
+2.  Click **Add Zendesk to Setup**
+3.  Select the **Input Feed** Integration Type and click **Add to Setup**
+4.  Select the **Zendesk** input configuration group to specify the configuration parameters
+    * Configuration Name
+    * Environment
+5.  Click **Create**
+6.  Copy the Webhook URL
+
+Zendesk supports a variety of different actions and allows you to build condition statements for sending data to a webhook.
+
+Step 2. To forward data to mParticle, configure the [webhook](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks-in-Admin-Center) in Zendesk:
+
+ 1. Enter the Webhook URL you saved from the mParticle configuration
+ 2. For the Method, select **POST**
+ 3. For the Content Type, select **JSON**
+ 4. To test the target, click **Test Target** and copy the sample event JSON above into the JSON body field and click Submit.  You should receive a message showing:  200 OK - { "success": true }
+ 5. After saving the target, setup a [trigger or automation](https://support.zendesk.com/hc/en-us/articles/203662136#topic_cjz_eqa_vb) to forward data to mParticle
 
 ## Zendesk Event Mapping
 
@@ -61,20 +78,3 @@ When setting up the trigger or automation, the JSON body is set using a template
 }
 ~~~
 
-## Configuration
-
-Configure the Zendesk Input: 
-
-1.  Select **Directory**, and click the Zendesk tile
-2.  Click **Add Zendesk to Setup**
-3.  Select the **Input Feed** Integration Type and click **Add to Setup**
-4.  Select the **Zendesk** input configuration group to specify the configuration parameters
-    * Configuration Name
-    * Environment
-5.  Click **Create**
-6.  Copy the Webhook URL.
-7.  Follow these instructions to configure the HTTP target in [Zendesk](https://support.zendesk.com/hc/en-us/articles/204890268-Creating-integrations-using-the-HTTP-target)
-    * For the Method, select **POST**
-    * For the Content Type, select **JSON**
-    * To test the target, click **Test Target** and copy the sample JSON above into the JSON body field and click Submit.  You should receive a message showing:  HTTP/1.1 200 OK
-    * After saving the target, setup a [trigger or automation](https://support.zendesk.com/hc/en-us/articles/203662136#topic_cjz_eqa_vb) to forward data to mParticle
