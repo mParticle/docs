@@ -9,7 +9,7 @@ The Profile API can be used to query identities, user attributes, audience membe
 * Deliver personalized offers in brick and mortar stores by integrating your point-of-sale systems.
 
 
-<aside> The Profile API is a premium feature, please reach out to your customer success manager to get started.</aside>
+<aside> The Profile API is available to all mParticle accounts with a 15 RPS (requests per second) rate limit to support testing. Rates beyond this are a premium feature which you can request with <a href="https://support.mparticle.com">mParticle Support</a>.</aside>
 
 ## Workflow
 
