@@ -27,10 +27,11 @@ The event data will be forwarded as raw JSON objects.  Please refer to the [JSON
 
 | Setting Name |  Data Type  | Default Value | Description |
 | ---|---|---|---|
-| Shared Access Policy Name | string |  | This is the name assigned to the Shared Access Policy. The policy must have Send permissions to the Event Hub that will be receiving data from mParticle | 
-| Shared Access Policy Primary Key | string |  | The Primary Key for the Shared Access Policy |
-| Event Hub Name | string |  | This is the unique name for the Event Hub that will receive data from mParticle.
+| Shared Access Policy Name | `string` |  | This is the name assigned to the Shared Access Policy. The policy must have Send permissions to the Event Hub that will be receiving data from mParticle | 
+| Shared Access Policy Primary Key | `string` |  | The Primary Key for the Shared Access Policy |
+| Event Hub Name | `string` |  | This is the unique name for the Event Hub that will receive data from mParticle.
 | Unique ID | `string` | <unset> | An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
+| Metadata Field Exclusion | `Custom Field` |  | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
 | Send Lifecycle Events | `bool` | True |  If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
 | Send Screen Views | `bool` | True |  If enabled, screen view events will be forwarded. |
 | Send Crash Events | `bool` | True | If enabled, app crashes will be forwarded. |
@@ -45,4 +46,3 @@ The event data will be forwarded as raw JSON objects.  Please refer to the [JSON
 | Include User Identity Change Events | `bool` | False | If enabled, User Identity Change Events will be forwarded. |
 | Send Batches without Events | `bool` | True | If enabled, batches with no events will be forwarded. |
 | Include Event Batch Location | `bool` | False | If enabled, event batch context.location data will be forwarded with event data. |
-| Metadata Field Exclusion | Custom Field |  | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. |
