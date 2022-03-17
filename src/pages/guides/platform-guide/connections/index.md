@@ -208,6 +208,7 @@ The following integrations support custom mappings:
 * Facebook
 * Fiksu
 * Google Analytics for Firebase
+* Google Analytics 4 (GA4)
 * Iterable
 * NCR Aloha
 * Optimizely

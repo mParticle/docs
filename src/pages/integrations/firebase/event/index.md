@@ -2,6 +2,15 @@
 title: Event
 ---
 
+<aside>
+As of [2022/02/DD] mParticle supports sending data directly to Google Analytics 4 (GA4), which is the next generation of Google Analytics. Previously known as "App + Web", GA4 allows both mobile and web app data to be reported together in the same UI. Previously, mobile data was analyzed within the [Firebase Console](https://console.firebase.google.com/) and web data was analyzed within the [Google Analytics dashboard](https://analytics.google.com/analytics/web/).  
+
+Google provides [step by step instructions](https://support.google.com/analytics/answer/9379599) to upgrade a Firebase instance so that data will also flow to GA4.  After upgrading, your mobile data will be available for analyzing within the Google Analytics dashboard.  
+
+While the mParticle [Android](https://github.com/mparticle-integrations/mparticle-android-integration-google-analytics-firebase) and [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-google-analytics-firebase) kits for Google Analytics for Firebase will continue to work, we will no longer support code updates to them.  Instead, we recommend you upgrade to the mParticle [Android](https://github.com/mparticle-integrations/mparticle-android-integration-google-analytics-firebase-ga4) and [iOS](https://github.com/mparticle-integrations/mparticle-apple-integration-google-analytics-firebase-ga4) Firebase for GA4 kits.  Customers can continue to use the Firebase console, but Google recommends upgrading to GA4.
+
+</aside>
+
 [Google Analytics](https://firebase.google.com/products/analytics/) for Firebase is a free and unlimited analytics solution. Analytics integrates across many Firebase features and provides you with unlimited reporting of up to 500 distinct events, helping you understand how people use your iOS or Android app.
 
 mParticle's Google Analytics for Firebase integration supports the Android and iOS platforms and requires the usage of a client-side kit.
@@ -91,7 +100,6 @@ mParticle will automatically map commerce events to Firebase event names based o
 | `view_item` | `Product.DETAIL` | `MPCommerceEventActionViewDetail`
 | `refund` | `Product.REFUND` |  `MPCommerceEventActionRefund`
 | `remove_from_wishlist` | `Product.REMOVE_FROM_WISHLIST` | No mapping
-
 
 ### Event Attributes
 
