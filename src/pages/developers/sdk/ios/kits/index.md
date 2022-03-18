@@ -113,7 +113,6 @@ The following integrations support deep linking:
 * [Branch Metrics](/integrations/branch-metrics/event/)
 * [Button](/integrations/button/event/)
 * [Iterable](/integrations/iterable/event/) (note the Iterable Kit uses its own deep-linking API)
-* [Tune](/integrations/tune/event/)
 
 
 

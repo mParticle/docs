@@ -191,7 +191,6 @@ Integration | Integration Description | Integration Event Name
 |---|---|---|
 Criteo | User Level Finished | UserLevel
 Facebook | 	Achieved Level | fb_mobile_level_achieved
-Tune | Level Achieved | level_achieved
 
 For partners that support custom mappings, the output's events are listed on the left side of the **Custom Mappings** tab. For each event, you can then select an mParticle event and associated attributes to map to the partner's event.
 
@@ -214,7 +213,6 @@ The following integrations support custom mappings:
 * Optimizely
 * SimpleReach
 * Snapchat
-* Tune
 
 If an event has a Custom Mapping for a particular connection, it will be displayed with an icon in the Event Filter
 

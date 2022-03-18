@@ -54,7 +54,6 @@ Kit | Maven Artifact
 [Singular](https://github.com/mparticle-integrations/mparticle-android-integration-singular) | [`android-singular-kit`](https://search.maven.org/artifact/com.mparticle/android-singular-kit)
 [Skyhook](https://github.com/mparticle-integrations/mparticle-android-integration-skyhook)              |  [`android-skyhook-kit`](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.mparticle%22%20AND%20a%3A%22android-skyhook-kit%22)
 [Taplytics](https://github.com/mparticle-integrations/mparticle-android-integration-taplytics)                    |  [`android-taplytics-kit`](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.mparticle%22%20AND%20a%3A%22android-taplytics-kit%22)
-[Tune](https://github.com/mparticle-integrations/mparticle-android-integration-tune)                    |  [`android-tune-kit`](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.mparticle%22%20AND%20a%3A%22android-tune-kit%22)
 [Urban Airship](https://github.com/mparticle-integrations/mparticle-android-integration-urbanairship)                    |  [`android-urbanairship-kit`](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.mparticle%22%20AND%20a%3A%22android-urbanairship-kit%22)
 [Wootric](https://github.com/mparticle-integrations/mparticle-android-integration-wootric)              |  [`android-wootric-kit`](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.mparticle%22%20AND%20a%3A%22android-wootric-kit%22)
 
@@ -119,7 +118,6 @@ The following integrations support deep linking:
 * [Branch Metrics](/integrations/branch-metrics/event/)
 * [Button](/integrations/button/event/)
 * [Iterable](/integrations/iterable/event/) (note the Iterable Kit uses its own deep-linking API)
-* [Tune](/integrations/tune/event/)
 
 :::code-selector-block
 ~~~java

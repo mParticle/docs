@@ -165,7 +165,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 |Identifier Too Long | Leanplum, Algolia |The Device ID or Customer ID exceeds the length which the integration supports.
 |Invalid Credentials |  AgilOne, SFDC Email | A token cannot be obtained due to invalid credentials.
 |Missing Android ID | Appboy, AgilOne, Fiksu, Leanplum | Android ID is required, and is missing in the event batch.
-|Missing App Info | AgilOne, Appboy, Google Adwords, Google Analytics, Kochava, Krux, Oracle BlueKai, Tune, Webtrends | Application Info is required, and is missing in the event batch.  
+|Missing App Info | AgilOne, Appboy, Google Adwords, Google Analytics, Kochava, Krux, Oracle BlueKai, Webtrends | Application Info is required, and is missing in the event batch.  
 |Missing AppName | Google Analytics, Webtrends | Application Name is required, and is missing in the event batch.
 | Missing Build ID | Google Adwords | The request was missing a required build id.
 |Missing Device Info | Appboy, Singular, Google Adwords, Kochava, Krux, Leanplum, Oracle BlueKai, SFDC Email, SFDC MobilePush, Webtrends | Device Info is required, and is missing in the event batch.
@@ -183,7 +183,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 | Missing Locale Language | Google Adwords | The request was missing required locale language.
 | Missing Model | Google Adwords | The request was missing required device model.
 |Missing OS Version | Singular, Google Adwords, Facebook | OS Version is required and is missing in the event batch.
-|Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Tune, Urban Airship | Package Name is required, and the application is not presenting one in the event batch. For Tune, you can override the Package Name in the configuration settings.
+|Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Urban Airship | Package Name is required, and the application is not presenting one in the event batch.
 | Missing Required Setting | Appboy, Appsflyer, Fiksu, Double Click, Facebook, Quantcast, Salesforce | A required setting is missing.
 | Missing Device Application Stamp | Leanplum | Missing Device Application Stamp for Device ID.
 | Missing Roku Channel Client ID | Leanplum | The Roku channel client ID is not present.

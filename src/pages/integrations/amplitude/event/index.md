@@ -71,7 +71,7 @@ Custom events logged via mParticle's `logEvent` SDK method and their attributes 
 
 ### Attribution Custom Event Forwarding
 
-Attribution Custom events will be forwarded to Amplitude prefixed with the attribution provider in the event name.  For example, `[Tune] attribution`.  Event Attributes that are included with the event are forwarded to Amplitude in user_properties, also prefixed with the attribution provider.
+Attribution Custom events will be forwarded to Amplitude prefixed with the attribution provider in the event name.  For example, `[AppsFlyer] attribution`.  Event Attributes that are included with the event are forwarded to Amplitude in user_properties, also prefixed with the attribution provider.
 
 ### Push Registration
 
