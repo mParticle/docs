@@ -132,7 +132,7 @@ The HTTP APIs are secured via basic authentication.
 
 You can authenticate in 2 ways:
 1. Many HTTP clients support basic authentication out of the box. Use your API key for the "username" and your API secret for "password".
-2. Manually set the `authentication` header by encoding your key and secret together:
+2. Manually set the `Authorization` header by encoding your key and secret together:
 
     2.1 Concatenate your application key and secret together with a colon (:) separating the two:
 
