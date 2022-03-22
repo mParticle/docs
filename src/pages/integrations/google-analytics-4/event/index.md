@@ -24,7 +24,7 @@ To send data client side on web, simply create a new Google Analytics 4 output i
 
 #### Sending Data via Web Server Side
 
-You may prefer to send web data server side in order to reduce both the the number of calls the browser makes, and the size of your web site.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.  Google's server side API for GA4 requires a `client_id` which still necessitates loading Google's SDK. mParticle sends the `client_id` to our servers to then forward to Google server side.
+You may prefer to send web data server side in order to reduce both the the number of calls the browser makes, and the size of your web site.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.  
 
 To send data server side, check `Forward Requests Server Side` in the Connection Settings. Add the `Measurement ID` and you will also need to include a `Measurement Protocol API Secret`. On GA4, each data stream can have one or more `Measurement Protocol API Secrets`.  To create one:
 1. Locate your data stream where you viewed your Measurement ID from above.
@@ -32,6 +32,24 @@ To send data server side, check `Forward Requests Server Side` in the Connection
 3. Click `Create`.
 4. Provide a Nickname, and click `Create` again.
 5. Copy the newly generated `Secret value` and paste it into the mParticle setting into the mParticle connection setting for GA4.
+
+##### Sending Data via Web Server Side with the mParticle web SDK
+
+Google's server side API for GA4 requires a `client_id` which still necessitates loading Google's Global Site Tag (gtag.js), but our web SDK automatically loads gtag.js for you. mParticle sends the `client_id` to our servers which then forward to Google server side.
+
+##### Sending Data via Web Server Side without the mParticle web SDK
+
+Optionally, if you are not using the mParticle web SDK, you can resolve the `client_id` by directly calling the [Global site tag API](https://developers.google.com/tag-platform/gtagjs/reference#get_mp_example).
+
+When the payload is sent to our endpoint, it will require to have the `client_id` as part of the [integration attributes](/developers/server/json-reference/#overall-structure) under the key `160` as the following example: 
+
+```json
+"integration_attributes": {
+    "160": {
+        "client_id": "your_client_id"
+    }
+},
+```
 
 ### Native
 
@@ -89,7 +107,7 @@ You must follow the Firebase docs to create a Firebase project and download your
 [Please see Firebase's iOS setup guide here](https://firebase.google.com/docs/ios/setup).
 
 #### Sending Data via Native Apps Server Side
-You may prefer to send this data server side in order to reduce both the the number of calls the device makes, and the size of your app.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.  Google's server side API for GA4 requires an `app_instance_id` which comes from the Firebase SDK. This means you will need to include the Firebase Kit and SDK in your app.
+You may prefer to send this data server side in order to reduce both the the number of calls the device makes, and the size of your app.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.
 
 To send data server side, check `Forward Requests Server Side` in the Connection Settings.  You will also need to include your `Firebase App ID` and a `Measurement Protocol API Secret` to forward web requests server side. Each data stream can have one or more `Measurement Protocol API Secret`.  To create one:
 1. locate your data stream where you viewed your Firebase App ID and then: 
@@ -98,6 +116,23 @@ To send data server side, check `Forward Requests Server Side` in the Connection
 4. Provide a Nickname, and click `Create` again.
 5. Copy the newly generated `Secret value` and paste it into the mParticle setting into the mParticle connection setting for GA4.
 6. Copy the `Firebase App ID` from the Data Stream details page into the connection settings as well.
+
+##### Sending Data via Native Apps Server Side with the kit
+
+Google's server side API for GA4 requires an `app_instance_id` which comes from the Firebase SDK. The mParticle Firebase for GA4 kit automatically sends the `app_instance_id` to our servers to then forward to Google. This means you will need to include the mParticle Firebase Kit and Firebase SDK in your app.
+
+##### Sending Data via Native Apps Server Side without the web kit
+
+Optionally, you can resolve the `app_instance_id` by directly calling the [Firebase SDK](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference?client_type=firebase#app_instance_id).
+When the payload is sent to our endpoint, it will require the `app_instance_id` as part of the [integration attributes](/developers/server/json-reference/#overall-structure) under the key `160` as the following example: 
+
+```json
+"integration_attributes": {
+    "160": {
+        "app_instance_id": "your_app_instance_id"
+    }
+},
+```
 
 ## Data Processing Notes
 
