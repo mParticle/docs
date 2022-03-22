@@ -94,6 +94,8 @@ After you have completed the required settings, set up any transformations, and 
 5. Click the **Connection Status** slider so it displays **Active**.
 6. Click **Save**.
 
+Very large data volumes may take up to 48 hours to process. To reduce processing time, reduce the number of sessions your account sends to fewer than 200,000 per day.
+
 ### Verify Your Connection
 
 Verify that data is flowing. Check in the mParticle UI and in your downstream app or system (output).
