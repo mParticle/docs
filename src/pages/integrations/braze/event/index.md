@@ -238,9 +238,9 @@ Derived from SDK opt-out status |`email_subscribe` |This is based on calling the
 User Identity of type `Facebook` |`facebook` |
 User Identity of type `Twitter` |`twitter` |
 
-### Enriched Attributes
+### Enriched Attributes and Identities
 
-By default, mParticle forwards all available user attributes to Braze, including attributes added during profile enrichment. You can disable this behavior in the [Connection Settings](#connection-settings).   Only data which is sent to Braze Server to Server can be enriched.
+By default, mParticle forwards all available user attributes and user identities to Braze, including attributes added during profile enrichment. You can disable this behavior in the [Connection Settings](#connection-settings).   Only data which is sent to Braze Server to Server can be enriched.
 
 ## Configuration Settings
 
@@ -270,6 +270,7 @@ By default, mParticle forwards all available user attributes to Braze, including
 | Braze SDK Collect IDFA? | `bool` | False | iOS, tvOS| Informs the Braze Kit whether to collect IDFA. |
 | Braze SDK Disable Automatic Location Tracking| `bool` | False | iOS, tvOS | Informs the Braze Kit whether to disable automatic location tracking at app startup time |
 | Include Enriched User Attributes | `bool` | True | All | If enabled, mParticle will forward enriched user attributes from the existing user profile. Only data which is sent to Braze Server to Server can be enriched. |
+| Include Enriched User Identities | `bool` | True | All | If enabled, mParticle will forward enriched user identities from the existing user profile. Only data which is sent to Braze Server to Server can be enriched. |
 | Send User Attribute Lists as Arrays | `bool` | False | All | If checked, mParticle will send each user attribute list server-side as an array, rather than a comma-separated string |
 | Forward Screen View Messages | `bool` | False | All | If enabled, all screen view messages will be forwarded to Braze as separate events. Not supported for S2S requests. |
 | Forward Session Events | `bool` | False | All| If enabled, all session start and end events will be forwarded to Braze as separate events. Session IDs will also be sent with events when populated. |
