@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,76 +184,86 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="authentication/AuthenticationConfiguration.html" title="class in com.mparticle.sdk.model.registration.authentication">AuthenticationConfiguration</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAuthentication()">getAuthentication</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Setting.html" title="class in com.mparticle.sdk.model.registration">Setting</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConnectionSettings()">getConnectionSettings</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Gets the subscription-level settings registered by this integration.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMaxDataAgeHours()">getMaxDataAgeHours</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPushMessagingProviderId()">getPushMessagingProviderId</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Get the push messaging provider ID.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../eventprocessing/Event.Type.html" title="enum in com.mparticle.sdk.model.eventprocessing">Event.Type</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSupportedEventTypes()">getSupportedEventTypes</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../eventprocessing/RuntimeEnvironment.Type.html" title="enum in com.mparticle.sdk.model.eventprocessing">RuntimeEnvironment.Type</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSupportedRuntimeEnvironments()">getSupportedRuntimeEnvironments</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../eventprocessing/notification/SystemNotification.Type.html" title="enum in com.mparticle.sdk.model.eventprocessing.notification">SystemNotification.Type</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSupportedSystemNotifications()">getSupportedSystemNotifications</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAccountSettings(java.util.List)">setAccountSettings</a></span>&#8203;(java.util.List&lt;<a href="Setting.html" title="class in com.mparticle.sdk.model.registration">Setting</a>&gt;&nbsp;accountSettings)</code></th>
 <td class="colLast">
 <div class="block">Register the account-level settings of this integration.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAuthentication(com.mparticle.sdk.model.registration.authentication.AuthenticationConfiguration)">setAuthentication</a></span>&#8203;(<a href="authentication/AuthenticationConfiguration.html" title="class in com.mparticle.sdk.model.registration.authentication">AuthenticationConfiguration</a>&nbsp;authentication)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setConnectionSettings(java.util.List)">setConnectionSettings</a></span>&#8203;(java.util.List&lt;<a href="Setting.html" title="class in com.mparticle.sdk.model.registration">Setting</a>&gt;&nbsp;connectionSettings)</code></th>
 <td class="colLast">
 <div class="block">Register the specific connection-level settings of this integration.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMaxDataAgeHours(int)">setMaxDataAgeHours</a></span>&#8203;(int&nbsp;maxDataAgeHours)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPushMessagingProviderId(java.lang.String)">setPushMessagingProviderId</a></span>&#8203;(java.lang.String&nbsp;pushMessagingProviderId)</code></th>
 <td class="colLast">
 <div class="block">Set the push messaging provider ID.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSupportedEventTypes(java.util.List)">setSupportedEventTypes</a></span>&#8203;(java.util.List&lt;<a href="../eventprocessing/Event.Type.html" title="enum in com.mparticle.sdk.model.eventprocessing">Event.Type</a>&gt;&nbsp;supportedEventTypes)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSupportedRuntimeEnvironments(java.util.List)">setSupportedRuntimeEnvironments</a></span>&#8203;(java.util.List&lt;<a href="../eventprocessing/RuntimeEnvironment.Type.html" title="enum in com.mparticle.sdk.model.eventprocessing">RuntimeEnvironment.Type</a>&gt;&nbsp;supportedRuntimeEnvironments)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSupportedSystemNotifications(java.util.List)">setSupportedSystemNotifications</a></span>&#8203;(java.util.List&lt;<a href="../eventprocessing/notification/SystemNotification.Type.html" title="enum in com.mparticle.sdk.model.eventprocessing.notification">SystemNotification.Type</a>&gt;&nbsp;supportedSystemNotifications)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -519,7 +529,7 @@ extends java.lang.Object</pre>
 <a id="setPushMessagingProviderId(java.lang.String)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setPushMessagingProviderId</h4>
 <pre class="methodSignature">public&nbsp;<a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a>&nbsp;setPushMessagingProviderId&#8203;(java.lang.String&nbsp;pushMessagingProviderId)</pre>
@@ -532,6 +542,34 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>pushMessagingProviderId</code> - </dd>
 <dt><span class="returnLabel">Returns:</span></dt>
+</dl>
+</li>
+</ul>
+<a id="getAuthentication()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAuthentication</h4>
+<pre class="methodSignature">public&nbsp;<a href="authentication/AuthenticationConfiguration.html" title="class in com.mparticle.sdk.model.registration.authentication">AuthenticationConfiguration</a>&nbsp;getAuthentication()</pre>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>authentication</dd>
+</dl>
+</li>
+</ul>
+<a id="setAuthentication(com.mparticle.sdk.model.registration.authentication.AuthenticationConfiguration)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setAuthentication</h4>
+<pre class="methodSignature">public&nbsp;<a href="EventProcessingRegistration.html" title="class in com.mparticle.sdk.model.registration">EventProcessingRegistration</a>&nbsp;setAuthentication&#8203;(<a href="authentication/AuthenticationConfiguration.html" title="class in com.mparticle.sdk.model.registration.authentication">AuthenticationConfiguration</a>&nbsp;authentication)</pre>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>authentication</code> - event authentication settings</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>this</dd>
 </dl>
 </li>
 </ul>
