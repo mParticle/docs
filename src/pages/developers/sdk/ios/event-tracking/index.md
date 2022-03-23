@@ -104,18 +104,18 @@ Reference the guide for each integration and ask your solutions consultant to se
 
 :::code-selector-block
 ```objectivec
-MPEvent *event = [[MPEvent alloc] initWithName:@"Set Interest"
+MPEvent *event = [[MPEvent alloc] initWithName:@"Set Category"
                                           type:MPEventTypeUserPreference;
 
-[event addCustomFlag:@"Adventure Travel"
-             withKey:@"Lotame.Interest"];
+[event addCustomFlag:@"Music"
+             withKey:@"Google.Category"];
 
 [[MParticle sharedInstance] logEvent:event];
 ```
 
 ```swift
-if let event = MPEvent(name: "Set Interest", type: MPEventType.userPreference) {
-    event.addCustomFlag("Adventure Travel", withKey: "Lotame.Interest")
+if let event = MPEvent(name: "Set Category", type: MPEventType.userPreference) {
+    event.addCustomFlag("Music", withKey: "Google.Category")
     MParticle.sharedInstance().logEvent(event)
 }
 ```

@@ -111,14 +111,14 @@ Reference the guide for each integration and ask your solutions consultant to se
 
 :::code-selector-block
 ```java
-MPEvent event = new MPEvent.Builder("Set Interest", MParticle.EventType.UserPreference)
-    .addCustomFlag("Lotame.Interest", "Adventure Travel")
-    .build();
+MPEvent event = new MPEvent.Builder("Set Category", MParticle.EventType.UserPreference)
+                .addCustomFlag("Google.Category", "Music")
+                .build();
 MParticle.getInstance().logEvent(event);
 ```
 ```kotlin
-val event = MPEvent.Builder("Set Interest", MParticle.EventType.UserPreference)
-    .addCustomFlag("Lotame.Interest", "Adventure Travel")
+val event = MPEvent.Builder("Set Category", MParticle.EventType.UserPreference)
+    .addCustomFlag("Google.Category", "Music")
     .build()
 MParticle.getInstance().logEvent(event)
 ```

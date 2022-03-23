@@ -87,10 +87,10 @@ Reference the guide for each integration and ask your solutions consultant to se
 
 ```javascript
 mParticle.logEvent(
-  'Set Interest',
+  'Set Category',
   mParticle.EventType.UserPreference,
   {},
-  {'Lotame.Interest': 'Adventure Travel'}
+  {'Google.Category': 'Music'}
 );
 ```
 
