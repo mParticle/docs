@@ -122,11 +122,11 @@ A delete request will also not prevent additional data concerning the subject fr
 
 ### Access / Portability
 
-Access and Portability requests are handled exactly the same way, as follows:
+Access and Portability requests are treated exactly the same way, as follows:
 
 1. mParticle identifies the MPIDs that match the request.
-2. Just after midnight each Monday and Thursday, mParticle searches for data related to each MPID, including the user profile and historical event batches. Inferred data, such as audience memberships, is not included.
-3. mParticle compiles the data into a single text file.
+2. Just after midnight each Monday and Thursday, mParticle searches for data related to each MPID, including the user profile and historical event batches. 
+3. mParticle compiles the data into a single text file. This data includes device identities, user identities, user attributes (including calculated attributes), as well as current audience memberships.
 4. mParticle sends a callback to any specified Callback URLs indicating that the request has been completed. The callback will contain a secure download link to the text file containing the Subject's data.
 
 
@@ -134,11 +134,11 @@ Access and Portability requests are handled exactly the same way, as follows:
 Access / Portability requests are processed every 3 days on the start of Mondays and Thursdays.
 </aside>
 
-#### Portability Response Format
+#### Access / Portability Response Format
 
-The data gathered in response to a Portability Request will be delivered in a `.zip` folder containing many `.jsonl` files ([JSON Lines](http://jsonlines.org/) format).  The zip contains:
+The data gathered in response to an access or portability request will be delivered in a `.zip` folder containing many `.jsonl` files ([JSON Lines](http://jsonlines.org/) format).  The zip contains:
 
-* `profile.jsonl`: A file that contains the live profile at the time of the request. This includes data like: device identities, user identities, audiences and user attributes.
+* `profile.jsonl`: A file that contains the live profile at the time of the request. This includes: device identities, user identities, current audience memberships and user attributes (including calculated attributes).
 * one or more additional `.jsonl` files: These results are split into many files to avoid a single, large file to make them easier to transmit and process. Controllers are encouraged to re-process the files as they see fit. These files contain the event batches sent to mParticle. Each line of the data files represents a complete mParticle event batch. See our [JSON Reference](/developers/server/json-reference) for a guide to the event batch format.
 
 Note that if no records can be found matching the identities in the request, the request for the zip file will intentionally return a `404` error.
