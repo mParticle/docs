@@ -2002,7 +2002,7 @@ Due to the hierarchical nature of DataPoints, disabling some types of DataPoints
 
 #### Get list of partner feeds for a workspace
 
-`GET /workspace/<partnerfeedId>/partnerfeeds?accountId=1`
+`GET /workspace/<workspaceId>/partnerfeeds?accountId=1`
 
 Returns a list of partner feeds set up for a workspace. <!--Feed IDs can be used in requesting User Insights reports.-->
 
