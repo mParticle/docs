@@ -6,7 +6,7 @@ title: Event
 <b>3/28/2022 - 6/8/2022 - Temporary Notice!<br></b>
 Customers who use mParticle and Braze on their websites may require some code changes due to an update we are making to the mParticle Braze web kit.  The web kit, which previously used v2.5.2 of the Braze web SDK, will use Braze SDK 3.5.0 starting on 6/8/2022.
 
-<b>The Braze web SDK has a few breaking changes and if you load mParticle via snippet/CDN, you should <a href="#breaking-change-for-web---3262022---682022">follow these instructions to ensure your code continues to work when our changes go live to the CDN on 6/8/2022</a></b>.
+<b>The Braze web SDK has a few breaking changes and if you load mParticle via snippet/CDN, you should <a href="#breaking-change-for-web---3282022---682022">follow these instructions to ensure your code continues to work when our changes go live to the CDN on 6/8/2022</a></b>.
 </aside>
 
 [Braze](https://www.braze.com/) is a comprehensive customer engagement platform that powers relevant experiences between consumers and brands they love. Braze helps brands foster human connection through interactive conversations across channels.
