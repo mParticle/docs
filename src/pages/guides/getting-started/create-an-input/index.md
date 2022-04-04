@@ -74,6 +74,32 @@ You need a developer to help you install and initialize an SDK. See the Getting 
 2. Start up a development build of your app (get a developer to help you if necessary). The mParticle SDKs automatically collect and forward data about installs and user sessions, so just by opening a development build of your app, you should start to see data in the Live Stream.
    ![](/images/gs-sessions-livestream.png)
 
+## Advanced Platform Configuration Settings
+
+For the iOS, Android, and tvOS platforms, some advanced configuration settings are available. To change these settings, navigate to **Setup > Inputs** in the left column and select either iOS, Android, or tvOS from the list of platforms. 
+
+Expand the **Advanced Settings** by clicking the + icon.
+
+### Restrict Device ID by Limit Ad Tracking
+
+iOS, Android, and tvOS (Apple TV) devices allow users to limit the collection of advertising IDs. Advertising IDs are unique identifiers you may use to associate event and user data with a specific device. For both iOS and Android devices, if a user has not provided explicit consent to share their device's advertising ID, then the value of that ID is set to an all-zero value.
+
+By checking **Restrict Device ID by Limit Ad Tracking**, mParticle will not collect advertising IDs from users who have enabled the Limit Ad Tracking setting on their device.
+
+Remember, mParticle will collect advertising IDs for both iOS and Android devices, regardless of whether or not a user has enabled the Limit Ad Tracking setting on their device. However, the IDs collected from users who have opted out will be all-zero values.
+
+Following are descriptions of Apple and Google's policies for device advertising IDs:
+
+#### iOS Advertising IDs
+
+After the release of iOS 14.5, Apple introduced the App Tracking Transparency (ATT) framework, which requires app developers to request users' explicit consent to share their advertising IDs. If a user of your app has not provided this consent, Apple's advertising ID (IDFA) will be set to all an all-zero value: `00000000-0000-0000-0000-000000000000`. Read more about Apple advertising identifiers [in their documentation](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614151-advertisingidentifier).
+
+For more information about the ATT framework, visit the [iOS 14 Guide](https://docs.mparticle.com/developers/sdk/ios/ios14/).
+
+#### Android Advertising IDs
+
+Google allows Android users to opt out from sharing their devices' advertising IDs. Similar to Apple's policy, Google will set a user's advertising ID (GAID or AAID) to an all-zero value if that user has opted out from sharing their ID. Read more about Google's advertising identifiers in [their documentation](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en).
+
 ## Troubleshoot
 
 If you don't see data appearing in the Live Stream within the first few minutes after opening a development build:
