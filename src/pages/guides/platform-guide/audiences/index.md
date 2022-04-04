@@ -88,9 +88,7 @@ To create an audience:
   ![](/images/Platform-Update-Audiences-Create-New-Audience-042019.png)
 
 3. Under **Inputs**, check all the Platforms and Feeds whose data you want to use to define the audience.
-4. Click the **Create** button. The screen refreshes with the new Audience added to the list of audiences and the **Audience Details** screen shown. If you are ready to define the audience, continue in the next section. Otherwise, click **Save as Draft**.
-
-This screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the left-side, shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
+4. Click the **Create** button. The screen refreshes with the new Audience added to the list of audiences and the **Audience Details** screen shown. Note that this screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the left-side, shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
 
 ## Audience Criteria
 
@@ -100,24 +98,18 @@ This screen shows a single Workspace Audience. Clicking the **Multiple Workspace
       <li>The configurations you have selected </li>
       <li>The amount of data the mParticle platform has available for the configurations</li>
     </ol>
-    Audience Manager incorporates all input data ingested from your app, limited by the data storage limit of your current  subscription plan.
+    Audience Manager will incorporate all input data ingested from your app, limited by the data storage limit of your current  subscription plan.
 </aside>
 
-Now that you have created an audience, it's time to add to the audience definition:
+Now that you have created an audience, it's time to add to the audience definition.  Follow these steps to add criteria to your audience definition:
 
 ![Audience Manager - Definition](/images/audience-definition.png)
 
-* You can add one or more criteria and logic either between two different criteria (and, or) or you can exclude users from an audience with criteria (exclude).
-* After you define a criteria, the audience size is estimated based on a sample of your user data within your organization. Audience criteria are scoped per workspace. When the calculation is complete, you can see the estimated size for an individual criteria next to the **App** icon, and the estimated size of the whole audience in the Audience Details section. If there aren't enough users in the sample data to estimate audience size, you'll see a **~** without a number as illustrated in the example above.
-
-To add criteria to your audience definition:
-
-1. If you don't already have your audience displayed, navigate to **Audiences > Real-time** and click on your audience to open it. Make sure you are in the **Build** tab.
-2. Click **Add Criteria**.
-3. Select the type of data to be used in the audience definition. If your audience is built from both platform and feed data you will need to specify where the data should be drawn from.
-4. Specify additional qualifying parameters (i.e. attribute value, recency, frequency, platform version, build version, etc.) and click **Done**.
-5. Optionally add additional criteria to the audience by adding *and/or/exclusive* criteria to the definition.
-6. Click one of the following buttons once you have completed the definition of your audience:
+1. Click **Add Criteria**
+1. Select the type of data to be used in the audience definition. If your audience is built from both platform and feed data you will need to specify where the data should be drawn from.
+1. Specify additional qualifying parameters (i.e. attribute value, recency, frequency, platform version, build version, etc.) and click **Done**.
+1. Optionally add additional criteria to the audience by adding *and/or/exclusive* criteria to the definition.
+1. Click one of the following buttons once you have completed the definition of your audience:
    * **Save as Draft** - to keep the draft of your Audience to work on later
    * **Activate** to begin populating the audience with users and make it available for connecting to outputs
 
