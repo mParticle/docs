@@ -6,7 +6,7 @@ mParticle's Rules are JavaScript functions that manipulate an incoming batch obj
 
 ## General format
 
-Rules take the form of an AWS Lambda function, running in Node.js 10. The function takes an incoming `batch` argument to be manipulated and a `context` argument containing immutable metadata. The `context` argument is required, but for an mParticle rule is effectively `null`.
+Rules take the form of an AWS Lambda function, running in Node.js 14. The function takes an incoming `batch` argument to be manipulated and a `context` argument containing immutable metadata. The `context` argument is required, but for an mParticle rule is effectively `null`.
 
 The `callback` takes a message and a data output. For mParticle Rules, the message will always be `null`. The output should either be an object in the same format as the original `batch` argument, or `null`.
 
