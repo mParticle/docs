@@ -14,6 +14,7 @@ title: Audience
 ### User Identities
 
 * Email Address (MD5)
+* mParticle ID (MPID)
 
 ### Device Identities 
 
