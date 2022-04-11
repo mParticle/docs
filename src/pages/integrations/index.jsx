@@ -46,6 +46,9 @@ function renderIntegrations(items) {
     );
 }
 
+const dsrTag = 'Data Subject Request';
+const dwTag = 'Data Warehouse';
+
 const tagOptions = [{
     name: 'Audience',
     value: 'Audience',
@@ -55,8 +58,8 @@ const tagOptions = [{
     value: 'Event',
 },
 {
-    name: 'Data Subject Request',
-    value: 'Data Subject Request',
+    name: dsrTag,
+    value: dsrTag,
 },
 {
     name: 'Feed',
@@ -67,8 +70,8 @@ const tagOptions = [{
     value: 'Cookie Sync',
 },
 {
-    name: 'Data Warehouse',
-    value: 'Data Warehouse',
+    name: dwTag,
+    value: dwTag,
 }].sort((tagA, tagB) => ((tagA.name > tagB.name) ? 1 : -1));
 
 tagOptions.unshift({
@@ -114,9 +117,12 @@ class Integrations extends React.Component {
                     if (this.state.categoryFilter === 'all') {
                         return true;
                     }
-                    return Object.prototype.hasOwnProperty.call(lookup, 'ModuleRole')
-                        ? lookup.ModuleRole.includes(this.state.categoryFilter)
-                        : false;
+                    if (Object.prototype.hasOwnProperty.call(lookup, 'ModuleRole')) {
+                        return this.state.categoryFilter === dsrTag
+                            ? (lookup.ModuleRole.includes(this.state.categoryFilter) || lookup.ModuleRole.includes(dwTag))
+                            : lookup.ModuleRole.includes(this.state.categoryFilter);
+                    }
+                    return false;
                 }
                 return false;
             });
