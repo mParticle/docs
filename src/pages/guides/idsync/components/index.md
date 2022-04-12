@@ -14,7 +14,7 @@ Behind the scenes, mParticle maintains a User Profile for each user. You can thi
 
 ## Identity API
 
-The Identity API is used by all of mParticle's SDKs to log users in and out of your app, to search for, and to modify a current user's identities. It is also available as an HTTP API.
+The Identity API is used by all of mParticle&#39;s SDKs to log users in and out of your app, to search for, and to modify a current user&#39;s identities. It is also available as an HTTP API.
 
 ### Identify a User
 

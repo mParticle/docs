@@ -42,6 +42,20 @@ Note: In the mParticle app, if you do not have Admin rights, you will be able to
 * Optionally, you may configure a data retention policy.
 5. Connect individual inputs to the BigQuery output from the **Connections** page. You must connect every input you want to store data for.
 
+### mParticle Setup
+
+After adding Google BigQuery from the integrations Directory, you can find the settings UI at **Setup > Data Warehouse**.
+
+![](/images/bigquery-setup.png)
+
+From the main page for your Google BigQuery configuration, select the **Settings** tab to provide the necessary settings to get your Google BigQuery integration working.
+
+To forward data subject erasure requests to Google BigQuery, set the Forwarding Status toggle to Active and select **I understand** after reading the disclaimer. Once the status has been set to Active, erasure requests are sent to Google BigQuery immediately upon being received by mParticle.
+
+<aside>The forwarding behavior for data subject erasure requests to Google BigQuery is different than the behavior of other event integrations. With Google BigQuery, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle knows immediately if the erasure request was processed successfully or not.
+
+![](/images/bigquery-setup2.png)
+
 ### Connection Settings
 | Setting Name | Data Type | Default Value | Platform | Description |
 | ---|---|---|---|---|
@@ -238,7 +252,7 @@ shoppingcart.**product_totalproductamount** |  FLOAT  |  NULLABLE  |   Total pro
 
 ## Partner Feed Data
 
-Events from each connected Partner Feed will be stored under a single table unless the `Split Partner Feed Data by Event Name` checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
+Events from each connected Partner Feed will be stored under a single table unless the **Split Partner Feed Data by Event Name** checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
 
 ![medium](/images/big-query-feed.png)
 

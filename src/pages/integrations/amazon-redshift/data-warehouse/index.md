@@ -61,6 +61,12 @@ After adding Amazon Redshift from the integrations Directory, you can find the s
 
 From the main page for your Redshift configuration, select the **Settings** tab to provide the necessary settings to get your Redshift integration working.
 
+To forward data subject erasure requests to Amazon Redshift, set the Forwarding Status toggle to Active and select **I understand** after reading the disclaimer. Once the status has been set to Active, erasure requests are sent to Amazon Redshift immediately upon being received by mParticle. 
+
+<aside>
+The forwarding behavior for data subject erasure requests to Amazon Redshift is different than the behavior of other event integrations. With Amazon Redshift, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle is knows immediately if the erasure request was processed successfully or not.
+</aside>
+
 ![](/images/redshift-settings-042019.png)
 
 ### Configuration Settings
@@ -241,7 +247,7 @@ Each table has the following common columns.
 
 Each individual event name table (not including otherevents) also has one column per event attribute, named like: "ea_[attribute_name]", and one column per user attribute, named like "ua_[attribute_name]". 
 
-The benefit of these individual attribute columns is that you don't have to use slower JSON parse functions in your query to extract attribute values from either EventAttributes or UserAttributes columns. If you wish, individual User Attribute columns can be turned off by disabling the `Send user attribute columns` setting.
+The benefit of these individual attribute columns is that you don't have to use slower JSON parse functions in your query to extract attribute values from either EventAttributes or UserAttributes columns. If you wish, individual User Attribute columns can be turned off by disabling the **Send user attribute columns** setting.
 
 ## Redshift Cluster Security Setup
 
@@ -313,7 +319,7 @@ For mParticle to access your cluster, the IPs of mParticle servers need to be wh
 
 ## Partner Feed Data
 
-Events from each connected Partner Feed will be stored under a single table unless the `Split Partner Feed Data by Event Name` checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. 
+Events from each connected Partner Feed will be stored under a single table unless the **Split Partner Feed Data by Event Name** checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. 
 <aside>
 If you do not provide a name, mParticle will use the name of the Partner.
 </aside>

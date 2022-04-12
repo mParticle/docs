@@ -75,6 +75,12 @@ From the main page for your Snowflake configuration, select the **Settings** tab
 
 Your full account name may include [region](https://docs.snowflake.com/en/user-guide/intro-regions.html#specifying-region-information-in-your-account-hostname).  For example, `xy12345.us-east-1`.
 
+To forward data subject erasure requests to Snowflake, set the Forwarding Status toggle to Active and select **I understand** after reading the disclaimer. Once the status has been set to Active, erasure requests are sent to Snowflake immediately upon being received by mParticle. 
+
+<aside>
+The forwarding behavior for data subject erasure requests to Snowflake is different than the behavior of other event integrations. With Snowflake, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle will be able to tell immediately if the erasure request was processed successfully or not.
+</aside>
+
 ![](/images/Snowflake-mParticle-Settings-042019.png)
 
 ### Configuration Settings
@@ -90,7 +96,7 @@ Your full account name may include [region](https://docs.snowflake.com/en/user-g
 | Configuration Name | `string` | | The name you are giving to this configuration. |
 | Delay Between Loading Sessions in Minutes |`number` | 15 | Allows you to adjust how often you want to load data into the data warehouse. Note that the minimum time is 1 minute and the maximum time is 24 hours (60 minutes x 24).|
 
-If you check the `Use same settings for Development and Production` box, the same configuration is used for both development and production environments.
+If you check the **Use same settings for Development and Production** box, the same configuration is used for both development and production environments.
 
 Once your Data Warehouse integration is configured, connect individual inputs to the Snowflake output from the **Connections** page. You must connect every input for which you want to store data.
 
@@ -228,7 +234,7 @@ If you have chosen to create an IP whitelist as part of your Snowflake [Network 
 
 ## Partner Feed Data
 
-Events from each connected Partner Feed will be stored under a single table unless the `Split Partner Feed Data by Event Name` checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
+Events from each connected Partner Feed will be stored under a single table unless the **Split Partner Feed Data by Event Name** checkbox is enabled. You can choose the table name for each Feed in the Connection Settings. If you do not provide a name, mParticle will use the name of the Partner.
 
 ![medium](/images/snowflake-partner-feed.png)
 
