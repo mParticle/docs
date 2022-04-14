@@ -68,6 +68,12 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Audience Name Length| 100 | Audience name and external name fields are limited to 100 characters.
 | Tag length | 18 | Tag names are limited to 18 characters.
 
+## Data Subject Request API
+| Resource | Limits | Details |
+| -------- | ------ | --- |
+| Requests per minute | 1000 requests per minute | This limit applies across three API actions (Get, Create, and Cancel) and is enforced per Workspace
+| Total new requests | 80,000 requests per day | This limit applies to the Create API action and is enforced per Workspace”
+
 ## Data Plans
 
 * Similar to our event limit for workspaces, data plans support up to 1,000 data points.

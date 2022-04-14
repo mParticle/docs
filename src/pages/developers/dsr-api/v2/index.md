@@ -7,6 +7,8 @@ This is reference documentation for mParticle's API for receiving and managing d
 
 This API is our instance of the [OpenDSR framework](https://github.com/opengdpr/OpenDSR), formerly known as OpenGDPR.
 
+See the [Default Service Limits](/guides/default-service-limits) for information about API rate limits.
+
 ## Versions
 There are two versions of this API that we support:
 
@@ -407,5 +409,6 @@ Status Code | Retriable | Message
 400  | No  | Subject request already exists
 401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication).
 404  | No  | The specified subject request id could not be found.
-409  | No  | There is an in progress request with the same identities, extensions and type.  
+409  | No  | There is an in progress request with the same identities, extensions and type.
+429  | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again.
 5xx  | Yes | A server-side error has occured, please try your request again.

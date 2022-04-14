@@ -7,6 +7,8 @@ Use the Data Subject Request API version 3 (v3) to receive and manage data subje
 
 This API is our instance of the [OpenDSR framework](https://github.com/opengdpr/OpenDSR), formerly known as OpenGDPR.
 
+See the [Default Service Limits](/guides/default-service-limits) for information about API rate limits.
+
 <aside class="note"> Data Subject Request (DSR) API v3 is available in Beta.</aside>
 
 ## Changes in v3
@@ -434,4 +436,5 @@ Status Code | Retriable | Message
 400  | No  | Subject request already exists
 401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication).
 404  | No  | The specified subject request id could not be found.
-409  | No  | There is an in progress request with the same identities, extensions and type.  
+409  | No  | There is an in progress request with the same identities, extensions and type.
+429  | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again.
