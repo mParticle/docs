@@ -39,6 +39,11 @@ const QSTRT = [{
     route: 'senddata#http',
 }];
 
+const TUTS = [{
+    title: 'Web End-to-End Tutorial',
+    route: 'web',
+}];
+
 const SDKS = [{
     title: 'Android',
     route: 'android',
@@ -222,6 +227,14 @@ const DevContent = (props) => (
                                 data={{
                                     ...sdk,
                                     route: `quickstart/${sdk.route}`,
+                                }} />
+                        ))}
+                        {TUTS.map((sdk) => (
+                            <DevTile
+                                key={`${sdk.title}${sdk.route}`}
+                                data={{
+                                    ...sdk,
+                                    route: `tutorials/${sdk.route}/overview`,
                                 }} />
                         ))}
                     </div>
