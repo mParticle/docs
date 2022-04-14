@@ -133,7 +133,7 @@ mParticle forwards data to Kafka as event batches in our standard outgoing [JSON
 
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
-| Kafka Bootstrap Servers | `string` | <unset> | This is a comma-separated list of Kafka bootstrap servers. |
+| Apache Kafka Bootstrap Servers | `string` | <unset> | This is a comma-separated list of Kafka bootstrap servers. |
 | Topic Name | `string` | <unset> | This is your Kafka topic.	 |
 | User Name| `string` | <unset> | User Name for your Kafka account |
 | Password | `string` | <unset> | Password for your Kafka account |
@@ -146,6 +146,7 @@ Setting Name | Data Type | Default Value | Description
 Setting Name | Data Type | Default Value | Platform | Description
 |---|---|---|---|---
 | Unique ID | `string` | <unset> | All| An optional string identifier for your app that will be forwarded with each event batch.  Standard app identifiers (Apple OS Bundle ID, Android Package Name) will be forwarded regardless of this setting. |
+| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. | 
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
@@ -156,4 +157,3 @@ Setting Name | Data Type | Default Value | Platform | Description
 | Send Batches without Events	 | `bool` | True | All| A way to send eventless batches |
 | Include MP DeviceId	 | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
 | Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
-| Metadata Field Exclusion | Custom Field |  | All | A way to exclude specific fields of metadata properties (Device Name or IP Address) in the output. | 
