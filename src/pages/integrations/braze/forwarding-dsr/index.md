@@ -53,7 +53,7 @@ After the DSR forwarding is configured, use either the mParticle user interface 
 
 ## Step 4: Check Forwarding Status
 
-You can check distribution status in the mParticle UI or using v3 of the mParticle DSR API.
+You can check the forwarding request status in the mParticle UI or using v3 of the mParticle DSR API.
 
 ### Check Status With UI
 

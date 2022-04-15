@@ -222,7 +222,7 @@ KD/4Axmo9DISib5/7A6uczJxQG2Bcrdj++vQqK2succ=
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
 | `api_version` | string | The API version for this request. The current version is "2.0". |
 | `results_url` | string | For Access/Portability requests, a download link to the request results data. This field contains `null` unless the request is complete. After a request completes, the `results_url` is valid for 7 days. After that time, attempting to access this URL results in a `410 Gone` HTTP response. |
-| `extensions` | array |  Extensions related to DSR Distribution.
+| `extensions` | array |  Extensions related to DSR forwarding.
 
 ### Get the status of all OpenDSR requests in a Group
 `GET /requests?group_id={my-group}`

@@ -233,16 +233,16 @@ X-OpenDSR-Signature:
 
 #### Extensions 
 
-The `extensions` element is a collection of information on the current state of sending the distribution request per partner.  The fields are:
+The `extensions` element is a collection of information on the current state of sending the forwarding request per partner.  The fields are:
 
 | Field Name| Data Type | Description |
 | --- | --- | --- |
 | `domain` | string | The domain of the partner.
 | `name` | string | The name entered when configuring the DSR configuration for the partner.
-| `status` | string | The current status of the distribution to the partner.
+| `status` | string | The current status of the forwarding request to the partner.
 | `status_message` | string |  Additional details for the `skipped` and `failed` status.
 
-The `status` field returns the current status of the distribution to the partner:
+The `status` field returns the current status of the forwarding request to the partner:
 
 | Status Value | Description |
 | :--- | :--- |
