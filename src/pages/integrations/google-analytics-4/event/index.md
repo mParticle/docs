@@ -5,7 +5,7 @@ title: Event
 Google Analytics 4, or GA4 (formerly known as “App + Web”), is a new kind of property, with different reports than what you're used to seeing in legacy Universal Analytics (UA) and Firebase properties.  GA4 is an analytics service that enables you to measure traffic and engagement across your websites and mobile apps using customizable reports.  One advantage of a GA4 property is that you can use it for a website, an app, or both a website and app together. UA properties only support websites and the Firebase Console only supports native app data.  
 
 <aside>
-    The Google Analytics 4 integration for mParticle is currently an Early Access release. If you would like access to this integration, please reach out to your account representative or contact <a href='http://support.mparticle.com/'>mParticle Support</a>.
+    The Google Analytics 4 integration for mParticle is currently an Early Access release.
 </aside>
 
 Data collection is enabled through SDK instrumentation. Once your app is properly configured, data is ingested into the mParticle platform, which maps inbound data to Google Analytics features and their required formats, and then forwards the data to Google Analytics.
