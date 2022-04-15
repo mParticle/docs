@@ -168,3 +168,7 @@ This detail UI for a data subject request for erasure shows the forwarding statu
 <aside class="notice">Once forwarded, mParticle can't guarantee that data is deleted by the partner, so confirm that each partner fulfills the request.</aside>
 
 If an integration supports forwarding erasure requests, the integration documentation contains a section "Data Subject Request Forwarding for Erasure" and that section contains specific instructions.
+
+## Retention of Data Subject Requests Records
+
+mParticle retains Data Subject Request records for up to 1 year.
