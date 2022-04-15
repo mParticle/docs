@@ -157,8 +157,6 @@ To view details about a request, click the Request ID number.
 
 ## Forwarding Data Subject Requests for Erasure
 
-<aside class="notice">Data subject request (DSR) forwarding is a closed Beta release.</aside>
-
 You can configure mParticle to forward Data Subject Requests (DSRs) for erasure with one or more integrations.
 
 ![image of data subject request detail UI](/images/dsr/dsr-details.png)

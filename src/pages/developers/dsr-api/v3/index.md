@@ -9,8 +9,6 @@ This API is our instance of the [OpenDSR framework](https://github.com/opengdpr/
 
 See the [Default Service Limits](/guides/default-service-limits) for information about API rate limits.
 
-<aside class="note"> Data Subject Request (DSR) API v3 is available in Beta.</aside>
-
 ## Changes in v3
 
 v3 contains the following changes:
