@@ -125,7 +125,7 @@ To send data server side, check `Forward Requests Server Side` in the Connection
 
 Google's server side API for GA4 requires an `app_instance_id` which comes from the Firebase SDK. The mParticle Firebase for GA4 kit automatically sends the `app_instance_id` to our servers to then forward to Google. This means you will need to include the mParticle Firebase Kit and Firebase SDK in your app.
 
-##### Sending Data via Native Apps Server Side without the web kit
+##### Sending Data via Native Apps Server Side without the kit
 
 Optionally, you can resolve the `app_instance_id` by directly calling the [Firebase SDK](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference?client_type=firebase#app_instance_id).
 When the payload is sent to our endpoint, it will require the `app_instance_id` as part of the [integration attributes](/developers/server/json-reference/#overall-structure) under the key `160` as the following example: 
