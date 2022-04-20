@@ -47,7 +47,7 @@ You can use the Open API specification (also known as Swagger) below to generate
 
 You can also get started quickly with a Postman collection:
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/090f87bbe90a4413890b)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20013b88e1d329eca16d)
 
 ## HTTP API
 

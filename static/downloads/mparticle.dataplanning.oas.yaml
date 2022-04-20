@@ -2,41 +2,57 @@ openapi: 3.0.2
 info:
   title: mParticle Data Planning API
   version: 2.0.0
+  contact:
+    email: product@mparticle.com
+    url: 'https://www.mparticle.com/contact'
+    name: mParticle Developer Experience
+  description: The Data Planning API for mParticle.com
+  termsOfService: 'https://www.mparticle.com/legal/website-terms-of-service/'
 servers:
-  - url: https://api.mparticle.com/platform/v2/workspaces/{workspace_id}/plans
+  - url: 'https://api.mparticle.com/platform/v2/workspaces/{workspace_id}/plans'
     variables:
       workspace_id:
-        default: "0"
+        default: '0'
         description: The Id of the worskspace that contains the targetted data plans
 security:
   - bearerAuth: []
-
+tags:
+  - name: Data Plan
+    description: Endpoints for managing Data Plans
+  - name: Data Plan Version
+    description: Endpoints for versioning Data Plans
 paths:
   /:
     get:
       description: Query all data plans
-      operationId: get plans
+      operationId: get-plans
       tags:
         - Data Plan
       responses:
         '200':
           $ref: '#/components/responses/DataPlanListResponse'
+        '400':
+          description: Bad Request
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '404':
+          description: Not Found
         '429':
           $ref: '#/components/responses/TooManyRequests'
+      summary: Get All Plans
     post:
       description: Create a data plan
-      operationId: create plan
+      operationId: create-plan
       tags:
         - Data Plan
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/DataPlan"
+              $ref: '#/components/schemas/DataPlan'
+            examples: {}
       responses:
         '200':
           $ref: '#/components/responses/DataPlanVersionResponse'
@@ -48,14 +64,16 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '429':
           $ref: '#/components/responses/TooManyRequests'
-  /{plan_id}:
+      summary: Create Data Plan
+    parameters: []
+  '/{plan_id}':
     get:
-      description: Get a single plan
-      operationId: get plan
+      description: 'Get a single data plan '
+      operationId: get-plan
       tags:
         - Data Plan
       parameters:
-        - $ref: "#/components/parameters/plan_id"
+        - $ref: '#/components/parameters/plan_id'
       responses:
         '200':
           $ref: '#/components/responses/DataPlanResponse'
@@ -65,13 +83,14 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '429':
           $ref: '#/components/responses/TooManyRequests'
+      summary: Get a Single Plan
     delete:
       description: Delete a single plan
-      operationId: delete plan
+      operationId: delete-plan
       tags:
         - Data Plan
       parameters:
-        - $ref: "#/components/parameters/plan_id"
+        - $ref: '#/components/parameters/plan_id'
       responses:
         '204':
           description: Empty response
@@ -79,15 +98,18 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/DataPlanNotFound'
         '429':
           $ref: '#/components/responses/TooManyRequests'
+      summary: Delete Data Plan
     patch:
       description: Update a plan
-      operationId: update plan
+      operationId: update-plan
       tags:
         - Data Plan
       parameters:
-        - $ref: "#/components/parameters/plan_id"
+        - $ref: '#/components/parameters/plan_id'
       responses:
         '200':
           $ref: '#/components/responses/DataPlanResponse'
@@ -97,75 +119,119 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/DataPlanNotFound'
         '429':
           $ref: '#/components/responses/TooManyRequests'
-  /{plan_id}/versions/{plan_version}:
-    get:
-      description: Get a single plan version
-      operationId: get plan version
-      tags:
-        - Data Plan Version
-      parameters:
-        - $ref: "#/components/parameters/plan_id"
-        - $ref: "#/components/parameters/plan_version"
-      responses:
-        '200':
-          $ref: '#/components/responses/DataPlanVersionResponse'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-    patch:
-      description: Update a plan version
-      operationId: update plan version
-      tags:
-        - Data Plan Version
-      parameters:
-        - $ref: "#/components/parameters/plan_id"
-        - $ref: "#/components/parameters/plan_version"
-      responses:
-        '200':
-          $ref: '#/components/responses/DataPlanVersionResponse'
-        '400':
-          $ref: '#/components/responses/BadSchema'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-    delete:
-      description: Delete a plan version
-      operationId: delete plan version
-      tags:
-        - Data Plan Version
-      parameters:
-        - $ref: "#/components/parameters/plan_id"
-        - $ref: "#/components/parameters/plan_version"
-      responses:
-        '204':
-          description: Empty response
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '429':
-          $ref: '#/components/responses/TooManyRequests'
-  /{plan_id}/versions:
-    post:
-      description: Create a data plan version
-      operationId: create plan version
-      tags:
-        - Data Plan Version
-      parameters:
-        - $ref: "#/components/parameters/plan_id"
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/DataPlanVersion"
+              description: ''
+              type: object
+              x-examples:
+                example-1:
+                  data_plan_name: description
+              properties:
+                data_plan_name:
+                  type: string
+                data_plan_description:
+                  type: string
+        description: ''
+      summary: Update Data Plan
+  '/{plan_id}/versions/{plan_version}':
+    get:
+      description: Get a single plan version
+      operationId: get-plan-version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: '#/components/parameters/plan_id'
+        - $ref: '#/components/parameters/plan_version'
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanVersionResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/DataPlanVersionNotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+      summary: Get a Single Data Plan Version
+    patch:
+      description: Update a plan version
+      operationId: update-plan-version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: '#/components/parameters/plan_id'
+        - $ref: '#/components/parameters/plan_version'
+      responses:
+        '200':
+          $ref: '#/components/responses/DataPlanVersionResponse'
+        '400':
+          $ref: '#/components/responses/BadSchema'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/DataPlanVersionNotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activated_environment:
+                  $ref: '#/components/schemas/ActivatedEnvironment'
+                version_description:
+                  type: string
+                version_document:
+                  $ref: '#/components/schemas/VersionDocument'
+                quarantine_feed_id:
+                  type: number
+        description: ''
+      summary: Update Data Plan Version
+    delete:
+      description: Delete a plan version
+      operationId: delete-plan-version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: '#/components/parameters/plan_id'
+        - $ref: '#/components/parameters/plan_version'
+      responses:
+        '204':
+          description: Empty response
+        '400':
+          $ref: '#/components/responses/DeletePlanVersionBadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/DataPlanVersionNotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+      summary: Delete Data Plan Version
+  '/{plan_id}/versions':
+    post:
+      description: Create a data plan version
+      operationId: create-plan-version
+      tags:
+        - Data Plan Version
+      parameters:
+        - $ref: '#/components/parameters/plan_id'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataPlanVersion'
       responses:
         '200':
           $ref: '#/components/responses/DataPlanVersionResponse'
@@ -177,32 +243,36 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '429':
           $ref: '#/components/responses/TooManyRequests'
+      summary: Create a Data Plan Version
   /validate:
     post:
       description: Validate an event batch against a Data Plan document
-      operationId: validate plan document
-      tags:
-        - Data Plan Document
+      operationId: validate-plan-document
       parameters: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              properties:
-                document:
-                  $ref: "#/components/schemas/DataPlanVersion"
       responses:
         '200':
-          $ref: '#/components/responses/DataPlanVersionResponse'
+          $ref: '#/components/responses/ValidateDataPlanResponse'
         '400':
-          $ref: '#/components/responses/BadSchema'
+          $ref: '#/components/responses/ValidateDataPlanBadRequest'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
         '429':
           $ref: '#/components/responses/TooManyRequests'
-
+      summary: Validate Event Batch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                document:
+                  $ref: '#/components/schemas/VersionDocument'
+                batch:
+                  $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_Batch'
+      tags:
+        - Data Plan
 components:
   parameters:
     plan_id:
@@ -249,6 +319,38 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/DataPlan'
+          examples:
+            example-1:
+              value:
+                - data_plan_id: string
+                  data_plan_name: string
+                  created_on: '2019-08-24T14:15:22Z'
+                  created_by: string
+                  last_modified_on: '2019-08-24T14:15:22Z'
+                  last_modified_by: string
+                  description: string
+                  data_plan_versions:
+                    - version: 0
+                      version_description: string
+                      created_on: '2019-08-24T14:15:22Z'
+                      created_by: string
+                      last_modified_on: '2019-08-24T14:15:22Z'
+                      last_modified_by: string
+                      version_document:
+                        data_points:
+                          - description: string
+                            match:
+                              type: unknown
+                              criteria:
+                                screen_name: string
+                            validator:
+                              type: json_schema
+                              definition: {}
+                            active_transformation_ids:
+                              - 0
+                        active_transformation_ids:
+                          - 0
+                      activated_environment: development
     DataPlanResponse:
       description: Data plan created
       content:
@@ -256,7 +358,7 @@ components:
           schema:
             $ref: '#/components/schemas/DataPlan'
     DataPlanVersionResponse:
-      description: Data plan version created
+      description: Data plan version
       content:
         application/json:
           schema:
@@ -266,24 +368,273 @@ components:
     TooManyRequests:
       description: Too Many Requests
       headers:
-        Retry-After: 
+        Retry-After:
           description: Seconds to wait until the next request attempt
           schema:
             type: integer
     Unauthorized:
       description: Unauthorized
+    DataPlanNotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              errors:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                    - message
+                  properties:
+                    message:
+                      type: string
+                      minLength: 1
+            required:
+              - errors
+            x-examples:
+              example-1:
+                errors:
+                  - message: >-
+                      The specified plan ID plan_1 in workspace 1234 was not
+                      found.
+          examples:
+            example-1:
+              value:
+                errors:
+                  - message: >-
+                      The specified plan ID plan_1 in workspace 1234 was not
+                      found.
+      headers: {}
+    DataPlanVersionNotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            x-examples:
+              example-1:
+                errors:
+                  - message: >-
+                      The specified version 10 in plan ID plan_1 was not found
+                      in workspace 1234.
+            properties:
+              errors:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      minLength: 1
+                      enum:
+                        - >-
+                          The specified plan ID {plan_id} in workspace
+                          {workspace_id} was not found.
+                        - >-
+                          The specified version {version_id} in plan ID
+                          {plan_id} was not found in workspace {workspace_id}.
+                  required:
+                    - message
+            required:
+              - errors
+          examples:
+            example-1:
+              value:
+                errors:
+                  - message: >-
+                      The specified version 10 in plan ID plan_1 was not found
+                      in workspace 1234.
+    DeletePlanVersionBadRequest:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              errors:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      minLength: 1
+                      enum:
+                        - >-
+                          Unable to delete plan version - plans must contain at
+                          least one plan version.
+                        - >-
+                          Unable to delete plan version - this version is active
+                          in prod and cannot be deleted.
+                        - >-
+                          Unable to delete plan version. Plan versions with an
+                          associated quarantine feed can only be deleted through
+                          the UI.
+                  required:
+                    - message
+            required:
+              - errors
+          examples:
+            example-1:
+              value:
+                errors:
+                  - message: >-
+                      Unable to delete plan version - plans must contain at
+                      least one plan version.
+    ValidateDataPlanBadRequest:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            description: ''
+            type: object
+            properties:
+              errors:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      minLength: 1
+                      enum:
+                        - A required value was missing.
+                        - Invalid Event Batch.
+                        - Invalid Document.
+                        - Account configuration error.
+                        - Invalid data plan document.
+                        - >-
+                          Data plan exceeds maximum of
+                          {max_data_points_per_plan} with {data_points.length}
+                          data points.
+                  required:
+                    - message
+            required:
+              - errors
+          examples:
+            example-1:
+              value:
+                errors:
+                  - message: A required value was missing.
+    ValidateDataPlanResponse:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    data:
+                      allOf:
+                        - type: object
+                          properties:
+                            match:
+                              $ref: '#/components/schemas/DataPointMatch'
+                            validation_errors:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  validation_error_type:
+                                    type: string
+                                    enum:
+                                      - unknown
+                                      - unplanned
+                                      - missing_required
+                                      - invalid_value
+                                  key:
+                                    type: string
+                                    example: event name or attribute name
+                                  error_pointer:
+                                    type: string
+                                    example: '#/data/custom_attributes/foo-attr-1'
+                                  expected:
+                                    type: string
+                                    example: >-
+                                      null for unplanned entities, the entity
+                                      name for missing required entities, a data
+                                      type (e.g. "number") for invalid data
+                                      types, etc
+                                  actual:
+                                    type: string
+                                    example: >-
+                                      the entity name for unplanned entities,
+                                      null for missing required entities, a data
+                                      type (e.g. "string") for invalid data
+                                      types, etc
+                                  action_expected:
+                                    type: string
+                                    enum:
+                                      - unknown
+                                      - allow
+                                      - drop_event
+                                      - drop_attribute
+                                      - drop_batch
+                                  schema_keyword:
+                                    $ref: '#/components/schemas/SchemaKeyword'
+                            validated_event_id:
+                              type: number
+                            validated_source_message_id:
+                              type: string
+                            executed_transformations:
+                              type: object
+                              properties:
+                                transformation_id:
+                                  type: number
+                                transformation_status:
+                                  type: string
+                                  enum:
+                                    - success
+                                    - failure
+                                    - unchanged
+                                    - quarantined
+                                transformation_error_type:
+                                  type: string
+                                  enum:
+                                    - valid
+                                    - invalid
+                                    - unrecognized_data_point
+                                    - events_schema_violated
+                                transformation_error_message:
+                                  type: string
+                                transformation_error_pointer:
+                                  type: string
+                        - $ref: >-
+                            #/components/schemas/Mparticle_S2s_Events_Oas_CommonEventData
+              batch:
+                type: object
   schemas:
     ActivatedEnvironment:
       type: string
       enum:
-        - "none"
-        - "development"
-        - "production"
+        - none
+        - development
+        - production
+      description: >-
+        Data plan can be active in development, production & development (production), or neither.
+        'none' indicates it's inactive.
     Criteria:
       anyOf:
-        - $ref: "#/components/schemas/ScreenViewEventCriteria"       
-        - $ref: "#/components/schemas/CustomEventCriteria"
-        - $ref: "#/components/schemas/UserAttributeCriteria"
+        - $ref: '#/components/schemas/ScreenViewEventCriteria'
+        - $ref: '#/components/schemas/CustomEventCriteria'
+        - $ref: '#/components/schemas/UserAttributeCriteria'
+        - $ref: '#/components/schemas/CommerceActionEventCriteria'
     CustomEventCriteria:
       properties:
         event_name:
@@ -291,23 +642,31 @@ components:
         custom_event_type:
           type: string
           enum:
-            - "unknown"
-            - "navigation"
-            - "location"
-            - "search"
-            - "transaction"
-            - "user_content"
-            - "user_preference"
-            - "social"
-            - "other"
-            - "media"
-      required: ["event_name", "custom_event_type"]
+            - unknown
+            - navigation
+            - location
+            - search
+            - transaction
+            - user_content
+            - user_preference
+            - social
+            - other
+            - media
+      required:
+        - event_name
+        - custom_event_type
     DataPlan:
+      x-examples: {}
+      type: object
       properties:
         data_plan_id:
           type: string
         data_plan_name:
           type: string
+        data_plan_description:
+          type: string
+        data_plan_versions:
+          $ref: '#/components/schemas/DataPlanVersionList'
         created_on:
           type: string
           format: date-time
@@ -318,11 +677,8 @@ components:
           format: date-time
         last_modified_by:
           type: string
-        description:
-          type: string
-        data_plan_versions:
-          $ref: "#/components/schemas/DataPlanVersionList"
     DataPlanVersion:
+      type: object
       properties:
         version:
           type: integer
@@ -339,44 +695,54 @@ components:
         last_modified_by:
           type: string
         version_document:
-          $ref: "#/components/schemas/VersionDocument"
+          $ref: '#/components/schemas/VersionDocument'
         activated_environment:
-          $ref: "#/components/schemas/ActivatedEnvironment"
+          $ref: '#/components/schemas/ActivatedEnvironment'
+        data_plan_id:
+          type: string
+        quarantine_feed_id:
+          type: number
+          nullable: true
+          readOnly: true
     DataPlanVersionList:
       type: array
       items:
-        $ref: "#/components/schemas/DataPlanVersion"
+        $ref: '#/components/schemas/DataPlanVersion'
     DataPoint:
+      type: object
       properties:
         description:
           type: string
         match:
-          $ref: "#/components/schemas/DataPointMatch"
+          $ref: '#/components/schemas/DataPointMatch'
         validator:
-          $ref: "#/components/schemas/DataPointValidator"
-        active_transformation_ids:
-          type: array
-          items:
-            type: integer
-      required: ["match", "validator"]
+          $ref: '#/components/schemas/DataPointValidator'
+      required:
+        - match
+        - validator
     DataPointMatch:
       properties:
         type:
-          $ref: "#/components/schemas/MatchType"
+          $ref: '#/components/schemas/MatchType'
         criteria:
-          $ref: "#/components/schemas/Criteria"
-      required: ["type", "criteria"]
+          $ref: '#/components/schemas/Criteria'
+      required:
+        - type
+        - criteria
+      title: ''
     DataPointValidator:
       properties:
         type:
           type: string
-          default: "json_schema"
+          default: json_schema
           enum:
-            - "json_schema"
+            - json_schema
         definition:
           type: object
-          description: "This should be a valid JSON schema"
-      required: ["type", "definition"]
+          description: This should be a valid JSON schema
+      required:
+        - type
+        - definition
     Error:
       type: object
       properties:
@@ -393,14 +759,14 @@ components:
     MatchType:
       type: string
       enum:
-        - "unknown"
-        - "screen_view"
-        - "custom_event"
-        - "user_attributes"
-        - "user_identities"
-        - "product_action"
-        - "promotion_action"
-        - "product_impression"
+        - unknown
+        - screen_view
+        - custom_event
+        - user_attributes
+        - user_identities
+        - product_action
+        - promotion_action
+        - product_impression
     SchemaError:
       type: object
       allOf:
@@ -408,7 +774,7 @@ components:
       properties:
         match_key:
           type: string
-        value: 
+        value:
           type: string
         schema_pointer:
           type: string
@@ -422,7 +788,7 @@ components:
         - message
         - match_key
         - error_type
-    SchemaErrorList: 
+    SchemaErrorList:
       type: object
       properties:
         errors:
@@ -433,27 +799,677 @@ components:
       properties:
         screen_name:
           type: string
-      required: ["screen_name"]
+      required:
+        - screen_name
     UserAttributeCriteria:
       type: object
     ValidationErrorType:
+      type: string
       enum:
         - unknown
         - unplanned
         - missing_required
         - invalid_value
     VersionDocument:
+      type: object
+      description: 'This is the actual data plan, since a data plan can have many versions.'
       properties:
         data_points:
           type: array
           items:
-            $ref: "#/components/schemas/DataPoint"
+            $ref: '#/components/schemas/DataPoint'
         active_transformation_ids:
           type: array
           items:
-            type: integer
+            type: number
+          readOnly: true
+        transformations:
+          $ref: '#/components/schemas/DataPlanTransformation'
+    CommerceActionEventCriteria:
+      title: CommerceActionEventCriteria
+      type: object
+      properties:
+        action:
+          oneOf:
+            - $ref: '#/components/schemas/ProductAction'
+            - $ref: '#/components/schemas/PromotionAction'
+      description: Data point match criteria object for commerce action events
+    ProductAction:
+      type: string
+      title: ProductAction
+      enum:
+        - add_to_cart
+        - remove_from_cart
+        - checkout
+        - checkout_option
+        - click
+        - view_detail
+        - purchase
+        - refund
+        - add_to_wishlist
+        - remove_from_wish_list
+    PromotionAction:
+      type: string
+      title: PromotionAction
+      enum:
+        - view
+        - click
+    DataPlanTransformation:
+      title: DataPlanTransformation
+      type: object
+      properties:
+        transformation_id:
+          type: number
+        transformation_name:
+          type: string
+        error_pointer:
+          type: string
+        validation_error_types:
+          type: array
+          items:
+            type: string
+            enum:
+              - unknown
+              - unplanned
+              - missing_required
+              - invalid_value
+        schema_keywords:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaKeyword'
+        json_patch:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPlanPatch'
+        description:
+          type: string
+    SchemaKeyword:
+      type: string
+      title: SchemaKeyword
+      enum:
+        - none
+        - additionalItems
+        - additionalProperties
+        - allOf
+        - anyOf
+        - const
+        - contains
+        - contentEncoding
+        - contentMediaType
+        - default
+        - definitions
+        - dependencies
+        - dependentRequired
+        - dependentSchemas
+        - else
+        - enum
+        - exclusiveMaximum
+        - exclusiveMinimum
+        - format
+        - id
+        - if
+        - items
+        - maxContains
+        - maximum
+        - maximum
+        - maxLength
+        - maxProperties
+        - minContains
+        - minimum
+        - minItems
+        - minLength
+        - minProperties
+        - multipleOf
+        - not
+        - oneOf
+        - pattern
+        - patternProperties
+        - properties
+        - propertyNames
+        - readOnly
+        - required
+        - then
+        - type
+        - unevaluatedItems
+        - unevaluatedProperties
+        - uniqueItems
+        - writeOnly
+        - $anchor
+        - $defs
+        - $id
+        - $recursiveAnchor
+        - $recursiveRef
+        - $ref
+        - $schema
+        - $vocabulary
+        - timeLimit
+        - $comment
+        - description
+        - examples
+        - title
+    DataPlanPatch:
+      title: DataPlanPatch
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+            - unknown
+            - add
+            - remove
+            - replace
+            - copy
+            - move
+            - test
+        from:
+          type: string
+        path:
+          type: string
+        value:
+          type: string
+    Mparticle_S2s_Events_Oas_ApplicationInformation:
+      properties:
+        application_name:
+          type: string
+        application_version:
+          type: string
+        application_build_number:
+          type: string
+        install_referrer:
+          type: string
+        package:
+          type: string
+        os:
+          type: string
+          default: Unknown
+          enum:
+            - Unknown
+            - IOS
+            - Android
+            - WindowsPhone
+            - MobileWeb
+            - UnityIOS
+            - UnityAndroid
+            - Desktop
+            - TVOS
+            - Roku
+            - OutOfBand
+            - Alexa
+            - SmartTV
+            - FireTV
+            - Xbox
+        apple_search_ads_attributes:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: string
+      additionalProperties: false
+    Mparticle_S2s_Events_Oas_AttributionInfo:
+      properties:
+        service_provider:
+          type: string
+        publisher:
+          type: string
+        campaign:
+          type: string
+      required:
+        - service_provider
+        - publisher
+        - campaign
+      additionalProperties: false
+    Mparticle_S2s_Events_Oas_BaseEvent:
+      properties:
+        data:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_CommonEventData'
+        event_type:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_EventType'
+    Mparticle_S2s_Events_Oas_Batch:
+      additionalProperties: false
+      type: object
+      properties:
+        source_request_id:
+          type: string
+        context:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_BatchContext'
+        events:
+          type: array
+          description: >-
+            Provide a list of event objects - such as CustomEvent,
+            ScreenViewEvent, or CommerceEvent
+          items:
+            $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_BaseEvent'
+        device_info:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_DeviceInformation'
+        application_info:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_ApplicationInformation'
+        user_attributes:
+          type: object
+          additionalProperties:
+            type: object
+        deleted_user_attributes:
+          type: array
+          items:
+            type: string
+        user_identities:
+          type: object
+          additionalProperties: false
+          properties:
+            other:
+              type: string
+            customer_id:
+              type: string
+            facebook:
+              type: string
+            twitter:
+              type: string
+            google:
+              type: string
+            microsoft:
+              type: string
+            yahoo:
+              type: string
+            email:
+              type: string
+            alias:
+              type: string
+            facebook_custom_audience_id:
+              type: string
+            other_id_2:
+              type: string
+            other_id_3:
+              type: string
+            other_id_4:
+              type: string
+            other_id_5:
+              type: string
+            other_id_6:
+              type: string
+            other_id_7:
+              type: string
+            other_id_8:
+              type: string
+            other_id_9:
+              type: string
+            other_id_10:
+              type: string
+            mobile_number:
+              type: string
+            phone_number_2:
+              type: string
+            phone_number_3:
+              type: string
+        environment:
+          type: string
+          default: production
+          enum:
+            - unknown
+            - development
+            - production
+        api_key:
+          type: string
+        api_keys:
+          type: array
+          items:
+            type: string
+        ip:
+          type: string
+        integration_attributes:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: string
+        partner_identity:
+          type: string
+        source_info:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_SourceInformation'
+        mp_deviceid:
+          type: string
+        attribution_info:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_AttributionInfo'
+        timestamp_unixtime_ms:
+          type: integer
+          format: int64
+        batch_id:
+          type: integer
+          format: int64
+        mpid:
+          type: integer
+          format: int64
+        sdk_version:
+          type: string
+        consent_state:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_ConsentState'
+        job_id:
+          type: string
+      required:
+        - environment
+    Mparticle_S2s_Events_Oas_BatchContext:
+      properties:
+        data_plan:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_DataPlanContext'
+    Mparticle_S2s_Events_Oas_CommonEventData:
+      properties:
+        timestamp_unixtime_ms:
+          type: integer
+        event_id:
+          type: integer
+          format: int64
+          readOnly: true
+        source_message_id:
+          type: string
+        session_id:
+          type: integer
+          format: int64
+        session_uuid:
+          type: string
+        session_start_unixtime_ms:
+          type: integer
+        event_start_unixtime_ms:
+          type: integer
+        custom_attributes:
+          type: object
+          additionalProperties:
+            type: string
+        location:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_GeoLocation'
+        device_current_state:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_DeviceCurrentState'
+        is_goal_defined:
+          type: boolean
+        lifetime_value_change:
+          type: boolean
+        lifetime_value_attribute_name:
+          type: string
+        data_connection_type:
+          type: string
+        event_num:
+          type: integer
+        view_controller:
+          type: string
+        is_main_thread:
+          type: boolean
+        canonical_name:
+          type: string
+        event_system_notification_info:
+          $ref: >-
+            #/components/schemas/Mparticle_S2s_Events_Oas_EventSystemNotificationInfo
+    Mparticle_S2s_Events_Oas_ConsentState:
+      properties:
+        gdpr:
+          $ref: '#/components/schemas/Mparticle_S2s_Events_Oas_GDPRConsentState'
+      required:
+        - gdpr
+      additionalProperties: false
+    Mparticle_S2s_Events_Oas_DataPlanContext:
+      properties:
+        plan_id:
+          type: string
+        plan_version:
+          type: integer
+      required:
+        - plan_id
+    Mparticle_S2s_Events_Oas_DeviceCurrentState:
+      properties:
+        time_since_start_ms:
+          type: integer
+        battery_level:
+          type: number
+        data_connection_type:
+          type: string
+        data_connection_type_detail:
+          type: string
+        gps_state:
+          type: boolean
+        total_system_memory_usage_bytes:
+          type: integer
+        disk_space_free_bytes:
+          type: integer
+        external_disk_space_free_bytes:
+          type: integer
+        cpu:
+          type: string
+        system_memory_available_bytes:
+          type: number
+        system_memory_low:
+          type: boolean
+        system_memory_threshold_bytes:
+          type: number
+        application_memory_available_bytes:
+          type: number
+        application_memory_max_bytes:
+          type: number
+        application_memory_total_bytes:
+          type: number
+        device_orientation:
+          type: string
+          enum:
+            - portrait
+            - portrait_upside_down
+            - landscape
+            - LandscapeLeft
+            - LandscapeRight
+            - FaceUp
+            - FaceDown
+            - Square
+        status_bar_orientation:
+          type: string
+          enum:
+            - portrait
+            - portrait_upside_down
+            - landscape
+            - LandscapeLeft
+            - LandscapeRight
+            - FaceUp
+            - FaceDown
+            - Square
+      additionalProperties: false
+    Mparticle_S2s_Events_Oas_DeviceInformation:
+      properties:
+        brand:
+          type: string
+        product:
+          type: string
+        device:
+          type: string
+        android_uuid:
+          type: string
+        device_manufacturer:
+          type: string
+        platform:
+          type: string
+          enum:
+            - iOS
+            - Android
+            - web
+            - desktop
+            - tvOS
+            - roku
+            - out_of_band
+            - smart_tv
+            - xbox
+        os_version:
+          type: string
+        device_model:
+          type: string
+        screen_height:
+          type: integer
+        screen_width:
+          type: integer
+        screen_dpi:
+          type: integer
+        device_country:
+          type: string
+        locale_language:
+          type: string
+        locale_country:
+          type: string
+        network_country:
+          type: string
+        network_carrier:
+          type: string
+        network_code:
+          type: string
+        network_mobile_country_code:
+          type: string
+        timezone_offset:
+          type: integer
+        build_identifier:
+          type: string
+        http_header_user_agent:
+          type: string
+        ios_advertising_id:
+          type: string
+        att_authorization_status:
+          type: string
+          enum:
+            - authorized
+            - denied
+            - not_determined
+            - restricted
+        att_timestamp_unixtime_ms:
+          type: number
+        push_token:
+          type: string
+        cpu_architecture:
+          type: string
+        is_tablet:
+          type: boolean
+        push_notification_sound_enabled:
+          type: boolean
+        push_notification_vibrate_enabled:
+          type: boolean
+        radio_access_technology:
+          type: string
+        supports_telephony:
+          type: boolean
+        has_nfc:
+          type: boolean
+        bluetooth_enabled:
+          type: boolean
+        bluetooth_version:
+          type: string
+        ios_idfv:
+          type: string
+        android_advertising_id:
+          type: string
+        build_version_release:
+          type: string
+        limit_ad_tracking:
+          type: boolean
+        amp_id:
+          type: string
+        is_dst:
+          type: boolean
+        roku_advertising_id:
+          type: string
+        roku_publisher_id:
+          type: string
+        microsoft_advertising_id:
+          type: string
+        microsoft_publisher_id:
+          type: string
+        fire_advertising_id:
+          type: string
+      additionalProperties: false
+    Mparticle_S2s_Events_Oas_EventSystemNotificationInfo:
+      readOnly: true
+      properties:
+        type:
+          type: string
+          enum:
+            - gdpr_change
+      required:
+        - type
+    Mparticle_S2s_Events_Oas_EventType:
+      type: string
+      enum:
+        - session_start
+        - session_end
+        - screen_view
+        - custom_event
+        - crash_report
+        - opt_out
+        - first_run
+        - pre_attribution
+        - push_registration
+        - application_state_transition
+        - push_message
+        - network_performance
+        - breadcrumb
+        - profile
+        - push_reaction
+        - commerce_event
+        - user_attribute_change
+        - user_identity_change
+        - uninstall
+    Mparticle_S2s_Events_Oas_GDPRConsentState:
+      properties:
+        regulation:
+          type: string
+        document:
+          type: string
+        consented:
+          type: boolean
+        timestamp_unixtime_ms:
+          type: integer
+        location:
+          type: string
+        hardware_id:
+          type: string
+      required:
+        - regulation
+        - document
+        - consented
+        - timestamp_unixtime_ms
+        - location
+        - hardware_id
+      additionalProperties: false
+    Mparticle_S2s_Events_Oas_GeoLocation:
+      properties:
+        latitude:
+          type: number
+        longitude:
+          type: number
+        accuracy:
+          type: number
+      required:
+        - latitude
+        - longitude
+      additionalProperties: false
+    Mparticle_S2s_Events_Oas_SourceInformation:
+      readOnly: true
+      properties:
+        channel:
+          type: string
+          enum:
+            - native
+            - javascript
+            - pixel
+            - desktop
+            - partner
+            - server_to_server
+        partner:
+          type: string
+        replay_request_id:
+          type: string
+        replay_job_id:
+          type: string
+        is_historical:
+          type: boolean
+      additionalProperties: false
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
+  requestBodies:
+    ValidateRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              document:
+                $ref: '#/components/schemas/DataPlanVersion'
