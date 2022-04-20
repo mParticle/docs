@@ -224,7 +224,7 @@ The vast majority of customers are on the "latest" version of our Web SDK at all
 
 In the meantime, this means our releasing scheme and tagging scheme doesn't really apply here. As of 6/11/19,  to determine the version of a partner's SDK for a given web kit as follows:
 
-1. Navigate to the mParticle Integrations Github org
+1. Navigate to the [mParticle Integrations Github org](https://github.com/mparticle-integrations).
 2. Find the repository of the partner. We use a naming convention - all Web SDK kits are named `mparticle-javascript-integration-<PARTNER>`.
 
 ### Determine the Version
