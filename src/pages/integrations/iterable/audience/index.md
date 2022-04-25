@@ -43,11 +43,12 @@ The User ID selected in the Audience Connection Settings will impact how audienc
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---
-|API Key|`string` | | Your Iterable API Key|
+|API Key|`string` | | API key used to connect to the Iterable API - see the Integrations section of your Iterable account.|
+|User ID | `string` | customerId | Select which user identity to forward to Iterable as your customer's user ID. |
 
 ## Connection Settings
 
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---|
 |List ID | `string` | | The Iterable List ID which will be mapped to this audience.|
-|User ID | `string` | customerId | Select which user identity to forward to Iterable as your customer's user ID. |
+
