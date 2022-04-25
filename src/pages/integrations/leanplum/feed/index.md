@@ -64,7 +64,7 @@ Leanplum sends several Custom App Events with event attributes as described belo
 * Customer ID
 * Email
 * Other
-* Othe 2
+* Other 2
 * Other 3
 * Other 4
 
