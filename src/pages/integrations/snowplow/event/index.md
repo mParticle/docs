@@ -16,10 +16,11 @@ Snowplow's technology enables powerful custom analytics capabilities by making i
  
 	| Setting Name |  Data Type    | Default Value  | Description |
 	| ---|---|---|---|
-	| User ID | `enum` | <unset> |  | The value to be forwarded to Snowplow as the User ID. Choose from Customer ID, Email or Other
+	| Endpoint | `string` | <unset> | This is the endpoint used to initialize the Snowplow collector. |
 	| App ID | `string` | <unset> | A unique ID used to identify your application to Snowplow.  Snowplow uses this value to group events together . |
 	| Base64 Encode | `bool` | True | Set to true to send properties base64 encoded  |
-	| Endpoint | `string` | <unset> | This is the endpoint used to initialize the Snowplow collector. |
+	| User Identity | `enum` | <unset> | The value to be forwarded to Snowplow as the User ID. Choose from Customer ID, Email, or Other
+	
 
 
 ## User Identity
