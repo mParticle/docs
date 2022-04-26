@@ -43,13 +43,14 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
        // Override point for customization after application launch.
         let mParticleOptions = MParticleOptions(key: "<<<App Key Here>>>", secret: "<<<App Secret Here>>>")
         
-       //Please see the Identity page for more information on building this object
+       /* Optional - Please see the Identity page for more information on building this object
         let request = MPIdentityApiRequest()
         request.email = "email@example.com"
         mParticleOptions.identifyRequest = request
         mParticleOptions.onIdentifyComplete = { (apiResult, error) in
             NSLog("Identify complete. userId = %@ error = %@", apiResult?.user.userId.stringValue ?? "Null User ID", error?.localizedDescription ?? "No Error Available")
         }
+        */
         
        //Start the SDK
         MParticle.sharedInstance().start(with: mParticleOptions)
@@ -86,13 +87,14 @@ Next, you'll need to start the SDK:
 
     MParticleOptions *mParticleOptions = [MParticleOptions optionsWithKey:@"REPLACE ME" secret:@"REPLACE ME"];
 
-    //Please see the Identity page for more information on building this object
+    /* Optional - Please see the Identity page for more information on building this object
     MPIdentityApiRequest *request = [MPIdentityApiRequest requestWithEmptyUser];
     request.email = @"email@example.com";
     mParticleOptions.identifyRequest = request;
     mParticleOptions.onIdentifyComplete = ^(MPIdentityApiResult * _Nullable apiResult, NSError * _Nullable error) {
         NSLog(@"Identify complete. userId = %@ error = %@", apiResult.user.userId, error);
     };
+    */
 
     [[MParticle sharedInstance] startWithOptions:mParticleOptions];
 
@@ -116,14 +118,15 @@ Please see [Identity](http://docs.mparticle.com/developers/sdk/ios/identity/) fo
     jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
     MParticleOptions *mParticleOptions = [MParticleOptions optionsWithKey:@"REPLACE ME" secret:@"REPLACE ME"];
-
-    //Please see the Identity page for more information on building this object
+        
+    /* Optional - Please see the Identity page for more information on building this object
     MPIdentityApiRequest *request = [MPIdentityApiRequest requestWithEmptyUser];
     request.email = @"email@example.com";
     mParticleOptions.identifyRequest = request;
     mParticleOptions.onIdentifyComplete = ^(MPIdentityApiResult * _Nullable apiResult, NSError * _Nullable error) {
     NSLog(@"Identify complete. userId = %@ error = %@", apiResult.user.userId, error);
     };
+    */
 
     [[MParticle sharedInstance] startWithOptions:mParticleOptions];
 
@@ -163,7 +166,7 @@ public class MyApplication extends Application {
         MParticleOptions options = MParticleOptions.builder(this)
             .credentials("REPLACE ME WITH KEY","REPLACE ME WITH SECRET")
             .setLogLevel(MParticle.LogLevel.VERBOSE)
-            .identify(identifyRequest)
+            //.identify(identifyRequest)
             .identifyTask(
                 new BaseIdentityTask()
                         .addFailureListener(this)
