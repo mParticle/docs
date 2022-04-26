@@ -332,7 +332,7 @@ mParticle loads data into Redshift via Amazon S3 and can tolerate the Redshift c
 
 ## Looker Integrations
 
-mParticle provides [Looker Blocks](http://www.looker.com/product/blocks) that you can directly use to get a holistic picture of how your apps are doing. You just need to copy the `lookml` files into your Looker account. There are four dashboard templates. You can access mParticle's Looker Blocks implementation by reaching out to your assigned Looker analyst or requesting a Looker trial. 
+mParticle provides [Looker Blocks](https://marketplace.looker.com/marketplace/detail/digital-analytics-by-mparticle) that you can directly use to get a holistic picture of how your apps are doing. You just need to copy the `lookml` files into your Looker account. There are four dashboard templates. You can access mParticle's Looker Blocks implementation by reaching out to your assigned Looker analyst or requesting a Looker trial. 
 
 - **App Activity Dashboard**. This dashboard gives you an overview of most common app activities, including active user count, new user count, session count, average session length, revenue data, custom funnel analytics, and user retention analysis.
 
