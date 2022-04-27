@@ -15,7 +15,18 @@ Follow [Google's instructions](https://firebase.google.com/docs/android/setup) t
 
 #### Get your Sender ID and Server Key
 
+
+**Firebase**
+
+In the Firebase Console, navigate to **Settings** and copy the **Project number** value. This field was previous known as "Sender ID"
+
+![](/images/firebase-credentials-fmc.png)
+
+
+**GCM (Sender ID portion deprecated)**
+
 In the Firebase Console, navigate to **Settings** and select the **Cloud Messaging** tab. 
+
 
 ![](/images/firebase-credentials.png)
 
@@ -23,11 +34,14 @@ You'll need your Sender ID to register for push notification in your app. You'll
 
 #### Make sure Firebase is added to your project
 
-Google offers many Firebase libraries, but to support push messaging, you only need `firebase-core` and `firebase-messaging`. Both should be included in your `build.gradle` file:
+Google offers many Firebase libraries, but to support push messaging, you only need the `firebase-bom`, which will ensure your Firebase dependencies and a valid versioning schema, and `firebase-messaging`. If you are experiencing issues fetching push token instances, you may also have to add `firebase-iid`. These dependencies should be included in your `build.gradle` file:
 
 ~~~groovy
-compile 'com.google.firebase:firebase-core:<YOUR_PLAY_SERVICES_VERSION>'
-compile 'com.google.firebase:firebase-messaging:<YOUR_PLAY_SERVICES_VERSION>'
+implementation(platform("com.google.firebase:firebase-bom:29.1.0"))
+implementation("com.google.firebase:firebase-messaging")
+
+//optional
+implementation("com.google.firebase:firebase-iid")
 ~~~
 <!--removed as of 042019 as GCM is no longer supported by Android
 ### Google Cloud Messaging
