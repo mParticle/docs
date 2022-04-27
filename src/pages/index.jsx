@@ -223,9 +223,17 @@ const Home = (props) => (
                                     can do more with your data without the
                                     hassle of complex integrations.
                                 </p>
-                                <OffsiteButton
-                                    text='Explore Demo Now'
-                                    url='https://demo.mparticle.com/?utm_source=docs' />
+                                <p>
+                                    Qualified B2C startups, requiring less than 1M events a month, can receive up to one year of complimentary access to mParticle with our Accelerator program.
+                                </p>
+                                <div className='intro-offsite-buttons'>
+                                    <OffsiteButton
+                                        text='Explore Demo Now'
+                                        url='https://demo.mparticle.com/?utm_source=docs' />
+                                    <OffsiteButton
+                                        text='Startup? Get mParticle Free Now'
+                                        url='https://www.mparticle.com/lpg/startup-accelerator/?utm_source=docs' />
+                                </div>
                             </div>
                         </div>
                     </div>
