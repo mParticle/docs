@@ -78,7 +78,7 @@ Your full account name may include [region](https://docs.snowflake.com/en/user-g
 To forward data subject erasure requests to Snowflake, set the Forwarding Status toggle to Active and select **I understand** after reading the disclaimer. Once the status has been set to Active, erasure requests are sent to Snowflake immediately upon being received by mParticle. 
 
 <aside>
-The forwarding behavior for data subject erasure requests to Snowflake is different than the behavior of other event integrations. With Snowflake, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle will be able to tell immediately if the erasure request was processed successfully or not.
+The forwarding behavior for data subject erasure requests to Snowflake is different than the behavior of other event integrations. With Snowflake, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle knows immediately if the erasure request was processed successfully or not.
 </aside>
 
 ![](/images/Snowflake-mParticle-Settings-042019.png)

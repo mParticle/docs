@@ -53,6 +53,7 @@ From the main page for your Google BigQuery configuration, select the **Settings
 To forward data subject erasure requests to Google BigQuery, set the Forwarding Status toggle to Active and select **I understand** after reading the disclaimer. Once the status has been set to Active, erasure requests are sent to Google BigQuery immediately upon being received by mParticle.
 
 <aside>The forwarding behavior for data subject erasure requests to Google BigQuery is different than the behavior of other event integrations. With Google BigQuery, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle knows immediately if the erasure request was processed successfully or not.
+</aside>
 
 ![](/images/bigquery-setup2.png)
 

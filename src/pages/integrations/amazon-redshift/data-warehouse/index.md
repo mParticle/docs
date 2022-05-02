@@ -64,7 +64,7 @@ From the main page for your Redshift configuration, select the **Settings** tab 
 To forward data subject erasure requests to Amazon Redshift, set the Forwarding Status toggle to Active and select **I understand** after reading the disclaimer. Once the status has been set to Active, erasure requests are sent to Amazon Redshift immediately upon being received by mParticle. 
 
 <aside>
-The forwarding behavior for data subject erasure requests to Amazon Redshift is different than the behavior of other event integrations. With Amazon Redshift, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle is knows immediately if the erasure request was processed successfully or not.
+The forwarding behavior for data subject erasure requests to Amazon Redshift is different than the behavior of other event integrations. With Amazon Redshift, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle knows immediately if the erasure request was processed successfully or not.
 </aside>
 
 ![](/images/redshift-settings-042019.png)

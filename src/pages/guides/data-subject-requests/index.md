@@ -102,6 +102,7 @@ Erasure requests are handled as follows:
 3. 7 days after a batch is created, all jobs are run, deleting all data in mParticle associated with each MPID in each job.
 4. For each request, mParticle sends a callback to any specified Callback URLs, indicating that the request has been completed.
 
+When submitting a DSR through the mParticle UI or via the DSR API, an erasure request cannot contain multiple MPIDs, a mix of MPIDs and generic IDs, or a mix of generic IDs containing the same ID type (such as multiple user IDs). In these cases, mParticle will not accept the original DSR erasure request and returns an error.
 
 <aside>
 Erasure requests are processed between 7 and up to 21 days after being received by mParticle. This delay provides an opportunity to cancel a pending deletion request before it is carried out. If you wish to remove users from audiences or from event forwarding during this period, set a User Attribute and apply audience criteria and/or forwarding rules to exclude them. Note that most privacy regulations simply require an acknowledgement of a request within an initial time window. Fulfillment timeframes for requests are typically more generous as they may require follow-up to validate additional details. We recommend consulting the requirements of your privacy regulation to understand your obligations.
@@ -109,14 +110,9 @@ Erasure requests are processed between 7 and up to 21 days after being received 
 
 #### What data is deleted?
 
-In addition to data directly stored by mParticle, such as historical event batches, audience data and profiles, mParticle will also delete data in your managed Data Warehouse integrations:
-* Amazon Redshift
-* Google BigQuery
-* Snowflake
+In response to a data subject erasure request, mParticle deletes the data it stored, such as historical event batches, audience data, and profiles.
 
-These methods access data indexed for GDPR starting on May 25, 2018. If you need to affect historical data, please contact your success manager.
-
-We cannot delete data that has already been forwarded to a partner, via an event or audience integration.
+mParticle cannot delete data that has already been forwarded to a partner, via an event or audience integration.
 
 A delete request will also not prevent additional data concerning the subject from being received and processed by mParticle. If the data subject wishes to prevent all future data processing, they will likely need to take additional steps, for example, ceasing to use your service/app.
 
@@ -128,7 +124,6 @@ Access and Portability requests are treated exactly the same way, as follows:
 2. Just after midnight each Monday and Thursday, mParticle searches for data related to each MPID, including the user profile and historical event batches. 
 3. mParticle compiles the data into a single text file. This data includes device identities, user identities, user attributes (including calculated attributes), as well as current audience memberships.
 4. mParticle sends a callback to any specified Callback URLs indicating that the request has been completed. The callback will contain a secure download link to the text file containing the Subject's data.
-
 
 <aside>
 Access / Portability requests are processed every 3 days on the start of Mondays and Thursdays.
@@ -163,7 +158,35 @@ You can configure mParticle to forward Data Subject Requests (DSRs) for erasure 
 
 This detail UI for a data subject request for erasure shows the forwarding status for a request that is being forwarded to three different outputs. 
 
-<aside class="notice">Once forwarded, mParticle can't guarantee that data is deleted by the partner, so confirm that each partner fulfills the request.</aside>
+The forwarding status field contains different values, depending on the situation:
+ * `Pending` means that a request has been queued for forwarding, but hasn't been forwarded yet.
+ * `Skipped` means that a request for forwarding has been skipped because mParticle could not find suitable identities to forward, either from the original request or the user profile.
+ * `Sent` means that a request was forwarded and an acknowledgement of the request to delete the user from the integration was received by mParticle.
+ * `Failed` means that an attempt to forward the request was made, but an error occurred.
+ * `Not Sent` means that the request was not forwarded, because the request was made using an older version of the DSR API. You must upgrade to the DSR API v3 in order to forward DSR erasure requests.
+
+In addition to the forwarding status, the identities that were forwarded are also shown. mParticle determines which identities to forward based on the identities supplied in the original request, the identity resolution strategy, and what identities each output supports:
+
+* When a single generic identity type (such as email address) is submitted in the erasure request OR
+* When multiple generic identities of different types (such as email address and device ID) are submitted in the erasure request and:
+    - mParticle resolves it to a single user profile: mParticle enriches the request with all IDs found on the corresponding user profile. mParticle will include all identities supported by the output in the forwarded request.
+    - mParticle resolves it to multiple user profiles: mParticle will try to resolve it to a single user profile following your Identity resolution strategy. mParticle then enriches the request with all IDs found on the corresponding user profile. mParticle will include all identities supported by the output in the forwarded request.
+    - mParticle cannot resolve it to any user profile: The request may still be forwarded if the vendor supports the ID type provided in the original DSR request.
+
+* When a single MPID is submitted in the erasure request and:
+    - mParticle resolves it to a single user profile: mParticle enriches the request with all IDs found on the corresponding user profile. mParticle will include identities supported by the output in the forwarded request.
+    - mParticle cannot resolve it to any user profile and nothing will be forwarded.
+
+In the case where the data in a user profile does not match what was provided in the original erasure request, mParticle will use the information from the original erasure request as the source of truth to process and forward the request.
+
+Once a request is forwarded, mParticle can't guarantee that data is ultimately deleted by the integration partner, so confirm that each vendor fulfills the request.
+
+If an integration supports forwarding erasure requests, the integration documentation contains a section “Data Subject Request Forwarding for Erasure” and that section contains specific instructions and information about which identities are forwarded.
+
+
+
+
+
 
 To find all the integrations that support forwarding erasure requests, visit [Integrations](/integrations/?category=Data%20Subject%20Request).
 

@@ -71,8 +71,8 @@ mParticle can recieve data across many channels, and limits are not always enfor
 ## Data Subject Request API
 | Resource | Limits | Details |
 | -------- | ------ | --- |
-| Requests per minute | 1000 requests per minute | This limit applies across three API actions (Get, Create, and Cancel) and is enforced per Workspace
-| Total new requests | 80,000 requests per day | This limit applies to the Create API action and is enforced per Workspace”
+| Requests per minute | 1000 requests per minute | This limit applies across three API actions (GET, POST, and DELETE) and is enforced per Workspace
+| Total new requests | 80,000 requests per day | This limit applies to the POST API action and is enforced per Workspace
 
 ## Data Plans
 
