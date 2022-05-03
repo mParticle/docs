@@ -1,8 +1,9 @@
 ---
 title: Step 6. Track events
-order: 8
+order: 7
 ---
 <a href="/developers/tutorials/web/verify-connection/" style="position:relative; float:left"><< Previous</a>
+<a href="/developers/tutorials/web/track-users/" style="position:relative; float:right">Next >> Track users</a>
 <br/>
 <br/>
 
@@ -271,3 +272,4 @@ mParticle.eCommerce.logProductAction(
 ~~~
 
 <a href="/developers/tutorials/web/verify-connection/" style="position:relative; float:left"><< Previous</a>
+<a href="/developers/tutorials/web/track-users/" style="position:relative; float:right">Next >> Track users</a>
