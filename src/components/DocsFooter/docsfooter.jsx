@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import ScrollTopButton from '../ScrollTopButton/scrolltopbutton';
 import './_docsfooter.less';
 
@@ -57,21 +56,6 @@ export default () => (
                     </a>
                 </span>
             </div>
-            <div className='section info'>
-                <p className='title'>Questions?</p>
-                <p>
-                    {`We're always happy to help with code or other questions you
-                    might have! `}
-                    Check out our
-                    {' '}
-                    <Link to='/faq/'><span className='link'>answers</span></Link>
-                    {' '}
-                    {'to common questions, or '}
-                    <a href='https://www.mparticle.com/contact' id='send-email'>
-                        <span className='link'>send us an email</span>
-                    </a>
-                </p>
-            </div>
             <div style={{ display: 'none' }} className='section'>
                 <div className='title'>Subscribe</div>
                 <p>Weekly marketing & analytics insights in your inbox</p>
@@ -103,6 +87,10 @@ export default () => (
                     <a
                         href='https://www.mparticle.com/resources'>
                         <p>Resources</p>
+                    </a>
+                    <a
+                        href='https://www.mparticle.com/lpg/startup-accelerator/?utm_source=docs'>
+                        <p>Free trial mParticle for startups</p>
                     </a>
                 </div>
             </div>
