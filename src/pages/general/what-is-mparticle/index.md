@@ -45,7 +45,7 @@ As you scroll down, you will be able to get an understanding of how many user id
 
 In the System Alerts section, you can see any issues with your connections. mParticle will surface by partner by hour, any issues with data transmission and highlight what the exact issue is, as well as how much data faulted as a result of an issue.
 
-![](/images/alerts-overview.png)
+![](/images/system-alerts-dashboard.png)
 
 ### Data Master
 

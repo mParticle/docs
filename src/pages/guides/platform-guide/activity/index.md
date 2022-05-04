@@ -147,15 +147,19 @@ As with the [Live Stream](/platform-guide/live-stream#examining-a-specific-event
 
 ## System Alerts
 
-![](/images/Platform-Update-Activity-System-Alerts042019.png)
+![](/images/system-alerts-dashboard.png)
 
-The System Alerts report provides information related to any issues forwarding data from mParticle to your connected services.  The following alert categories are supported:
+The System Alerts dashboard provides information related to any issues encountered when forwarding data from mParticle to your connected outputs.
 
-* **Fatal** - a serious error, requiring attention.
-* **Warning (Retriable)** - A non-fatal error. The system will retry the action but the alert may become fatal if not resolved.
-* **Informational** - An alert for information purposes only - does not require immediate attention.
+The report displays the number of alerts in each category over a 12-hour time period, along with a breakdown for each active output that you have created. Outputs are sorted according to their alert rate, from high to low.
 
-The report displays the number of alerts in each category for a 12-hour time period, and a breakdown for each active Output service. You can expand the data for any output for a breakdown of alerts by type. The following alert types are supported:
+<aside>
+   If you have any new, pending alerts, a red alert notification is displayed next to <strong>Activity</strong> in the left nav bar.
+</aside>
+
+If an output is displaying alerts, click the **+** icon to view a breakdown of alerts by type.
+
+The following alert types are supported:
 
 |Alert Type | Integrations | Description
 |---|---|---
