@@ -73,6 +73,6 @@ Note that blobs will be sorted into folders depending on when when the events oc
 | Include MP DeviceId | `bool` | False | All | If enabled, MP DeviceId (Device Application Stamp) will be forwarded with event batches. |
 | Send as Batch | `bool` | True | All | If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will send each event individually as it's received. |
 | Send Batches without Events | `bool` | True | All | If enabled, an event batch that contains no events will be forwarded. |
-| Send Profile Change Events | `bool` | True | All | If enabled, mParticle will forward ID profile events, such as user sign ups, logins, logouts, updates, and deletes. |
+| Send Profile Change Events | `bool` | True | All | Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
 | Include User Attribute Change Events | `bool` | False | All | If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All | If enabled, User Identity Change Events will be forwarded. |

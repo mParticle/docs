@@ -74,7 +74,7 @@ The event data will be forwarded as JSON objects.  Please refer to the [JSON](/d
 | Send Push Registrations and Receipts | `bool` | True | All| If enabled, push registration and receipt notifications will be forwarded. |
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as it is received. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
-| Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
+| Send Profile Change Events | `bool` | True | All| Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |

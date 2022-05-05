@@ -25,7 +25,8 @@
 | Wait for Complete Batch | `bool` | False | All| If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
 | Include User Identities | `bool` | True | All| If enabled, user identity information will be forwarded with event batches. |
-| Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
+| Send Profile Change Events | `bool` | True | All| Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`.|
+
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |

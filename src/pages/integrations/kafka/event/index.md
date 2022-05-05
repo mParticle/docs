@@ -150,7 +150,7 @@ Setting Name | Data Type | Default Value | Platform | Description
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
-| Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins logouts, updates, and deletes. |
+| Send Profile Change Events | `bool` | True | All| Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |

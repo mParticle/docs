@@ -99,7 +99,7 @@ mParticle will forward data to [Qualtrics' JSON Event](https://www.qualtrics.com
 | Send Crash Events | `bool` | True | All| If enabled, app crashes will be forwarded. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
-| Send Profile Change Events | `bool` | True | All| If enabled, mParticle will forward ID profile events, such as user sign ups, logins, logouts, updates, and deletes. |
+| Send Profile Change Events | `bool` | True | All| Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
 | Include Metadata | `bool` | True | All| If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | All| If enabled, User Attribute Change Events will be forwarded. |
 | Include User Identity Change Events | `bool` | False | All| If enabled, User Identity Change Events will be forwarded. |
