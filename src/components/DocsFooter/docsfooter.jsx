@@ -90,7 +90,7 @@ export default () => (
                     </a>
                     <a
                         href='https://www.mparticle.com/lpg/startup-accelerator/?utm_source=docs'>
-                        <p>Free trial mParticle for startups</p>
+                        <p>Free trial for startups</p>
                     </a>
                 </div>
             </div>
