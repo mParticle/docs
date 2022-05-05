@@ -108,7 +108,12 @@ Now that you have created an audience, it's time to add to the audience definiti
 ![Audience Manager - Definition](/images/audience-definition.png)
 
 * You can add one or more criteria and logic either between two different criteria (and, or) or you can exclude users from an audience with criteria (exclude).
-* After you define a criteria, the audience size is estimated based on a sample of your user data within your organization. Audience criteria are scoped per workspace. When the calculation is complete, you can see the estimated size for an individual criteria next to the **App** icon, and the estimated size of the whole audience in the Audience Details section. If there aren't enough users in the sample data to estimate audience size, you'll see a **~** without a number as illustrated in the example above.
+* After you define a criteria with the real-time audience builder a number displays that represents the estimated audience size:
+    * This audience estimator only supports real-time audiences. 
+    * The estimate is based on a sample of user data within your organization. 
+    * Audience criteria are scoped per workspace. 
+  
+  When the calculation is complete, you can see the estimated size for an individual criteria next to the **App** icon, and the estimated size of the whole audience in the Audience Details section. If there aren't enough users in the sample data to estimate audience size, you'll see a **~** without a number as illustrated in the example above.
 
 To add criteria to your audience definition:
 
