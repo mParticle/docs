@@ -3,6 +3,10 @@ title: Getting Started
 order: 1
 ---
 
+<aside>
+<b>5/4/2022</b> - Note that all mParticle workspaces will be migrated to our batching events endpoint on 7/12/2022.  If your mParticle workspace was created before 5/6/2021 and you haven't already reached out to your customer support manager to enable event batching on your account, your account will automatically be migrated. See more info about event batching <a href="#upload-interval--batching">below</a>.
+</aside>
+
 mParticle's web SDK is designed to flexibly support all modern browsers as well as connected TVs and other Javascript-based client-side environments.
 
 ## Create an Input
@@ -81,12 +85,18 @@ window.mParticle.ready(
 ## Upload Interval / Batching
 
 <aside>
-If your mParticle workspace was created before 5/6/2021, please reach out to your customer support manager to enable event batching on your account. To confirm if your workspace has event batching enabled:<br>
+  <b>To confirm if your workspace has event batching enabled:</b>
+  <br>
   <ul> 
-    <li>Load your `mparticle.js` file in a new browser window (ie. navigate to https://jssdkcdns.mparticle.com/js/v2/YOUR-APIKEY/mparticle.js)</li>
-    <li> Search for `window.mParticle.config.flags` at the top of the file</li>
-    <li> If `eventsV3` is set to `100`, your workspace is enabled for event batching. If it is `0`, your workspace is not enabled for event batching.</li>
+    <li> Visit https://jssdkcdns.mparticle.com/js/v2/{Web-API-Key}/config.</li>
+    <li> Search for the key "eventsV3". If the value is 100, you are on event batching. If the value is 0, you are not on event batching and you will be migrated to event batching on 7/12/2022.</li>
   </ul>
+  <b>What do you need to do to prepare for event batching if I am not currently on event batching?</b>
+  <ul>
+    <li>If you load the mParticle SDK via our CDN, you don’t have to do anything at all.  The update is simply a database change on our side, which is sent to the SDK when loaded.</li>
+  
+    <li>If you self host, you need to be on a minimum of version 2.9.12 (released 10/12/2019) to take advantage of batching.  We always recommend updating to our latest versions to ensure you have all bug fixes and features.</li>
+
 </aside>
 
 All new workspaces created on or after 5/6/2021 will be enabled for event batching on web. To save bandwidth and improve site performance, mParticle will assemble events into batches and each batch will be uploaded every 5 seconds or based on specific triggers. When a trigger is fired, the SDK will:
