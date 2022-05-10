@@ -21,6 +21,8 @@ If you have set up the [Talon.One Audience Integration](/integrations/talon-one/
 
 To enforce that Talon.One will only send data for users known to mParticle, first set up a [Talon.One Rule](https://help.talon.one/hc/en-us/articles/360005130799-The-Rule-Builder) which checks that `mpid` exists. You must then apply this rule to your webhook and set `mpid` in the request body as shown below.
 
+If you want to send data in development mode, we recommend you adding the "environment":"development", before the events section. Through this approach, you should be able to see the data in mParticle's Live Stream page.
+
 ```
 {
     "events" :
@@ -49,6 +51,9 @@ If you want to allow Talon.One to send data to mParticle for any user (including
 <b>Note:</b> If you have set up the Talon.One Audience Integration and connected an audience, the identifier you assigned to User ID in [configurations settings](/integrations/talon-one/audience/#configuration-settings) will be stored in Talon.One as the `IntegrationId`. 
 
 Once you have determined those Talon.One field(s), set up the request body to assign the field(s) to the appropriate mParticle identity type as shown below.
+
+
+If you want to send data in development mode, we recommend you adding the "environment":"development", before the events section. Through this approach, you should be able to see the data in mParticle's Live Stream page.
 
 ```
 {
