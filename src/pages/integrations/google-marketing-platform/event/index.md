@@ -52,7 +52,7 @@ To customize the counting type, pass a custom flag of `DoubleClick.Counter` into
 | DoubleClick.Counter | `standard`,<br> `unique`,<br> `per_session`,<br>`transactions`,<br>`items_sold`
 
 Example:
-```
+```javascript
 var attributes = {color: 'blue'};
 var customFlags = {'DoubleClick.Counter': 'standard'};
 mParticle.logEvent('foo', mParticle.MessageTypes.Other, attributes, customFlags);
