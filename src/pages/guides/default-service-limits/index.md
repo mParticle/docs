@@ -80,3 +80,10 @@ mParticle can recieve data across many channels, and limits are not always enfor
 * You can upload data plan JSON files smaller than 10 MB.
 * Managing plans with more than 400 data points in the UI becomes unwieldy. Manage plans outside of the UI for larger plans. For more information, see the [Data Planning API guide](/developers/dataplanning-api).
 * You can block data only for unplanned violations: events and attributes with names that diverge from the schema defined in a data plan.
+
+## Data Planning API
+
+| Resource | Limits | Details |
+| -------- | ------ | --- |
+| Requests per minute per account | 3000 requests per minute | This limit applies to all GET, POST, and PATCH API actions. |
+| Requests per minute per organization | 6000 requests per minute | This limit applies to all GET, POST, and PATCH API actions.

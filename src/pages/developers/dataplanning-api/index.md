@@ -782,3 +782,12 @@ const updatePlanVersion = await dataPlanService.updateDataPlanVersion("example_d
 #### Response
 
 The response will contain the entire Data Plan version. [See above](#example-response-2) for a full JSON example.
+
+## Rate limits
+
+The following rate limits are enforced for all requests to the Data Planning API regardless of the [data localization pod](/developers/data-localization/) used.
+
+| Resource | Limits | Details |
+| -------- | ------ | --- |
+| Requests per minute per account | 3000 requests per minute | This limit applies to all GET, POST, and PATCH API actions. |
+| Requests per minute per organization | 6000 requests per minute | This limit applies to all GET, POST, and PATCH API actions.
