@@ -1,29 +1,31 @@
 ---
 title: Aliasing
+order: 12
 ---
+
 <aside>
 Aliasing is an advanced feature of mParticle's <a href="/guides/idsync/use-cases/">IDSync</a>. Before continuing, make sure you understand the basics of IDSync, the concept of <a href="/guides/idsync/components/#login-ids">Login IDs</a>, and the details of the Identity Strategy employed by your organization.
 </aside>
 
-## Use Case
+## Use case
 
 ### Known and anonymous user profiles
 mParticle's IDSync system supports the concept of "known" and "anonymous" user profiles:
 
-* A known user profile has at least one [Login ID](/guides/idsync/components/#login-ids) (as defined in your [Identity Strategy](/guides/idsync/components/#identity-strategy)).
-* An anonymous user profile has no Login IDs.
+* A known user profile has at least one [login ID](/guides/idsync/components/#login-ids) (as defined in your [identity strategy](/guides/idsync/components/#identity-strategy)).
+* An anonymous user profile has no login IDs.
 
-Known user profiles can only be returned in response to an Identity Request with at least one matching Login ID.
+Known user profiles can only be returned in response to an identity request with at least one matching login ID.
 
-### Transitioning from Anonymous to Known
+### Transitioning from anonymous to known
 
-As a user begins to engage with your website or app, their initial activity is stored against an anonymous profile. If your organization uses [Profile Link](/guides/idsync/profile-link-strategy/) or [Profile Conversion](/guides/idsync/profile-conversion-strategy/) strategies, the first appearance of a new Login ID will always cause a new known user profile to be created.
+As a user begins to engage with your website or app, their initial activity is stored against an anonymous profile. If your organization uses [profile link](/guides/idsync/profile-link-strategy/) or [profile conversion](/guides/idsync/profile-conversion-strategy/) strategies, the first appearance of a new login ID will always cause a new known user profile to be created.
 
 Aliasing gives you control over the transition from an anonymous user profile to a known user profile. You can choose to create a new known user profile that does not include any historical data from the original anonymous user profile. This may be necessary to comply with local privacy legislation.
 
 Alternatively, you can choose to copy event and profile data from the original anonymous profile over to the new known profile to maintain a more complete picture of the user's journey. This allows you to create audiences of users who may have fulfilled some of the conditions to be included in the audience anonymously before their known user profiles were created.
 
-### Example: Recommendation Conversions
+### Example: recommendation conversions
 
 The mPTravel app wants to capture an audience of users who clicked on an in-app recommendation for a vacation package before continuing to purchase the recommended package.
 
@@ -34,7 +36,7 @@ Clark eventually completes his purchase. As part of the purchase funnel, he crea
 * If mPTravel uses the aliasing feature to link Clark's anonymous and known user profiles, he will match the audience definition.
 * If mPtravel does not use aliasing, neither Clark's anonymous profile, nor his new known user profile will fulfill the requirements of the audience definition and he will not be part of the audience.
 
-## Basic Workflow
+## Basic workflow
 
 1. A user first downloads your app or browses to your website:
    * The initial identity request includes only the device IDs collected automatically by the mParticle SDK
@@ -54,7 +56,7 @@ Clark eventually completes his purchase. As part of the purchase funnel, he crea
       * An end date (optional) - defaults to now
    * If the alias request meets [validation requirements](#source-and-destination-profile-requirements), it will be processed after 24 hours. This delay allows for any late-arriving events from the source profile to be included.
 
-## Results of a successful Alias Request
+## Results of a successful alias request
 
 ### Information from the source profile updates the destination profile
 

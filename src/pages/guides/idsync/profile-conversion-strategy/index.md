@@ -1,15 +1,15 @@
 ---
 title: Profile Conversion Strategy
-order: 5
+order: 8
 ---
 
 | **Unique IDs** | **Login IDs** | **On New Known User** | **On Logout** |
 | --- | --- | --- | --- |
 | Configurable | Configurable | N.A. | Create new MPID |
 
-## Use Cases
+## Use cases
 
-Profile Conversion strategy prioritizes following a user through a basic signup funnel. Receipt of a new Login ID does not force the creation of a new MPID, but simply adds the new Login ID to the original Identity Record. 
+Profile conversion strategy prioritizes following a user through a basic signup funnel. Receipt of a new login ID does not force the creation of a new MPID, but simply adds the new login ID to the original Identity Record. 
 
 Keeping the single profile supports anonymous to known audience conditions, such as:
 * App install, followed by purchase
@@ -17,9 +17,9 @@ Keeping the single profile supports anonymous to known audience conditions, such
 
 This strategy also supports multi-step registration flows, where multiple signup steps are collected in an anonymous state, as part of a funnel that ends in a logged-in state.
 
-## Identity Flow
+## Identity flow
 
-**Example Identity Priority:**
+**Example identity priority:**
 
 1. Customer ID
 2. Email Address

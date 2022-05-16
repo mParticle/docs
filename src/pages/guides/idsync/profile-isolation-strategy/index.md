@@ -1,6 +1,6 @@
 ---
 title: Profile Isolation Strategy
-order: 6
+order: 10
 ---
 
 
@@ -8,17 +8,17 @@ order: 6
 | --- | --- | --- | --- |
 |Customer ID<br>Email | Customer ID<br>Email | Create new Identity Record | Return to existing anonymous profile |
 
-## Use Cases
+## Use cases
 
-The Profile Isolation strategy is designed to maximise the integrity of each User Profile and to prevent anonymous data from being kept together with the data of logged in users. Under the Profile Isolation strategy, any time a user creates an account, a new Identity Record and a new user profile are created. Any anonymous data collected prior to the user signing up is not carried over to the new profile.
+The Profile isolation strategy is designed to maximise the integrity of each user profile and to prevent anonymous data from being kept together with the data of logged in users. Under the profile isolation strategy, any time a user creates an account, a new edentity record and a new user profile are created. Any anonymous data collected prior to the user signing up is not carried over to the new profile.
 
-One of the main reasons to choose the Profile Isolation strategy is to ensure compliance with consumer protection and privacy laws. For example, if your user agreement includes permission to collect user data, it may be important not to combine user data from before the user signed up, accepting the user agreement, and after.
+One of the main reasons to choose the profile isolation strategy is to ensure compliance with consumer protection and privacy laws. For example, if your user agreement includes permission to collect user data, it may be important not to combine user data from before the user signed up, accepting the user agreement, and after.
 
-The Profile Isolation strategy is based on building highly reliably profiles around Login IDs, so any time an identity request includes an email address or customer ID, mParticle will return a unique Identity Profile for the user, regardless of which device they are using.
+The profile isolation strategy is based on building highly reliably profiles around login IDs, so any time an identity request includes an email address or customer ID, mParticle will return a unique Identity Profile for the user, regardless of which device they are using.
 
-## Identity Flow
+## Identity flow
 
-**Example Identity Priority:**
+**Example identity priority:**
 
 1. Customer ID
 2. Email Address

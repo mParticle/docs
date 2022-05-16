@@ -1,15 +1,15 @@
 ---
 title: Best Match Strategy
-order: 4
+order: 11
 ---
 
 | **Unique IDs** | **Login IDs** | **On New Known User** | **On Logout** |
 | --- | --- | --- | --- |
 | None | None | N.A. | N.A. |
 
-## Use Cases
+## Use cases
 
-The Best Match strategy does not apply any special business logic. It suits device-centric business models that do not rely on uniquely identifying users. Four general use cases are suited to the Best Match strategy.
+The best match strategy does not apply any special business logic. It suits device-centric business models that do not rely on uniquely identifying users. Four general use cases are suited to the best match strategy.
 
 * Brands that do not support login behavior.
 * Brands that do support login but always assign a primary unique ID to users on first contact.
@@ -18,12 +18,11 @@ The Best Match strategy does not apply any special business logic. It suits devi
 
 ## Requests
 
-Since the Best Match strategy does not support Login IDs, there are no `login` or `logout` requests, only `identify`, for identifying a user based on your configured Identity Priority and the information in the request, and `modify` for altering an identity for a given MPID.
+Since the best match strategy does not support login IDs, there are no `login` or `logout` requests, only `identify`, for identifying a user based on your configured identity priority and the information in the request, and `modify` for altering an identity for a given MPID.
 
-## Identity Flow
+## Identity flow
 
-**Example Identity Priority:**
-
+**Example identity priority:**
 
 1. Email Address
 2. IDFV

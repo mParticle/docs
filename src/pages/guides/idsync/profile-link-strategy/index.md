@@ -1,19 +1,19 @@
 ---
 title: Profile Link Strategy
-order: 7
+order: 9
 ---
 
 | **Unique IDs** | **Login IDs** | **New Known User** | **On Logout** |
 | --- | --- | --- | --- |
 | Customer ID<br>Email|Customer ID<br>Email | Create new Identity Record | Always create a new anonymous profile on each logout. |
 
-## Use Cases
+## Use cases
 
-While the Profile Isolation strategy aims to maximise the integrity of known user profiles, the Profile Link strategy is focused on tracking what drives users to create an account and make purchases, so it is particularly concerned with the transition from anonymous to known user. The Profile Link strategy gives you the opportunity to attribute anonymous activity in your app to the next logged in user, by [aliasing](/guides/idsync/aliasing) the new known user record to the previous anonymous record. Each &#39;Logout&#39; request to the Identity API creates a new User Profile, identified only by device ID.
+While the profile isolation strategy aims to maximise the integrity of known user profiles, the profile link strategy is focused on tracking what drives users to create an account and make purchases, so it is particularly concerned with the transition from anonymous to known user. The profile link strategy gives you the opportunity to attribute anonymous activity in your app to the next logged in user, by [aliasing](/guides/idsync/aliasing) the new known user record to the previous anonymous record. Each &#39;Logout&#39; request to the identity API creates a new user profile, identified only by device ID.
 
-## Identity Flow
+## Identity flow
 
-**Example Identity Priority**
+**Example identity priority**
 
 1. Customer ID
 2. Email Address
