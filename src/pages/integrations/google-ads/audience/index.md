@@ -55,6 +55,7 @@ mParticle will send [Address Info](https://developers.google.com/adwords/api/doc
 | Setting Name| Data Type | Default Value | Description |
 |-------------|----------|----------------|-----------------|
 | Client Customer ID | `string` | | Your Google Ads Client Customer ID. Please contact your Google TAM or AM to obtain this value. |
+| Manager Customer ID | `string` | | The Customer ID of the Google Ads Manager account that manages the Ads account where Audience data will be sent. If you do not use a manager account, this can be left blank. |
 
 ## Connection Settings
 
