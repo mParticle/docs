@@ -64,7 +64,11 @@
 		
 		<option value="//api/name/collectUserAgent">collectUserAgent</option>
 		
+		<option value="//api/name/configMaxAgeSeconds">configMaxAgeSeconds</option>
+		
 		<option value="//api/name/currentSession">currentSession</option>
+		
+		<option value="//api/name/customLogger">customLogger</option>
 		
 		<option value="//api/name/customUserAgent">customUserAgent</option>
 		
@@ -199,6 +203,8 @@
 		<option value="//api/name/logNotificationReceivedWithUserInfo:">- logNotificationReceivedWithUserInfo:</option>
 		
 		<option value="//api/name/logScreen:eventInfo:">- logScreen:eventInfo:</option>
+		
+		<option value="//api/name/logScreen:eventInfo:shouldUploadEvent:">- logScreen:eventInfo:shouldUploadEvent:</option>
 		
 		<option value="//api/name/logScreenEvent:">- logScreenEvent:</option>
 		
@@ -369,7 +375,7 @@ regardless of the value you assign to it.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readonly) BOOL consoleLogging DEPRECATED_MSG_ATTRIBUTE ( &quot;set logLevel on MParticleOptions instead&quot; )</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL consoleLogging DEPRECATED_MSG_ATTRIBUTE ( &quot;set logLevel on MParticleOptions instead&quot; )</code></div>
 
 		    
 			
@@ -429,7 +435,7 @@ regardless of the value you assign to it.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readonly) MPEnvironment environment</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) MPEnvironment environment</code></div>
 
 		    
 			
@@ -487,7 +493,7 @@ successfully finishes initializing</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readonly) BOOL initialized</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL initialized</code></div>
 
 		    
 			
@@ -535,7 +541,7 @@ When the <a href="#//api/name/environment">environment</a> is Production, the lo
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained) MPILogLevel logLevel</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) MPILogLevel logLevel</code></div>
 
 		    
 			
@@ -575,6 +581,63 @@ When the <a href="#//api/name/environment">environment</a> is Production, the lo
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/customLogger" title="customLogger"></a>
+	<h3 class="method-title"><code><a href="#//api/name/customLogger">&nbsp;&nbsp;customLogger</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A custom handler callback for mParticle log messages. If set, this block will be invoked each time mParticle would normally log a message to the console.
+N.B.: The format/wording of mParticle log messages may change between releases&ndash;please avoid using this programatically to detect SDK behavior unless absolutely necessary, and then only as a temporary workaround.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readwrite) void ( ^ ) ( NSString *message ) customLogger</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>A custom handler callback for mParticle log messages. If set, this block will be invoked each time mParticle would normally log a message to the console.
+N.B.: The format/wording of mParticle log messages may change between releases&ndash;please avoid using this programatically to detect SDK behavior unless absolutely necessary, and then only as a temporary workaround.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/MParticleOptions.html">MParticleOptions</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/optOut" title="optOut"></a>
 	<h3 class="method-title"><code><a href="#//api/name/optOut">&nbsp;&nbsp;optOut</a></code>
 </h3>
@@ -592,7 +655,7 @@ The default value is NO (opt-in of event tracking)</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) BOOL optOut</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL optOut</code></div>
 
 		    
 			
@@ -640,7 +703,7 @@ application notifications automatically.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readonly) BOOL proxiedAppDelegate</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL proxiedAppDelegate</code></div>
 
 		    
 			
@@ -697,7 +760,7 @@ automated Session tracking.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readonly) BOOL automaticSessionTracking</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL automaticSessionTracking</code></div>
 
 		    
 			
@@ -755,7 +818,7 @@ automated Session tracking.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) BOOL shouldBeginSession</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL shouldBeginSession</code></div>
 
 		    
 			
@@ -905,7 +968,7 @@ an attribution provider (such as Kochava or Tune) via mParticle. Defaults to YES
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (atomic, unsafe_unretained, readonly) BOOL collectUserAgent</code></div>
+			<div class="method-subsection method-declaration"><code>@property (atomic, readonly) BOOL collectUserAgent</code></div>
 
 		    
 			
@@ -1055,7 +1118,7 @@ an attribution provider (such as Kochava or Tune) via mParticle. Defaults to YES
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (atomic, unsafe_unretained, readonly) BOOL trackNotifications</code></div>
+			<div class="method-subsection method-declaration"><code>@property (atomic, readonly) BOOL trackNotifications</code></div>
 
 		    
 			
@@ -1101,7 +1164,7 @@ an attribution provider (such as Kochava or Tune) via mParticle. Defaults to YES
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readonly) NSTimeInterval sessionTimeout</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSTimeInterval sessionTimeout</code></div>
 
 		    
 			
@@ -1198,7 +1261,7 @@ an attribution provider (such as Kochava or Tune) via mParticle. Defaults to YES
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readonly) NSTimeInterval uploadInterval</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSTimeInterval uploadInterval</code></div>
 
 		    
 			
@@ -1398,6 +1461,61 @@ when the application is sent to the background or before they are terminated.</p
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Sets data plan options for kit blocking</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/MParticleOptions.html">MParticleOptions</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/configMaxAgeSeconds" title="configMaxAgeSeconds"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configMaxAgeSeconds">&nbsp;&nbsp;configMaxAgeSeconds</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Maximum threshold for stored configuration age, in seconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSNumber *configMaxAgeSeconds</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Maximum threshold for stored configuration age, in seconds.</p>
 			</div>
 			
 
@@ -2719,6 +2837,87 @@ booleans, or dates</p></td>
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Logs a screen event. This is a convenience method for logging simple screen events; internally it creates an instance
+of <a href="../Classes/MPEvent.html">MPEvent</a> and calls <a href="#//api/name/logScreenEvent:">logScreenEvent:</a></p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/logScreenEvent:">- logScreenEvent:</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/logScreen:eventInfo:shouldUploadEvent:" title="logScreen:eventInfo:shouldUploadEvent:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/logScreen:eventInfo:shouldUploadEvent:">&ndash;&nbsp;logScreen:eventInfo:shouldUploadEvent:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Logs a screen event and gives developer option to choose whether this screen event should be uploaded to mParticle when logged or only passed to kits. This is a convenience method for logging simple screen events; internally it creates an instance
+of <a href="../Classes/MPEvent.html">MPEvent</a> and calls <a href="#//api/name/logScreenEvent:">logScreenEvent:</a></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)logScreen:(NSString *)<em>screenName</em> eventInfo:(nullable NSDictionary&lt;NSString*,id&gt; *)<em>eventInfo</em> shouldUploadEvent:(BOOL)<em>shouldUploadEvent</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>screenName</code></th>
+						<td><p>The name of the screen to be logged (required not nil and up to 255 characters)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>eventInfo</code></th>
+						<td><p>A dictionary containing further information about the screen. This dictionary is limited to 100 key
+value pairs. Keys must be strings (up to 255 characters) and values can be strings (up to 4096 characters), numbers,
+booleans, or dates</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>shouldUploadEvent</code></th>
+						<td><p>A boolean flag that indicates whether this screen event should be uploaded to mParticle when logged or only passed to kits</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Logs a screen event and gives developer option to choose whether this screen event should be uploaded to mParticle when logged or only passed to kits. This is a convenience method for logging simple screen events; internally it creates an instance
 of <a href="../Classes/MPEvent.html">MPEvent</a> and calls <a href="#//api/name/logScreenEvent:">logScreenEvent:</a></p>
 			</div>
 			
@@ -4115,7 +4314,7 @@ information only when your app is running on the foreground.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained) BOOL backgroundLocationTracking</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL backgroundLocationTracking</code></div>
 
 		    
 			
@@ -5191,7 +5390,7 @@ existing key will remove the session attribute.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-07-29</p>
+						<p class="copyright">Copyright &copy; 2022 mParticle. All rights reserved. Updated: 2022-05-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

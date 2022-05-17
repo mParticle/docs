@@ -60,7 +60,11 @@
 		
 		<option value="//api/name/attStatusTimestampMillis">attStatusTimestampMillis</option>
 		
+		<option value="//api/name/configMaxAgeSeconds">configMaxAgeSeconds</option>
+		
 		<option value="//api/name/consentState">consentState</option>
+		
+		<option value="//api/name/customLogger">customLogger</option>
 		
 		<option value="//api/name/dataPlanId">dataPlanId</option>
 		
@@ -71,6 +75,8 @@
 		<option value="//api/name/networkOptions">networkOptions</option>
 		
 		<option value="//api/name/onAttributionComplete">onAttributionComplete</option>
+		
+		<option value="//api/name/onCreateBatch">onCreateBatch</option>
 		
 		<option value="//api/name/onIdentifyComplete">onIdentifyComplete</option>
 		
@@ -204,7 +210,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) BOOL trackNotifications</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL trackNotifications</code></div>
 
 		    
 			
@@ -217,6 +223,54 @@
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>Determines whether the mParticle Apple SDK will automatically track Remote and Local Notification events. Defaults to YES</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/customLogger" title="customLogger"></a>
+	<h3 class="method-title"><code><a href="#//api/name/customLogger">&nbsp;&nbsp;customLogger</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A custom handler callback for mParticle log messages. If set, this block will be invoked each time mParticle would normally log a message to the console.
+N.B.: The format/wording of mParticle log messages may change between releases&ndash;please avoid using this programatically to detect SDK behavior unless absolutely necessary, and then only as a temporary workaround.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readwrite) void ( ^ ) ( NSString *message ) customLogger</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>A custom handler callback for mParticle log messages. If set, this block will be invoked each time mParticle would normally log a message to the console.
+N.B.: The format/wording of mParticle log messages may change between releases&ndash;please avoid using this programatically to detect SDK behavior unless absolutely necessary, and then only as a temporary workaround.</p>
 			</div>
 			
 
@@ -250,7 +304,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) NSTimeInterval uploadInterval</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) NSTimeInterval uploadInterval</code></div>
 
 		    
 			
@@ -299,7 +353,7 @@ when the application is sent to the background.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, unsafe_unretained, readwrite) NSTimeInterval sessionTimeout</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) NSTimeInterval sessionTimeout</code></div>
 
 		    
 			
@@ -667,6 +721,61 @@ Requires @<a href="#//api/name/attStatus">attStatus</a> to be set and is only se
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/configMaxAgeSeconds" title="configMaxAgeSeconds"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configMaxAgeSeconds">&nbsp;&nbsp;configMaxAgeSeconds</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set a maximum threshold for stored configuration age, in seconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readwrite, nullable) NSNumber *configMaxAgeSeconds</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Set a maximum threshold for stored configuration age, in seconds.</p>
+
+<p>When the SDK starts, before we attempt to fetch a fresh config from the server, we
+will load the most recent previous config from disk. when configMaxAgeSeconds is set, we will
+check the timestamp on that config and, if its age is greater than the threshold, instead
+of loading it we will delete it and wait for the fresh config to arrive.</p>
+
+<p>This field is especially useful if your application often updates the kit/forwarding logic and
+has a portion of user&rsquo;s who experience prolonged network interruptions. In these cases, a reasonable
+configMaxAgeSeconds will prevent those users from potentially using very old forwarding logic.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/onIdentifyComplete" title="onIdentifyComplete"></a>
 	<h3 class="method-title"><code><a href="#//api/name/onIdentifyComplete">&nbsp;&nbsp;onIdentifyComplete</a></code>
 </h3>
@@ -764,6 +873,60 @@ Requires @<a href="#//api/name/attStatus">attStatus</a> to be set and is only se
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/onCreateBatch" title="onCreateBatch"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onCreateBatch">&nbsp;&nbsp;onCreateBatch</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Custom handler to modify or block batch data before upload.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSDictionary *( ^ ) ( NSDictionary *batch ) onCreateBatch</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Custom handler to modify or block batch data before upload.</p>
+
+<p>If set, this will be called when a new batch of data is created. By returning a different value, you can change the batch contents, or by returning &lsquo;nil&rsquo; you can block the batch from being uploaded.</p>
+
+<p>Use with care. This feature was initially added to allow the value of existing fields to be modified. If you add new data in a format that the platform is not expecting, it may be dropped or not parsed correctly.</p>
+
+<p>Note: Use of this handler will also cause the field &lsquo;mb&rsquo; (modified batch) to appear in the batch so we can distinguish for troubleshooting purposes whether data was changed.</p>
+
+<p>Also note: Unlike other callbacks, this block will be called on the SDK queue to prevent batches from being processed out of order. Please avoid excessively blocking in this handler as this will prevent the SDK from doing other tasks.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">mParticle.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -779,7 +942,7 @@ Requires @<a href="#//api/name/attStatus">attStatus</a> to be set and is only se
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2021 mParticle. All rights reserved. Updated: 2021-07-29</p>
+						<p class="copyright">Copyright &copy; 2022 mParticle. All rights reserved. Updated: 2022-05-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
