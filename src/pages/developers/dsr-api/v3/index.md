@@ -148,25 +148,33 @@ The `subject_identities` are sent as a dictionary where the keys are identity ty
 
 #### Supported Identity Types
 
-While the OpenDSR framework allows for hashed IDs, and requires an `identity_format` field, mParticle only supports sending `raw` IDs.
+Data subject requests using the OpenDSR format may include an object called `subject_identities`. If you use this object, you must specify:
 
-The identities supported in the `subject_identities` element:
+* `identity_type`: A string representing the type of identifier used (such as `email` or `android_advertising_id`)
+* `identity_value`: A string representing the value of the identifier (such as `example@example.com`)
+* `identity_format`: a string representing how the identifier is encoded
 
-mParticle Identity/Device Type | API Format / OpenDSR
+<aside>
+  While the OpenDSR framework accepts <code>raw</code>, <code>sha1</code>, <code>md5</code>, and <code>sha256</code> as values for the <code>identity_format</code>, mParticle only supports sending IDs with the <code>raw</code> identity format.
+</aside>
+
+When setting the `identity_type` in the `subject_identities` object of an OpenDSR reqeust, make sure to use values from the column labeled **Supported OpenDSR Format** in the table below. The column labeled **mParticle Identity Type** indicates the corresponding types used in mParticle.
+
+Supported OpenDSR Format | mParticle Identity Type
 --| --- 
-`customer_id` | `controller_customer_id`
+`controller_customer_id` | `customer_id`
 `email` | `email`
 `android_advertising_id` | `android_advertising_id`
-`android_uuid` | `android_id` | -
+`android_id` | `android_uuid`
 `fire_advertising_id` | `fire_advertising_id`
 `ios_advertising_id` | `ios_advertising_id`
-`ios_idfv` | `ios_vendor_id` 
+`ios_vendor_id` | `ios_idfv`
 `microsoft_advertising_id` | `microsoft_advertising_id`
 `microsoft_publisher_id` | `microsoft_publisher_id`
 `roku_advertising_id` | `roku_advertising_id`
 `roku_publishing_id` | `roku_publishing_id`
 
-The identities supported in the `subject_identities` element in the `opendsr.mparticle.com` extension:
+The identities supported in the `subject_identities` element in the `opendsr.mparticle.com` extension are:
 
 * `mpid`
 * `other`
