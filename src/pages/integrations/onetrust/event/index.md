@@ -258,11 +258,13 @@ When a user interracts with the OneTrust modal, the `OTPublishersHeadlessSDK` wi
 
 ## Configuring OneTrust in the mParticle Dashboard
 
-To enable the OneTrust integration, configure OneTrust from mParticle's integrations directory and connect it to your input. In the [Connection Settings](/integrations/onetrust/event#connection-settings), you need to map your OneTrust Cookie Group IDs to your mParticle GDPR consent purposes.
+To enable the OneTrust integration, configure OneTrust from mParticle's integrations directory and connect it to your input. In the [Connection Settings](/integrations/onetrust/event#connection-settings), you need to map your OneTrust Cookie Group IDs and your OneTrust Vendor IDs for each type of Vendor (IAB, Google, and General) to your mParticle GDPR consent purposes.
 
 The ID of each of your Cookie Groups can be found in the OneTrust dashboard under `Preference & Consent Management > Cookie Compliance > Categorizations > Categories`.
+	
+To retrieve your vendor Ids, visit https://app.onetrust.com/cookies/vendors/list. The initial page will show the ID for your General Vendors on the main page (these are user editable). Click on `IAB Vendor` and filter the list there for both IAB and Google Vendors.
 
-In this example, OneTrust Cookie Group "group 2" (Performance Cookies) are mapped to the "Performance" purpose, and OneTrust Cookie Group "group 4" (Targeting Cookies) are mapped to the "Marketing" purpose:
+In this example, you can see the 4 sections for mapping your mParticle consent purposes to the corresponding consent mapping in OneTrust. Purpose Consent Mapping is for your category or cookie consent groups while the other three sections refer to the three different types of vendor consent groups in OneTrust. 
 
 ![](/images/onetrust-connection-settings.png)
 
@@ -270,7 +272,10 @@ In this example, OneTrust Cookie Group "group 2" (Performance Cookies) are mappe
 
 | Setting Name    | Data Type | Description                                                                 |
 | --------------- | --------- | --------------------------------------------------------------------------- |
-| Consent Mapping | `string`  | Mapping of your mParticle GDPR consent purposes to OneTrust consent groups. |
+| Purpose Consent Mapping | `string`  | Mapping of your mParticle GDPR consent purposes to OneTrust consent groups. |
+| IAB Vendor Consent Mapping | `string`  | Mapping of your mParticle consent purposes to OneTrust IAB vendor consent groups. |
+| Google Vendor Consent Mapping | `string`  | Mapping of your mParticle consent purposes to OneTrust Google consent groups. |
+| General Vendor Consent Mapping | `string`  | Mapping of your mParticle consent purposes to OneTrust general vendor consent groups. |
 
 ## Mapping Consent States
 
