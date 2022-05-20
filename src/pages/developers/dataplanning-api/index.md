@@ -463,6 +463,39 @@ const updatedDataPlan = await dataPlanService.updateDataPlan("example_data_plan"
 
 The response will contain the entire Data Plan including all versions. [See above](#example-response-2) for a full JSON example.
 
+### Delete Data PLan
+
+Name | Type | Description
+|---|---|---
+plan_id | `string` | The ID of the data plan to delete
+
+#### Example Request
+
+:::code-selector-block
+```curl
+curl --location --request DELETE 'https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/{{plan_id}}' \
+--header 'Authorization: Bearer {{jwt_token}}' \
+```
+```nodesdk
+
+import { DataPlanService } from '@mparticle/data-planning-node';
+
+const dataPlanService = new DataPlanService({
+    workspaceId: '{{workspace_id}}',
+    clientId: '{{client_id}}',
+    clientSecret: '{{client_secret}}',
+});
+
+const deleteDataPlan = await dataPlanService.deleteDataPlan("example_data_plan_id");
+
+```
+:::
+
+#### Response
+
+A successful request results in an empty 204 response.
+
+
 ### Create Data Plan Version
 
 #### Parameters
@@ -782,6 +815,41 @@ const updatePlanVersion = await dataPlanService.updateDataPlanVersion("example_d
 #### Response
 
 The response will contain the entire Data Plan version. [See above](#example-response-2) for a full JSON example.
+
+### Delete Data Plan Version
+
+Name | Type | Description
+|---|---|---
+workspace_id | `integer` | The ID of the workspace containing your data plan
+plan_id | `string` | The ID of the data plan
+version | `integer` | The version of the data plan to delete
+
+#### Example Request
+
+:::code-selector-block
+```curl
+curl --location --request DELETE 'https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/{{plan_id}}/versions/{{version}}' \
+--header 'Authorization: Bearer {{jwt_token}}' \
+```
+```nodesdk
+
+import { DataPlanService } from '@mparticle/data-planning-node';
+
+const dataPlanService = new DataPlanService({
+    workspaceId: '{{workspace_id}}',
+    clientId: '{{client_id}}',
+    clientSecret: '{{client_secret}}',
+});
+
+const deleteDataPlanVersion = await dataPlanService.deleteDataPlanVersion("example_data_plan_id", example_version);
+
+```
+:::
+
+#### Response
+
+A successful request results in an empty 204 response.
+
 
 ## Rate limits
 
