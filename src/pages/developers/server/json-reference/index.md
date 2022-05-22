@@ -924,7 +924,7 @@ network_mobile_country_code | string | optional| Standardized country code of ne
 timezone_offset | Int32 | optional| This is the device's timezone offset setting, in hours relative to UTC
 build_identifier | string | optional| Build UUID
 http_header_user_agent | string | optional| HTTP User Agent
-ios_advertising_id | GUID | optional| iOS and tvOS
+ios_advertising_id | GUID | optional| iOS and tvOS. Synonymous with Apple Identifier for Advertisers (IDFA).
 att_authorization_status | string / enum | optional | "authorized", "denied", "not_determined", "restricted"
 att_timestamp_unixtime_ms | Int32 | optional | Specifies when the end-user first responded to the App Tracking Transparency prompt
 push_token | string | optional| Push messaging registration token
@@ -937,8 +937,8 @@ supports_telephony | nullable bool | optional| Android only
 has_nfc | nullable bool | optional| Android only
 bluetooth_enabled | nullable bool | optional| Android only
 bluetooth_version | string | optional| Android only
-ios_idfv | GUID | optional| iOS and tvOS
-android_advertising_id | GUID | optional| Android Only
+ios_idfv | GUID | optional| iOS and tvOS only. Apple's Identifier for Vendors (IDFV).
+android_advertising_id | GUID | optional| Android only. Synonymous with Google Advertising ID (GAID).
 roku_advertising_id | GUID | optional| Roku only | optional
 roku_publisher_id | GUID | optional| Roku only
 microsoft_advertising_id | GUID | optional| UWP only
@@ -946,6 +946,10 @@ microsoft_publisher_id | GUID | optional| UWP only
 fire_advertising_id | GUID | optional| Amazon Fire TV only
 limit_ad_tracking | nullable bool | optional| Limit Ad Tracking
 is_dst | nullable bool | optional| Is Daylight Savings Time
+
+<aside>
+  It's important to remember the difference between Apple's Identifier for Advertisers (IDFA) and Identifier for Vendors (IDFV). An IDFA is a unique ID created by Apple that is assigned to one device that allows users to opt in and out of tracking. An IDFV is a unique ID created by Apple that is assigned to all apps created by a single developer. 
+</aside>
 
 ## `application_info`
 
