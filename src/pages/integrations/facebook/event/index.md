@@ -110,6 +110,10 @@ If `att_authorization_status` is not available, the `limit_ad_tracking` field is
 
 mParticle will send a variety of user data fields to Facebook for advanced matching. The specific fields sent depends on if Facebook Pixel server-side forwarding is enabled or not.
 
+<aside>
+    Facebook will not accept event data forwarded from mParticle unless it includes at least one user data attribute from the list below.
+</aside>
+
 **Facebook Pixel Server-Side Forwarding Disabled**
 
 mParticle will hash and send the following fields to Facebook when they are set for a user.
