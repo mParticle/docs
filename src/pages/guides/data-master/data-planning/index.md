@@ -382,7 +382,7 @@ Anytime a data point is blocked, the Quarantine Connection will forward the orig
 
 In most cases, data collected by the mParticle SDK is sent to mParticle and then forwarded on to an integration partner server-to-server. However, in cases where a server-to-server integration cannot support all required functionality for an integration, an embedded kit can be used instead. 
 
-<aside class="notice">A kit is a client-side wrapper of an integration’s SDK. Some kits (e.g. Appsflyer, Apptentive, Branch, Braze) will forward data directly to the integration partner from your client application.
+<aside class="notice">A kit is a client-side wrapper of an integration’s SDK. Some kits (e.g. AppsFlyer, Apptentive, Branch, Braze) will forward data directly to the integration partner from your client application.
 </aside>
 
 You can learn which integrations are kits for a given SDK here:

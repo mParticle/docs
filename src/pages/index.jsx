@@ -128,7 +128,7 @@ const TILESBOTTOM = [
                         link: 'integrations/branch-metrics/feed'
                     },
                     {
-                        title: 'Appsflyer',
+                        title: 'AppsFlyer',
                         link: 'integrations/appsflyer/feed'
                     },
                     {
@@ -163,7 +163,7 @@ const TILESBOTTOM = [
                         link: 'integrations/braze/event'
                     },
                     {
-                        title: 'Appsflyer',
+                        title: 'AppsFlyer',
                         link: 'integrations/appsflyer/event'
                     }
                 ],

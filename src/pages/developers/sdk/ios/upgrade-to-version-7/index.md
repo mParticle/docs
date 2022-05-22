@@ -27,7 +27,7 @@ The first time the upgraded SDK is initialized for an existing user, the SDK wil
 
 ## Deeplinking / Attribution
 
-Version 7 includes a new Attribution API. If you use any of our deeplinking partners, including Appsflyer, Button, and Branch, you may need to update your code. See our [Kits](/developers/sdk/ios/kits#deep-linking) documentation for more.
+Version 7 includes a new Attribution API. If you use any of our deeplinking partners, including AppsFlyer, Button, and Branch, you may need to update your code. See our [Kits](/developers/sdk/ios/kits#deep-linking) documentation for more.
 
 ## Shopping Cart
 

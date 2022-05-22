@@ -62,7 +62,7 @@ Complete any settings that apply to the connection. These will be different for 
   * Encoding to be used for identifying data
   * How custom attributes should be mapped
   * How to handle attributes specific to the Output
-  * [A minimum platform version to forward data from.](/faq/#do-i-need-to-specify-a-minimum-platform-version-for-each-connection)
+  * A minimum app version for data forwarding. By specifying a version for each connection, you can support older versions of your app which may behave differently (for example, have a different SDK). Don't use non-numeric characters in your version number.
 
 **5. Apply 'Specific Output' transformations**
 

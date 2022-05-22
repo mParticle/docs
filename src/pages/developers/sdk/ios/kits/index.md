@@ -109,8 +109,8 @@ As at version 7, the mParticle SDKs offer an integration-agnostic Attribution Li
 
 The following integrations support deep linking:
 
-* [Appsflyer](/integrations/appsflyer/event/)
-* [Branch Metrics](/integrations/branch-metrics/event/)
+* [AppsFlyer](/integrations/appsflyer/event/)
+* [Branch](/integrations/branch-metrics/event/)
 * [Button](/integrations/button/event/)
 * [Iterable](/integrations/iterable/event/) (note the Iterable Kit uses its own deep-linking API)
 

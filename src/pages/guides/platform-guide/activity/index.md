@@ -188,7 +188,7 @@ The following alert types are supported:
 | Missing Model | Google Adwords | The request was missing required device model.
 |Missing OS Version | Singular, Google Adwords, Facebook | OS Version is required and is missing in the event batch.
 |Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Urban Airship | Package Name is required, and the application is not presenting one in the event batch.
-| Missing Required Setting | Appboy, Appsflyer, Fiksu, Double Click, Facebook, Quantcast, Salesforce | A required setting is missing.
+| Missing Required Setting | Appboy, AppsFlyer, Fiksu, Double Click, Facebook, Quantcast, Salesforce | A required setting is missing.
 | Missing Device Application Stamp | Leanplum | Missing Device Application Stamp for Device ID.
 | Missing Roku Channel Client ID | Leanplum | The Roku channel client ID is not present.
 | Missing Roku Advertiser ID | Leanplum | The Roku advertising ID is not present.
