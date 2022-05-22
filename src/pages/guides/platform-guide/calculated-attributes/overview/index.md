@@ -59,17 +59,13 @@ For a list of calculations and details about each, see [Calculated Attributes Re
 
 ### Calculation Date Range
 
-Calculated attributes can apply to a date range that you define, but is limited by the audience retention period in your current subscription plan. You can specify two types of date ranges:
+Calculated attributes can apply to a date range that you define, but is limited by the audience real-time lookback period defined in your current subscription plan. You can specify two types of date ranges:
 
 * **Within the Last**: limit calculations to the period of a specified number of days or weeks ago to now. For example, “most frequent product categories viewed over the last 30 days.”
 
 * **Since**: limit calculations to the period of a specified start date to now.
 
-<!-- Hiding for now--won't appear in source on site
-<aside class="notice">
-Date ranges that include extremely large volumes of data (e.g. `All Time`) may take up to seven days to fully initialize before values are correct across the workspace. Once initialized, values are updated in real-time.
-</aside>
--->
+The audience real-time lookback period only affects the available data when initializing a calculated attribute. After initialization, calculated attributes continue to recalculate with new data. When an event drops out of the lookback period, it doesn't change the calculated attribute. 
 
 ## Calculation Attribute Seeding
 
@@ -83,14 +79,12 @@ Seeding requires two pieces of information:
 * The seed cut-off date: any data prior to this date is processed by your team into seed values, and mParticle only uses live data on or after this date in the calculation, combining the result with seed values. Using the correct cut-off date ensures an accurate transition into mParticle and avoids duplications of data in calculating a calculated attribute.
 
 <aside class="note">After a calculated attribute is already in use, receiving data via historical API doesn't automatically trigger a recalculation. You must either create a new calculated attribute or update the definition to trigger a recalculation.</aside>
-<!-- Ask Yuan Ren to review. Update https://stackoverflow.com/c/mparticle/questions/2228 once published. -->
 
 ## Forwarding Calculated Attributes in an Audience Integration
 
 If a partner supports user attribute forwarding, you can forward calculated attributes in an audience integration alongside user attributes. Different partners have implemented user attribute forwarding in different ways. 
 
 For example, [Salesforce](/integrations/salesforce-email/audience/#forward-additional-subscriber-data) uses a separate data extension while [Google BigQuery](/integrations/google-bigquery/audience/#configuration-settings) uses the configuration setting Send User Attributes.
-<!-- Ask Geoff to review. Update https://stackoverflow.com/c/mparticle/questions/1027 once published. -->
 
 ## More Examples
 
