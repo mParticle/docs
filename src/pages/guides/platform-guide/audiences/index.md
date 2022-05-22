@@ -557,7 +557,7 @@ From the **In Progress** tab of the Standard Audiences page, click **Calculate**
 
 ![](/images/standard-calculate.png)
 
-Select any additional DRAFT audiences from the list to add them to the calculation. This modal will show you how many calculation credits will be deducted from your account. When you’re ready click ****Start Calculation**.
+Select any additional DRAFT audiences from the list to add them to the calculation. This modal will show you how many calculation credits will be deducted from your account. When you’re ready click **Start Calculation**.
 
 ![large](/images/standard-start-calculation.png)
 
