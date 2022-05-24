@@ -164,19 +164,19 @@ The report displays the number of alerts in each category for a 12-hour time per
 |Feature Unsupported by SDK Version | Kochava | The forwarding of events is not supported by the current SDK version - A later version of the mParticle SDK is required.
 |Identifier Too Long | Leanplum, Algolia |The Device ID or Customer ID exceeds the length which the integration supports.
 |Invalid Credentials |  AgilOne, SFDC Email | A token cannot be obtained due to invalid credentials.
-|Missing Android ID | Appboy, AgilOne, Fiksu, Leanplum | Android ID is required, and is missing in the event batch.
-|Missing App Info | AgilOne, Appboy, Google Adwords, Google Analytics, Kochava, Krux, Oracle BlueKai, Tune, Webtrends | Application Info is required, and is missing in the event batch.  
+|Missing Android ID | Braze, AgilOne, Fiksu, Leanplum | Android ID is required, and is missing in the event batch.
+|Missing App Info | AgilOne, Braze, Google Adwords, Google Analytics, Kochava, Krux, Oracle BlueKai, Tune, Webtrends | Application Info is required, and is missing in the event batch.  
 |Missing AppName | Google Analytics, Webtrends | Application Name is required, and is missing in the event batch.
 | Missing Build ID | Google Adwords | The request was missing a required build id.
-|Missing Device Info | Appboy, Singular, Google Adwords, Kochava, Krux, Leanplum, Oracle BlueKai, SFDC Email, SFDC MobilePush, Webtrends | Device Info is required, and is missing in the event batch.
+|Missing Device Info | Braze, Singular, Google Adwords, Kochava, Krux, Leanplum, Oracle BlueKai, SFDC Email, SFDC MobilePush, Webtrends | Device Info is required, and is missing in the event batch.
 |Missing Event Name | Amazon Mobile Analytics, Amplitude, Customer.io | Event Name is required, and is missing in the event batch.  
 |Missing Fire Advertising Identifier | Krux | Amazon Fire TV Identifier is required and is missing in the event batch. |
 |Missing Google Advertising Identifier | Facebook Atlas, Google Adwords, Krux, Leanplum, Nanigans, Oracle BlueKai, TapCommerce, Tapstream | Google Advertising Identifier is required, and is missing in the event batch.
 |Missing Google Advertising Identifier and Android ID | Adjust, AppLovin, Leanplum, Quantcast | Google Advertising Identifier or Android ID is required, and neither is present in the event batch.
 |Missing Identity | AgilOne | A required identity (i.e. Customer ID, etc.) is required, and is missing in the event batch.
-|Missing Identity and Device ID | Appboy, Amplitude, Localytics, Webtrends | An identity and device ID are required, and both are missing in the event batch. <br><br>For Appboy, a Customer ID and Push Token are required. <br> <br>For Webtrends, a Customer ID and either IDFA or IDFV (iOS) or Google Advertising Identifier or Android ID (Android) are required. <br><br> For Localytics data to be forwarded server side, the Customer ID or Other User Identity must be set, or the Google Advertiser ID or Android ID (Android) or IDFA (iOS) is required.
+|Missing Identity and Device ID | Braze, Amplitude, Localytics, Webtrends | An identity and device ID are required, and both are missing in the event batch. <br><br>For Braze, a Customer ID and Push Token are required. <br> <br>For Webtrends, a Customer ID and either IDFA or IDFV (iOS) or Google Advertising Identifier or Android ID (Android) are required. <br><br> For Localytics data to be forwarded server side, the Customer ID or Other User Identity must be set, or the Google Advertiser ID or Android ID (Android) or IDFA (iOS) is required.
 |Missing IDFA | Applovin, Fiksu, Facebook Atlas, Google Adwords, Leanplum, Nanigans, Oracle BlueKai, Quantcast, TapCommerce, Tapstream | IDFA is required, and is missing in the event batch. The IDFA can be turned off by the end user by turning on 'Limit Ad Tracking' on their iOS device in Privacy Settings.
-|Missing IDFA and IDFV | Adjust, Appboy, Krux, Leanplum | IDFA or IDFV is required, and both are missing in the event batch.
+|Missing IDFA and IDFV | Adjust, Braze, Krux, Leanplum | IDFA or IDFV is required, and both are missing in the event batch.
 |Missing IDFV | Leanplum | IDFV is required, and is missing in the event batch.
 |Missing IP Address |Singular, Facebook Atlas, Google DoubleClick, Quantcast |IP Address is required, and is missing in the event batch.
 | Missing Locale Country | Google Adwords | The request was missing required locale country.
@@ -184,7 +184,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 | Missing Model | Google Adwords | The request was missing required device model.
 |Missing OS Version | Singular, Google Adwords, Facebook | OS Version is required and is missing in the event batch.
 |Missing PackageName | Applovin, Singular, Google Adwords, Quantcast, Tune, Urban Airship | Package Name is required, and the application is not presenting one in the event batch. For Tune, you can override the Package Name in the configuration settings.
-| Missing Required Setting | Appboy, Appsflyer, Fiksu, Double Click, Facebook, Quantcast, Salesforce | A required setting is missing.
+| Missing Required Setting | Braze, Appsflyer, Fiksu, Double Click, Facebook, Quantcast, Salesforce | A required setting is missing.
 | Missing Device Application Stamp | Leanplum | Missing Device Application Stamp for Device ID.
 | Missing Roku Channel Client ID | Leanplum | The Roku channel client ID is not present.
 | Missing Roku Advertiser ID | Leanplum | The Roku advertising ID is not present.
@@ -192,7 +192,7 @@ The report displays the number of alerts in each category for a 12-hour time per
 | Missing Required Attribute | Simplereach, Facebook, Algolia | The request has a required attribute that's missing.
 | Missing Screen Name | Zendesk | Screen name is required, and is missing in the event batch.
 | Missing User Agent |Facebook Atlas, Google DoubleClick |User Agent is required, and is missing in the event batch.
-|No Route Available | Appboy, Airship | The source of the event batch is not supported.  This is used to indicate that the source of the event batch was not from a native client with the extended SDK (appropriate kit included) or the mParticle Events API.
+|No Route Available | Braze, Airship | The source of the event batch is not supported.  This is used to indicate that the source of the event batch was not from a native client with the extended SDK (appropriate kit included) or the mParticle Events API.
 | Request Too Long | Krux | The request exceeds a size or character limit set by the partner and cannot be delivered
 |Retry Count Exceeded  |Any |This indicates that the data has repeatedly been attempted for delivery, but has exceeded the retry limit.
 |306-Unknown  |Any | This may occur in cases of network issues which may be retried.
