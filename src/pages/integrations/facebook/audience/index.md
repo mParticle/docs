@@ -78,7 +78,7 @@ Facebook enforces a maximum limit of [500 custom audiences](https://developers.f
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 Facebook Account ID | `string` | | This setting is your Facebook account id. You can find it in the Ads Powertool.
-Facebook AccessToken | `string` | | The Facebook access token used to make Graph API calls. Learn how to generate never expiring tokens [here](https://medium.com/@yasithlokuge/how-to-generate-a-never-expiring-facebook-page-access-token-24ac5c1a95f1).
+Facebook AccessToken | `string` | | The [Facebook access token](https://developers.facebook.com/docs/pages/access-tokens) used to make Graph API calls.
 
 ## Connection Settings
 
