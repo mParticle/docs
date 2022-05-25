@@ -109,6 +109,8 @@ MParticle.sharedInstance().start(with: options)
 ```
 :::
 
+<aside class="warning"><p>Don't provide the ATT status as described above for iOS 15. If you have used this method for iOS 14 and are migrating to iOS 15, either change to the following technique or see the last question in <a href="http://docs.mparticle.com/developers/sdk/ios/ios15">iOS 15 FAQ</a>).</p></aside>
+
 **2. After the user responds to the ATT prompt:**
 
 The code below shows the following:
