@@ -10,7 +10,7 @@ This guide is designed to help you migrate from Segment to mParticle. At a high 
 
 Additionally, the mParticle APIs and event models are similar to Segment's with many overlapping concepts and expectations, making for a straightforward migration.
 
-<aside>If you prefer more support, mParticle offers a Segment Migration Professional Services package to fast-track your Segment migration to mParticle, gleaned from years of experience of doing this with other customers. You can also engage the mParticle Professional Services team.</aside>
+<aside>If you prefer more support, mParticle offers a Segment Migration Professional Services package to fast-track your Segment migration to mParticle, gleaned from years of experience of doing this with other customers.</aside>
 
 ## Prerequisites
 
