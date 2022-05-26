@@ -192,6 +192,11 @@ const TILES = [
         content: 'The mParticle platform API allows you to programmatically update your mParticle inputs, outputs, filters and more.',
         route: 'platform',
     },
+    {
+        title: 'Segment Migration Guide',
+        content: 'Migrate your Segment implementation to mParticle',
+        route: 'migration/segment/overview/',
+    },
 ];
 
 const MEDIA = {
