@@ -196,7 +196,9 @@ For example:
 }
 ~~~
 
-The keys used are identical to the column names used by mParticle's [Redshift Schema](/integrations/amazon-redshift/data-warehouse/#data-schema).   
+The keys used are identical to the column names used by mParticle's [Redshift Schema](/integrations/amazon-redshift/data-warehouse/#data-schema).
+
+For a list of all the data types, user IDs, device IDs, and configurations supported by this integration, log in to mParticle, click **Directory**, click the word **Snowflake** on the Snowflake tile, and scroll down to the Supports section.
 
 mParticle also creates two types of views under the schema:
 - For each table, a view called `mp_vw_{tableName}` is created that allows you to run regular SQL queries against each table. For example, to query `workspaceid` from each table, instead of using `data:workspaceid` to query the table, you can use `workspaceid` to query the view. Each user attribute and event attribute has its own column in the view. For user attribute named `Some Sample User Attribute` and event attribute named `Some Sample Event Attribute`, the column name in the view is `"ua Some Sample User Attribute"` and `"ea Some Sample Event Attribute"`, respectively. Attribute column names have double quotes and are case sensitive.
