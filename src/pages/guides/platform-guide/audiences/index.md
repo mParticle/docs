@@ -25,7 +25,7 @@ In this example, because we want to target users that *look like* our highly eng
 
 ## The Audiences Page
 
-The Audiences page is accessible from anywhere in the Dashboard via the left navigation. It displays a list of your audiences, separated into **Single Workspace** and **Multi Workspace**, with metrics for each audience:
+The Audiences page is accessible via the main navigation. It displays a list of your audiences, separated into **Single Workspace** and **Multi Workspace**, with metrics for each audience:
 
 * Size: count of MPIDs in this audience
 * Adds (last 24 hours): number of additions to the audience
@@ -76,7 +76,7 @@ The criteria will be all users who have installed the app in the last 72 hours a
 
 To create an audience:
 
-1. From the **Audiences** screen, select the **Single Workspace** or **Multi Workspace** tab, and click **New Audience**.
+1. Select **Audiences** from the main navigation, and then select the **Single Workspace** or **Multi Workspace** tab, and click **New Audience**.
 
    ![](/images/Platform-Update-Audiences-Blank-042019.png)
 
@@ -90,7 +90,7 @@ To create an audience:
 3. Under **Inputs**, check all the Platforms and Feeds whose data you want to use to define the audience.
 4. Click the **Create** button. The screen refreshes with the new Audience added to the list of audiences and the **Audience Details** screen shown. If you are ready to define the audience, continue in the next section. Otherwise, click **Save as Draft**.
 
-This screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the left-side, shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
+This screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the main navigation shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
 
 ## Audience Criteria
 
@@ -504,7 +504,7 @@ When you believe you have resolved the issue, open the fault notification and cl
 
 ## Standard Audiences
 
-> Standard Audiences are a paid premium feature. Contact your mParticle representative if you're interested in using Standard Audiences.
+<aside>Standard Audiences are a paid premium feature. Contact your mParticle representative if you're interested in using Standard Audiences.</aside>
 
 mParticle’s new Standard Audiences feature lets you define and build audiences based on long-term historical data. Standard Audiences differ from Real-time Audiences, in a few key ways:
 
@@ -514,10 +514,11 @@ mParticle’s new Standard Audiences feature lets you define and build audiences
 * While Standard Audiences support all of the same Audience partners as Real-time audiences, with the same connection settings, the workflow of calculating and sending a Standard Audience has a few optional steps: to allow you to make the most of your calculations, you can calculate and send audiences in bulk.
 
 <aside>
-Be aware that there is a 48 hour delay for live data to become available for standard audiences. When creating a standard audience, select the end date of 'most recent' to get the latest available data.
+Be aware that there is a 48-hour delay for live data to become available for standard audiences. When creating a standard audience, select the end date of 'most recent' to get the latest available data.
 </aside>
 
 ### Calculation credits
+
 Standard audiences are purchased by buying annual calculation credits. Each calculation credit lets you run a calculation across 365 days of your historical data, regardless of how many audiences are included. You can calculate many standard audiences at once. There are prompts in the product to select the audiences to calculate and confirm how many credits you are spending.
 
 Some example calculations and costs:
@@ -525,6 +526,7 @@ Some example calculations and costs:
 - 3 standard audiences spanning from 1/1/2019 to 12/31/2019: this costs 1 credit as it scans 1 year of data (with many audiences).
 
 ### Standard Audience Lifecycle
+
 Standard audiences have a 4 stage lifecycle:
 - <strong>Draft</strong>: The audience is being drafted and has not yet been calculated. To calculate it, press 'calculate' and confirm that credits will be spent.
 - <strong>Calculating</strong>: The audience is being calculated. Progress indications are shown in the UI and the time this takes depends on the date range selected (and thus the data volume scanned).
@@ -535,27 +537,25 @@ Standard audiences have a 4 stage lifecycle:
 
 #### 1 - Create a New Standard Audience
 
-Standard Audiences are managed separately from Real-time audiences. Choose **Audiences > Standard** from the left navigation menu, and click **+ New Standard Audience**.
+Standard Audiences are managed separately from Real-time audiences. Choose **Audiences > Standard** from the main navigation menu, and click **New Standard Audience**.
 
 ![](/images/standard-create.png)
 
 #### 2 - Define date range and inputs
 
-Just as with Real-time audiences, you can define which inputs you want to calculate the audience from. For Standard Audiences you also need to define a date range. You can choose **All available data** or define any period within the available range. When you’re ready, click **Create**. The start and end dates are inclusive and it uses the UTC timezone.
+Just as with real-time audiences, you can define which inputs you want use to calculate the audience. For Standard Audiences you also need to define a date range. You can choose **All available data** or define any period within the available range. When you’re ready, click **Create**. The start and end dates are inclusive and it uses the UTC timezone.
 
 ![medium](/images/lifetime-define-range.png)
 
 #### 3 - Define Audience Criteria
 
-Define your audience, using any number of criteria. This step works identically to Real-time audiences. When your definition is ready, click **Save as Draft**.
+Define your audience by clicking the plus sign to create and define one or more criteria. This step is the same as in real-time audiences. When your definition is ready, click **Save as Draft**. Notice that after a moment, a **Calculate** button displays next to the grayed-out **Save as Draft** button.
 
 ![](/images/standard-define-criteria.png)
 
 #### 4 - Calculate one or more audiences
 
-From the **In Progress** tab of the Standard Audiences page, click **Calculate** at the top of the page, or within the actions menu on a single Standard Audience.
-
-![](/images/standard-calculate.png)
+At the top of the Standard Audiences page from step 3, click **Calculate**.
 
 Select any additional DRAFT audiences from the list to add them to the calculation. This modal will show you how many calculation credits will be deducted from your account. When you’re ready click **Start Calculation**.
 
@@ -563,11 +563,11 @@ Select any additional DRAFT audiences from the list to add them to the calculati
 
 #### 5 - Set up one or more connections
 
-At first your audience will show as **Calculating** in the list view. While you wait for the calculation to complete, you can set up one or more audience connections. Calculation can take many hours for large amounts of data. You can track it’s progress via a popup in the Size column.
+At first your audience will show as **Calculating** in the list view **Status** column under **Audience Details**. While you wait for the calculation to complete, you can set up one or more audience connections by clicking the green plus sign in the **Conencted Outputs** column. 
 
-![](/images/standard-connect.png)
+Calculation can take many hours for large amounts of data. You can track progress via a popup in the **Size** column.
 
-The Connections screen functions identically to Real-time audiences. Add and configure one or more connections. The only difference is that when you save the connection, no data is forwarded until you explicitly ‘send’ the audience.
+The Connections screen functions the same as for real-time audiences. Add and configure one or more connections. The only difference is that when you save the connection, no data is forwarded until you explicitly send the audience.
 
 #### 6 - Send your calculated audience
 
