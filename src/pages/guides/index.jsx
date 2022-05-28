@@ -139,6 +139,12 @@ const Links = [
             'Share audience data with other accounts within your organization.',
         links: [{}],
     },
+    {
+        route: 'glossary',
+        title: 'Glossary',
+        content: 'List of mParticle-specific terms and definitions.',
+        links: [{}],
+    },
 ];
 
 const Guides = (props) => (
