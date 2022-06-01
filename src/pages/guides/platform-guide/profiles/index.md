@@ -157,7 +157,7 @@ If it is important for profile updates to be reflected across all your systems i
 
 The maximum period of time that mParticle stores profile and event data is called the data retention period, and is defined in your contract. mParticle measures the time from the moment the event is received by mParticle, or by the last time a profile was updated by a message batch. (note if two profiles have been aliased together, the date is measured from the aliased to updated timestamp. )
 
-Data retention controls how long data is available for features that perform backfills, such as Standard Audiences and data replay. Features that work with real-time data such as event enrichment, real-time audiences, and calculated attributes are controlled by a second period within your data retention: the profile lifetime. Your profile lifetime is the length of time that profile data is preserved and accessed across mParticle features. For example, profile lifetime controls how far back you can create real-time audience segments.
+Data retention controls how long data is available for features that perform backfills, such as Standard Audiences and data replay (re-ingesting data with help from mParticle Support). Features that work with real-time data such as event enrichment, real-time audiences, and calculated attributes are controlled by a second period within your data retention: the profile lifetime. Your profile lifetime is the length of time that profile data is preserved and accessed across mParticle features. For example, profile lifetime controls how far back you can create real-time audience segments.
 
 | Period | <div style="width:200px">Definition | Data Types Affected | Uses |
 | ------ | ---------- | ------------------- | ---- |
