@@ -34,6 +34,7 @@ You can find Split's documentation [here.](https://help.split.io/hc/en-us/articl
 * Google ID
 * Facebook ID
 * Microsoft ID
+* mParticle ID (MPID)
 * Other
 * Other 2
 * Other 3
