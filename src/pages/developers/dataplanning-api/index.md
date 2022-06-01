@@ -26,8 +26,7 @@ The following diagram shows the relationship structure defined by the Data Plann
 Each Data Point is composed of two key elements, a “criteria” used to match the Data Point within an incoming data stream, and “schema” that is used to validate the contents of the Data Point:
 
 - **Criteria**: As data streams into mParticle via the Events API, the Criteria is used to locate the Data Point within the payload, then the schema (described below) is used to validate it.
-- **Schema**: The validation schema defines the expected syntax of each Data Point. This is a [JSON Schema](https://json-schema.org) object.
-
+- **Schema**: The validation schema defines the expected syntax of each Data Point. This is a [JSON Schema](https://json-schema.org) object. Note that the following keywords are unsupported: `_Ref`, `_RecursiveRef`, `_RecursiveAnchor`, `PatternProperties`, `AllOf`, `AnyOf`, `OneOf`, `If`, `Not`, `Else`, `Then`, `Dependencies`, `DependentRequired`, `DependentSchemas`.
 
 
 ## Helper SDKs
