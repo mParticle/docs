@@ -107,6 +107,7 @@ The `Data` node of each message will be 64-bit encoded, but the examples below a
                 "CustomerId": "p.fogg138" ,
                 "Email": "phileas@travelers.com",
                 "Other": "balloondude83",
+                "Other3": "balloongal89",
                 "FacebookId": "phileas83",
                 "GoogleAdvertisingIdentifier" : "phileas83"
              }
@@ -130,6 +131,7 @@ The `Data` node of each message will be 64-bit encoded, but the examples below a
                 "CustomerId": "p.fogg138" ,
                 "Email": "phileas@travelers.com",
                 "Other": "balloondude83",
+                "Other3": "balloongal89",
                 "FacebookId": "phileas83"
              }
         }
