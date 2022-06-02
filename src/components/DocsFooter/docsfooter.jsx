@@ -89,8 +89,8 @@ export default () => (
                         <p>Resources</p>
                     </a>
                     <a
-                        href='https://www.mparticle.com/lpg/startup-accelerator/?utm_source=docs'>
-                        <p>Free trial for startups</p>
+                        href='https://www.mparticle.com/free-trial?utm_source=docs'>
+                        <p>Free trial</p>
                     </a>
                 </div>
             </div>

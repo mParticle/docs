@@ -208,14 +208,11 @@ const Home = (props) => (
         <div className='docs-home docs-app'>
             <div className='docs-content centered-fixed-width'>
                 <section className='what-is-mparticle'>
-                    <div className='title'>
-                        <h3>What is mParticle?</h3>
-                    </div>
                     <div className='home-flow'>
                         <div className='home-flow-tiles'>
                             <div className='home-flow-tile'>
                                 <p className='intro'>
-                                    mParticle is a customer data platform that
+                                    mParticle is a customer data platform (CDP) that
                                     simplifies how you collect and connect your
                                     user data to hundreds of vendors without
                                     needing to manage multiple integrations. We
@@ -223,9 +220,23 @@ const Home = (props) => (
                                     can do more with your data without the
                                     hassle of complex integrations.
                                 </p>
-                                <OffsiteButton
-                                    text='Explore Demo Now'
-                                    url='https://demo.mparticle.com/?utm_source=docs' />
+                                <p className='intro2'>
+                                    If you're new to mParticle, you can take a guided, interactive tour through the UI with the demo, or obtain your own free trial version to discover the features and capabilities mParticle has to offer.
+                                </p>
+                                <table width="100px" cellspacing="0" cellpadding="10" >
+                                    <tr>
+                                        <td>
+                                            <OffsiteButton
+                                                text='Explore Demo'
+                                                url='https://demo.mparticle.com/?utm_source=docs' />
+                                        </td>
+                                        <td>
+                                            <OffsiteButton
+                                                text='Claim Your Free Trial'
+                                                url='https://www.mparticle.com/free-trial?utm_source=docs' />
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
