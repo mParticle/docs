@@ -95,18 +95,9 @@ Be sure to consult your internal privacy and compliance experts when determining
 
 ### Erasure
 
-Erasure requests are handled as follows:
+After mParticle receives an erasure request, a 7 day waiting period starts. This waiting period gives you the opportunity to cancel a pending erasure request before it is initiated. 
 
-1. mParticle identifies the MPIDs that match the request and creates an erasure job containing the MPIDs for erasure.
-2. Each Monday at 12:30UTC, all jobs created in the previous 7 days are added to a batch. After the batch is created, jobs can be removed from the batch, but no additional jobs can be added.
-3. 7 days after a batch is created, all jobs are run, deleting all data in mParticle associated with each MPID in each job.
-4. For each request, mParticle sends a callback to any specified Callback URLs, indicating that the request has been completed.
-
-When submitting a DSR through the mParticle UI or via the DSR API, an erasure request cannot contain multiple MPIDs, a mix of MPIDs and generic IDs, or a mix of generic IDs containing the same ID type (such as multiple user IDs). In these cases, mParticle will not accept the original DSR erasure request and returns an error.
-
-<aside>
-Erasure requests are processed between 7 and up to 21 days after being received by mParticle. This delay provides an opportunity to cancel a pending deletion request before it is carried out. If you wish to remove users from audiences or from event forwarding during this period, set a User Attribute and apply audience criteria and/or forwarding rules to exclude them. Note that most privacy regulations simply require an acknowledgement of a request within an initial time window. Fulfillment timeframes for requests are typically more generous as they may require follow-up to validate additional details. We recommend consulting the requirements of your privacy regulation to understand your obligations.
-</aside>
+After the 7 day waiting period, any pending erasures are initiated. Once begun, it may take up to 14 days before the erasure is complete. For each completed erasure request, mParticle sends a callback to any specified URLs indicating that the request has been fulfilled.
 
 #### What data is deleted?
 
