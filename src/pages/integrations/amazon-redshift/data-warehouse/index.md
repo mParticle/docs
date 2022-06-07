@@ -251,7 +251,7 @@ The benefit of these individual attribute columns is that you don't have to use 
 
 ## Redshift Cluster Security Setup
 
-For mParticle to access your cluster, the IPs of mParticle servers need to be whitelisted on your cluster. Since we regularly add new IPs as we scale our platform, the easiest approach is to follow the instructions below to set up an **AWS Lambda function to automatically sync our IPs**. Alternatively, you can get the most up-to-date IP list [here](https://2g26abvcj4.execute-api.us-east-1.amazonaws.com/prod/redshift-ips).
+For mParticle to access your cluster, the IPs of mParticle servers need to be whitelisted on your cluster. Since we add new IPs as we scale our platform, the easiest approach is to follow the instructions below to set up an **AWS Lambda function to automatically sync our IPs**. Alternatively, you can download an up-to-date [IP list](https://api.mparticle.com/ip-ranges).
 
 1. Create a new VPC security group and note the security group ID and the AWS region. Leave the inbound rules empty as they will be managed by the Lambda function.
 2. Create a new AWS Lambda function. Do not select a template. 

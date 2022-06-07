@@ -3,7 +3,9 @@ title: Python SDK
 order: 4
 ---
 
-This SDK is a helper library for the mParticle Events HTTP API, it exposes mParticle's schema as simple models and provides an HTTP client interface. This SDK is stateless and will only send the data that you populate, whereas our mobile SDKs will automatically collect app and device information, session events, install events, and maintain persistence. Read this wiki for a general overview and examples, and [contact our customer support team](mailto:support@mparticle.com) to make sure you're feeding the platform with the right data to power your integrations.
+The Python SDK is a helper library for the mParticle Events HTTP API that exposes the mParticle schema as simple models and provides an HTTP client interface. This SDK is stateless and only sends the data that you populate, whereas our mobile SDKs automatically collect app and device information, session events, install events, and maintain persistence. 
+
+Read this page for a general overview and examples, visit the [Python SDK repo](https://github.com/mParticle/mparticle-python-sdk)), and if needed, [contact our customer support team](https://support.mparticle.com) to make sure you're feeding the platform with the right data to power your integrations.
 
 ## Model Overview
 
