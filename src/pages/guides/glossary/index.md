@@ -12,7 +12,7 @@ A feed you can configure as if it comes from an iOS, Android, or Web platform (*
 
 **alias**
 
-Aliasing is a feature that allows clients to associate anonymous customer events to post-sign up events.  Functionally, aliasing performs a copy operation from a source MPID to target MPID (see What gets copied. The source MPID is unchanged and still accessible in the system.
+Aliasing is a feature that allows clients to associate anonymous customer events to post-sign up events.  Functionally, aliasing performs a copy operation from a source MPID to target MPID. The source MPID is unchanged and still accessible in the system.
 
 This feature is supported by the Profile Link and Profile Conversion identity strategies.
 
@@ -122,7 +122,7 @@ A period of time during which mParticle retains profile and events data, typical
 
 Contrast with **audience real-time lookback window**.
 
-**datatype**
+**data type**
 
 The type of data contained in an attribute value. mParticle supports the following data types: string, number, boolean, and date. 
 
