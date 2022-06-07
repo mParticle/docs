@@ -3,10 +3,10 @@ title: Event
 ---
 
 <aside className='warning'>
-<b>3/28/2022 - 6/8/2022 - Temporary Notice!<br></b>
-Customers who use mParticle and Braze on their websites may require some code changes due to an update we are making to the mParticle Braze web kit.  The web kit, which previously used v2.5.2 of the Braze web SDK, will use Braze SDK 3.5.0 starting on 6/8/2022.
+<b>3/28/2022 - 6/14/2022 - Temporary Notice!<br></b>
+Customers who use mParticle and Braze on their websites may require some code changes due to an update we are making to the mParticle Braze web kit.  The web kit, which previously used v2.5.2 of the Braze web SDK, will use Braze SDK 3.5.0 starting on 6/14/2022.
 
-<b>The Braze web SDK has a few breaking changes and if you load mParticle via snippet/CDN, you should <a href="#breaking-change-for-web---3282022---682022">follow these instructions to ensure your code continues to work when our changes go live to the CDN on 6/8/2022</a></b>.
+<b>The Braze web SDK has a few breaking changes and if you load mParticle via snippet/CDN, you should <a href="#breaking-change-for-web---3282022---6142022">follow these instructions to ensure your code continues to work when our changes go live to the CDN on 6/14/2022</a></b>.
 </aside>
 
 [Braze](https://www.braze.com/) is a comprehensive customer engagement platform that powers relevant experiences between consumers and brands they love. Braze helps brands foster human connection through interactive conversations across channels.
@@ -44,19 +44,19 @@ The following event types can be forwarded to Braze via S2S:
 * Screen View
 * Session Start / End
 
-### Breaking Change for Web - 3/28/2022 - 6/8/2022
+### Breaking Change for Web - 3/28/2022 - 6/14/2022
 
-Braze has breaking changes between version 2.5.2 and 3.5.0 of their SDK.  As a result, we too are updating our current web kit to support Braze’s Web SDK version 3.5.0.  As part of this update, we've created a new [Braze web kit repo](https://github.com/mparticle-integrations/mparticle-javascript-integration-braze) to replace our current [Appboy web kit repo](https://github.com/mparticle-integrations/mparticle-javascript-integration-appboy).  The new Braze kit will automatically be served via CDN on June 8, 2022. If you implement mParticle via NPM, you can install [@mparticle/web-braze-kit v3.0.0](https://www.npmjs.com/package/@mparticle/web-braze-kit) starting today.
+Braze has breaking changes between version 2.5.2 and 3.5.0 of their SDK.  As a result, we too are updating our current web kit to support Braze’s Web SDK version 3.5.0.  As part of this update, we've created a new [Braze web kit repo](https://github.com/mparticle-integrations/mparticle-javascript-integration-braze) to replace our current [Appboy web kit repo](https://github.com/mparticle-integrations/mparticle-javascript-integration-appboy).  The new Braze kit will automatically be served via CDN on June 14, 2022. If you implement mParticle via NPM, you can install [@mparticle/web-braze-kit v3.0.1](https://www.npmjs.com/package/@mparticle/web-braze-kit) starting today.
 
 **How do you know if your code is affected?**
 
-You may notice errors on your site if you load mParticle [via snippet](https://docs.mparticle.com/developers/sdk/web/getting-started/#add-the-sdk-snippest) (as most of our clients do), and you reference any deprecated Braze APIs starting 6/8/2022.
+You may notice errors on your site if you load mParticle [via snippet](https://docs.mparticle.com/developers/sdk/web/getting-started/#add-the-sdk-snippest) (as most of our clients do), and you reference any deprecated Braze APIs starting 6/14/2022.
 
 We highly recommend that you review the changes between version 2 and 3 of the Braze Web SDK to understand these changes, which can be found [here](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/changelog/#300).  To summarize:
 * The `appboy.ab` namespace has been removed and everything lives under the `appboy` namespace now.
 * `InAppMessage.Button` has been renamed to `InAppMessageButton`
 
-If you reference any of the above deprecations, you will have to make changes to your codebase before June 8, 2022 to be compatible with both version 2 and version 3 of the Braze SDK to ensure your code continues to work. We recommend a 3 step approach. Here are some code samples of what this code could look like today (step 1), preparing for the update (step 2) and after the change is live (step 3). 
+If you reference any of the above deprecations, you will have to make changes to your codebase before June 14, 2022 to be compatible with both version 2 and version 3 of the Braze SDK to ensure your code continues to work. We recommend a 3 step approach. Here are some code samples of what this code could look like today (step 1), preparing for the update (step 2) and after the change is live (step 3). 
 
 The below recommendations apply only to customers who load mParticle [via snippet](https://docs.mparticle.com/developers/sdk/web/getting-started/#add-the-sdk-snippet).  Customers who [self host via NPMs](https://docs.mparticle.com/developers/sdk/web/self-hosting/) can ignore step 1 and jump straight to step 3 after updating their mParticle Braze kit to v3.0.0.
 
@@ -65,7 +65,7 @@ Step 1: Legacy code sample. If your code references the `ab` namespace (like bel
 let banner = new appboy.ab.Banner(‘test’);
 ```
 
-Step 2: Rollout code sample to be used before June 8, 2022:
+Step 2: Rollout code sample to be used before June 14, 2022:
 ```javascript
 let banner;
 if (appboy.hasOwnProperty(‘ab’)) {
@@ -74,7 +74,7 @@ if (appboy.hasOwnProperty(‘ab’)) {
     banner = new appboy.Banner(‘test’);
 }
 ```
-Step 3: After June 8, 2022, you can simplify your code to the following once the mParticle Braze Web kit has been released to our CDN:
+Step 3: After June 14, 2022, you can simplify your code to the following once the mParticle Braze Web kit has been released to our CDN:
 ```javascript
 let banner = new appboy.Banner(‘test’);
 ```
