@@ -105,12 +105,17 @@ At minimum, the `EventsApi` must be initialized with an mParticle key and secret
 
 > You must associate your data with the correct key and secret. If your app is multi-platform, for example, be sure to send your Android data to your Android key/secret, and your iOS data to your iOS key/secret.
 
-
+By default, the Java SDK will upload to the US1 Data Center URL.  If the API key you're sending to exists in an mParticle Data Center that's not US1, you must find the right URL for your hosting location on the [mParticle docs site](https://docs.mparticle.com/developers/data-localization/#events-api).  Using this URL, you can override the base url.
+                
 ```java
+// include this if your API keys are from a non-US1 mParticle data center, by default the Java SDK sends to US1
+Retrofit.Builder mybuilder = new Retrofit.Builder().baseUrl("https://s2s.eu1.mparticle.com/v2/").build(); 
+
 // configure API
 EventsApi api = new ApiClient(
         "YOUR_API_KEY",
         "YOUR_API_SECRET")
+        .setAdapterBuilder(mybuilder) // include this if your API keys are from a non-US1 mParticle data center, by default the Java SDK sends to US1
         .createService(EventsApi.class);
 
 // assemble an event batch
