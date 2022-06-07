@@ -19,7 +19,7 @@ Known user profiles can only be returned in response to an identity request with
 
 ### Transitioning from anonymous to known
 
-As a user begins to engage with your website or app, their initial activity is stored against an anonymous profile. If your organization uses [profile link](/guides/idsync/profile-link-strategy/) or [profile conversion](/guides/idsync/profile-conversion-strategy/) strategies, the first appearance of a new login ID will always cause a new known user profile to be created.
+As a user begins to engage with your website or app, their initial activity is stored against an anonymous profile. If your organization uses [profile link](/guides/idsync/profile-link-strategy/) strategies, the first appearance of a new login ID will always cause a new known user profile to be created.
 
 Aliasing gives you control over the transition from an anonymous user profile to a known user profile. You can choose to create a new known user profile that does not include any historical data from the original anonymous user profile. This may be necessary to comply with local privacy legislation.
 
