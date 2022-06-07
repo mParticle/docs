@@ -46,7 +46,7 @@ events  | array | Both | optional | An array of JSON objects, each representing 
 schema_version | integer | Output | optional | Indicates the current schema version that this message batch conforms to.  mParticle  is currently on version 2.
 device_info | object  | Both | optional | A JSON object containing information about the device pertaining to this message batch.
 application_info | object | Both | optional | A JSON object of information about your app.
-source_request_id | string  | Both | optional | A value to uniquely identify this request. This is used to deduplicate inbound requests.
+source_request_id | string  | Both | optional | A value to uniquely identify this request. This is used to deduplicate inbound requests.  De-duplication is scoped by API key, found in Organization/Account/Workspace/Inputs, and remains in the system for enforcement anywhere from 30-60 days.  Any valid string is accepted.
 user_attributes | Object map of string key-value pairs  | Both | optional | A JSON object of demographic information about the user that generated the app events.
 deleted_user_attributes  | string array | Both  | optional | An array of JSON strings describing previously provided user attributes which should be forgotten.
 user_identities | Object map of string key-value pairs  |Both  |optional | A JSON object of user ID information, such as email address and social IDs.
