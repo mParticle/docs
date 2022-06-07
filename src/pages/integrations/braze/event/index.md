@@ -58,7 +58,7 @@ We highly recommend that you review the changes between version 2 and 3 of the B
 
 If you reference any of the above deprecations, you will have to make changes to your codebase before June 14, 2022 to be compatible with both version 2 and version 3 of the Braze SDK to ensure your code continues to work. We recommend a 3 step approach. Here are some code samples of what this code could look like today (step 1), preparing for the update (step 2) and after the change is live (step 3). 
 
-The below recommendations apply only to customers who load mParticle [via snippet](https://docs.mparticle.com/developers/sdk/web/getting-started/#add-the-sdk-snippet).  Customers who [self host via NPMs](https://docs.mparticle.com/developers/sdk/web/self-hosting/) can ignore step 1 and jump straight to step 3 after updating their mParticle Braze kit to v3.0.0.
+The following steps apply only to customers who load mParticle [via snippet](/developers/sdk/web/getting-started/#add-the-sdk-snippet).  Customers who [self host via npm](/developers/sdk/web/self-hosting/) can skip to step 3 after updating their mParticle Braze kit to v3.0.1.
 
 Step 1: Legacy code sample. If your code references the `ab` namespace (like below) or `InAppMessage.Button`, you should change it following Step 2’s example:
 ```javascript
