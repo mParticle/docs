@@ -195,15 +195,17 @@ As with non-enhanced conversions, you will need to create a Conversion ID.  Foll
 Additionally, there are a few extra steps to set up enhanced conversions in Google's set up page:
   1. Under `Enhanced conversions`, select `Turn on enhanced conversions`.
   2. Under `Implementation Method`, select `Global site tag or Google Tag Manager` and press `NEXT`.
-  3. You will be prompted for your URL. Enter that into the text field and click `CHECK URL`.  Google will then tell you that the tracking tag was not detected. This is expected because mParticle loads Gtag dynamically for you.  Click on `select one manually`.
+  3. You will be prompted for your URL. Enter that into the text field and click `CHECK URL`.
   
   ![](/images/GoogleAdWords-Enhanced-Conversions-1-112021.png)
+  
+  4. If mParticle loads Google Tag Manager dynamically for you, Google tells you that the tracking tag was not detected.  Click on `select one manually`. If you don't see this message, go to the next step.
 
-  4. Click the `Global site tag` radio button and press `NEXT`.
+  5. Click the `Global site tag` radio button and press `NEXT`.
 
   ![](/images/GoogleAdWords-Enhanced-Conversions-2-112021.png)
 
-  5. Select `Edit code` from the drop down for how you want to set up enhanced conversions.
+  6. Select `Edit code` from the drop down for how you want to set up enhanced conversions.
 
   ![](/images/GoogleAdWords-Enhanced-Conversions-3-112021.png)
 
