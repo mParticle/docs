@@ -259,7 +259,9 @@ If you are using automatic screen tracking in our Android SDK, the automatically
 
 ### Session Start / End
 
-To send session start and end events S2S to Braze, enable the `Forward Session Events` connection setting. Once enabled, session start and end events will be forwarded to Braze as custom events with the names `Session Start` and `Session End`. When available, session IDs will also be sent in the `session_id` property on all session start/end, screen view, and custom events.
+To send session start and end events for S2S to Braze, enable the `Forward Session Events` connection setting. After enabling this setting, session start and end events are forwarded to Braze as custom events with the names `Session Start` and `Session End`. When available, session IDs are also sent in the `session_id` property on all session starts and ends, screen view, and custom events.
+
+However, note that mParticle SDK kits do not support session events, which are never forwarded with a kit, whether or not `Forward Session Events` is enabled.
 
 <aside class="notice">When creating segmentation filters within Braze, make sure to use the custom event filters for session data rather than the session filters.</aside>
 
@@ -324,7 +326,7 @@ By default, mParticle forwards all available user attributes and user identities
 | Include Enriched User Identities | `bool` | True | All | If enabled, mParticle will forward enriched user identities from the existing user profile. Only data which is sent to Braze Server to Server can be enriched. |
 | Send User Attribute Lists as Arrays | `bool` | False | All | If checked, mParticle will send each user attribute list server-side as an array, rather than a comma-separated string |
 | Forward Screen View Messages | `bool` | False | All | If enabled, all screen view messages will be forwarded to Braze as separate events. Not supported for S2S requests. |
-| Forward Session Events | `bool` | False | All| If enabled, all session start and end events will be forwarded to Braze as separate events. Session IDs will also be sent with events when populated. |
+| Forward Session Events | `bool` | False | All| If enabled, S2S connections will forward session start and end events to Braze. Kits do not support forwarding session events. Session IDs will also be sent with events when populated. |
 | Soft Push Custom Event Name | `string` | <unset> | Web | The custom event name that shows up in your Braze dashboard when priming your user for push notifications. Braze recommends "prime-for-push". When filled in, users will be sent a Braze In-App message on session load
 | Push Notification Service Worker File Location | `string` | <unset> | Web | Optional - If the "service worker.js" file is not located in your root directory, then this field is the relative path, starting with "/" and including the filename.js. Please view integration docs for more information
 | Safari Website Push ID |`string` | <unset> | Web | The unique identifier for your Website Push ID, starting with the string "web", from the Apple Developer website
