@@ -15,29 +15,32 @@ Formation will send the following events to mParticle as Custom Events of type `
 
 | Event | Event Attributes | Description |
 |---|---|---|
-| achieved |  `current_status`, `formation_offer_id`, `game_status`, `game_type`, `is_reward`,  `last_change`, `metadata`, `num_steps` , `offer_expiration`, `offer_start` | Formation sends this event when a customer makes progress on an offer by opting in or completing a qualifying event. |
-| activated | `current_status`, `formation_offer_id`, `game_status`, `game_type`, `metadata`, `num_steps`, `offer_expiration`, `offer_start` | Formation sends this event when a customer opts into an offer |
-| assign_offer  | `current_status`, `formation_offer_id`, `game_status`, `game_type`, `metadata`, `num_steps`, `offer_expiration`,`offer_start` |  Formation sends this event when an offer is launched to a customer. This can happen at activation time, or before it.|
-| completed |  `current_status`, `formation_offer_id`, `game_status`, `game_type`, `metadata`, `num_steps`, `offer_expiration`, `offer_start` | Formation sends this event when a customer completes the last goal in an offer. |
-| reward |  `current_status`, `formation_offer_id`, `game_status`, `game_type`, `metadata`, `num_steps` , `offer_expiration`,  `offer_start`, `reward_amount`, `reward_currency`, `reward_reference` | Formation sends this event when a customer's progress produces a reward |
+| Offer Activated | `tags`, `unique_offer_id` | Formation sends this event when a customer opts into an offer. |
+| Offer Completed | `end_time`, `offer_reward`, `offer_type`, `start_time`, `status`, `steps`, `tags`, `total_reward`, `unique_offer_id` | Formation sends this event when a customer completes their offer. |
+| Offer Progressed | `end_time`, `offer_reward`, `offer_type`, `progressed_steps`, `start_time`, `status`, `steps`, `tags`, `total_reward`, `unique_offer_id` | Formation sends this event when a customer make progress towards a cumulative offer step (e.g. in a week streak, cumulative purchase offer). |
+| Offer Step Achieved | `end_time`, `offer_reward`, `offer_type`, `start_time`, `status`, `steps`, `tags`, `total_reward`, `unique_offer_id` | Formation sends this event when a customer's event completes a step in their offer. |
+| Offer Ready | `end_time`, `offer_reward`, `offer_type`, `start_time`, `status`, `steps`, `tags`, `total_reward`, `unique_offer_id` | Formation sends this event for each offer when a campaign is launched from the platform. |
+| Reward Earned | `end_time`, `offer_type`, `reward_currency`, `reward_id`, `reward_value`, `start_time`, `status`, `steps`, `tags`, `unique_offer_id` | Formation sends this event when a customer's progress produces a reward. |
 
 ### Event Attributes
 
+You can see details of what wil be included in the JSON objects on the [Formation developer page](https://developer.formation.ai/) through the [Status response](https://developer.formation.ai/#tag/Status/paths/~1status~1%7BCustomerID%7D/get) documentation.
+
 | Attribute Name | Description |
 |---|---|
-current_status | Possbile values are `Eligible`, `Active`, or `Completed`. Represents whether the customer is yet to opt in, has opted in and is playing the game, or has achieved the full game.
-formation_offer_id | String representing unique Formation internal Offer ID.
-game_status | JSON of current steps & state in the offer for detailed creative & analysis.
-game_type | String identifying offer type or use case. This is frequently used to determine which creative template to use to represent game status.
-is_reward | Possible values are "True" or "False." A string representing whether or not this progress resulted in points being issued. In this case, it is often best to leverage the Reward Earned event for creative.
-last_change	| Possible values are `Opted In`, `Step Completed`, or `Game Completed`.
-metadata | JSON of offer metadata fields.
-num_steps | Number of steps in the game (goals in game_status).
-offer_expiration | UTC Timestamp (ISO8601) representing when the offer is no longer active for the customer.
-offer_start | UTC Timestamp (ISO8601) representing when the offer is active for the customer.
-reward_amount | The quantity rewarded to the customer based on progress.
+end_time | Local timestamp representing when the offer is no longer active for the customer.
+offer_reward | JSON object that describes the reward the customer will receive for completing the offer.
+offer_type | String identifying offer type or use case. This is frequently used to determine which creative template to use to represent game status.
+progressed_steps | JSON object that describes which step(s) progressed and what the progression of each was.
 reward_currency | The currency being used to reward. Is often points.
-reward_reference | A fixed value, configured for the integration, that allows for accounting of reward issuance back to Formation.
+reward_id | The identifier of this reward event which can be tied back to a reward object in the offer.
+reward_value | The quantity rewarded to the customer based on progress.
+start_time | Local timestamp representing when the offer becomes active for the customer.
+status | Possbile values are `Eligible`, `Active`, or `Completed`. Represents whether the customer is yet to opt in, has opted in and is playing the game, or has achieved the full game.
+steps | JSON of current steps & state in the offer for detailed creative & analysis.
+tags | JSON of offer metadata fields.
+total_reward | JSON object that describes the total reward available for the offer.
+unique_offer_id | String representing unique Formation internal Offer ID.
 
 ## Supported Identities
 
