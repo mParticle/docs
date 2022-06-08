@@ -28,6 +28,10 @@ To send data client side on web, simply create a new Google Analytics 4 output i
 
 #### Sending Data via Web Server Side
 
+<aside>
+As required by the Google API, you must use the GA4 SDK for server-side integration.  mParticle supports forwarding with both a client-side kit to forward to GA4 as well as S2S to the GA4 Measurement Protocol API.  However, both have requirements that require the GA4 SDK be integrated natively.  If you turn on the GA4 integration in our UI AND are using the mParticle web SDK, mParticle does this for you. If you want to forego the web SDK altogether, you must include the GA4 SDK yourself ([GA4 docs](https://support.google.com/analytics/answer/9304153)).  If you are currently forwarding data S2S to mParticle's Events API, you must update the payloads to support forwarding to GA4, which requires the GA4 SDK to grab the relevant `client_id`.
+</aside>
+
 You may prefer to send web data server side in order to reduce both the the number of calls the browser makes, and the size of your web site.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.  
 
 To send data server side, check `Forward Requests Server Side` in the Connection Settings. Add the `Measurement ID` and you will also need to include a `Measurement Protocol API Secret`. On GA4, each data stream can have one or more `Measurement Protocol API Secrets`.  To create one:
@@ -111,6 +115,11 @@ You must follow the Firebase docs to create a Firebase project and download your
 [Please see Firebase's iOS setup guide here](https://firebase.google.com/docs/ios/setup).
 
 #### Sending Data via Native Apps Server Side
+
+<aside>
+The Firebase SDK is a requirement to use this integration server side per Google's API.  mParticle has built forwarding using both a client-side kit to forward data client side to GA4 via Firebase as well as S2S to the GA4 Measurement Protocol API.  However, both have requirements that require Firebase SDK integrated natively.  If you are sending data server to server to mParticle's Events API today there are updates needed to the payloads to support forwarding to GA4, which require Firebase SDK implemented to grab the relevant `app_instance_id`.
+</aside>
+
 You may prefer to send this data server side in order to reduce both the the number of calls the device makes, and the size of your app.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.
 
 To send data server side, check `Forward Requests Server Side` in the Connection Settings.  You will also need to include your `Firebase App ID` and a `Measurement Protocol API Secret` to forward web requests server side. Each data stream can have one or more `Measurement Protocol API Secret`.  To create one:
@@ -127,7 +136,7 @@ Google's server side API for GA4 requires an `app_instance_id` which comes from 
 
 ##### Sending Data via Native Apps Server Side without the kit
 
-Optionally, you can resolve the `app_instance_id` by directly calling the [Firebase SDK](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference?client_type=firebase#app_instance_id).
+Optionally, you can resolve the `app_instance_id` by directly [calling the Firebase SDK](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference?client_type=firebase#app_instance_id).
 When the payload is sent to our endpoint, it will require the `app_instance_id` as part of the [integration attributes](/developers/server/json-reference/#overall-structure) under the key `160` as the following example: 
 
 ```json
