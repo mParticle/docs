@@ -29,7 +29,6 @@ Feature Name | mParticle Support | Feature Description
 ------------ | ----------------- | -------------------
 [Funnels](https://help.mixpanel.com/hc/en-us/categories/115001209063#funnels) | Yes | Analyze where users drop off.
 [In-app Notifications](https://help.mixpanel.com/hc/en-us/articles/360001131323-Deep-Linking-in-iOS-and-Android-In-App-Notifications) | No | Showing your messages when app an opens.
-[Notifications](https://help.mixpanel.com/hc/en-us/articles/360001302503-Send-Push-Notifications-from-Mixpanel) | Yes | Send email / push notifications.
 [People Profiles](https://help.mixpanel.com/hc/en-us/articles/115004501966-People-Profiles) | Yes | Get to know your users, track their LTV.
 [Retention](https://help.mixpanel.com/hc/en-us/articles/360001370146-Types-of-Retention) | Yes | Analyze how many users come back to your apps, break down by cohorts
 [Segmentation, now known as Insights](https://help.mixpanel.com/hc/en-us/articles/360001333826-Insights-Overview) | Yes | Slice and dice data using all available dimensions (by events, event attributes, user attributes, etc.). For information about Insights replacing Segmentation see, [Segmentation Retirement FAQ](https://help.mixpanel.com/hc/en-us/articles/360001361023-Segmentation-Retirement-FAQ).
@@ -114,7 +113,6 @@ To support each feature in the [Supported Features](#supported-features) table a
 
 Mixpanel SDK Method | Method Description | Related Feature | mParticle SDK Method | Notes
 ------------------- | ------------------ | --------------- | -------------------- | -----
-addPushDeviceToken | Register the given device to receive push notifications. | Notifications | set pushNotificationToken
 alias | Links two IDs as the same user. | People Analytics | setUserIdentity with identity type alias | Mixpanel's alias method supports the following two use cases. **mParticle currently only supports the first**: <br><br> 1. When a user first signs up, the alias method can be used to link the new `userId` to `deviceId` used to track the user pre-signup. <br><br>2. When a user changes sign-in id, the alias method (combined with identify method) can be used to tie the new userId to the previous `userId`.
 deleteUser | Delete current user's record from Mixpanel People. | People Analytics | _Not Supported_
 identify | Sets the distinct ID of the current user. | People Analytics | SetUserIdentity | By default, device udid is used to identify a user. If the 'Use Mixpanel People' setting is enabled, and the 'Use Customer ID' setting is enabled, and a Customer Id is available, Customer Id is used.
@@ -242,33 +240,6 @@ Event batches sent to Mixpanel using the server-side web integration will also s
 
 Note that this data depends on the [`http_header_user_agent`](/developers/server/json-reference/#device_info) field so they will only be set if a value is included in the batch.
 
-### Enabling Push Notification
-
-Mixpanel push notifications are handled differently in iOS than in Android.
-
-#### Android
-
-To send Push Notifications to your Android App, you will need to set your FCM or GCM Server Key in the Mixpanel Dashboard under **Settings > Notifications**. Paste your Server Key into the field marked **Android FCM Server Key**.
-
-Note that Android Google CLoud Messaging (GCM) has been deprecated by Google. You must now use Firebase Cloud Messaging (FCM). mParticle supports the FCM standard. Documentation about FCM can be found in the [Android SDK Documentation](/developers/sdk/android/push-notifications/) topic. For information about transitioning to FCM, see the [Firebase FAQ](https://firebase.google.com/support/faq/).
-
-
-![](/images/Mixpanel-GCM-API-Key-042019.png)
-
-Follow the [Android SDK Documentation](/developers/sdk/android/push-notifications/) to enable Push Notification in your app. Since Mixpanel is not a kit integration, you will need to either create your own receiver to display the notification, or enable mParticle to display notifications by setting:
-
-~~~java
-MParticle.getInstance().Messaging().displayPushNotificationByDefault(true);
-~~~
-
-#### iOS
-If a push notification token has been set using the mParticle SDK, mParticle will forward it to Mixpanel to authorize push notifications.
-
-Mixpanel's SDK Method | mParticle's SDK Method
---------------------- | ----------------------
-addPushDeviceToken | set pushNotificationToken
-
-If a push notification token has been set using the mParticle SDK, mParticle will forward it to Mixpanel by setting the `$ios_devices` or `$android_devices` parameter accordingly.
 
 ### EU Data Localization
 

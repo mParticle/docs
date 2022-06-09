@@ -10,14 +10,6 @@ Our integration will forward audience information on your users to your Mixpanel
 
 In order to activate audience forwarding to Mixpanel, you must have the Mixpanel API Token for the account that you wish to forward data to. The token can be found on your Mixpanel dashboard by clicking on the "Account" link, then selecting the "Projects" tab.
 
-<aside class="warning">Mixpanel People
-<br>
-The mParticle audience integration with Mixpanel operates by attaching information to Mixpanel People profiles.  As such, you must subscribe to the Mixpanel People add-on in order for the integration to work.  For additional information about Mixpanel People, please see the following links: <a href="https://help.mixpanel.com/hc/en-us/articles/115004501966-People-Profiles">Mixpanel People</a> and <a href="https://mixpanel.com/pricing/#people">Mixpanel Pricing</a>
-<br>
-Additionally, you must check the box for <b>Use Mixpanel People</b> configuration parameter in the mParticle Audience Configuration dialog in order for the audience integration to work.
-<br>
-</aside>
-
 ## User Identity Mapping
 
 When forwarding audience data to Mixpanel, mParticle will send
