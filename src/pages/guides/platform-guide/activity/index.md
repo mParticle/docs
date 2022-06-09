@@ -135,6 +135,10 @@ A list of all [Audiences](/platform-guide/audiences/) the user is a member of.
 
 The Events tab will show a timeline of historical event data from the user, <strong>up until the previous day</strong>. Events can be filtered by Date, Input, Event Type and Device. In addition to filtering, you can also choose to highlight selected event names in the timeline.
 
+<aside>
+  The Last Updated tag in the UAV Events view indicates the last time the data was refreshed on the page, not when the previous day's data has been loaded.
+</aside>
+
 Events are grouped in batches, with the input source in bold. Click a batch heading to view common attributes for the batch, or an event name to view attributes for the event. eCommerce events show details for the transaction and also for each product, including quantity and total price per product.
 
 ![](/images/uav-events-1a.png)
