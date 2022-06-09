@@ -24,7 +24,7 @@ Formation will send the following events to mParticle as Custom Events of type `
 
 ### Event Attributes
 
-You can see details of what wil be included in the JSON objects on the [Formation developer page](https://developer.formation.ai/) through the [Status response](https://developer.formation.ai/#tag/Status/paths/~1status~1%7BCustomerID%7D/get) documentation.
+You can see details of what will be included in the JSON objects on the [Formation developer page](https://developer.formation.ai/) through the [Status response](https://developer.formation.ai/#tag/Status/paths/~1status~1%7BCustomerID%7D/get) documentation.
 
 | Attribute Name | Description |
 |---|---|
