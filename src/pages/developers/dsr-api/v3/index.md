@@ -106,6 +106,7 @@ Authorization: Basic <your-token-here>
   "group_id": "my-group",
   "extensions": {
     "opendsr.mparticle.com": {
+      "skip_waiting_period": false,
       "subject_identities": {
         "other6": {
           "value": "EA7583CD-A667-48BC-B806-42ECB2B48606",
@@ -123,6 +124,7 @@ Authorization: Basic <your-token-here>
 | `subject_request_id` | UUID v4 string | Required | A unique identifier for the request provided by the controller. |
 | `subject_request_type` | string | Required | The type of request. Supported values are `access`, `portability` and `erasure`. |
 | `submitted_time` | ISO 8601 date string | Required | The time the Data Subject originally submitted the request. |
+| `skip_waiting_period` | string | Optional | Allows you to skip the 7 day waiting period, shortening the cancellation window to less than 24 hours and the total time to completion to between 1 and 14 days. Supported values are `true` or `false`, and the default value is `false`. If you do not skip the waiting period, the total time to complete an erasure request will be between 7-21 days, with a 7 day waiting period allowing you to cancel the request. [Learn more.](https://docs.mparticle.com/guides/data-subject-requests/#erasure) |
 | `subject_identities` | array | Required unless an `extensions` field is included | See below for details |
 | `api_version` | string | Optional | The API Version your request uses. Valid value is `3.0`.|
 | `status_callback_urls` | Array | Optional | Array of URLs for a callback post to be made on completion of the request |

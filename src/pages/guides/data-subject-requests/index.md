@@ -99,6 +99,20 @@ After mParticle receives an erasure request, a 7 day waiting period starts. This
 
 After the 7 day waiting period, any pending erasures are initiated. Once begun, it may take up to 14 days before the erasure is complete. For each completed erasure request, mParticle sends a callback to any specified URLs indicating that the request has been fulfilled.
 
+#### Erasure request waiting period
+
+By default, erasure requests are completed between 7 and 21 days after being received by mParticle. The initial 7 day waiting period provides an opportunity to cancel a pending erasure request before it is carried out.
+
+To skip the initial 7 day waiting period when submitting a data subject erasure request to mParticle, check the option labeled **Skip waiting period** in the **New Data Subject Request** modal.
+
+Skipping the waiting period shortens the request cancellation window to less than 24 hours. This reduces the total time required to complete an erasure request to between 1 and 14 days after it is received by mParticle.
+
+If you wish to remove users from audiences or from event forwarding during the waiting period, set a user attribute and apply audience criteria and/or forwarding rules to exclude them.
+
+<aside>
+Most privacy regulations simply require an acknowledgement of a request within an initial time frame. Fulfillment timeframes for requests are typically more generous as they may require follow-up to validate additional details. We recommend consulting the requirements of your privacy regulation to understand your obligations.
+</aside>
+
 #### What data is deleted?
 
 In response to a data subject erasure request, mParticle deletes the data it stored, such as historical event batches, audience data, and profiles.

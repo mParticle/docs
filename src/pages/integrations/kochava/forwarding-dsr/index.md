@@ -45,8 +45,8 @@ Create a DSR forwarding configuration for Kochava and activate it:
 After the DSR forwarding is configured, use either the mParticle user interface or API to submit requests for erasure.
 
 * [Instructions for the user interface](/guides/data-subject-requests/#erasure)
-* [Instructions for the API](/developers/dsr-api/v3/#submit-a-data-subject-request-dsr) You must use v3 of the API with DSR.
-  
+* [Instructions for the API](/developers/dsr-api/v3/#submit-a-data-subject-request-dsr) You must use v3 of the API with DSR forwarding.
+
 <aside>Remember to set the configuration to Active (Step 2.5) to start forwarding erasure requests.</aside>
 
 ## Step 4: Check Forwarding Status
