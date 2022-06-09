@@ -612,6 +612,7 @@ launch_referral | string | optional | A string representing the referral URL tha
 		"push_notification_payload" : "{}",
 		"application_state" : "foreground",
 		"action_identifier" : "action",
+		"push_message_behavior": 2,
 		"event_id" : 6004677780660780000,
 		"source_message_id" : "e8335d31-2031-4bff-afec-17ffc1784697",
 		"session_id" : 4957918240501247982,
@@ -627,13 +628,14 @@ launch_referral | string | optional | A string representing the referral URL tha
 
 Property | Data Type | Required| Description
 ---------|------------|---|---
-push_message_token | string | optional| Push Message Token
+push_message_token | string | optional | Push Message Token
 push_message_type | string / enum | required| "sent", "received", "action"
 message | string | optional| The text displayed in push message
 network | string / enum | suggested| "apn" for apple push notifications, "gcm" for google cloud messaging
-push_notification_payload | string | optional| push notification message data in JSON format
+push_notification_payload | string | optional | push notification message data in JSON format
 application_state | string / enum | optional| "not_running", "background", or "foreground"
 action_identifier | string | optional| action identifier, 100 character limit
+push_message_behavior | integer | optional | Bit mask representing the behaviors that have been so far observed for the given push message. 
 
 ### network_performance
 
