@@ -88,7 +88,7 @@ Authorization: Basic <your-token-here>
   "regulation": "gdpr",
   "subject_request_id": "a7551968-d5d6-44b2-9831-815ac9017798",
   "subject_request_type": "erasure",
-  "submitted_time": "2021-11-0115:00:00Z",
+  "submitted_time": "2021-11-01T15:00:00Z",
   "subject_identities": {
     "email": {
       "value": "johndoe@example.com",
@@ -216,7 +216,7 @@ X-OpenDSR-Signature:
 ~~~http
 {
     "controller_id": "3622",
-    "expected_completion_time": "2021-12-09T00:00:00",
+    "expected_completion_time": "2021-12-09T00:00:00Z",
     "subject_request_id": "a7551968-d5d6-44b2-9831-815ac9017798",
     "group_id": null,
     "request_status": "pending",
@@ -229,7 +229,7 @@ X-OpenDSR-Signature:
 | Field Name | Data Type | Description |
 | ---------- | --------- | ----------- |
 | `controller_id` | string | A unique ID representing the data controller.  mParticles sets this to the workspace ID. |
-| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed. |
+| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed in UTC. |
 | `subject_request_id` | UUID v4 string | The controller-provided identifier of the request in a GUID v4 format. |
 | `group_id` | string  | The `group_id` can be used to relate different subject requests together. | 
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
@@ -269,7 +269,7 @@ The response is a collection of DSR subject requests that match the `group_id`.
 [
   {
     "controller_id": "3622",
-    "expected_completion_time": "2021-09-07T10:00:00.322652",
+    "expected_completion_time": "2021-09-07T10:00:00.322652Z",
     "subject_request_id": "a7551968-d5d6-44b2-9831-815ac9017798",
     "group_id": "my-group",
     "request_status": "pending",
@@ -279,7 +279,7 @@ The response is a collection of DSR subject requests that match the `group_id`.
   },
   {
     "controller_id": "3622",
-    "expected_completion_time": "2021-09-06T10:15:00.259842",
+    "expected_completion_time": "2021-09-06T10:15:00.259842Z",
     "subject_request_id": "cab0a1fc-cfcd-475a-a2a5-e93eb060332f",
     "group_id": "my-group",
     "request_status": "pending",
@@ -309,7 +309,7 @@ Cancels a request. This can only be done if the status of the request is `pendin
 
 | Field Name | Data Type | Description |
 | ---------- | --------- | ----------- |
-| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed. For a canceled request, the value is `null`. |
+| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed in UTC. For a canceled request, the value is `null`. |
 | `received_time` | ISO 8601 date string | The time at which the cancellation request was received. |
 | `subject_request_id` | string | The controller-provided identifier of the request. |
 | `controller_id` | string | A unique ID representing the data controller.  mParticles sets this to the workspace ID. |
@@ -408,7 +408,7 @@ X-OpenDSR-Signature:
 [signature block]
 {
     "controller_id":"4308",
-    "expected_completion_time":"2018-05-31T16:27:28.679094",
+    "expected_completion_time":"2018-05-31T16:27:28.679094Z",
     "subject_request_id":"372fcd8b-d723-452e-ac60-36bd17372321",
     "request_status":"pending",
     "api_version":"3.0",
