@@ -131,11 +131,11 @@ Assign this role to each Lambda function you plan to deploy as an mParticle Rule
 1. Create a Rule by navigating to **Data Master > Rules** 
 2. Click **New Rule**.
 
-![Rules](/images/Platform-Update-Rules-Overview-042019.png)
+![Rules](/images/rules-new-rule.png)
 
 Enter your Development and Production ARNs and click **Test**.
 
-![Rules](/images/Platform-Update-Rules-Testing-Rules-042019.png)
+![Rules](/images/rules-configure.png)
 
 ## Error Handling
 
@@ -205,14 +205,14 @@ The following metrics are available:
 
 These metrics are for the last 24 hours and apply to all connections. Summaries for each Rule can be seen on the main Rules page. Detailed graph of the previous 24 hours is available on the **Monitoring** tab of the individual Rule page.
 
-![](/images/Platform-Update-Rules-Monitoring-042019.png)
+![](/images/rules-monitor.png)
 
 ## Logs
 
 To help you with troubleshooting Rules, mParticle maintains logs for each Rule where you can view all console output. From an individual Rule page, select the **Logs** tab. You can filter messages by date range or search for keywords.
 
 
-![](/images/Platform-Update-Rules-Logs-042019.png)
+![](/images/rules-logs.png)
 
 
 ## Deleting Rules
