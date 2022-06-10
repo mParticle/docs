@@ -57,7 +57,7 @@ Each DSR follows the same basic workflow:
     * The time the Data Subject submitted the request;
     * An optional list of Status Callback URLs.
 
-1. On receipt of the request, mParticle sets the status of the request to "Pending" and sends a status callback request to all URLs listed in the original request. This callback includes an expected completion time for the request, which is calculated as: the time it will be scheduled for processing (details below) plus 48 hours (to ensure the job completes in time).
+1. On receipt of the request, mParticle sets the status of the request to "Pending" and sends a status callback request to all URLs listed in the original request. This callback includes an expected completion time for the request, which is calculated as: the time it will be scheduled for processing plus 48 hours to ensure the job completes in time.
 
 1. The Data Controller can check the status of the request at any time.
 
@@ -105,7 +105,7 @@ By default, erasure requests are completed between 7 and 21 days after being rec
 
 To skip the initial 7 day waiting period when submitting a data subject erasure request to mParticle, check the option labeled **Skip waiting period** in the **New Data Subject Request** modal.
 
-Skipping the waiting period shortens the request cancellation window to less than 24 hours. This reduces the total time required to complete an erasure request to between 1 and 14 days after it is received by mParticle.
+Skipping the waiting period shortens the request cancellation window. This reduces the total time required to complete an erasure request to between 1 and 14 days after it is received by mParticle.
 
 If you wish to remove users from audiences or from event forwarding during the waiting period, set a user attribute and apply audience criteria and/or forwarding rules to exclude them.
 
