@@ -7,7 +7,7 @@ The mParticle SDK can be configured to receive, show, and track the results of p
 
 ## Setup Push Messaging for your App
 
-To take advantage of Push Notifications you need to subscribe to a notification service. It is highly recommended that you use Firebase notifications if possible. The Google Cloud Messaging service is now deprecated. If you use any of Google's Firebase SDKs you must use Firebase for push notifications.
+To take advantage of push notifications you need to subscribe to a notification service. It is highly recommended that you use Firebase notifications if possible. The Google Cloud Messaging service is now deprecated. If you use any of Google's Firebase SDKs you must use Firebase for push notifications.
 
 ### Firebase
 
@@ -66,7 +66,7 @@ If you are already using Google Cloud Messaging, it is advisable to follow Googl
 
 ## Register for push notifications
 
-Whether you are using FCM or GCM, you should now have a 'Sender ID' and a 'Server Key'. Each device must use the 'Sender ID' to register for Push Notifications. You can either use mParticle's messaging service to register, or you can use your own Push Instance ID service and pass the Push Token to mParticle, manually.
+Whether you are using FCM or GCM, you should now have a 'Sender ID' and a 'Server Key'. Each device must use the 'Sender ID' to register for push notifications. You can either use mParticle's messaging service to register, or you can use your own Push Instance ID service and pass the Push Token to mParticle, manually.
 
 ### Option 1 - Use mParticle to Register
 
@@ -224,16 +224,13 @@ MParticle.getInstance().logNotificationOpened(intentObject);
 
 ## Kits
 
-The following Kit integrations can receive Push Notifications:
+The following Kit integrations can receive push notifications:
 
 * [Braze](/integrations/braze/event/#kit-integration)
+* [CleverTap](/integrations/clevertap/event/) (Push message and push registration)
 * [Iterable](/integrations/iterable/event/)
 * [Leanplum](/integrations/leanplum/event/#kit-integration)
 * [Localytics](/integrations/localytics/event/#push-notifications)
 * [Urban Airship](/integrations/urbanairship/event/#3-push-notifications)
 
-Push Notifications from any of these partners will be displayed by the relevant kit instance. Note that you will need to provide your Server Key to the partner in order to send Push Notifications. See the docs for each integration for further details.
-
-
-
-
+Push notifications from any of these partners are displayed by the relevant kit instance. Note that you must provide your Server Key to the partner in order to send push notifications. See the docs for each integration for details.
