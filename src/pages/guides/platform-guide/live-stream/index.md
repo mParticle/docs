@@ -19,16 +19,22 @@ You can filter the data shown in the Live Stream in several ways.
 
 * **Device** - Often, during testing, you will want to monitor a specific test device. The Device drop-down allows you to choose a device to monitor from all devices that are currently sending messages to all workspaces in the account, as well as all devices that have been saved. Observed devices will be identified by the device's Platform and 32 character UUID, for example: `(IOS) 09984094-08b5-4547-afc8-df1d07e5658d`.
    
-  To save a specific device:
+Live Stream shows only Development data, but if you filter for a specific device, the Live Stream will also show events from the Production environment. When attempting to match a device to a device ID, mParticle will look for the following per platform:
 
-    1.  Click **Add/Edit Device** to display the Device list.
-    2.  Click **+** next to the device you want to add, or click **Add New Device** to display the Add Device form.
-    3.  Enter/Modify the Device ID, Device Name, Device Type and click **Add Device**.
-    4.  Click **Save**.
+- **iOS**: IDFA (`ios_advertising_id` in the Events API)
+- **Android**: GAID (`android_advertising_id`)
+- **Web** and other platforms: Device Application Stamp (`mp_deviceid`)
 
-  Once you save a device, it remains in the drop down list.
+To save a specific device:
+
+1.  Click **Add/Edit Device** to display the Device list.
+2.  Click **+** next to the device you want to add, or click **Add New Device** to display the Add Device form.
+3.  Enter/Modify the Device ID, Device Name, Device Type and click **Add Device**.
+4.  Click **Save**.
+
+Once you save a device, it remains in the drop down list.
    
-  Usually, the Live Stream shows only Dev data, but if you filter for a specific device, the Live Stream will also show events from the Production environment. When attempting to match a device to a Device ID, mParticle will look first for an Advertising Identifier (IDFA for iOS, GAID for Android), if an Advertising Identifier is not present, mParticle will attempt to match against a persistent device ID (IDFV for iOS, Android ID for Android).
+Usually, the Live Stream shows only Development data, but if you filter for a specific device, the Live Stream will also show events from the Production environment. When attempting to match a device to a Device ID, mParticle will look first for an Advertising Identifier (IDFA for iOS, GAID for Android), if an Advertising Identifier is not present, mParticle will attempt to match against a persistent device ID (IDFV for iOS, Android ID for Android).
 
 ## Pausing and Resuming
 
