@@ -20,15 +20,15 @@ Note that mParticle begins loading current data into BigQuery from the time the 
 Please work with your mParticle customer support manager to enable BigQuery access on the mParticle UI. To get data loading going, please complete the following steps.
 
 1. Enable BigQuery in your project in Google Cloud Platform.
-2. From the **IAM** page for your project, add `mparticle-gcp-clientfacing@gcp-prod-170221.iam.gserviceaccount.com` as a member with the role of Project Viewer.  
-    ![](/images/bigquery-project-viewer.png)
+2. From the **IAM** page for your project, add `mparticle-gcp-clientfacing@gcp-prod-170221.iam.gserviceaccount.com` as a member with the BigQuery Job User and Project Viewer roles. 
+    ![](/images/bigquery-project-viewer.jpg)
 3. From the **BigQuery** page for your project:
-    * Create a dataset for your app data to be loaded into.
+    * Create a dataset to load your app into.
     * Click on **Share Dataset** on the dataset page.
-      ![](/images/bigquery-share-dataset.png)
-    * Add `mparticle-gcp-clientfacing@gcp-prod-170221.iam.gserviceaccount.com` with the "BigQuery Data Editor" role.  
-      ![medium](/images/bigquery-permission.png)
-4. Log into mParticle platform, and navigate to BigQuery page. 
+      ![](/images/bigquery-share-dataset.jpg)
+    * Add `mparticle-gcp-clientfacing@gcp-prod-170221.iam.gserviceaccount.com` with the BigQuery Data Editor and Project Viewer roles.  
+      ![medium](/images/bigquery-permission.jpg)
+4. Log into mParticle platform, and navigate to the BigQuery page. 
 
 <aside class= "warning">
 Note: In the mParticle app, if you do not have Admin rights, you will be able to see the <b>Settings</b> dialog but it will be set to "Read Only" and you will not be allowed to add any new Configurations. For permissions talk to your administrator for the appropriate access.
@@ -36,7 +36,7 @@ Note: In the mParticle app, if you do not have Admin rights, you will be able to
 
 * Enter your BigQuery `projectId` (note that it may be different from your project name) and the `datasetId` of the dataset created in step 3.
 
-![](/images/bigquery-project-id.png)
+![](/images/bigquery-project-id.jpg)
 
 * Enter your BigQuery table prefix
 * Optionally, you may configure a data retention policy.
@@ -55,7 +55,7 @@ To forward data subject erasure requests to Google BigQuery, set the Forwarding 
 <aside>The forwarding behavior for data subject erasure requests to Google BigQuery is different than the behavior of other event integrations. With Google BigQuery, the forwarding status reported by mParticle also represents the fulfillment status of the request, since mParticle knows immediately if the erasure request was processed successfully or not.
 </aside>
 
-![](/images/bigquery-setup2.png)
+![](/images/bigquery-config.jpg)
 
 ### Connection Settings
 | Setting Name | Data Type | Default Value | Platform | Description |
