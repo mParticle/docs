@@ -43,6 +43,7 @@
                 display: inline-block;
                 text-align: center;
                 letter-spacing: normal;
+                white-space: nowrap;
             }
             &.active {
                 span {
@@ -84,6 +85,29 @@
                 transition: all 0.3s ease;
             }
 
+        }
+        &.header-button {
+            margin: 0 20px 0 20px;
+            background-color: @mp-mint;
+            color: @mp-darkgrey-bodycopy;
+            padding: 10px 20px;
+
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            font-family: 'Roboto';
+            font-size: 16px;
+
+            span {
+                display: inline-block;
+                text-align: center;
+                letter-spacing: normal;
+                white-space: nowrap;
+            }
+
+            &:hover {
+                color: @mp-blue-black !important;
+                background-color: @mp-mint-light;
+            }
         }
 
         &.header-pad {
@@ -169,11 +193,18 @@
         .pin-right {
             gap: 20px;
         }
+        .pin-middle a.header-links {
+            margin: 0 14px;
+        }
+        a.header-button {
+            padding: 10px;
+        }
     }
 }
 
 @media (max-width: @desk_sm_break) {
-    .pin-middle {
+    .pin-middle,
+    .pin-right .header-button {
         display: none !important;
     }
 

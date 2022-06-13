@@ -75,7 +75,17 @@ class DocsHeader extends React.Component {
                             className='search'
                             openSearch={this.openSearch}
                             alwaysShowClose
-                            collapsed={this.closeSearch} />
+                            collapsed={this.closeSearch}
+                        />
+                        <div className='sign-up-wrapper'>
+                            <a
+                                className='header-button sign-up'
+                                href='https://www.mparticle.com/free-trial'
+                                target='_blank'
+                                rel='noopener noreferrer'>
+                                <span>Sign Up</span>
+                            </a>
+                        </div>
                     </div>
                     <NavFlyout location={this.props.location} />
                 </div>
@@ -84,7 +94,8 @@ class DocsHeader extends React.Component {
                         className='search breadcrumb-search'
                         openSearch={this.openSearch}
                         alwaysShowClose
-                        collapsed={this.closeSearch} />
+                        collapsed={this.closeSearch}
+                    />
                 </div>
             </div>
         );
