@@ -10,7 +10,7 @@ The platform API is located at `https://api.mparticle.com`.
 
 ## Prerequisites to Accessing the API
 
-Before you can authenticate to the Platform API you must first contact your account representative or [contact our customer support team](mailto:support@mparticle.com) to arrange for a Client ID and Secret to access the Token API. You will need to provide a PGP public key for secure transmission of your credentials. You can then use the ID and secret to fetch an oauth access token.
+To authenticate to the Platform API, use the [API Credentials interface](/developers/credential-management) to create a Client ID and Secret, then use these credentials to fetch an OAuth access token.
 
 ## Authentication
 
