@@ -38,9 +38,9 @@ In order to enable mParticle's integration with Apptentive, you will need your A
 
 ## Apptentive Kit Integration
 
-mParticle's Apptentive integration requires that you add the Apptentive kit to your iOS or Android app, and the mParticle SDK will initialize and automatically map mParticle method calls directly to Apptentive method calls. This approach means that **every feature of the Apptentive SDKs are supported**, as if you integrated Apptentive directly.
+The mParticle Apptentive integration requires that you add the Apptentive kit to your iOS or Android app, so that the mParticle SDK initializes and automatically maps mParticle method calls directly to Apptentive method calls. Thus, every feature of the Apptentive SDKs that is in the mParticle SDK is supported, as if you had integrated Apptentive directly.
 
-Add the Apptentive Kit to your iOS or Android app. See the Cocoapods and Gradle examples below:
+Add the Apptentive Kit to your iOS or Android app as shown in the following examples.
 
 :::code-selector-block
 ~~~objectivec

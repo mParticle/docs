@@ -17,7 +17,7 @@ Braze offers a broad range of functionality via their solution and it is critica
 
 ## mParticle Braze Implementation Scenarios
 
-**The mParticle SDK** allows you to include the Braze kit which allows Braze interface components (images, layout files, etc.) and as a result supports *the entire* Braze feature set, which includes:
+The [mParticle SDK](https://github.com/mparticle) allows you to include the Braze kit which allows Braze interface components (images, layout files, etc.) and as a result supports many Braze features, including:
 
 * App Analytics
 * User Segmentation
@@ -28,7 +28,12 @@ Braze offers a broad range of functionality via their solution and it is critica
 * Feedback
 * Geolocation
 
-<aside>No features are supported by the standard mParticle SDK, alone. You must install mParticle's Appboy Kit to be able to forward data from your app to Braze.</aside>
+Features are supported by the mParticle SDK only after you install the [mParticle Braze Kit](https://github.com/mparticle-integrations/mparticle-android-integration-appboy) (formerly Appboy), which then forwards data from your app to Braze.
+
+Features are supported in two ways:
+
+* The kit itself provides functionality directly without you having to call the third-party SDK. For example, most partners have a method called or equivalent to `logEvent`.  When someone calls `mParticle.logEvent`, our kits map to the partner SDK `logEvent` method, in this case, `Braze.logEvent`, and automatically sends it to Braze. You don't have to call `Braze.logEvent` because mParticle does it for you after you call `mParticle.logEvent`.
+* For some features, for example some Braze banners or modals, you must call `Braze.bannerMethod()` or `Braze.modalMethod()`. Our kit loads Braze so that you can call any Braze method you need, even if our kit does not call it for you.
 
 **The mParticle S2S API** allows you to send data server side ([API reference](/developers/server/)). The S2S API supports iOS, Android and Web data. In this scenario, mParticle forwards data via Braze's REST API which supports a limited set of features.
 

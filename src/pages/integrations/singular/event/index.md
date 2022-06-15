@@ -15,7 +15,7 @@ mParticle provides two methods of integrating with Singular: [embedded kit](#emb
 
 ## Embedded Kit Integration
 
-By including the Singular SDK in your mParticle install, the full feature set, including deep linking/deferred deep linking is supported.
+By including the Singular kit in your mParticle SDK, every Singular feature represented in the mParticle SDK is supported, including deep linking/deferred deep linking.
 
 * [Android](https://github.com/mparticle-integrations/mparticle-android-integration-singular)
 * [Apple](https://github.com/mparticle-integrations/mparticle-apple-integration-singular)
