@@ -15,6 +15,8 @@ To send data from your web app to your mParticle workspace input, navigate to **
 
 ## Add the SDK Snippet
 
+You have 2 options for implementing the Web SDK, [via snippet](/developers/sdk/web/getting-started/#add-the-sdk-snippet/), or [self hosting](/developers/sdk/web/self-hosting/). The quickest way to get set up is by using the snippet below, but the [benefits of self hosting](/developers/sdk/web/self-hosting/#who-should-consider-self-hosting) may align with your company's use case and policies better.  Using our snippet means that you always get the latest version of the mParticle SDK and every Web Kit as we push new code.
+
 The following snippet should be included on every page of your web app. Ideally, it should be placed within the `<head>` tag or otherwise be loaded as soon as possible on each page. The mParticle web SDK is lightweight (under 30KB depending on your configuration) and distributed globally via a CDN.
 
 ~~~javascript
