@@ -42,6 +42,10 @@ const QSTRT = [{
 const TUTS = [{
     title: 'Web End-to-End Tutorial',
     route: 'web',
+},
+{
+    title: 'Android End-to-End Tutorial',
+    route: 'android',
 }];
 
 const SDKS = [{

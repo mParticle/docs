@@ -17,7 +17,7 @@ You can collect two types of data with mParticle:
 
 ## Learn how to integrate the Web SDK from start to finish
 
-To demonstrate how mParticle works, you will learn how to track basic event data like page views and purchase events in a web app using the mParticle web SDK. Then, you will learn how to send that data to Google Analytics. You will also learn how to manage your data quality by creating a data plan. 
+To demonstrate how mParticle works, you will learn how to track basic event data like page views and purchase events in a web app using the mParticle web SDK. Then, you will learn how to send that data to a webhook. You will also learn how to manage your data quality by creating a data plan. 
 
 mParticle is extremely flexible. There are thirteen SDKs for specific platforms like web, iOS, and Android, in addition to several APIs. mParticle also provides over 250 integrations with data warehouse, analytics, and marketing automation tools.
 
@@ -37,7 +37,7 @@ By initializing the Web SDK in your app, you gain access to useful methods you c
 
 ### Access to an mParticle instance
 
-In order to begin sending data from your app to mParticle, you will need access to an mParticle account and an API key. We’ll show you where to find your API key in [step 5](ADD-URL).
+In order to begin sending data from your app to mParticle, you will need access to an mParticle account and an API key.
 
 <aside>
     Do you work for a consumer-facing startup and are you considering mParticle? Apply to the <a href="http://mparticle.com/lpg/accelerator">Accelerator Program</a>! The Accelerator Program offers qualified startups free access to mParticle’s enterprise-grade CDP service.
