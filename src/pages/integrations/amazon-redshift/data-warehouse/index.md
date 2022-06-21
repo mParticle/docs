@@ -3,7 +3,7 @@ title: Data Warehouse
 ---
 
 <aside>
-Please note that as of 1/29/2020 we expanded the range of IP addresses used to forward customer data for Redshift. The expanded IP range is available <a href="https://api.mparticle.com/ip-ranges">here</a>. Please ensure that your whitelist is up-to-date. Alternatively, to avoid having to make manual updates, we provide an example <a href="#redshift-cluster-security-setup">AWS Lambda function</a> which can be used to automatically sync your whitelist with the IP addresses used by mParticle.
+Please note that as of 1/29/2020 we expanded the range of <a href="https://api.mparticle.com/ip-ranges">IP addresses</a> used to forward customer data for Redshift. Please ensure that your whitelist is up-to-date.
 </aside>
 
 mParticle's Data Warehouse integration with Amazon Redshift forwards all your incoming data to a Redshift cluster, allowing you to query the raw data directly. 
@@ -248,74 +248,6 @@ Each table has the following common columns.
 Each individual event name table (not including otherevents) also has one column per event attribute, named like: "ea_[attribute_name]", and one column per user attribute, named like "ua_[attribute_name]". 
 
 The benefit of these individual attribute columns is that you don't have to use slower JSON parse functions in your query to extract attribute values from either EventAttributes or UserAttributes columns. If you wish, individual User Attribute columns can be turned off by disabling the **Send user attribute columns** setting.
-
-## Redshift Cluster Security Setup
-
-For mParticle to access your cluster, the IPs of mParticle servers need to be whitelisted on your cluster. Since we add new IPs as we scale our platform, the easiest approach is to follow the instructions below to set up an **AWS Lambda function to automatically sync our IPs**. Alternatively, you can download an up-to-date [IP list](https://api.mparticle.com/ip-ranges).
-
-1. Create a new VPC security group and note the security group ID and the AWS region. Leave the inbound rules empty as they will be managed by the Lambda function.
-2. Create a new AWS Lambda function. Do not select a template. 
- - Download [this zip file](https://static.mparticle.com/public/downloads/redshift-ip-whitelist.zip) that containing the Python code for the Lambda function. The source code is available on GitHub at [https://github.com/mParticle/redshift-ip-whitelist](https://github.com/mParticle/redshift-ip-whitelist).
- - Set the runtime of the Lambda function to Python, upload the zip file, and set the Lambda function handler to `client.lambda_handler`.
- - Create a new role for the Lambda function.
- - Set the timeout value to 1 min to give enough time for the function to run. 
-3. Create a new AWS policy, paste in the following json, and attach it to the new role. Make sure you replace the `[aws-region]`, `[accountid-here]` and `[sg-securitygroupid-here]` with your AWS account Id and the security group Id from step 1.
-    ~~~json
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Sid": "Stmt1463090293000",
-                    "Effect": "Allow",
-                    "Action": [
-                        "ec2:DescribeInstanceAttribute",
-                        "ec2:DescribeInstanceStatus",
-                        "ec2:DescribeInstances",
-                        "ec2:DescribeNetworkAcls",
-                        "ec2:DescribeSecurityGroups"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
-                },
-                {
-                    "Sid": "Stmt1463090293001",
-                    "Effect": "Allow",
-                    "Action": [
-                        "ec2:AuthorizeSecurityGroupIngress",
-                        "ec2:RevokeSecurityGroupIngress"
-                    ],
-                    "Resource": [
-                        "arn:aws:ec2:[aws-region]:[accountid-here]:security-group/[sg-securitygroupid-here]"
-                    ]
-                },
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "logs:CreateLogGroup",
-                        "logs:CreateLogStream",
-                        "logs:PutLogEvents"
-                    ],
-                    "Resource": "arn:aws:logs:*:*:*"
-                }
-            ]
-        }
-    ~~~
-4. Configure a trigger to call the Lambda function on a regular basis. 
-* Go to CloudWatch and create a new rule (under **Events** > **Rules** section accessible from the left panel). We suggest that you use a schedule of a fixed rate of 12 hours as the event selector for the rule. The target of the rule should be the Lambda function created above. 
-* In the configure input section, pick `Constant (JSON text)`, and put in the following JSON with proper values populated. 
-  * The `security_group_id` is the security group ID created in step 1
-  * the `redshift_port` is that redshift port of your cluster
-  *  the `is_vpc` represents if your cluster is in VPC or not
-
-  ```javascript
-    {
-        "security_group_id": "security group id created in step 1", 
-        "redshift_port": 5439, 
-        "is_vpc": true,
-        "aws_region": "aws region noted in step 1"
-    }
-  ```
 
 ## Partner Feed Data
 
