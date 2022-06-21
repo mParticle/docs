@@ -36,7 +36,7 @@ Every event in Snowplow is associated with a User ID. mParticle allows you to ch
 
 mParticle data is mapped onto Snowplow's data format via Snowplow's Iglu schema. Complete mapping details for each event type are listed below.
 
-* mParticle does not apply character limits to string data beyond our [standard limitations](/platform-guide/platform-limits). However, Snowplow can store your data in PostgreSQL or Amazon Redshift databases, which may apply character limits.
+* mParticle does not apply character limits to string data beyond our [standard limitations](/platform-guide/introduction/#platform-limits). However, Snowplow can store your data in PostgreSQL or Amazon Redshift databases, which may apply character limits.
 * You can view mParticle's schemas in [Snowplow's Iglu Central repository](https://github.com/snowplow/iglu-central/tree/master/schemas/com.mparticle.snowplow)
 
 ### App Event

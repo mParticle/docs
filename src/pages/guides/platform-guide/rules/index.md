@@ -1,6 +1,6 @@
 ---
 title: Rules
-order: 8
+order: 6
 ---
 
 Rules allow you to cleanse, enrich and transform your incoming and outgoing data. A Rule is a script which accepts an incoming mParticle Events API "batch" object and modifies it according to your business logic. Some example use-cases for a Rule are:

@@ -1,6 +1,6 @@
 ---
 title: Tiered Events
-order: 14
+order: 8
 ---
 
 <aside>The Tiered Events feature is a beta release, available only upon request. If you're interested in using it prior to general availability, please contact your mParticle success manager.</aside>

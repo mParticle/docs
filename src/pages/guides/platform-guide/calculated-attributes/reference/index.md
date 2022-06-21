@@ -1,6 +1,6 @@
 ---
 title: Calculated Attributes Reference
-order: 4.3
+order: 9.3
 ---
 
 Use the following tables and lists to help you define each calculated attribute.

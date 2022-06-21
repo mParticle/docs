@@ -1,6 +1,6 @@
 ---
-title: User Profiles
-order: 3.5
+title: Profiles
+order: 9
 ---
 
 Although processing and forwarding event data is a core function of mParticle, we are not just an integration platform. Our goal is to help you develop a complete view of your users, across all of your data sources, and make that view available wherever it is needed. The user profile is central to this goal.

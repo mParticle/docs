@@ -1,6 +1,6 @@
 ---
 title: Connections
-order: 5
+order: 2
 ---
 
 mParticle provides multiple data flows to ensure different kinds of data travel from a client application or the web (input) to a destination (output). 

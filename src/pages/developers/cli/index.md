@@ -144,8 +144,8 @@ Both of these methods will internally generate a bearer token on your behalf, as
 
 Credentials Required:
 
-- Workspace ID: [Managing Workspace](/guides/platform-guide/workspaces/#managing-workspaces)
-- Client ID & Client Secret: In [Managing Workspace](/guides/platform-guide/workspaces/#managing-workspaces), after you click on the specific workspace, there will be a pop up with a Key and Secret. Fill this in as your Client ID and Client Secret.
+- Workspace ID: [Managing Workspace](/guides/platform-guide/introduction/#managing-workspaces)
+- Client ID & Client Secret: In [Managing Workspace](/guides/platform-guide/introduction/#managing-workspaces), after you click on the specific workspace, there will be a pop up with a Key and Secret. Fill this in as your Client ID and Client Secret.
 
 ### via CLI
 

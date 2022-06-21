@@ -103,7 +103,7 @@ By now you should be successfully forwarding data to at least one event output. 
 
 * One of the key benefits of mParticle is the power to collect data once and forward it to as many output services as you wish. Browse the [Integrations](/integrations) section of our docs to learn more about the different services mParticle can forward your data to.
 * Most event outputs work by forwarding data server-side via the output partner's HTTP API. However, some outputs require extra client-side code to be added to your native app, to allow data to be sent directly from your app to the output service. These integrations are called "embedded kits". You can read more about them in the [iOS](/developers/sdk/ios/kits/) and [Android](/developers/sdk/android/kits/) documentation.
-* Sending web data to an output usually works a little differently from native. If you're using mParticle on the web, read our guide to [Working with Web Data](/guides/platform-guide/working-with-web-data/).
+* Sending web data to an output usually works a little differently from native. If you're using mParticle on the web, read our guide to [Working with Web Data](/guides/platform-guide/introduction/#working-with-web-data).
 
 Next up, you will learn about the second category of mParticle data by [creating an audience](/guides/getting-started/create-an-audience).
 

@@ -1,6 +1,6 @@
 ---
 title: Using Calculated Attributes
-order: 4.2
+order: 9.2
 ---
 
 Create, activate, and use calculated attributes from the mParticle user interface.

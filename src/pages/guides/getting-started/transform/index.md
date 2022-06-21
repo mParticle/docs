@@ -42,4 +42,4 @@ If you have users in the European Union, you may have obligations as a Data Cont
 
 ## Know your limits
 
-Part of the purpose of mParticle is to allow you to maximize leverage of your data without compromising performance. In order to protect the performance of both your app and the mParticle dashboard, we impose certain limits on the data you can send. If you're a dashboard user, you can read a brief summary of the default limits, [here](/guides/platform-guide/platform-limits/). If you need the full picture, you can read our [detailed guide](/guides/default-service-limits/).
+Part of the purpose of mParticle is to allow you to maximize leverage of your data without compromising performance. In order to protect the performance of both your app and the mParticle dashboard, we impose certain limits on the data you can send. If you're a dashboard user, you can read a brief summary of the default limits, [here](/guides/platform-guide/introduction/#platform-limits). If you need the full picture, you can read our [detailed guide](/guides/default-service-limits/).

@@ -108,7 +108,7 @@ let options = MParticleOptions.init()
 ```
 :::
 
-If you do not create an App Group and configure the Shared Group ID in `MParticleOptions`, any info stored under `NSUserDefaults` will not be available in the app extension and you may not be able to consistently identify users across your main app and the extension. For this reason, you will need to [create a new workspace](/platform-guide/workspaces) in mParticle for your app extension, and create a new iOS input, with a new API key and secret to initialize the SDK in the extension.
+If you do not create an App Group and configure the Shared Group ID in `MParticleOptions`, any info stored under `NSUserDefaults` will not be available in the app extension and you may not be able to consistently identify users across your main app and the extension. For this reason, you will need to [create a new workspace](/platform-guide/introduction/#managing-workspaces) in mParticle for your app extension, and create a new iOS input, with a new API key and secret to initialize the SDK in the extension.
 
 ## Lifecycle Data
 

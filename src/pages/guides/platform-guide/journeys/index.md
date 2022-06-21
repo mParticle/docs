@@ -1,6 +1,6 @@
 ---
 title: Journeys
-order: 8.5
+order: 10
 ---
 <aside>Contact <a href="https://www.mparticle.com/contact/journeys">mParticle</a> to request participation in the Beta version of Journeys.</aside>
 

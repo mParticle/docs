@@ -1,6 +1,6 @@
 ---
 title: Calculated Attributes Overview
-order: 4.1
+order: 9.1
 ---
 
 A calculated attribute (CA) is a read-only value about a particular attribute of a single user that mParticle keeps up-to-date over time. You define a calculated attribute in mParticle and, once activated, they are computed automatically over time by using the raw data stream of events and user information. 
