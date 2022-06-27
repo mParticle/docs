@@ -4,14 +4,14 @@ order: 10
 ---
 <aside>Contact <a href="https://www.mparticle.com/contact/journeys">mParticle</a> to request participation in the Beta version of Journeys.</aside>
 
-Use Journeys move away from simple cross-channel engagement toward an organization-wide customer journey strategy. Journeys help you to perform journey analysis, testing, and orchestration in a single workflow:
+Use Journeys to move away from simple cross-channel engagement toward an organization-wide customer journey strategy. Journeys help you to perform journey analysis, testing, and orchestration in a single workflow:
 
 * Your campaign needs to reach customers who are spread across many channels, or your customer data about them is coming in from many different sources.
 * You want to use a visual tool to create your campaign.
 * You want to define a series of audiences based on different criteria in order to take different actions as part of the same campaign.
 * You want to drive consistent messaging across channels and prevent duplicate targeting.
 
-Because customers interact with your brand in many different ways at many different times, you need to reach them based on their behaviors, and reach them with a cohesive voice to deliver a personalized experience across various multiple marketing channels.
+Because customers interact with your brand in many different ways at many different times, you need to reach them based on their behaviors, and reach them with a cohesive voice to deliver a personalized experience across multiple marketing channels.
 
 ## Journeys Basics
 
