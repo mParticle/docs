@@ -26,7 +26,7 @@ By default, the integration begins loading current data into Redshift from the t
 
 #### 1. Create a Database and Schema
 
-[Create your Redshift Database](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html). Preferably, the database should be in the `us-east-1` region. Choosing a different region will increase latency between mParticle and Redshift.
+[Create your Redshift Database](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html). The database should be in the same region as your mParticle [pod](/developers/data-localization#logging-into-mparticle). For example, if your mParticle pod is `US1` or `US2`, create your Redshift database in `us_east-1`. Choosing a different region increases latency between mParticle and Redshift.
 
 Within your database, [create a schema](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_SCHEMA.html) to store your data.
 
