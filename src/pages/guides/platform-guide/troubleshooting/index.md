@@ -114,6 +114,5 @@ If you still can't identify the issue, review the knowledge base or log a ticket
 For additional SDK troubleshooting:
 
 * [Android](/developers/sdk/android/troubleshooting/)
-* [iOS](/developers/ios/android/troubleshooting/)
-* [Web](/developers/web/android/troubleshooting/)
-  
+* [iOS](/developers/sdk/ios/troubleshooting/)
+* [Web](/developers/sdk/web/troubleshooting/)
