@@ -3,19 +3,19 @@ title: Audiences
 order: 9
 ---
 
-## Audiences Overview
+## Audiences overview
 
 The mParticle Audience Manager allows you to define audiences and connect them to integrations for the purpose of engaging with your users.  This can be very powerful when it comes to user engagement and monetization scenarios.
 
 There are many use cases for Audiences - here's a couple of high-level examples.
 
-### Drive User Engagement  
+### Drive user engagement  
 
 Let's say you want to engage with users that have recently installed your app but haven't used your app very much.  Your objective is to drive higher engagement and convert those new users to high lifetime value users.  You want to accomplish this across multiple channels: push notification and email.  Therefore, your audience qualification criteria is that the user has installed your app in the last 72 hours and has less than three sessions.  
 
 With Audience Manager, you can easily and visually define this audience, then configure audience integrations to push notification and email partners - in this example, let's use Button for push and Mailchimp for email.  Once you configure the respective integrations in the Audience Manager, mParticle instantiates a corresponding audience in Button and updates the corresponding email marketing list in Mailchimp.  No coding is necessary.
 
-### Drive App Downloads
+### Drive app downloads
 
 Let's say you want to find more users like your currently highly engaged users and run an app download campaign in Facebook against that target audience. You start by defining your highly engaged users, using whatever criteria is important to you: lifetime value metrics, session activity, event activity, or any other data points you capture.  
 
@@ -23,7 +23,7 @@ Once your audience is defined in Audience Manager, you configure the Facebook in
 
 In this example, because we want to target users that *look like* our highly engaged users, we will create a Facebook lookalike audience from our highly engaged user audience and run a Facebook app install campaign that targets that lookalike audience.
 
-## The Audiences Page
+## The Audiences page
 
 The Audiences page is accessible via the main navigation. It displays a list of your audiences, separated into **Single Workspace** and **Multi Workspace**, with metrics for each audience:
 
@@ -37,11 +37,9 @@ The Audiences page is accessible via the main navigation. It displays a list of 
 * Status
 * Actions
 
+## Build audiences
 
-
-## Build Audiences
-
-### Capture Data
+### Capture data
 
 Audience Manager allows you to define audiences from any user-associated data you capture with mParticle, whether from Platform inputs or partner feeds.
 
@@ -51,19 +49,19 @@ When you fully instrument your app using the mParticle SDK, you are sending data
   If you need to send data via our Events API, please <a href="mailto:support@mparticle.com"> contact our customer support team.</a>
 </aside>
 
-### Define Use Case
+### Define use case
 
-The second step in using Audience Manager is fleshing out your segmentation and engagement strategies:
+The second step in using Audience Manager is defining your segmentation and engagement strategies:
 
 * What user audiences are important and why?  
 * How will you engage and/or monetize each user audience?  
 * How will you evaluate the effectiveness of your strategy?
 
-These decisions will drive your implementation of Audience Manager.  
+These decisions drive your implementation of Audience Manager.  
 
 <aside class="notice">It is important to validate your use cases against your data to ensure that you are actually capturing the required data!</aside>
 
-### Create Audience
+### Create an audience
 
 When you first create an audience you must specify if it will be a **single workspace** or **multi workspace** audience.  A single workspace audience includes data from a single workspace. A multi workspace audience allows you to combine data across your workspaces into a single audience definition.
 
@@ -92,7 +90,7 @@ To create an audience:
 
 This screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the main navigation shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
 
-## Audience Criteria
+## Audience criteria
 
 <aside class="notice">
     The scope of data that is evaluated by your audience criteria is dependent upon:
@@ -130,7 +128,7 @@ To add criteria to your audience definition:
 The audience system automatically detects the data type (string, date, numeric) of your event and user attributes after enough data has been received. If low data volumes have been sent in or it is incorrectly detected, you can change the type by pressing the icon in the attribute field. This can be very helpful when testing new events or attributes with low data volumes.
 </aside>
 
-### Criteria Types: Events and Profiles
+### Criteria types: events and profiles
 The audience builder allows you to build criteria based on two sources of data:
 1. **Events**: Criteria that checks for specific events and their properties. These criteria are subject to the audience event retention policy of your account. Within the `new criteria` option in the audience builder, the following options create event-based  criteria:
 - `Events`: access custom events
@@ -142,11 +140,11 @@ The audience builder allows you to build criteria based on two sources of data:
 - `Upgrades`: access upgrade events
 - `Screen views`: access screen view events
 
-2. **User Profiles**: Criteria that checks your active user profiles. These criteria are subject to the user profile retention policies of your account. Within the `new criteria` option in the audience builder, the following options create profile-based criteria:
+2. **User profiles**: Criteria that checks your active user profiles. These criteria are subject to the user profile retention policies of your account. Within the `new criteria` option in the audience builder, the following options create profile-based criteria:
 - `Users`: access user profile information such as user attributes, calculated attributes, current audience memberships, consent state, location, etc.
 - `Attribution`: access user install and uninstall information to build criteria based on the attributed `campaign` and `publisher`.
 
-### User Profile Criteria
+### User profile criteria
 As mentioned above, you can build audience criteria based on user attributes from the user profiles. These attributes can be of any data type including: numbers, strings, dates, lists, booleans, etc. All user profile data is scoped and maintained within a single workspace; In multiworkspace audiences, you can select which workspace to use by pressing the number in the top right of the criteria in the audience builder.
 
 To build an audience criteria based on a user's profile information, press the **add criteria** button and select **Users** to view options for user based criteria:
@@ -167,7 +165,7 @@ To build an audience criteria based on a user's profile information, press the *
 User profile criteria are run against the latest data in the user profile (or the latest from the date range selected). To ensure the latest user attribute and consent states are used, always end your standard audience at the most recent date.
 </aside>
 
-### String Matching Criteria
+### String matching criteria
 
 When building audiences based on string attributes, several matching rules can be applied. All matches are case insensitive.
 
@@ -178,7 +176,7 @@ When building audiences based on string attributes, several matching rules can b
 * **Pattern** - Wildcard style matching. `*` represents any number of characters, `?` represents any single character. For example, "bl?e" or "b\*e" would both match "blue".
 
 
-### Date and Time Matching Criteria
+### Date and time matching criteria
 
 There are two ways to build time-based criteria for audiences: by recency, and by date. Recency criteria define a period in time in relation to 'now', when the audience is actually being calculated, for example `within the last 7 days`. Date criteria are based on fixed calendar dates which do not move in relation to when the audience is calculated. For example, `after 09/12/18`.
 
@@ -321,7 +319,7 @@ You can then compare the engagement outcomes for each group and apply the most s
 <aside>Make sure you have set up your variations correctly before saving the Test. Once a test is saved, variations are fixed and cannot be edited, without deleting the test and beginning again.</aside>
 
 
-### Creating Connections
+### Create a connection
 
 Once you have defined your variations, you can connect each variation, including the 'Control' variation, to any output. There is also an option to connect your full audience to any output. From the **Connect** tab, select the variation you want to connect and follow the standard [connection](#connect-an-audience) flow.
 
@@ -335,7 +333,11 @@ In the **Audiences** summary screen, audiences with an active A/B test will be m
 
 Note that whenever the Audience Name is used in forwarding the audience to downstream partners, variant audiences will be named using the format `[Audience External Name] - [Variant Name]`.
 
-### Ending a Test
+### Change an audience definition
+
+You can edit an audience definition without affecting the audience split, even after connecting to an output. When the audience is updated, the variants will still be balanced as defined when you created the test.
+
+### End a test
 
 When you are ready to end a test, navigate to the **A/B Test** tab and click **Delete Test**
 
@@ -343,7 +345,7 @@ When you are ready to end a test, navigate to the **A/B Test** tab and click **D
 
 Deleting a test will delete all variations and any connections you have set up for each variation.
 
-## Download an Audience
+## Download an audience
 
 You can download a calculated audience as a CSV file. This is useful if you want to troubleshoot your audience criteria, or if you want to share your audience data with a partner without an official mParticle Audience integration.
 
@@ -392,7 +394,7 @@ mpid, scanned_timestamp_ms, identity_value, identity_type
 3269816782460039080, 1580148438137, 74587f4b-3ed5-492f-a0f5-9a6c4578673d, ios_idfv
 ~~~
 
-#### Manifest Example
+#### Manifest example
 
 The Manifest file will be in JSON format. See the following example for included fields:
 
@@ -431,7 +433,7 @@ The Manifest file will be in JSON format. See the following example for included
 }
 ~~~
 
-## Deleting an Audience
+## Deleting an audience
 An audience can be deleted in the UI in a few ways, described as follows.
 
 In the Audience Overview:
@@ -450,7 +452,7 @@ To note, an audience that is nested in another audience for exclusion or inclusi
 
 
 
-## Bulk Audience Connections
+## Bulk audience connections
 
 If you have defined a large number of audience that you want to send to an Output, you can establish the connections for many audiences at once, rather than doing them one at a time.
 
@@ -470,7 +472,7 @@ If you have defined a large number of audience that you want to send to an Outpu
 
 You will see a status message showing all successful audience connections. If any audiences cannot be connected, error details will be shown.
 
-## Audience Tags
+## Audience tags
 
 As you continue to add audiences, you can use tags to help keep them organized. A tag is simply a label you can use to sort and search for audiences. For example, if you give all of your retargeting audiences a tag named 'Retargeting', you can easily find them all by filtering for the tag. You can add/remove tags for an audience directly from the Audience Manager, or in the Audience Settings. If you select more than one tag, the Audience Manager will show only audiences with both tags.
 
@@ -480,7 +482,7 @@ If you clone an audience, it's tags will be cloned, also.
 
 ![AudienceTag](/images/audiences-tag.gif)
 
-## Audience Faults
+## Audience faults
 
 If mParticle encounters errors forwarding an audience to an output, it will mark the connection as faulted. Audience Faults are visible from the Audience Manager, the Audience Connection screen, and the Audience tab on the **Setup > Outputs** page.
 
@@ -502,7 +504,7 @@ When you believe you have resolved the issue, open the fault notification and cl
 
 <aside> Remember that to resume sending data, you must open the fault notification and click <strong>Resume</strong>. Otherwise, forwarding will not resume, even if you have fixed the underlying issue.</aside>
 
-## Standard Audiences
+## Standard audiences
 
 <aside>Standard Audiences are a paid premium feature. Contact your mParticle representative if you're interested in using Standard Audiences.</aside>
 
@@ -525,7 +527,7 @@ Some example calculations and costs:
 - 1 standard audience spanning from 1/1/2018 to 1/1/2020: this costs 2 credits as it scans 2 years of data.
 - 3 standard audiences spanning from 1/1/2019 to 12/31/2019: this costs 1 credit as it scans 1 year of data (with many audiences).
 
-### Standard Audience Lifecycle
+### Standard audience lifecycle
 
 Standard audiences have a 4 stage lifecycle:
 - <strong>Draft</strong>: The audience is being drafted and has not yet been calculated. To calculate it, press 'calculate' and confirm that credits will be spent.
@@ -535,7 +537,7 @@ Standard audiences have a 4 stage lifecycle:
 
 ### Workflow
 
-#### 1 - Create a New Standard Audience
+#### 1 - Create a new standard audience
 
 Standard Audiences are managed separately from Real-time audiences. Choose **Audiences > Standard** from the main navigation menu, and click **New Standard Audience**.
 
@@ -547,7 +549,7 @@ Just as with real-time audiences, you can define which inputs you want use to ca
 
 ![medium](/images/lifetime-define-range.png)
 
-#### 3 - Define Audience Criteria
+#### 3 - Define audience criteria
 
 Define your audience by clicking the plus sign to create and define one or more criteria. This step is the same as in real-time audiences. When your definition is ready, click **Save as Draft**. Notice that after a moment, a **Calculate** button displays next to the grayed-out **Save as Draft** button.
 
@@ -587,7 +589,7 @@ This will forward all members of the audience to the Output.
 
 Calculated audience will remain in the **Ready** tab for **30 days**, after which they will need to be recalculated and can be found in the **Archive** tab. Once an audience is in the archive tab, you can clone and recalculate it.  Remember that the audience will not be updated in real time. If you want to update the audience, you must run the calculation again.
 
-## User Attribute Sharing
+## User attribute sharing
 
 mParticle’s Audience User Attribute Sharing feature allows you to include user attributes along with identities when you connect a supported audience connection. This allows you to use richer data in your activation platform, such as LTV, lead score or propensity to convert.  This feature does not forward or share your user data to any company beyond what you are explicitly configuring as an audience connection.
 
@@ -595,9 +597,9 @@ mParticle’s Audience User Attribute Sharing feature allows you to include user
 Notes that UA sharing is only available in single workspace, real-time audiences.
 </aside>
 
-### Set up User Attribute Sharing
+### Set up user attribute sharing
 
-#### 1 - Create the Connection
+#### 1 - Create the connection
 
 Create the Audience Connection in the usual way. For affected partners, you will see the following notification:
 
@@ -605,16 +607,16 @@ Create the Audience Connection in the usual way. For affected partners, you will
 
 If you want to forward User Attributes to this partner, make sure you set the Status to Inactive as you create the connection. This will make sure you do not begin forwarding data until you have selected the user attributes to forward.
 
-#### 2 - Select User Attributes
+#### 2 - Select user attributes
 
 From the connection screen, select the User Attributes you want to include. By default, all attributes are disabled. It may take up to 15 minutes before attributes begin to be forwarded.
 
 ![large](/images/attribute-sharing-select.png)
 
-#### 3 - Enable the Connection
+#### 3 - Enable the connection
 
 Once you have selected the User Attributes you want to forward, **Save and Activate** the Audience, open the **Settings** and set the **Status** to `Active` to begin forwarding identities.
 
-### Data Processing Notes
+### Profiles and user attribute forwarding
 
-mParticle’s User Profile stores user attributes across platforms, workspaces and accounts. This means that, if your audience output uses device IDs, and if you are tracking a User across multiple platforms (mobile and web, for example) you may be able to forward user attributes that were not collected on the targeted mobile devices.
+mParticle’s user profile stores user attributes across platforms, workspaces and accounts. This means that, if your audience output uses device IDs, and if you are tracking a user across multiple platforms (mobile and web, for example) you may be able to forward user attributes that were not collected on the targeted mobile devices.
