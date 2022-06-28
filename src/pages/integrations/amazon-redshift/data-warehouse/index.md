@@ -258,6 +258,10 @@ If you do not provide a name, mParticle will use the name of the Partner.
 
 ![medium](/images/redshift-feed.png)
 
+## Device Application Stamp Forwarding
+
+Events can be forwarded with a Device Application Stamp stored in the device ID column. You can enable this in the settings page for your data warehouse configuration by toggling the **Store Device Stamp** checkbox.
+
 ## Error Handling
 
 mParticle loads data into Redshift via Amazon S3 and can tolerate the Redshift cluster being unavailable for up to 30 days, depending on data volume. In the event of extended downtime on your cluster, a data replay can be arranged.

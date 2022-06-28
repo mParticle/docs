@@ -257,6 +257,10 @@ Events from each connected Partner Feed will be stored under a single table unle
 
 ![medium](/images/big-query-feed.png)
 
+## Device Application Stamp Forwarding
+
+Events can be forwarded with a Device Application Stamp stored in the device ID column. You can enable this in the settings page for your data warehouse configuration by toggling the **Store Device Stamp** checkbox.
+
 ## Best Practices
 
 1. Query a specific table whenever possible. Doing this lowers your BigQuery bill since BigQuery charges by how much data is queried.

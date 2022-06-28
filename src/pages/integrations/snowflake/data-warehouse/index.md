@@ -240,6 +240,10 @@ Events from each connected Partner Feed will be stored under a single table unle
 
 ![medium](/images/snowflake-partner-feed.png)
 
+## Device Application Stamp Forwarding
+
+Events can be forwarded with a Device Application Stamp stored in the device ID column. You can enable this in the settings page for your data warehouse configuration by toggling the **Store Device Stamp** checkbox.
+
 ## Error Handling
 
 mParticle loads data into Snowflake via Amazon S3 and can tolerate the Snowflake cluster being unavailable for up to 30 days, depending on data volume. In the event of extended downtime on your cluster, a data replay can be arranged.
