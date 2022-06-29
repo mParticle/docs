@@ -30,6 +30,10 @@ Depending on the Configuration Settings that you select (see below), Twitter wil
 
 mParticle sends these IDs as a SHA-256 hash.
 
+## Deleting an Audience
+
+mParticle deletes the downstream audience when you delete an audience from mParticle.
+
 ## Configuration Settings
 
 Setting Name | Data Type | Default Value | Description 

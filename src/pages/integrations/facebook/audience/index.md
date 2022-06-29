@@ -80,6 +80,10 @@ Setting Name | Data Type | Default Value | Description
 Facebook Account ID | `string` | | This setting is your Facebook account id. You can find it in the Ads Powertool.
 Facebook AccessToken | `string` | | The [Facebook access token](https://developers.facebook.com/docs/pages/access-tokens) used to make Graph API calls.
 
+## Deleting an Audience
+
+mParticle deletes the downstream audience when you delete an audience from mParticle.
+
 ## Connection Settings
 
 Setting Name | Data Type | Default Value | Description

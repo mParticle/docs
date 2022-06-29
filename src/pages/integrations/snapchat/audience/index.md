@@ -51,6 +51,10 @@ By default, mParticle uploads to Snapchat whenever at least one of the following
 
 Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer Success Manager if you need to discuss upload frequency.
 
+## Deleting an Audience
+
+mParticle doesn't delete the downstream audience when you delete an audience in mParticle.
+
 ## Connection Settings
 
 Setting Name | Data Type | Default Value | Description 

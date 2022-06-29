@@ -139,6 +139,10 @@ The `Data` node of each message will be 64-bit encoded, but the examples below a
 }
 ~~~
 
+## Deleting an Audience
+
+Deleting an audience sends a message downstream after you delete an audience in mParticle. You must handle the delete message.
+
 ## Rate Limits
 
 Amazon Kinesis Firehose imposes [standard rate limits](https://docs.aws.amazon.com/firehose/latest/dev/limits.html) that vary depending on your Service Region. If your throughput is close to or in excess of these limits, mParticle will make retries in an exponential backoff pattern. If you continually exceed the limit, you will see `500 - Internal Server Error` and `Retry Limit Exceeded` errors in your [System Alerts](/platform-guide/activity#system-alerts) dashboard. If this occurs, you may need to request a limit increase from Amazon.

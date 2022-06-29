@@ -43,6 +43,10 @@ mParticle will send [Address Info](https://developers.google.com/adwords/api/doc
 | countryCode | $Country | 2-letter country code. |
 | zipCode | $Zip | Zip code. |
 
+## Deleting an Audience
+
+mParticle doesn't delete the downstream audience when you delete an audience in mParticle.
+
 ## Data Processing Notes
 
 * mParticle names User Lists in Google Ads based on the External Name of the audience and the identity type. For example, if you connect an audience named `Remarketing` to Ads and check all three identity types, mParticle will create four audiences called `Remarketing (Email)`, `Remarketing (Phone)`, `Remarketing (IDFA)`, and `Remarketing (AAID)`.

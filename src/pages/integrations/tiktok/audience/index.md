@@ -47,6 +47,10 @@ TikTok Ads Manager does not allow audiences used by ad groups to be deleted. Bef
 
 * mParticle ID (MPID)
 
+## Deleting an Audience
+
+mParticle deletes the downstream audience when you delete an audience from mParticle.
+
 ## Settings
 
 ### Configuration Settings

@@ -85,6 +85,10 @@ mParticle will send attributes as described by both [`Single Attribute`](#single
 
 Since mParticle does not directly maintain segments in Braze, it will not delete segments when the corresponding mParticle audience connection is deleted or deactivated. When this happens, mParticle will **not** update the audience user attributes in Braze to remove the audience from each user.
 
+## Deleting an Audience
+
+Deleting an audience does not remove the custom attributes in Braze.
+
 ## Configuration Settings
 
 Setting Name | Data Type | Default Value | Description

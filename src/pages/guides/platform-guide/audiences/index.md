@@ -447,9 +447,26 @@ In the Audience itself:
 An audience can also be deleted with the [Platform API](https://docs.mparticle.com/developers/platform/#delete-an-audience) using the `/audiences` endpoint.
 
 <aside class="notice">
-To note, an audience that is nested in another audience for exclusion or inclusion criteria cannot be deleted.  It must be removed as nesting criteria for all audiences before being deleted.  If attempting to delete an audience that's nested in other audiences, a modal will pop up notifying the user of what audiences it's nested in and who created them with the option to notify the creators.
+An audience that is nested in another audience for exclusion or inclusion criteria cannot be deleted.  It must be removed as nesting criteria for all audiences before being deleted.  If attempting to delete an audience that's nested in other audiences, a modal will pop up notifying the user of what audiences it's nested in and who created them with the option to notify the creators.
 </aside>
 
+Integrations behave differently downstream after an audience is deleted:
+
+| Audience                 |	Downstream Behavior |
+| ----------------------   | -------------------- |
+| Amazon Kinesis Firehose	 | Deleting an audience sends a message downstream. You must handle the delete message. |
+| Braze                    | Deleting an audience does not remove the custom attributes in Braze.                 |
+| Facebook	               | mParticle deletes the downstream audience.                                           |
+| Google Ads    	         | mParticle doesn't delete the downstream audience.                                    |
+| Google BigQuery          | mParticle doesn't delete downstream audience.                                        |
+| Google Cloud Storage     | mParticle doesn't delete the downstream audience.                                    |
+| LiveRamp	               | mParticle doesn't delete the downstream audience.                                    |
+| Pinterest	               | mParticle doesn't delete the downstream audience.                                    |
+| Snapchat                 | mParticle doesn't delete the downstream audience.                                    |
+| theTradeDesk	           | mParticle doesn't delete the downstream audience.                                    |
+| TikTok	                 | mParticle deletes the downstream audience.                                           |
+| Twitter                  | mParticle deletes the downstream audience.                                           |
+| Yahoo                    | mParticle doesn't delete the downstream audience.                                    |
 
 
 ## Bulk audience connections

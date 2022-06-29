@@ -31,6 +31,10 @@ By default, mParticle uploads to The Trade Desk whenever at least one of the fol
 
 Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer Success Manager if you need to discuss upload frequency.
 
+## Deleting an Audience
+
+mParticle doesn't delete the downstream audience when you delete an audience in mParticle.
+
 ## Configuration Settings
 
 Setting Name | Data Type | Default Value | Description 

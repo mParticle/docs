@@ -61,6 +61,10 @@ LiveRamp will also create segments with names based on the External Name of the 
 
 LiveRamp enforces [certain file limitations](https://docs.liveramp.com/connect/en/product-limits-and-guidelines.html#recommended-file-limits) for all files sent to LiveRamp. If you attempt to send data to LiveRamp that does not meet these criteria LiveRamp may not process the files.
 
+## Deleting an Audience
+
+mParticle doesn't delete the downstream audience when you delete an audience in mParticle.
+
 ## Connection Settings
 
 Setting Name | Data Type | Default Value | Description

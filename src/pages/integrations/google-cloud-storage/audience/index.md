@@ -51,6 +51,10 @@ Upon saving a new audience subscription, mParticle will attempt to upload an emp
 
 If there is any error in the subscription settings, the connection won't be saved, and an error message will be displayed.
 
+## Deleting an Audience
+
+mParticle doesn't delete the downstream audience when you delete an audience in mParticle.
+
 ## Connection Settings
 
 | Setting Name | Data Type | Default Value | Description |
