@@ -61,13 +61,22 @@ Kit | Maven Artifact
 
 The mParticle SDK only initializes kits that are enabled for your app in the mParticle dashboard. Since services can be enabled or disabled at any time, it is important to confirm that a kit has been initialized in your app before trying to access its APIs. mParticle provides a simple method to ensure that a kit is active. You can then access the kit instance directly and call any APIs you need.
 
+:::code-selector-block
 ~~~java
 private void refreshFeed {
     if (MParticle.getInstance().isKitActive(ServiceProviders.APPBOY)) {
-        Appboy.getInstance(this).requestFeedRefresh();
+        //Active kit code
     }
 }
 ~~~
+~~~kotlin
+fun refreshFeed() {
+    if (MParticle.getInstance()?.isKitActive(ServiceProviders.APPBOY) ?: false) {
+        //Active kit code
+    }
+}
+~~~
+:::
 
 ## Kit Availability and Unavailability Notifications
 

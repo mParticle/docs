@@ -211,7 +211,9 @@ Several partner integrations expect custom keys and values associated with each 
 
 The Android SDK will persist any integration attributes at the device-level (rather than user-level), and will include them with every event upload. You can set an integration attribute by specifying an integration ID as well as a key and value:
 
-```java
+:::code-selector-block
+
+~~~java
 //update the partner ID and attribute key as necessary for your integration
 int adobePartnerId = 11;
 String adobeIntegrationAttributeKey = "vid";
@@ -219,6 +221,15 @@ String adobeIntegrationAttributeKey = "vid";
 Map<String, String> integrationAttributes = new HashMap<String, String>();
 integrationAttributes.put(adobeIntegrationAttributeKey, "<Adobe Visitor ID>");
 MParticle.getInstance().setIntegrationAttributes(11, integrationAttributes);
-```
+~~~
+~~~kotlin
+val adobePartnerId = 11
+val adobeIntegrationAttributeKey = "vid"
+
+val integrationAttributes: MutableMap<String, String> = HashMap()
+integrationAttributes[adobeIntegrationAttributeKey] = "<Adobe Visitor ID>"
+MParticle.getInstance().setIntegrationAttributes(11, integrationAttributes)
+~~~
+:::
 
 

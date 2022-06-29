@@ -294,7 +294,8 @@ As mentioned in the overview above, the IDSync API is meant to transition the SD
 
 If your organization uses [Profile Link](/guides/idsync/profile-link-strategy/) or [Profile Conversion](/guides/idsync/profile-conversion-strategy/) strategies, you can also create a request to alias the previous user to the current user. See our [main documentation on aliasing](/guides/idsync/aliasing/) for more information.
 
-```java
+:::code-selector-block
+~~~java
 // Basic - Call alias as the result of a successful login
 MParticle.getInstance().Identity().login()
     .addSuccessListener(new TaskSuccessListener() {
@@ -306,8 +307,7 @@ MParticle.getInstance().Identity().login()
             
             // Copy anything attributes and products from previous to new user
             // this example copies everything
-            newUser.setUserAttributes(previousUSer.getUserAttributes());
-            newUser.getCart().addAll(previousUser.getCart().products(), false)
+            newUser.setUserAttributes(previousUser.getUserAttributes());
 
             // Create and send the alias request
             AliasRequest request = AliasRequest
@@ -330,7 +330,44 @@ AliasRequest request = AliasRequest.builder()
     .endTime(sourceUser.getLastSeenTime()) // must be between StartTime and now
     .build();
 MParticle.getInstance().Identity().aliasUsers(request);
-```
+~~~
+~~~kotlin
+// Basic - Call alias as the result of a successful login
+MParticle.getInstance()?.Identity()?.login()?.addSuccessListener {
+    result ->
+    // login request returns new and previous users
+    val newUser: MParticleUser = result.getUser()
+    val previousUser: MParticleUser? = result.getPreviousUser()
+
+    // Copy any attributes from previous to new user
+    // this example copies everything
+    previousUser?.let { newUser.setUserAttributes(it.userAttributes) }
+
+    // Create and send the alias request
+    val request: AliasRequest = AliasRequest.Builder()
+        .sourceMpid(previousUser?.id ?: 0)
+        .destinationMpid(newUser.id)
+        .build();
+    MParticle.getInstance()?.Identity()?.aliasUsers(request);
+}
+
+// Call alias at any time
+
+// The getUsers() API now returns users in reverse chronological order
+val sourceUser: MParticleUser? = MParticle.getInstance()?.Identity()?.users?.get(1)
+val destinationUser: MParticleUser? = MParticle.getInstance()?.Identity()?.users?.get(0)
+
+if(sourceUser != null && destinationUser != null) {
+    val request: AliasRequest = AliasRequest.Builder()
+        .sourceMpid(sourceUser?.id)
+        .destinationMpid(destinationUser?.id)
+        .startTime(sourceUser.firstSeenTime) // must be within 90 days
+        .endTime(sourceUser.lastSeenTime) // must be between startTime and now
+        .build()
+    MParticle.getInstance()?.Identity()?.aliasUsers(request)
+}
+~~~
+:::
 
 ## Listen for IDSync transitions
 
