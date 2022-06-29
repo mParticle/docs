@@ -8,7 +8,7 @@ This page does not provide legal advice, only a description of how to use mParti
 
 This document uses GDPR language and terminology for simplicity.
 
-mParticle provides [data privacy controls](/guides/data-privacy-controls) to help you comply with the compliance requirements around consent and data sale opt-out.
+mParticle provides [data privacy controls](/guides/data-privacy-controls) to help you comply with consent and data sale opt-out requirements.
 
 ## Roles
 
@@ -49,13 +49,13 @@ mParticle's OpenDSR implementation handles three types of DSRs: "Erasure", "Acce
 
 Each DSR follows the same basic workflow:
 
-1. The Data Subject submits a DSR to the Data Controller.
+1. The data subject submits a DSR to the data controller.
 
-1. The Data Controller must log, authenticate and verify the request. If they choose to accept the request, the Data Controller forwards a request to mParticle in its role as a Data Processor. The request provides:
-    * One or more identities for the Data Subject;
-    * The type of request: "Erasure", "Access" or "Portability";
-    * The time the Data Subject submitted the request;
-    * An optional list of Status Callback URLs.
+1. The data controller must log, authenticate and verify the request. If they choose to accept the request, the data controller forwards a request to mParticle in its role as a data processor. The request provides:
+    * One or more identities for the data subject
+    * The type of request: "Erasure", "Access" or "Portability"
+    * The time the data subject submitted the request
+    * An optional list of status callback URLs
 
 1. On receipt of the request, mParticle sets the status of the request to "Pending" and sends a status callback request to all URLs listed in the original request. This callback includes an expected completion time for the request, which is calculated as: the time it will be scheduled for processing plus 48 hours to ensure the job completes in time.
 
@@ -71,8 +71,13 @@ This workflow can be managed in mParticle UI or programmatically via the [OpenDS
 
 mParticle stores data against user profiles, each identified by an mParticle ID (MPID). To respond to DSRs, mParticle first matches identities in the DSR against observed user profiles. This is handled the same way as mParticle's regular IDSync process: provided identities are resolved to MPIDs to identify affected user data.
 
-All DSR requests are scoped to a single workspace by API authentication. If you need to apply a DSR to multiple workspaces, please submit it within each workspace.  
+Data subject requests submitted without a <a href="https://docs.mparticle.com/guides/idsync/user-data/#login-ids">login ID</a> will not be fulfilled for known profiles that have an associated login ID. For example, if you submit a data subject request that only includes the device ID for a user, mParticle will not be able to find the correct profile to fulfill the request.
 
+When finding the correct profile for a DSR, mParticle follows the same identity resolution process used for general identification requests made to IDSync (the mParticlel identity management system).
+
+The exact profiles returned for a data subject request depend on the specific [user identifiers](https://docs.mparticle.com/guides/idsync/user-data/#user-identifiers) supplied with the DSR and the [identity strategy](https://docs.mparticle.com/guides/idsync/components/#identity-strategies) configured for your account.
+
+All DSR requests are scoped to a single workspace by API authentication. If you need to apply a DSR to multiple workspaces, please submit it within each workspace.
 
 ## Data Subject Request Settings
 To get started, enable GDPR and/or CCPA compliance features on your workspace from **Workspace Settings** > **Workspace** > **Regulation**. This will allow you to see the DSR UI. mParticle will honor all requests received via API even with these features disabled.
@@ -130,8 +135,12 @@ Access and Portability requests are treated exactly the same way, as follows:
 3. mParticle compiles the data into a single text file. This data includes device identities, user identities, user attributes (including calculated attributes), as well as current audience memberships.
 4. mParticle sends a callback to any specified Callback URLs indicating that the request has been completed. The callback will contain a secure download link to the text file containing the Subject's data.
 
+If you submit an access and portabilitiy request for more than one profile using multiple MPIDs, the data for every profile returned will be included in a single file. Since the resolution process for DSRs is the same as the process for IDSync, an access and portability request that includes only a device ID will not return any profiles that are protected by a login ID.
+
+For example, imagine that a user opens your app and is tracked with an anonymous profile, but they do not create an account with a login ID. Later, a different user on the same device opens your app and logs in with a login ID. If you submit an access and portability request with both the anonymous user's MPID and the known user's MPID but you only supply the device ID, then only the data for the anonymous user will be returned.
+
 <aside>
-Access / Portability requests are processed every 3 days on the start of Mondays and Thursdays.
+Access / Portability requests are processed every three days on the start of Mondays and Thursdays.
 </aside>
 
 #### Access / Portability Response Format
