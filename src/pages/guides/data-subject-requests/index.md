@@ -73,7 +73,7 @@ mParticle stores data against user profiles, each identified by an mParticle ID 
 
 Data subject requests submitted without a <a href="https://docs.mparticle.com/guides/idsync/user-data/#login-ids">login ID</a> will not be fulfilled for known profiles that have an associated login ID. For example, if you submit a data subject request that only includes the device ID for a user, mParticle will not be able to find the correct profile to fulfill the request.
 
-When finding the correct profile for a DSR, mParticle follows the same identity resolution process used for general identification requests made to IDSync (the mParticlel identity management system).
+When finding the correct profile for a DSR, mParticle follows the same identity resolution process used for general identification requests made to IDSync (the mParticle identity management system).
 
 The exact profiles returned for a data subject request depend on the specific [user identifiers](https://docs.mparticle.com/guides/idsync/user-data/#user-identifiers) supplied with the DSR and the [identity strategy](https://docs.mparticle.com/guides/idsync/components/#identity-strategies) configured for your account.
 
@@ -122,8 +122,6 @@ Most privacy regulations simply require an acknowledgement of a request within a
 
 In response to a data subject erasure request, mParticle deletes the data it stored, such as historical event batches, audience data, and profiles.
 
-mParticle cannot delete data that has already been forwarded to a partner, via an event or audience integration.
-
 A delete request will also not prevent additional data concerning the subject from being received and processed by mParticle. If the data subject wishes to prevent all future data processing, they will likely need to take additional steps, for example, ceasing to use your service/app.
 
 ### Access / Portability
@@ -137,7 +135,7 @@ Access and Portability requests are treated exactly the same way, as follows:
 
 If you submit an access and portabilitiy request for more than one profile using multiple MPIDs, the data for every profile returned will be included in a single file. Since the resolution process for DSRs is the same as the process for IDSync, an access and portability request that includes only a device ID will not return any profiles that are protected by a login ID.
 
-For example, imagine that a user opens your app and is tracked with an anonymous profile, but they do not create an account with a login ID. Later, a different user on the same device opens your app and logs in with a login ID. If you submit an access and portability request with both the anonymous user's MPID and the known user's MPID but you only supply the device ID, then only the data for the anonymous user will be returned.
+For example, imagine that a user opens your app and is tracked with an anonymous profile, but they do not create an account with a login ID. Later, a different user on the same device opens your app and logs in with a login ID. If you submit an access and portability request but only supply the device ID, then only the data for the anonymous user will be returned.
 
 <aside>
 Access / Portability requests are processed every three days on the start of Mondays and Thursdays.
