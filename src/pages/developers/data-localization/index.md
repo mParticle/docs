@@ -2,21 +2,21 @@
 title: Data Hosting Locations
 ---
 
-Each mParticle customer tenant (aka “Organization”) exists in a specific segment (or “Pod”) of mParticle’s infrastructure. A Pod is a self-contained instance of the entire mParticle service for a subset of organizations. Pods are completely independent of each other with redundancy built into each layer of the architecture, including the application servers, database, IaaS, and CDN to ensure maximum availability.
+Each mParticle customer tenant (aka “Organization”) exists in a specific segment (or “Pod”) of mParticle’s infrastructure. A pod is a self-contained instance of the entire mParticle service for a subset of organizations. Pods are completely independent of each other with redundancy built into each layer of the architecture, including the application servers, database, IaaS, and CDN to ensure maximum availability.
 
 ## Data Localization
 
-mParticle offers the option of hosting a Pod in a localized data center outside of the US, in particular in the Europe and Australia regions. For customers interested in data localization outside of these regions, please [contact us](https://www.mparticle.com/contact).
+mParticle offers the option of hosting a pod in a localized data center outside of the US, in particular in the Europe and Australia regions. For customers interested in data localization outside of these regions, please [contact us](https://www.mparticle.com/contact).
 
 <aside> Data Localization is a premium feature, please reach out to your customer success manager to get started. </aside> 
 
-As part of the onboarding process, your mParticle account manager will let you know which Pod your Organization resides in.
+As part of the onboarding process, your mParticle account manager will let you know which pod your organization resides in.
 
-Depending on the pod your Organization is hosted in, you will need to note a few key differences described below.
+Depending on the pod your organization is hosted in, you will need to note a few key differences described below.
 
 ## Logging into mParticle
 
-You can login to your localized mParticle Pod using the following URLs:
+You can login to your localized mParticle pod using the following URLs:
 
 | Region | Pod | Login URL |
 | --- |--- | --- | 
@@ -27,7 +27,15 @@ You can login to your localized mParticle Pod using the following URLs:
 
 ## Sending Data into mParticle
 
-All of our SDKs will route data to your mParticle Pod automatically based on your API keys. The following features require mParticle Pod dependent changes for data flowing into mParticle:
+Most mParticle SDKs route data to your mParticle pod automatically based on your API keys. The following SDKs require that you configure your pod name:
+
+* Go
+* Java
+* Node
+* Python
+* Ruby
+
+The following features require mParticle pod-dependent changes before data flows from an input into mParticle:
 
 * [Events API](#events-api)
 * [Rules](#rules)
@@ -225,7 +233,7 @@ When sending data to mParticle for file based integrations (Salesforce, Custom C
 
 ## Sending Data Out of mParticle
 
-The following features require mParticle Pod-dependent changes for data flowing out of mParticle:
+The following features require mParticle pod-dependent changes for data flowing out of mParticle:
 
 * [AWS Regions](#aws-regions)
 * [Amazon S3 Bucket](#amazon-s3-bucket)
@@ -233,7 +241,7 @@ The following features require mParticle Pod-dependent changes for data flowing 
 
 ### AWS Regions
 
-Create your downstream AWS services in the following AWS Regions aligned to your Pod for optimal performance:
+Create your downstream AWS services in the following AWS Regions aligned to your pod for optimal performance:
 
 <table style="width:100%; padding:10px;">
  <tr>
