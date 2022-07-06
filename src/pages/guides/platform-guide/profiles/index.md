@@ -210,8 +210,6 @@ When a user is seen again, either via SDK, APIs, or any connected partner data f
 * Calculated attributes 
 * Audience memberships
 
-You can use the User Activity View to look up user profiles that have been seen at any time within your contractual data retention policy.
-
 Use the [User Activity View](/guides/platform-guide/activity/#user-activity) to look up user profiles that have been seen at any time within your contractual data retention policy.
 
 The following diagram shows the interaction of profile and data retention:
