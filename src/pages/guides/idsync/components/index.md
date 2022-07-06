@@ -50,7 +50,7 @@ The [profile isolation](/guides/idsync/profile-isolation-strategy/) strategy is 
 
 ### Best match
 
-The [best match](/guides/idsync/best-match-strategy/) strategy is not optimized to help uniquely identify users. It is best suited for businesses that do not have a login flow or that provide their primary services without requireing users to log in.
+The [best match](/guides/idsync/best-match-strategy/) strategy is not optimized to help uniquely identify users. It is best suited for businesses that do not have a login flow or that provide their primary services without requiring users to log in.
 
 ## Identity priorities
 
