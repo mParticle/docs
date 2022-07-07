@@ -178,6 +178,10 @@ Each table has the following fields.
 **ecommerceisnoninteractive** |  BOOLEAN  |  NULLABLE  |   Is eCommerce action interactive?   | 
 **productactiontypeid** |  INTEGER  |  NULLABLE  |   eCommerce Product Action Type Id<br> 0 = unknown<br>1 = add_to_cart<br> 2 = remove_from_cart<br> 3 = checkout<br> 4 = checkout_option<br> 5 = click<br> 6 = view_detail<br> 7 = purchase<br> 8 = refund<br> 9 = add_to_wishlist<br> 10 = remove_from_wishlist   | 
 **promotionactiontypeid** |  INTEGER  |  NULLABLE  |   Promotion Action Type Id<br> 0 = unknown<br> 1 = view<br> 2 = click   | 
+**attauthorizationstatus** | STRING | NULLABLE | iOS 14 ATT Authorization status |
+**atttimestamp** | TIMESTAMP | NULLABLE | iOS 14 ATT Authorization status timestamp |
+**httpheaderuseragent** | STRING | NULLABLE | User-Agent field from the HTTP Header |
+**mparticledeviceid** | STRING | NULLABLE | mParticle Device Stamp |
 **eventattributes** |  RECORD  |  REPEATED  |   A repeated field containing a list of event attribute key value pairs  | 
 eventattributes.**attributename** |  STRING  |  NULLABLE  |   Event attribute name  | 
 eventattributes.**attributevalue** |  STRING  |  NULLABLE  |   Event attribute value  | 
