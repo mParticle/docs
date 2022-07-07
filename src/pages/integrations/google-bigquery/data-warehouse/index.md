@@ -17,7 +17,7 @@ Note that mParticle begins loading current data into BigQuery from the time the 
 
 ## BigQuery Configuration
 
-Please work with your mParticle customer support manager to enable BigQuery access on the mParticle UI. To get data loading going, please complete the following steps.
+To load data, please complete the following steps.
 
 1. Enable BigQuery in your project in Google Cloud Platform.
 2. From the **IAM** page for your project, add `mparticle-gcp-clientfacing@gcp-prod-170221.iam.gserviceaccount.com` as a member with the role of Project Viewer.  
