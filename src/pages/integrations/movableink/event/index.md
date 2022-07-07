@@ -27,14 +27,6 @@ mParticle’s integration forwards the following event types to Movable Ink:
 2. Custom Event
 3. User Identity Change
 
-## Configuration Settings
-
-Setting Name| Data Type | Default Value | Description
-|---|---|---|---|
-API Token | `string` | | Your mParticle API token can be retrieved by contacting your Movable Ink Client Experience (CX) team.
-Preferred User Identity | `string` | | Choose the user identity that will be used as the unique identifier in Movable Ink (referred to as "mi_u" in Movable Ink). This unique user identifier comes from your distribution partner, such as an ESP or mobile service provider.
-URL Custom Attribute Name | `string` | | Specify an alternative field name in your `custom_attributes` which contains the URL value for a particular event. If not specified, MI will look for the URL value in the `custom_attributes.url` as noted above.
-
 ## Commerce Events
 The following sections describe `product_action.action` types and how they map to Movable Ink events.
 
@@ -87,7 +79,7 @@ Optional fields which are not included will use data from an associated Movable 
 > Note: An alternative URL location can be specified in the `URL Custom Attribute Name` Configuration Setting.
 
 ## Custom Event
-Currently, Movable Ink only accepts one Custom Event, so no additional Custom Event types should be sent to the connected Movable Ink output. For more detail on configuring Custom Events, see [Data Filter](/guides/platform-guide/data-filter/).
+Currently, Movable Ink only accepts one Custom Event (`Product List View`), so no additional Custom Event types should be sent to the connected Movable Ink output. For more detail on filtering Custom Events, see [Data Filter](/guides/platform-guide/data-filter/).
 
 ### Product List View
 Maps to one Movable Ink `category` event.
@@ -102,3 +94,10 @@ Maps to one Movable Ink `category` event.
 #### Optional Fields
 - `custom_attributes.category`: "Display" name of this category.
 
+## Configuration Settings
+
+Setting Name| Data Type | Default Value | Description
+|---|---|---|---|
+API Token | `string` | | Your mParticle API token can be retrieved by contacting your Movable Ink Client Experience (CX) team.
+Preferred User Identity | `string` | | Choose the user identity that will be used as the unique identifier in Movable Ink (referred to as "mi_u" in Movable Ink). This unique user identifier comes from your distribution partner, such as an ESP or mobile service provider.
+URL Custom Attribute Name | `string` | | Specify an alternative field name in your `custom_attributes` which contains the URL value for a particular event. If not specified, Movable Ink will look for the URL value in the `custom_attributes.url` as noted above.

@@ -1360,7 +1360,7 @@ Some notable differences include:
 
 In outgoing JSON, the `user_identities` node is an array of identity objects. Each object contains the identity type, the value, and a timestamp showing when the identity was last updated. For example:
 
-~~~
+~~~json
  "user_identities": [
    {
      "identity_type": "customer_id",
