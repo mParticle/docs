@@ -48,14 +48,15 @@ The default identity hierarchy is:
 4. Other
 5. Facebook ID
 6. Google ID
-7. Microsoft ID
-8. Yahoo ID
-9. Apple IDFA
-10. Apple IDFV
-11. Google Advertising ID
-12. Android Device ID
-13. Roku Advertising ID
-14. Roku Publisher ID
-15. Microsoft Publisher ID
-16. Microsoft Advertising ID
-17. mParticle Device Application Stamp
+7. Twitter ID
+8. Microsoft ID
+9. Yahoo ID
+10. Apple IDFA
+11. Apple IDFV
+12. Google Advertising ID
+13. Android Device ID
+14. Roku Advertising ID
+15. Roku Publisher ID
+16. Microsoft Publisher ID
+17. Microsoft Advertising ID
+18. mParticle Device Application Stamp
