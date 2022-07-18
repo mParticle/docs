@@ -33,7 +33,7 @@ mediaSession = mpConstants.MediaSession.build("ABC123", "Space Pilot 3000", mpar
 
 ## Logging media events
 
-Once your session is instantiated, you will need to trigger a `SessionStart`. This should be done at the moment the user interacts with your content. For example, if the media is set to trigger on a user click, and your player fires a `play` event when the content starts, the session must begin before the `play` event. Every method accepts the `MediaSession` and an optional `customAttributes` object. The mParticle Roku SDK DOES NOT track and update the session object for you. If your are missing data downstream be sure are add it here in the session object first.
+Once your session is instantiated, you will need to trigger a `SessionStart`. This should be done at the moment the user interacts with your content. For example, if the media is set to trigger on a user click, and your player fires a `play` event when the content starts, the session must begin before the `play` event. Every method accepts the `MediaSession` and an optional `customAttributes` object. **The mParticle Roku SDK DOES NOT track and update the session object for you.** If your are missing data downstream be sure are add it here in the session object first.
 
 1. Start a session
 
