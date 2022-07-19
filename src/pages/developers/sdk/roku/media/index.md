@@ -33,11 +33,13 @@ mediaSession = mpConstants.MediaSession.build("ABC123", "Space Pilot 3000", mpar
 
 ## Logging media events
 
-Once your session is instantiated, you will need to trigger a `SessionStart`. This should be done at the moment the user interacts with your content. For example, if the media is set to trigger on a user click, and your player fires a `play` event when the content starts, the session must begin before the `play` event. Every method accepts the `MediaSession` and an optional `customAttributes` object.
+Once your session is instantiated, you will need to trigger a `SessionStart`. This should be done at the moment the user interacts with your content. For example, if the media is set to trigger on a user click, and your player fires a `play` event when the content starts, the session must begin before the `play` event. Every method accepts the `MediaSession` and an optional `customAttributes` object. **The mParticle Roku SDK DOES NOT track and update the session object for you.** If you are missing data downstream, be sure you are setting it here in the session object first.
 
 1. Start a session
 
 ```brightscript
+customAttributes = { "example custom attribute": "example custom attribute value" }
+mediaSession = mpConstants.MediaSession.build("ABC123", "Space Pilot 3000", mparticleConstants().MEDIA_CONTENT_TYPE.VIDEO, mparticleConstants().MEDIA_STREAM_TYPE.LIVE_STREAM, 1800000)
 m.mparticle.media.logMediaSessionStart(mediaSession, customAttributes)
 ```
 
@@ -68,6 +70,12 @@ m.mparticle.media.logMediaContentEnd(mediaSession, customAttributes)
 m.mparticle.media.logMediaSessionEnd(mediaSession, customAttributes)
 ```
 
+6. (optional) Fire a Session Summary Event if you'd like a summary of the session
+
+```brightscript
+m.mparticle.media.logMediaSessionSummary(mediaSession, customAttributes)
+```
+
 ## Logging Advertising
 
 In most cases, advertising comes in as a series of `Ad Breaks` which each contain numerous `Ads`. The Media SDK provides both sets of functionality so that you can track this behavior.
@@ -89,13 +97,18 @@ adContent.duration = 16000
 adContent.position = 0
 adContent.campaign = "CP 2077 Preorder Push"
 mediaSession.adContent = adContent
+mediaSession.mediaContentTimeSpent = 1950
 m.mparticle.media.logAdStart(mediaSession, customAttributes)
 ```
 
-3. Fire `AdEnd` or `AdSkip` when appropriate. After calling these methods, set the adContent to invalid, or the ad may accidentally be included in your next `mediaSession` call
+3. Fire `AdEnd` or `AdSkip` when appropriate. You should also fire `Ad Session Summary` if you'd like ad summary events. After calling these methods, set the adContent to invalid, or the ad may accidentally be included in your next `mediaSession` call
 
 ```brightscript
+customAttributes = { "click_timestamp_ms": 1593007533602 }
+mediaSession.adContent.position = 800
+mediaSession.mediaContentTimeSpent = 2750
 m.mparticle.media.logAdEnd(mediaSession, customAttributes)
+m.mparticle.media.logAdSummary(mediaSession, customAttributes)
 mediaSession.adContent = invalid
 ```
 
@@ -145,6 +158,9 @@ The Media SDK exposes methods that will trigger Media Events based on the most c
 | logSegmentEnd() | 'Segment End' |
 | logSegmentSkip() | 'Segment Skip' |
 | logUpdateQoS() | 'Update QoS' |
+| logAdSummary() | 'Ad Session Summary' |
+| logSegmentSummary() | 'Segment Session Summary' |
+| logMediaSessionSummary() | 'Media Session Summary' |
 
 #### Event Attributes
 
