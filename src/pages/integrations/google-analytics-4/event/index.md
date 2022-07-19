@@ -16,7 +16,7 @@ Data collection is enabled through SDK instrumentation. Once your app is properl
 
 You will need a GA4 account and an app property for every app that you want to track.  To set that up, follow Google's instructions [here](https://support.google.com/analytics/answer/9306384).  mParticle supports sending data to GA4 via web, native iOS and Android apps, and server to server. Each platform will require a data stream. See [Google's documentation](https://support.google.com/analytics/answer/9304153?hl=en) for how to create a GA4 data stream.
 
-On mParticle you need to create a new Configuration.  To do so, find Google Analytics 4 on the Directory, click on Setup, give your new Configuration a name and decide if you want the same credientials for Development and Production.  Finally click Save.
+On mParticle you need to create a new Configuration.  To do so, find Google Analytics 4 on the Directory, click on Setup, give your new Configuration a name and decide if you want the same credentials for Development and Production.  Finally click **Save**.
 
 ### Web
 
