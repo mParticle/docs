@@ -10,7 +10,7 @@ title: Getting Started
 $ npm install react-native-mparticle --save
 ```
 
-For clients using the [react-native-tvos library](https://github.com/react-native-tvos/react-native-tvos) you will need to add the `force` flag to the install code as shown below. This tells the installer to ignore using the core react native repository and instead use the tvOS specific library instead.
+For clients using the [react-native-tvos library](https://github.com/react-native-tvos/react-native-tvos) you must add the `force` flag to the install code as shown below. This tells the installer to ignore using the core React Native repository and instead use the tvOS-specific library instead.
 
 ```bash
 $ npm install react-native-mparticle --save --force
