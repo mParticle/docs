@@ -10,6 +10,12 @@ title: Getting Started
 $ npm install react-native-mparticle --save
 ```
 
+For clients using the [react-native-tvos library](https://github.com/react-native-tvos/react-native-tvos) you must add the `force` flag to the install code as shown below. This tells the installer to ignore using the core React Native repository and instead use the tvOS-specific library instead.
+
+```bash
+$ npm install react-native-mparticle --save --force
+```
+
 **Second, install the native dependencies**. You can use `rnpm` (now part of `react-native` core via `link`) to add native dependencies automatically:
 
 ```bash
@@ -63,8 +69,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 For apps supporting iOS 8 and above, Apple recommends using the import syntax for **modules** or **semantic import**. However, if you prefer the traditional CocoaPods and static libraries delivery mechanism, that is supported as well.
 
-<aside>For apps supporting tvOS, you are required to use the import syntax for modules. Otherwise, React Native's efforts to suppress iOS specific APIs will prevent the API from being made available.</aside>
-
 If you are using mParticle as a framework, your import statement will be as follows:
 
 ```objectivec
@@ -103,49 +107,6 @@ Next, you'll need to start the SDK:
 ```
 
 Please see [Identity](http://docs.mparticle.com/developers/sdk/ios/identity/) for more information on supplying an `MPIdentityApiRequest` object during SDK initialization.
-
-#### Objective-C for tvOS:
-
-```objectivec
-// Required for tvOS, but requires "Enable Modules   (C and Objective-C)" in pbxproj
-@import mParticle_Apple_SDK;
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    NSURL *jsCodeLocation;
-
-    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-
-    MParticleOptions *mParticleOptions = [MParticleOptions optionsWithKey:@"REPLACE ME" secret:@"REPLACE ME"];
-        
-    /* Optional - Please see the Identity page for more information on building this object
-    MPIdentityApiRequest *request = [MPIdentityApiRequest requestWithEmptyUser];
-    request.email = @"email@example.com";
-    mParticleOptions.identifyRequest = request;
-    mParticleOptions.onIdentifyComplete = ^(MPIdentityApiResult * _Nullable apiResult, NSError * _Nullable error) {
-    NSLog(@"Identify complete. userId = %@ error = %@", apiResult.user.userId, error);
-    };
-    */
-
-    [[MParticle sharedInstance] startWithOptions:mParticleOptions];
-
-    RCTRootView *rootView = [[RCTRootView alloc]
-        initWithBundleURL:jsCodeLocation
-               moduleName:@"ProjectName"
-        initialProperties:nil
-            launchOptions:launchOptions
-    ];
-    rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UIViewController *rootViewController = [UIViewController new];
-    rootViewController.view = rootView;
-    self.window.rootViewController = rootViewController;
-    [self.window makeKeyAndVisible];
-    return YES;
-}
-```
 
 ### Android
 
