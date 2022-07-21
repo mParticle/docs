@@ -50,6 +50,22 @@ Some calculated attributes, like `sum`, require numeric event attributes to func
 
 ![](/images/ca-type-warning.png)
 
+## Conditions
+
+When you define a calculated attribute, you can add conditional logic. For example, if you wanted to count the total number of times a promotion was clicked, but only for certain currencies, you could add the condition "where the currency code is only AUD or EUR." 
+
+The following conditions are available for all four categories of calculated attributes (Count, Aggregation, Occurrence, and List):
+
+* Contains
+* Does not Contain
+* Exact Match
+* Does not Match
+* Pattern
+* Exists
+* Not Exists
+* Is Empty
+* Is In List
+
 ## Commerce Quantity Fields
 
 The following behaviors affect commerce event attributes (`commerce_events`) in some calculated attributes:
