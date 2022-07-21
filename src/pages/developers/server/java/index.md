@@ -101,7 +101,20 @@ CommerceEvent event = new CommerceEvent().data(
 
 The SDK provides an interface to the mParticle HTTP API by way of the EventsApi class.
 
-At minimum, the `EventsApi` must be initialized with an mParticle key and secret. You can find your mParticle key and secret by navigating to the [Apps](https://app.mparticle.com/apps) section of the mParticle platform UI.
+At a minimum, the `EventsApi` must be initialized using the mParticle key and secret issued for your input.
+
+To find your key and secret if you are using a platform input such as iOS or Roku:
+
+1. Log into your mParticle account, and navigate to **[Setup > Inputs](https://app.mparticle.com/setup/inputs/apps)** in the left nav bar.
+2. From the **Platforms** tab, select the correct platform from the list to view its configuration.
+3. Copy the key and secret, and use these when initializing the Events API.
+
+To find your key and secret if you are using a custom feed as your data source:
+
+1. Log into your mParticle account, and navigate to **[Setup > Inputs](https://app.mparticle.com/setup/inputs/apps)** in the left nav bar.
+2. Click the **Feeds** tab.
+3. Click on the feed in the list displayed, and select the configuration you are using.
+4. Copy the key and secret from the model, and use these when initializing the Events API.
 
 > You must associate your data with the correct key and secret. If your app is multi-platform, for example, be sure to send your Android data to your Android key/secret, and your iOS data to your iOS key/secret.
 
