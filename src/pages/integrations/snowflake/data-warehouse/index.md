@@ -4,7 +4,7 @@ title: Data Warehouse
 
 mParticle's Data Warehouse integration with Snowflake forwards all your incoming data to a Snowflake cluster, allowing you to query the raw data directly.
 
-The integration creates a table in your Snowflake database for each custom app event name and each eCommerce event name with a volume above a defined threshold. Less common events are recorded in a single table, labeled `otherevents`.
+The integration creates a table in your Snowflake database for each custom event name and each eCommerce event name with a volume above a defined threshold. Less common events are recorded in a single table, labeled `otherevents`.
 
 By default, the integration begins loading current data into Snowflake from the time it is enabled. You can work with your mParticle Customer Service Manager to load historical data.
 

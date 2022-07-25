@@ -10,7 +10,7 @@ mParticle's Data Warehouse integration with Amazon Redshift forwards all your in
 
 The integration performs the following tasks in your Redshift cluster:
 
-1. Creates a table for each custom app event name and each eCommerce event name with a volume above a defined threshold. Less common events are recorded in a single table, labeled `otherevents`.
+1. Creates a table for each custom event name and each eCommerce event name with a volume above a defined threshold. Less common events are recorded in a single table, labeled `otherevents`.
 
 2. Adds new columns to tables when new events or user attributes are received.
 
@@ -126,9 +126,9 @@ Optionally, you may give mParticle permission to perform "Describe-Clusters" and
 
 ## Data Schema
 
-Each common custom app event name and eCommerce event name have their own table in Redshift, and all other event names (e.g., session-start, session-end) are stored in a single "otherevents" table. The naming conversion of the table names are as follows.
+Each common custom event name and eCommerce event name have their own table in Redshift, and all other event names (e.g., session-start, session-end) are stored in a single "otherevents" table. The naming conversion of the table names are as follows.
 
-- A custom app event name will have a table named **event\_[event type]\_[event name]**. For example, a custom app event of event type *Navigation* named *SignUp* will have a table named *event_navigation_signup*.
+- A custom event name will have a table named **event\_[event type]\_[event name]**. For example, a custom event of event type *Navigation* named *SignUp* will have a table named *event_navigation_signup*.
 - An eCommerce event name will have a table named **ecomm\_[event name]**.
 - Consent events have tables named **consent_given** and **consent_rejected**
 - All other events are stored in a table named **otherevents**.

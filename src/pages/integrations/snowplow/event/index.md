@@ -2,7 +2,7 @@
 title: Event
 ---
 
-Snowplow's technology enables powerful custom analytics capabilities by making it easy for app developers to populate a cloud-based data warehouse with their app event data.
+Snowplow's technology enables powerful custom analytics capabilities by making it easy for app developers to populate a cloud-based data warehouse with their event data.
 
 ## Enable the Snowplow Integration
 

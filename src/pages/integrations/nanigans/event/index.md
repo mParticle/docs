@@ -43,7 +43,7 @@ AppInit message with ‘IsFirstRun’ set to true | type = install, name = main
 FirstRun message | type = user, name = reg
 AppFore message | type = visit, name = dau
 eCommerce transaction message | type = purchase, name = main, value = RevenueAmount (converted based on `Forward in Cents` setting), sku = ProductSKU, unique = TransactionID.  All other attributes will be forwarded 
-All other App Event messages | type = user, name = name of the app event.  All attributes will be forwarded
+All other Custom Event messages | type = user, name = name of the custom event.  All attributes will be forwarded
 
 Purchase and refund events will include all products when forwarded, but all other commerce events are expanded and sent as individual events.
 

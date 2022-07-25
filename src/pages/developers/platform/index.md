@@ -1639,8 +1639,8 @@ curl \
 
 Name | Description
 |---|---
-Event | A standard app event.
-EventAttribute | An attribute of an app event.
+Event | A standard event.
+EventAttribute | An attribute of an event.
 UserAttribute | A user attribute.
 ScreenView | A screen view.
 ScreenViewAttribute | An attribute of a screen view.
@@ -1729,8 +1729,8 @@ The "type" field can be set to one of the following values:
 
 Name | Description
 |---|---
-Event | A standard app event.
-EventAttribute | An attribute of an app event.
+Event | A standard event.
+EventAttribute | An attribute of an event.
 UserAttribute | A user attribute.
 ScreenView | A screen view.
 ScreenViewAttribute | An attribute of a screen view.
@@ -1928,8 +1928,8 @@ The `"type"` field can be set to one of the following values:
 
 Name | Description
 |---|---
-Event | A standard app event.
-EventAttribute | An attribute of an app event. |
+Event | A standard event.
+EventAttribute | An attribute of an event. |
 UserAttribute | A user attribute. |
 EventType | Filter all app events of a particular type. |
 ScreenView | A screen view. |

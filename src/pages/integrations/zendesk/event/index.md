@@ -132,7 +132,7 @@ The following field mappings apply for Custom Events.
 Custom Event (event) JSON Sample
 ~~~json
 {
-    "type": "app event name",
+    "type": "custom event name",
     "source": "mParticle",
     "properties": {
         "custom_event_type": "Other",

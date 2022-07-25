@@ -9,9 +9,9 @@ Given that you are already sending data from your app(s) to mParticle, you can e
 In general, mParticle back-end services will perform the following actions in your BigQuery dataset.
 
 1. Store each app's data in a separate set of tables.
-1. Create a table for each custom app event name as well as each eCommerce event name that has occurred at least once in the last 30 days. All other message types (e.g., session start, session end, screen views, etc.) will be put into a single table called [Table Prefix]_"otherevents".
-1. Stream data into each table accordingly. Loaded data should be available for analysis within a few seconds of streaming insertion into a table. 
-1. Set expiration time on each table according to the data retention policy configured on the mParticle UI.
+2. Create a table for each custom event name as well as each eCommerce event name that has occurred at least once in the last 30 days. All other message types (e.g., session start, session end, screen views, etc.) will be put into a single table called [Table Prefix]_"otherevents".
+3. Stream data into each table accordingly. Loaded data should be available for analysis within a few seconds of streaming insertion into a table. 
+4. Set expiration time on each table according to the data retention policy configured on the mParticle UI.
 
 Note that mParticle begins loading current data into BigQuery from the time the integration is enabled. You can work with mParticle customer support team to load historical data.
 
@@ -80,9 +80,9 @@ All of your data is stored in one single BigQuery dataset.
 
 Each app has its own set of tables. Each table name has a table name prefix. This will be the name of your app, except for data from Feeds, for which you can customize the prefix in the Connection Settings.
 
-By default, each custom app event name and eCommerce event name have their own table in BigQuery dataset, and all other event names (e.g., session-start, session-end) are stored in a single table. The naming conversion of the table names are as follows.
+By default, each custom event name and eCommerce event name have their own table in BigQuery dataset, and all other event names (e.g., session-start, session-end) are stored in a single table. The naming conversion of the table names are as follows.
 
-- A custom app event name will have a table named **[Table Prefix]\_event\_[event type]\_[event name]**. For example, a *Navigation* type event named *SignUp* from an app named "my cool app" will have a table named *mycoolapp_event_navigation_signup*.
+- A custom event name will have a table named **[Table Prefix]\_event\_[event type]\_[event name]**. For example, a *Navigation* type event named *SignUp* from an app named "my cool app" will have a table named *mycoolapp_event_navigation_signup*.
 - An eCommerce event name will have a table named **[Table Prefix]\_ecomm\_[event name]**.
 - All other events are stored in a table named **[Table Prefix]\_otherevents**.
 

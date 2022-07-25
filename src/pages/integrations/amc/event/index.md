@@ -211,7 +211,7 @@ For Web page view events, mParticle forwards Referrer URL information to Adobe:
 
 ### `mp` Variables
 
-mParticle forwards a common set of context variables with every native app event. These context variables are prefixed with `mp.` To display any of these variables in your reporting suite, you will need to create a Processing Rule.
+mParticle forwards a common set of context variables with every native event. These context variables are prefixed with `mp.` To display any of these variables in your reporting suite, you will need to create a Processing Rule.
 
 #### Device Identities
 
