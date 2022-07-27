@@ -56,7 +56,7 @@ Displays summary information representing the current workspace’s usage, showi
 
 ## User Activity
 
-The User Activity view allows you to see a detailed summary of data associated with a single user. Note that only users with the Admin role can access the User Activity view.
+The User Activity view allows you to see a detailed summary of data associated with a single user. Note that only users with the Admin or Support roles can access the User Activity view.
 
 To find a user, begin entering any known ID for the user, an email address, customer ID, device ID, etc. The ID must match exactly to return a profile. If multiple profiles are returned, select the user you want from the list.
 
