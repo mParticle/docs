@@ -131,10 +131,10 @@ The `identify`, `search`, `login`, and `logout` requests accept a POST body with
 
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
-|`client_sdk.platform` | enum  | Required | Accepted values are `ios`, `android`, `web`, `tvos`, `roku`, `alexa`, `smart_tv`, `fire`, `xbox`, and `other`. |                                                            
+|`client_sdk.platform` | enum  | | Accepted values are `ios`, `android`, `web`, `tvos`, `roku`, `alexa`, `smart_tv`, `fire`, `xbox`, and `other`. |                                                            
 | `context` | string | | An encoded string representing the result of the previous request. This is available in the Response body. |
 | `environment` | enum | Required | Either `production` or `development`. |
-| `request_id`| string | Required | A UUID for the request. |
+| `request_id`| string | | A UUID for the request. |
 | `request_timestamp_ms`| integer | | Unix timestamp for the request. |
 | `previous_mpid`| string | | The mParticle ID returned by the previous request. |
 | `known_identities` | object | Required | An object containing all available identifiers for a user, to be used by mParticle to match and return a user profile. This object must include at least one identifier. See the example for a full list of allowed identifiers. |
