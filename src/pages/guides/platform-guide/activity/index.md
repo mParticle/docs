@@ -151,41 +151,17 @@ As with the [Live Stream](/platform-guide/live-stream#examining-a-specific-event
 
 ## System Alerts
 
-The System Alerts dashboard reports any errors and issues encountered when forwarding data from mParticle to one of your connected outputs. This helps you discover any connections that are failing to forward data, or it can help you to debug a connection that you already know is experiencing problems by highlighting the specific error being reported.
+![](/images/system-alerts-dashboard.png)
 
-To find your system alerts, log into your mParticle account and navigate to **Activity > System Alerts** in the left nav bar.
+The System Alerts dashboard provides information related to any issues encountered when forwarding data from mParticle to your connected outputs.
 
-### System alerts dashboard
-
-The System Alerts dashboard lists all of your connections sorted by their alert rate, from high to low according to alerts reported during the last 12 hours.
-
-![](/images/SystemAlertsOverview.png)
-
-You can view alerts reported during different date ranges by using the **Date** dropdown menu.
-
-To view alerts reported for only the Production or Development environment, select the environment you are interested in using the **Environment** dropdown menu. You can also search for a specific output using the search bar.
-
-### View alerts for a connection
-
-Select any connection from the list labeled **Forwarders** to see an overview of the specific alerts reported for that connection.
-
-![](/images/SystemAlertsOverviewSelectForwarder.png)
-
-The list of alerts displayed are sorted by type and frequency, from high to low.
-
-![](/images/SystemAlertsDetail.png)
-
-### View alerts for a configuration
-
-To see how often a specific alert type occured for each configuration, click the **+** icon next to the alert type.
-
-![](/images/SystemAlertsDetailExpanded.png)
-
-In this example, there is only one iOS configuration with any reported alerts.
+The report displays the number of alerts in each category over a 12-hour time period, along with a breakdown for each active output that you have created. Outputs are sorted according to their alert rate, from high to low.
 
 <aside>
    If you have any new, pending alerts, a red alert notification is displayed next to <strong>Activity</strong> in the left nav bar.
 </aside>
+
+If an output is displaying alerts, click the **+** icon to view a breakdown of alerts by type.
 
 The following alert types are supported:
 
