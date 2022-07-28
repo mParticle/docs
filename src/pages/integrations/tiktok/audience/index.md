@@ -4,10 +4,7 @@ title: Audience
 
 [TikTok](https://www.tiktok.com/) is the world's leading destination for short-form mobile videos. Our mission is to capture and present the world's creativity, knowledge, and moments that matter in everyday life.
 
-## Prerequisites
-Reach out to your TikTok account manager for approval to use this integration.
-
-### Authorize the Integration
+## Authorize the Integration
 Log in to your TikTok Ads Manager platform with your advertiser account.
 
 Only TikTok Advertiser Accounts can utilize the mParticle/TikTok integration. In order for the mParticle-TikTok integration to properly function, confirm that you have the sufficient permission level to authorize the integration. The permission level needs to be `Ad Account Operator` or `Ad Account Admin`. The authorization will not work properly if you only have `Ad Account Analyst` permission.
