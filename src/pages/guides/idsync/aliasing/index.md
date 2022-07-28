@@ -3,111 +3,126 @@ title: Aliasing
 order: 12
 ---
 
+Aliasing is an IDSync feature that allows you to transfer data between an anonymous and a known profile when one of your users creates or logs into an account.
+
 <aside>
-Aliasing is an advanced feature of mParticle's <a href="/guides/idsync/use-cases/">IDSync</a>. Before continuing, make sure you understand the basics of IDSync, the concept of <a href="/guides/idsync/components/#login-ids">Login IDs</a>, and the details of the Identity Strategy employed by your organization.
+   Aliasing can be used by mParticle accounts configured with either the default, profile conversion, or profile link identity strategies.
 </aside>
 
-## Use case
+Aliasing is not accessible from the mParticle UI. To use aliasing to transfer data from an anonymous user profile to a known user profile, configure your app to call the correct method in the IDSync API when the applicable action is triggered by a user (such as when a user creates or logs into an account).
 
-### Known and anonymous user profiles
-mParticle's IDSync system supports the concept of "known" and "anonymous" user profiles:
+## Anonymous and known user profiles
 
-* A known user profile has at least one [login ID](/guides/idsync/components/#login-ids) (as defined in your [identity strategy](/guides/idsync/components/#identity-strategy)).
-* An anonymous user profile has no login IDs.
+A user who opens your app and is tracked by mParticle is referred to as the current user. mParticle stores data from the current user’s session in a user profile. IDSync automatically searches for the best profile to use immediately after the current user begins a session. Depending on your identity strategy, if a profile cannot be found using the available user identifiers then mParticle creates a new profile.
 
-Known user profiles can only be returned in response to an identity request with at least one matching login ID.
+All user profiles can be either known or anonymous.
 
-### Transitioning from anonymous to known
+### Known profiles
 
-As a user begins to engage with your website or app, their initial activity is stored against an anonymous profile. If your organization uses [profile link](/guides/idsync/profile-link-strategy/) strategies, the first appearance of a new login ID will always cause a new known user profile to be created.
+Known profiles have at least one login ID, which is a unique identifier like a customer ID, email address, or phone number. Known user profiles can only be returned in response to an identity request if the request includes at least one matching login ID.
 
-Aliasing gives you control over the transition from an anonymous user profile to a known user profile. You can choose to create a new known user profile that does not include any historical data from the original anonymous user profile. This may be necessary to comply with local privacy legislation.
+### Anonymous profiles
 
-Alternatively, you can choose to copy event and profile data from the original anonymous profile over to the new known profile to maintain a more complete picture of the user's journey. This allows you to create audiences of users who may have fulfilled some of the conditions to be included in the audience anonymously before their known user profiles were created.
+Anonymous profiles do not have any login IDs. Unless a new user supplies a login ID, they will always be given an anonymous profile.
 
-### Example: recommendation conversions
+## Transitioning from anonymous to known
 
-The mPTravel app wants to capture an audience of users who clicked on an in-app recommendation for a vacation package before continuing to purchase the recommended package.
+When a user supplies a login ID, IDSync transitions their profile from being anonymous to known. The default behavior for how data collected with the anonymous profile is carried over to the new known profile and whether or not the same MPID is used for the new known profile depends on your identity strategy.
 
-A user named Clark Griswold downloads the mPTravel app and, while browsing, clicks on a recommendation link for an all-inclusive European Vacation. Since he hasn't yet created an account, this action is attributed to his anonymous user profile.
+### Default IDSync configuration and the profile conversion strategy
 
-Clark eventually completes his purchase. As part of the purchase funnel, he creates an account and provides an email address. Since he is now a known user, the purchase is attributed to his new known user profile.
+The default IDSync configuration uses the profile conversion strategy. If you have explicitly selected the conversion strategy or your account uses the default configuration, then the appearance of a new login ID adds the login ID to the existing anonymous profile. This means that the new profile is now considered known, but it keeps the same MPID.
 
-* If mPTravel uses the aliasing feature to link Clark's anonymous and known user profiles, he will match the audience definition.
-* If mPtravel does not use aliasing, neither Clark's anonymous profile, nor his new known user profile will fulfill the requirements of the audience definition and he will not be part of the audience.
+Any historical data collected with the anonymous profile persists to the known profile.
 
-## Basic workflow
+### Profile link strategy
 
-1. A user first downloads your app or browses to your website:
-   * The initial identity request includes only the device IDs collected automatically by the mParticle SDK
-   * An anonymous user profile with the MPID of `1234` is created
-   * Any events and attributes captured for the user are stored against this profile
+If you are using the profile link strategy, the appearance of a new login ID results in the creation of a new profile with a new MPID.
 
-2. The user creates an account:
-   * When the user creates an account, a `login` identity request is sent, including at least one Login ID (e.g. an email address)
-   * A new known user profile is created with the MPID of `5678`
-   * The `login` request returns objects containing information on the previous and current users. At this time, any user attributes or products in the cart captured for the anonymous user profile can be copied over to the new known user profile, if desired
+While the profile link strategy does not carry data from the anonymous to the known profile by default, you can configure your app to execute an alias request which (if successful) will attribute data from the anonymous (or source) profile to the known (destination) profile.
 
-3. An alias request is sent:
-   *  The alias request contains four key pieces of information:
-      * A source (anonymous) user profile
-      * A destination (known) user profile
-      * A start date (optional) - defaults to the maximum allowed time (Aliased events are copied from the aliasing event to 90 days previously via a global configuration)
-      * An end date (optional) - defaults to now
-   * If the alias request meets [validation requirements](#source-and-destination-profile-requirements), it will be processed after 24 hours. This delay allows for any late-arriving events from the source profile to be included.
+## Make an alias request
+
+The general process for making an alias request is the same regardless of the SDK you are using. To learn how to make an alias request with a specific SDK, refer to the SDK documentation for [Web](https://docs.mparticle.com/developers/sdk/web/idsync/#user-aliasing), [Android](https://docs.mparticle.com/developers/sdk/android/idsync/#user-aliasing), and [iOS](https://docs.mparticle.com/developers/sdk/ios/idsync/#user-aliasing). 
+
+Remember that the mParticle SDKs always maintain a persistent “current user”, or the user actively engaging with your app. Data from the current user’s session is being associated to a profile, which is either known or anonymous. 
+
+An alias request includes:
+* MPID of the destination profile: the known profile
+* MPID of the source profile: the anonymous profile
+* Start time: only data collected after this time is aliased to the destination profile
+* End time: only data collected up to this time is aliased to the destination profile
+
+If you do not specify the start and end time, then all data collected for the source profile will be aliased to the destination profile up to the point the user submits a login ID or your app otherwise submits an alias request.
+
+Alias requests are most often made when a user creates or logs into an account, or whenever they provide an identifier configured as a login ID in your account’s IDSync settings. However, you can submit an alias request using the SDKs at any time.
+
+## Aliasing requirements
+
+### Supported identity strategies
+
+Aliasing is only available to accounts configured to use either the default identity strategy, the profile link strategy, or the profile conversion strategy.
+
+### User profile requirements
+
+For an alias request to be successful:
+
+* The source profile must not have been the source profile for a previous alias request with an overlapping start or end date.
+* The source profile must not have been the destination profile for a previous alias request.
+* The destination profile must not have been the source profile for a previous alias request.
+
+## Example aliasing workflow
+
+### 1. A user first downloads your app or opens your website
+
+* The initial identification request includes only the device IDs collected automatically by the mParticle SDK
+* An anonymous user profile with the MPID of 1234 is created
+* Any events and attributes captured for the user are stored against this profile
+
+### 2. The user creates an account
+
+* When the user creates an account, a login identity request is sent, including at least one login ID (e.g. an email address)
+* A new known user profile is created with the MPID of 5678
+* The login request returns objects containing information on the previous and current users. At this point, any user attributes or products in the cart (for ecommerce) captured for the anonymous user can be copied to the known user profile
+
+### 3. An alias request is sent
+
+* The alias request contains four pieces of information:
+  * The source (anonymous) user profile MPID
+  * The destination (known) user profile MPID
+  * A start date (optional) - only events collected after this date are copied to the new profile
+  * An end date (optional) - only events collected before this date are copied to the new profile. The default value is the time the alias request is submitted.
+
+<aside>
+   If you don't specify the start date, mParticle copies events collected up to the maximum allowable time (the default is 90 days) prior to the alias request.
+</aside>
+
+If the alias request meets the validation requirements, it will be processed after a 24 hour delay. This delay allows for any late-arriving events from the source profile to be included.
 
 ## Results of a successful alias request
 
+A successful request will result in a `202 accepted` response. Errors are only returned in the cases of failed authorization or exceeded rate limits.
+
 ### Information from the source profile updates the destination profile
 
-* The first seen date (can be used by the Audience Builder) of the source  overwrites the first seen date of the destination profile.
-* All events captured for the source profile, between the start date and end date (up to 90 days), will be copied over to the destination profile.
+* The first seen date (a value helpful in the mParticle Audience Builder) of the source profile overwrites the first seen date of the destination profile.
+* All events captured for the source profile, between the start date and end date (up to a 90 day period), will be copied to the destination profile.
 * Any install attribution information captured for the source profile will be copied over to the destination profile.
 
 ### Not all information is automatically copied
 
 The following information is not copied as a result of an alias request:
-* User Identities and Device Identities are not copied over to the destination profile. However, the destination profile should already contain the same Device IDs as the source profile, since it originates on the same device.
-* User attributes and calculated attributes are not automatically copied as part of an aliasing request. 
-* If you are using Data Privacy Controls, consent information is not copied.
 
-However, the mParticle SDKs provide a method for copying user attributes, identities and consent data any time the current user profile changes. For more information see the SDK docs for [iOS](/developers/sdk/ios/idsync/#user-aliasing), [Android](/developers/sdk/android/idsync/#user-aliasing), and [Web](/developers/sdk/web/idsync/#user-aliasing).
+* User identifiers and device IDs are not copied to the destination profile. However, the destination profile should already contain the same device IDs as the source profile, since it should have originated from the same device.
+* User attributes and calculated attributes are not automatically copied as part of an aliasing request.
+* If you are using Data Privacy Controls, consent information is not copied. You need to reobtain consent information from your users after a successful alias request.
+
+The mParticle SDKs provide a method for copying user attributes, identities and consent data any time the current user profile changes. For more information see the [SDK docs](https://docs.mparticle.com/developers/) for iOS, Android, and Web.
 
 ### Status messages are added to both profiles
-
 * A status message will be added to the source profile indicating that it has been aliased and noting the mParticle ID of the destination profile.
 * A status message will be added to the destination profile, indicating that it has been merged and noting the mParticle ID of the source profile.
 
-## Aliasing Results in the mParticle Platform
-
-* The [Live Stream](/guides/platform-guide/live-stream/) will show alias requests for developer troubleshooting.
-* The [User Activity view](/guides/platform-guide/activity/#user-activity) will show a complete view of the events timeline for the destination profile, including events copied from the source profile.
-* In Audience Builder, you can create audiences where the customer has fulfilled one part of the condition in an anonymous state, and another part in a known state. The source profile will be **excluded** as a member from that audience.
-
-
-## Considerations
-
-### Strategy requirements
-
-Aliasing is only available to clients using the [Profile Link](/guides/idsync/profile-link-strategy/) or [Profile Conversion](/guides/idsync/profile-conversion-strategy/) strategies. 
-
-### Source and destination profile requirements
-
-For an alias request to be successful: 
-
-* The source profile must not have been the source profile for a previous alias request with an overlapping start or end date
-* The source profile must not have been the destination profile for a previous alias request
-* The destination profile must not have been the source profile for a previous alias request
-* Aliasing can only be used on eCommerce strategies
-
-### Aliasing can happen at any time
-The most common use cases for aliasing occur immediately after a new Login ID is first seen, triggering the creation of a new profile. However, aliasing is a separate process from IDSync and an anonymous profile may be aliased to a known profile at any time.
-
-### Aliasing is not real-time
-
-Aliasing is not a synchronous real-time process. Errors will be returned in the case of failed authorisation or rate limiting, but otherwise, a `202 accepted` response will be returned. If an alias request fails for any of the reasons listed above, no error is generated.
-
-### Aliasing is permanent
-
-Once an alias request has succeeded, it cannot be undone.
-
+<aside>
+   Aliasing is not a synchronous real-time process. Errors will be returned in the case of failed authorisation or rate limiting, but otherwise, a 202 accepted response will be returned. If an alias request fails for any of the reasons listed above, no error is generated.
+</aside>
