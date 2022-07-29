@@ -17,7 +17,11 @@ Retrieve your API key for the platform where your app resides:
 
 Add the mParticle SDK for your app platform to your app project.
 
-### iOS SDK installation
+<tabs>
+
+<tab label='iOS' group='install'>
+
+### Install the iOS SDK
 
 Update your preferred package manager with the mParticle iOS SDK by adding it as a dependency:
 
@@ -27,7 +31,11 @@ Update your preferred package manager with the mParticle iOS SDK by adding it as
 | Carthage        | `github "segmentio/analytics-ios"` | `github "mparticle/mparticle-apple-sdk"` |
 | SPM              | `git@github.com:segmentio/analytics-ios.git` | `git@github.com:mParticle/mparticle-apple-sdk.git` |
 
-### Android SDK installation
+</tab>
+
+<tab label='Android' group='install'>
+
+### Install the Android SDK
 
 Add the mParticle Android SDK to your project:
 
@@ -41,38 +49,47 @@ dependencies {
 }
 ```
 
+</tab>
+
+<tab label='Web' group='install'>
+
+### Install the Web SDK
+
+To install the Web SDK in your app, insert the following JavaScript snippet in the `<head>` tag of each page in your web app:
+
+~~~javascript
+<script type="text/javascript">
+
+    // Configures the SDK. Note the settings below for isDevelopmentMode
+    // and logLevel.
+    window.mParticle = {
+        config: {
+            isDevelopmentMode: true,
+            logLevel: verbose;
+
+        },
+    };
+    (
+    function(t){window.mParticle=window.mParticle||{};window.mParticle.EventType={Unknown:0,Navigation:1,Location:2,Search:3,Transaction:4,UserContent:5,UserPreference:6,Social:7,Other:8};window.mParticle.eCommerce={Cart:{}};window.mParticle.Identity={};window.mParticle.config=window.mParticle.config||{};window.mParticle.config.rq=[];window.mParticle.config.snippetVersion=2.3;window.mParticle.ready=function(t){window.mParticle.config.rq.push(t)};var e=["endSession","logError","logBaseEvent","logEvent","logForm","logLink","logPageView","setSessionAttribute","setAppName","setAppVersion","setOptOut","setPosition","startNewSession","startTrackingLocation","stopTrackingLocation"];var o=["setCurrencyCode","logCheckout"];var i=["identify","login","logout","modify"];e.forEach(function(t){window.mParticle[t]=n(t)});o.forEach(function(t){window.mParticle.eCommerce[t]=n(t,"eCommerce")});i.forEach(function(t){window.mParticle.Identity[t]=n(t,"Identity")});function n(e,o){return function(){if(o){e=o+"."+e}var t=Array.prototype.slice.call(arguments);t.unshift(e);window.mParticle.config.rq.push(t)}}var dpId,dpV,config=window.mParticle.config,env=config.isDevelopmentMode?1:0,dbUrl="?env="+env,dataPlan=window.mParticle.config.dataPlan;dataPlan&&(dpId=dataPlan.planId,dpV=dataPlan.planVersion,dpId&&(dpV&&(dpV<1||dpV>1e3)&&(dpV=null),dbUrl+="&plan_id="+dpId+(dpV?"&plan_version="+dpV:"")));var mp=document.createElement("script");mp.type="text/javascript";mp.async=true;mp.src=("https:"==document.location.protocol?"https://jssdkcdns":"http://jssdkcdn")+".mparticle.com/js/v2/"+t+"/mparticle.js" + dbUrl;var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(mp,c)}
+    )
+// Insert your API key below
+("REPLACE WITH API KEY");
+</script>
+~~~
+
+</tab>
+
+</tabs>
+
 ## Step 3. Initialize your app with the platform API key
 
 Just as with Segment, you can quickly initialize the mParticle SDK on app startup with your API credentials. 
 
-### Android Initialization
+<tabs>
 
-:::code-selector-block
-```kotlin
-val options = MParticleOptions.builder(this)
-    .credentials("REPLACE ME WITH KEY", "REPLACE ME WITH SECRET")
-    .build()
-MParticle.start(options)
-```
-```java
-MParticleOptions options = MParticleOptions.builder(this)
-    .credentials("REPLACE ME WITH KEY", "REPLACE ME WITH SECRET")
-    .build();
-MParticle.start(options);
-```
-:::
+<tab label='iOS' group='initialize'>
 
-For reference, the Segment version of Android initialization looks similar to the following:
-
-```java
-Analytics analytics = new Analytics.Builder(context, YOUR_WRITE_KEY)
-    .trackApplicationLifecycleEvents()
-    .recordScreenViews()
-    .build();
-Analytics.setSingletonInstance(analytics);
-``` 
-
-### iOS Initialization
+### iOS initialization
 
 :::code-selector-block
 
@@ -104,6 +121,55 @@ configuration.recordScreenViews = YES;
 [SEGAnalytics setupWithConfiguration:configuration];
 ```
 :::
+
+</tab>
+
+<tab label='Android' group='initialize'>
+
+### Android initialization
+
+:::code-selector-block
+```kotlin
+val options = MParticleOptions.builder(this)
+    .credentials("REPLACE ME WITH KEY", "REPLACE ME WITH SECRET")
+    .build()
+MParticle.start(options)
+```
+```java
+MParticleOptions options = MParticleOptions.builder(this)
+    .credentials("REPLACE ME WITH KEY", "REPLACE ME WITH SECRET")
+    .build();
+MParticle.start(options);
+```
+:::
+
+For reference, the Segment version of Android initialization looks similar to the following:
+
+```java
+Analytics analytics = new Analytics.Builder(context, YOUR_WRITE_KEY)
+    .trackApplicationLifecycleEvents()
+    .recordScreenViews()
+    .build();
+Analytics.setSingletonInstance(analytics);
+``` 
+
+</tab>
+
+<tab label='Web' group='initialize'>
+
+### Web initialization
+
+To initialize the Web SDK, insert your API key directly within the JavaScript snippet before the closing `</script>` tag:
+
+~~~javascript
+// Insert your API key below
+("REPLACE WITH API KEY");
+</script>
+~~~
+
+</tab>
+
+</tabs>
 
 ## Step 4. Associate data with users and devices 
 
@@ -159,6 +225,19 @@ request.customerId = @"019mr8mf4r";
 [currentUser setUserAttribute:@"top_region"
                         value:@"North America"];
                                   
+```
+
+```javascript
+// Web SDK
+var identityRequest = {
+  userIdentities: {
+    email: 'pgibbons@example.com',
+    customerid: '019mr8mf4r'    
+  }
+}
+mParticle.Identity.identify(identityRequest);
+var currentUser = mParticle.Identity.getCurrentUser();
+currentUser.setUserAttribute("top_region","North America");
 ```
 :::
 
@@ -295,6 +374,46 @@ MPCommerceEvent *event = [[MPCommerceEvent alloc] initWithAction:action
 event.transactionAttributes = attributes;
 [[MParticle sharedInstance] logEvent:event];
 ```
+
+```javascript
+
+// Web SDK
+
+// Custom Event
+mParticle.logEvent(
+  'Video Watched',
+  mParticle.EventType.Navigation,
+  { 'category' : 'Destination Intro', 'title' : 'Paris' }
+);
+
+// Commerce Event
+
+// 1. Create the products
+var product1 = mParticle.eCommerce.createProduct(
+    'Double Room - Econ Rate',  // Name
+    'econ-1',                   // SKU
+    100.00,                     // Price
+    4                           // Quantity
+);
+
+// 2. Summarie the transaction
+var transactionAttributes = {
+    Id: 'foo-transaction-id',
+    Revenue: 430.00,
+    Tax: 30
+};
+
+// 3. Log the purchase event
+var customAttributes = {sale: true}; // if not passing any custom attributes, pass null
+var customFlags = {'Google.Category': 'travel'} // if not passing any custom flags, pass null
+mParticle.eCommerce.logProductAction(
+    mParticle.ProductActionType.Purchase,
+    [product1, product2],
+    customAttributes,
+    customFlags,
+    transactionAttributes);
+
+```
 :::
 
 ## Step 6. Migrate screen views
@@ -335,6 +454,15 @@ NSDictionary *screenInfo = @{@"rating":@"5",
 [[MParticle sharedInstance] logScreen:@"Destination Details"
                             eventInfo:screenInfo];
 ```
+
+```javascript
+// Web SDK
+mParticle.logPageView(
+	"Destination Details",
+	{ page: window.location.toString() },
+	{ "Google.Page": window.location.pathname.toString() } // if you're using Google Analytics to track page views
+);
+```
 :::
 
 For reference, the following examples show Segment `track` calls:
@@ -364,6 +492,14 @@ Analytics.shared().screen("Photo Feed", properties: ["Feed Type": "private"])
 //iOS SDK
 [[SEGAnalytics sharedAnalytics] screen:@"Photo Feed"
                             properties:@{ @"Feed Type": @"private" }];
+```
+
+```javascript
+// Javascript
+analytics.track('Article Completed', {
+  title: 'How to Create a Tracking Plan',
+  course: 'Intro to Analytics',
+});
 ```
 :::
 
