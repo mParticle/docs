@@ -4,6 +4,8 @@ title: Event
 
 [Narrative](http://narrative.io) enables companies to fuel their data strategies and enrich their 1st party data through automation software and a transparent marketplace.
 
+<aside>The Narrative integration is being deprecated.  Please reach out to your customer success manager for assistance if you are interested in using Narrative.</aside>
+
 * **Stream** of data, enables enrichment across all your platforms.
 * **Fully-transparent** and **complete control** over data sources and attributes .
 * Data at individual record and source level ; **no segments**.
