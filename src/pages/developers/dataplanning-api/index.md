@@ -192,6 +192,10 @@ Name | Type | Description
 |---|---|---
 workspace_id | `integer` | The ID of the workspace containing your data plans
 
+<aside>
+If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
+</aside>
+
 #### Example Request
 
 :::code-selector-block
@@ -425,6 +429,10 @@ Name | Type | Description
 workspace_id | `integer` | The ID of the workspace containing your data plans
 plan_id | `string` | The ID of the Data Plan to retrieve
 
+<aside>
+If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
+</aside>
+
 #### Example Request
 
 :::code-selector-block
@@ -500,6 +508,10 @@ A successful request results in an empty 204 response.
 Name | Type | Description
 |---|---|---
 workspace_id | `integer` | The ID of the workspace containing your data plans
+
+<aside>
+If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
+</aside>
 
 #### Example Request
 
@@ -667,6 +679,10 @@ Name | Type | Description
 workspace_id | `integer` | The ID of the workspace containing your data plans
 plan_id | `string` | The ID of the Data Plan to retrieve
 version | `integer` | The version of the Data Plan to retrieve
+
+<aside>
+If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
+</aside>
 
 #### Example Request
 
@@ -1294,3 +1310,7 @@ The following rate limits are enforced for all requests to the Data Planning API
 | -------- | ------ | --- |
 | Requests per minute per account | 3000 requests per minute | This limit applies to all GET, POST, and PATCH API actions. |
 | Requests per minute per organization | 6000 requests per minute | This limit applies to all GET, POST, and PATCH API actions.
+
+<aside>
+If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
+</aside>

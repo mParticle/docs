@@ -221,15 +221,21 @@ To create a plan:
 2. Enter the **Data Plan Name** and an optional **Description**.
 3. Choose how you will import data points:
    * If you're starting a new mParticle implementation:
-      - **[Data Plan Builder](#more-about-data-plan-builder-and-templates)** is recommended for your first data plan.
+    - **[Data Plan Builder](#more-about-data-plan-builder-and-templates)** is recommended for your first data plan.
          Use one of several different Google Sheet templates to define your plan, and then with a single click, create the plan. 
          
          [>> Take me to the Data Plan Builder](https://docs.google.com/spreadsheets/d/1b_iHA4uYX6sY6yvGcrT7WWr3G5DSRHN9gi1yRHB4fNg/#gid=2093524130)
    * If you already have collected data with mParticle:
-      - **[Catalog](/guides/data-master/catalog/)**: When importing from the catalog, you can filter to a subset of Data Points. Use these refinement filters to exclude data with known data quality issues. If you import more Data Points than you intend, you can always delete them afterwards. Once you have data plan imported from Catalog, you can import it into the [Data Plan Builder](https://docs.google.com/spreadsheets/d/1b_iHA4uYX6sY6yvGcrT7WWr3G5DSRHN9gi1yRHB4fNg#gid=99757958).
+    - **[Catalog](/guides/data-master/catalog/)**: When importing from the catalog, you can filter to a subset of Data Points. Use these refinement filters to exclude data with known data quality issues. If you import more Data Points than you intend, you can always delete them afterwards. Once you have data plan imported from Catalog, you can import it into the [Data Plan Builder](https://docs.google.com/spreadsheets/d/1b_iHA4uYX6sY6yvGcrT7WWr3G5DSRHN9gi1yRHB4fNg#gid=99757958).
+
+
 
 <aside class="notice">
 You can move data plans between various mParticle workspaces and accounts by downloading and uploading JSON formatted plans.
+</aside>
+
+<aside>
+When updating or uploading a data plan by copying and pasting JSON (as when using the <a href="#more-about-data-plan-builder-and-templates">Data Plan Builder</a>) you must update the version description separately in the mParticle UI. 
 </aside>
 
 ### Step 2: Activate Your Plan
@@ -342,11 +348,21 @@ Smaller changes can be made directly to an existing plan version. Updates to act
 
 If you're using a [Data Plan Builder](#more-about-data-plan-builder-and-templates), make the update in the builder and follow instructions to export a new data plan version into mParticle.
 
+<aside>
+When updating or uploading a data plan by copying and pasting JSON (as when using the [Data Plan Builder](#more-about-data-plan-builder-and-templates)), you must update the version description separately in the mParticle UI. 
+</aside>
+
 ![](/images/dataplanning/clone_version.png)
 
 <aside class="warning">
  If you've pinned your SDK or Events API payload to a plan version, update your code to point to the version. If you have omitted the plan version in your implementation, mParticle will automatically find the latest version that is active in development or production.
  </aside>
+
+To view the version history of a data plan:
+
+1. Log in to mParticle and navigate to **Data Master > Plans** in the left nav bar. 
+2. Select a data plan from the list.
+3. Hover your cursor over the details icon (**...**), and click **View Plan History**.
 
 ### Step 6: Block Unplanned Data from Being Forwarded to Downstream Systems
 
@@ -483,6 +499,46 @@ The following events are not yet included:
 - Application State Transition Events
 - Session Events
 - Attribution Events
+
+### Which user identifiers are supported?
+
+You can plan for and validate the following user identifier types:
+
+* Amp Client ID
+* Google Advertising ID
+* Android Device ID
+* Customer ID
+* mParticle Device Application Stamp
+* Email Address
+* Facebook ID
+* Facebook Audience ID
+* Fire Advertising ID
+* Google ID
+* Apple IDFA
+* Apple IDFV
+* Microsoft ID
+* Microsoft Advertising ID
+* Microsoft Publisher ID
+* Mobile Telephone Number
+* Phone Number 2
+* Phone Number 3
+* Push Token
+* Roku Advertising ID
+* Roku Publisher ID
+* Twitter Handle
+* Yahoo ID
+* Other
+* Other 2
+* Other 3
+* Other 4
+* Other 5
+* Other 6
+* Other 7
+* Other 8
+* Other 9
+* Other 10
+
+The `Other` identifiers allow you to enter up to ten different custom strings against which to validate data.
 
 ### How do I validate the shape of event schemas?
 Here's an example schema configuration for a screen event called "Sandbox Page View":
