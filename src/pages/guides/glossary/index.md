@@ -231,7 +231,7 @@ Monthly active users.
 
 **MTU**
 
-Monthly tracked users, a measurement used in mParticle billing.
+Monthly tracked user, a measurement used in mParticle billing. An MTU is any profile stored in mParticle that has been updated or has generated at least one tracked event within a calendar month. 
 
 **organization (org)**
 
