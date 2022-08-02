@@ -195,7 +195,7 @@ const options = {
     },
     currentPlayheadPosition: 30000,
 };
-mediaSession.logMediaEnd(options);
+mediaSession.logMediaContentEnd(options);
 ```
 
 5. End the Media Session once the user interaction is over (such as after a post-roll or if the app is terminated)
@@ -286,7 +286,7 @@ The Media SDK exposes methods that will trigger Media Events based on the most c
 | --- | --- |
 | mediaSession.logPlay() | 'Play' |
 | mediaSession.logPause() | 'Pause' |
-| mediaSession.logMediaContentEnd:() | 'Media Content End' |
+| mediaSession.logMediaContentEnd() | 'Media Content End' |
 | mediaSession.logMediaSessionStart() | 'Media Session Start' |
 | mediaSession.logMediaSessionEnd() | 'Media Session End' |
 | mediaSession.logSeekStart() | 'Seek Start' |
