@@ -57,21 +57,23 @@ Finally, you can create various automated workflows within mParticle to activate
 9. Once ML predictions have been successfully imported into mParticle as User Attributes, you may activate through Audiences or Journeys (as you would any other attribute).
 
 ## Supported Platforms
-* Android
-* iOS
-* Web
-* tvOS
-* Roku
 * Alexa
-* Smart TV
+* Android
+* Data Feeds
+* FireTV
+* iOS
+* Roku
+* SmartTV
+* tvOS
+* Web
 * Xbox
 
 ## Supported Event Types
 mParticle’s integration forwards the following event types to Vidora:
 * Application State Transition
+* Attribution Event
 * Custom Event
 * Commerce Event
-* Promotion Action
 * Push Message Action
 * User Attribute Change
 * User Identity Change
