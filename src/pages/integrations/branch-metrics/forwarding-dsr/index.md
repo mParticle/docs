@@ -34,7 +34,7 @@ Create a DSR forwarding configuration for Branch and activate it:
 
     b. Enter the **Access Token** you obtained in Step 1.
 
-    c. Enter the **App IDe** you obtained in Step 1.
+    c. Enter the **App ID** you obtained in Step 1.
     
     d. Select the **Branch Developer ID**, the mParticle User Identity type to forward as the Branch Developer ID. You should generally use same User Identity type you used to set up your Branch output configuration.
     
