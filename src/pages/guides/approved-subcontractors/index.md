@@ -9,7 +9,7 @@ Other locations (Australia, European Economic Area) are available at customer re
 The following tables represent the approved sub-processors and their locations for mParticle within each hosting region:
 <br><br>
 
-**Last Updated: Agust 3 2022**
+**Last Updated: August 3 2022**
 
 <b>United States:</b>
 
