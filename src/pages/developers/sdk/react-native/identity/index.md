@@ -33,19 +33,6 @@ The `IdentityRequest` object is a holder for a set of identities that you would 
 var request = new MParticle.IdentityRequest();
 request.email = 'h.jekyll.md@example.com';
 ```
-### User Aliasing
-
-The Identity API lets you *transition* the SDK and data from one user to a new or different user. The React Native SDK maintains values in persistence that are associated with the current user, such as user attributes. If while transitioning you'd like to copy this data from the old user to the new user, you can define an `onUserAlias` callback to be invoked on a successful transition from one user to the next.
-
-```javascript
-var request = new MParticle.IdentityRequest();
-request.onUserAlias = (oldUser, newUser) => {
-	var oldUserAttributes = oldUser.getAllUserAttributes();
-	for (var userAttrKey in oldUserAttributes){
-  		newUser.setUserAttibute(userAttrKey, oldUserAttributes[userAttrKey]);
-	}
-};
-```
 
 ## Identify
 
