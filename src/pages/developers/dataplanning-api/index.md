@@ -273,7 +273,7 @@ const plan = {
 const version = {
     version: 1,
     version_description: 'This is an example version description.',
-    activated_environmment: ActivatedEnvironment.Development,
+    activated_environment: ActivatedEnvironment.Development,
     version_document: {
         data_points: []
     }
