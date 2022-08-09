@@ -55,7 +55,7 @@ The Salesforce Marketing Cloud Audience Integration uses Bulk Forwarding. Bulk F
 
 By default, mParticle uploads to Salesforce Marketing Cloud whenever at least one of the following conditions is met:
 
-* 90 minutes have passed since the last update.
+* 60 minutes have passed since the last update.
 * At least 100000 messages are in the queue.
 
 Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer Success Manager if you need to discuss upload frequency.
