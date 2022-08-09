@@ -42,12 +42,11 @@ You can filter the list view to display specific data points:
   * **Input/App Version**: show data points that have been seen for the selected inputs/app versions.
 
   * **Environment**: show data points that have been seen in the `dev` or `prod` environments.
-  * **Channel**: show data points that have been seen for the selected channel. Channel is distinct from input and describes how a data point arrived at mParticle. For example, a data point may arrive fron the client-side, server-side, or from a partner feed. Valid channels include:
-    - `native`
-    - `javascript`
-    - `pixel`
-    - `partner`
-    - `server_to_server`
+  * **Channel**: show data points that have been seen for the selected channel. Channel is distinct from input and describes how a data point arrived at mParticle. For example, a data point may arrive fron the client side, server side, or from a partner feed. Valid channels include:
+    * SDK
+    * Feed
+    * Server to Server
+    * Pixel
 
 Combine date ranges and filters with your search terms to quickly browse and explore data points. Setting a filter will also clear any current category selection.
 
