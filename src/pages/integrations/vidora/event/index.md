@@ -8,7 +8,7 @@ Connecting your mParticle and Vidora accounts entails configuring a two-sided in
 
 ### Enable Live Event Forwarding from mParticle to Vidora
 
-1. Make a note of your [API key](https://www.vidora.com/docs/mparticle-source/#articleTOC_1) from within the Vidora UI. This key will be used in a subsequent step so that mParticle has the proper permissions to forward data to Vidora’s API.
+1. Make a note of your [API key](https://www.vidora.com/docs/mparticle-source/#articleTOC_1) from within Vidora's Cortex UI. This key will be used in a subsequent step so that mParticle has the proper permissions to forward data into Cortex.
 
 ![](/images/vidora-events-step1.png)
 
@@ -20,15 +20,15 @@ Connecting your mParticle and Vidora accounts entails configuring a two-sided in
 
 ![](/images/vidora-events-step3.png)
 
-4. From within the Vidora UI, verify that events are flowing into Cortex as expected via the [Check Your Events](https://www.vidora.com/docs/api-monitoring/#articleTOC_2) tool. The events that show up in this tool should match those that come from the associated Inputs in mParticle.
+4. From within the Cortex UI, verify that events are flowing into Cortex as expected via the [Check Your Events](https://www.vidora.com/docs/api-monitoring/#articleTOC_2) tool. The events that show up in this tool should match those that come from the associated Inputs in mParticle.
 
 ### Replay Historical Events from mP > Vidora
 
-5. Once the live integration has been configured and verified, reach out to your Customer Success Manager (CSM) in order to initiate a replay of historical data. Providing historical events to Vidora enables you to start building ML pipelines right away rather than waiting for a sufficient volume of data to be gathered through the live integration.
+5. Once the live integration has been configured and verified, reach out to your Customer Success Manager (CSM) in order to initiate a replay of historical data. Providing historical events enables Cortex to start building ML pipelines right away rather than waiting for a sufficient volume of data to be gathered through the live integration.
 
 ## Generate Intelligent Attributes
 
-Before proceeding, configure the [Feed](/integrations/vidora/feed/) component of the mParticle-Vidora connection. This allows you to ingest Vidora's prediction output into mParticle as user attributes.
+Before proceeding, configure the [Feed](/integrations/vidora/feed/) component of the mParticle-Vidora connection. This allows you to ingest Cortex's prediction output into mParticle as user attributes.
 
 Once the two apps are connected and data is populating your Vidora account, you may begin creating ML Pipelines whose predictions will ultimately be imported as User Attributes within mParticle.
 

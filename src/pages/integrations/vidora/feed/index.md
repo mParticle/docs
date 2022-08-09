@@ -14,9 +14,9 @@ Complete steps 1-6 found in the [Event documentation](/integrations/vidora/event
 
 ![](/images/vidora-feed-step1.png)
 
-2. From within the Vidora UI, create an [Export Destination](https://www.vidora.com/docs/category/developer-docs/export-integrations/) for mParticle using the Feed API credentials from Step 1. This destination will enable the ML Pipeline to mParticle.
+2. From within Vidora's Cortex UI, create an [Export Destination](https://www.vidora.com/docs/category/developer-docs/export-integrations/) for mParticle using the Feed API credentials from Step 1. This destination will enable the ML Pipeline to mParticle.
 
-3. Within the Vidora UI, specify one or more prediction columns to send to mParticle. The prediction columns will appear in mParticle as User Attributes with the naming convention `$intelligent_attribute:vidora:[pipeline name]__score` and `$intelligent_attribute:vidora:[pipeline name]__percentile`, where score represents the prediction itself (e.g. conversion probability for a Future Events pipeline, predicted value for a Regression pipeline, etc). These attributes will be visible in mParticle's Data Master > Catalog.
+3. Within Cortex, specify one or more prediction columns to send to mParticle. The prediction columns will appear in mParticle as User Attributes with the naming convention `$intelligent_attribute:cortex:[pipeline name]__score` and `$intelligent_attribute:cortex:[pipeline name]__percentile`, where score represents the prediction itself (e.g. conversion probability for a Future Events pipeline, predicted value for a Regression pipeline, etc). These attributes will be visible in mParticle's Data Master > Catalog.
 
 After completing these three steps, continue with step 7 found in the [Event documentation](/integrations/vidora/event/).
 
@@ -35,8 +35,8 @@ The sample JSON below illustrates the payload that might be sent from Vidora to 
 {
   "environment": "production",
   "user_attributes": { 
-    "$intelligent_attribute:vidora:likelihood_to_purchase__score": 0.171425,    
-    "$intelligent_attribute:vidora:likelihood_to_purchase__percentile": 0.879432
+    "$intelligent_attribute:cortex:likelihood_to_purchase__score": 0.171425,    
+    "$intelligent_attribute:cortex:likelihood_to_purchase__percentile": 0.879432
   },
   "mpid": 123456789
 }
