@@ -46,6 +46,10 @@ const TUTS = [{
 {
     title: 'Android End-to-End Tutorial',
     route: 'android',
+},
+{
+    title: 'iOS End-to-End Tutorial',
+    route: 'ios',
 }];
 
 const SDKS = [{
