@@ -85,6 +85,14 @@ export default () => (
                         <p>Blog</p>
                     </a>
                     <a
+                        href='https://support.mparticle.com'>
+                        <p>Support</p>
+                    </a>
+                    <a
+                        href='https://changelog.mparticle.com'>
+                        <p>Changelog</p>
+                    </a>
+                    <a
                         href='https://www.mparticle.com/resources'>
                         <p>Resources</p>
                     </a>
