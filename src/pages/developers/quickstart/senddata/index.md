@@ -24,7 +24,7 @@ Specify our SDK in your [Podfile](https://guides.cocoapods.org/syntax/podfile.ht
 use_frameworks!
 
 target '<Your Target>' do
-    pod 'mParticle-Apple-SDK', '~> 7.0'
+    pod 'mParticle-Apple-SDK', '~> 8.0'
 end
 ```
 </tab>
@@ -35,7 +35,7 @@ end
 Specify our SDK in your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
 ```ogdl
-github "mparticle/mparticle-apple-sdk" ~> 7.0
+github "mparticle/mparticle-apple-sdk" ~> 8.0
 ```
 
 </tab>
