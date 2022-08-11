@@ -349,7 +349,7 @@ Smaller changes can be made directly to an existing plan version. Updates to act
 If you're using a [Data Plan Builder](#more-about-data-plan-builder-and-templates), make the update in the builder and follow instructions to export a new data plan version into mParticle.
 
 <aside>
-When updating or uploading a data plan by copying and pasting JSON (as when using the [Data Plan Builder](#more-about-data-plan-builder-and-templates)), you must update the version description separately in the mParticle UI. 
+When updating or uploading a data plan by copying and pasting JSON (as when using the <a href="#more-about-data-plan-builder-and-templates">Data Plan Builder</a>), you must update the version description separately in the mParticle UI. 
 </aside>
 
 ![](/images/dataplanning/clone_version.png)
