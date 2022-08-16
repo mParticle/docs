@@ -12,11 +12,11 @@ title: Audience
 3. From the **BigQuery** page for your project:
     * Create a dataset for your app data to be loaded into.
     * Click on **Share Dataset** on the dataset page.
-      ![](/images/bigquery-share-dataset.png)
+      ![](/images/bigquery-share-dataset.jpg)
     * Add `mparticle-gcp-clientfacing@gcp-prod-170221.iam.gserviceaccount.com` with the "BigQuery Data Editor" role.  
-      ![medium](/images/bigquery-permission.png)
+      ![medium](/images/bigquery-permission.jpg)
 4. Connect your audience from the Audiences page in the mParticle dashboard. You'll need to enter your BigQuery Project ID and Dataset ID.  
-  ![](/images/bigquery-project-id.png)
+  ![](/images/bigquery-project-id.jpg)
 
 
 ## BigQuery Schema
