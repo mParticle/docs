@@ -14,14 +14,16 @@ Setup an account with Adjust at <https://www.adjust.com>.  If you will be forwar
 
 ## Data Processing Notes
 
-mParticle will only forward events to Adjust if:
+* mParticle will only forward events to Adjust if:
 
-* iOS - An IDFA or IDFV is set
-* Android - A Google Advertising ID or Android ID is set
+  * iOS - An IDFA or IDFV is set
+  * Android - A Google Advertising ID or Android ID is set
+  * The data is less than 28 days old - <https://docs.adjust.com/en/event-tracking/#server-side-event-tracking>.
 
-mParticle will only forward events to Adjust if the data is less than 28 days old - <https://docs.adjust.com/en/event-tracking/#server-side-event-tracking>.
+* If the incoming data includes an IP address, that address is forwarded alongside other device information.
 
-If the incoming data includes an IP address, it will also be forwarded alongside other device information.
+* If you see excess 404 errors with Android devices, you may need to disable the input setting **Restrict Device ID by Limit Ad Tracking**.
+* If you see 400 errors and you have both server-to-server and client forwarding, you may need to add a correct timestamp and a valid, known advertising ID (IDFA, IDFV for iOS or Google Advertising ID or Android ID for Android) to stop 400 errors caused by a race condition between the two types of forwarding.
 
 ## Adjust Kit Integration
 
