@@ -59,15 +59,6 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Profile storage | 30 days | User Profiles are deleted after 30 days of inactivity. |
 | Real-time audience storage | 30MB | Maximum size of a single users data in real-time audience storage. Typical users are ~200kb. |
 
-## Dashboard
-
-| Resource | Limits | Details |
-| -------- | ------ | --- |
-| Max Workspaces | 50 | Users are prevented from creating additional workspaces. This limit can be raised by arrangement.
-| Max Users | 200 | Admins are prevented from creating additional users. This limit can be raised by arrangement.
-| Audience Name Length| 100 | Audience name and external name fields are limited to 100 characters.
-| Tag length | 18 | Tag names are limited to 18 characters.
-
 ## Data Subject Request API
 | Resource | Limits | Details |
 | -------- | ------ | --- |
@@ -87,3 +78,12 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | -------- | ------ | --- |
 | Requests per minute per account | 3000 requests per minute | This limit applies to all GET, POST, and PATCH API actions. |
 | Requests per minute per organization | 6000 requests per minute | This limit applies to all GET, POST, and PATCH API actions.
+
+## Dashboard
+
+| Resource | Limits | Details |
+| -------- | ------ | --- |
+| Max Workspaces | 50 | Users are prevented from creating additional workspaces. This limit can be raised by arrangement.
+| Max Users | 200 | Admins are prevented from creating additional users. This limit can be raised by arrangement.
+| Audience Name Length| 100 | Audience name and external name fields are limited to 100 characters.
+| Tag length | 18 | Tag names are limited to 18 characters.
