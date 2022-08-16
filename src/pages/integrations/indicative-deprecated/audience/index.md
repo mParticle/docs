@@ -4,7 +4,7 @@ title: Audience
 
 [Indicative](https://www.indicative.com) is a customer journey analytics platform designed for product and marketing teams to leverage complex analysis to build better products that drive conversion, increase engagement, and retain customers.
 
-<aside>This topic supports the recently deprecated Indicative integration. If you haven’t connected your data with Indicative by August 1, 2022, use the most recent [Indicative](/integrations/indicative/audience) integration documentation.</aside>
+<aside>Important: This topic supports the recently deprecated Indicative integration. If you haven’t connected your data with Indicative by August 15, 2022, use the most recent <a href="https://docs.mparticle.com/integrations/indicative/audience">Indicative</a> integration documentation instead of this topic.</aside>
 
 ## Overview & Prerequisites
 
