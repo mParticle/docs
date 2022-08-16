@@ -801,13 +801,13 @@ Reference the guide for each integration to see if you need to instrument custom
 * [Adobe Marketing Cloud](/integrations/amc/event/#custom-flags-on-web)
 * [AgilOne](/integrations/agilone/event/#custom-flags)
 * [Facebook](/integrations/facebook/event/#user-data-mappings)
-* [Google Analytics](/integrations/google-analytics/event/#event-tracking)
+* [Google Analytics 3](/integrations/google-analytics/event/#event-tracking)
+* [Google Analytics 4](/integrations/google-analytics-4/event/#custom-flags)
 * [Google Marketing Platform Offline Conversions](/integrations/google-marketing-platform-offline/event/#user-data-mapping)
 * [Quantcast](/integrations/quantcast/event/#quantcast-custom-flags)
 * [Simple Reach](/integrations/simplereach/event/#event-data-mapping)
 * [The Trade Desk](/integrations/the-trade-desk/event/#custom-flags)
 * [Web Trends](/integrations/webtrends/event/#event-data-mapping)
-
 
 ## `device_current_state`
 
