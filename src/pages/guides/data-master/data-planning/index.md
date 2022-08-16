@@ -209,6 +209,9 @@ Here's an example of the first part of the JSON file that you create from the ge
                }
             }
          }
+      ]
+   }
+}   
 ```
 
 Once you have the JSON from Data Plan Builder, paste it into the Data Plan import window (as explained in Step 1.3 below), or store the file and upload it using the [Data Planning API](/developers/dataplanning-api). 
@@ -218,24 +221,13 @@ Once you have the JSON from Data Plan Builder, paste it into the Data Plan impor
 To create a plan:
 
 1. In the mParticle UI, select **Data Master** > **Plans** > **Create Plan**.
-2. Enter the **Data Plan Name** and an optional **Description**.
-3. Choose how you will import data points:
-   * If you're starting a new mParticle implementation:
-    - **[Data Plan Builder](#more-about-data-plan-builder-and-templates)** is recommended for your first data plan.
-         Use one of several different Google Sheet templates to define your plan, and then with a single click, create the plan. 
-         
-         [>> Take me to the Data Plan Builder](https://docs.google.com/spreadsheets/d/1b_iHA4uYX6sY6yvGcrT7WWr3G5DSRHN9gi1yRHB4fNg/#gid=2093524130)
-   * If you already have collected data with mParticle:
-    - **[Catalog](/guides/data-master/catalog/)**: When importing from the catalog, you can filter to a subset of Data Points. Use these refinement filters to exclude data with known data quality issues. If you import more Data Points than you intend, you can always delete them afterwards. Once you have data plan imported from Catalog, you can import it into the [Data Plan Builder](https://docs.google.com/spreadsheets/d/1b_iHA4uYX6sY6yvGcrT7WWr3G5DSRHN9gi1yRHB4fNg#gid=99757958).
-
-
+2. Choose how you will import data points, using the instructions in the dialog to pick [the most suitable method](#getting-started).
 
 <aside class="notice">
-You can move data plans between various mParticle workspaces and accounts by downloading and uploading JSON formatted plans.
-</aside>
+Note: 
 
-<aside>
-When updating or uploading a data plan by copying and pasting JSON (as when using the <a href="#more-about-data-plan-builder-and-templates">Data Plan Builder</a>) you must update the version description separately in the mParticle UI. 
+   * You can move data plans between various mParticle workspaces and accounts by downloading and uploading JSON formatted plans.
+   * When updating or uploading a data plan by copying and pasting JSON (as when using the <a href="#more-about-data-plan-builder-and-templates">Data Plan Builder</a>) you must update the version description separately in the mParticle UI. 
 </aside>
 
 ### Step 2: Activate Your Plan
