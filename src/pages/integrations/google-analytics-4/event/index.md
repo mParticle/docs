@@ -4,10 +4,6 @@ title: Event
 
 Google Analytics 4, or GA4 (formerly known as “App + Web”), is a new kind of property, with different reports than what you're used to seeing in legacy Universal Analytics (UA) and Firebase properties.  GA4 is an analytics service that enables you to measure traffic and engagement across your websites and mobile apps using customizable reports.  One advantage of a GA4 property is that you can use it for a website, an app, or both a website and app together. UA properties only support websites and the Firebase Console only supports native app data.  
 
-<aside>
-    The Google Analytics 4 integration for mParticle is currently an Early Access release.
-</aside>
-
 Data collection is enabled through SDK instrumentation. Once your app is properly configured, data is ingested into the mParticle platform, which maps inbound data to Google Analytics features and their required formats, and then forwards the data to Google Analytics.
 
 <aside class="notice">You can have a GA4 property running concurrent with Google's legacy Google Analytics (also known as Universal Analytics, or UA).  By adding both a GA4 input as well as retaining the legacy Google Analytics input, data will flow to both of Google's dashboards. Once you are comfortable with GA4, you have the option to remove the legacy GA input.</aside>
@@ -146,6 +142,9 @@ When the payload is sent to our endpoint, it will require the `app_instance_id` 
     }
 },
 ```
+
+##### Other Platforms
+Because Google has the requirement for either the `app_instance_id` or the `client_id` property in all requests, which come from Google's SDKs, we are not supporting any other platforms at the time.  We are working closely with Google to support other platforms when they provide a strategy that doesn't require an SDK.
 
 ## Data Processing Notes
 
@@ -575,25 +574,14 @@ User Attribute | Google Analytics Parameter | Description |
 $utm_source | cs | Campaign Source |
 $gclid| gclid | Google AdWords ID | -->
 
-<!-- 
-## Configuration Settings
-| Setting Name |  Data Type    | Default Value  | Description |
-| ---|---|---|---|
-| Tracking ID | `string` | <unset> | The tracking ID / web property ID. The format is UA-XXXX-Y. |
-| Client ID Type | `enum` | `Default` | The Client ID type to forward to Google. The Default option opts out of any passed in Client ID. Note: If using this configuration with AMP connections, select 'AMP' instead of 'Default'. |
 ## Connection Settings
-TBD
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
-| Use Localhost Cookie | `bool` | False | All | Allows events to be sent when running a site under localhost. |
-| Send User IP Address | `bool` | False | All | If enabled, the user's IP address will be forwarded. |
-| Enable Enhanced Ecommerce | `bool` | False | All | Use this setting if you have enhanced ecommerce enabled in your Google Analytics account. |
-| Send Advertising IDs | `bool` | True | All | Enable this setting if you want mParticle to send Google Ad IDs, IDFAs, Microsoft Ad IDs, and Fire TV Ad IDs to Google Analytics. |
-| Allow Legacy CID Format | `bool` | False | All | Allow the legacy CID format to be sent through as-is. The legacy format being "X.Y", where X and Y are 32-bit integers. |
-| Hash User ID | `bool` | True | All | If enabled, mParticle will hash the selected user ID (uid) before forwarding to Google. |
+| Firebase App ID | `string` | | iOS, Android | The Firebase project ID |
+| Measurement ID | `string` | | Web | The Measurement ID for a Data Stream. The format is G-XXXXXXXXXX. |
+| Measurement Protocol API secret| `string` | | All | Your Google Analytics 4 Measurement Protocol API secret value |
 | External User Identity Type | `string` | None | All | The mParticle user identity type to forward as a user ID (uid) to Google Analytics. |
-| Forward Web Requests Server Side |  `bool` | `false` | Web | If enabled, requests will only be forwarded server-side. |
 | Late Event Action | `string` | Send | All | Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |
-| Custom dimensions | `Custom Field` | <unset> | All | Allows you to map your mParticle custom dimensions to the corresponding custom dimensions setup in Google Analytics. |
-| Custom metrics | `Custom Field` | <unset> | All | Allows you to map your mParticle custom metrics to the corresponding custom metrics setup in Google Analytics. |
-| Default Application Name | `string` | <unset> | All | The application name to forward to Google Analytics if one is not provided by the application or data feed | -->
+| Enable Configuration Page View | `bool` | `false` | Web | If enabled, GA4 will automatically send a page view when loaded. This results in an extra page view on GA4 which will not appear in mParticle. By default this is disabled to keep mParticle and GA4 page views more in line. |
+| Hash User ID | `bool` | `true` | All | If enabled, mParticle will hash the selected user ID (uid) before forwarding to Google. |
+| Forward Web Requests Server Side |  `bool` | `false` | All | If enabled, requests will only be forwarded server-side. |
