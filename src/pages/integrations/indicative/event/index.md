@@ -8,7 +8,7 @@ title: Event
 
 * Indicative supports both Event and Audience connections when integrating with an mParticle data source. However, Indicative requires an event input to be able to use the platform, so enabling the Event connection is required.
 
-* Set up your Indicative projects using the free trial wizard in mParticle.
+* Set up your Indicative projects using the [free trial wizard](/guides/platform-guide/indicative-free-trial) in mParticle.
 
 ## Supported Platforms
 
