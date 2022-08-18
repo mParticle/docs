@@ -26,6 +26,7 @@ The Customer.io feed integration sends custom events to mParticle.  Email, Push,
 | Email Opened | subject | An email was opened.
 | Email Sent |	| An email was sent from Customer.io to the delivery provider
 | Customer Subscribed | | A person's subscription status has changed to subscribed.
+| Customer Unsubscribed | | A person's subscription status has changed to unsubscribed.
 | Push Bounced | | The provider was unable to deliver the push notification.
 | Push Converted | | A person matched a conversion goal attributed to a push notification.
 | Push Failed  | | A push notification couldn't be sent to the delivery provider
