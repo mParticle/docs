@@ -3,7 +3,7 @@ title: Identify Users
 order: 5
 ---
 
-mParticle is a customer data platform. This means all of the data you collect with mParticle is either triggered by one of your customers (or users), or it describes one of your users.
+mParticle is a customer data platform. This means all the data you collect with mParticle is either triggered by one of your customers (or users), or it describes one of your users.
 
 The primary purpose of IDSync is to ensure that you are attributing data to the correct user, which requires you to successfully identify the current user of your app or website. This process is often called identity resolution.
 
@@ -58,7 +58,7 @@ The identity priority for this example is:
 3. Username
 4. Phone number
 
-Since the user hasn’t logged in or created an account yet, no customer ID, email address, or username is provided with the identification request.
+Since the user hasn't logged in or created an account yet, no customer ID, email address, or username is provided with the identification request.
 
 ### 3. mParticle creates an anonymous profile for the user
 

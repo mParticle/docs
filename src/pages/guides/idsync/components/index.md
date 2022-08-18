@@ -34,7 +34,7 @@ The main distinguishing feature of this strategy is that when a new login ID is 
 
 ### Default identity strategy
 
-The [default idenity](/guides/idsync/default-strategy/) strategy is a simplified version of the profile conversion strategy. The main difference is that the unique ID and login ID for the default identity strategy are set to `customer_id`, and they cannot be changed.
+The [default identity](/guides/idsync/default-strategy/) strategy is a simplified version of the profile conversion strategy. The main difference is that the unique ID and login ID for the default identity strategy are set to `customer_id`, and they cannot be changed.
 
 <aside>
     The default identity strategy is used for any new mParticle accounts participating in the mParticle <a href="https://www.mparticle.com/lpg/accelerator">Accelerator Program</a>.
@@ -68,14 +68,14 @@ Each identity strategy must define the order of precedence for matching user pro
 
 | **Identity Priority** | **IDSync API Request** | **Results** |
 | --- | --- | --- |
-| 1. Customer ID <br>2. Email <br>3. Other<br>4. IDFV<br>5. GAID | Email: `h.jekyll.md@example.com`<br>Other:`AAAA` <br>IDFV: `2345` | Highest priority lookup (email) returns Profiles 1 and 2. Next highest priority (other) used as a tiebreaker. **Profile 1** is returned. Other identifiers may or may not be updated based on the type of IDSynch API request. |
+| 1. Customer ID <br>2. Email <br>3. Other<br>4. IDFV<br>5. GAID | Email: `h.jekyll.md@example.com`<br>Other:`AAAA` <br>IDFV: `2345` | Highest priority lookup (email) returns Profiles 1 and 2. Next highest priority (other) used as a tiebreaker. **Profile 1** is returned. Other identifiers may or may not be updated based on the type of IDSync API request. |
 | 1. Customer ID <br>2. Email <br>3. IDFV<br>4. GAID | Email: `h.jekyll.md@example.com`<br>GAID: `2345` | Highest priority lookup (email) returns both Profiles 1 and 2. Next highest priority (IDFV) is not in the request, Following highest priority (GAID) used as a tiebreaker. **Profile 2** is returned. |
 
 When Choosing your identity priority, ask the following questions about each of the identities you collect:
 
 - Is it an immutable ID? An immutable ID, such as Customer ID, must be the top rank identifier above all other IDs since it is a definitive customer identifier that is often shared across multiple apps or business areas in your organization. 
 - Are they unique IDs? Unique IDs should be near the top of your hierarchy.
-- Do your customers use the ID to login? Login IDs should also be near the top of your hierarchy.
+- Do your customers use the ID to log in? Login IDs should also be near the top of your hierarchy.
 - Are they mutable? Some IDs may be changed by a user over time. Email is a good example.
 - Does it permanently identify a user? Some IDs are anonymous - cookies, device advertising IDs or other temporary IDs used for experimentation. Generally speaking, these should rank lower than IDs that permanently identify a user.
 - How likely are collisions for this ID? These should be ranked lowest in the hierarchy.

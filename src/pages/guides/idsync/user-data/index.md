@@ -83,9 +83,9 @@ For example, the [Profile link](/guides/idsync/profile-link-strategy/) strategy 
 
 **Identity records**
 
-| User Profile 1 | User Profile 2 | 
-| --- | --- | 
-| MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email: `ed.hyde@example.com`<br>IDFV: `1234` | MPID: `5678`<br>Email: `h.jekyll.md@example.com` | 
+| User Profile 1 | User Profile 2 |
+| --- | --- |
+| MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email: `ed.hyde@example.com`<br>IDFV: `1234` | MPID: `5678`<br>Email: `h.jekyll.md@example.com` |
 
 **Scenarios**
 
@@ -99,7 +99,7 @@ For example, the [Profile link](/guides/idsync/profile-link-strategy/) strategy 
 
 Immutable IDs are identifiers that cannot be changed once they have been set.
 
-In order to maintain the integrity of known user profiles, the value of an immutable ID may not be modifed to protect against identity theft. A profile with at least one immutable ID can only be returned if the identification request includes at least one matching immutable ID. 
+In order to maintain the integrity of known user profiles, the value of an immutable ID may not be modified to protect against identity theft. A profile with at least one immutable ID can only be returned if the identification request includes at least one matching immutable ID. 
 
 <aside>
     To be set as an immutable ID, an identifier must also be set as a unique identifier and a login ID.
@@ -111,7 +111,7 @@ Immutable IDs may be used as query parameters for the profile API.
 
 A unique identity (unique ID) is a setting that specifies that that user profile identifier must be unique. This means that only one mParticle user profile can have that value of the identifier. 
 
-If an identify or modify request to the [IDSync API](https://docs.mparticle.com/developers/idsync/http-api/#identify) would result in two identity records sharing the same value of a unique identity, mParticle will add or update the identifier on the requested user profile and remove it from any other user profile to enforce uniqueness. *Note that this doesn't mean all other identifiers are removed from the user profile. The history of that profile remains intact. But removing the conflicting identifier from the profile means it can no longer be used to lookup that profile. User profiles with no remaining identifiers are effectively 'orphaned'. They will not deleted, but can never be returned by an IDSync API request.*
+If an identify or modify request to the [IDSync API](https://docs.mparticle.com/developers/idsync/http-api/#identify) would result in two identity records sharing the same value of a unique identity, mParticle will add or update the identifier on the requested user profile and remove it from any other user profile to enforce uniqueness. *Note that this doesn't mean all other identifiers are removed from the user profile. The history of that profile remains intact. But removing the conflicting identifier from the profile means it can no longer be used to lookup that profile. User profiles with no remaining identifiers are effectively 'orphaned'. They will not be deleted, but can never be returned by an IDSync API request.*
 
 #### Example
 
@@ -127,12 +127,12 @@ A user signs up for your iOS mobile app with the email [ed.hyde@example.com](mai
 
 | **Unique Identity Setting** | **IDSync API Request** | **Results** |
 | --- | --- | --- |
-| Email | Type: `Modify`<br>MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email `h.jekyll.md@example.com`<br>IDFV: `1234` | The modify request **updates the email address of User Profile 1** to `h.jekyll.md@example.com`. Since emails must be unique, mParticle searches for other User Profiles with the same email address. **The duplicate email address is deleted from User Profile 2**, and since it was the only identifer, it results in leaving User Profle 2 effectively 'orphaned'. |
+| Email | Type: `Modify`<br>MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email `h.jekyll.md@example.com`<br>IDFV: `1234` | The modify request **updates the email address of User Profile 1** to `h.jekyll.md@example.com`. Since emails must be unique, mParticle searches for other User Profiles with the same email address. **The duplicate email address is deleted from User Profile 2**, and since it was the only identifier, it results in leaving User Profile 2 effectively 'orphaned'. |
 | No Setting | Type: `Modify`<br>MPID: `1234`<br>Customer ID: `h.jekyll.85`<br>Email `h.jekyll.md@example.com`<br>IDFV: `1234` | The modify request **updates the email of User Profile 1 only** to `h.jekyll.md@example.com`. Since email uniqueness is not enforced, both User Profile 1 and User Profile 2 now have the same email address identifier value. |
 
 ## Identity records
 
-Behind the scenes, mParticle maintains a user profile for each user. You can think of a user profile as a folder of data that describes all of the events, user attributes, identities, attribution info, and device info for a user. User profiles help determine which users are included in different audiences, and they enrich incoming data with any relevant user information before forwarding it to a connected output.
+Behind the scenes, mParticle maintains a user profile for each user. You can think of a user profile as a folder of data that describes all the events, user attributes, identities, attribution info, and device info for a user. User profiles help determine which users are included in different audiences, and they enrich incoming data with any relevant user information before forwarding it to a connected output.
  
 The main purpose of IDSync is to assign incoming data to the correct user profile. However, to identify users in real time, IDSync doesn't look at the entire profile, but at that profile's identity record.
  

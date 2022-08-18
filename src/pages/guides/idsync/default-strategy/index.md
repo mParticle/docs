@@ -20,7 +20,7 @@ Unless stated otherwise by your account representative, your new mParticle accou
 
 Configuring multiple login IDs can result in the creation of unwanted duplicate user profiles.
 
-For example, if a user already has already created profile using their email address as a login ID, but your app allows them to login using a different unique ID, then IDSync might create a new profile using the alternative unique ID. This would result in the user data for that customer becoming split between two profiles.
+For example, if a user already has a profile using their email address as a login ID, but your app allows them to login using a different unique ID, then IDSync might create a new profile using the alternative unique ID. This would result in the user data for that customer becoming split between two profiles.
 
 ## Identity scope
 
