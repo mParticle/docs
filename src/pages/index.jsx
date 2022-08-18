@@ -47,7 +47,7 @@ const DOMORETILESROW = [
             icon: 'icon-privacy',
             text:
                 'Ensure compliance with GDPR, CCPA, and your privacy policies',
-            url: 'guides/data-subject-requests/'
+            url: 'guides/data-privacy-controls/'
         }
     ],
     [

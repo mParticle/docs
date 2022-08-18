@@ -227,3 +227,9 @@ There are currently two ways that consent state changes are forwarded to mPartic
       * [Salesforce DMP](/integrations/salesforce-dmp/event/)
 
   "GDPR Consent Change" is  listed as a data type in the [Integrations directory](/integrations) and we will update this list as more partners add support. Please reach out to your success manager if you would like to distribute consent to an additional partner.
+
+## Data Subject Requests
+
+mParticle helps you respond to [data subject requests](/guides/data-subject-requests) as mandated by the GDPR and CCPA regulations. 
+
+You can search for integrations that support data subject requests in the [Integrations](/integrations) page. Search on category **Data Subject Request**.
