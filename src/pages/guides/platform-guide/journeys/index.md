@@ -31,9 +31,9 @@ At the start of the journey, you have access to all the users available from all
 
 The following diagram shows a simple journey: 
 
-![image of a journey canvas with two milestones](/images/journeys/journey-sample1.png)
+![image of a journey canvas with one milestone](/images/journeys/journey-sample1.png)
 
-Notice that the audience size, in this case 9.9K, is displayed. This is the size after audience calculation is complete. 
+Notice that the audience size, in this case 9.9K, is displayed. This is the size after audience calculation is complete.
 
 ### Audience estimator
 
@@ -66,7 +66,9 @@ After you have been accepted into the Beta program, prepare for creating a journ
 
 * Define what goals you wish to accomplish with the journey. For example, do you want to convert trial users to paid users, or encourage infrequent viewers to engage with their content? The goal you wish to accomplish will affect which inputs you select, and the criteria you'll define for each audience.
 
-* Verify that you can create the number of active audiences you plan to create in your journey. In mParticle, visit **Audiences > Real-time** and click **Account Settings** to see how many active audiences are available.
+* Verify that you can create the number of activated audiences you plan to create in your journey. In mParticle, visit **Audiences > Real-time** to see how many activated audiences are available:
+
+    <img alt="real-time audience counter" src="/images/journeys/active-audience-count.png" width="250">
 
 ## Create a journey
 
@@ -76,16 +78,18 @@ To create a journey:
 2. In the Create Journey configuration dialog, choose a name for your journey and select inputs from all the workspaces you wish to include. 
 3. After selecting all the inputs in all the relevant workspaces, click **Create**.
 4. The Journey canvas displays your selected journey inputs.
-5. Click the plus sign to add a milestone.
+5. Click the plus sign to add a milestone, and then click **Milestone**.
 6. Add a name, and then click the plus sign to define the audience using criteria such as event type. You are now in the audience builder, and can select criteria. For details, see [Audience Criteria](/guides/platform-guide/audiences/#audience-criteria).
 7.  Click **Save**. The canvas displays the milestone you just created and the audience for that milestone. The audience can be activated using any mParticle audience [integration partner](/integrations/) as described in the next step. 
 8.  Using the plus sign, you can either add a new milestone (repeat steps 6 and 7) or select an output for the audience you just created. For more information about output connections, see [Connections](/guides/platform-guide/audiences/#connect-an-audience). You can add none, one, or more output to each audience. 
-    <aside>Outputs are active by default: as soon as you add the output, audience membership is forwarded to the connection. To prevent this, you can set the output connection to Inactive.</aside>
-9.  After you've added all the milestones and outputs, you’ve fully defined the journey.
+
+After an audience is activated (by adding an output set to **Active**), the audience is updated to **Activated**. All parent audiences in that branch are set to "Calculating." Audience size estimates are updated to the actual audience size. 
+
+After you've added all the milestones and outputs, you’ve fully defined the journey.
 
 ## Deactivate an audience
 
-If you wish to stop sending audience updates to one of the connections in a journey, you must either deactivate or delete the connection for that audience.
+If you wish to stop sending audience updates to one of the connections in a journey, you must either deactivate or delete the connection for that audience. 
 
 <aside>If you deactive an audience, the audience in that output partner system may get out of sync with mParticle. You may need to delete the audience in the downstream system to resync.</aside>
 
@@ -95,8 +99,11 @@ To delete a journey, it must be empty. Remove all connections from a milestone a
 
 ## Journeys and billing
 
-Billing is similar to the current real-time audience experience: when an audience is actively connected, that audience and all audiences in the parent branch are set to active. Active audiences count toward your account limit.
+ When an audience is actively connected, that audience is activated and consumes a real-time audience credit. Unlike the real-time audience experience, there is no explicit audience status of Draft or Active. The status is now derived from the connection status.
+ 
+ * Activated audiences count toward your account limit. 
+ * Parent audiences are calculated, but do not consume additional real-time audience credits.
 
-To view the number of audiences available to you, in mParticle go to **Audiences > Journeys >Account Settings**.
+To view the number of audiences available to you, in mParticle go to **Audiences > Journeys > Settings**:
 
-The difference between the current real-time audience experience and Journeys is that there is no explicit audience status of Draft or Active. The status is now derived from the connection status.
+<img alt="journey audience counter" src="/images/journeys/journeys-audience-count.png" width="250">
