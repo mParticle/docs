@@ -8,7 +8,7 @@ title: Audience
 
 1. Enable BigQuery in your project in Google Cloud Platform.
 2. From the **IAM** page for your project, add `mparticle-gcp-clientfacing@gcp-prod-170221.iam.gserviceaccount.com` as a member with the role of Project Viewer.  
-    ![](/images/bigquery-project-viewer.png)
+    ![](/images/bigquery-project-viewer.jpg)
 3. From the **BigQuery** page for your project:
     * Create a dataset for your app data to be loaded into.
     * Click on **Share Dataset** on the dataset page.
