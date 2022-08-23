@@ -167,7 +167,7 @@ See [The Data Filter](/platform-guide/data-filter/) for more information.
 
 Like the event filter, forwarding rules let you filter out events from being sent to an Output. But where the event filter is based on event and attribute names, forwarding rules look at values, which lets you build some more complex conditions. There are several types of forwarding rules.
 
-* **Attribute:** Attribute rules take an event attribute name and a value. You can choose to either not forward events that match the rule, or to only forward events that match the rule, excluding all others. Greater than / less than comparisons are not possible. Matching is case sensitive and exact.
+* **Attribute:** Attribute rules take an event attribute name and a value. You can choose to either not forward events that match the rule, or to only forward events that match the rule, excluding all others. Greater than / less than comparisons are not possible. Matching is case sensitive and exact.  If an attribute is criteria for the forwarding rule, but is omitted from the source payload, it is treated as if the attribute key exists and the value doesn't match.
 
 * **Attribution:** Attribution rules filter events according to Publisher information. You can choose to exclude events attributed to a specific publisher, or forward only events attributed to that publisher.
 
