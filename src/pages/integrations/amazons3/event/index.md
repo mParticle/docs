@@ -25,6 +25,10 @@ Use this link [docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.htm
 
 Sample ARN syntax for S3 is: `arn:aws:s3:::**bucket_name**/**key_name*`.
 
+<aside>
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+</aside>
+
 To set up a bucket policy:
 
 1. [Create an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html). The bucket name **must** begin with `mp-forwarding-`.

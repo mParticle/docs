@@ -616,6 +616,10 @@ You will need to grant mParticle permissions to call your lambda function. Using
 - you should be using an alias for your lambda function to allow for additional development and testing while your integration is live. In the commands below, be sure to append your production alias name to your lambda-function's ARN. The examples below use an alias named "production". [See here for more information on Aliases](http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html).
 - `statement-id` must be unique - if you receive an error stating that the provided `statement-id` already exists, increment the statement-id(s) to a higher value.
 
+<aside>
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+</aside>
+
 ```sh
 aws lambda add-permission \
 --region us-east-1 \

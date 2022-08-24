@@ -66,6 +66,10 @@ Your ARNs should look something like this:
 
 `arn:aws:lambda:us-east-1:999999999999:function:mprmylambdafunction:$LATEST`
 
+<aside>
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+</aside>
+
 ### IAM User
 
 To connect to your AWS Lambda function, you must provide the AWS Access Key ID and Secret Access Key for an [IAM User](https://aws.amazon.com/documentation/iam/).

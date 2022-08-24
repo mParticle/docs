@@ -22,6 +22,11 @@ mParticle's Audience Integration with Amazon Kinesis sends Audience data to a Ki
      * Click Add Statement
    2. Create Policy from JSON
      * Paste the template policy below into the "Policy Document" field.  Be sure to replace the {region}, {account-id} and {stream-name} with your specific values.
+
+    <aside>
+        When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+    </aside>
+
      ~~~
     {
         "Version": "2012-10-17",

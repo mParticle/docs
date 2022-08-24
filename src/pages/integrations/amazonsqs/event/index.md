@@ -14,6 +14,10 @@ In order to take advantage of the Amazon SQS integration, you'll need the SQS Qu
 
 Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-sqs) for information on SQS ARN syntax.  Sample ARN syntax for SQS is: arn:aws:sqs:**region**:**account-id**:**queuename**.  
 
+<aside>
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+</aside>
+
 ~~~json
 {
    "Version": "2012-10-17",

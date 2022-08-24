@@ -31,6 +31,11 @@ Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespace
      * Click Add Statement
    2. Create Policy from JSON
      * Attach the template policy below under the "Permissions" tab of the role.  Be sure to replace the {region}, {account-id} and {stream-name} with your specific values.
+
+<aside>
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+</aside>
+
 ~~~json
 {
    "Version": "2012-10-17",
@@ -86,6 +91,10 @@ Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespace
      * Click Add Statement
    2. Create Policy from JSON
      * Paste the template policy below into the "Policy Document" field.  Be sure to replace the {region}, {account-id} and {stream-name} with your specific values.
+
+<aside>
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+</aside>
 
 ~~~json
 {

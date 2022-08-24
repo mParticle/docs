@@ -14,6 +14,10 @@ In order to take advantage of the Amazon SNS integration, you'll need the SNS To
 
 Click [here](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-sns) for information on SNS ARN Syntax.  Sample ARN syntax for SNS is:  arn:aws:sns:**region**:**account-id**:**topicname**.  
 
+<aside>
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+</aside>
+
 Refer to the steps below for Amazon setup:
 
 ~~~json
