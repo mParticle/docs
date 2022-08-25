@@ -289,7 +289,8 @@ User Attribute `$Country` |`country` |
 User Attribute `$City` |`home_city` |
 User Attribute `$Gender` |`gender` |
 User Attribute `$Mobile` |`phone` |
-Derived from SDK opt-out status |`email_subscribe` |This is based on calling the `OptOut` (`setOptOut` in Android) SDK method.  It will be set to *opted_in* when called with a value of true and will be set to *unsubscribed* when called with a value of false. Email subscription statuses can also be updated server side by setting the user attribute `email_subscribe` with a value of *subscribed*, *unsubscribed*, or *opted_in*, which correspond to the Global Subscription States in Braze.
+Derived from SDK opt-out status |`email_subscribe` |This is based on calling the `OptOut` (`setOptOut` in Android) SDK methods. It will be set to _opted_in_ when called with a value of true and will be set to _unsubscribed_ when called with a value of false. Email subscription statuses can also be updated server side by setting the user attribute `email_subscribe` with a value of _subscribed_, _unsubscribed_, or _opted_in_, which correspond to the Global Subscription States in Braze. This will not be set as a custom attribute in Braze, it'll appear in Contact Settings.
+User Attribute `push_subscribe` |`push_subscribe` | Push subscription status can be updated server side by setting the user attribute `push_subscribe` with a value of _subscribed_, _unsubscribed_, or _opted_in_, which correspond to the Global Subscription States in Braze. This will not be set as a custom attribute in Braze, it'll appear in Contact Settings.
  | `push_tokens` | Because Braze can only accept a single push token for each app/user pair, we will forward the most recently-registered push token to Braze per user and per app.
 User Identity of type `Facebook` |`facebook` |
 User Identity of type `Twitter` |`twitter` |
