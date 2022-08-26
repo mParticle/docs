@@ -265,27 +265,3 @@ Events can be forwarded with a Device Application Stamp stored in the device ID 
 ## Error Handling
 
 mParticle loads data into Redshift via Amazon S3 and can tolerate the Redshift cluster being unavailable for up to 30 days, depending on data volume. In the event of extended downtime on your cluster, a data replay can be arranged.
-
-## Looker Integrations
-
-mParticle provides [Looker Blocks](https://marketplace.looker.com/marketplace/detail/digital-analytics-by-mparticle) that you can directly use to get a holistic picture of how your apps are doing. You just need to copy the `lookml` files into your Looker account. There are four dashboard templates. You can access mParticle's Looker Blocks implementation by reaching out to your assigned Looker analyst or requesting a Looker trial. 
-
-- **App Activity Dashboard**. This dashboard gives you an overview of most common app activities, including active user count, new user count, session count, average session length, revenue data, custom funnel analytics, and user retention analysis.
-
-![app activity dashboard](/images/app_activity_dashboard.png)
-
-- **Audience Dashboard**. This dashboard reports how effective an given audience is, comparing users in the audience to other app users. When looking at this dashboard, please make sure you provide a valid audience ID wrapped in quotes in the audience membership filter, e.g., "1234". You can get the audience ID from mParticle UI.
-
-![audience dashboard](/images/audience_dashboard.png)
-
-- **eCommerce Dashboard**. This dashboard offers insights on revenue generated from your apps, e.g., which user acquisition channels gives you the most valuable users, how does total revenue and average revenue per user change over time, how do users' purchase behaviors change over the course of a day, and where do users drop off in the purchase funnel.
-
-![ecomm dashboard](/images/ecomm_dashboard.png)
-
-- **App Version Dashboard**. This dashboard tells you how much a new app version has changed your app performance, e.g., has a new app version improved user retention, or increased revenue per user, or increased average session length, etc.
-
-![app version dashboard](/images/app_version_dashboard.png)
-
-On all four dashboards, you can filter by date range and app platform. Note that in order for the user retention chart to be meaningful, please make sure the event date filter and install date filter have the same date range.
-
-Following the Looker data models and design patterns in the prebuilt Looker Blocks, you can build any Looker report you want that better suits your analytics needs. 
