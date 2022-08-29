@@ -48,7 +48,7 @@ MParticle.getInstance().logScreen(event);
 
 All of the required flags must be set in order for the event to be forwarded.  All other flags are optional and will be forwarded if provided.
 
-mParticle's SimpleReach integration supports [custom mappings](/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for SimpleReach. mParticle provides mappings for the following SimpleReach event types:
+mParticle's SimpleReach integration supports [custom mappings](/guides/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for SimpleReach. mParticle provides mappings for the following SimpleReach event types:
 
 * Article Loaded
 
