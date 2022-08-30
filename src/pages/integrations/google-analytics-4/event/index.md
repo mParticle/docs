@@ -264,9 +264,9 @@ mParticle automatically maps commerce events to Firebase event names based on th
 | `remove_from_cart` | `Product.REMOVE_FROM_CART` | `MPCommerceEventActionRemoveFromCart` |  `ProductActionType.RemoveFromCart` |
 | `select_item` | `Product.CLICK` | `MPCommerceEventActionClick` | `ProductActionType.Click` | 
 | `view_item` | `Product.DETAIL` | `MPCommerceEventActionViewDetail` | `ProductActionType.ViewDetail` | 
-| `view_item_list` | Support Coming Soon | Support Coming Soon | `ProductActionType.Impression` | 
-| `select_promotion` | Support Coming Soon | Support Coming Soon | `PromotionType.PromotionClick` | Does not support items
-| `view_promotion` | Support Coming Soon | Support Coming Soon | `PromotionType.PromotionView` | Does not support items
+| `view_item_list` | `Impression` | `MPCommerceEventKindImpression` | `ProductActionType.Impression` | 
+| `select_promotion` | `Promotion.CLICK` | `MPPromotionActionClick` | `PromotionType.PromotionClick` | Does not support items
+| `view_promotion` | `Promotion.VIEW` | `MPPromotionActionView` | `PromotionType.PromotionView` | Does not support items
 
 ## Custom Flags
 Custom flags are used to send partner-specific data points:
