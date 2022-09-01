@@ -160,7 +160,7 @@ Unlike other transformations, the data filter exists on its own page, separate f
   * Turn forwarding on/off for each event, by event name.
   * Turn forwarding on/off for attributes of each event, by attribute name.
 
-See [The Data Filter](/platform-guide/data-filter/) for more information.
+See [The Data Filter](/guides/platform-guide/data-filter/) for more information.
 
 
 ### Forwarding Rules
