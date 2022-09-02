@@ -33,6 +33,10 @@ It may take several hours to see data in TikTok's Ads Manager as audiences take 
 ### Delete / Disconnect an audience
 TikTok Ads Manager does not allow audiences used by ad groups to be deleted. Before deleting or disconnecting an audience in mParticle, check your TikTok Ads Manager Account to be sure there are no Ads associated with the audience.
 
+After deleting an audience connection to TikTok in mParticle, it takes approximately 24 hours for this to be reflected in TikTok. Do not reconnect the audience to TikTok in this period, or it will create errors as duplicated entries are sent.
+
+If an audience needs to be resynchronized with TikTok, TikTok recommends creating a copy of the original audience in mParticle and then connecting that.
+
 ## Supported Identities
 
 ### Device Identities
