@@ -17,7 +17,7 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Event name length | 256 characters | SDK will log an error and the event will not be uploaded. For S2S data, names exceeding the limit will be truncated. |
 | Max unique attributes per event | 100 | SDK will log an error and upload the event with no attributes.
 | Event attribute name length | 256 characters | SDK will log an error and no attributes will be set for the event. S2S will truncate the attribute name.
-| Event attribute value length | 4096 characters | SDK will log an error and no attributes will be set for the event. |
+| Event attribute value length | 4096 characters | SDK will log an error and no attributes will be set for the event.
 | User attributes per event batch | 100 | SDK will allow only 100 attributes per user and will log an error you attempt to create additional attributes.
 | User attribute name length | 256 characters | SDK will log an error and no attributes will be set.
 | User attribute value length | 4096 characters | SDK will log an error and no attributes will be set.
@@ -35,8 +35,8 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Resource | Limits | Details |
 | -------- | ------ | ---|
 | Unique event names and Screen Names per workspace | 1000 | New unique event names over the limit are dropped from incoming data. This limit is configurable, but proliferating unique event names usually indicate problems with your data and can impact performance of both the mParticle dashboard and your apps, therefore it will not be raised except where absolutely necessary. |
-| Average events per user within 24 hours | 150 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
-| Average events per user within 30 days | 175 | mParticle reserves the right to restrict usage above this level to ensure platform quality of service. This limit can be raised by arrangement.
+
+mParticle reserves the right to restrict average events per user within 30 days or 24 hours to ensure platform quality of service.
 
 ## Events API
 
