@@ -111,7 +111,7 @@ Immutable IDs may be used as query parameters for the profile API.
 
 A unique identity (unique ID) is a setting that specifies that that user profile identifier must be unique. This means that only one mParticle user profile can have that value of the identifier. 
 
-If an identify or modify request to the [IDSync API](https://docs.mparticle.com/developers/idsync/http-api/#identify) would result in two identity records sharing the same value of a unique identity, mParticle will add or update the identifier on the requested user profile and remove it from any other user profile to enforce uniqueness. *Note that this doesn't mean all other identifiers are removed from the user profile. The history of that profile remains intact. But removing the conflicting identifier from the profile means it can no longer be used to lookup that profile. User profiles with no remaining identifiers are effectively 'orphaned'. They will not be deleted, but can never be returned by an IDSync API request.*
+If a modify request to the [IDSync API](https://docs.mparticle.com/developers/idsync/http-api/#identify) would result in two identity records sharing the same value of a unique identity, mParticle will add or update the identifier on the requested user profile and remove it from any other user profile to enforce uniqueness. *Note that this doesn't mean all other identifiers are removed from the user profile. The history of that profile remains intact. But removing the conflicting identifier from the profile means it can no longer be used to lookup that profile. User profiles with no remaining identifiers are effectively 'orphaned'. They will not be deleted, but can never be returned by an IDSync API request.*
 
 #### Example
 
