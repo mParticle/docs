@@ -716,14 +716,42 @@ Learn more about how to use quarantined data [here](/guides/data-master/blocked-
 
 We've developed tools for you to be able to lint your Swift, Kotlin/Java, and JavaScript/TypeScript code. For more details, click [here](/developers/linting/).
 
-## Snippet Tool
+## mParticle Snippets Tool
 
-Developers can easily create snippets of code that conform to your data plan. For example, say you've defined an event with 10 attributes in your data plan version. With the Snippets Tool, you can generate a code snippet that implements that event. To see the tool in action, follow these steps: 
+The mParticle Snippets tool helps you to generate example code blocks that log events using the mParticle SDKs in a way that conforms to a specified data plan.
 
-1. Copy a data plan version (you can clone the sample plan in our generic [Data Plan Builder](https://docs.google.com/spreadsheets/d/1b_iHA4uYX6sY6yvGcrT7WWr3G5DSRHN9gi1yRHB4fNg/#gid=133047007&range=A1:D16) as an example).
-2. Open the [Snippet tool](https://mparticle.github.io/data-planning-snippets/).
-3. Paste the plan into the left column and see the generated code appear in the right column.
+For example, if a data plan includes a data point for a custom event with 10 different attributes, you can create the exact code that will log that event with all of its attributes by running the data plan through the Snippets tool.
+
+This is helpful when integrating the mParticle SDK into your app if you are unsure which method to call to log a specific event or how to ensure that all of an event’s attributes are captured correctly.
 
 ![](/images/dataplanning/snippet_img.png)
 
-For more detailed documentation [check out the Github repo](https://github.com/mParticle/data-planning-snippets).
+To use the Snippets tool:
+
+1. Copy the raw JSON of your data plan. For an example, you can test the Snippets tool using the [data plan](https://github.com/mParticle/mparticle-web-sample-apps/blob/main/core-sdk-samples/higgs-shop-sample-app/dataplans/higgs_shop_basic_data_plan_1.json) created for the mParticle sample web app, The Higgs Shop.
+
+2. Navigate to the Snippets tool at **[mparticle.github.io/data-planning-snippets](https://mparticle.github.io/data-planning-snippets/)**
+
+3. Paste the data plan JSON in the left column.
+
+4. Use the language dropdown menu to select the appropriate language for the SDK you are using. For the sample Higgs Shop web app data plan, select Web SDK.
+
+5. The right column will automatically populate with example code blocks for each data point in the data plan. The Higgs Shop web sample app plan includes 16 different events, and the generated code block for each event includes a comment describing the action that will trigger the event based on the data point's description plan.
+
+For example:
+
+```javascript
+// Data Plan Point 6
+// User added product to cart
+
+let product = mParticle.eCommerce.createProduct('productName', 'productId', 19.199, 1)
+mParticle.eCommerce.logProductAction(mParticle.ProductActionType.AddToCart, [product])
+```
+
+For this data point, you must first create the product being added to the cart using the `mParticle.eCommerce.createProduct()` method, passing in the attributes `productName`, `productId`, and `19.199` for the product’s name, ID, price, and amount.
+
+To log the event, your app must call the `mParticle.eCommerce.logProductAction()` method passing in the product object just created and the product action type (`AddToCart`).
+
+Visit the [mParticle developer documentation](https://docs.mparticle.com/developers/) to learn more about integrating the SDKs into your application.
+
+For more information about the Snippets Tool, visit the [Github repo](https://github.com/mParticle/data-planning-snippets).
