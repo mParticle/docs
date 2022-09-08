@@ -32,6 +32,15 @@ dependencies {
 
 The Google Play Services Ads framework is necessary to collect the Android Advertising ID (also known as Google Advertising ID). AAID collection is required by all attribution and audience integrations, and many other integrations. Include the `com.google.android.gms:play-services-ads-identifier` artifact, a subset of [Google Play Services](https://developers.google.com/android/guides/setup). The SDK will use reflection to determine if [the necessary API](https://developers.google.com/android/reference/com/google/android/gms/ads/identifier/AdvertisingIdClient) is present at runtime.
 
+When apps target Android 13 or above, you need to declare a Google Play services permission in the manifest file as follows:
+
+```xml
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+```
+
+For more information, please check out this link: [https://support.google.com/googleplay/android-developer/answer/6048248?hl=en](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en)
+
+
 
 ### Google Play Install Referrer
 
