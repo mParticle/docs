@@ -74,6 +74,23 @@ To find the ID of an audience in the mParticle Dashboard, look for your audience
 
 You can opt to only send Customer ID to BigQuery by checking **Only Send Customer ID** in the [Configuration Settings](#configuration-settings)
 
+### Sample Query for Audience Membership
+
+You can run a query similar to the following to get audience membership at a given point in time.
+
+~~~sql
+-- selects only mPIDs added based on latest timestamp for each distinct mPID
+WITH t1 AS
+(
+  SELECT DISTINCT mpid, MAX(timestamp) AS max_timestamp, isadd
+  FROM `{BQ Project}.{BQ Dataset}.audience_{audience_id}_*`
+  GROUP BY mpid, timestamp, isadd
+)
+SELECT count(mpid)
+FROM t1
+WHERE isadd = true
+~~~
+
 ### Sample Query for RECORD Data Types
 
 You can run a query similar to the following to properly query on fields mParticle schema defines as RECORD, since they can be have multiple values such as device identifiers:
