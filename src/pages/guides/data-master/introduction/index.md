@@ -10,7 +10,7 @@ Data Master allows you to standardize and validate customer data before it gets 
 - [**Data Plans**](/guides/data-master/data-planning/) allow you to define and then validate the extent and shape of the data that is collected.
 - [**Live Stream**](/guides/data-master/live-stream/) allows you to observe data streaming into mParticle in realtime and to identify violations quickly if you are using a Data Plan to validate your data.
 
-## Undertanding Data Points and Data Plans
+## Understanding Data Points and Data Plans
 
 * For every mParticle workspace, you may have many data plans.
 * Every data plan contains one or more data plan versions.
