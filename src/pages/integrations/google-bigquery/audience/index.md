@@ -74,6 +74,16 @@ To find the ID of an audience in the mParticle Dashboard, look for your audience
 
 You can opt to only send Customer ID to BigQuery by checking **Only Send Customer ID** in the [Configuration Settings](#configuration-settings)
 
+### Sample Query for RECORD Data Types
+
+You can run a query similar to the following to properly query on fields mParticle schema defines as RECORD, since they can be have multiple values such as device identifiers:
+
+~~~sql
+-- selects IDFA from the table, querying over all weekly tables
+SELECT idfaid.id AS IDFA
+FROM `{project_id}.{data_set}.audience_{audience_id}_*`, UNNEST(idfa) idfaid
+~~~
+
 ## Upload Frequency
 
 The BigQuery Audience Integration uses Bulk Forwarding. Bulk Forwarding means that, instead of uploading updates to an audience in real time, mParticle compiles updates into a queue until either a given amount of time has passed since the last upload, or until a certain number of updates are waiting to be sent.
