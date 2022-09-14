@@ -7,8 +7,6 @@ As of 2022/03/16 mParticle supports sending data directly to Google Analytics 4 
 
 Google provides <a href="https://support.google.com/analytics/answer/9379599">step by step instructions</a> to upgrade a Firebase instance so that data will also flow to GA4.  After upgrading, your mobile data will be available for analyzing within the Google Analytics dashboard.  
 
-While the mParticle <a href="https://github.com/mparticle-integrations/mparticle-android-integration-google-analytics-firebase">Android</a> and <a href="https://github.com/mparticle-integrations/mparticle-apple-integration-google-analytics-firebase">iOS</a> kits for Google Analytics for Firebase will continue to work, we will no longer support code updates to them.  Instead, we recommend you upgrade to the mParticle <a href="https://github.com/mparticle-integrations/mparticle-android-integration-google-analytics-firebase-ga4">Android</a> and <a href="https://github.com/mparticle-integrations/mparticle-apple-integration-google-analytics-firebase-ga4">iOS</a> Firebase for GA4 kits.  Customers can continue to use the Firebase console, but Google recommends upgrading to GA4.
-
 </aside>
 
 [Google Analytics](https://firebase.google.com/products/analytics/) for Firebase is a free and unlimited analytics solution. Analytics integrates across many Firebase features and provides you with unlimited reporting of up to 500 distinct events, helping you understand how people use your iOS or Android app.
