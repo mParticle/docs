@@ -151,7 +151,7 @@ For Android push notifications you will need to provide your Server Key in your 
 
 ##### iOS
 
-For iOS push notifications you will need to upload your APNs Push SSL certificate to Braze. See the [Braze documentation](https://www.appboy.com/documentation/iOS/#step-2-export-your-push-certificate) for more.
+For iOS push notifications you will need to upload your APNs Push SSL certificate to Braze. See the [Braze documentation](https://www.braze.com/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/overview?redirected=true#step-2-export-your-push-certificate) for more.
 
 #### Special Considerations for mParticle A/B Testing With Braze and the mParticle SDK
 
