@@ -27,9 +27,9 @@ To mark an event to be Store Only, plan and implement the changes:
 
 After you check all the issues in the following section, use [Set Event to Store Only](#set-event-to-store-only) to change event tiers.
 
-## Considerations
+## Before you change a tier from the default Store & Evaluate
 
-Before you change any defaults, be aware of the consequences:
+Before you change the default tier, be aware of the consequences:
 
 * Data stored while the event is marked as Store Only is never available for real-time evaluation, only for data replay or backfills. 
 
@@ -47,4 +47,13 @@ To set an event and its related attributes to Store Only:
 
 ![One event showing tiered events dialog](/images/tiered-events/tiered-events-detail.png)
 
-<!-- This will become a full topic named Events but for now contains only the early release content for Tiered Events -->
+Notice that once an event is set to Store Only, it is grayed out in the **Event Tier** drop-down.
+
+## Changing tiers
+
+If the event is used in an audience or calculated attribute, you can't change it from **Store & Evaluate**, and you'll see the attribute grayed out in the **Event Tier** drop-down. 
+
+To make a change:
+
+1. Remove the event from the audience or calculated attribute definition.
+2. Set the event to Store Only.

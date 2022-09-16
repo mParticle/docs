@@ -111,16 +111,17 @@ This screen shows a single Workspace Audience. Clicking the **Multiple Workspace
 
 ### Define audience criteria
 
-<aside class="notice">
-    The scope of data that is evaluated by your audience criteria is dependent upon:
-    <ol>
-      <li>The configurations you have selected </li>
-      <li>The amount of data the mParticle platform has available for the configurations</li>
-    </ol>
-    Audience Manager incorporates all input data ingested from your app, limited by the data storage limit of your current  subscription plan.
-</aside>
+After you create an audience, you can specify criteria to further define it. 
 
-Now that you have created an audience, it's time to add to the audience definition:
+The scope of data that is evaluated by your audience criteria is dependent upon:
+<ol>
+  <li>The configurations you have selected</li>
+  <li>The amount of data the mParticle platform has available for the configurations</li>
+  <li>The data storage limit of your current subscription plan.</li>
+  <li> The tier setting for events, if your org has the Beta feature Tiered Events enabled. If set to [any tier except **Store & Evaluate**](/guides/platform-guides/tiered-events), an event can't be used as criteria in a real-time audience and won't be evaluated. After being set to Store Only, the event will be grayed out in real-time audience selection drop-downs.
+  </ol>
+
+To add criteria to the audience definition:
 
 ![audience definition](/images/audience-definition.png)
 

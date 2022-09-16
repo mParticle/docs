@@ -14,6 +14,7 @@ You can then view calculated attributes along with other user attributes in the 
 4. When applicable, select the **operation**.
 5. Click on the data criteria section to define the data used to run the calculation.
     1. From the dropdown, select the **event** to calculate on.
+        If set to [Store Only](/guides/platform-guides/tiered-events), an event can't be used as criteria in a calculated attribute and won't be evaluated. It will be grayed out. Tiered events are a Beta feature and so may not be enabled in your org.
     2. Certain calculations are based on an event attribute for the selected event. When applicable, select the **attribute**.
     3. Some operations requires a specific data type to run calculation. When selected attribute is not compatible with the operation a warning message will be displayed. If you want to force a specific event attribute to be used you can continue past the warning and activate the calculated attribute. For example, if you pass in purchase amount as a string you can force it to be a number for use in a sum calculation.
     4. **Save** your changes.
