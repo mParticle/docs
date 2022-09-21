@@ -18,6 +18,9 @@ You can then view calculated attributes along with other user attributes in the 
     2. Certain calculations are based on an event attribute for the selected event. When applicable, select the **attribute**.
     3. Some operations requires a specific data type to run calculation. When selected attribute is not compatible with the operation a warning message will be displayed. If you want to force a specific event attribute to be used you can continue past the warning and activate the calculated attribute. For example, if you pass in purchase amount as a string you can force it to be a number for use in a sum calculation.
     4. **Save** your changes.
+    <aside>If you participate in the <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> beta release, you won't be able to select an event if it is in a tier other than <b>Store & Evaluate</b>. To select an event, it must be moved to the <b>Store & Evaluate</b> tier.</aside>
+    <!--Update this note for GA, and for additional tiers if they become available.  -->
+
 6. To adjust a date range for your calculation, click on **Date Range** criteria:
     * Select **Since** from the dropdown for calculations that must be made from a specific start date within the audience retention period defined in your subscription plan.
     * Select **Within the last** from dropdown for calculations that must be made over a specific rolling time period. Enter a number and specify a time unit of **Days** or **Weeks**,
