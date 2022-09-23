@@ -137,6 +137,16 @@ const TILESBOTTOM = [
                     }
                 ],
                 viewAll: 'integrations/?isFeed=true'
+            },
+            {
+                name: 'Custom CSV Feed',
+                links: [
+                    {
+                        title: 'Custom CSV Feed',
+                        link: 'guides/csv/import'
+                    }
+                ],
+                viewAll: 'guides/csv/import'
             }
         ]
     },
