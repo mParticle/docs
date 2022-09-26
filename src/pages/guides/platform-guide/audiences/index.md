@@ -165,7 +165,7 @@ The audience builder allows you to build criteria based on two sources of data:
 - `Attribution`: access user install and uninstall information to build criteria based on the attributed `campaign` and `publisher`.
 
 <aside>If you participate in the <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> beta release, you won't be able to select an event if it is in a tier other than <b>Store & Evaluate</b>. To select an event, it must be moved to the <b>Store & Evaluate</b> tier.</aside>
-<!--Update this note for GA, and for additional tiers if they become available.>
+<!-- Update this note for GA, and for additional tiers if they become available. -->
 
 #### User profile criteria
 As mentioned above, you can build audience criteria based on user attributes from the user profiles. These attributes can be of any data type including: numbers, strings, dates, lists, booleans, etc. All user profile data is scoped and maintained within a single workspace; In multiworkspace audiences, you can select which workspace to use by pressing the number in the top right of the criteria in the audience builder.
