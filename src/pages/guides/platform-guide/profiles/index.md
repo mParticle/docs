@@ -177,7 +177,7 @@ Thus, a profile that isn't updated within the profile lifetime period will "age 
 
 With the Lifetime Profiles feature, you can preserve the continuity of profile data regardless of the recency of the user’s engagement without having to contact mParticle and make a special request. Lifetime Profiles allows you to access a rich and robust profile of all your customers for the period of time you choose, up to the entire data retention period. You can access historical profile data in multiple ways, but ultimately share this robust profile with mParticle's 250+ Audience and Event partner integrations. 
 
-<aside>The Lifetime Profiles feature is a Beta release. To request participation in the Beta please <a href="(https://www.google.com/url?q=https://www.mparticle.com/platform/detail/lifetime-profile-access&sa=D&source=docs&ust=1650398259428815&usg=AOvVaw0XPF-Et5AEnN5e23DyFdPr)">submit an application</a>.</aside> 
+<aside>The Lifetime Profiles feature is a Beta release. To request participation in the Beta please <a href="https://www.mparticle.com/contact/lifetime-profiles/">submit an application</a>.</aside> 
 
 You can build personalized experiences across the entire customer lifecycle with deep, historical customer data, even if customer touchpoints are infrequent and irregular. Leveraging robust, historical profile data means better experiences for loyal or churned customers, resulting in higher lifetime value. Whether you run a win-back campaign with an events integration partner or reward loyal customers with an audience partner, Lifetime Profiles makes personalized experiences possible across a long customer lifecycle.
 
