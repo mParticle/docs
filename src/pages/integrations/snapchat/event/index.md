@@ -1,6 +1,7 @@
 ---
 title: Event
 ---
+<aside class="warning">This integration is deprecated, and won't receive future updates. If you are creating a new integration, use the new <a href="https://docs.mparticle.com/integrations/snapchat-conversions/event/">Snapchat Conversions Event</a> integration.</aside>
 
 Snap is a camera company whose flagship application [Snapchat](https://www.snapchat.com), the Spectacles product, and a variety of publisher tools provide brands a unique platform to reach targeted audience segments with engaging and personalized content.
 

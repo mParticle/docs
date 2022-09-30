@@ -806,6 +806,7 @@ Reference the guide for each integration to see if you need to instrument custom
 * [Google Marketing Platform Offline Conversions](/integrations/google-marketing-platform-offline/event/#user-data-mapping)
 * [Quantcast](/integrations/quantcast/event/#quantcast-custom-flags)
 * [Simple Reach](/integrations/simplereach/event/#event-data-mapping)
+* [Snapchat Conversions](/integrations/snapchat-conversions/event/#custom-flags)
 * [The Trade Desk](/integrations/the-trade-desk/event/#custom-flags)
 * [Web Trends](/integrations/webtrends/event/#event-data-mapping)
 
