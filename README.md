@@ -17,7 +17,7 @@ This is the repo for the [mParticle doc site](https://docs.mparticle.com/). You 
 
 ## CLAs
 
-mParticle requires that all contributers fill out mParticle's Contributor License Agreement (CLA). Before we accept your pull request, you will need to submit a completed CLA. If this is your first PR, a bot will comment sending you to the CLA to sign. The mParticle CLA is available for review [here](https://docs.mparticle.com/cla). You will not be asked to re-sign the CLA unless we revise our CLA.
+mParticle requires that all contributers outside mParticle fill out mParticle's Contributor License Agreement (CLA). Before we accept your pull request, you will need to submit a completed CLA. If this is your first PR, a bot will comment sending you to the CLA to sign. The mParticle CLA is available for review [here](https://docs.mparticle.com/cla). You will not be asked to re-sign the CLA unless we revise our CLA.
 
 <a name="contributinggeneral"></a>
 
@@ -115,6 +115,16 @@ After your PR gets approved, you should squash and merge your PR. Squashing and 
 9. Once your PR is approved and merged into development, your changes will be automatically merged to development and released within an hour (during weekdays).
 
 <a name='custommarkdown'></a>
+
+## Comment Tags
+
+To make it easy to go through comments on a doc pull request, we recommend using these tags before the text of each comment:
+
+typo: Correcting a typo
+nitpick: Not a showstopper, but recommend making the change if possible. For example, changing "will deliver" to "delivers" or changing case on a title.
+suggestion: Suggestions for additions, or rearranging content or other actions that make the content easier to understand.
+question: If the reviewer isn't sure whether something is correct or needs to be changed.
+praise: Comments that praise the change in question and aren't recommending any change.
 
 ## Custom Markdown
 
