@@ -256,6 +256,17 @@ All commerce events, regardless of type, capture these common fields in the `pro
 | ProductAction.Products[].TotalProductAmount | properties["Total Product Amount"] | `string` | No | The total amount associated with the given product for the given transaction. | "MyBrand" |
 | ProductAction.Products[].Attributes["myProductAttribute"] | properties["myProductAttribute"] | `string` | No | A custom attribute associated with the given product. | "myProductAttribute" |
 
+Note that in order to forward the `TransactionId`, you must include the `transactionAttributes` as the fifth argument below. See our [API docs](https://docs.mparticle.com/developers/sdk/web/core-apidocs/classes/mParticle.eCommerce.html#method_createTransactionAttributes) for how to build transaction attributes.
+
+```javascript
+mParticle.eCommerce.logProductAction(
+    mParticle.ProductActionType.AddToCart,
+    [product1, product2],
+    customAttributes,
+    customFlags, //can also be `null`, but can't be blank
+    transactionAttributes);
+```
+
 ### Screen Views
 
 Your screen view events will be passed to Braze using the screen name that you passed to our `logScreen` SDK method, as the event name.
