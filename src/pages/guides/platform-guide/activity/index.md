@@ -151,17 +151,37 @@ As with the [Live Stream](/platform-guide/live-stream#examining-a-specific-event
 
 ## System Alerts
 
-![](/images/system-alerts-dashboard.png)
+The System Alerts dashboard reports all errors returned when forwarding data to your connected outputs. This dashboard helps you to find any connections that are failing to forward data, and it can help you to begin debugging a connection you already know is experiencing problems by highlighting the specific errors reported.
 
-The System Alerts dashboard provides information related to any issues encountered when forwarding data from mParticle to your connected outputs.
+### System Alerts dashboard
 
-The report displays the number of alerts in each category over a 12-hour time period, along with a breakdown for each active output that you have created. Outputs are sorted according to their alert rate, from high to low.
+To view system alerts, log into your mParticle account and navigate to **Activity > System Alerts** in the left nav bar.
+
+![](/images/System-Alerts-Overview.png)
+
+The System Alerts dashboard lists all of your connections sorted by their alert volume, from high to low according to alerts reported during the last 12 hours.
+
+You can view alerts reported during different date ranges by using the **Date** dropdown menu.
+
+<aside>
+   All times on the System Alerts dashboard are displayed in UTC. 
+</aside>
+
+To view alerts reported for only the production or development environment, select the environment using the **Environment** dropdown menu. You can also look for a specific connection with the search bar.
+
+### Alert details
+
+To view details on the specific alerts reported for a connection, select it from the list labeled **Connections**.
+
+![](/images/System-Alerts-Select-Connection.png)
+
+The alerts displayed are sorted by volume and organized according to their type. To view the volume of alerts for each input, click the **+** icon next to the alert type. You can search for a specific alert using the search bar on the System Alerts dashboard.
+
+![](/images/System-Alerts-Details-Expanded.png)
 
 <aside>
    If you have any new, pending alerts, a red alert notification is displayed next to <strong>Activity</strong> in the left nav bar.
 </aside>
-
-If an output is displaying alerts, click the **+** icon to view a breakdown of alerts by type.
 
 The following alert types are supported:
 
@@ -182,7 +202,7 @@ The following alert types are supported:
 |Missing Google Advertising Identifier | Facebook Atlas, Google Adwords, Krux, Leanplum, Nanigans, Oracle BlueKai, TapCommerce, Tapstream | Google Advertising Identifier is required, and is missing in the event batch.
 |Missing Google Advertising Identifier and Android ID | Adjust, AppLovin, Leanplum, Quantcast | Google Advertising Identifier or Android ID is required, and neither is present in the event batch.
 |Missing Identity | AgilOne | A required identity (i.e. Customer ID, etc.) is required, and is missing in the event batch.
-|Missing Identity and Device ID | Braze, Amplitude, Localytics, Webtrends | An identity and device ID are required, and both are missing in the event batch. <br><br>For Appboy, a Customer ID and Push Token are required. <br> <br>For Webtrends, a Customer ID and either IDFA or IDFV (iOS) or Google Advertising Identifier or Android ID (Android) are required. <br><br> For Localytics data to be forwarded server side, the Customer ID or Other User Identity must be set, or the Google Advertiser ID or Android ID (Android) or IDFA (iOS) is required.
+|Missing Identity and Device ID | Braze, Amplitude, Localytics, Webtrends | An identity and device ID are required, and both are missing in the event batch. <br><br>For Braze, a Customer ID and Push Token are required. <br> <br>For Webtrends, a Customer ID and either IDFA or IDFV (iOS) or Google Advertising Identifier or Android ID (Android) are required. <br><br> For Localytics data to be forwarded server side, the Customer ID or Other User Identity must be set, or the Google Advertiser ID or Android ID (Android) or IDFA (iOS) is required.
 |Missing IDFA | Applovin, Fiksu, Facebook Atlas, Google Adwords, Leanplum, Nanigans, Oracle BlueKai, Quantcast, TapCommerce, Tapstream | IDFA is required, and is missing in the event batch. The IDFA can be turned off by the end user by turning on 'Limit Ad Tracking' on their iOS device in Privacy Settings.
 |Missing IDFA and IDFV | Adjust, Braze, Krux, Leanplum | IDFA or IDFV is required, and both are missing in the event batch.
 |Missing IDFV | Leanplum | IDFV is required, and is missing in the event batch.
