@@ -22,18 +22,17 @@ Later on in this guide, you'll learn about sending data from mParticle to some o
 
 ## Inputs and Outputs
 
-One of the key functions of mParticle is to receive your data from wherever it originates, and send it wherever it needs to go. The sources of your data are called "inputs" and the places it needs to go are "outputs". 
+One of the key functions of mParticle is to receive your data from wherever it originates, and send it wherever it needs to go. The sources of your data are inputs and the service or app where it is forwarded are outputs. A connection is a combination of an input and output.
 
-Examples of an input can include:
-* Native app - iOS or Android mobile app  
-* Web app - mobile or desktop web
-* Data feed - any other data you want to send into mParticle. This could be data you have collected yourself or from a Feed partner.
+* Inputs include:
+  *  Apps or services built on any platform we support, such as iOS, Android, or Web. You can view the full list in **SETUP > Inputs** in the PLATFORMS tab.
+  * Data feeds of any other data you want to send into mParticle. This could be data you have collected yourself or from a feed partner. Once configured, feed inputs are listed in **SETUP > Inputs** on the FEEDS tab.
 
-Examples of an output can include: 
-* Analytics partners, like Amplitude  
-* Advertising partners, like Facebook  
-* In-app messaging partners, like Braze  
-* Data Warehouse partners, like Amazon Redshift  
+* Outputs may be configured for events, audiences, cookie syncs, or data subject requests depending on what the output supports. You can see the list of configured outputs in **SETUP > Outputs** or **SETUP > Data Warehouses**. Outputs include: 
+* Analytics partners such as Indicative  
+* Advertising partners such as Facebook  
+* In-app messaging partners such as Braze  
+* Data Warehouse partners, such as Amazon Redshift, Google BigQuery, or Snowflake 
 
 To get started with mParticle, you need some data, which means you need to create at least one input.
 
@@ -68,7 +67,7 @@ You need a developer to help you install and initialize an SDK. See the Getting 
 
 ## Verify: Look for Incoming Data in the Live Stream
 
-1. Navigate to **Activity > Live Stream** in the left column. The Live Stream lets you inspect all incoming data from your development environments. It's an easy way to check that you've correctly initialized mParticle in your app. When you first open up the Live Stream, it will be empty, as we haven't yet started sending data.
+1. Navigate to **Activity > Live Stream** in the left column. The Live Stream lets you inspect all incoming data from your development environments. It's an easy way to check that you have correctly initialized mParticle in your app. When you first open up the Live Stream, it will be empty, as we haven't yet started sending data.
    ![](/images/gs-empty-livestream.png)
 
 2. Start up a development build of your app (get a developer to help you if necessary). The mParticle SDKs automatically collect and forward data about installs and user sessions, so just by opening a development build of your app, you should start to see data in the Live Stream.
@@ -108,4 +107,4 @@ If you don't see data appearing in the Live Stream within the first few minutes 
 
 ## Next Steps
 
-Congratulations, you've established a working data input. Now it's time to [start capturing some data](/guides/getting-started/start-capturing-data).
+Congratulations, you have created a working data input. Now it's time to [start capturing some data](/guides/getting-started/start-capturing-data).
