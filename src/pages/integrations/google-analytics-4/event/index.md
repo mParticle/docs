@@ -169,12 +169,12 @@ Specifically, a few core changes Google made from UA to GA4 that impact our kits
 All of the associated custom flags related to the above are no longer relevant and should not be included when implementing mParticle's GA4 web kit.
 
 ### Migrating from mParticle's Legacy Native Firebase Kits
-Because GA4's data model is driven by Firebase, no changes are needed to keep your current code working.  However, we did add additional support for new GA4 ecommerce events: `add_shipping_info` and `add_payment_info`.  See [Custom Flags](integrations/google-analytics-4/event/#custom-flags) below for more information.
+Because the GA4 data model is driven by Firebase, no changes are needed to keep your current code working.  However, we did add additional support for new GA4 ecommerce events: `add_shipping_info` and `add_payment_info`.  See [Custom Flags](#custom-flags) for more information.
 
-Note that previously, Firebase's `select_content` is now `select_item` in GA4.
+The Firebase event `select_content` is `select_item` in GA4.
 
 ## Recommended Events and Parameters
-Google can auto-generate reports based on [recommended event names and recommended event parameters](https://developers.google.com/analytics/devguides/collection/ga4/reference/events) when sent to GA4. You may already have a data model that does not line up exactly with GA4's new recommended event names and parameters. As such, mParticle and Google's UIs allow you to map data being sent to them to match Google's data model for recommended events. Note that mParticle will automatically map commerce events for you (see [Commerce Event Mappings](#commerce-events), though you may want to further customize this.
+Google can auto-generate reports based on [recommended event names and recommended event parameters](https://developers.google.com/analytics/devguides/collection/ga4/reference/events) when sent to GA4. You may already have a data model that does not line up exactly with GA4's new recommended event names and parameters. As such, mParticle and Google's UIs allow you to map data being sent to them to match Google's data model for recommended events. Note that mParticle automatically [maps commerce events](#commerce-events) for you, though you may want to customize the mapping.
 
 Depending on your use case, mapping mParticle events to Google's recommended events is done in either the mParticle UI or the Google UI.
 
