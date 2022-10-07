@@ -67,6 +67,12 @@ end sub
 
 See [Identity](/developers/roku/identity/) for more information on the `identityApiRequest`.
 
+If you plan to use proxy tools such as Charles Proxy for testing in your development build, you may wish to disable SSL pinning. To do so, insert the following line at the end of the options section (after `options.apiSecret = "REPLACE WITH API SECRET"`):
+
+```brightscript
+options.enablePinning = false
+```
+
 #### 2. Include `mParticleCore.brs` in your Scene
 
 ```xml

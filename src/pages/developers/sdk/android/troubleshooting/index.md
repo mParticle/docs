@@ -44,6 +44,41 @@ To set breakpoints:
 5. To run the debugger, start debug mode by selecting the green bug option to the right of the play button.
 6. Trigger relevant events. 
 7.  Walk through the code: step in and out of functions and see data relative to the variables and objects you step through. 
+
+## Testing with HTTP proxy tools
+
+If you want to use proxy tools such as Charles Proxy, you may need to turn off mParticle SSL pinning in your development build. 
+
+Example [SDK initialization code (step 1.3)](/developers/tutorials/android/create-input) where you would disable pinning:
+
+:::code-selector-block
+```kotlin
+// Required to disable SSL pinning
+val networkOptions = NetworkOptions.builder()
+    .setPinningDisabledInDevelopment(true)
+    .build()
+
+val options = MParticleOptions.builder(this)
+    .credentials("API-KEY","API-SECRET")
+    .environment(MParticle.Environment.Development)
+    .networkOptions(networkOptions) // Required to disable SSL pinning
+    .build()
+MParticle.start(options)
+```
+```java
+// Required to disable SSL pinning
+NetworkOptions networkOptions = NetworkOptions.builder()
+    .setPinningDisabledInDevelopment(true)
+    .build();
+
+MParticleOptions options = MParticleOptions.builder(this)
+    .credentials("API-KEY","API-SECRET")
+    .environment(MParticle.Environment.Development)
+    .networkOptions(networkOptions) // Required to disable SSL pinning
+    .build();
+MParticle.start(options);
+```
+:::
    
 ## More Help
 

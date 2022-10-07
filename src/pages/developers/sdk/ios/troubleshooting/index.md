@@ -47,9 +47,30 @@ To set breakpoints:
 6. If breakpoints are placed correctly, when you trigger the relevant events you will see the simulator console pause and the breakpoint appear in Xcode.
 7. Walk through the code: step in and out of functions and see data relative to the variables and objects you step through. 
 
-## More Help
+### More Help
 
 If you need more help with troubleshooting, see the following resources:
 
 * [Xcode Debugging with Breakpoints](https://medium.com/yay-its-erica/xcode-debugging-with-breakpoints-for-beginners-5b0d0a39d711)
 * [The advanced guide for using breakpoints in Xcode](https://www.bugsee.com/blog/advanced-guide-using-breakpoints-xcode/)
+
+## Testing with HTTP proxy tools
+
+If you want to use proxy tools such as Charles Proxy, you may need to turn off mParticle SSL pinning in your development build. 
+
+Example [SDK initialization code (step 1.2)](/developers/tutorials/ios/create-input). The third line disables pinning:
+
+:::code-selector-block
+```swift
+let options = MParticleOptions(key: "API-KEY", secret: "API-SECRET")
+options.environment = MPEnvironment.development
+options.networkOptions.pinningDisabledInDevelopment = true
+MParticle.sharedInstance().start(with: options)
+```
+```objectivec
+MParticleOptions *options = [MParticleOptions optionsWithKey:@"API-KEY" secret:@"API-SECRET"];
+options.environment = MPEnvironmentDevelopment;
+options.networkOptions.pinningDisabledInDevelopment = YES;
+[MParticle.sharedInstance startWithOptions:options];
+```
+:::
