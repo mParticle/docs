@@ -114,12 +114,11 @@ This screen shows a single Workspace Audience. Clicking the **Multiple Workspace
 After you create an audience, you can specify criteria to further define it. 
 
 The scope of data that is evaluated by your audience criteria is dependent upon:
-<ol>
-  <li>The configurations you have selected</li>
-  <li>The amount of data the mParticle platform has available for the configurations</li>
-  <li>The data storage limit of your current subscription plan.</li>
-  <li> The tier setting for events, if your org has the Beta feature Tiered Events enabled. If set to [any tier except **Store & Evaluate**](/guides/platform-guides/tiered-events), an event can't be used as criteria in a real-time audience and won't be evaluated. After being set to Store Only, the event will be grayed out in real-time audience selection drop-downs.
-  </ol>
+
+* The configurations you have selected
+* The amount of data the mParticle platform has available for the configurations
+* The data storage limit of your current subscription plan
+* The tier setting for events, if your org has the Beta feature Tiered Events enabled. If set to any tier except [**Store and Evaluate**](/guides/platform-guide/tiered-events), an event can't be used as criteria in a real-time audience and won't be evaluated. After being set to **Store Only**, the event is grayed out in real-time audience selection drop-downs.
 
 To add criteria to the audience definition:
 
