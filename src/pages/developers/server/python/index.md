@@ -5,6 +5,8 @@ order: 4
 
 The Python SDK is a helper library for the mParticle Events HTTP API that exposes the mParticle schema as simple models and provides an HTTP client interface. This SDK is stateless and only sends the data that you populate, whereas our mobile SDKs automatically collect app and device information, session events, install events, and maintain persistence. 
 
+Though the SDK may work on earlier versions of Python, we officially support Python version 3.5 or higher.
+
 Read this page for a general overview and examples, visit the [Python SDK repo](https://github.com/mParticle/mparticle-python-sdk)), and if needed, [contact our customer support team](https://support.mparticle.com) to make sure you're feeding the platform with the right data to power your integrations.
 
 ## Model Overview
@@ -196,6 +198,18 @@ configuration = mparticle.Configuration()
 configuration.api_key = 'REPLACE WITH APP KEY'
 configuration.api_secret = 'REPLACE WITH APP SECRET'
 configuration.debug = True #enable logging of HTTP traffic
+```
+
+If your workspace is in a pod other than US1, make sure to set the host to the [appropriate URL](https://docs.mparticle.com/developers/server/http/#endpoint).
+
+```python
+# Example for the EU1 pod, replace eu1 with the pod's name
+configuration.host = 'https://s2s.eu1.mparticle.com'
+```
+
+Finally, initialize the SDK with the configuration.
+
+```python
 api_instance = mparticle.EventsApi(configuration)
 ```
 
@@ -212,7 +226,7 @@ try:
     # you can also send multiple batches at a time to decrease the amount of network calls
     #api_instance.bulk_upload_events([batch, batch])
 except mparticle.rest.ApiException as e:
-    print "Exception while calling mParticle: %s\n" % e
+    print(f'Exception while calling mParticle: %{e}\n')
 ```
 
 
