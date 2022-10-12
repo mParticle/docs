@@ -54,7 +54,7 @@ The [best match](/guides/idsync/best-match-strategy/) strategy is not optimized 
 
 ## Identity priorities
 
-Each identity strategy must define the order of precedence for matching user profiles. When an identity request is received, mParticle looks up matching profiles for each identifier in the order defined by the Identity Priority until a single profile can be returned. Keep in mind that some Identity Strategies impose minimum requirements that a request must fulfill in order to return a User even if they match (see [Login Identities](#login-identity)). For now, let's just look at how the Identity Priority can affect which profile is returned by a request.
+Each identity strategy must define the order of precedence for matching user profiles. When an identity request is received, mParticle looks up matching profiles for each identifier in the order defined by the identity priority until a single profile can be returned. Keep in mind that some identity strategies impose minimum requirements that a request must fulfill in order to return a user even if they match (see [Login Identities](/guides/idsync/user-data/#login-ids)). For now, let's just look at how the identity priority can affect which profile is returned by a request.
 
 ### Example
 
