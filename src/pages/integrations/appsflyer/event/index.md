@@ -100,11 +100,11 @@ Please see the [Android SDK setup guide](/developers/sdk/android/getting-started
 
 ## Deep Linking and Attribution
 
-The AppsFlyer SDK exposes client-side deep linking and attribution APIs, all of which are supported by the mParticle-AppsFlyer kit and covered in this section. The core use-cases are:
+The AppsFlyer SDK exposes client-side deep linking and attribution APIs, all of which are supported by the mParticle AppsFlyer kit and are covered in this section. The core use-cases are:
 
 - Retrieving install attribution information (deferred deep linking)
 - Retrieve app-open attribution information (non-deferred deep linking)
-- OneLink, AppsFlyer's deeplinking hosting service.
+- OneLink, AppsFlyer's unified deeplinking hosting service
 
 Each platform has very specific requirements to ensure that the above functionality is supported. The minimum requirements are:
 - Verify the AppsFlyer connection is enabled for the workspace key and secret, and mParticle environment (development or production) that you're testing.
@@ -116,18 +116,19 @@ Each platform has very specific requirements to ensure that the above functional
 
 ### Retrieving Attribution Information
 
-mParticle's SDKs will automatically initialize the AppsFlyer SDKs, forward the required `UIApplication` lifecycle events (eg `continueUserActivity`) and `Activity` lifecycle events for iOS and Android, as well as register a delegate such that you can retrieve deep linking and attribution information on the client-side.
+mParticle's SDKs will automatically initialize the AppsFlyer SDK, forwarding the required `UIApplication` lifecycle events and the `continueUserAcivity` events for iOS and Android, as well as registering a delegate such that you can retrieve deep linking and attribution parameters on the client-side to customize your user's in-app experience.
 
-Specifically, the AppsFlyer SDK exposes two distinct callback APIs:
-1. `onConversionDataReceived`
-2. `onAppOpenAttribution`
+Specifically, the AppsFlyer SDK exposes one distinct callback:
 
-mParticle has a single API that wraps both of these callbacks, and the respective kits expose constants to inform you of which callback has been fired. On both platforms, the iOS/Android kit will register a delegate/callback with the AppsFlyer SDK on initialization and for the lifetime of the app's process, and will call your completion handler block (iOS), or `AttributionListener` (Android), whenever there is a new conversion data available.
+* `didResolveDeepLink`
 
-The `onAppOpenAttribution` method parses the data and returns it via an `NSDictionary` (Hash Map) object on iOS or `Map` object on Android. This is true when using app specific attribution links, URL schemes or shortened OneLinks.
-However, when users deep link directly using universal or app links, the onAppOpenAttribution method returns the full link unparsed since the app opens directly without going through AppsFlyer first. You can read more about AppsFlyer's deep linking methods [here](https://support.appsflyer.com/hc/en-us/articles/208874366-OneLink-deep-linking-guide#deep-linking-data-accessing-conversion-data-for-deferred-deep-linking).
+mParticle's API includes a wrapper for this callback, and both the iOS and Android kits expose a constant to inform you when the callback has been fired and if it was successful. On both platforms, the iOS/Android kit will register a delegate/callback with the AppsFlyer SDK on initialization and for the lifetime of the app's process, and will call your completion handler block (iOS) or `AttributionListener` (Android) whenever there is new conversion data available.
 
-The keys returned in these results will match the result of the AppsFlyer SDK, documented [here](https://support.appsflyer.com/hc/en-us/articles/207032096#SDK-Implementation).
+When a user clicks a OneLink link, the AppsFlyer SDK retrieves available OneLink data from the AppsFlyer servers. Then, the UDL API calls the `didResolveDeepLink()` method which returns a `DeepLinkResult` object containing a status and (if successful) a `DeepLink` object containing the `deep_link_value` and `deep_link_sub1-10` parameters you can use to customize the resulting in-app outcome.
+
+However, when users deep link directly using universal or app links, the `didResolveDeepLink` method returns the full link unparsed since the app opens directly without going through AppsFlyer first. You can read more about AppsFlyer's deep linking methods [here](https://support.appsflyer.com/hc/en-us/articles/208874366-OneLink-deep-linking-guide#deep-linking-data-accessing-conversion-data-for-deferred-deep-linking).
+
+The parameters returned in these results will match the result of the AppsFlyer SDK, as documented for [Android](https://dev.appsflyer.com/hc/docs/unified-deep-linking-udl) and [iOS](https://dev.appsflyer.com/hc/docs/unified-deep-linking-udl-1).
 
 See the deep linking documentation for [iOS](/developers/sdk/ios/kits#deep-linking) and [Android](/developers/sdk/android/kits#deep-linking) for more information.
 
