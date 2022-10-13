@@ -2,6 +2,15 @@
 title: Event
 ---
 
+<aside className='warning'>
+<b>Google Analytics (Universal Analytics) Sunset Notice<br></b>
+On 7/1/2023, Google will sunset its Universal Analytics product which means all standard Universal Analytics properties will stop processing new hits starting that day.  If you have a Google Analytics 360 property, your data will stop processing new hits on 10/1/2023.  See <a href="https://support.google.com/analytics/answer/11583528?hl=en">Google's official notice</a> about their plans to sunset Universal Analytics for all details.
+
+Google recommends moving from UA to Google Analytics 4 (GA4).  Fortunately, mParticle makes this transition easy for you.  Please see our <a href="https://docs.mparticle.com/integrations/google-analytics-4/event/">GA4 documentation</a> for full setup instructions.  Additionally, Google has <a href="https://support.google.com/analytics/answer/10759417">migration documentation</a> which may help in your migration to GA4.
+
+If you are new to Google Analytics, we recommend you start with GA4 per the instructions above.
+</aside>
+
 Google Analytics provides comprehensive analytics solutions, including event, demographic, ecommerce, funnel, crash, and exception reporting.
 
 mParticle supports Google Analytics Mobile App Analytics through our mobile SDKs and platform forwarding functionality. Data collection is enabled through SDK instrumentation. Once your app is properly configured, it is ingested into the mParticle platform, which maps inbound data to Google Analytics features and their required formats, and then forwards the data to Google Analytics.
