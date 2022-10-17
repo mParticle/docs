@@ -206,11 +206,100 @@ Impression("Suggested Products List", product).let {
 ```
 :::
 
-## Forwarding Commerce Data to Partners
+## Expanding Commerce Events
 
 mParticle commerce events can capture a transaction including multiple products in a single event. Many of our partners take a different approach and only capture purchases at the level of a product. At the simplest end of the spectrum, some partners are only interested in logging the increase in a user's lifetime value and capture no product details at all. For this reason, it's important that both your individual products and the transaction summary are complete and correct.
 
 When instrumenting your app with mParticle, you don't need to worry about the requirements of individual partners. Capture your purchase events in as much detail as you have and mParticle takes care of transforming the data for each partner. Most commonly, this involves "expanding" a commerce Event. This means automatically creating a new separate event for each product in the original event and copying the shared attributes to each new event.
+
+Commerce events are only expanded if needed:
+
+* If the event is forwarded using an mParticle SDK with an embedded kit that doesn't implement `logCommerceEvent`, then the event is expanded to ensure that no data is lost.
+* If the event is forwarded server-to-server or using an mParticle SDK with an embedded kit that does support `logCommerceEvent`, then no expansion is needed, and no data is lost. 
+
+In addition, the expansion behavior is different depending on the commerce event type:
+
+* Product commerce events and impression commerce events expand to one event per product.
+* Purchase or refund commerce events add an additional event with the total value.
+* Promotion commerce events expand to one event per promotion action type such as "click" or "view."
+
+The following tables show the results after expansion:
+
+Product commerce events expand into one event per product with all available key/value pairs.
+
+| <div style="width:30px">Beautified Key Name</div> | <div style="width:10px">Event Object Key</div> | <div style="width:15px">Value Type</div> | <div style="width:300px">Expected Values</div> |
+|---------------------|------------------|------------|-----------------|
+| Event Name | n | String | Example: `"""eCommerce - %@ - Item"" where %@ is the name of the action type (""add_to_cart"" ""purchase"" ""refund”)"` |
+| Event Type | et | String | `transaction` |
+| Custom Attributes | attrs | Dictionary | Contains all of the following key/value pairs if they are available |
+| Brand | Brand | String |  |
+| Name | Name | String |  |
+| Id | Id | String |  |
+| Item Price | Item Price | Number |  |
+| Quantity | Quantity | Number |  |
+| Category | Category | String |  |
+| Coupon Code | Coupon Code | String |  |
+| Variant | Variant | String |  |
+| Position | Position | Integer |  |
+| Total Product Amount | Total Product Amount | Number | Product Quantity * Product Price |
+| Transaction Id | Transaction Id |  |  |
+| Custom Keys | %@ | Any | All custom attributes set on the commerce event by the client |
+
+Purchase or Refund Commerce Events expand into an additional event with all available key/value pairs.
+
+| <div style="width:30px">Beautified Key Name</div> | <div style="width:10px">Event Object Key</div> | <div style="width:15px">Value Type</div> | <div style="width:300px">Expected Values</div> |
+|---------------------|---------------------|------------|---------------------------------------------------------------------------------------------------|
+| Event Name          | n                   | String     | `"""eCommerce - %@ - Total"" where %@ is the name of the action type (""purchase"" or ""refund"")"` |
+| Event Type          | et                  | String     | `transaction`                                                                                       |
+| Custom Attributes   | attrs               | Dictionary | Contains all the following key/value pairs if they are available                                  |
+| Currency Code       | Currency Code       | String     |                                                                                                   |
+| Product Count       | Product Count       | Number     |                                                                                                   |
+| Affiliation         | Affiliation         | String     |                                                                                                   |
+| Shipping Amount     | Shipping Amount     | Number     |                                                                                                   |
+| Tax Amount          | Tax Amount          | Number     |                                                                                                   |
+| Total Amount        | Total Amount        | Number     |                                                                                                   |
+| Transaction Id      | Transaction Id      | String     |                                                                                                   |
+| Coupon Code         | Coupon Code         | String     |                                                                                                   |
+| Product Action List | Product Action List | String     |                                                                                                   |
+| Product List Source | Product List Source | String     |                                                                                                   |
+| Checkout Options    | Checkout Options    | String     |                                                                                                   |
+| Checkout Step       | Checkout Step       | String     |                                                                                                   |
+| Custom Keys         | %@                  | Any        | All custom attributes set on the commerce event by the client                                     |
+
+Promotion commerce events expand to an additional event with all available key/value pairs.
+
+| <div style="width:30px">Beautified Key Name</div> | <div style="width:10px">Event Object Key</div> | <div style="width:15px">Value Type</div> | <div style="width:300px">Expected Values</div> |
+|---------------------------------------------------|----------|------------|--------------------------------------------------------------------------------------------------------|
+| Event Name                                        | n        | String     | `"""eCommerce - %@ - Total"" where %@ is the name of the promotion action type (""click"" or ""view"")"` |
+| Event Type                                        | et       | String     | `transaction`                                                              |
+| Custom Attributes                                 | attrs    | Dictionary | Contains the following key/value pairs if they are available               |
+| Promotion List                                    | pl       | Dictionary |                                                                            |
+| Creative                                          | Creative | String     |                                                                            |
+| Name                                              | Name     | String     |                                                                            |
+| Position                                          | Position | String     |                                                                            |
+| Id                                                | Id       | String     |                                                                            |
+
+Impression Commerce events expand to an event for every product in the impression with all available key/value pairs.
+
+| <div style="width:30px">Beautified Key Name</div> | <div style="width:10px">Event Object Key</div> | <div style="width:15px">Value Type</div> | <div style="width:300px">Expected Values</div> |
+|-------------------------|-------------------------|------------|-------------------------------------------------------------------------------|
+| Event Name              | n                       | String     | eCommerce - Impression - Item                                                 |
+| Event Type              | et                      | String     | `transaction`                                                                 |
+| Custom Attributes       | attrs                   | Dictionary | Contains all the following key/value pairs if they are available              |
+| Product Impression List | Product Impression List | String     |                                                                               |
+| Brand                   | Brand                   | String     |                                                                               |
+| Name                    | Name                    | String     |                                                                               |
+| Id                      | Id                      | String     |                                                                               |
+| Item Price              | Item Price              | Number     |                                                                               |
+| Quantity                | Quantity                | Number     |                                                                               |
+| Category                | Category                | String     |                                                                               |
+| Coupon Code             | Coupon Code             | String     |                                                                               |
+| Variant                 | Variant                 | String     |                                                                               |
+| Position                | Position                | Integer    |                                                                               |
+| Total Product Amount    | Total Product Amount    | Number     | Product Quantity * Product Price                                              |
+| Product Custom Keys     | %@                      | Any        | All custom attributes set on the product by the client                        |
+| Custom Keys             | %@                      | Any        | All custom attributes set on the commerce event by the client                 |
+
 
 ## API Reference
 

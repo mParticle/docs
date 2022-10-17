@@ -256,31 +256,21 @@ You may notice differences between an inbound data count and an outbound data co
 *  Are you using data filters?
 *  Is the message type not supported by the integration?
 *  Have you chosen configuration or connection settings that exclude certain message types?
+*  Are you sending [commerce events](#commerce-event-types-and-event-forwarding) that are expanded before being forwarded?
 
-<!--
-## User Insights
+## Commerce Event Types and Event Forwarding
 
-Once your first-party app data is available in mParticle, we enrich it with data from 3rd party data providers such as **Datalogix** to promote a deeper understanding of your app users. By appending 3rd party data to an app’s existing user data, mParticle allows app owners to discover:
+Four events, called commerce events, capture information about financial transactions: product commerce events, purchase or refund commerce events, promotion commerce events, and impression commerce events. 
 
-* Who their most engaged users are, including demographics, brand preferences, interests & hobbies etc.
-* What data points are common among the most valuable users in order to improve user acquisition and retention strategies
-* Which brands app users are most loyal to in order to create sponsorship and cross-promotional opportunities
-* How to improve scalability and performance of desired KPI’s
+Commerce events behave differently from other events:
 
-mParticle supports 3rd party data in the User Insights report and in your audience definitions.
+* If the event is forwarded using an mParticle SDK with an embedded kit that doesn't implement `logCommerceEvent`, then the event is expanded to ensure that no data is lost.
+* If the event is forwarded server-to-server or using an mParticle SDK with an embedded kit that does support `logCommerceEvent`, then no expansion is needed, and no data is lost. 
 
-### User Insights Report
+In addition, the expansion behavior is different depending on the commerce event type:
 
-![](/images/activity-user-insights.png)
+* Product commerce events and impression commerce events expand to one event per product.
+* Purchase or refund commerce events add an additional event with the total value.
+* Promotion commerce events expand to one event per promotion action type such as "click" or "view."
 
-The User Insights report will be updated daily using the last 30 days of app data.
-
-The following categories of performance stats are shown in the report:
-
-1. **Overlap** - This tells you the reach of a data segment within your current user base.
-2. **Engagement Lift** -  mParticle has selected 3 common KPIs that represent how users interact with your app in general: Sessions Per User, Median Session Duration, and Average Revenue Per User.
-3. **Goal Event Lift** - Other than the 3 general KPIs we’ve selected, you can pick up to five custom events that you deem important, such as in-app purchases, social shares,  account creation, etc.
-
-Each row in the report is a segment, and it shows how many app users this segment reaches as well as lift percentage on various KPI metrics.  The top 5% are shown in green and the bottom 10% are shown in red.
-
--->
+For more details, see the [iOS SDK](/developers/sdk/ios/commerce-tracking#expanding-commerce-events) or [Android SDK](/developers/sdk/android/commerce-tracking#expanding-commerce-events) documentation.
