@@ -158,6 +158,13 @@ mParticle commerce events can capture a transaction including multiple products 
 
 When instrumenting your app with mParticle, you don't need to worry about the requirements of individual partners. Capture your purchase events in as much detail as you have and mParticle takes care of transforming the data for each partner. Most commonly, this involves "expanding" a commerce Event. This means automatically creating a new separate event for each product in the original event and copying the shared attributes to each new event.
 
+### Currency Code
+Some partners, like GA4, require a currency code to be set in order to ingest commerce data and trigger revenue.  Use the below snippet to set the currency code on the mParticle eCommerce object:
+
+~~~javascript
+mParticle.eCommerce.setCurrencyCode('USD');
+~~~
+
 ## API Reference
 
 Reference the complete [API reference](/developers/sdk/web/core-apidocs/classes/mParticle.eCommerce.html) for a deep dive into the Commerce APIs.
