@@ -8,7 +8,9 @@ Apple's iOS 16 is generally available. mParticle did not need a special release 
 
 ## Do I need to update my mParticle Apple SDK to support iOS 16?
 
-The latest iOS SDK version 8.8.1 is compatible with Xcode 13, the latest Xcode 14 beta, and the latest iOS 16 beta.
+The latest iOS SDK version 8.8.1 is compatible with Xcode 13, Xcode 14, and iOS 16.
+
+If the iOS SDK version you currently use is compatible with iOS 15, then you are not required to upgrade to 8.8.1 to support iOS 16. However, it is recommended to always use the latest available version of the iOS SDK to ensure that you have access to all new features and bug fixes.
 
 ## Will mParticle release a beta version of the SDK in support of iOS 16?
 
