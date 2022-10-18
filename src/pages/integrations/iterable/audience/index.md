@@ -11,22 +11,22 @@ Iterable is a multi-channel growth marketing and user engagement platform that p
 
 In order to forward an mParticle audience to Iterable, you must have an account with Iterable. You can sign into your Iterable account at [https://app.iterable.com/login/](https://app.iterable.com/login).
 
-### Create a Standard API Key
+### Create a server-side API key
 
-Create a dedicated _Standard_ API key for the Iterable Audience Integration:
+Create a dedicated server-side API key for the Iterable audience integration:
 
 1. In Iterable, navigate to to **Integrations > API Keys**.
 2. Click **New API Key**.
 3. Provide a descriptive name such as `mparticle-audience-integration`.
-4. For the [API key type](https://support.iterable.com/hc/articles/360043464871#types-of-api-keys), select **Standard**.
+4. For the [API key type](https://support.iterable.com/hc/articles/360043464871#types-of-api-keys), select **server-side**.
 5. Click **Create**.
-6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable Event Integration in mParticle.
+6. Save the value of the key created. You will not be able to view it again. This value is needed to configure the Iterable event integration in mParticle.
 
 Follow these [steps](https://support.iterable.com/hc/en-us/articles/115000770906-Importing-User-Lists-) to create a new List in Iterable with no users.   
 
 ![Iterable List](/images/iterable-import-list1.png)
 
-From the List View, get the List ID for your List from the table to enter in the mParticle configuration.
+From List View, get the List ID for your List from the table to enter in the mParticle configuration.
 
 ![Iterable List](/images/iterable-listid1.png)
 
