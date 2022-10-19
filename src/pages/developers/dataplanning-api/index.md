@@ -56,12 +56,12 @@ Calls to the Data Planning API are authenticated via mParticle access token, whi
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-client_id | `string` | Your client ID issued by mParticle
-client_secret | `string` | Your client secret issued by mParticle
-audience  | `string` | Set to `https://api.mparticle.com`
-grant_type | `string` | Set to `client_credentials`
+| Name | Type | Description |
+|---|---|--- |
+| client_id | `string` | Your client ID issued by mParticle |
+| client_secret | `string` | Your client secret issued by mParticle |
+| audience  | `string` | Set to `https://api.mparticle.com` |
+| grant_type | `string` | Set to `client_credentials` |
 
 #### Example Request
 
@@ -78,7 +78,7 @@ $ curl --location --request POST 'https://sso.auth.mparticle.com/oauth/token' \
 
 #### Example Response
 
-```javascript
+```json
 {
     "access_token": "YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-",
     "expires_in" : 28800,
@@ -96,9 +96,9 @@ Authorization: Bearer YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plans
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plans |
 
 #### Example Request
 
@@ -123,7 +123,7 @@ const dataPlans = await dataPlanService.getDataPlans();
 
 <aside>The response will contain Data Plans and Data Plan Versions, but will exclude the Data Points.</aside>
 
-```javascript
+```json
 [
     {
         "data_plan_id": "mobile_data_plan",
@@ -188,9 +188,9 @@ const dataPlans = await dataPlanService.getDataPlans();
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plans
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plans |
 
 <aside>
 If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
@@ -329,7 +329,7 @@ const createdPlan = await dataPlanService.createDataPlan(plan)
 
 #### Example Response
 
-```javascript
+```json
 {
     "data_plan_id": "example_data_plan",
     "data_plan_name": "Mobile Data Plan",
@@ -392,10 +392,10 @@ const createdPlan = await dataPlanService.createDataPlan(plan)
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `string` | The ID of the Data Plan to retrieve
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plans |
+| plan_id | `string` | The ID of the Data Plan to retrieve |
 
 #### Example Request
 
@@ -424,10 +424,10 @@ The response will contain the entire Data Plan including all versions. [See abov
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `string` | The ID of the Data Plan to retrieve
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plans |
+| plan_id | `string` | The ID of the Data Plan to retrieve |
 
 <aside>
 If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
@@ -470,9 +470,9 @@ The response will contain the entire Data Plan including all versions. [See abov
 
 ### Delete Data PLan
 
-Name | Type | Description
-|---|---|---
-plan_id | `string` | The ID of the data plan to delete
+| Name | Type | Description |
+|---|---|---|
+| plan_id | `string` | The ID of the data plan to delete |
 
 #### Example Request
 
@@ -505,9 +505,9 @@ A successful request results in an empty 204 response.
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plans
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plans |
 
 <aside>
 If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
@@ -636,11 +636,11 @@ The response will contain the entire Data Plan Version including all versions. [
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `string` | The ID of the Data Plan to retrieve
-version | `integer` | The version of the Data Plan to retrieve
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plans |
+| plan_id | `string` | The ID of the Data Plan to retrieve |
+| version | `integer` | The version of the Data Plan to retrieve |
 
 #### Example Request
 
@@ -674,11 +674,11 @@ The response will contain the entire Data Plan version. [See above](#example-res
 
 #### Parameters
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plans
-plan_id | `string` | The ID of the Data Plan to retrieve
-version | `integer` | The version of the Data Plan to retrieve
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plans |
+| plan_id | `string` | The ID of the Data Plan to retrieve |
+| version | `integer` | The version of the Data Plan to retrieve |
 
 <aside>
 If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.
@@ -831,11 +831,11 @@ The response will contain the entire Data Plan version. [See above](#example-res
 
 ### Delete Data Plan Version
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing your data plan
-plan_id | `string` | The ID of the data plan
-version | `integer` | The version of the data plan to delete
+| Name | Type | Description |
+|---|---|---|
+| workspace_id | `integer` | The ID of the workspace containing your data plan |
+| plan_id | `string` | The ID of the data plan |
+| version | `integer` | The version of the data plan to delete |
 
 #### Example Request
 
@@ -867,9 +867,9 @@ A successful request results in an empty 204 response.
 
 To validate an event batch using the Data Planning API, submit a POST request to `https://api.mparticle.com/platform/v2/workspaces/{{workspace_id}}/plans/validate`, including the JSON formatted event batch you want to validate.
 
-Name | Type | Description
-|---|---|---
-workspace_id | `integer` | The ID of the workspace containing the data plan version
+| Name | Type | Description |
+|---|---|--- |
+| workspace_id | `integer` | The ID of the workspace containing the data plan version |
 
 ### Example request
 
@@ -1309,7 +1309,7 @@ The following rate limits are enforced for all requests to the Data Planning API
 | Resource | Limits | Details |
 | -------- | ------ | --- |
 | Requests per minute per account | 3000 requests per minute | This limit applies to all GET, POST, and PATCH API actions. |
-| Requests per minute per organization | 6000 requests per minute | This limit applies to all GET, POST, and PATCH API actions.
+| Requests per minute per organization | 6000 requests per minute | This limit applies to all GET, POST, and PATCH API actions. |
 
 <aside>
 If you encounter issues when uploading a data plan via the API but receive no error response: set your plan's status to <code>DEV</code> in the mParticle UI, upload your new plan, then change the status back to <code>PROD/DEV</code>.

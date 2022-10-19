@@ -14,7 +14,7 @@ See the [Default Service Limits](/guides/default-service-limits) for information
 v3 contains the following changes:
 
 * The `subject_identities` are sent as a dictionary where the keys are identity types which enforces a single identity per identity type.
-* Additional identities can be provided in the opendsr.mparticle.com extensions.  The mpids and identities collections were merged into a single `subject_identities` dictionary with the same format as the `subject_identities` in the request.
+* Additional identities can be provided in the opendsr.mparticle.com extensions.  The MPIDs and identities collections were merged into a single `subject_identities` dictionary with the same format as the `subject_identities` in the request.
 * If an identity of `mpid` is included in the extensions, no other identities can be provided in the request.
 * Updated the version field default to 3.0
 * Updated API endpoints for v3 ([below](#endpoint))
@@ -31,7 +31,7 @@ Follow the steps below to upgrade from version 1 or version 2 to version 3.
 2. Update the `api_version` to 3.0.
 3. Update the format in the `subject_identities` element as described [below.](#the-subject_identities-object)
 4. Change the format of the `opendsr.mparticle.com` extensions as described [below.](#the-subject_identities-object)
-5. If you include `mpid` in the `opendsr.mparticle.com` extensions, you must not incude any other identities.
+5. If you include `mpid` in the `opendsr.mparticle.com` extensions, you must not include any other identities.
 
 ## Endpoint
 
@@ -120,7 +120,7 @@ Authorization: Basic <your-token-here>
 
 | Field Name | Data Type | Required | Description |
 | ---------- | --------- | -------- | ----------- |
-| `regulation` | string | Required | The regulation this DSR falls under, either `gdpr` or `ccpa`.
+| `regulation` | string | Required | The regulation this DSR falls under, either `gdpr` or `ccpa`. |
 | `subject_request_id` | UUID v4 string | Required | A unique identifier for the request provided by the controller. |
 | `subject_request_type` | string | Required | The type of request. Supported values are `access`, `portability` and `erasure`. |
 | `submitted_time` | ISO 8601 date string | Required | The time the Data Subject originally submitted the request. |
@@ -129,7 +129,7 @@ Authorization: Basic <your-token-here>
 | `api_version` | string | Optional | The API Version your request uses. Valid value is `3.0`.|
 | `status_callback_urls` | Array | Optional | Array of URLs for a callback post to be made on completion of the request |
 | `group_id` | string | Optional | The `group_id` can be used to relate different subject requests together. |
-| `extensions` | array | Optional | Contains processor-specific extensions. For mParticle, use the extensions `opendsr.mparticle.com`. See below for supported identity types.|
+| `extensions` | array | Optional | Contains processor-specific extensions. For mParticle, use the extensions `opendsr.mparticle.com`. See below for supported identity types. |
 
 #### The `subject_identities` Object
 
@@ -160,7 +160,7 @@ Data subject requests using the OpenDSR format may include an object called `sub
   While the OpenDSR framework accepts <code>raw</code>, <code>sha1</code>, <code>md5</code>, and <code>sha256</code> as values for the <code>identity_format</code>, mParticle only supports sending IDs with the <code>raw</code> identity format.
 </aside>
 
-When setting the `identity_type` in the `subject_identities` object of an OpenDSR reqeust, make sure to use values from the column labeled **Supported OpenDSR Format** in the table below. The column labeled **mParticle Identity Type** indicates the corresponding types used in mParticle.
+When setting the `identity_type` in the `subject_identities` object of an OpenDSR request, make sure to use values from the column labeled **Supported OpenDSR Format** in the table below. The column labeled **mParticle Identity Type** indicates the corresponding types used in mParticle.
 
 Supported OpenDSR Format | mParticle Identity Type
 --| --- 
@@ -237,7 +237,7 @@ X-OpenDSR-Signature:
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
 | `api_version` | string | The API version for this request. The current version is `3.0`. |
 | `results_url` | string | For Access/Portability requests, a download link to the request results data. This field contains `null` unless the request is complete. After a request completes, the `results_url` is valid for 7 days. After that time, attempting to access this URL results in a `410 Gone` HTTP response. |
-| `extensions` | array |  Extensions related to DSR forwarding.
+| `extensions` | array |  Extensions related to DSR forwarding. |
 
 #### Extensions 
 
@@ -245,10 +245,10 @@ The `extensions` element is a collection of information on the current state of 
 
 | Field Name| Data Type | Description |
 | --- | --- | --- |
-| `domain` | string | The domain of the partner.
-| `name` | string | The name entered when configuring the DSR configuration for the partner.
-| `status` | string | The current status of the forwarding request to the partner.
-| `status_message` | string |  Additional details for the `skipped` and `failed` status.
+| `domain` | string | The domain of the partner. |
+| `name` | string | The name entered when configuring the DSR configuration for the partner. |
+| `status` | string | The current status of the forwarding request to the partner. |
+| `status_message` | string |  Additional details for the `skipped` and `failed` status. |
 
 The `status` field returns the current status of the forwarding request to the partner:
 
@@ -392,9 +392,9 @@ Callback requests are signed and issued over TLS. You must validate the authenti
 1. Establish a whitelist of all processor domains that you will allow to issue callbacks.
 2. If the `X-OpenDSR-Processor-Domain` header value is in your whitelist, fetch the certificate. The certificate URL is available as the value of `"processor_certificate"` in the `/discovery` response body. The certificate can be cached for the lifetime of the certificate.
 3. Validate the certificate. This should be handled by a library. Certificate validation should confirm that:
-  * The certificate was issued by a trusted authority.
-  * The certificate was issued to the exact string given in the `X-OpenDSR-Processor-Domain` header value.
-  * The certificate has not expired.
+    * The certificate was issued by a trusted authority.
+    * The certificate was issued to the exact string given in the `X-OpenDSR-Processor-Domain` header value.
+    * The certificate has not expired.
 4. If the certificate is valid, use it to validate the `X-OpenDSR-Signature` header against the raw request body. mParticle uses SHA256 RSA as a signing algorithm.
 5. Return a response with a `202 Accepted` status header if all validations are successful. Return a response with a `401 Unauthorized` status header if the signature fails to validate or the processor domain is not in your whitelist.
 
@@ -437,12 +437,12 @@ The following errors may be returned by the API.
 }
 ~~~
 
-Status Code | Retriable | Message
----  | --- | ---
-400  | No  | Invalid data was detected
-400  | No  | If an mpid is provided, it must be the only identity in the request.
-400  | No  | Subject request already exists
-401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication).
-404  | No  | The specified subject request id could not be found.
-409  | No  | There is an in progress request with the same identities, extensions and type.
-429  | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again.
+| Status Code | Retriable | Message |
+| --- | --- | --- |
+| 400 | No | Invalid data was detected |
+| 400 | No | If an mpid is provided, it must be the only identity in the request. |
+| 400 | No | Subject request already exists |
+| 401 | No | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication). |
+| 404 | No | The specified subject request id could not be found. |
+| 409 | No | There is an in progress request with the same identities, extensions and type. |
+| 429 | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again. |

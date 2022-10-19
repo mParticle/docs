@@ -183,7 +183,7 @@ When using the Google Ads web integration, you have the option of leveraging Goo
 
 ### Prerequisites
 * mParticle prequisites:
-  * Your web workspace needs to be configured for event batching in order to leverage Enhanced Conversions.  If it is not configured for event batching, please contact your customer success manager. To determine if you are on web batching, follow the instructions [here](/developers/sdk/web/getting-started/#upload-interval--batching).
+  * Your web workspace needs to be configured for event batching in order to leverage Enhanced Conversions.  If it is not configured for event batching, please contact your customer success manager. To determine if you are on web batching, follow the instructions [here](/developers/sdk/web/configuration).
   * Check both `Enable Google Site Tag` and `Enable Enhanced Conversions` in connection settings.
 * Google prequisites:
   * Enhanced Conversion is currently a beta Google product.  As such, you must work with your Google Ads representative to whitelist your account.

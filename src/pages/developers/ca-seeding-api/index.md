@@ -14,13 +14,13 @@ You can authenticate in 2 ways:
 1. Many HTTP clients support basic authentication out of the box. Use your API key for the “username” and your API secret for “password”.
 1. Manually set the authentication header by encoding your key and secret together:
    - Concatenate your application key and secret together with a colon (:) separating the two:
-example-api-key:example-api-secret
+`example-api-key:example-api-secret`
    - Base64 with UTF-8 encode the result:
-ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==
+`ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==`
    - Prefix the encoded string with the authorization method, including a space:
-Basic ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==
+`Basic ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==`
    - Set resulting string as the Authorization header in your HTTP requests:
-Authorization: Basic ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==
+`Authorization: Basic ZXhhbXBsZS1hcGkta2V5OmV4YW1wbGUtYXBpLXNlY3JldA==`
 
 ## Endpoint  
 
@@ -110,7 +110,7 @@ This object contains the calculated attribute and seeding information. It is use
   }
 ~~~
 
-The calculated attribute seed information is set under the `workspace` property. The structure of these objects depends on the  the `calculation_type` of the calculated attribute (also passed in the corresponding field).
+The calculated attribute seed information is set under the `workspace` property. The structure of these objects depends on the `calculation_type` of the calculated attribute (also passed in the corresponding field).
 
 | Property Name | Data Type | Required | Description |
 | --- | --- | --- | --- |
@@ -413,14 +413,14 @@ Authorization: Basic <your-token-here>
 You should inspect the status code of the response to determine if the POST has been accepted or if an error occurred.
 
 |Status | Code | Notes |
-|---|---|---
+|---|---|---|
 |202| Accepted|                 The POST was accepted. |
 |400| Bad Request|              The request JSON was malformed JSON or had missing fields. |
 |401| Unauthorized|             The authentication header is missing. |
 |403| Forbidden|                The authentication header is present, but invalid.|
 |429| Too Many Requests|        You have exceeded your provisioned limit. We recommend retrying your request in an exponential backoff pattern |
 |503| Service Unavailable|      We recommend retrying your request in an exponential backoff pattern |
-|5xx| Server Error | A server-side error has occured, please try your request again.
+|5xx| Server Error | A server-side error has occured, please try your request again. |
 
 The whole request either succeed or fail, i.e., we don't partially accept the data.
 

@@ -15,13 +15,13 @@ At runtime, the Core SDKs will receive configuration from the mParticle server, 
 
 ### Self-managed vs mParticle-managed
 
-mParticle has developed and currently manages a large number of Android kits. These mParticle-managed kits are hosted within the [mParticle-integrations](https://github.com/mparticle-integrations) organization on Github and releases are performed by the mParticle engineering team. This is not a requirement though, some partners choose to manage their own kits, meaning they host the repository and perform releases however they prefer. This guide covers the few key differences between self-managed and mParticle-managed Android kits.
+mParticle has developed and currently manages a large number of Android kits. These mParticle-managed kits are hosted within the [mParticle-integrations](https://github.com/mparticle-integrations) organization on GitHub and releases are performed by the mParticle engineering team. This is not a requirement though, some partners choose to manage their own kits, meaning they host the repository and perform releases however they prefer. This guide covers the few key differences between self-managed and mParticle-managed Android kits.
 
 If you are building a self-managed kit, see the consideration in [For Self Managed Kits](#for-self-managed-kits).
 
 ### Getting started
 
-We provide an example skeleton kit [on Github](https://github.com/mparticle-integrations/mparticle-android-integration-example/tree/main/simple-kit). You can choose to clone this kit and use it as a starting point, or just use it as a reference.
+We provide an example skeleton kit [on GitHub](https://github.com/mparticle-integrations/mparticle-android-integration-example/tree/main/simple-kit). You can choose to clone this kit and use it as a starting point, or just use it as a reference.
 
 For more information on the contents of the example-kit, see [API Overview - Editing the Example Kit](#api-overview---editing-the-example-kit)
 
@@ -268,7 +268,7 @@ see [KitIntegration.UserAttributeListener](####`KitIntegration.UserAttributeList
 [See the javadocs for more information on the `KitIntegration` class and its interfaces](/developers/partners/outbound-integrations/android-kit/javadocs/index.html).
 
 ### KitIds
-KitId is a unique Integer that serves as the identifier for a Kit. When a configuration is received, kit settings, mappings and projections are stored on a per-kitId basis and the SDK is able to assign the correct kit configuration to the correct kit based on a list of "known kits" mapping. For mParticle managed kits, kitIds are added statically to the KitIntegrationFactory, but they also can be added at runtime via `MParticleOptions.KitOptions`. If you are testing a new kit and are not taking the approach that involves building the entirer mParticle SDK, then you can register a new kitId (at runtime):
+KitId is a unique Integer that serves as the identifier for a Kit. When a configuration is received, kit settings, mappings and projections are stored on a per-kitId basis and the SDK is able to assign the correct kit configuration to the correct kit based on a list of "known kits" mapping. For mParticle managed kits, kitIds are added statically to the KitIntegrationFactory, but they also can be added at runtime via `MParticleOptions.KitOptions`. If you are testing a new kit and are not taking the approach that involves building the entire mParticle SDK, then you can register a new kitId (at runtime):
 
 :::code-selector-block
 ```kotlin
@@ -302,4 +302,4 @@ by replacing {KIT-ID} with the integer value of you kitId
 
 2. Please include a README for your new kit - see [this example](https://github.com/mparticle-integrations/mparticle-android-integration-leanplum/blob/master/README.md).
 
-3. Include and run unit tests and continuous integration testing with tools such as Github Actions - see [this example](https://github.com/mparticle-integrations/mparticle-android-integration-apptentive/blob/master/src/test/java/com/mparticle/kits/ApptentiveKitTests.java).
+3. Include and run unit tests and continuous integration testing with tools such as GitHub Actions - see [this example](https://github.com/mparticle-integrations/mparticle-android-integration-apptentive/blob/master/src/test/java/com/mparticle/kits/ApptentiveKitTests.java).

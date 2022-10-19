@@ -6,7 +6,7 @@ At mParticle, we have developed tools to allow you to statically lint code again
 
 ## Setup
 
-For all linters, you will need to download your data plan and have a file named `mp.config.json` (mParticle config file) at the root of your project. Inside of `mp.config.json`, reference the your data plan's file location. You can learn more about the mParticle config file [here](/developers/cli#mpconfig). The required key for your mParticle config file is `planningConfig`.
+For all linters, you will need to download your data plan and have a file named `mp.config.json` (mParticle config file) at the root of your project. Inside of `mp.config.json`, reference your data plan's file location. You can learn more about the mParticle config file [here](/developers/cli#mpconfig). The required key for your mParticle config file is `planningConfig`.
 
 ## iOS
 
@@ -36,7 +36,7 @@ Download your data plan from the mParticle platform and save it to a file in you
 - The example below assumes you saved the downloaded file as `plan.json` in the root of your repository. If you used a different path or filename, adjust the `dataPlanVersion` field accordingly.
 - We also strongly recommend that you include the `lintingConfig` section below (customizing the values of the `included` and `excluded` keys as appropriate for your project), in order to limit the number of files that get processed by the linter to those that contain your mParticle implementation, otherwise it can hang due to trying to parse a large number of swift source files.
 
-```javascript
+```json
 {
     "planningConfig": {
         "dataPlanVersionFile": "./plan.json"
@@ -209,7 +209,7 @@ To get started, ensure you have a data plan downloaded and referenced properly i
 
 If you haven't already done so, download your data plan from the mParticle platform and save it to a file in your source repository. Reference this in the `mp.config.json`file to tell the linter where to find the data plan file.
 
-```javascript
+```json
 {
     "planningConfig": {
         "dataPlanVersionFile": "./plan.json"
@@ -232,16 +232,16 @@ Inside your `.eslintrc` file, add `@mparticle/eslint-plugin` to the `plugins` ar
 
 You may have to restart your IDE for changes to take effect. If you are using VSCode, you can quickly do this by hitting CMD + Shift + P, typing `reload`, and executing `Developer: Reload Window`. Each time you update your data plan, reloading the IDE will allow the new data points to be consumed by the linter.
 
-After you've followed the steps above, you can test the linter against your data plan. Events that are unplanned will be underlined to note that they should be fixed, as in the example in the beginnig of this section
+After you've followed the steps above, you can test the linter against your data plan. Events that are unplanned will be underlined to note that they should be fixed, as in the example in the beginning of this section.
 
 #### TypeScript
 
-Since our plugin is built on ESLint's architecture, it also also works with TypeScript (.ts) files, though two additional steps are required:
+Since our plugin is built on ESLint's architecture, it also works with TypeScript (.ts) files, though two additional steps are required:
 
 1.  If you are self-hosting, include `declare module "@mparticle/web-sdk"` in your root folder's `index.d.ts` file.
 2.  `npm install --save-dev @typescript-eslint/parser` and include `@typescript-eslint/parser` as your `parser` in your .eslintrc file:
 
-```javascript
+```json
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@mparticle/eslint-plugin"],

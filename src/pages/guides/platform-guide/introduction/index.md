@@ -89,6 +89,6 @@ Note that Output Services often have their own limits, which can differ from mPa
 
 ## Next Steps
 
-To get started with mParticle, set up some data inputs and integrate with at least one output service. See [Web End-to-End Tutorial](/developers/tutorials/web/overview) for instructions on how to set up connections, and see your first data flow from input to output. If you aren't working with Web apps or services, visit [Getting Started](/guides/getting-started/) for more generic instructions.
+To get started with mParticle, set up some data inputs and integrate with at least one output service. See [Web End-to-End Tutorial](/developers/quickstart/web/overview) for instructions on how to set up connections, and see your first data flow from input to output. If you aren't working with Web apps or services, visit [Getting Started](/guides/getting-started/) for more generic instructions.
 
 Once you're up and running, see the rest of this Platform guide for a more advanced look at the mParticle dashboard, or browse [Integrations](/integrations/) to see all available integrations.

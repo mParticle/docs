@@ -81,7 +81,7 @@ Subsequent updates to the API that introduce breaking changes will be published 
 ### Specifying your Account ID
 
 All API calls require you to pass AccountId as a querystring parameter when making the request. Forgetting to add the AccountId parameter when required will result in a 401 Unauthorized response.
-All subsequent entities that you work with will be within the scope of the chosen Account ID.  Attempting to access or modify entities outside of the specified Account ID scope will return 404 - Not Found.
+All subsequent entities that you work with will be within the scope of the chosen Account ID.  Attempting to access or modify entities outside the specified Account ID scope will return 404 - Not Found.
 
 <aside class="warning">Please note that all subsequent examples include ?accountId=1. This accountId will not work for you and must be changed to your account number.</aside>
 
@@ -112,21 +112,20 @@ One or more entities will be returned as an array in the data property. If error
 
 The following table lists the status codes that are returned by API requests:
 
-Statis | Code | Method | Notes
-|---|---|---|---
-200 | OK | GET | |
-201 | Created | POST | |
-202 | Accepted | PUT/DELETE | |
-204 | No Content | HEAD | |
-400 | Bad Request | All | JSON Syntax is invalid. |
-401 | Unauthorized | All | User failed authentication. |
-403 | Forbidden | All | Identity is not authorized to invoke specified method. |
-404 | Not Found | GET | Resource does not exist or user does not have access. |
-405 | Method Not Allowed | All | Specified HTTP method not supported. |
-422 | Unprocessable Entity | PUT/POST/DELETE | Request failed business logic rules. |
-500 | Internal Server Error | All | Contact mParticle support to resolve this error. |
-504 | Bad Gateway | All | mParticle server error, retry with exponential backoff. |
-
+| Statis | Code | Method | Notes |
+|---|---|---|---|
+| 200 | OK | GET | |
+| 201 | Created | POST | |
+| 202 | Accepted | PUT/DELETE | |
+| 204 | No Content | HEAD | |
+| 400 | Bad Request | All | JSON Syntax is invalid. |
+| 401 | Unauthorized | All | User failed authentication. |
+| 403 | Forbidden | All | Identity is not authorized to invoke specified method. |
+| 404 | Not Found | GET | Resource does not exist or user does not have access. |
+| 405 | Method Not Allowed | All | Specified HTTP method not supported. |
+| 422 | Unprocessable Entity | PUT/POST/DELETE | Request failed business logic rules. |
+| 500 | Internal Server Error | All | Contact mParticle support to resolve this error. |
+| 504 | Bad Gateway | All | mParticle server error, retry with exponential backoff. |
 
 ### Cross Origin Resource Sharing
 
@@ -222,15 +221,15 @@ curl \
 
 ##### Parameters
 
-Name | Type | Description
-|---|---|---
-name | `string` | The display name of the account. |
+| Name | Type | Description |
+|---|---|---|
+| name | `string` | The display name of the account. |
 
 ##### Errors
 
-Name |
---- |
-Account name is not unique. |
+| Name |
+| --- |
+| Account name is not unique. |
 
 
 #### Create an account
@@ -248,9 +247,9 @@ curl
 
 ##### Parameters
 
-Name | Type | Description
-|---|---|---
-name | `string` | The display name of the account. |
+| Name | Type | Description |
+|---|---|---|
+| name | `string` | The display name of the account. |
 
 #### Delete an account
 
@@ -262,9 +261,9 @@ curl -H "Authorization: Bearer YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW
 
 ##### Errors
 
-Name |
---- |
-All applications must be deleted before deleting account. |
+| Name |
+| --- |
+| All applications must be deleted before deleting account. |
 
 ### Apps
 
@@ -389,15 +388,15 @@ curl \
 
 ##### Parameters
 
-Name | Type | Description
+| Name | Type | Description |
 |---|---|---|
-name | `string` | The name of the app. |
+| name | `string` | The name of the app. |
 
 ##### Errors
 
-Name |
---- |
-App name must be specified. |
+| Name |
+| --- |
+| App name must be specified. |
 
 
 #### Create an app
@@ -475,20 +474,20 @@ curl \
 
 ##### Parameters
 
-Name | Type | Description
-|---|---|---
-name | string | The name of the app |
-platforms | array | Array of platforms to create for the app in the format of `{"os": "iOS"}`. Valid values for the "os" field include "iOS", "tvOS", "Android", "MobileWeb", "Roku", "Alexa", "SmartTV", "FireTV", and "Xbox" |
+| Name | Type | Description |
+|---|---|---|
+| name | string | The name of the app |
+| platforms | array | Array of platforms to create for the app in the format of `{"os": "iOS"}`. Valid values for the "os" field include "iOS", "tvOS", "Android", "MobileWeb", "Roku", "Alexa", "SmartTV", "FireTV", and "Xbox" |
 
 ##### Errors
 
-Name |
---- |
-Exceeded app limit. |
-App name already exists. |
-App must have at least one platform selected. |
-App name not specified. |
-Invalid as specified. |
+| Name |
+| --- |
+| Exceeded app limit. |
+| App name already exists. |
+| App must have at least one platform selected. |
+| App name not specified. |
+| Invalid as specified. |
 
 ##### Notes
 
@@ -508,9 +507,9 @@ curl \
 
 ##### Errors
 
-Name |
---- |
-Deleting an app that has active platforms is not allowed. |
+| Name |
+| --- |
+| Deleting an app that has active platforms is not allowed. |
 
 
 ### App Platforms
@@ -638,13 +637,13 @@ curl \
 
 ##### Parameters
 
-Name | Type | Description
-|---|---|---
-profile_merging | `bool` | Enable or disable profile merging |
-push_attribution_timer | `int` | Push attribution timer in minutes |
-crash_handling | `string` | "AppDefined" or "ForceCatch" or "ForceIgnore"  |
-network_performance | `string` | "AppDefined" or "ForceTrue" or "ForceFalse"  |
-social_mode | `string` | "AppDefined" or "Facebook" or "Twitter" or "FacebookAndTwitter" |
+| Name | Type | Description |
+|---|---|---|
+| profile_merging | `bool` | Enable or disable profile merging |
+| push_attribution_timer | `int` | Push attribution timer in minutes |
+| crash_handling | `string` | "AppDefined" or "ForceCatch" or "ForceIgnore" |
+| network_performance | `string` | "AppDefined" or "ForceTrue" or "ForceFalse" |
+| social_mode | `string` | "AppDefined" or "Facebook" or "Twitter" or "FacebookAndTwitter" |
 
 
 #### Create an app platform
@@ -707,22 +706,22 @@ curl \
 
 ##### Parameters
 
-Name | Type | Description
-|---|---|---
-os | `string` |  Valid values for the "os" field include "iOS", "tvOS", "Android", "MobileWeb", "Roku", "Alexa", "SmartTV", "FireTV", and "Xbox"
-profile_merging | `bool` | Enable or disable profile merging |
-push_attribution_timer | `int` | Push attribution timer in minutes |
-crash_handling | `string` | "AppDefined" or "ForceCatch" or "ForceIgnore"  |
-network_performance | `string` | "AppDefined" or "ForceTrue" or "ForceFalse"  |
-social_mode | `string` | "AppDefined" or "Facebook" or "Twitter" or "FacebookAndTwitter" |
+| Name | Type | Description |
+|---|---|---|
+| os | `string` |  Valid values for the "os" field include "iOS", "tvOS", "Android", "MobileWeb", "Roku", "Alexa", "SmartTV", "FireTV", and "Xbox" |
+| profile_merging | `bool` | Enable or disable profile merging |
+| push_attribution_timer | `int` | Push attribution timer in minutes |
+| crash_handling | `string` | "AppDefined" or "ForceCatch" or "ForceIgnore"  |
+| network_performance | `string` | "AppDefined" or "ForceTrue" or "ForceFalse"  |
+| social_mode | `string` | "AppDefined" or "Facebook" or "Twitter" or "FacebookAndTwitter" |
 
 ##### Errors
 
-Name |
---- |
-Could not create platform: App does not exist or you do not have access. |
-Invalid os specified. |
-Platform already exists for the specified App. |
+| Name |
+| --- |
+| Could not create platform: App does not exist or you do not have access. |
+| Invalid os specified. |
+| Platform already exists for the specified App. |
 
 ##### Notes
 
@@ -811,24 +810,24 @@ curl \
 
 ##### Properties
 
-Name | Type | Description
-|---|---|---
-account | `string` | The name of the account you wish to configure.
-name | `string` | The name of the service you wish to configure
-isActive | `bool` | Controls whether data is actually pushed to the service |
-isVisible | `bool` | Whether the service is visible in the UI |
-settings | `array` | Array of setting objects
+| Name | Type | Description |
+|---|---|---|
+| account | `string` | The name of the account you wish to configure. |
+| name | `string` | The name of the service you wish to configure. |
+| isActive | `bool` | Controls whether data is actually pushed to the service. |
+| isVisible | `bool` | Whether the service is visible in the UI. |
+| settings | `array` | Array of setting objects. |
 
 ##### Errors
 
-Name |
---- |
-Specified service not found. |
-Service does not support app platform. |
-Invalid settings entered while updating the service. |
-Provided setting not found. |
-Required setting not provided. |
-Setting value is required. |
+| Name |
+| --- |
+| Specified service not found. |
+| Service does not support app platform. |
+| Invalid settings entered while updating the service. |
+| Provided setting not found. |
+| Required setting not provided. |
+| Setting value is required. |
 
 
 ##### Notes
@@ -862,7 +861,7 @@ Google Analytics has a few configuration settings which require additional detai
     {
       "name":"apiKey",
       "value":"My Test App Key"
-    }
+    },
     {
       "name":"customDimensions",
       "value":"[{\"maptype\":\"EventAttributeClass.Name\",\"map\":\"Bitcoins\",\"value\":\"Dimension 3\"}]"
@@ -874,11 +873,11 @@ Google Analytics has a few configuration settings which require additional detai
 
 Check [Google Analytics](/integrations/google-analytics/) for additional details on these settings and the limits on the supported custom dimensions and metrics.  The value for these settings is a json array containing objects with `maptype`, `map` and `value`.  You need to indicate if you are using an Event Attribute or a User Attribute, and then specify the mapping to the Custom Dimension or Custom Metric.
 
-Field | Description | Notes - examples
-|---|---|---
-maptype |This indicates if you are passing an event or user attribute into the map. | `EventAttributeClass.Name` or `UserAttributeClass.Name` or `ProductAttributeClass.Name`.
-map | The name of the event attribute, user attribute or product attribute.  The attribute name must match exactly or it will not map correctly. | For example, `Bitcoins`.
-value | The custom dimension or custom metric for the mapping. | For example, `Dimension 3` or `Metric 1`
+| Field | Description | Notes - examples |
+|---|---|---|
+| maptype |This indicates if you are passing an event or user attribute into the map. | `EventAttributeClass.Name` or `UserAttributeClass.Name` or `ProductAttributeClass.Name`. |
+| map | The name of the event attribute, user attribute or product attribute.  The attribute name must match exactly or it will not map correctly. | For example, `Bitcoins`. |
+| value | The custom dimension or custom metric for the mapping. | For example, `Dimension 3` or `Metric 1` |
 
 
 
@@ -927,7 +926,7 @@ curl \
                 "created_on": "2016-05-09T18:27:57.337"
             },
             {
-                "name": "Second Workspace",,
+                "name": "Second Workspace",
                 "id": 456,
                 "data_type": "workspace",
                 "created_on": "2016-05-09T18:27:57.337"
@@ -1025,7 +1024,7 @@ curl \
 
 `DELETE /audiences/<audience_id>?accountId=1`
 
-Deletes an audience. The Audience ID is a 4 digit number available as the `"id"` node in the [Get All Audiences for an Account](#audiences) response.
+Deletes an audience. The Audience ID is a 4-digit number available as the `"id"` node in the [Get All Audiences for an Account](#audiences) response.
 
 ~~~bash
 curl \
@@ -1057,9 +1056,9 @@ curl \
 ~~~
 
 ##### Parameters
-Name | Type | Description
-|---|---|---
-name | `string` | Optional parameter to filter by name.
+| Name | Type | Description |
+|---|---|---|
+| name | `string` | Optional parameter to filter by name. |
 
 ##### Example Response
 
@@ -1146,9 +1145,9 @@ curl \
 ~~~
 
 ##### Parameters
-Name | Type | Description
-|---|---|---
-name | `string` | Optional parameter to filter by name.
+| Name | Type | Description |
+|---|---|---|
+| name | `string` | Optional parameter to filter by name. |
 
 ##### Response
 HTTP Code 204 -- Calculated Attribute resource(s) exist.
@@ -1238,7 +1237,7 @@ Name | Data Type | Required | Description
 `value` | string | Conditionally Required | If the operator requires a single value, then this field will be used and is required.
 `values` | string array | Conditionally Required | If the operator requires a set of values, such as \"in_list\", then the set will be provided in this array and is required.
 `min_value` | string | Conditionally Required | If the operator requires defining a range, then the min value of the range will be set here.
-`max_value` | string | Condtionally Required | If the operator requires defining a range, then the max value of the range will be set here.
+`max_value` | string | Conditionally Required | If the operator requires defining a range, then the max value of the range will be set here.
 
 ###### ** Operator - Type Support Map **
 Operator | String | Number | Boolean | Date
@@ -1279,47 +1278,47 @@ Name | Data Type | Required | Description
 `cutoff_date` | string | Required | A date string in ISO 8601 format. mParticle will only use data after this date to compute the calculated attribute. Client is responsible for calculating the value based on data prior to this date and send mParticle a seed value.
 
 ##### Response
-The response will be an integer identfier for the new Calculated Attribute.
+The response will be an integer identifier for the new Calculated Attribute.
 
 ##### Validation Error Responses
-Message | Description
-| --- | ---
-Field 'name' is required. | The calculate attribute's name is missing. |
-Field 'name' must be unique. | A calculated attribute with that name already exists in the workspace. |
-Field 'draft_definition' is required. | The calculated attribute is missing the draft_definition field. |
-Field 'time_period.type' = 'all' is not supported. | The time period type `all` is not supported. |
-'time_period.date' must be on or after the earliest date available of {date} | The date isn't available according to the audience retention period of your subscription plan. |
-The within time period cannot exceed your configured retention period of {N} days for Calculated Attributes | The date specified for the `within` calculation date range exceeds the audience retention period of your subscription plan. |
-Invalid recipe type | Only type `event` is currently supported. |
-Invalid calculation type | The `draft_definition.calculation_type` field is missing or invalid. See schema definition for enum values. |
-Invalid time period specification | The `draft_definition.time_period` field is missing or invalid. |
-Invalid 'type' time period specification | The `draft_definition.time_period.type` field is missing or invalid. See schema definition for enum values. |
-Invalid 'within' time period specification | The `draft_definition.time_period.within` field is missing or invalid. Must be a positive integer. |
-Invalid 'within_unit' time period specification | The `draft_definition.time_period.within_unit` field is missing or invalid. See schema definition for enum values. |
-Invalid data point custom event name | The `draft_definition.datapoint.event_name` field is required when `draft_definition.datapoint.event_type` is `custom_event`. |
-Invalid data point custom event type | The `draft_definition.datapoint.custom_event_type` field is only allowed when `draft_definition.datapoint.event_type` is `custom_event` or `commerce_event`. |
-Invalid condition definition | One of the conditions in `draft_definition.conditions` is invalid. |
-Invalid condition definition type | A condition's `type` field is invalid. See schema definition for enum values. |
-Invalid string condition operator | A string condition's `operator` field is invalid. See schema definition for enum values. |
-Condition attribute name must be specified | A condition's `attribute_name` field is invalid or missing. |
-In-list condition values must be specified | A condition's `values` field is invalid or missing. Field `value` is ignored when using the `in_list` operator. |
-String condition value must be specified | A string condition's `value` field is invalid or missing. |
-Invalid numeric condition operator | A numeric condition's `operator` field is invalid. See schema definition for enum values. |
-Invalid numeric in-list condition values | A numeric condition's `values` field is invalid or missing. Field `value` is ignored when using the `in_list` operator. |
-Invalid numeric condition minimum value | A numeric condition's `value` field is invalid or missing. Field `min_value` is required when using a range operator. |
-Invalid numeric condition maximum value | A numeric condition's `value` field is invalid or missing. Field `max_value` is required when using a range operator. |
-Invalid numeric condition value | A numeric condition's `value` field is invalid or missing. |
-Invalid boolean condition operator | A boolean condition's `operator` field is invalid. See schema definition for enum values. |
-Invalid boolean condition value | A boolean condition's `value` field is invalid or missing. |
-Invalid date condition operator | A date condition's `operator` field is invalid. See schema definition for enum values. |
-Invalid datetime in-list condition values | A date condition's `values` field is invalid or missing. Field `value` is ignored when using the `in_list` operator. |
-Invalid date condition minimum value | A date condition's `value` field is invalid or missing. Field `min_value` is required when using a range operator. |
-Invalid date condition maximum value | A date condition's `value` field is invalid or missing. Field `max_value` is required when using a range operator. |
-Invalid date condition value | A date condition's `value` field is invalid or missing. |
-Condition value must be empty | A range condition has a value in the `value` field. |
-Condition values must be empty | A condition that does not target a list has a value in the `values` field |
-Condition minimum value must be empty | A non-range condition has a value in the `min_value` field. |
-Condition maximum value must be empty | A non-range condition has a value in the `max_value` field. |
+| Message | Description |
+| --- | --- |
+| Field 'name' is required. | The calculate attribute's name is missing. |
+| Field 'name' must be unique. | A calculated attribute with that name already exists in the workspace. |
+| Field 'draft_definition' is required. | The calculated attribute is missing the draft_definition field. |
+| Field 'time_period.type' = 'all' is not supported. | The time period type `all` is not supported. |
+| 'time_period.date' must be on or after the earliest date available of {date} | The date isn't available according to the audience retention period of your subscription plan. |
+| The within time period cannot exceed your configured retention period of {N} days for Calculated Attributes | The date specified for the `within` calculation date range exceeds the audience retention period of your subscription plan. |
+| Invalid recipe type | Only type `event` is currently supported. |
+| Invalid calculation type | The `draft_definition.calculation_type` field is missing or invalid. See schema definition for enum values. |
+| Invalid time period specification | The `draft_definition.time_period` field is missing or invalid. |
+| Invalid 'type' time period specification | The `draft_definition.time_period.type` field is missing or invalid. See schema definition for enum values. |
+| Invalid 'within' time period specification | The `draft_definition.time_period.within` field is missing or invalid. Must be a positive integer. |
+| Invalid 'within_unit' time period specification | The `draft_definition.time_period.within_unit` field is missing or invalid. See schema definition for enum values. |
+| Invalid data point custom event name | The `draft_definition.datapoint.event_name` field is required when `draft_definition.datapoint.event_type` is `custom_event`. |
+| Invalid data point custom event type | The `draft_definition.datapoint.custom_event_type` field is only allowed when `draft_definition.datapoint.event_type` is `custom_event` or `commerce_event`. |
+| Invalid condition definition | One of the conditions in `draft_definition.conditions` is invalid. |
+| Invalid condition definition type | A condition's `type` field is invalid. See schema definition for enum values. |
+| Invalid string condition operator | A string condition's `operator` field is invalid. See schema definition for enum values. |
+| Condition attribute name must be specified | A condition's `attribute_name` field is invalid or missing. |
+| In-list condition values must be specified | A condition's `values` field is invalid or missing. Field `value` is ignored when using the `in_list` operator. |
+| String condition value must be specified | A string condition's `value` field is invalid or missing. |
+| Invalid numeric condition operator | A numeric condition's `operator` field is invalid. See schema definition for enum values. |
+| Invalid numeric in-list condition values | A numeric condition's `values` field is invalid or missing. Field `value` is ignored when using the `in_list` operator. |
+| Invalid numeric condition minimum value | A numeric condition's `value` field is invalid or missing. Field `min_value` is required when using a range operator. |
+| Invalid numeric condition maximum value | A numeric condition's `value` field is invalid or missing. Field `max_value` is required when using a range operator. |
+| Invalid numeric condition value | A numeric condition's `value` field is invalid or missing. |
+| Invalid boolean condition operator | A boolean condition's `operator` field is invalid. See schema definition for enum values. |
+| Invalid boolean condition value | A boolean condition's `value` field is invalid or missing. |
+| Invalid date condition operator | A date condition's `operator` field is invalid. See schema definition for enum values. |
+| Invalid datetime in-list condition values | A date condition's `values` field is invalid or missing. Field `value` is ignored when using the `in_list` operator. |
+| Invalid date condition minimum value | A date condition's `value` field is invalid or missing. Field `min_value` is required when using a range operator. |
+| Invalid date condition maximum value | A date condition's `value` field is invalid or missing. Field `max_value` is required when using a range operator. |
+| Invalid date condition value | A date condition's `value` field is invalid or missing. |
+| Condition value must be empty | A range condition has a value in the `value` field. |
+| Condition values must be empty | A condition that does not target a list has a value in the `values` field |
+| Condition minimum value must be empty | A non-range condition has a value in the `min_value` field. |
+| Condition maximum value must be empty | A non-range condition has a value in the `max_value` field. |
 
 #### Get a Calculated Attribute
 
@@ -1431,7 +1430,7 @@ The response body will be empty.
 
 #### Update a Calculated Attribute
 
-Use this endpoint to create or update a draft of your Calculated Attribute definition. When a Calculated Attribute is updated, the `draft_definition` is changed. Once the Calculated Attribute is activated, the `draft_defintiion` is moved into the `active_definition` and the new definition is used to calculate values.  The `active_definition` property cannot be updated directly.
+Use this endpoint to create or update a draft of your Calculated Attribute definition. When a Calculated Attribute is updated, the `draft_definition` is changed. Once the Calculated Attribute is activated, the `draft_definition` is moved into the `active_definition` and the new definition is used to calculate values.  The `active_definition` property cannot be updated directly.
 
 You can only rename a Calculated Attribute before it has been activated; Once activated, the `name` is read-only. The only property you will be allowed to update in this state is the `description`.
 
@@ -1472,9 +1471,9 @@ HTTP Code 404 -- Calculated Attribute does not exist.
 ##### Validation Error Responses
 In addition to the validation errors from [Create a Calculated Attribute](#create-a-calculated-attribute).
 
-Message | Description
-| --- | ---
-Calculated attribute name cannot be changed once the calculated attribute has been activated. | You can only update the name of a calculated attribute that has not been acitvated. |
+| Message | Description |
+| --- | --- |
+| Calculated attribute name cannot be changed once the calculated attribute has been activated. | You can only update the name of a calculated attribute that has not been acitvated. |
 
 
 
@@ -1496,15 +1495,15 @@ curl \
 HTTP Code 204 -- Calculated Attribute was successfully activated.
 
 ##### Error Responses
-Message | Description
-| --- | ---
-You have reached the account limit on active calculated attributes. | To increase limit, contact your account representative or delete unneeded active calculated attributes. |
-No draft definition was found to activate. | You are attempting to activate a calculated attribute that has a invalid definition. |
+| Message | Description |
+| --- | --- |
+| You have reached the account limit on active calculated attributes. | To increase limit, contact your account representative or delete unneeded active calculated attributes. |
+| No draft definition was found to activate. | You are attempting to activate a calculated attribute that has a invalid definition. |
 
 
 
 #### Get a Calculated Attribute Activation Status
-A calculated attribute's activation status tells you whether or not the calculated attribute has been activated and when and who activated it.
+A calculated attribute's activation status tells you whether the calculated attribute has been activated and when and who activated it.
 
 `GET /workspaces/1234/calculatedattributes/5678/activation`
 
@@ -1637,50 +1636,50 @@ curl \
 
 ##### Supported DataPoint Types
 
-Name | Description
-|---|---
-Event | A standard event.
-EventAttribute | An attribute of an event.
-UserAttribute | A user attribute.
-ScreenView | A screen view.
-ScreenViewAttribute | An attribute of a screen view.
-Identity | A user identity type.
-Commerce | A commerce event.
-CommerceAttribute | An attribute of a commerce event.
+| Name | Description |
+|---|---|
+| Event | A standard event. |
+| EventAttribute | An attribute of an event. |
+| UserAttribute | A user attribute. |
+| ScreenView | A screen view. |
+| ScreenViewAttribute | An attribute of a screen view. |
+| Identity | A user identity type. |
+| Commerce | A commerce event. |
+| CommerceAttribute | An attribute of a commerce event. |
 
 ##### Supported DataPoint Event Types
 
 If a DataPoint is of type "Event" or "EventAttribute", then the EventType field will be populated
 with one of the following values:
 
-Name | Description
-|---|---
-unknown | Unknown Event.
-navigation | Navigation Event.
-location | Location Event.
-search | Search Event.
-transaction | Transaction Event.
-user_content | User Content Event.
-user_preference | User Preference Event.
-social | Social Event.
-other | Other Event.
-media | Media Event.
+| Name | Description |
+|---|---|
+| unknown | Unknown Event. |
+| navigation | Navigation Event. |
+| location | Location Event. |
+| search | Search Event. |
+| transaction | Transaction Event. |
+| user_content | User Content Event. |
+| user_preference | User Preference Event. |
+| social | Social Event. |
+| other | Other Event. |
+| media | Media Event. |
 
 If a DataPoint is of type `Commerce` or `CommerceAttribute`, then the EventType field will be populated
 with one of the following values:
 
-Name | Description
-|---|---
-product_add_to_cart | Add to Cart Event.
-product_remove_from_cart | Remove from Cart Event.
-product_checkout | Checkout Event.
-product_checkout_option | Checkout Option Event.
-product_click | Click Event.
-product_view_detail | View Detail Event.
-product_purchase | Purchase Event.
-product_refund | Refund Event.
-promotion_view | Promotion View Event.
-promotion_click | Promotion Click Event.
+| Name | Description |
+|---|---|
+| product_add_to_cart | Add to Cart Event. |
+| product_remove_from_cart | Remove from Cart Event. |
+| product_checkout | Checkout Event. |
+| product_checkout_option | Checkout Option Event. |
+| product_click | Click Event. |
+| product_view_detail | View Detail Event. |
+| product_purchase | Purchase Event. |
+| product_refund | Refund Event. |
+| promotion_view | Promotion View Event. |
+| promotion_click | Promotion Click Event. |
 
 #### Add DataPoint
 
@@ -1716,44 +1715,44 @@ curl \
 
 Accepts an array of DataPoint objects, which have the following properties:
 
-Name | Type | Description
-|---|---|---
-name | `string` | The name of the DataPoint. |
-attribute_name | `string` | An attribute name (optional). |
-type | `enum` | The type of DataPoint. |
-event_type | `enum` | Can only be set if DataPoint type is "Event", "EventAttribute", "Commerce" or "CommerceAttribute".
+| Name | Type | Description |
+| ---|---|--- |
+| name | `string` | The name of the DataPoint. |
+| attribute_name | `string` | An attribute name (optional). |
+| type | `enum` | The type of DataPoint. |
+| event_type | `enum` | Can only be set if DataPoint type is "Event", "EventAttribute", "Commerce" or "CommerceAttribute". |
 
 ##### Supported DataPoint Types
 
 The "type" field can be set to one of the following values:
 
-Name | Description
-|---|---
-Event | A standard event.
-EventAttribute | An attribute of an event.
-UserAttribute | A user attribute.
-ScreenView | A screen view.
-ScreenViewAttribute | An attribute of a screen view.
-Identity | A user identity type.
-Commerce | A commerce event.
-CommerceAttribute | An attribute of a commerce event.
+| Name | Description |
+|---|---|
+| Event | A standard event. |
+| EventAttribute | An attribute of an event. |
+| UserAttribute | A user attribute. |
+| ScreenView | A screen view. |
+| ScreenViewAttribute | An attribute of a screen view. |
+| Identity | A user identity type. |
+| Commerce | A commerce event. |
+| CommerceAttribute | An attribute of a commerce event. |
 
 ##### Supported Event Types
 
 The "event_type" field can be set to one of the following values. This field is only required when the "type" is set to "Event" or "EventAttribute".
 
-Name | Description
-|---|---
-unknown | Unknown Event.
-navigation | Navigation Event.
-location | Location Event.
-search | Search Event.
-transaction | Transaction Event.
-user_content | User Content Event.
-user_preference | User Preference Event.
-social | Social Event.
-other | Other Event.
-media | Media Event.
+| Name | Description |
+| ---|---|
+| unknown | Unknown Event. |
+| navigation | Navigation Event. |
+| location | Location Event. |
+| search | Search Event. |
+| transaction | Transaction Event. |
+| user_content | User Content Event. |
+| user_preference | User Preference Event. |
+| social | Social Event. |
+| other | Other Event. |
+| media | Media Event. |
 
 ##### Notes
 
@@ -1819,9 +1818,9 @@ curl \
 
 ##### Parameters
 
-Name | Type | Description
-|---|---|---
-sendNewDataPointsByDefault | bool | Controls whether newly detected DataPoints are sent to this service by default.
+| Name | Type | Description |
+|---|---|---|
+| sendNewDataPointsByDefault | bool | Controls whether newly detected DataPoints are sent to this service by default. |
 
 ##### Notes
 
@@ -1914,79 +1913,79 @@ curl \
 
 Accepts an array of DataPoint Filter objects, which have the following properties:
 
-Name | Type | Description
+| Name | Type | Description |
 |---|---|---|
-name | `string` | The name of the DataPoint.
-attribute_name | `string` | An attribute name (optional).
-type | `enum` | The type of DataPoint.
-event_type | `enum` | Can only be set if DataPoint type is "Event", "EventAttribute", "Commerce" or "CommerceAttribute".
-enabled | `bool` | Set to false to prevent this DataPoint from being sent to this service.
+| name | `string` | The name of the DataPoint. |
+| attribute_name | `string` | An attribute name (optional). |
+| type | `enum` | The type of DataPoint. |
+| event_type | `enum` | Can only be set if DataPoint type is "Event", "EventAttribute", "Commerce" or "CommerceAttribute". |
+| enabled | `bool` | Set to false to prevent this DataPoint from being sent to this service. |
 
 ##### Supported DataPoint Filter Types
 
 The `"type"` field can be set to one of the following values:
 
-Name | Description
-|---|---
-Event | A standard event.
-EventAttribute | An attribute of an event. |
-UserAttribute | A user attribute. |
-EventType | Filter all app events of a particular type. |
-ScreenView | A screen view. |
-ScreenViewAttribute | An attribute of a screen view. |
-UserIdentity | A user identity type. |
-Commerce | A commerce event. |
-CommerceAttribute | An attribute of a commerce event. |
-All_User_Attributes | Used to toggle on/off all user attributes. |
-All_Workspace_User_Attributes | Used to toggle on/off all workspace level user attributes. |
-All_Account_User_Attributes | Used to toggle on/off all account level user attributes, if this feature is enabled. |
+| Name | Description |
+|---|---|
+| Event | A standard event. |
+| EventAttribute | An attribute of an event. |
+| UserAttribute | A user attribute. |
+| EventType | Filter all app events of a particular type. |
+| ScreenView | A screen view. |
+| ScreenViewAttribute | An attribute of a screen view. |
+| UserIdentity | A user identity type. |
+| Commerce | A commerce event. |
+| CommerceAttribute | An attribute of a commerce event. |
+| All_User_Attributes | Used to toggle on/off all user attributes. |
+| All_Workspace_User_Attributes | Used to toggle on/off all workspace level user attributes. |
+| All_Account_User_Attributes | Used to toggle on/off all account level user attributes, if this feature is enabled. |
 
 ##### Supported User Identity Types
 
 If the `"type"` is set to `"UserIdentity"`, then the `"name"` field should be set to one of the following allowed values:
 
-Name | Description
-|---|---
-CustomerId | Customer Id. |
-Facebook | Facebook Id. |
-Twitter | Twitter Handle. |
-Google | Google Id.
-Microsoft | Microsoft Id. |
-Yahoo | Yahoo Id. |
-Email | Email Address. |
-Other | Other. |
+| Name | Description |
+|---|---|
+| CustomerId | Customer Id. |
+| Facebook | Facebook Id. |
+| Twitter | Twitter Handle. |
+| Google | Google Id. |
+| Microsoft | Microsoft Id. |
+| Yahoo | Yahoo Id. |
+| Email | Email Address. |
+| Other | Other. |
 
 ##### Supported Event Types
 
 If the `"type"` is set to `"Event"` or `"EventAttribute"`, the `"event_type"` field can be set to one of the following values. If `"type"` is set to `"EventType"`, then the `"name"` field should be set to one of the values below:
 
-Name | Description
-|---|---
-unknown | Unknown Event.
-navigation | Navigation Event.
-location | Location Event.
-search | Search Event.
-transaction | Transaction Event.
-user_content | User Content Event.
-user_preference | User Preference Event.
-social | Social Event.
-other | Other Event.
-media | Media Event.
+| Name | Description |
+|---|---|
+| unknown | Unknown Event. |
+| navigation | Navigation Event. |
+| location | Location Event. |
+| search | Search Event. |
+| transaction | Transaction Event. |
+| user_content | User Content Event. |
+| user_preference | User Preference Event. |
+| social | Social Event. |
+| other | Other Event. |
+| media | Media Event. |
 
 If the `"type"` is set to `"Commerce"` or `"CommerceAttribute"`, the `"event_type"` field can be set to one of the following values:
 
-Name | Description
-|---|---
-product_add_to_cart | Add to Cart Event.
-product_remove_from_cart | Remove from Cart Event.
-product_checkout | Checkout Event.
-product_checkout_option | Checkout Option Event.
-product_click | Click Event.
-product_view_detail | View Detail Event.
-product_purchase | Purchase Event.
-product_refund | Refund Event.
-promotion_view | Promotion View Event.
-promotion_click | Promotion Click Event.
+| Name | Description |
+|---|---|
+| product_add_to_cart | Add to Cart Event. |
+| product_remove_from_cart | Remove from Cart Event. |
+| product_checkout | Checkout Event. |
+| product_checkout_option | Checkout Option Event. |
+| product_click | Click Event. |
+| product_view_detail | View Detail Event. |
+| product_purchase | Purchase Event. |
+| product_refund | Refund Event. |
+| promotion_view | Promotion View Event. |
+| promotion_click | Promotion Click Event. |
 
 ##### Notes
 
@@ -2095,12 +2094,12 @@ curl \
 
 Creates a new feed.
 
-Field | Description | Notes - examples
-|---|---|---
-`module_name` | Name of the feed module | `radar`
-`name` | A unique name for the feed configuration. | `radariOSFeed`
-`os` | Platform the feed should act as.  | `iOS`, `tvOS`, `Android`, `MobileWeb`, `Roku`, `Alexa`, `SmartTV`, `FireTV`, `Xbox`, `Unknown`
-`settings` | Array of objects for each feed setting. Each object should have a `name` and `value`. Not all feeds have settings. |
+| Field | Description | Notes - examples |
+|---|---|---|
+| `module_name` | Name of the feed module | `radar` |
+| `name` | A unique name for the feed configuration. | `radariOSFeed` |
+| `os` | Platform the feed should act as.  | `iOS`, `tvOS`, `Android`, `MobileWeb`, `Roku`, `Alexa`, `SmartTV`, `FireTV`, `Xbox`, `Unknown` |
+| `settings` | Array of objects for each feed setting. Each object should have a `name` and `value`. Not all feeds have settings. |
 
 ~~~bash
 curl \
@@ -2139,13 +2138,13 @@ curl \
 
 Updates an existing feed.
 
-Field | Description | Notes - examples
-|---|---|---
-`module_name` | Name of the feed module. | `radar`
-`name` | A unique name for the feed configuration. | `radariOSFeed`
-`os` | Platform the feed should act as.  | `iOS`, `tvOS`, `Android`, `MobileWeb`, `Roku`, `Alexa`, `SmartTV`, `FireTV`, `Xbox`, `Unknown`
-`settings` | Array of objects for each feed setting. Each object should have a `name` and `value`. Not all feeds have settings. |
-`is_debug` | If true, the feed data is sent to the `development` environment. | `true` or `false` |
+| Field | Description | Notes - examples |
+|---|---|---|
+| `module_name` | Name of the feed module. | `radar` |
+| `name` | A unique name for the feed configuration. | `radariOSFeed` |
+| `os` | Platform the feed should act as.  | `iOS`, `tvOS`, `Android`, `MobileWeb`, `Roku`, `Alexa`, `SmartTV`, `FireTV`, `Xbox`, `Unknown` |
+| `settings` | Array of objects for each feed setting. Each object should have a `name` and `value`. Not all feeds have settings. |
+| `is_debug` | If true, the feed data is sent to the `development` environment. | `true` or `false` |
 
 ~~~bash
 curl \
@@ -2258,11 +2257,11 @@ Returns a list of all feed subscriptions for a workspace. A subscription is a co
 
 Creates and configures a new feed subscription.
 
-Field | Description | Notes - examples
-|---|---|---
-`service_configuration_id` | Name of the feed module. | `radar`
-`is_active` | If true, data from the feed is forwarded to the output service. | `true` or `false` |
-`settings` | Array of objects for each feed setting. Each object should have a `name` and `value`. Not all feeds have settings. |
+| Field | Description | Notes - examples |
+|---|---|---|
+| `service_configuration_id` | Name of the feed module. | `radar` |
+| `is_active` | If true, data from the feed is forwarded to the output service. | `true` or `false` |
+| `settings` | Array of objects for each feed setting. Each object should have a `name` and `value`. Not all feeds have settings. |
 
 ~~~bash
 curl \

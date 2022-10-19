@@ -135,7 +135,7 @@ _**If you add multiple containers through mParticle, make sure each data layer i
 
 ### Step 1: Set up mParticle SDK on Your Page
 
-The first step to creating a connection between mParticle and GTM is to add the mParticle SDK to your page. The snippet should be added to every page of your web app within the `<head>` tag. Make sure to follow the steps to verify and test the connection as outlined in the [Getting Started](/developers/sdk/web/getting-started/) section.
+The first step to creating a connection between mParticle and GTM is to add the mParticle SDK to your page. The snippet should be added to every page of your web app within the `<head>` tag. Make sure to follow the steps to verify and test the connection as outlined in the [Getting Started](/developers/quickstart/web/overview) section.
 
 ### Step 2: Set up mParticle Events on Your Pages
 

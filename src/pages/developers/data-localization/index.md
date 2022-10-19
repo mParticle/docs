@@ -6,7 +6,7 @@ Each mParticle customer tenant (aka “Organization”) exists in a specific seg
 
 ## Data Localization
 
-mParticle offers the option of hosting a pod in a localized data center outside of the US, in particular in the Europe and Australia regions. For customers interested in data localization outside of these regions, please [contact us](https://www.mparticle.com/contact).
+mParticle offers the option of hosting a pod in a localized data center outside the US, in particular in the Europe and Australia regions. For customers interested in data localization outside these regions, please [contact us](https://www.mparticle.com/contact).
 
 <aside> Data Localization is a premium feature, please reach out to your customer success manager to get started. </aside> 
 
@@ -16,10 +16,10 @@ Depending on the pod your organization is hosted in, you will need to note a few
 
 ## Logging into mParticle
 
-You can login to your localized mParticle pod using the following URLs:
+You can log in to your localized mParticle pod using the following URLs:
 
 | Region | Pod | Login URL |
-| --- |--- | --- | 
+| --- |--- | --- |
 | United States | US1 | [https://app.mparticle.com](https://app.mparticle.com),  [https://app.us1.mparticle.com](https://app.us1.mparticle.com) |
 | United States | US2 | [https://app.us2.mparticle.com](https://app.us2.mparticle.com) |
 | Europe | EU1 | [https://app.eu1.mparticle.com](https://app.eu1.mparticle.com) |

@@ -15,11 +15,11 @@ The procedure for enabling verbose logging is different depending on whether you
 
 #### Dev Environment
 
-If you are working in a `DEV` environment, set `logLevel` to `verbose`. For more information about log levels, see [SDK Configuration](/developers/sdk/web/getting-started/#sdk-configuration).
+If you are working in a `DEV` environment, set `logLevel` to `verbose`. For more information about log levels, see [SDK Configuration](/developers/sdk/web/configuration/).
 
 #### Prod Environment and Snippet
 
-If you are working in a production environment and are using [the snippet](developers/sdk/web/getting-started/#add-the-sdk-snippet), you can set verbose logging in the browser:
+If you are working in a production environment and are using [the snippet](developers/sdk/web/initialization/), you can set verbose logging in the browser:
   1. In the browser, right-click the three vertical dots next to your profile image and select **More Tools > Developer Tools**.
   2. Select **Sources** and locate the `mparticle.js` file.
   3. Select `{}` to enable pretty print.
@@ -31,7 +31,7 @@ If you are working in a production environment and are using [the snippet](devel
 
 #### Prod Environment and No Snippet
 
-If you are working in a production environment, and are not using [the snippet](developers/sdk/web/getting-started/#add-the-sdk-snippet), you can set verbose logging in the browser:
+If you are working in a production environment, and are not using [the snippet](developers/sdk/web/initialization), you can set verbose logging in the browser:
   1. In the browser, right-click the three vertical dots next to your profile image and select **More Tools > Developer Tools**.
   2. Select **Sources** and locate the bundle that contains the mParticle SDK.
   3. Locate where you are creating your mParticle config file. 

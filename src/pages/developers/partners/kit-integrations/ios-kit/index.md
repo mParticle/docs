@@ -3,7 +3,7 @@ title: iOS Kit Integration
 order: 5
 ---
 
-This guide is meant for integration partners who would like add their own SDK or functionality to the mParticle platform. mParticle integrates with dozens of partners in the mobile app ecosystem, and each integration is unique. Whereas most integrations are via our Firehose API, or developed internally for the server-side, the mParticle mobile SDKs are designed to be extensible in the form of ["kits"](/developers/sdk/ios/getting-started/#get-the-sdk) for client-side integrations.
+This guide is meant for integration partners who would like add their own SDK or functionality to the mParticle platform. mParticle integrates with dozens of partners in the mobile app ecosystem, and each integration is unique. Whereas most integrations are via our Firehose API, or developed internally for the server-side, the mParticle mobile SDKs are designed to be extensible in the form of ["kits"](/developers/sdk/ios/kits/) for client-side integrations.
 
 ## Kit Overview
 
@@ -69,7 +69,7 @@ Inside **MPKitCompanyName.m** (now renamed) you will need to enter your kit ID i
 
 > `Kit IDs` are unique and are your identification with mParticle services. Email partner-integrations@mparticle.com to get your `kit ID`.
 
-Next we have three method with a barebones implementation:
+Next we have three methods with a bare-bones implementation:
 
 1. The **initialization** method
 2. The **start** method
@@ -83,7 +83,7 @@ Let's take a look at each one of them beginning with the kit initialization meth
 
 In this method the kit receives a dictionary containing all the information it needs to initialize itself. Its contents vary from kit-to-kit, however it contains all the configuration users entered server-side; information such as: API Key, parameters, etc.
 
-The method also receives a flag parameter `startImmediately` telling whether the kit should start immediately inside the `init` method or if should delay initialization until the core SDK collects the `launchOptions` dictionary from `application:didFinishLaunchingWithOptions:` and calls the kit `start` method.
+The method also receives a flag parameter `startImmediately` telling whether the kit should start immediately inside the `init` method or if it should delay initialization until the core SDK collects the `launchOptions` dictionary from `application:didFinishLaunchingWithOptions:` and calls the kit `start` method.
 
 This brings us to the `start` method.
 
@@ -93,7 +93,7 @@ This brings us to the `start` method.
 
 Here your kit is initialized and a notification is broadcast informing listeners that the kit is available for use.
 
-The last on on the list is the kit instance method.
+The last on the list is the kit instance method.
 
 ```objectivec
 - (id const)kitInstance
@@ -103,7 +103,7 @@ If your SDK has an instance that can be returned to developers, here is the plac
 
 The remainder of **MPKitCompanyName.m** contains a series of method implementation that are commented out. Those methods are called by the core SDK when forwarding data to kits. Uncomment the ones applicable to your SDK and implement them. Note that the methods are required to return an execution status object containing whether it ran successfully and the number of forward counts. See [MPKitExecStatus.h](https://github.com/mParticle/mparticle-apple-sdk/blob/master/mParticle-Apple-SDK/Kits/MPKitExecStatus.h) for more details.
 
-The complete list of available methods that are called from the core SDK and can implemented by kits can be found at: [MPKitProtocol.h](https://github.com/mParticle/mparticle-apple-sdk/blob/master/mParticle-Apple-SDK/Kits/MPKitProtocol.h)
+The complete list of available methods that are called from the core SDK and can be implemented by kits can be found at: [MPKitProtocol.h](https://github.com/mParticle/mparticle-apple-sdk/blob/master/mParticle-Apple-SDK/Kits/MPKitProtocol.h)
 
 ## Publishing Your Kit
 

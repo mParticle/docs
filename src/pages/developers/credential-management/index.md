@@ -4,7 +4,7 @@ title: API Credential Management
 
 <aside> The API Credentials interface currently supports credential management for the <a href="/developers/profile-api">Profile API</a>, <a href="/developers/platform">Platform API</a>, and the <a href="/developers/dataplanning-api">Data Planning API</a>. We will be releasing support for additional mParticle APIs in the near future.</aside>
 
-The API Credentials interface allows you view, create, edit, delete, activate, and deactivate API credentials from a single screen in the mParticle UI.
+The API Credentials interface allows you to view, create, edit, delete, activate, and deactivate API credentials from a single screen in the mParticle UI.
 
 ## Access
 
@@ -34,6 +34,6 @@ After clicking "Save" in your modal, you will be issued a Client ID and a Client
 
 ## Editing and Deleting Credentials
 
-The APIs, permissions, and scope associated with any credentials can be edited at any time in the modal that is instantiated by clicking on the row of the credential in the API Credentials tab. In this modal, you can also activate/deactive any credentials.
+The APIs, permissions, and scope associated with any credentials can be edited at any time in the modal that is instantiated by clicking on the row of the credential in the API Credentials tab. In this modal, you can also activate/deactivate any credentials.
 
 Credentials can be <b>permanently</b> deleted by clicking on the trash can icon in the row of that credential. This cannot be undone.

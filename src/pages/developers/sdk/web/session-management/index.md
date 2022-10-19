@@ -7,7 +7,7 @@ The mParticle platform tracks user sessions.  All events tracked during a sessio
 
 ## Session Timeout
 
-When a user browses to your website for the first time, a session will start.  There is a default session timeout of 30 minutes, which can be configured by setting `window.mParticle.config.sessionTimeout` to the desired time in minutes. See [SDK Configuration](/developers/sdk/web/getting-started/#sdk-configuration/) to set that up.  
+When a user browses to your website for the first time, a session will start.  There is a default session timeout of 30 minutes, which can be configured by setting `window.mParticle.config.sessionTimeout` to the desired time in minutes. See [SDK Configuration](/developers/sdk/web/configuration) to set that up.  
 
 Each time an event is logged, the session timeout resets.  If a user is on your webpage without any activity for the session timeout period, a session end event will automatically fire.  If the user browses away and comes back within the session timeout period, any events fired will be part of the same session.  If the user browses away and comes back outside of the session timeout period, the previous session will end and a new session will begin.
 

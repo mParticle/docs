@@ -63,7 +63,7 @@ Most anonymous client-server architectures, including Adobe, Braze, Firebase, Go
 
 ## Install and Initialize an mParticle SDK
 
-You need a developer to help you install and initialize an SDK. See the Getting Started guides for the [iOS](/developers/sdk/ios/getting-started/), [Android](/developers/sdk/android/getting-started/) or [Javascript](/developers/sdk/web/getting-started/) SDKs to get set up before continuing.
+You need a developer to help you install and initialize an SDK. See the Getting Started guides for the [iOS](/developers/quickstart/ios/overview/), [Android](/developers/quickstart/android/overview/) or [Javascript](/developers/quickstart/web/overview/) SDKs to get set up before continuing.
 
 ## Verify: Look for Incoming Data in the Live Stream
 
@@ -103,7 +103,7 @@ Google allows Android users to opt out from sharing their devices' advertising I
 
 If you don't see data appearing in the Live Stream within the first few minutes after opening a development build:
 * Check that you have copied your Key and Secret correctly
-* Check that you have properly included the mParticle SDK in your project and it is correctly initialized. The necessary steps will differ depending on the platform. Check our [iOS](/developers/sdk/ios/getting-started/#), [Android](/developers/sdk/android/getting-started/) and [Web](/developers/sdk/web/getting-started/) docs for more.
+* Check that you have properly included the mParticle SDK in your project and it is correctly initialized. The necessary steps will differ depending on the platform. Check our [iOS](/developers/sdk/ios/getting-started/#), [Android](/developers/sdk/android/getting-started/) and [Web](/developers/sdk/web/initialization/) docs for more.
 
 ## Next Steps
 

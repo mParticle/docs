@@ -84,7 +84,7 @@ Where the values are:
 
 For advanced use cases, you can customize the bridge name by:
 
-1. Overriding the `mParticle.config.requiredWebviewBridgeName` value when [initializing the mParticle web SDK](/developers/sdk/web/getting-started/#sdk-configuration)
+1. Overriding the `mParticle.config.requiredWebviewBridgeName` value when [initializing the mParticle web SDK](/developers/sdk/web/initialization/)
 2. Also setting the bridge name from the iOS-side:
 
 ```cpp
@@ -215,7 +215,7 @@ Where the values are:
 
 For advanced use cases, you can customize the bridge name by:
 
-1. Overriding the `mParticle.config.requiredWebviewBridgeName` value when [initializing the mParticle web SDK](/developers/sdk/web/getting-started/#sdk-configuration)
+1. Overriding the `mParticle.config.requiredWebviewBridgeName` value when [initializing the mParticle web SDK](/developers/sdk/web/initialization)
 2. Also setting the bridge name from the Android-side:
 
 ```java

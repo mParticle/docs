@@ -93,7 +93,7 @@ In the example above, incoming data is deserialized to a `Message` object, and p
 
 ### Overview
 
-The base `MessageProcessor` implementation is responsible for parsing incoming `Message` objects. `MessageProcessor` contains several abstract and empty method implementations responsible for processing `Message` objects which you will override and implement. Currently the types of messages are:
+The base `MessageProcessor` implementation is responsible for parsing incoming `Message` objects. `MessageProcessor` contains several abstract and empty method implementations responsible for processing `Message` objects which you will override and implement. Currently, the types of messages are:
 
 1. Module Registration Request and Response
 2. Event Processing Request and Response
@@ -112,7 +112,7 @@ The details of the registration response are outlined below. For a full example 
 
 ### 1. Creating your `ModuleRegistrationResponse` and Describing your Service
 
-mParticle users will see the result of your module registration response in our integrations directory. You should set a human-readable title for your service (such as your company's name), as well as a short description of your company including a link to your company's website with optional tracking parameters. Your description must be less than 230 characters.
+mParticle users will see the result of your module registration response in our Integrations directory. You should set a human-readable title for your service (such as your company's name), as well as a short description of your company including a link to your company's website with optional tracking parameters. Your description must be less than 230 characters.
 
 This information will be also shown on the mParticle [documentation](https://docs.mparticle.com/integrations/) and [marketing](https://www.mparticle.com/integrations) sites.
 
@@ -181,13 +181,13 @@ mParticle data can contain information about the device being used, including de
 
    `permissions.setAllowDeviceInformation(true);`
 
-For a full list of possible device information, see our [JSON reference](/developers/server/json-reference#device_info). Note that even if you don't set this permission, the Device Identites you registered for [above](/developers/partners/firehose#2-permissions) will still be forwarded.
+For a full list of possible device information, see our [JSON reference](/developers/server/json-reference#device_info). Note that even if you don't set this permission, the Device Identities you registered for [above](/developers/partners/firehose#2-permissions) will still be forwarded.
 
 #### User Attributes
 
 <aside>Note, this permission was added as of version 1.8 of the Java SDK. If you upgrade to the latest version, you will need to update your registration response to explicitly request device information.</aside>
 
-mParticle data can include a dictionary of custom user attributes containing information about the user. By default this information will not be forwarded to your integration. You can request access to user attributes with the following:
+mParticle data can include a dictionary of custom user attributes containing information about the user. By default, this information will not be forwarded to your integration. You can request access to user attributes with the following:
 
    `permissions.setAllowUserAttributes(true);`
 
@@ -348,7 +348,7 @@ eventProcessingRegistration.setMaxDataAgeHours(24)
 ```
 ### 7. Push Messaging Provider ID
 
-If you have registered for Push Message Receipt events, you must provide the Provider ID key used in the payload of your platform's Push messages. This ensures that you only receive events related to Push messages from your platform. Work with mParticle to ensure the you are providing the correct Provider ID.
+If you have registered for Push Message Receipt events, you must provide the Provider ID key used in the payload of your platform's Push messages. This ensures that you only receive events related to Push messages from your platform. Work with mParticle to ensure you are providing the correct Provider ID.
 
 ~~~java
 eventProcessingRegistration.setPushMessagingProviderId("your-push-messaging-provider-id");
@@ -359,7 +359,7 @@ eventProcessingRegistration.setPushMessagingProviderId("your-push-messaging-prov
 Audience Registration will allow your integration to receive Audience Subscription and Membership messages. During registration, your integration needs to specify the settings required to map and send audience data from mParticle to your service:
 1. [Account Settings](#4-account-settings) are required, user-modifiable settings for your integration.
 2. Audience Subscription Settings are optional, audience-specific settings such as an audience ID from your service. These settings can be set manually by the user or can be set programatically.
-  - To allow users to set and modify a subscription setting value, mark the subscription setting as visible. The user will be prompted to enter a value when connecting an audience and you will see this value in your [audience subscription requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionRequest.json) and [audience membership change requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceMembershipChangeRequest.json).
+  - To allow users to set and modify a subscription setting value, mark the subscription setting as visible. The user will be prompted to enter a value when connecting an audience, and you will see this value in your [audience subscription requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionRequest.json) and [audience membership change requests](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceMembershipChangeRequest.json).
   - To set a subscription setting value programmatically, mark a subscription setting as not visible. You will set the value after a user connects an audience as part of your audience subscription [response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/AudienceSubscriptionResponse.json). Subsequent membership change requests will contain the returned value.
 
 Audience Subscription Settings can be included in your module registration response as shown [here](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/main/examples/json/ModuleRegistrationResponse.json#L74).
@@ -532,7 +532,7 @@ The following table shows the correlation between each type and overridable meth
 
 ### Verification Requests
 
-To ensure a continuous connection with your integration, mParticle will periodically send event processing requests, even if there are no new events to send. Your integration must be able to accept an empty events array and return a a standard [event processing response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/master/examples/json/EventProcessingResponse.json).
+To ensure a continuous connection with your integration, mParticle will periodically send event processing requests, even if there are no new events to send. Your integration must be able to accept an empty events array and return a standard [event processing response](https://github.com/mParticle/mparticle-firehose-java-sdk/blob/master/examples/json/EventProcessingResponse.json).
 
 ## Audience Processing
 
@@ -617,7 +617,7 @@ You will need to grant mParticle permissions to call your lambda function. Using
 - `statement-id` must be unique - if you receive an error stating that the provided `statement-id` already exists, increment the statement-id(s) to a higher value.
 
 <aside>
-  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If do not know which pod to specify for your organization, contact your account representative.
+  When providing an Amazon Resource Number (ARN), you must specify the correct ARN for the localized data center, or pod, for your mParticle organization. Refer to <a href="https://docs.mparticle.com/developers/data-localization/">Data Hosting Locations</a> to determine the correct ARN for your pod. If you do not know which pod to specify for your organization, contact your account representative.
 </aside>
 
 ```sh

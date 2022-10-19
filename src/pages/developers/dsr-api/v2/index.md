@@ -12,10 +12,10 @@ See the [Default Service Limits](/guides/default-service-limits) for information
 ## Versions
 There are two versions of this API that we support:
 
-Version  | Framework | API Endpoint
----  | --- | ---
-1.0  | [OpenGDPR](https://github.com/opengdpr/OpenDSR/tree/opengdpr_v1)  | `https://opengdpr.mparticle.com/v1`
-2.0  | [OpenDSR](https://github.com/opengdpr/OpenDSR/) |  `https://opendsr.mparticle.com/v2`
+| Version  | Framework | API Endpoint |
+| --- | --- | --- |
+| 1.0  | [OpenGDPR](https://github.com/opengdpr/OpenDSR/tree/opengdpr_v1)  | `https://opengdpr.mparticle.com/v1` |
+| 2.0  | [OpenDSR](https://github.com/opengdpr/OpenDSR/) |  `https://opendsr.mparticle.com/v2` |
 
 This is noted in the two endpoints supported below, and in the `api_version` field in many of the resources below.
 
@@ -123,7 +123,7 @@ Authorization: Basic <your-token-here>
 
 | Field Name | Data Type | Required | Description |
 | ---------- | --------- | -------- | ----------- |
-| `regulation` | string | Required | The regulation this DSR falls under, either `gdpr` or `ccpa`. Version 2 only.
+| `regulation` | string | Required | The regulation this DSR falls under, either `gdpr` or `ccpa`. Version 2 only. |
 | `subject_request_id` | UUID v4 string | Required | A unique identifier for the request provided by the controller. |
 | `subject_request_type` | string | Required | The type of request. Supported values are `access`, `portability` and `erasure`. |
 | `submitted_time` | ISO 8601 date string | Required | The time the Data Subject originally submitted the request. |
@@ -222,7 +222,7 @@ KD/4Axmo9DISib5/7A6uczJxQG2Bcrdj++vQqK2succ=
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
 | `api_version` | string | The API version for this request. The current version is "2.0". |
 | `results_url` | string | For Access/Portability requests, a download link to the request results data. This field contains `null` unless the request is complete. After a request completes, the `results_url` is valid for 7 days. After that time, attempting to access this URL results in a `410 Gone` HTTP response. |
-| `extensions` | array |  Extensions related to DSR forwarding.
+| `extensions` | array |  Extensions related to DSR forwarding. |
 
 ### Get the status of all OpenDSR requests in a Group
 `GET /requests?group_id={my-group}`
@@ -355,9 +355,9 @@ Callback requests are signed and issued over TLS. You must validate the authenti
 1. Establish a whitelist of all processor domains that you will allow to issue callbacks.
 2. If the `X-OpenDSR-Processor-Domain` header value is in your whitelist, fetch the certificate. The certificate URL is available as the value of `"processor_certificate"` in the `/discovery` response body. The certificate can be cached for the lifetime of the certificate.
 3. Validate the certificate. This should be handled by a library. Certificate validation should confirm that:
-  * The certificate was issued by a trusted authority.
-  * The certificate was issued to the exact string given in the `X-OpenDSR-Processor-Domain` header value.
-  * The certificate has not expired.
+    * The certificate was issued by a trusted authority.
+    * The certificate was issued to the exact string given in the `X-OpenDSR-Processor-Domain` header value.
+    * The certificate has not expired.
 4. If the certificate is valid, use it to validate the `X-OpenDSR-Signature` header against the raw request body. mParticle uses SHA256 RSA as a signing algorithm.
 5. Return a response with a `202 Accepted` status header if all validations are successful. Return a response with a `401 Unauthorized` status header if the signature fails to validate or the processor domain is not in your whitelist.
 
@@ -386,7 +386,7 @@ P7f3LwgHVcDt8/26hziIGx56oVWGonkt6od7AY1VQBLsnIeh0K/z55GDmlrB7rbfd05RGUqqgjw4tekA
 
 ## Errors
 
-The following errors may be returned by the API with additonal details as shown.  
+The following errors may be returned by the API with additional details as shown.  
 
 ~~~http
 {
@@ -403,12 +403,12 @@ The following errors may be returned by the API with additonal details as shown.
 ~~~
 
 
-Status Code | Retriable | Message
----  | --- | ---
-400  | No  | Invalid data was detected
-400  | No  | Subject request already exists
-401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication).
-404  | No  | The specified subject request id could not be found.
-409  | No  | There is an in progress request with the same identities, extensions and type.
-429  | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again.
-5xx  | Yes | A server-side error has occured, please try your request again.
+| Status Code | Retriable | Message |
+| ---  | --- | --- |
+| 400  | No  | Invalid data was detected |
+| 400  | No  | Subject request already exists |
+| 401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication). |
+| 404  | No  | The specified subject request id could not be found. |
+| 409  | No  | There is an in progress request with the same identities, extensions and type. |
+| 429  | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again. |
+| 5xx  | Yes | A server-side error has occured, please try your request again. |

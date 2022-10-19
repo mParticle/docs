@@ -64,7 +64,7 @@ HTTP Endpoint: `POST https://identity.mparticle.com/v1/identify`
         "email": "pgibbons@example.com"
     },
     "user_attributes": {
-        "name": "Peter Gibbons",
+        "name": "Peter Gibbons"
     },
     "ip": "24.5.68.47",
     "timestamp_unixtime_ms":1634262037939,
@@ -117,7 +117,7 @@ request.customerId = @"019mr8mf4r";
 
 ## Segment track to mParticle events
 
-Segment supports a single `track` call that accepts only one event structure, while mParticle has both a generic Custom Event as well as several pre-defined structures for different domains such as Commerce. These features allows mParticle to more deterministically map data to downstream integrations.
+Segment supports a single `track` call that accepts only one event structure, while mParticle has both a generic Custom Event and several pre-defined structures for different domains such as Commerce. These features allow mParticle to more deterministically map data to downstream integrations.
 
 ### Segment track
 
@@ -180,7 +180,7 @@ The following examples illustrate two core event types:  Custom Event and Commer
             "data": {
                 "event_name": "clicked button",
                 "custom_attributes": {
-                    "button_name": "home",
+                    "button_name": "home"
                 }
             },
             "event_type": "custom_event"

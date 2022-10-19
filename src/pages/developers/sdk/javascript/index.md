@@ -1,5 +1,5 @@
 ---
 title: Web
-redirect: /developers/sdk/web/getting-started
-templatePath: /sdk/web/getting-started
+redirect: /developers/quickstart/web/overview/
+templatePath: /developers/quickstart/web/overview/
 ---

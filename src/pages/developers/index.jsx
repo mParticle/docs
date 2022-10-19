@@ -12,44 +12,31 @@ import './_developers.less';
 
 const QSTRT = [{
     title: 'Android',
-    route: 'senddata#android',
-},
-{
-    title: 'iOS',
-    route: 'senddata#ios',
-},
-{
-    title: 'Web',
-    route: 'senddata#web',
-},
-{
-    title: 'Python',
-    route: 'senddata#python',
-},
-{
-    title: 'Node',
-    route: 'senddata#node',
-},
-{
-    title: 'Java',
-    route: 'senddata#java',
-},
-{
-    title: 'HTTP',
-    route: 'senddata#http',
-}];
-
-const TUTS = [{
-    title: 'Web End-to-End Tutorial',
-    route: 'web',
-},
-{
-    title: 'Android End-to-End Tutorial',
     route: 'android',
 },
 {
-    title: 'iOS End-to-End Tutorial',
+    title: 'iOS',
     route: 'ios',
+},
+{
+    title: 'Web',
+    route: 'web',
+},
+{
+    title: 'Python',
+    route: 'python',
+},
+{
+    title: 'Node',
+    route: 'node',
+},
+{
+    title: 'Java',
+    route: 'java',
+},
+{
+    title: 'HTTP',
+    route: 'http',
 }];
 
 const SDKS = [{
@@ -231,7 +218,7 @@ const DevContent = (props) => (
                 <div className='dev-tile section'>
                     <div className='dev-tile-header'>
                         <span className='icon-tile' />
-                        <h3>Quickstart</h3>
+                        <h3>Getting Started</h3>
                     </div>
                     <div className='dev-tiles'>
                         {QSTRT.map((sdk) => (
@@ -239,15 +226,7 @@ const DevContent = (props) => (
                                 key={`${sdk.title}${sdk.route}`}
                                 data={{
                                     ...sdk,
-                                    route: `quickstart/${sdk.route}`,
-                                }} />
-                        ))}
-                        {TUTS.map((sdk) => (
-                            <DevTile
-                                key={`${sdk.title}${sdk.route}`}
-                                data={{
-                                    ...sdk,
-                                    route: `tutorials/${sdk.route}/overview`,
+                                    route: `quickstart/${sdk.route}/create-input/`,
                                 }} />
                         ))}
                     </div>

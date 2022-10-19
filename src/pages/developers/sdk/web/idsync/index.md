@@ -1,6 +1,6 @@
 ---
 title: IDSync
-order: 2
+order: 7
 ---
 
 The SDK surfaces a series of APIs to manage user-identity state. These client-side APIs work in tandem with the mParticle IDSync HTTP API and your configured "identity strategy." These APIs are designed generically but identity management requirements vary by site - so it's crucial that you use the APIs correctly per your site's unique requirements.
@@ -22,7 +22,7 @@ The following applies to all of these APIs:
 - All APIs accept the same request object
 - All APIs accept a callback to listen for success and failure
 - All APIs follow the same user-transition paradigm: the IDSync request dictates the details of the user you would like to transition the SDK to, not the user you are transitioning from. The SDK maintains a "current" user, to which all events are attributed until the current user changes.
-- Every time the APIs are invoked, the SDK will immediately upload an HTTP request. Because of this, these APIs must only be invoked when the user actually logs in, logs out, or otherwise changes state. A common mistake is to call an API such as `identify` or `login` on every page load - this is not necessary and will result in high network traffic. Note that the exception to this is the automatic "identify" API call made by the SDK on page load - see the [SDK getting started guide](/developers/sdk/web/getting-started/#identify-request) for more information.
+- Every time the APIs are invoked, the SDK will immediately upload an HTTP request. Because of this, these APIs must only be invoked when the user actually logs in, logs out, or otherwise changes state. A common mistake is to call an API such as `identify` or `login` on every page load - this is not necessary and will result in high network traffic. Note that the exception to this is the automatic "identify" API call made by the SDK on page load.
 
 
 ## Create an IDSync Request
@@ -54,7 +54,7 @@ There are several considerations to account for during SDK initialization:
 - If the user is *already* logged-in/registered on load of your site (from a previous session), or you otherwise have identifying information about the user that you would like to supply, you should create a identity request and set it to the `identifyRequest` field of the `mParticle.config` object. See the SDK initialization example below.
 - If you do not provide an explicit `identifyRequest` during SDK initialization, the SDK will use browser local storage and/or cookies to generate a request for you based off of the most recent user, including the most recent user identities.
 - If this is a new user, and the identify call fails, you should retry the request. See below for information on reacting to failed API requests.
-- You may want to set attributes directly on the user once identified. In order to do this, you should pass an `identityCallback` to the `window.mParticle.config` object as shown in the [configuration options](/developers/sdk/web/getting-started/#identify-request) documentation. The is executed once the initial IDSync request returns, or with cached results in the case of a reload during an active user session.
+- You may want to set attributes directly on the user once identified. In order to do this, you should pass an `identityCallback` to the `window.mParticle.config` object as shown in the [configuration options](/developers/sdk/web/configuration/) documentation. The is executed once the initial IDSync request returns, or with cached results in the case of a reload during an active user session.
 
 <aside>You can also manually call identify - though generally this is a mistake and should not be necessary. Doing so during initialization will result in unnecessary calls to the IDSync API.</aside>
 

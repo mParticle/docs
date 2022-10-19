@@ -32,7 +32,7 @@ Now that you have the mParticle Dart plugin, install mParticle on your native or
 
 <tab label='Web' group='add-sdk'>
 
-Add the mParticle snippet to your `web/index.html` file as high as possible on the page within the <head> tag, as described in [Add the Snippet](https://docs.mparticle.com/developers/sdk/web/getting-started/#add-the-sdk-snippet) for Web SDK.
+Add the mParticle snippet to your `web/index.html` file as high as possible on the page within the <head> tag, as described in [Add the Snippet](https://docs.mparticle.com/developers/sdk/web/initialization/) for Web SDK.
 ```html
 <script type="text/javascript">
   //configure the SDK
@@ -61,7 +61,7 @@ Add the mParticle snippet to your `web/index.html` file as high as possible on t
   )("REPLACE WITH API KEY");
 </script>
 ```
-For more help, see [the Web SDK set up documentation](https://docs.mparticle.com/developers/sdk/web/getting-started/#create-an-input).
+For more help, see [the Web SDK quickstart](/developers/quickstart/web/overview/).
 
 </tab>
 

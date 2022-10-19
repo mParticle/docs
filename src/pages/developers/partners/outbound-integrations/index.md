@@ -23,7 +23,7 @@ Below is a high level overview of the integration process:
 
 The following resources provide a starting point for developing a Firehose S2S integration with mParticle, using our Firehose Java SDK.
 
-* [mParticle Firehose Java SDK](https://github.com/mParticle/mparticle-firehose-java-sdk) is a Java library for building and deploying third-party extensions for mParticle over Amazon's Lambda platform or using an HTTP server. This Github repository provides a brief architectural overview, steps, and samples.
+* [mParticle Firehose Java SDK](https://github.com/mParticle/mparticle-firehose-java-sdk) is a Java library for building and deploying third-party extensions for mParticle over Amazon's Lambda platform or using an HTTP server. This GitHub repository provides a brief architectural overview, steps, and samples.
 * [mParticle Firehose tutorial](/developers/partners/firehose/) describes the process of building your integration, from module registration, event processing, audience processing, testing and deployment.
 
 It is not necessary to use the Java SDK to build either a Lambda or HTTP integration, as long as you can respond to the following requests in the required format:
@@ -40,7 +40,7 @@ See the [mParticle Firehose documentation](/developers/partners/firehose/) for m
 
 Leveraging Amazon AWS's Lambda platform, mParticle will send your "lambda function" data as it comes into our system so that your function can then forward it along to your own API.
 
-Two sample projects are available on Github to help you get started with your Lambda integration:
+Two sample projects are available on GitHub to help you get started with your Lambda integration:
 
 * [Sample Project](https://github.com/mParticle/firehose-sample) can be cloned to get started on building your Lambda integration.  
 * [Iterable Extension](https://github.com/Iterable/mparticle-firehose-iterable) is a real world event and audience integration built using the mParticle Java SDK.  This can be used as a reference to see a full working example.  
@@ -100,10 +100,10 @@ The HTTP integration method will make HTTP calls over TLS 1.1+ using the same pr
 Endpoint Requirements:
 
 1.  The endpoint must be HTTPS.
-1.  The endpoint should be located in the East Coast United States. You can provide additional endpoints to support data centers in different regions. This will provide improved latency for customers located within the different data centers supported by mParticle.
-1.  Response latency must be under 100ms in order to ensure necessary throughput can be maintained.  We suggest requests are accepted and queued for asynchronous processing.
-1. mParticle will send calls with an Authorization header.  You can choose whether to authenticate mParticle as the caller with this header.  The format will be "Authorization : Token [token]".   This token value will be provided to you by email, encoded with a PGP encryption key you provide. To generate a token, mParticle needs to be able to import the ModuleRegistrationResponse, so this response should not require authentication.
-1. Responses
+2.  The endpoint should be located in the East Coast United States. You can provide additional endpoints to support data centers in different regions. This will provide improved latency for customers located within the different data centers supported by mParticle.
+3.  Response latency must be under 100ms in order to ensure necessary throughput can be maintained.  We suggest requests are accepted and queued for asynchronous processing.
+4. mParticle will send calls with an Authorization header.  You can choose whether to authenticate mParticle as the caller with this header.  The format will be "Authorization : Token [token]".   This token value will be provided to you by email, encoded with a PGP encryption key you provide. To generate a token, mParticle needs to be able to import the ModuleRegistrationResponse, so this response should not require authentication.
+5. Responses
     * mParticle expects to receive a 200 (OK) or a 202 (Accepted) response for all requests.
     * By default, retries will occur for the following responses. mParticle will attempt a limited number of retries in an exponential backoff pattern.
       * 408 - Request Timeout
@@ -118,9 +118,9 @@ The endpoint must accept the same JSON format as the Lambda API.   Samples of th
 
 1. Registration
     * ModuleRegistrationRequest - POST URL returning the JSON module registration response. 
-1. Event 
+2. Event 
     * EventProcessingRequest - POST URL returning an EventProcessingResponse
-1. Audience
+3. Audience
     *  AudienceSubscriptionRequest - POST URL returning an AudienceSubscriptionResponse
     *  AudienceMembershipChangeRequest - POST URL returning an AudienceMembershipChangeResponse
 

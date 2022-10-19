@@ -7,7 +7,7 @@ Version 2 of the web SDK contains breaking changes from version 1.x, including n
 
 ### New JS Loading Snippet
 
-Please use the [snippet here](/developers/sdk/web/getting-started/#choose-your-snippet) on this page. Version 2 allows methods to be called on the SDK before the SDK has loaded. These methods get enqueued and replayed once the SDK loads. To enable this, the new snippet must be used.
+Please use the [snippet here](/developers/sdk/web/initialization/) on this page. Version 2 allows methods to be called on the SDK before the SDK has loaded. These methods get enqueued and replayed once the SDK loads. To enable this, the new snippet must be used.
 
 ### New config options
 
@@ -31,7 +31,7 @@ The shopping cart has been deprecated.
 
 ### Upgrade Checklist
 
-- Upgrade to the new [v2 snippet](/developers/sdk/web/getting-started/#add-the-sdk-snippet).
+- Upgrade to the new [v2 snippet](/developers/sdk/web/initialization/).
 - If you are implementing an eCommerce strategy, implement an `onUserAlias` function.
 - Replace any instance of `setUserIdentity` with the appropriate Identity method.
 - Any methods affecting a user must now be called on your your current user object. Check the following methods across your implementation:

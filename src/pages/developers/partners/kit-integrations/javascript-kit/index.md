@@ -25,7 +25,7 @@ Get the example kit implementation [here](https://github.com/mparticle-integrati
 
 ### Implementation
 
-In your fork you will find a repository with a directory structure as follows. Asterisked files are the only files you will update. Do not touch any code inside of any of the boilerplate files or folders.
+In your fork you will find a repository with a directory structure as follows. Asterisked files are the only files you will update. Do not touch any code inside the boilerplate files or folders.
 
 ```sh
 mparticle-javascript-integration-example
@@ -59,7 +59,7 @@ Only the files with a * above should be edited in order to build your integratio
 
 It is important to note that your integration should be built using ECMAScript 5 for maximum browser compatibility. For simplicity, we do not use Babel or other transpilers as part of our workflow for integrations.
 
-Each `xyz-handler.js` file has comments with more detailed instructions and schemas within them, but generally speaking, for the `commerce-handler`, `event-handler`, and `session-handler`, an mParticle event object is routed through each method and you must transform these event objects to match a schema that your SDK can ingest. In addition to the comments, we recommend viewing a partner example that we have created, such as the [Optimizely Integration](https://github.com/mparticle-integrations/mparticle-javascript-integration-optimizely).
+Each `xyz-handler.js` file has comments with more detailed instructions and schemas within them, but generally speaking, for the `commerce-handler`, `event-handler`, and `session-handler`, an mParticle event object is routed through each method, and you must transform these event objects to match a schema that your SDK can ingest. In addition to the comments, we recommend viewing a partner example that we have created, such as the [Optimizely Integration](https://github.com/mparticle-integrations/mparticle-javascript-integration-optimizely).
 
 We use [Browserify](http://browserify.org/), which follows a node-like `require` syntax, to modularize and compile our code to make creating an integration very easy for you. When necessary, you can create additional utility files in the `integration-builder` folder to share across the `xyz-handler.js` files. This may be necessary if you have certain settings or functions that need to be shared across files.
 
@@ -92,14 +92,14 @@ Kits should implement this interface when their underlying service has the notio
 Kits should implement this interface when their underlying service has the notion of a user with attributes.
 
 ### Unit/Integration Tests
-We use the popular frameworks [Mocha](https://mochajs.org/)/[Should](https://shouldjs.github.io/) to test our integrations. Following a live example such as [Optimizely](https://github.com/mparticle-integrations/mparticle-javascript-integration-optimizely/tree/master/test) is a great way to get started testing your integration before performing end to end testing. Some key things to point out:
+We use the popular frameworks [Mocha](https://mochajs.org/)/[Should](https://shouldjs.github.io/) to test our integrations. Following a live example such as [Optimizely](https://github.com/mparticle-integrations/mparticle-javascript-integration-optimizely/tree/master/test) is a great way to get started testing your integration before performing end-to-end testing. Some key things to point out:
 
 * Inside of `test/tests.js`, you should stub all methods on your SDK that are called in your integration in the `MockXYZForwarder` section.
 * We recommend that you have a test for every method you stub above, and test for if the method was called, in addition to ensuring the event data is properly being processed.
 * Open `test/boilerplate/index.html` to run your tests and debug.
 
-## End to End Testing
-Included in the dependencies of the example repo that you cloned is a framework that allows you to test the mappings you've made to your SDK. With this, you can confirm the proper network events are triggered when you log mParticle methods that you mapped. Follow the steps below to properly set up your test app to perform end to end testing of your integration before submitting it to mParticle for review and next steps.
+## End-to-End Testing
+Included in the dependencies of the example repo that you cloned is a framework that allows you to test the mappings you've made to your SDK. With this, you can confirm the proper network events are triggered when you log mParticle methods that you mapped. Follow the steps below to properly set up your test app to perform end-to-end testing of your integration before submitting it to mParticle for review and next steps.
 
 1. Update `test/end-to-end-testapp/settings.js` to include any required  settings for SDK initialization. Common settings include an `apiKey` that your customers use in order to send it to the proper integration.
 2. In your terminal, in the root of the `integration-builder`, run `npm run testEndToEnd`. This will build a file that includes your built integration, as well as the settings from step 1 above. A very basic node server will start, and a browser window will open loading the test app as well as your integration and settings that were just built.
@@ -109,7 +109,7 @@ Included in the dependencies of the example repo that you cloned is a framework 
 
 Once you have verified that your integration works properly, there are a few additional steps to publish your kit:
 
-1. Host your kit source code on your public github repository. Please include a README for your new kit - see [this example](https://github.com/mparticle-integrations/mparticle-android-integration-leanplum/blob/master/README.md).
+1. Host your kit source code on your public GitHub repository. Please include a README for your new kit - see [this example](https://github.com/mparticle-integrations/mparticle-android-integration-leanplum/blob/master/README.md).
 2. Email partner-integrations@mparticle.com with the repository URL of your new kit. mParticle must establish the connection between your mParticle module and kit source location.
 3. Once your code is live and available via NPM, follow the [SDK docs](/developers/) to perform a basic instrumentation of mParticle, using the application key and secret provided to you by mParticle.
 4. Add your SDK as an output in the mParticle UI, and connect it to the JavaScript input. Update any necessary settings. Note that any new settings will take up to 1 hour to update via our CDNs.
@@ -187,7 +187,7 @@ var expandedEcommerceItems = mParticle.eCommerce.expandEcommerceEvent(purchaseEv
 // if multiple products were purchased, each ensuing product would be similar to expandedEcommerceItems[1] above.
 
 ```
-`Purchase` events yield what we call a "Plus One" event, (the `eCommerce - purchase - Total` object in expandedEcommerceItems[0] above) in addition the each purchase item.
+`Purchase` events yield what we call a "Plus One" event, (the `eCommerce - purchase - Total` object in expandedEcommerceItems[0] above) in addition to each purchase item.
 
 Other eCommerce events map their event names similar to the above in snake case. See here [product action types](https://git.corp.mparticle.com/mParticle/mparticle-sdk-javascript-private/blob/master/src/types.js#L246-L269) as well as [promotion action types](https://git.corp.mparticle.com/mParticle/mparticle-sdk-javascript-private/blob/master/src/types.js#L279-L288). ie:
 

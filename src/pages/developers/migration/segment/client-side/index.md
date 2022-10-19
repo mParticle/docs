@@ -243,7 +243,7 @@ currentUser.setUserAttribute("top_region","North America");
 
 ## Step 5. Migrate event data flow
 
-Replace calls to the Segment Track API with event calls to the mParticle HTTP API resource `events`. mParticle has both a generic custom event as well as several pre-defined structures for different domains such as Commerce. 
+Replace calls to the Segment Track API with event calls to the mParticle HTTP API resource `events`. mParticle has both a generic custom event and several pre-defined structures for different domains such as Commerce. 
 
 The following examples illustrate two core event types:  Custom Event and Commerce Event. Depending on the type of event that you're migrating from your Segment `track` call, use either a Custom Event or a Commerce Event.
 
@@ -532,9 +532,9 @@ If you would like to backfill your data into the mParticle Identity, Profile, an
 
 mParticle offers open-source SDKs for many client-side platforms and frameworks:
 
-- [iOS Quickstart Guide](/developers/sdk/ios/getting-started/)
-- [Android Quickstart Guide](/developers/sdk/android/getting-started/)
-- [Web Quickstart Guide](/developers/sdk/web/getting-started/)
+- [iOS Quickstart Guide](/developers/quickstart/ios/overview/)
+- [Android Quickstart Guide](/developers/quickstart/android/overview)
+- [Web Quickstart Guide](/developers/quuickstart/web/overview)
 - [Additional Platforms](/developers/)
 
 If you prefer more support, mParticle offers a Segment Migration Professional Services package to speed up your Segment migration to mParticle, gleaned from years of experience of doing this with other customers.

@@ -75,7 +75,7 @@ The HMAC digest authentication method should be used by all clients of the Ident
 
 2. Encode the string
 
-    Using the utf-8 bytes of your mParticle platform API Secret (matching the API Key in the `x-mp-key` header), and the string above, create a byte encoding using HMAC SHA256 and convert the result to a hexidecimal string. Include that string as the `x-mp-signature` header.
+    Using the utf-8 bytes of your mParticle platform API Secret (matching the API Key in the `x-mp-key` header), and the string above, create a byte encoding using HMAC SHA256 and convert the result to a hexadecimal string. Include that string as the `x-mp-signature` header.
 
 ### API key-only Authentication
 
@@ -174,8 +174,8 @@ The `identify`, `search`, `login`, and `logout` return a body with the following
 
 | Property | Type |  Description |
 | --- | --- | --- |
-| `context` | string |  Encoded version of the response, may be used as the `context` parameter in the next request |   
-| `mpid` | string | The mParticle ID of the matched user profile
+| `context` | string |  Encoded version of the response, may be used as the `context` parameter in the next request |
+| `mpid` | string | The mParticle ID of the matched user profile |
 | `matched_identities` | object | Each identifier from the `known_identities` object in the request body that matched to an identifier in the returned user profile. **N.B** - only identifiers which were matched from your request will be returned. This is not a complete list of all identities associated with the user profile. |
 | `is_ephemeral` | bool | The returned identity can be removed from local storage when you transition to the next identity |
 
@@ -237,10 +237,10 @@ Modify must be performed on an existing mParticle ID. It will mutate an existing
 
 | Error | Description |
 |---|---|
-| 400 Bad Request | See the response body for detailed error message.
-| 401 Unauthorized | Request failed authentication.
-| 429 Too Many Requests | Too many requests have been submitted. To correct, perform an exponential backoff. 
-| 5xx Server Error | A server-side error has occured. Try your request again.
+| 400 Bad Request | See the response body for detailed error message. |
+| 401 Unauthorized | Request failed authentication. |
+| 429 Too Many Requests | Too many requests have been submitted. To correct, perform an exponential backoff. |
+| 5xx Server Error | A server-side error has occured. Try your request again. |
 
 ### Error Body
 

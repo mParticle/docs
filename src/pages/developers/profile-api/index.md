@@ -19,7 +19,7 @@ As a best practice, your app frontend should never directly query the Profile AP
 2. Your personalization service queries the Profile API and determines the desired behavior in the app, based on information in the profile.
 3. Your personalization service returns only the information necessary to implement the desired personalization to your app's frontend. For example, an array of products.
 
-A simple example of a personalization service implemented with Node and Express is available on [Github](https://github.com/kbogdanovs-mparticle/profile-api-service).
+A simple example of a personalization service implemented with Node and Express is available on [GitHub](https://github.com/kbogdanovs-mparticle/profile-api-service).
 
 ## Authentication
 Once provisioned, credentials can only be issued over encrypted communications, so you will need to provide a public key. If you don't have a public key, you can make one with simple free software on [Mac](https://gpgtools.org/) or [Windows](https://www.gpg4win.org/).
@@ -90,9 +90,9 @@ Allows you to retrieve the Profile
 
 #### Querystring Parameters
 
-Name | Type | Required | Description
-|---|---|---| ---|
-?fields| `string` | Yes |Comma-separated list of fields you want to return for the user. Allowed values are `device_identities`, `user_identities`, `user_attributes` (including calculated attributes), `audience_memberships`, and `attribution`. You must specify each field you want to return.  |
+| Name | Type | Required | Description |
+|---|---|---|---|
+| `?fields` | `string` | Yes | Comma-separated list of fields you want to return for the user. Allowed values are `device_identities`, `user_identities`, `user_attributes` (including calculated attributes), `audience_memberships`, and `attribution`. You must specify each field you want to return. |
 
 #### Curl example
 
@@ -189,17 +189,17 @@ Allows you to retrieve a profile without knowing the mParticle ID. To use this m
 
 #### Querystring Parameters
 
-Name | Type | Required | Description
+| Name | Type | Required | Description |
 |---|---|---|---|
-`?fields` | `string` | Yes |Comma-separated list of fields you want to return for the user. Allowed values are `device_identities`, `user_identities`, `user_attributes`, `audience_memberships`, and `attribution`. You must specify each field you want to return.  |
+| `?fields` | `string` | Yes |Comma-separated list of fields you want to return for the user. Allowed values are `device_identities`, `user_identities`, `user_attributes`, `audience_memberships`, and `attribution`. You must specify each field you want to return. |
 
 #### Post Body Parameters
 
-Name | Type | Required | Description
+| Name | Type | Required | Description |
 |---|---|---|---|
-`environment_type` | `string` | Yes | Either `development` or `production`
-`identity.type` | `string` | Yes | The type of identity being sent. It must be an immutable identity type. eg. `customer_id`, `other`.
-`identity.value` | `string` | Yes | The identity value.
+| `environment_type` | `string` | Yes | Either `development` or `production` |
+| `identity.type` | `string` | Yes | The type of identity being sent. It must be an immutable identity type. eg. `customer_id`, `other`. |
+| `identity.value` | `string` | Yes | The identity value. |
 
 #### Curl example
 
@@ -306,12 +306,12 @@ curl \
 
 The following table lists the status codes that are returned by the API requests:
 
-|Status | Code | Notes |
-|---|---|---
-|200| OK|                 The request is valid. |
-|400| Bad Request|              The request syntax is invalid or the requested profile is invalid. |
-|401| Unauthorized|             The credentials are missing or authentication failed. |
-|403| Forbidden|                Not authorized to access the specified method or resource. |
-|429| Too Many Requests|        You have exceeded your provisioned limit. The endpoints may return a Retry-After response header with a value containing a non-negative decimal integer indicating the number of seconds to delay. If the header is not present, we recommend retrying your request in an exponential backoff pattern.  |
-|503| Service Unavailable|      The service is unavailable, we recommend retrying your request in an exponential backoff pattern |
-|5xx| Server Error | A server-side error has occured, please try your request again.
+| Status | Code | Notes |
+|---|---|---|
+| 200 | OK | The request is valid. |
+| 400 | Bad Request | The request syntax is invalid or the requested profile is invalid. |
+| 401 | Unauthorized | The credentials are missing or authentication failed. |
+| 403 | Forbidden | Not authorized to access the specified method or resource. |
+| 429 | Too Many Requests | You have exceeded your provisioned limit. The endpoints may return a Retry-After response header with a value containing a non-negative decimal integer indicating the number of seconds to delay. If the header is not present, we recommend retrying your request in an exponential backoff pattern.  |
+| 503 | Service Unavailable | The service is unavailable, we recommend retrying your request in an exponential backoff pattern |
+| 5xx | Server Error | A server-side error has occured, please try your request again. |

@@ -5,7 +5,7 @@ order: 11
 
 mParticle's web SDK stores certain data points in persistence in order to retain user and session data in between page loads. These data points are sent to the mParticle server whenever an action is logged. 
 
-By default, persistence data is stored in [localStorage](https://html.spec.whatwg.org/multipage/webstorage.html#the-localstorage-attribute). However, you can configure the SDK to use cookies instead by setting `useCookieStorage` to `true` in the SDK configuration. See our [Advanced Setup instructions](/developers/sdk/web/getting-started/#advanced-setup).
+By default, persistence data is stored in [localStorage](https://html.spec.whatwg.org/multipage/webstorage.html#the-localstorage-attribute). However, you can configure the SDK to use cookies instead by setting `useCookieStorage` to `true` in the SDK configuration. See our [Advanced Setup instructions](/developers/sdk/web/configuration).
 
 An important exception is the `cartProducts` array, which stores details of products in the customer cart. This is always kept in `localStorage`, even if `useCookieStorage` is `true`, since a large number of items in a cart could otherwise impact cookie size.
 
