@@ -9,9 +9,7 @@ title: Feed
 1. Set up a Punchh feed configuration in mParticle in order to generate API key/secret values.  
 2. Provide your API credentials to your Punchh account manager to connect your Punchh account with your mParticle feed configuration.
 
-Please check with your Punchh account manager for more details on configuration steps and event details.
-
-The Punchh feed integration sends user engagement and user attribute data to enrich mPartcile's user profiles. All user attributes are prefaced with `Punchh_` to prevent any conflicts or overwriting with your existing user data.
+The Punchh feed integration sends user engagement and user attribute data to enrich mParticle's user profiles. All user attributes are prefaced with `Punchh_` to prevent any conflicts or overwriting with your existing user data. When creating an audience based on Punchh data, see Punchh user attribute definitions at the end of the page. Please check with your Punchh account manager for more details on configuration steps and event details.
 
 ## Supported Identities
 
