@@ -10,7 +10,7 @@ In order to enable mParticle's integration with CleverTap, you will need your Ac
 
 ## Embedded Kit vs Server-to-Server Integration
 
-This integration supports two ways to send data to CleverTap. You can include the CleverTap embedded kit in your iOS or Android app and send data directly from the client. In addition, any data from supported platforms where the kit was not present will be forwarded server-to-server.
+This integration supports two ways to send data to CleverTap. You can include the CleverTap embedded kit in your iOS, Android, or Web app and send data directly from the client. In addition, any data from supported platforms where the kit was not present will be forwarded server-to-server.
 
 ## Adding the kit to your iOS/ Android app
 
@@ -67,11 +67,13 @@ mParticle forwards the following Device ID types:
 
 ## Supported User Identity Types
 
-mParticle forwards the following Device ID types:
+mParticle forwards the following User ID types:
 
+* Customer ID
 * Email
 * Facebook ID
 * Google ID
+* Phone
 
 ## Supported Event Types
 
@@ -103,3 +105,4 @@ Region | `string` | | The dedicated CleverTap data center region.  Not applicabl
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
 | User ID | `string` | customerId | All| Select which user identity to forward to CleverTap as your customer's user ID. |
+| Forward Web Requests Server Side |  `bool` | True | Web | If enabled, mParticle will not initialize the full CleverTap integration on the web client. Instead, web data will be forwarded to CleverTap via server-to-server API. |
