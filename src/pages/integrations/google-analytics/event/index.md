@@ -225,6 +225,7 @@ Google.Page | dp | The path portion of the page URL beginning with '/'. Example:
 Google.Value | ev | Specifies the event value. Values must be non-negative.
 Google.CG{#} (Web only)| cg{#} | Where {#} is 1, 2, 3, 4, or 5 (ie. Google.CG1, Google.CG2) You can have up to 5 content groupings, each of which has an associated index between 1 and 5, inclusive. Each content grouping can have up to 100 content groups. The value of a content group is hierarchical text delimited by '/". All leading and trailing slashes will be removed and any repeated slashes will be reduced to a single slash. For example, '/a//b/' will be converted to 'a/b'.
 Google.DocumentReferrer | dr | Specifies which referral source brought traffic to a website. This value is also used to compute the traffic source. The format of this value is a URL.
+Google.Title | dt | Specifies the title of the page (document.title).
 
 For `pageview` hits to be valid, either `dl` or both `dh` and `dp` must be set. When `dl` is set, its hostname and page can be overwritten using the `dh` and `dp` parameters respectively.
 
