@@ -164,7 +164,7 @@ Specifically, a few core changes Google made from UA to GA4 that impact our kits
 * UA supports non-interaction flags. GA4 drops this support.
 * UA supports Category, Action, and Label. GA4 drops this support.
 * UA supports User Timing. GA4 drops this support.
-* US supports Hit Types.  All events in GA4 are considered Events. GA4 does not support Hit Types.
+* UA supports Hit Types.  All events in GA4 are considered Events. GA4 does not support Hit Types.
 
 All of the associated custom flags related to the above are no longer relevant and should not be included when implementing mParticle's GA4 web kit.
 
