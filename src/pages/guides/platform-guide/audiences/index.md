@@ -163,7 +163,7 @@ The audience builder allows you to build criteria based on two sources of data:
 - `Users`: access user profile information such as user attributes, calculated attributes, current audience memberships, consent state, location, etc.
 - `Attribution`: access user install and uninstall information to build criteria based on the attributed `campaign` and `publisher`.
 
-<aside>If you participate in the <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> beta release, you won't be able to select an event if it is in a tier other than <b>Store & Evaluate</b>. To select an event, it must be moved to the <b>Store & Evaluate</b> tier.</aside>
+<aside>If you participate in the <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> beta release, you won't be able to select an event in real-time audiences or calculated attributes if the tier is other than <b>Store & Evaluate</b>. To select such an event for real-time audiences or calculated attributes, it must be in the <b>Store & Evaluate</b> tier.</aside>
 <!-- Update this note for GA, and for additional tiers if they become available. -->
 
 #### User profile criteria
