@@ -198,5 +198,5 @@ var callback = function(error, data, response) {
 api.bulkUploadEvents(body, callback);
 
 // or upload a single batch
-//api.uploadEvents(body, batch)
+// api.uploadEvents(batch, callback)
 ```
