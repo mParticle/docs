@@ -46,11 +46,14 @@ If an audience needs to be resynchronized with TikTok, TikTok recommends creatin
 
 ### User Identities
 
+* Email (SHA256)
 * mParticle ID (MPID)
 
 ## Deleting an Audience
 
-mParticle deletes the downstream audience when you delete an audience from mParticle.
+mParticle deletes the downstream audience in TikTok when you delete an audience from mParticle. 
+
+**Note: Deletion will fail if the audience is part of an active campaign in TikTok.**
 
 ## Settings
 
@@ -59,3 +62,8 @@ mParticle deletes the downstream audience when you delete an audience from mPart
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---
 | TikTok Account Id | `string` | <unset> | The TikTok Account ID associated with your TikTok Account. Reach out to your TikTok account manager to receive your Account ID.
+   
+### Connection Settings
+Setting Name| Data Type | Default Value | Description
+|---|---|---|---
+| Send Email | `boolean` | False | If enabled, email user identities will be forwarded
