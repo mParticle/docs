@@ -12,6 +12,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const skipIndexing = () => activeEnv !== 'production';
 
 module.exports = {
   pathPrefix,
@@ -104,6 +105,20 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
+    {
+        resolve: 'gatsby-plugin-algolia',
+        options: {
+            appId: process.env.GATSBY_ALGOLIA_APP_ID,
+            apiKey: process.env.ALGOLIA_ADMIN_KEY,
+            indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+            // eslint-disable-next-line global-require
+            queries: require('./queries/algolia-queries'),
+            chunkSize: 10000,
+            enablePartialUpdates: true,
+            matchFields: ['id', 'path', 'first_publication_date', 'data'],
+            skipIndexing: skipIndexing(),
+        },
+    },
   ],
   mapping: { // https://www.gatsbyjs.org/docs/gatsby-config/#mapping-node-types
     // THIS MAPPING IS TRUE BUT REMAPPING 'parent' and 'child' fields is prohibited
