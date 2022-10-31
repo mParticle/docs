@@ -1,5 +1,6 @@
 ---
 title: Markdown Comps
+noindex: true
 ---
 
 # (H1) Section Title L3 Graphik SB 32px/40 #1F1F1F

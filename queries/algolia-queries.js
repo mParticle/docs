@@ -2,7 +2,7 @@ const docsKey = process.env.GATSBY_ALGOLIA_INDEX_NAME || 'Docs';
 
 const myQuery = `
 query {
-  pages: allMarkdownRemark(filter: {frontmatter: {title: {ne: ""}, redirect: {eq: null}}}) {
+  pages: allMarkdownRemark(filter: {frontmatter: {title: {ne: ""}, redirect: {eq: null}, noindex: {ne: true}}}) {
     nodes {
       description: excerpt
       frontmatter {

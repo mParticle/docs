@@ -350,6 +350,7 @@ exports.onPostBuild = (args) => {
           frontmatter {
             title
             redirect
+            noindex
           }
           fields {
             slug
