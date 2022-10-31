@@ -68,6 +68,9 @@ To find the ID of an audience in the mParticle Dashboard, look for your audience
 | `fireadvertisingid` | `string` | Fire Advertising ID |
 | `timestamp` | `string` | Unix timestamp for the update |
 | `twitterid` | `string` | Twitter ID |
+| `userattributes` | `string` | A list of user attribute name and value pairs |
+| `userattributes.attributename` | `string` | The name of an attribute |
+| `userattributes.attributevalue` | `string` | The value of an attribute |
 | `yahooid` | `string` | Yahoo ID |
 
 ### Customer ID Only Option
