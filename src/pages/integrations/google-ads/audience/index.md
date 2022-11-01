@@ -45,7 +45,7 @@ mParticle will send [Address Info](https://developers.google.com/adwords/api/doc
 
 ## Deleting an Audience
 
-mParticle doesn't delete the downstream audience when you delete an audience in mParticle.
+mParticle deletes the downstream audience when you delete an audience from mParticle.
 
 ## Data Processing Notes
 
