@@ -185,7 +185,7 @@ These values are case sensitive and must be entered exactly.
 | Report Suite IDs | `string` | <unset> | The report suite ID from Adobe settings page. Multiple IDs can be entered, separated by commas |
 | Tracking Server | `string` | <unset> | The URL of the Adobe tracking server |
 | Character Set | `string` | UTF-8 | The character set used to display data in the Adobe interface |
-| Timestamp Enabled | `bool` | True | If enabled, the timestamp will be included in messages sent to Adobe |
+| Timestamp Enabled | `enum` | Timestamps Optional | Must match your Reporting Suite's timestamp settings. The timestamps for a report suite can be configured as: not allowed, required, or optional. Timestamps Optional is the default setting for all new report suites|
 | Send Messages Securely | `bool` | True | If enabled, mParticle will forward all data to Adobe using SSL |
 | Offline Tracking Enabled | `bool` | True | If enabled, any messages that are received when the device is offline will be forwarded |
 | Experience Cloud Identity Server  | `string` | <unset> | Set the domain name used by calls to the Experience Cloud Identity Service. By default this value is "dpm.demdex.net". Enter the full value (ie. "YourSubdomainName.demdex.net"), and not just the subdomain. |

@@ -521,7 +521,7 @@ For more information, see [Calculated Attributes](/guides/platform-guide/calcula
 | Tracking Server | `string` | <unset> | The URL of the Adobe tracking server |
 | Experience Cloud Identity Server | `string` | <unset> | Set the domain name used by calls to the Experience Cloud Identity Service. By default this value is "dpm.demdex.net". Enter the full value (ie. "YourSubdomainName.demdex.net"), and not just the subdomain.
 | Send Messages Securely | `bool` | True | If enabled, mParticle will forward all data to Adobe using SSL |
-| Timestamp Enabled | `enum` | Timestamps Optional | Matches your Reporting Suite's timestamp settings. A report suite can have it's timestamps configured as one of: not allowed, required, or optional. Timestamps Optional is the default setting for all new report suites. |
+| Timestamp Enabled | `enum` | Timestamps Optional | Matches your Reporting Suite's timestamp settings. A report suite can have its timestamps configured as one of: not allowed, required, or optional. Timestamps Optional is the default setting for all new report suites. |
 
 
 ## Connection Settings
