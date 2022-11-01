@@ -7,6 +7,8 @@ const fs_e = require('fs-extra');
 const remark = require('remark')
 const strip = require('strip-markdown')
 const { v4: uuidv4 } = require('uuid');
+const { execSync } = require('child_process');
+
 // Documentation for these APIs and other functionality is here:
 // https://www.gatsbyjs.org/docs/node-apis/
 
@@ -39,6 +41,17 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 
     // Add slug as a field on the node.
     createNodeField({ node, name: `slug`, value: slug })
+
+    // Add Timestamps to Markdown Nodes
+    const modifiedDatetime = execSync(
+      `git log -1 --pretty=format:%aI ${node.fileAbsolutePath}`,
+    ).toString().replace('\n', '');
+    createNodeField({ node, name: 'modifiedDatetime', value: modifiedDatetime })
+
+    const createdDatetime = execSync(
+      `git log --reverse --pretty=format:%aI ${node.fileAbsolutePath} | head -1`,
+    ).toString().replace('\n', '');
+    createNodeField({ node, name: 'createdDatetime', value: createdDatetime })
   }
 }
 
