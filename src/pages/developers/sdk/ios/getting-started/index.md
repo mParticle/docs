@@ -165,7 +165,7 @@ options.dataPlanVersion = @(1);
 let options = MParticleOptions(key: "REPLACE WITH APP KEY",
                             secret: "REPLACE WITH APP SECRET")
 options.dataPlanId = "mobile_data_plan" // Always undercase with white space replaced with '_'
-options.dataPlanVersion = @(1)
+options.dataPlanVersion = 1
 ```
 :::
 

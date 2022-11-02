@@ -286,7 +286,7 @@ let options = MParticleOptions(
    secret: "REPLACE WITH APP SECRET"
 )
 options.dataPlanId = "mobile_data_plan"
-options.dataPlanVersion = @(2)
+options.dataPlanVersion = 2
 options.environment = MPEnvironment.development;
 MParticle.sharedInstance().start(options);
 ```
