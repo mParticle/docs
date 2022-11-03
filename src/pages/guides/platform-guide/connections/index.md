@@ -42,7 +42,7 @@ Each output has its own requirements, so the process for setting up each connect
 
 Once you have an input selected, you can set up transformations that are applied to all outputs connected to that input. Click **All Outputs** to see options. There are two transformations that can be applied here:
 
-   * [Rules](/platform-guide/rules/)
+   * [Rules](/guides/platform-guide/rules/)
    * User Splits
 
 **3. Select an Output**
@@ -69,7 +69,7 @@ Complete any settings that apply to the connection. These will be different for 
 The second set of transformations apply only to your selected Output. Click **Specific Output** to see options. Specific output transformations include:
 
    * [Event Filter](#the-event-filter) - note, this is not part of Connections Screen but should be configured before the next step if needed.
-   * [Specific Outputs Rules](/platform-guide/rules/)
+   * [Specific Outputs Rules](/guides/platform-guide/rules/)
    * [Forwarding Rules](#forwarding-rules)
    * [Custom Mappings](#custom-mappings)
    * [User Sampling](#user-sampling)
@@ -139,7 +139,7 @@ Still not sure what’s wrong? Contact [mPaticle Support](https://support.mparti
 
 ## All Outputs Transformations
 
-See [Rules](/platform-guide/rules/) for more information on all-output rules.
+See [Rules](/guides/platform-guide/rules/) for more information on all-output rules.
 
 ## Specific Output Transformations
 
@@ -183,7 +183,7 @@ User Sampling is applied to a single output and sends only a subset, or sample o
 
 ### Specific Output Rules
 
-See [Rules](/platform-guide/rules/) for more information about specific-output rules.
+See [Rules](/guides/platform-guide/rules/) for more information about specific-output rules.
 
 ### Custom Mappings
 
