@@ -100,7 +100,7 @@ To create a journey:
 
     Then, select **Add > Remaining Users Split**. You'll see a new branch is created. Note that the criteria is read only, since this is a milestone for all the users who did not fit the criteria of the milestone you created in step 7. 
     
-    You can add more milestones to a remaining user milestone.
+    You can add more milestones to a remaining users milestone.
 9.  Using the plus sign under any audience, you can either add a new milestone (repeat steps 6 and 7) or select an output for the audience you just created. For more information about output connections, see [Connections](/guides/platform-guide/audiences/#connect-an-audience). You can add none, one, or more output to each audience. 
 
 After an audience is activated (by adding an output set to **Active**), the audience is updated to **Activated**. All parent audiences in that branch are set to "Calculating." Audience size estimates are updated to the actual audience size. 
