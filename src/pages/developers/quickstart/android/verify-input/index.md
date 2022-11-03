@@ -2,10 +2,6 @@
 title: Step 2. Verify your input
 order: 3
 ---
-<a href="/developers/quickstart/android/create-input/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/android/create-output/" style="position:relative; float:right">Next >> Set up your output</a>
-<br/>
-<br/>
 
 Now that we have set up the SDK and added our API key, we can restart the sample app:
 
@@ -13,7 +9,7 @@ Now that we have set up the SDK and added our API key, we can restart the sample
 
 2. After the Higgs Shop is opened on your virtual device, click around the app to trigger a few events.
 
-2. Navigate to **Data Master > Live Stream** in the left nav bar of your mParticle dashboard. The first few events will display in the Live Stream after a few seconds.
+3. Navigate to **Data Master > Live Stream** in the left nav bar of your mParticle dashboard. The first few events will display in the Live Stream after a few seconds.
 
 ![](/images/android-e2e-screenshots/2-verify-your-input/verify-your-input-1.png)
 

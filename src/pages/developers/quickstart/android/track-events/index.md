@@ -2,10 +2,6 @@
 title: Step 6. Track events
 order: 7
 ---
-<a href="/developers/quickstart/web/verify-connection/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/web/track-users/" style="position:relative; float:right">Next >> Track users</a>
-<br/>
-<br/>
 
 Remember that you can collect two types of data with mParticle: event data (data about what your users are doing) and user data (data describing your users).
 

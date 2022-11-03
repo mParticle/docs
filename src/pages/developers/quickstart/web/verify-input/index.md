@@ -2,10 +2,6 @@
 title: Step 2. Verify your input
 order: 3
 ---
-<a href="/developers/quickstart/web/create-input/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/web/create-output/" style="position:relative; float:right">Next >> Set up your output</a>
-<br/>
-<br/>
 
 Now that we have set up the SDK and added our API key, we can restart the sample app:
 

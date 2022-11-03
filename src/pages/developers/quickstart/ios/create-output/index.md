@@ -2,10 +2,6 @@
 title: Step 3. Set up your output
 order: 4
 ---
-<a href="/developers/quickstart/ios/verify-input/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/ios/create-connection/" style="position:relative; float:right">Next >> Create a connection</a>
-<br/>
-<br/>
 
 mParticle supports integrations with over 250 different analytics and data warehousing tools. In this step, we will learn how to forward data from The Higgs Shop via a webhook to [webhook.site](https://webhook.site/).
 

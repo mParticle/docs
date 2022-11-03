@@ -2,10 +2,7 @@
 title: Step 1. Create an input
 order: 2
 ---
-<a href="/developers/quickstart/web/overview/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/web/verify-input/" style="position:relative; float:right">Next >> Verify your input</a>
-<br/>
-<br/>
+
 An input is the original source of the data you want to track. This could be a website, mobile app, or even a data feed from another platform. The mParticle SDK you use will depend on your input. 
 
 Since The Higgs Shop is built using React with TypeScript, we’ll use the Web SDK. However, before we can integrate the SDK into our app we need to create the input from our mParticle dashboard.

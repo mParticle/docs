@@ -2,9 +2,6 @@
 title: Step 8. Create a data plan
 order: 9
 ---
-<a href="/developers/quickstart/ios/track-users/" style="position:relative; float:left"><< Previous</a>
-<br/>
-<br/>
 
 Data plans allow you to describe the type and format of the data you expect to collect in your app. mParticle compares incoming data to a data plan, preventing any data that does not match the plan from being stored in your account or forwarded to your outputs.
 

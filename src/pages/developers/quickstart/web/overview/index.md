@@ -2,9 +2,6 @@
 title: Overview
 order: 1
 ---
-<a href="/developers/quickstart/web/create-input/" style="position:relative; float:right">Next >> Create an input</a>
-<br/>
-<br/>
 
 mParticle is a customer data platform that makes it easy to collect and organize data before sending it to product analytics, A/B testing, marketing automation, and data warehousing tools.
 

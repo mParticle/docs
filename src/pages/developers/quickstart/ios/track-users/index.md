@@ -2,10 +2,6 @@
 title: Step 7. Track user data
 order: 8
 ---
-<a href="/developers/quickstart/ios/track-events/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/ios/data-planning/" style="position:relative; float:right">Next >> Data Planning</a>
-<br/>
-<br/>
 
 We started this tutorial by creating an input using the Higgs Shop sample app, setting up a webhook output, and creating a connection between the two. We then learned how to collect data about specific events.
 

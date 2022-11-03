@@ -2,10 +2,8 @@
 title: Step 5. Verify your connection
 order: 6
 ---
-<a href="/developers/quickstart/web/create-connection/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/web/track-events/" style="position:relative; float:right">Next >> Track events</a>
-<br/>
-<br/>
+
+Verify your connection by viewing the outbound events displayed in Live Stream:
 
 1. From your mParticle dashboard, navigate to **Data Master > Live Stream** in the left nav bar.
 

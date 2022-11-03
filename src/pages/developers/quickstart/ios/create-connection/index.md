@@ -2,10 +2,6 @@
 title: Step 4. Create a connection
 order: 5
 ---
-<a href="/developers/quickstart/ios/create-output/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/ios/verify-connection/" style="position:relative; float:right">Next >> Verify your connection</a>
-<br/>
-<br/>
 
 You won’t be able to see data flow from your input (iOS) to your output (webhooks) until you connect them.
 

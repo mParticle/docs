@@ -2,10 +2,7 @@
 title: Step 1. Create an input
 order: 2
 ---
-<a href="/developers/quickstart/ios/overview/" style="position:relative; float:left"><< Previous</a>
-<a href="/developers/quickstart/ios/verify-input/" style="position:relative; float:right">Next >> Verify your input</a>
-<br/>
-<br/>
+
 An input is the original source of the data you want to track. This could be a website, mobile app, or even a data feed from another platform. The mParticle SDK you use depends on your input. 
 
 In this tutorial, we’ll use the iOS SDK. However, before we can fully integrate the SDK into our app we need to create the input in our mParticle account.
