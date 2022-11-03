@@ -190,8 +190,7 @@ Empty request body.
       }
   ],
   "last_modified_on" : "2022-06-28 18:24:49",
-  "last_modified_by": "example@example.com",
-  "version": 1
+  "last_modified_by": "example@example.com"
 }
 ```
 
@@ -243,8 +242,7 @@ Empty request body.
           ],
           "role_id": "myRoleId2"
       }
-  ],
-  "version": 1
+  ]
 }
 ```
 
@@ -287,8 +285,7 @@ A successful request receives a `200 Success` response whose body contains the J
           ],
           "role_id": "myRoleId1"
       }
-  ],
-  "version": 2
+  ]
 }
 ```
 
@@ -337,8 +334,7 @@ To delete a custom role, remove the lines in the role manifest that correspond w
           ],
           "role_id": "myRoleId1"
       }
-  ],
-  "version": 2
+  ]
 }
 ```
 
@@ -536,7 +532,6 @@ Below are the errors that can be encounted when uploading or modifying a custom 
 | Response code | Error message | Description |
 | --- | --- | --- |
 | 400 | Removed a custom role with active user membership | You can't delete custom roles that are currently assigned to a user. First, unassign the role from the mParticle UI before attempting to delete it. |
-| 400 | Manifest version does not match the current/latest manifest version | The manifest version is indicated by the key `version` located at the end of the manifest. The value of `version` must be set to an integer equal to or greater than the pervious value. |
 | 400 | role_id given does not match role_id in existing manifest | When creating a new role, a new role ID is generated and assigned to a role after a successful upload. If you are modifying an existing role, make sure the `role_id` in the new manifests matches the `role_id` of the corresponding role in the old manifest. |
 | 400 | Name or Description is empty, has too many characters length, or has restricted characters | Both the name and description of a custom role are required, and there are limits on their length. The error message includes details about the missing value or limit exceeded. |
 | 400 | Empty tasks array | You can't upload a custom role manifest with an empty task list. Make sure all custom role task lists in your manifest contain the correct tasks. |
