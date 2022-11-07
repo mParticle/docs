@@ -115,7 +115,14 @@ If you wish to stop sending audience updates to one of the connections in a jour
 
 ## Delete a journey
 
-To delete a journey, it must be empty. Remove all connections from a milestone and then remove the milestone, which deletes the related audience. Milestones must be removed from last to first.
+To delete a journey:
+
+1. Go to **Audiences > Journeys** and click a journey to open it.
+2. Click the milestone you wish to delete.
+3. Click **Edit milestone**.
+4. Click **Delete**.
+
+Milestones must be removed from last to first.
 
 ## Journeys and billing
 
