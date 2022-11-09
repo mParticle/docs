@@ -10,6 +10,10 @@ For example, there are only a few features a marketer would need to access, such
     Custom Access Roles is a closed beta feature. If you are interested in participating in the closed beta, contact your account manager to gain access.
 </aside>
 
+## Endpoint
+
+The Custom Access Roles API is located at `https://api.mparticle.com`.
+
 ## Authentication
 
 <aside>
@@ -96,7 +100,7 @@ Modify the returned manifest to reflect the changes you want to make. For exampl
 
 Custom roles are visible across an entire mParticle organization, even though the account ID must be included in calls to the Custom Roles API.
 
-Some permissions are included with all custom roles by default and cannot be removed. These are noted in the permissions reference. Additionally, the `user:core` permission must be included with every custom role object in your manifest. This permission is necessary for users to be able to log in and view the mParticle dashboard.
+The `user:core` permission is included with every custom role object in your manifest. This permission is necessary for users to be able to log in and view the mParticle dashboard.
 
 ## View tasks
 
@@ -108,6 +112,13 @@ Some permissions are included with all custom roles by default and cannot be rem
 | --- | --- | --- |
 | `{orgId:int}` | Integer | The ID of the mParticle organization containing the task list. |
 | `{accountId:int}` | Integer | The ID of the mParticle account containing the task list. |
+
+#### Example curl request
+
+```bash
+curl --location --request GET 'https://api.mparticle.com/platform/v2/organizations/{orgId:int}/accounts/{accountId:int}/tasks' \
+--header 'Authorization: Bearer <access token>'
+```
 
 ### Request body
 
@@ -146,6 +157,13 @@ Below is an abbreviated example of how the task list is formatted.
 | --- | --- | --- |
 | `{orgId:int}` | Integer | The ID of the mParticle organization containing the custom role manifest. |
 | `{accountId:int}` | Integer | The ID of the mParticle account containing the custom role manifest. |
+
+#### Example curl request
+
+```bash
+curl --location --request GET 'https://api.mparticle.com/platform/v2/organizations/{orgId:int}/accounts/{accountId:int}/roles' \
+--header 'Authorization: Bearer <access token>'
+```
 
 ### Request body
 
@@ -205,6 +223,32 @@ Empty request body.
 | `{orgId:int}` | Integer | The ID of the mParticle organization containing the custom role. |
 | `{accountId:int}` | Integer | The ID of the mParticle account containing the custom role. |
 
+#### Example curl request
+
+```bash
+curl --location --request PUT 'https://api.mparticle.com/platform/v2/organizations/{orgId:int}/accounts/{accountId:int}/roles' \
+--header 'Authorization: Bearer <access token>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "roles": [
+        {
+            "role_id": "CustomMarketer",
+            "name": "Marketer",
+            "description": "The Marketer role can view, edit, and create audiences and access the User Activity View",
+            "tasks": [
+                {
+                    "task_id": "rules:*"
+                },
+                {
+                    "task_id": "user_activity:view"
+                }
+            ]
+        }
+    ],
+    "version": 1
+}'
+```
+
 ### Request body
 
 ```json
@@ -214,9 +258,6 @@ Empty request body.
           "name": "Marketer",
           "description": "Marketers can view and create new audiences",
           "tasks": [
-              {
-                  "task_id": "user:core"
-              },
               {
                   "task_id": "audiences:*"
               },
@@ -230,9 +271,6 @@ Empty request body.
           "name": "Activation Admin",
           "description": "Activation Admins can connect audiences to outputs and setup new connections for production",
           "tasks": [
-              {
-                  "task_id": "user:core"
-              },
               {
                   "task_id": "connections:*"
               },
@@ -270,9 +308,6 @@ A successful request receives a `200 Success` response whose body contains the J
           "name": "Marketing Admin",
           "description": "Marketers can view and create new audiences",
           "tasks": [
-              {
-                  "task_id": "user:core"
-              },
               {
                   "task_id": "audiences:*"
               },
@@ -319,9 +354,6 @@ To delete a custom role, remove the lines in the role manifest that correspond w
           "name": "Marketing Admin",
           "description": "Marketers can view and create new audiences",
           "tasks": [
-              {
-                  "task_id": "user:core"
-              },
               {
                   "task_id": "audiences:*"
               },
@@ -534,6 +566,5 @@ Below are the errors that can be encounted when uploading or modifying a custom 
 | 400 | Removed a custom role with active user membership | You can't delete custom roles that are currently assigned to a user. First, unassign the role from the mParticle UI before attempting to delete it. |
 | 400 | role_id given does not match role_id in existing manifest | When creating a new role, a new role ID is generated and assigned to a role after a successful upload. If you are modifying an existing role, make sure the `role_id` in the new manifests matches the `role_id` of the corresponding role in the old manifest. |
 | 400 | Name or Description is empty, has too many characters length, or has restricted characters | Both the name and description of a custom role are required, and there are limits on their length. The error message includes details about the missing value or limit exceeded. |
-| 400 | Empty tasks array | You can't upload a custom role manifest with an empty task list. Make sure all custom role task lists in your manifest contain the correct tasks. |
 | 400 | Tasks not found | The tasks listed in your manifest don't exist or don't match the expected task IDs. Verify your task IDs are correct. |
 | 400 | Miswritten JSON syntax | Your custom role is formatted incorrectly. Use a JSON linter to make sure your manifest includes all necessary characters. |
