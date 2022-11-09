@@ -100,6 +100,8 @@ Modify the returned manifest to reflect the changes you want to make. For exampl
 
 Custom roles are visible across an entire mParticle organization, even though the account ID must be included in calls to the Custom Roles API.
 
+When creating a new role, a new role ID is generated and assigned to a role after a successful upload. If you are modifying an existing role, make sure the `role_id` in the new manifests matches the `role_id` of the corresponding role in the old manifest. Otherwise a new `role_id` will create a new role.
+
 The `user:core` permission is included with every custom role object in your manifest. This permission is necessary for users to be able to log in and view the mParticle dashboard.
 
 ## View tasks
@@ -554,8 +556,9 @@ The [API Credentials](/developers/credential-management/) interface allows you t
 | --- | --- | --- |
 | Custom Roles | 100 roles per organization | You can't create more than 100 custom roles per organization. If your business requires more than 100 custom roles, contact your mParticle account representative. |
 | Requests per min | 100 requests per minute| If you exceed 100 requests per minute to the Custom Roles API, you will receive a `429 Too Many Requests` response. |
-| Name | 64 characters | A custom role name can't exceed 64 characters. |
-| Description | 1024 characters | A custom role description can't exceed 1024 characters. |
+| RoleId | 64 characters | A custom role ID can't exceed 64 characters. This field is required for all roles and is provided by the user.|
+| Name | 64 characters | A custom role name can't exceed 64 characters. This field, which sets the display name for the role, is required for all roles |
+| Description | 256 characters | A custom role description can't exceed 256 characters. |
 
 ## Error handling
 
@@ -564,7 +567,6 @@ Below are the errors that can be encounted when uploading or modifying a custom 
 | Response code | Error message | Description |
 | --- | --- | --- |
 | 400 | Removed a custom role with active user membership | You can't delete custom roles that are currently assigned to a user. First, unassign the role from the mParticle UI before attempting to delete it. |
-| 400 | role_id given does not match role_id in existing manifest | When creating a new role, a new role ID is generated and assigned to a role after a successful upload. If you are modifying an existing role, make sure the `role_id` in the new manifests matches the `role_id` of the corresponding role in the old manifest. |
-| 400 | Name or Description is empty, has too many characters length, or has restricted characters | Both the name and description of a custom role are required, and there are limits on their length. The error message includes details about the missing value or limit exceeded. |
+| 400 | Name or Description is empty, has too many characters length, or has restricted characters | Both the name and role ID of a custom role are required, and there are limits on their length. The error message includes details about the missing value or limit exceeded. |
 | 400 | Tasks not found | The tasks listed in your manifest don't exist or don't match the expected task IDs. Verify your task IDs are correct. |
 | 400 | Miswritten JSON syntax | Your custom role is formatted incorrectly. Use a JSON linter to make sure your manifest includes all necessary characters. |
