@@ -6,7 +6,7 @@ Manage your consent and opt-out privacy obligations under the GDPR and CCPA with
 
 This guide introduces you to mParticle's data privacy control functionality and shows you how to collect an individual's consent and apply it to your data flows.
 
-## Common Uses of Data Privacy Controls
+## Common uses of data privacy controls
 
 Data privacy controls are flexible and customizable, allowing you to build any data flow or consent-based logic you need.
 
@@ -21,7 +21,7 @@ GDPR defines consent as one method of lawful data processing. One common setup i
 - Identify which outputs would perform 'analytics' processing
 - Apply a forwarding rule of: Only forward user data if GDPR Consent for 'marketing' is true
 
-## Data Privacy and the mParticle Platform
+## Data privacy and the mParticle platform
 
 Once enabled and configured, data privacy work with the mParticle platform to ingest and pass on consent state:
 
@@ -33,7 +33,7 @@ Once enabled and configured, data privacy work with the mParticle platform to in
 ![Workflow for data privacy controls](/images/data-privacy-controls/data-privacy-workflow.png)
 
 
-## Enabling Data Privacy Controls
+## Enabling data privacy controls
 
 Data privacy controls save user consent decisions and applies them to data flows.
 
@@ -51,7 +51,7 @@ Data privacy controls save user consent decisions and applies them to data flows
 
 ![Privacy settings](/images/privacy-settings.png)
 
-## Consent Properties
+## Consent properties
 
 The mParticle format for a single record of a user decision on a privacy prompt, `.consent`, is our `consent_state` object. This is used for both GDPR-style opt-in consent and for CCPA-style opt-out.
 
@@ -71,7 +71,7 @@ All fields are optional, except `consented`, `timestamp_unixtime_ms`, `regulatio
 | location | `string` &nbsp; &nbsp; &nbsp; &nbsp;Not required | `"example.com/"`, `"17 Cherry Tree Lane"` | A location where the user gave consent. This property exists only to provide additional context. It may be a physical or digital location. |
 | hardware_id | `string` Required | `"IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702"` | A hardware ID for the device or browser used to give consent. This property exists only to provide additional context and is not used to identify users. |
 
-### Example Consent State
+### Example consent state
 
 Consent state can be logged via the HTTP API simply by including a consent state object in a batch, mirroring the structure of the user profile (above):
 
@@ -102,9 +102,7 @@ Consent state can be logged via the HTTP API simply by including a consent state
 }
 ~~~
 
-
-
-## Collecting Consent State
+## Collecting consent state
 
 For detailed definitions of how to report consent state, please see our SDK and API specific [developer documentation](/developers/):
 
@@ -114,9 +112,9 @@ For detailed definitions of how to report consent state, please see our SDK and 
 * [AMP SDK](/developers/sdk/amp/getting-started/#consent-state)
 * [HTTP API](/developers/server/json-reference/#consent_state)
 
-## Using Consent State
+## Using consent state
 
-### User Profiles
+### User profiles
 Consent state is maintained per person on the User Profile using the structure defined above.
 
 For testing consent, you can use [User Activity View](/guides/platform-guide/activity/#user-activity) to check that a consent was recorded correctly. Here is an example of how CCPA data sale opt-out will appear:
@@ -136,11 +134,9 @@ For GDPR, you may want to include only users that have an opt-in consent for a g
 
 ![GDPR opt-in example](/images/audience-gdpr-consent.png)
 
-### Connections and Forwarding Rules
+### Connections and forwarding rules
 
 Consent state can be used to create forwarding rules that selectively filter data based on a users consent state, in real time and per-person.
-
-
 
 For example, you can choose to only forward data from users who have given consent for a particular purpose.
 ![](/images/connections-fwding-rules.png)
@@ -151,12 +147,11 @@ For CCPA, you may want a forwarding rule to apply a data sale opt-out. In this e
 For GDPR, you may want a forwarding rule to only send data when a single purpose is consented:
 ![](/images/connections-forwarding-rule-gdpr.png)
 
-
-#### Kits and Forwarding Rules
+#### Kits and forwarding rules
 
 If you set up a Forwarding Rule for an embedded kit integration, the iOS and Android SDKs will check consent status for the user on initialization. If the rule condition fails, the kit will not be initialized. Note that kits are only initialized when a session begins or on user change, so if consent status changes in the course of a session, while mParticle will immediately stop forwarding data to the kit, it is possible that an embedded kit may remain active and independently forwarding data to a partner from the client until the session ends.
 
-### Forwarding Consent State to Partners
+### Forwarding consent state to partners
 
 When the consent state of a profile changes, that change can be communicated to mParticle event integrations. If the `consent_state` object on an incoming event batch contains changes from the existing profile, mParticle adds a 'system notification' to the batch for each consent state change before the batch is sent to incoming forwarders. This notification contains the full old and new consent state objects:
 
@@ -228,8 +223,58 @@ There are currently two ways that consent state changes are forwarded to mPartic
 
   "GDPR Consent Change" is  listed as a data type in the [Integrations directory](/integrations) and we will update this list as more partners add support. Please reach out to your success manager if you would like to distribute consent to an additional partner.
 
-## Data Subject Requests
+## Data subject requests
 
 mParticle helps you respond to [data subject requests](/guides/data-subject-requests) as mandated by the GDPR and CCPA regulations. 
 
 You can search for integrations that support data subject requests in the [Integrations](/integrations) page. Search on category **Data Subject Request**.
+
+## Ingest GPC signals
+
+The California Consumer Protection Act (CCPA) and the upcoming CPRA (California Privacy Rights Act) require that users can signal their privacy choices. In support of that requirement, you can ingest [Global Privacy Control (GPC) signals](https://globalprivacycontrol.org/#about) with mParticle.
+
+Browsers append the GPC signal to HTTP requests and make it queryable via the DOM. This signal is designed to convey a person's request to websites and services to not sell or share their personal information with third parties, per [the Global Privacy Control specification](https://globalprivacycontrol.github.io/gpc-spec/). This opt-out is at the browser level, allowing users to turn on the GPC signal for all or specific websites.
+
+The workflow for ingesting and forwarding GPC signals via SDK or Events API:
+
+![ingest-to-forward workflow for GPC signals](/images/data-privacy-controls/gpc-workflow.png)
+
+### Sample code for GPC 
+
+This sample code show two options: mapping to a GDPR purpose and mapping to a user attribute. 
+
+```javascript
+/* 
+  First, grab the GPC signal. "true" indicates the user has signaled an opt-out
+  See here for more details on querying the GPC signal:
+  https://globalprivacycontrol.github.io/gpc-spec/
+*/
+var gpcSignal = navigator.globalPrivacyControl;
+
+/*
+  Option 1:
+  In this example, the GPC signal is mapped to a "targeting_collection" GDPR purpose.
+  This is only an example, you determine the GDPR purposes and how GPC maps to them.
+  You can do the same mapping to CPPA.
+*/
+var targeting_consent = mParticle.Consent.createGDPRConsent(
+    !gpcSignal, // note that this is inverted
+    Date.now(), // Timestamp
+    "browser_gpc_signal", // Document
+    "17 Cherry Tree Lane", // Location
+    "browser-id:a5d934n0-232f-4afc-2e9a-3832d95zc702" // Hardware ID
+);
+
+// Add to your consent state
+var consentState = mParticle.Consent.createConsentState();
+consentState.addGDPRConsentState("targeting_collection", targeting_consent);
+var user = mParticle.Identity.getCurrentUser();
+user.setConsentState(consentState);
+
+/*
+  Option 2:
+  In this example, the GPC signal is mapped to a user attribute
+*/
+var user = mParticle.Identity.getCurrentUser();
+user.setUserAttribute("gpc_signal", gpcSignal);
+```
