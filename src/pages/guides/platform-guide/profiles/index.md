@@ -177,15 +177,15 @@ Thus, a profile that isn't updated within the profile lifetime period will "age 
 
 With the Lifetime Profiles feature, you can preserve the continuity of profile data regardless of the recency of the user’s engagement without having to contact mParticle and make a special request. Lifetime Profiles allows you to access a rich and robust profile of all your customers for the period of time you choose, up to the entire data retention period. You can access historical profile data in multiple ways, but ultimately share this robust profile with mParticle's 250+ Audience and Event partner integrations. 
 
-<aside>The Lifetime Profiles feature is a Beta release. To request participation in the Beta please <a href="https://www.mparticle.com/contact/lifetime-profiles/">submit an application</a>.</aside> 
+<aside>Lifetime Profiles is a premium feature. To enable, <a href="https://support.mparticle.com">submit a request</a>.</aside> 
 
 You can build personalized experiences across the entire customer lifecycle with deep, historical customer data, even if customer touchpoints are infrequent and irregular. Leveraging robust, historical profile data means better experiences for loyal or churned customers, resulting in higher lifetime value. Whether you run a win-back campaign with an events integration partner or reward loyal customers with an audience partner, Lifetime Profiles makes personalized experiences possible across a long customer lifecycle.
 
 The Lifetime Profiles feature serves the following features:
 
-* Event enrichment: enrichment of incoming event batches, upon a new user event, with that user’s historical profile data to ultimately pass a unified and complete profile data to event partners.
+* [Event enrichment](#lifetime-profiles-for-event-enrichment): enrichment of incoming event batches, upon a new user event, with that user’s historical profile data to ultimately pass a unified and complete profile data to event partners.
 
-* Real-time Audiences and Calculated Attributes: Access to complete and historical profile data for audiences and calculated attributes, so you can target and personalize customer experiences and maintain continued calculations over a profile’s lifetime.
+* [Real-time Audiences and Calculated Attributes](#lifetime-profiles-for-audiences-and-calculated-attributes): Access to complete and historical profile data for audiences and calculated attributes, so you can target and personalize customer experiences and maintain continued calculations over a profile’s lifetime.
 
 ### Lifetime Profiles for Event Enrichment
 
@@ -247,14 +247,32 @@ Lifetime Profiles preserves the continuity of calculation for audiences and calc
   
   For long and complicated customer journeys, users will resume at the stage where they left off from their last engagement, even if the recency of their engagement spans many months or years.
 
-#### How It Works
+#### How it works
 
 Remember that users who are inactive within the defined profile lifetime will expire out of audience(s). For example, if the profile lifetime is set at 30 days, for profiles that have not engaged during that 30 day window will expire out of all audiences they are members of. Audience expiration will remove audience membership from their profile, and mParticle will also forward an audience membership removal message downstream to active audience connections.
 
-However, with Profile Lifetime Access, you can choose any length of time up to the data retention period set in your contract. 
+However, with Profile Lifetime Access, you can choose any length of time up to the data retention period set in your contract.
 
-### Implementation Details
+### Verify Real-time Profiles are enabled
+
+When Real-time Profiles are enabled, a banner with the title "Introducing Lifetime Profiles" displays in mParticle. You can dismiss the banner.
+
+To verify that Real-time Profiles are enabled after the banner is dismissed, you can look in the Create New Audience modal (**Audiences > Real-time > New Audience**) or the Audiences Details panel (**Audiences > Real-time > any existing audience**). If the data range is broken out into event data and profile data, this feature has been enabled.
+
+![screenshot showing the audience details for a workspace with Real-time Profiles enabled](/images/audience-rt-profiles1.png)
+
+### Verify Real-time Profiles are working
+
+Verify that your Real-time Profile implementation is working by looking at users who are inactive and now outside your [Profile Lifetime period](/guides/platform-guide/profiles/#data-retention).
+
+For example, assume your Profile Lifetime period is set to 30 days. To verify Real-time Profiles are working:
+
+1. Navigate to User Activity and search for a user whose last date seen is more than 30 days and is the member of an audience.
+2. Verify that the user is still a member of that audience. If so, Real-Time Profiles are working. 
+
+### Implementation details
 
 * If an audience is defined from event data, the audience is initialized using the audience real-time lookback window (typically 30, 60, or 90 days). If you want access to event data from the full data retention period, use standard audiences.
 * If an audience is defined with profile data only, it is initialized using the profile lifetime.
 * You can't change an existing audience by enabling Lifetime Profiles. Use the Standard Audience feature until you've had Lifetime Profiles enabled for at most the length of your data retention period. If your users have a shorter frequency of engagement, data will accrue more quickly.
+* If a profile is outside the [Profile Lifetime Period](#data-retention) configured for your account, the Profile API returns it only after the profile has been reactivated. 
