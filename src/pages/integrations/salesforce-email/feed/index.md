@@ -20,26 +20,7 @@ To configure the feed, you will need to create SFTP credentials. These same cred
        * Base 10 digits (`0` through `9`)  
        * Non alphanumeric characters: ``~!@#$%^&*_-+=`&#124;\(){}[]:;"'<>,.?/`` 
     1. Create a basic text file containing the Username/Password
-    1. Encrypt the file using the mParticle PGP public key. You can use softward like GPG Tools for [OS X](https://gpgtools.or) or [Windows](https://www.gpg4win.org/). Under no circumstances should you ever use web based tools to encrypt, hash, or encode data.
-        ~~~          
-        -----BEGIN PGP PUBLIC KEY BLOCK-----
-        Version: GnuPG v2
-        mQENBFRKgRIBCACXmtK5WGdBDk/JWqzYdCd8uiKPJrnY0cAqfM6Rv1IhAl38IRKz
-        9rsfcK1z3bIZYGwfOk1SPBZmSxLERF1DgwhhInrXf+OojxGiRmMRK7QQ1zE/sqvW
-        RZqPeP+fRquK8BTP37Q+h8aophWBqaVfpejAaJtC+Xqe2xeGvBpnA8wu1c+Z1mLg
-        UfuKfRcadHQ1Ej99kWpIHyXh0D83yV1HbG0Gh8x0USKYiLK0Nn0ykVyAB9mk0GjF
-        3RoynGNHrbn3CH3f0J6ib+u7aVcZ9Y+E0E8KSI4h/4WhpIEWwicolMNeA+mTfySy
-        HKOUGkGy0k6+ltrA1H9ti/nmBkR9brJKP/7pABEBAAG0I05heWRlbiBLb2xldiA8
-        bmtvbGV2QG1wYXJ0aWNsZS5jb20+iQE5BBMBAgAjBQJUSoESAhsPBwsJCAcDAgEG
-        FQgCCQoLBBYCAwECHgECF4AACgkQK48THX7ssvDsVQf/XZRuWWme2NvxSa+Ce/hB
-        E6jIVLu5mw/snVo7PuGYRT0SoCRjEgx4J7tsmVlraRzBWAYYLdNd0pLAdkF+8rrh
-        9klxbDAIuXE1KlyjXIifVQZH6I9Ujnnx+IZd+Ev/+FBLDBaEpcQSN1fEvI+MIotp
-        9Q/7N+uts7DFFt1z7W/L9v0ujf4/t/L8DjYKm3AK+1DpbTlMt31YHoAuCs165pi/
-        ZSy61BJM1N1XKAUPR7bcUw+ahhlMF7b3nyVQppmasqUdVLKTApCICX6yjooj0RDV
-        0xcCNATCQJw/X7kL30Svi1C9oUro0KbRKa9O2ObODfBLt+XcrIqOxBwOcHzIg0bv
-        Gw===fzFR
-        -----END PGP PUBLIC KEY BLOCK-----
-        ~~~
+    1. Encrypt the file using [the mParticle PGP public key](/guides/csv/reference/#encrypted-files). You can use software like GPG Tools for [OS X](https://gpgtools.or) or [Windows](https://www.gpg4win.org/). Under no circumstances should you ever use web-based tools to encrypt, hash, or encode data.
 
 Share the encrypted file with mParticle. mParticle will notify you when the setup is complete.
 
