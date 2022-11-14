@@ -135,7 +135,7 @@ Follow these steps to troubleshoot an event connection:
 4. Does your connection depend on a kit? Does your connection use a kit to forward data downstream? Has the kit been included in your application? If yes, check your application for HTTP requests directed to the partner. Have they succeeded or are they reporting errors?
 5. Does your connection use batch forwarding? Some outputs use batch forwarding. You might have to wait longer for events to arrive in these systems (approximately 10 minutes or after several event batches have been collected). 
 
-Still not sure what’s wrong? Contact [mPaticle Support](https://support.mparticle.com/).
+Still not sure what’s wrong? Contact [mParticle Support](https://support.mparticle.com/).
 
 ## All Outputs Transformations
 
