@@ -259,7 +259,7 @@ When Real-time Profiles are enabled, a banner with the title "Introducing Lifeti
 
 To verify that Real-time Profiles are enabled after the banner is dismissed, you can look in the Create New Audience modal (**Audiences > Real-time > New Audience**) or the Audiences Details panel (**Audiences > Real-time > any existing audience**). If the data range is broken out into event data and profile data, this feature has been enabled.
 
-![screenshot showing the audience details for a workspace with Real-time Profiles enabled](/images/audience-rt-profiles1.png)
+<img src="/images/audience-rt-profiles1.png" alt="screenshot showing the audience details for a workspace with Real-time Profiles enabled" width="200">
 
 ### Verify Real-time Profiles are working
 
