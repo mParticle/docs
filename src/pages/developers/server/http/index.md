@@ -208,6 +208,12 @@ When creating event batches remember the following:
 * Each batch should not exceed 128kb in size.
 * A request to `/bulkevents` should contain no more than 100 batches.
 
+<aside class="warning">
+    The Events API imposes strict limitations on resources like attribute length, event name length, and the number of attributes that can be included per batch. Exceeding these limits may result in a failed request. For a complete list of API limitations, view <a href="https://docs.mparticle.com/guides/default-service-limits/">Default Service Limits</a>.
+
+    If your business requires changes to the default service limits, contact your mParticle account representative.
+</aside>
+
 <!--
 
 ## SQS Integration
