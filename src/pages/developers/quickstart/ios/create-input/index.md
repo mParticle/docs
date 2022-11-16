@@ -70,7 +70,7 @@ func makeOptions() -> MParticleOptions? {
     if let proxyDelegate = parseBool(getConfigInfo("MPARTICLE_PROXYDELEGATE")) {
         if proxyDelegate == false {
             // If you are disabling App Delegate proxying, you will need to manually forward certain App Delegate methods.
-            // See our docs here: https://docs.mparticle.com/developers/sdk/ios/getting-started/#uiapplication-delegate-proxy
+            // See our docs here: https://docs.mparticle.com/developers/sdk/ios/configuration/#uiapplication-delegate-proxy
             options.proxyAppDelegate = false
         }
     }
@@ -122,7 +122,7 @@ You can set your log level to `VERBOSE` or `ERROR` depending on the level of det
     When releasing an app to the public, ensure that the log level is set to <code>MPILogLevelNone</code> to avoid leaking any sensitive information. This is the default setting when initializing a new instance of the iOS SDK, and can be modified using a preprocessor directive.
 </aside>
 
-Learn more about iOS SDK log level settings in [Getting Started](/developers/sdk/ios/getting-started/#log-level).
+Learn more about iOS SDK log level settings in [Getting Started](/developers/sdk/ios/configuration/#log-level).
 
 <a href="/developers/quickstart/ios/overview/" style="position:relative; float:left"><< Previous</a>
 <a href="/developers/quickstart/ios/verify-input/" style="position:relative; float:right">Next >> Verify your input</a>

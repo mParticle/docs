@@ -1,4 +1,4 @@
 export const frontmatter = {
     title: 'SDK',
-    redirect: '/developers/sdk/ios/getting-started/'
+    redirect: '/developers/quickstart/ios/overview/'
 };

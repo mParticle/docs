@@ -16,7 +16,7 @@ Unlike the Android SDK, mParticle's iOS SDK does not handle Push Notification Re
 
 ## Display Push Notifications
 
-Provided you are using the iOS SDK's [UIApplicationDelegate](/developers/sdk/ios/getting-started/#uiapplication-delegate-proxy) proxy, the SDK will automatically listen to the following API invocations and forward them to any [mParticle Kits](#kits) that can display the notifications:
+Provided you are using the iOS SDK's [UIApplicationDelegate](/developers/sdk/ios/configuration/#uiapplication-delegate-proxy) proxy, the SDK will automatically listen to the following API invocations and forward them to any [mParticle Kits](#kits) that can display the notifications:
 
 ~~~objectivec
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;
@@ -32,7 +32,7 @@ Provided you are using the iOS SDK's [UIApplicationDelegate](/developers/sdk/ios
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)(void))completionHandler;
 ~~~
 
-If you are not using the `UIApplicationDelegate` proxy, you _must_ [manually forward these methods to mParticle](/developers/sdk/ios/getting-started/#uiapplication-delegate-proxy).
+If you are not using the `UIApplicationDelegate` proxy, you _must_ [manually forward these methods to mParticle](/developers/sdk/ios/configuration/#uiapplication-delegate-proxy).
 
 The `UIApplicationDelegate` proxy cannot intercept invokations from the `UNUserNotificationCenterDelegate` introduced in iOS 10. If you use this delegate's `willPresentNotification` or `didReceiveNotificationResponse`, you will need to call the equivalent method in the mParticle SDK as shown below:
 

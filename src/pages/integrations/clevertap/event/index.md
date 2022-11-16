@@ -41,7 +41,7 @@ dependencies {
 
 <!-- 
 
-For iOS, note that the CleverTap SDK is a static library. Reference our documentation for [working with static libraries](/developers/sdk/ios/getting-started/#working-with-static-libraries).
+For iOS, note that the CleverTap SDK is a static library. Reference our documentation for [working with static libraries](/developers/sdk/ios/initialization/).
 
 -->
 

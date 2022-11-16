@@ -115,7 +115,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 ```
 :::
 
-For more help, see [the iOS SDK set up documentation](https://docs.mparticle.com/developers/sdk/ios/getting-started/#create-an-input).
+For more help, see [the iOS SDK set up documentation](/developers/quickstart/ios/create-input/).
 
 </tab>
 

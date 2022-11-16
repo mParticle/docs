@@ -37,7 +37,7 @@ dependencies {
 :::
 
 <!--
-For iOS, note that the Taplytics SDK is a static library. Reference our documentation for [working with static libraries](/developers/sdk/ios/getting-started/#working-with-static-libraries).
+For iOS, note that the Taplytics SDK is a static library. Reference our documentation for [working with static libraries](/developers/sdk/ios/initialization/).
 -->
 
 Reference the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/developers/sdk/android/kits/) guides to read more about kits.

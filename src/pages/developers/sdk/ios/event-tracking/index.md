@@ -17,7 +17,7 @@ When the SDK performs an upload it does so as a "batch" of data which contains:
 - an "application info" object containing application metadata such as app version
 
 
-See the [Events API](/developers/server/http/) for more information on the schema of mParticle batch uploads, and see the [iOS SDK configuration guide](/developers/sdk/ios/getting-started/#event-upload-interval) for more information on how events are persisted and uploaded.
+See the [Events API](/developers/server/http/) for more information on the schema of mParticle batch uploads, and see the [iOS SDK configuration guide](/developers/sdk/ios/configuration/#event-upload-interval) for more information on how events are persisted and uploaded.
 
 ## Event Types
 
