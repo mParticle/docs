@@ -31,7 +31,7 @@ Smartype does the following with this:
 Smartype supports the following SDKs and language environments today:
 
 1. Any JVM environment:
-    - [mParticle Android SDK](/developers/sdk/android/getting-started/)
+    - [mParticle Android SDK](/developers/quickstart/android/overview/)
     - [mParticle Java SDK](https://github.com/mParticle/mparticle-java-events-sdk)
 2. [mParticle Apple SDK](/developers/quickstart/ios/overview/)
 3. Web browsers via TypeScript and JavaScript

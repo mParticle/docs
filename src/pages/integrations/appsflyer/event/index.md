@@ -95,8 +95,7 @@ Refer to the [Apple SDK](/developers/sdk/ios/kits/) and [Android SDK](/developer
 
 AppsFlyer's SDK requires the forwarding of the Google Play Install Referrer Intent. The AppsFlyer kit will take care of this for you as long as you've added mParticle's `ReferrerReceiver` to you manifest, or you are manually forwarding the Intent to our `ReferrerReceiver` class. The mParticle SDK will then forward the Install Referrer intent to each configured kit, including AppsFlyer.
 
-Please see the [Android SDK setup guide](/developers/sdk/android/getting-started/#google-play-install-referrer) to ensure your manifest is configured properly.
-
+Please see the [Android SDK setup guide](/developers/sdk/android/initialization/#google-play-install-referrer) to ensure your manifest is configured properly.
 
 ## Deep Linking and Attribution
 

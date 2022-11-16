@@ -103,7 +103,8 @@ Google allows Android users to opt out from sharing their devices' advertising I
 
 If you don't see data appearing in the Live Stream within the first few minutes after opening a development build:
 * Check that you have copied your Key and Secret correctly
-* Check that you have properly included the mParticle SDK in your project and it is correctly initialized. The necessary steps will differ depending on the platform. Check our [iOS](/developers/sdk/ios/initialization/), [Android](/developers/sdk/android/getting-started/) and [Web](/developers/sdk/web/initialization/) docs for more.
+* Check that you have properly included the mParticle SDK in your project and it is correctly initialized. The necessary steps will differ depending on the platform. Check our [iOS](/developers/quickstart/ios/overview/), [Android](/developers/quickstart/android/overview/) and [Web](/developers/quickstart/web/overview/) docs for more.
+
 
 ## Next Steps
 

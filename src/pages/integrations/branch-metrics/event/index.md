@@ -46,7 +46,7 @@ In order to activate mParticle's integration with Branch, you will need to have 
 
 ![Branch API Key](/images/branch-apikey.png)
 
-Branch is integrated with mParticle via the Branch Kits on iOS and Android. In order to use it, you must add the Branch kit to your project. See the [getting started section](/developers/sdk/android/getting-started/#kits) for how to add individual kits. In order to test your Branch integration, be sure that the mParticle SDK is running in development mode, and that you've configured your Branch test API key in the development-mode settings for your app in the mParticle dashboard. The mParticle SDK will automatically use the right key to initialize the Branch SDK for you.
+Branch is integrated with mParticle via the Branch Kits on iOS and Android. In order to use it, you must add the Branch kit to your project. See the [getting started section](/developers/sdk/android/initialization/#kit-integrations) for how to add individual kits. In order to test your Branch integration, be sure that the mParticle SDK is running in development mode, and that you've configured your Branch test API key in the development-mode settings for your app in the mParticle dashboard. The mParticle SDK will automatically use the right key to initialize the Branch SDK for you.
 
 ## Forwarding Data to Branch
 

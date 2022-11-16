@@ -17,7 +17,7 @@ When the SDK performs an upload it does so as a "batch" of data which contains:
 - an "application info" object containing application metadata such as app version
 
 
-Please see the [events API reference](/developers/server/) for more information on the schema of mParticle batch uploads, and see the [Android SDK configuration guide](/developers/sdk/android/getting-started/#event-upload-interval) for more information on how events are persisted and uploaded.
+Please see the [events API reference](/developers/server/) for more information on the schema of mParticle batch uploads, and see the [Android SDK configuration guide](/developers/sdk/android/configuration/) for more information on how events are persisted and uploaded.
 
 ## Event Types
 

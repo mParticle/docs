@@ -16,7 +16,7 @@ The mParticle Media SDK is compatible with [Adobe Analytics for Media](https://d
 
 ### Add the SDK
 
-Before you can begin using the Media SDK, you need to have a working instance of the mParticle core SDK. Please see the [core SDK getting started](/developers/sdk/android/getting-started/) section for more details.
+Before you can begin using the Media SDK, you need to have a working instance of the mParticle core SDK. Please see the [core SDK getting started](/developers/quickstart/android/overview/) section for more details.
 
 ```groovy
 dependencies {

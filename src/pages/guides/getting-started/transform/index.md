@@ -14,7 +14,7 @@ This guide has [already covered](/guides/getting-started/start-capturing-data/#c
 For most mParticle clients, the primary sources of data are native and web apps, instrumented with the mParticle SDK, but you can also use mParticle to leverage other sources of data to build a more complete picture of your users:
 
 * The [Events API](/developers/server/http/) can be used to send supplementary server-side data.
-* Our main [Apple](/developers/quickstart/ios/overview/) and [Android](/developers/sdk/android/getting-started/) SDKs can also be instrumented in AppleTV and FireTV apps, and we publish independent SDKs for [Roku](/developers/sdk/roku/getting-started/) and [Xbox](/developers/sdk/uwp/getting-started/).
+* Our main [Apple](/developers/quickstart/ios/overview/) and [Android](/developers/quickstart/android/overview/) SDKs can also be instrumented in AppleTV and FireTV apps, and we publish independent SDKs for [Roku](/developers/sdk/roku/getting-started/) and [Xbox](/developers/sdk/uwp/getting-started/).
 * If you use a cross-platform development framework, you can use our libraries for [React Native](/developers/sdk/react-native/getting-started/), [Xamarin](/developers/sdk/xamarin/getting-started/), [Unity](/developers/sdk/unity/getting-started/), and [Cordova](/developers/sdk/cordova/getting-started/) to interface with our native SDKs.
 * Use Feeds to bring in data from other services.
 

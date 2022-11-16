@@ -181,7 +181,7 @@ class ExampleApplication : Application() {
 
 > **Warning:** Don't log events in `Application.onCreate()`. If you do, Android may instantiate `Application` class for many reasons, in the background, while the user isn't even using their device. 
 > 
-For more help, see [the full Android set up docs](https://docs.mparticle.com/developers/sdk/android/getting-started/#create-an-input).
+For more help, see [the full Android set up docs](/developers/sdk/android/initialization/).
 
 </tab>
 
