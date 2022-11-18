@@ -102,7 +102,7 @@ Custom roles are visible across an entire mParticle organization, even though th
 
 When creating a new role, a new role ID is generated and assigned to a role after a successful upload. If you are modifying an existing role, make sure the `role_id` in the new manifests matches the `role_id` of the corresponding role in the old manifest. Otherwise a new `role_id` will create a new role.
 
-The `user:core` permission is included with every custom role object in your manifest. This permission is necessary for users to be able to log in and view the mParticle dashboard.
+The `user:core` permission is included with every custom role object in your manifest. This permission is necessary for users to be able to log in and view the mParticle dashboard in addition to other basic tasks.
 
 ## View tasks
 
@@ -246,8 +246,6 @@ curl --location --request PUT 'https://api.mparticle.com/platform/v2/organizatio
                 }
             ]
         }
-    ],
-    "version": 1
 }'
 ```
 
@@ -394,13 +392,17 @@ To assign a custom access role that you have already created and uploaded to you
 
 Below is a list of the mParticle features with all available permissions and corresponding task IDs for each feature. Use this reference when creating or modifying a custom role.
 
-### Required Core User Permission
+### Default Permissions
 
-The `user:core` permission is mandatory for users to log in to mParticle and to view the main dashboard. It is required for **all** custom roles and must be included with each custom role definition you create.
+The following permissions are included with every custom role by default.
 
-| Permission | Task ID | Description |
+| Permission | Description |
 | - | - | - |
-| Log in and view dashboard | `user:core` | The minimum permission level required to access mParticle. A custom role cannot be created without this permission |
+| View only | View the [system alerts](/guides/platform-guide/activity/#system-alerts) dashboard and alerts for each connection. |
+| View only | View the [Event Forwarding](/guides/platform-guide/activity/#event-forwarding) report for details about inbound and outbound data.  |
+| View only | View the [Data Master Catalog](/guides/data-master/catalog/) and annotate data points. |
+| View only | View available integrations in the [Integrations Directory](/integrations/). |
+| Log in and view dashboard | The `user:core` permission is mandatory for users to log in to mParticle and to view the main dashboard. It is required for **all** custom roles and is automatically included with each custom role definition you create. |
 
 ### User Activity View (UAV)
 
@@ -410,29 +412,12 @@ The [User Activity View](/guides/platform-guide/activity/#user-activity) provide
 | - | - | - |
 | View only | `user_activity:view` | Search for any user and view their associated user details, workspace usage, device info, attributes, and audience membership |
 
-### System Alerts
-
-[Systerm Alerts](/guides/platform-guide/activity/#system-alerts) provides a report of any errors returned when forwarding data to connections.
-
-| Permission | Task ID | Description |
-| - | - | - |
-| View only | `system_alerts:view` | View system alerts dashboard and alerts for each connection. **Included by default.** |
-
-### Event Forwarding
-
-The [Event Forwarding](/guides/platform-guide/activity/#event-forwarding) report provides detailed information about all incoming data from your inputs and all data forwarded to any outputs.
-
-| Permission | Task ID | Description |
-| - | - | - |
-| View only | `event_forwarding:view` | View summary of and details about inbound and outbound data. **Included by default.** |
-
 ### Data Master Catalog
 
 The [Data Master Catalog](/guides/data-master/catalog/) provides a view of every event, attribute, and identity collected in your mParticle workspace.
 
 | Permission | Task ID | Description |
 | - | - | - |
-| View only | `catalog:view` | View the Data Master Catalog, annotate data points, and modify [event tiers](/guides/platform-guide/tiered-events/). **Included by default.** |
 | Full access | `catalog:*` | View the Data Master Catalog and annotate data points |
 
 ### Data Plans
@@ -508,14 +493,6 @@ The [Data Master Catalog](/guides/data-master/catalog/) provides a view of every
 | View only | `privacy:settings` | View enabled privacy setings |
 | Full access | `privacy:*` | View and modify privacy settings |
 
-### Integrations Directory
-
-The [Integrations Directory](/integrations/) is a list of all available integrations you can create a connection with.
-
-| Permission | Task ID | Description |
-| - | - | - |
-| View only | `directory:view` | View available integrations. **Included by default.** |
-
 ### Workspaces
 
 [Workspaces](/guides/platform-guide/introduction/#workspaces) are the basic containers for the domains or properties that act as data sources. 
@@ -557,12 +534,12 @@ The [API Credentials](/developers/credential-management/) interface allows you t
 | Custom Roles | 100 roles per organization | You can't create more than 100 custom roles per organization. If your business requires more than 100 custom roles, contact your mParticle account representative. |
 | Requests per min | 100 requests per minute| If you exceed 100 requests per minute to the Custom Roles API, you will receive a `429 Too Many Requests` response. |
 | RoleId | 64 characters | A custom role ID can't exceed 64 characters. This field is required for all roles and is provided by the user.|
-| Name | 64 characters | A custom role name can't exceed 64 characters. This field, which sets the display name for the role, is required for all roles |
+| Name | 64 characters | A custom role name can't exceed 64 characters. This field, which sets the display name for the role, is required for all roles. |
 | Description | 256 characters | A custom role description can't exceed 256 characters. |
 
 ## Error handling
 
-Below are the errors that can be encounted when uploading or modifying a custom role manifest.
+The following errors sometimes occur when uploading or modifying a custom role manifest.
 
 | Response code | Error message | Description |
 | --- | --- | --- |
