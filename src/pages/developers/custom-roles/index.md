@@ -397,7 +397,7 @@ Below is a list of the mParticle features with all available permissions and cor
 The following permissions are included with every custom role by default.
 
 | Permission | Description |
-| - | - | - |
+| - | - |
 | View only | View the [system alerts](/guides/platform-guide/activity/#system-alerts) dashboard and alerts for each connection. |
 | View only | View the [Event Forwarding](/guides/platform-guide/activity/#event-forwarding) report for details about inbound and outbound data.  |
 | View only | View the [Data Master Catalog](/guides/data-master/catalog/) and annotate data points. |
