@@ -91,6 +91,10 @@ These decisions drive your implementation.
 
 ### Create an audience
 
+Before you create your first audience, the following video may help you understand the overall process:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/w5ex3tyd9z" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
+
 To create an audience:
 
 1. Select **Audiences** from the main navigation, and then select **Single Workspace**, or **Multi Workspace** if your input sources are in multiple workspaces, and click **New Audience**.
@@ -108,6 +112,12 @@ To create an audience:
 4. Click the **Create** button. The screen refreshes with the new Audience added to the list of audiences and the **Audience Details** screen shown. If you are ready to define the audience, continue in the next section. Otherwise, click **Save as Draft**.
 
 This screen shows a single Workspace Audience. Clicking the **Multiple Workspace Audience** selection from the main navigation shows a dialog asking if you would like to switch to the **Multiple Audience Workspace** screen.
+
+### Example: Audience Suppression
+
+The following video shows how to create an audience that excludes users from a particular campaign or from all campaigns:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/dl9lajg851" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
 
 ### Define audience criteria
 
@@ -248,7 +258,7 @@ From here you can define how long to wait without seeing a [purchase event](../.
 
 ### Set up an audience output
 
-The next step is to connect the audience to an output service that can use the data.  See our [Integrations](/integrations/) directory for a full list of output options.  
+The next step is to connect the audience to an output service that can use the data.  See our [Integrations](/integrations/) directory for a full list of output options.
 
 To add an audience output:
 
@@ -269,7 +279,6 @@ To add an audience output:
 
 
    You can update your configurations at any time by navigating to **Setup > Outputs**, and selecting **Audience Configurations**.
-
 
 ### Connect an audience
 
@@ -313,6 +322,12 @@ User profiles can contain data -- including identities -- collected from multipl
 You have created 2 workspaces in your account to track activity for two related apps, App A and App B. User John Smith signs up for both apps, using the email address `john.smith@example.com`. However, he uses his iPad for App A and his iPhone for App B. This means that there are two different IDFA identities associated with John Smith's profile. (note: read our [IDSync](/guides/idsync/introduction) documentation to understand more about how profiles with multiple identities are managed).
 
 You create an audience in the App A workspace, and your criteria match John Smith's user profile. When you connect that audience to an output that accepts IDFAs, mParticle will forward both of John Smith's IDFAs.
+
+### Common settings
+
+The following video explains some of the common settings you use when creating an audience.
+
+<p><iframe src="//fast.wistia.com/embed/iframe/llj07ml3hj" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
 
 ## Audience A/B testing
 

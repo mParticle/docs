@@ -3,6 +3,8 @@ title: Start capturing data
 order: 2
 ---
 
+After you create an input, you can begin capturing data.
+
 ## Prerequisites
 
 Before you start this activity, you should have already:

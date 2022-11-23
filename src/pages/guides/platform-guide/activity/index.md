@@ -3,7 +3,12 @@ title: Activity
 order: 3
 ---
 
-The Activity section of the mParticle platform allows you to view information about your event data.   
+The Activity section of the mParticle platform allows you to view information about your event data. 
+
+The following video provides an overview of the Activity dashboard:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/2b9a815njc" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
+
 
 ## Overview
 

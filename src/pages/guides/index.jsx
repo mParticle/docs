@@ -145,6 +145,12 @@ const Links = [
         content: 'List of mParticle-specific terms and definitions.',
         links: [{}],
     },
+    {
+        route: 'video-index',
+        title: 'Video Index',
+        content: 'List of embedded videos.',
+        links: [{}],
+    },
 ];
 
 const Guides = (props) => (

@@ -3,13 +3,13 @@ title: Data Filter
 order: 5
 ---
 
-<div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xXbY2B4wd48" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
 A key benefit of mParticle is the ability to collect your data only once, no matter how many places you need to use it. However, you probably don't want _all_ of your data going to every output service you use. For this reason, mParticle provides the Data Filter as a simple way to control the flow of data to your outputs.
 
 The Data Filter displays a complete list of all data points (a data point can be an event, an attribute of a user or event, or a user identifier) collected in your workspace, and allows you to disable forwarding of any individual data point to any of your output services.
+
+The following video explains data filtering in mParticle:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/xeh6qoaiqw" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
 
 ## Find Your Data Points
 

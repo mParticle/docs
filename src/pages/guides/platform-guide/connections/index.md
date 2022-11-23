@@ -33,6 +33,10 @@ Each output has its own requirements, so the process for setting up each connect
 
 ### Create a Connection
 
+Data flows once an input and output are connected and the connection is active. For an overview before you create your first connection, view the following video:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/r0cpnre540" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
+
 **1. Select an input**
 
 1. Navigate to **Connections > Connect** in the mParticle UI.
@@ -48,6 +52,10 @@ Once you have an input selected, you can set up transformations that are applied
 **3. Select an Output**
 
 Once you have selected an input, you will see a list of available outputs that can receive data from your selected input. If this list is empty, go to **Setup > Outputs** to create some outputs.
+
+The following video shows how to create an output:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/2ln4bc5h99" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
 
 The mParticle UI may indicate that you need or may need to add a reference to a kit in your platform dependency configuration. You can do this after you create the connection but before you change the *Connection Status* to active. See [Add a Kit](#add-a-kit) for more information.
 
@@ -243,3 +251,9 @@ The documentation for each integration will tell you what you need to know about
 mParticle provides many opportunities to transform and enrich your data. It is often possible to perform the same transformation in more than one place. For example, if you wanted to drop all Application State Transition events for a given output, you could use the event filter, or you could write a condition in an output rule. There are advantages to each choice. The event filter can be used by anyone with the appropriate access to your organization in the mParticle Dashboard, so it is easy to update and maintain. Writing a rule gives you much finer control over your data, but rules may be difficult for non-developers to understand or alter.
 
 Make the necessary transformations to your data in as few steps as possible. The fewer times you alter your data, the easier your integration will be to troubleshoot and maintain.
+
+## More Help
+
+To find out more about event integrations in mParticle, view the following video:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/wn6w7dmshc" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>

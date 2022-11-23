@@ -3,6 +3,10 @@ title: Connect an Event Output
 order: 3
 ---
 
+To learn more about event outputs before creating your first one, view the following video:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/2ln4bc5h99" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
+
 ## Prerequisites
 
 Before you start this activity, you should have already:

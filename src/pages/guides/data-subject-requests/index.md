@@ -88,6 +88,11 @@ You have the option to include a copy of the live user profile in access/portabi
 
 ![](/images/privacy-settings.png)
 
+The following video explains how to use consent to control data forwarding with mParticle:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/lok4iclzb7" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
+
+
 ### Develop a strategy for accepting Data Subject Requests
 
 As a Data Processor, mParticle will match user profiles for a Data Subject Request based on any identities we are given. As a Data Controller, it is your responsibility to determine how to accept and forward Data Subject Requests in order to best meet your GDPR responsibilities and manage risk. This decision should be managed in conjunction with your Identity Strategy.

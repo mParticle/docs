@@ -15,6 +15,10 @@ Calculated attributes provide value in many ways:
 * Helping marketers, product managers and data scientists better understand customer behavior and interactions with their brand
 * Standardizing calculated values across the entire marketing and analytics stack, across platforms and tools
 
+The following video explains how calculated attributes help you quickly generate customer insights without needing any developer resources:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/2qrvmnr13p" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
+
 ## Calculated Attributes Basics
 
 A calculated attribute contains the following elements that you define:
@@ -56,6 +60,10 @@ We currently support 13 calculations organized into four groups:
 * **List**: calculate the unique list of values for an event attribute. For example, all the unique game titles played or unique product categories viewed.
 
 For a list of calculations and details about each, see [Calculated Attributes Reference](/guides/platform-guide/calculated-attributes/reference/).
+
+For an overview of how to use calculation types, view the following video:
+
+<p><iframe src="//fast.wistia.com/embed/iframe/eyyuf9s3r4" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
 
 ### Calculation Date Range
 

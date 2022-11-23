@@ -3,6 +3,8 @@ title: Connect an Audience Output
 order: 5
 ---
 
+To forward data out of mParticle, you must create and connect and audience output.
+
 ## Prerequisites
 
 Before you start this activity, you should have already [created an audience](/guides/getting-started/create-an-audience).
