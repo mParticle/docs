@@ -38,7 +38,7 @@ In this journey, all high-value customers are sent an email, and then all of the
 * The audience size is being estimated. The size after audience calculation is complete is displayed in the same location.
 * Notice the branch symbol above each milestone. This symbol appears every time you create a milestone. Click it to create a remaining user split.
 
-### Remaining User Split
+### Remaining user split
 
 Each time you create a milestone, you have the option of creating a split milestone for all the users who don't meet that milestone criteria, called the remaining users split. 
 
@@ -47,6 +47,36 @@ For example, assume that your users can register their consent to receive email.
 ![img of a journey with one milestone and one remaining user milestone](/images/journeys/one-milestone.png)
 
 This is an easy way to define actions for the full remainder of users who don't meet the criteria for a particular milestone.
+
+### Remaining user split examples
+
+The following three examples show the many different ways you can use a remaining user split in journeys.
+
+#### Use predictions to reduce churn and vary customer communications
+
+Powered by Cortex, customer-centric teams can predict a user’s likelihood to churn. Using that prediction, teams can deliver a unique set of experiences for users who have a high likelihood to churn.
+
+![img workflow for this example](/images/journeys/ai-use-case.png)
+    
+In this example, a brand engages high-churn risk users on multiple channels to ensure they get the message. In addition, the brand sets up a fail safe for the remaining users, those who didn’t open any emails, engaging them over SMS.
+
+#### Engage customers in the right channel based on customer consent
+
+One key piece of user preference is their consent status, what they've told the brand about how they want their data to be used for marketing purposes.
+
+![img workflow for this example](/images/journeys/compliance-use-case.png)
+   
+In this example, an eCommerce retailer delivers two different kinds of experiences based on a user's consent to GDPR. 
+   
+For example, if users have consented, the retailer retargets the user on paid media, showcasing the abandoned product as a reminder to convert. For the remaining users, those who have not consented, the retailer triggers an onsite coupon if the user returns after several days.
+
+#### Trigger post-purchase sequences based on a customer's lifetime value
+
+For many retailers, a user’s purchase of a product is just the beginning of the relationship between the customer and the brand. After a purchase, the retailer can suggest to the customer many possible next steps to prolong and deepen that relationship: purchasing more products, leaving a review, referring a friend, posting on social media, and more.
+
+![img workflow for this example](/images/journeys/user-context-use-case.png)
+    
+In this example, retailers trigger the next best step based on a user’s lifetime value.  For high LTV customers, brands can assume that they’re fans of the brand, and would be more willing to refer a friend. If the retailer knows a loyal customer’s preferred engagement channel, they can communicates with them there. For the remaining users, those who are not high LTV customers, a retailer can recommend products that pair well with the one that a customer just purchased. 
 
 ### Audience estimator
 
