@@ -39,23 +39,24 @@ See the [validation section](#json-schema-validation) for more information on us
     "ip" : "172.217.12.142"
 }
 ~~~
+All properties are optional and support both input and output unless specified otherwise in the Description.
 
-Property | Data Type  | Input/Output | Required | Description
-|---|---|---|---|---
-events  | array | Both | optional | An array of JSON objects, each representing an [event](#events). The event object consists of two nodes: `data`, and `type`.  The type indicates the entity structure of the data node.
-schema_version | integer | Output | optional | Indicates the current schema version that this message batch conforms to.  mParticle  is currently on version 2.
-device_info | object  | Both | optional | A JSON object containing information about the device pertaining to this message batch.
-application_info | object | Both | optional | A JSON object of information about your app.
-source_request_id | string  | Both | optional | A value to uniquely identify this request. This is used to deduplicate inbound requests.  De-duplication is scoped by API key, found in Organization/Account/Workspace/Inputs, and remains in the system for enforcement anywhere from 30-60 days.  Any valid string is accepted.
-user_attributes | Object map of string key-value pairs  | Both | optional | A JSON object of demographic information about the user that generated the app events.
-deleted_user_attributes  | string array | Both  | optional | An array of JSON strings describing previously provided user attributes which should be forgotten.
-user_identities | Object map of string key-value pairs  |Both  |optional | A JSON object of user ID information, such as email address and social IDs.
-partner_identities | Object map of string key-value pairs  |Both  |optional | A JSON object of partner identities.
-integration_attributes | Object maps of string key-value pairs, indexed by module |Both  |optional | A JSON object of integration attributes by module.
-environment | enum string | Both | required | "production" or "development"
-context | object | Both | optional | Data planning and location information
-mpid | long | Both | optional | If known, this is the unique mParticle identifier for the user, calculated based on user and device identities in the batch, according to your [Identity Strategy](https://docs.mparticle.com/guides/idsync/introduction).
-ip | string  |Input | optional  | The IPv4 / IPv6 address of the consumer device
+Property | Data Type | Description |
+|---|---|---|
+events  | array | An array of JSON objects, each representing an [event](#events). The event object consists of two nodes: `data`, and `type`.  The type indicates the entity structure of the data node.
+schema_version | integer | **Output only.** Indicates the current schema version that this message batch conforms to.  mParticle  is currently on version 2.
+device_info | object | A JSON object containing information about the device pertaining to this message batch.
+application_info | object | A JSON object of information about your app.
+source_request_id | string | A value to uniquely identify this request. This is used to deduplicate inbound requests.  De-duplication is scoped by API key, found in Organization/Account/Workspace/Inputs, and remains in the system for enforcement anywhere from 30-60 days.  Any valid string is accepted.
+user_attributes | object map | String key-value pairs of demographic information about the user that generated the app events.
+deleted_user_attributes  | string array | An array of JSON strings describing previously provided user attributes which should be forgotten.
+user_identities | object map | String key-value pairs of user ID information, such as email address and social IDs.
+partner_identities | object map | String key-value pairs of partner identities.
+integration_attributes | object map | String key-value pairs of integration attributes indexed by module.
+environment | enum string | **Default value:** `production`. Must be either "production" or "development."
+context | object | Data planning and location information.
+mpid | long | If known, the unique mParticle identifier for the user, calculated based on user and device identities in the batch, according to your [Identity Strategy](https://docs.mparticle.com/guides/idsync/introduction).
+ip | string | **Input only.** The IPv4 / IPv6 address of the consumer device.
 
 ## `events`
 

@@ -85,43 +85,41 @@ To support refund events, Snapchat recommends using our [Custom Event Mappings](
 In order to support alternative Snapchat event types that don't map one-to-one with mParticle events, we allow customers to manually configure [Custom Mappings](/guides/platform-guide/connections/#custom-mappings) for a particular connection within our UI.
 This feature allows incoming mParticle events to be mapped to known Snapchat event types, including with specific attributes and outgoing parameters.
 
-Some of the Snapchat event types that can be mapped to include:
+The following Snapchat events support the properties `description` and `event_tag`. Additional supported properties are listed after each event.
 
 * `ACHIEVEMENT_UNLOCKED`
 * `ADD_BILLING`
+* `ADD_CART`:  `item_category`, `item_ids`, `number_items`, `price`, `currency`
+* `ADD_TO_WISHLIST`
+* `AD_CLICK`
+* `AD_VIEW`
+* `APP_INSTALL`
+* `APP_OPEN`
 * `COMPLETE_TUTORIAL`
 * `INVITE`
-* `LEVEL_COMPLETE`
+* `LEVEL_COMPLETE`: `level`
 * `LIST_VIEW`
 * `LOGIN`
+* `PAGE_VIEW`
+* `PURCHASE`:  `item_category`, `item_ids`, `number_items`, `price`, `currency`, `transaction_id`
 * `RATE`
 * `RESERVE`
 * `SAVE`
-* `SEARCH`
+* `SEARCH`: `search_string`
 * `SHARE`
-* `SIGN_UP`
+* `SIGN_UP`: `sign_up_method`
 * `SPENT_CREDITS`
+* `START_CHECKOUT`: `number_items`, `price`, `currency`
 * `START_TRIAL`
 * `SUBSCRIBE`
+* `VIEW_CONTENT`: `number_items`, `price`, `currency`
 * `CUSTOM_EVENT_1`
 * `CUSTOM_EVENT_2`
 * `CUSTOM_EVENT_3`
 * `CUSTOM_EVENT_4`
 * `CUSTOM_EVENT_5`
 
-##### Suggested Properties for Snapchat Event Types
-
-All Snapchat event types support the properties `description` and `event_tag`. Custom events support all properties. In addition, the following event types support additional properties:
-
-|| item_category | item_ids | number_items | price | currency | transaction_id | level | search_string | sign_up_method |
-| :-- | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| **ADD_CART** | X | X | X | X | X |||||
-| **LEVEL_COMPLETE** ||||||| X |||
-| **PURCHASE** | X | X | X | X | X | X ||||
-| **SEARCH** |||||||| X ||
-| **SIGN_UP** ||||||||| X |
-| **START_CHECKOUT** ||| X | X | X |||||
-| **VIEW_CONTENT** ||| X | X | X |||||
+Custom events support all properties.
 
 ### Additional Features
 
@@ -151,17 +149,17 @@ The [Snapchat Conversions API Guide](https://marketingapi.snapchat.com/docs/conv
 
 mParticle sends a variety of user data fields to Snapchat for advanced matching.
 
-| mParticle Field                                                                               | Snapchat Field        | Description                                                                | Required                                                                        |
-|-----------------------------------------------------------------------------------------------|-----------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| app_info.os                                                                                   | event_conversion_type | Either `WEB`, `MOBILE_APP`, or `OFFLINE`                                   | Yes                                                                             |
-| event_type                                                                                    | event_type            | Set depending on the incoming event type.                                  | Yes                                                                             |
-| timestamp_unixtime_ms                                                                         | timestamp             | Event timestamp. This must be in millisecond resolution (ex.1455236520490) | Yes                                                                             |
-| user_identities.email                                                                         | hashed_email          | Lowercase SHA256 hash of normalized email.                                 | Events without either email, phone number, or IP & user agent will be rejected. |
-| user_identities.mobile_number, user_identities.phone_number_2, user_identities.phone_number_3 | hashed_phone_number   | Lowercase SHA256 hash of normalized phone number.                          | Events without either email, phone number, or IP & user agent will be rejected. |
-| ip                                                                                            | hashed_ip_address     | Lowercase SHA256 hash of the IP address associated with the event batch.   | Events without either email, phone number, or IP & user agent will be rejected. |
+| mParticle Field                                                                               | Snapchat Field        | Description                                                                | 
+|-----------------------------------------------------------------------------------------------|-----------------------|----------------------------------------------------------------------------|
+| app_info.os                                                                                   | event_conversion_type | Required. Either `WEB`, `MOBILE_APP`, or `OFFLINE`                         | 
+| event_type                                                                                    | event_type            | Required. Set depending on the incoming event type.                        |
+| timestamp_unixtime_ms                                                                         | timestamp             | Required. Event timestamp. This must be in millisecond resolution (ex.1455236520490) |
+| user_identities.email                                                                         | hashed_email          | Lowercase SHA256 hash of normalized email. Events without either email, phone number, or IP & user agent are rejected. |
+| user_identities.mobile_number, user_identities.phone_number_2, user_identities.phone_number_3 | hashed_phone_number   | Lowercase SHA256 hash of normalized phone number. Events without either email, phone number, or IP & user agent are rejected. |
+| ip                                                                                            | hashed_ip_address     | Lowercase SHA256 hash of the IP address associated with the event batch. Events without either email, phone number, or IP & user agent are rejected. |
 | device_info.http_header_user_agent                                                            | user_agent            | The user agent associated with the event batch.                            | Events without either email, phone number, or IP & user agent will be rejected. |
-| device_info.ios_advertising_id, device_info.android_advertising_id                            | hashed_mobile_ad_id   | Lowercase SHA256 hash of normalized MAID (IDFA or AAID).                   | No                                                                              |
-| device_info.ios_idfv                                                                          | hashed_idfv           | Lowercase SHA256 hash of normalized IDFV.                                  | No                                                                              |
+| device_info.ios_advertising_id, device_info.android_advertising_id                            | hashed_mobile_ad_id   | Optional. Lowercase SHA256 hash of normalized MAID (IDFA or AAID).         |
+| device_info.ios_idfv                                                                          | hashed_idfv           | Optional. Lowercase SHA256 hash of normalized IDFV.                          |
 
 ## Settings
 
@@ -172,17 +170,21 @@ If there's any inconsistency between the API token and Snap App ID or Pixel ID, 
 
 ### Configuration Settings
 
-| Setting Name          | Data Type | Required | Encrypted | Default      | Description                                                                                                                                                                |
-|-----------------------|-----------|----------|-----------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Conversions API Token | `string`  | True     | True      | null         | Long lived token used by Snapchat for authentication.                                                                                                                      |
-| Snap App ID           | `string`  | True     | False     | null         | The Snap App ID associated with your app (a unique code generated in Snap Ads Manager and included in your MMP dashboard). Example: `07b517bb-9cdb-42ef-ba77-9dd9a9eb2dc1` |
-| Phone Number          | `string`  | True     | False     | MobileNumber | The mParticle User Identity type to forward as a `hashed_phone_number` to Snapchat.                                                                                        |
+The following settings are all required, and all `string` data type.
+
+| Setting Name          | Encrypted | Description  |
+|-----------------------|-----------|--------------|
+| Conversions API Token | True      | Default is null. Long-lived token used by Snapchat for authentication.                                                                                                                      |
+| Snap App ID           | False     | Default is null. The Snap App ID associated with your app (a unique code generated in Snap Ads Manager and included in your MMP dashboard). Example: `07b517bb-9cdb-42ef-ba77-9dd9a9eb2dc1` |
+| Phone Number          | False     | Default is MobileNumber. The mParticle User Identity type to forward as a `hashed_phone_number` to Snapchat.                                                                                |
 
 ### Connection Settings
 
-| Setting Name    | Data Type | Platform        | Required                         | Description                                                                                                                                |
-|-----------------|-----------|-----------------|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Apple App Id    | `string`  | iOS             | True                             | The unique iOS App Id assigned to a given Snap App. It should be numeric. Example: `447188370`                                             |
-| Android App URL | `string`  | Android         | True                             | The unique Android App URL assigned to a given Snap App. It should be a human interpretable string.  Example: `com.snapchat.android`       |
-| App Id          | `string`  | Data Feeds      | False                            | The iOS App ID or Android App URL assigned to a given Snap app. If set, don't set Pixel ID. Example: `447188370` or `com.snapchat.android` |
-| Pixel Id        | `string`  | Web, Data Feeds | Web: `True`, Data Feeds: `False` | The Pixel ID for the Ad Account in question. Example: `f5932083-b4da-436e-b63c-94b659dde332`                                               |
+The following settings are all `string` data type.
+
+| Setting Name    | Platform        | Description                                                                                                                                |
+|-----------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Apple App Id    | iOS             | Required. The unique iOS App Id assigned to a given Snap App. It should be numeric. Example: `447188370`                                             |
+| Android App URL | Android         | Required. The unique Android App URL assigned to a given Snap App. It should be a human interpretable string.  Example: `com.snapchat.android`       |
+| App Id          | Data feeds      | Optional. The iOS App ID or Android App URL assigned to a given Snap app. If set, don't set Pixel ID. Example: `447188370` or `com.snapchat.android` |
+| Pixel Id        | Web, data feeds | Optional for data feeds, required for Web. The Pixel ID for the Ad Account in question. Example: `f5932083-b4da-436e-b63c-94b659dde332`              |

@@ -41,33 +41,18 @@ mParticle supports standard event mappings for the following Snapchat event type
 
 ## Custom Mappings
 
-In addition to the above events, you can also create [Custom Mappings](/guides/platform-guide/connections/#custom-mappings) for the following Snapchat events:
+In addition to the above events, you can also create [Custom Mappings](/guides/platform-guide/connections/#custom-mappings) for the following Snapchat events. These events all support the Snapchat attributes `category`, `category_id`, `content_id`, `content_type`, and  `description`. Some events support additional attributes as listed:
 
 * `ADD_BILLING`
-* `ADD_CART`
-* `LEVEL_COMPLETE`
+* `ADD_CART`: `currency`, `number_items`, `price`
+* `LEVEL_COMPLETE`: `level`
 * `PAGE_VIEW`
-* `PURCHASE`
+* `PURCHASE`: `currency`, `number_items`, `price`
 * `SAVE`
-* `SEARCH`
-* `SIGN_UP`
-* `START_CHECKOUT`
-* `VIEW_CONTENT`
-
-Supported custom_mappings by Snapchat events
-
-|| category | category_id | content_id | content_type | currency | description | level | number_items | price | search_string | sign_up_method |
-| :-- | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| **ADD_BILLING** | X | X | X | X || X ||||||
-| **ADD_CART** | X | X | X | X | X | X || X | X |||
-| **LEVEL_COMPLETE** | X | X | X | X || X | X |||||
-| **PAGE_VIEW** | X | X | X | X || X ||||||
-| **PURCHASE** | X | X | X | X | X | X || X | X |||
-| **SAVE** | X | X | X | X || X ||||||
-| **SEARCH** | X | X | X | X || X |||| X ||
-| **SIGN_UP** | X | X | X | X || X ||||| X |
-| **START_CHECKOUT** | X | X | X | X | X | X || X | X |||
-| **VIEW_CONTENT** | X | X | X | X | X | X || X | X |||
+* `SEARCH`: `search_string`
+* `SIGN_UP`:  `sign_up_method`
+* `START_CHECKOUT`: `currency`, `number_items`, `price`
+* `VIEW_CONTENT`: `currency`, `number_items`, `price`
 
 ## Event Data Mapping
 
@@ -85,34 +70,34 @@ The SnapChat `att_status` is set based on platform and os_version as follows:
 
 mParticle will send a variety of user data fields to SnapChat for advanced matching.
 
-| mParticle Field | SnapChat Field | Description | Required |
-| --- | --- | --- | --- |
-| N/A | partner | This is sent as `mparticle`.| X |
-| device_info.platform | platform | ios or android | X |
-| application_info.package | app_id | If platform is `ios`, the `Apple App Id` connection setting value is used.  If platform is `android`, the value will be set using the  `package` field of [application_info](developers/server/json-reference/#application_info) |  X |
-| device_info.ios_advertising_id, device_info.android_advertising_id | device_id |  If platform is `ios`, IDFA.  If platform is `android`, Google Advertisting ID. | X |
-| device_info.limit_ad_tracking | limit_ad_tracking | Denotes if limit ad tracking is on; 1 for on, and 0 for off. | X |
-| event_type | conversion_event |  | X |
-| timestamp_unixtime_ms | conversion_ts | Conversion timestamp.This must be in millisecond resolution (ex.1455236520490). | X |
-| commerce_event.product_action.products | number_items | The value is the sum of the products. | |
-| commerce_event.product_action.total_amount | price | It's going to be a negative number if it's a refound (refound values is based on `commerce_event.product_action.action`)  | |
-| commerce_event.currency_code | currency | Currency in standard ISO 4217 code (ex.EUR,USD,JPY).Required if price is included. | |
-| device_info.ios_idfv | idfv | If platform is `ios`, plain text IDFV is sent. | |
-| device_info.ios_idfv | hashed_idfv | SHA-256(LowerCase(IDFV)). | |
-| device_info.product | device_model | URL encoded device model | |
-| device_info.os_version | os_version | Operating system version number | |
-| ip | ip_address | Hashed IP Address (SHA-256) of origin | |
-| ip | plaintext_ip | Plain text IP address of origin [IPv6 or IPv4 per request].For,IPv6 values must be the short version (according to RFC5952)and URL encoded. | |
-| device_info.http_header_user_agent | user_agent | URL encoded User Agent of origin | |
+| mParticle Field | SnapChat Field | Description |
+| --- | --- | --- |
+| N/A | partner | Required. This is sent as `mparticle`.|
+| device_info.platform | platform | Required. `ios` or `android`. |
+| application_info.package | app_id | Required. If platform is `ios`, the `Apple App Id` connection setting value is used.  If platform is `android`, the value will be set using the  `package` field of [application_info](developers/server/json-reference/#application_info) |
+| device_info.ios_advertising_id, device_info.android_advertising_id | device_id | Required. If platform is `ios`, IDFA.  If platform is `android`, Google Advertisting ID. |
+| device_info.limit_ad_tracking | limit_ad_tracking | Required. Denotes if limit ad tracking is on; 1 for on, and 0 for off. |
+| event_type | conversion_event | Required. |
+| timestamp_unixtime_ms | conversion_ts | Required. Conversion timestamp in millisecond resolution (ex.1455236520490). |
+| commerce_event.product_action.products | number_items | The value is the sum of the products. |
+| commerce_event.product_action.total_amount | price | A negative number if value is refound (refound values are based on `commerce_event.product_action.action`)  |
+| commerce_event.currency_code | currency | Required if price is included. Currency in standard ISO 4217 code, for example EUR, USD, or JPY. |
+| device_info.ios_idfv | idfv | If platform is `ios`, plain text IDFV is sent. |
+| device_info.ios_idfv | hashed_idfv | SHA-256(LowerCase(IDFV)) |
+| device_info.product | device_model | URL encoded device model |
+| device_info.os_version | os_version | Operating system version number |
+| ip | ip_address | Hashed IP Address (SHA-256) of origin |
+| ip | plaintext_ip | Plain text IP address of origin (IPv6 or IPv4 per request). IPv6 values must be the short version (according to RFC5952)and URL encoded. |
+| device_info.http_header_user_agent | user_agent | URL encoded User Agent of origin |
 
 ## Configuration Settings
 
-Setting Name | Data Type | Default Value | Description
-|---|---|---|---
-Snap App ID|`string`| |Unique code provided by SnapChat to verify ownership of your apps.
+Setting Name | Data Type | Description
+|---|---|---------------------- |
+Snap App ID|`string`| Unique code provided by SnapChat to verify ownership of your apps. |
 
 ## Connection Settings
 
-| Setting Name |  Data Type    | Default Value | Platform | Description |
-| ---|---|---|---|---
-| Apple App Id| `string` | | iOS| Apple App Id |
+| Setting Name |  Data Type | Platform | Description |
+| ---|---|---|---|
+| Apple App Id| `string` | iOS| Apple App ID |
