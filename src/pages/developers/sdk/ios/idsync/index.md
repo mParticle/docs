@@ -294,8 +294,8 @@ When an IDSync callback block in invoked with a failure, you can inspect the `co
 
 The NSError code property may contain the following client-side codes, defined within the `MPIdentityErrorResponseCode` enum:
 
-MPIdentityErrorResponseCode | Description
-|---   |---|
+| MPIdentityErrorResponseCode | Description |
+|---|---|
 |    `MPIdentityErrorResponseCodeRequestInProgress`     |  The IDSync HTTP request was not performed as there is already an IDSync HTTP request in progress |
 |    `MPIdentityErrorResponseCodeClientSideTimeout`      | The IDSync HTTP request failed due to a TCP connection timeout. |
 |    `MPIdentityErrorResponseCodeClientNoConnection`     | The IDSync HTTP request failed due to lack of network coverage. |
@@ -308,10 +308,11 @@ MPIdentityErrorResponseCode | Description
 
 The NSError code property may contain the following server generated HTTP status codes, some of which are defined within the `MPIdentityErrorResponseCode` enum for your convenience:
 
- | Value | Description
+| Value | Description |
 |---|---|
 | 400 | The IDSync HTTP call failed due to an invalid request body. Inspect the `error.userInfo` object for more information. |
-| 401 | The IDSync HTTP call failed due to an authentication error. Verify that your workspace is provisioned for IDSync and that your API key is correct. |
+| 401 | The IDSync HTTP call failed due to an authentication error. Verify that your API key is correct. |
+| 403 Forbidden | Aliasing is not provisioned for your mParticle workspace. Contact your mParticle account representative to have aliasing provisioned. |
 | 429 | The IDSync HTTP call was throttled and should be retried. This may indicate a user "hotkey" or an incorrect implementation resulting in a higher than expected volume of IDSync requests. |
 | 5xx | The IDSync HTTP call failed due to an mParticle server-side issue. This should never happen under typical circumstances. Check the mParticle status page if this is occuring. |
 

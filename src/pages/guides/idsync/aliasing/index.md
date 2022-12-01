@@ -126,3 +126,17 @@ The mParticle SDKs provide a method for copying user attributes, identities and 
 <aside>
    Aliasing is not a synchronous real-time process. Errors will be returned in the case of failed authorisation or rate limiting, but otherwise, a 202 accepted response will be returned. If an alias request fails for any of the reasons listed above, no error is generated.
 </aside>
+
+## Error handling
+
+| Error Code | Description |
+|---|---|
+| 400 Bad Request | The IDSync HTTP call failed due to an invalid request body. Inspect the `result.body` string message for more information. Below are examples of possible causes of a 400 response. |
+| 400 Bad Request | Given time range is invalid. |
+| 400 Bad Request | Source MPID is the same as the target MPID. |
+| 400 Bad Request | The request JSON is malformed or is missing required fields. |
+| 400 Bad Request | The source MPID or target MPID does not exist. |
+| 401 Bad Request | The IDSync HTTP call failed due to an authentication error. Verify that your API key is correct. |
+| 403 Forbidden | Aliasing is not provisioned for your mParticle workspace. Contact your mParticle account representative to have aliasing provisioned. |
+| 429 Too Many Requests | The IDSync HTTP call was throttled and should be retried. This may indicate a user "hotkey" or an incorrect implementation resulting in a higher than expected volume of IDSync requests. |
+| 5xx | The IDSync HTTP call failed due to an mParticle server-side issue. Check the mParticle status page if this is occuring. |
