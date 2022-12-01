@@ -17,7 +17,7 @@
                 <h1><img src="https://static.mparticle.com/sdk/nuget_logo.png" title="mParticle Web SDK"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 2.14.0</em>
+            <em>API Docs for: 2.18.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -186,6 +186,12 @@ function mParticle() {
     this.getDeviceId = function() {
         return self.getInstance().getDeviceId();
     };
+    this.setDeviceId = function(guid) {
+        return self.getInstance().setDeviceId(guid);
+    };
+    this.isInitialized = function() {
+        return self.getInstance().isInitialized();
+    };
     this.startNewSession = function() {
         self.getInstance().startNewSession();
     };
@@ -210,6 +216,9 @@ function mParticle() {
     };
     this.getAppVersion = function() {
         return self.getInstance().getAppVersion();
+    };
+    this.getEnvironment = function() {
+        return self.getInstance().getEnvironment();
     };
     this.stopTrackingLocation = function() {
         self.getInstance().stopTrackingLocation();
