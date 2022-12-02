@@ -586,7 +586,7 @@ Standard audiences have a 4 stage lifecycle:
 - <strong>Draft</strong>: The audience is being drafted and has not yet been calculated. To calculate it, press 'calculate' and confirm that credits will be spent.
 - <strong>Calculating</strong>: The audience is being calculated. Progress indications are shown in the UI and the time this takes depends on the date range selected (and thus the data volume scanned).
 - <strong>Ready</strong>: The audience has been calculated and is ready for use by connecting and sending it downstream.
-- <strong>Expired</strong>: 30 days after it is calculated the audience is expired. It can no longer be connected, but it can be cloned for re-calculation. Any real-time audience criteria checking user membership in a standard audience is not affected by standard audience expiration, as the users membership is saved in the users profile.
+- <strong>Expired</strong>: 30 days after it is calculated the audience is expired. It can no longer be connected, but it can be cloned for re-calculation. Any real-time audience criteria checking user membership in a standard audience is not affected by standard audience expiration, as the users membership is saved in the users profile. Audience membership is not removed from downstream partners.
 
 ### Workflow
 
