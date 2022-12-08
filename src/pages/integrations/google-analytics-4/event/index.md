@@ -275,8 +275,8 @@ Custom flags are used to send partner-specific data points:
 | `GA4.CommerceEventType` | `string` | All | One of `add_shipping_info`, `add_payment_info`, or `view_cart`. Constants are available on Android and iOS.
 | `GA4.PaymentType` | `string` | All | To be used with `GA4.CommerceEventType` of `add_payment_info`. Constants are available on Android and iOS.
 | `GA4.ShippingTier` | `string` | All | To be used with `GA4.CommerceEventType` of `add_shipping_info`. Constants are available on Android and iOS.
-| `GA4.Google.Title` | `string` | Web | The title of the page
-| `GA4.Google.Location` | `string` | Web | The full URL (document location) of the page on which content resides. Example: `http://example.com/example`
+| `GA4.Title` | `string` | Web | The title of the page
+| `GA4.Location` | `string` | Web | The full URL (document location) of the page on which content resides. Example: `http://example.com/example`
 
 ##### Add Shipping Info Custom Flag Example
 
