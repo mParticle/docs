@@ -39,6 +39,8 @@ Rules are applied to a specific Input's pipeline. There are two places in the pi
 
 Rules executed here will impact the data sent to both Stage 2 and then Stage 3, including the mParticle profile store, audience store, and all Outputs. These are labeled "All Output" Rules in your mParticle dashboard.
 
+<aside>Warning: If you specify a subtractive rule as All Outputs and apply it between <a href="https://docs.mparticle.com/guides/platform-guide/rules/#where-can-rules-be-executed">stages 1 and 2</a>, such as dropping events from a batch, you may remove data that you don't intend to remove and the data may not be recoverable because it's dropped before storage and processing.</aside>
+
 **In between Stage 2 and Stage 3**
 
 You can also apply a Rule right before it's sent to a *specific* Output. This lets you mutate data to handle specific requirements or mappings that need to occur for a given partner integration.

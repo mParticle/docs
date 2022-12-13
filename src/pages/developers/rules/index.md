@@ -99,7 +99,9 @@ We can create a rule to change it to 'subscribe', to tailor it to a specific Out
 
 Rules can be applied in two places. 'All Output' rules are applied first, and their output is passed along to all Output services connected to that input. 'Specific Output' Rules are applied as part of a particular Input/Output connection and affect only that Output service.
 
-In most ways the two types of rules operate in the same way. Both take the same arguments and return a `batch` object in the same format. However, slightly different fields can be accessed/altered in 'All Outputs' and 'Specific Outputs' rules. See [Batch format](#batch-format) for details.
+In most ways the two types of rules operate in the same way. Both take the same arguments and return a `batch` object in the same format. However, different fields can be accessed and altered in 'All Outputs' and 'Specific Outputs' rules. See [Batch format](#batch-format) for details.
+
+<aside>Warning: If you specify a subtractive rule as All Outputs and apply it between <a href="https://docs.mparticle.com/guides/platform-guide/rules/#where-can-rules-be-executed">stages 1 and 2</a>, such as dropping events from a batch, you may remove data that you don't intend to remove and the data may not be recoverable because it's dropped before storage and processing.</aside>
 
 ## Error Handling
 

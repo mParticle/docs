@@ -44,7 +44,11 @@ Data flows once an input and output are connected and the connection is active. 
 
 **2. Apply 'All Outputs' transformations**
 
-Once you have an input selected, you can set up transformations that are applied to all outputs connected to that input. Click **All Outputs** to see options. There are two transformations that can be applied here:
+Once you have an input selected, you can set up transformations that are applied to all outputs connected to that input. Click **All Outputs** to see options. 
+
+<aside>Warning: Because rules ar processed before storage and processing, if you apply a subtractive rule to all outputs and apply it between <a href="https://docs.mparticle.com/guides/platform-guide/rules/#where-can-rules-be-executed">stages 1 and 2</a>, such as dropping events from a batch, you may remove data that you don't intend to remove and the data may not be recoverable because it's dropped before storage and processing.</aside>
+
+There are two transformations that can be applied here:
 
    * [Rules](/guides/platform-guide/rules/)
    * User Splits
