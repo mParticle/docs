@@ -123,7 +123,7 @@ Name| Data Type | Nullable  | Notes
 |---|---|---|---|---|---|---|
 SubscriberKey| Text |  No | mParticle will send the user identity specified in the `Subscriber Key` configuration setting to this field. This must be set as the primary key.
 TimeStamp| Date  | Yes |mParticle will send a timestamp with every call to Salesforce Marketing Cloud.
-Email| Email Address | Yes | If you have provided a value for the `Email` User Identity, it will be sent to Salesforce Marketing Cloud in this field.
+Email| Email Address | Yes | If you want the Email attribute to be sent, add this field.
 GUID| Text  | Yes | If you want mParticle to generate a **GUID** to be sent, add this field.
 Age	| Text  | Yes |  If you want the **Age** reserved attribute to be sent, add this field.
 Gender| Text  | Yes | If you want the **Gender** reserved attribute to be sent, add this field.
