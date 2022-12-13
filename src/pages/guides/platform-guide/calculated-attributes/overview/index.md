@@ -86,7 +86,10 @@ Seeding requires two pieces of information:
 * The seed values: the values required to calculate the attribute.
 * The seed cut-off date: any data prior to this date is processed by your team into seed values, and mParticle only uses live data on or after this date in the calculation, combining the result with seed values. Using the correct cut-off date ensures an accurate transition into mParticle and avoids duplications of data in calculating a calculated attribute.
 
-<aside class="note">After a calculated attribute is already in use, receiving data via historical API doesn't automatically trigger a recalculation. You must either create a new calculated attribute or update the definition to trigger a recalculation.</aside>
+Note the following calculated attribute behavior:
+
+* After a calculated attribute is already in use, receiving data via historical API doesn't automatically trigger a recalculation. You must either create a new calculated attribute or update the definition to trigger a recalculation.
+* Seeding of a rolling time window is not supported. Thus, seeded values don't decrement when they pass out of the calculated attribute window, for example a calculated attribute date range of "within the last 4 weeks."
 
 ## Forwarding Calculated Attributes in an Audience Integration
 
