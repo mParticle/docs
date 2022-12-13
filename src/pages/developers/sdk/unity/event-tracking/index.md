@@ -54,9 +54,11 @@ In all other cases, mParticle uploads events at a set interval: 10 seconds in de
 
 #### Exclude App and Commerce Events from mParticle Server Upload
 
-If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set a boolean flag per event.
+If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set the Boolean flag `ShouldUploadEvent` per event.
 
-By default, all events upload to the mParticle server unless explicitly set not to.
+* By default, all events upload to the mParticle server unless explicitly set not to.
+* If set, events won't be available for data plan validation, as this validation is initiated in the SDK service.
+* You can set this Boolean flag in the same manner for Commerce Events.
 
 ~~~cs
 MParticle.Instance.LogEvent (new MPEvent("Hello world", EventType.Navigation) {

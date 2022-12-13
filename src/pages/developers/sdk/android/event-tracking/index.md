@@ -126,11 +126,11 @@ MParticle.getInstance().logEvent(event)
 
 ## Exclude Events from mParticle Server Upload
 
-If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set a boolean flag per event.
+If you have a high-volume event that you would like to forward to kits but exclude from uploading to mParticle, set the Boolean flag `shouldUploadEvent` per event.
 
-By default, all events upload to the mParticle server unless explicitly set not to.
-
-**Note**: This can also be done in the same manner for Commerce Events.
+* By default, all events upload to the mParticle server unless explicitly set not to.
+* If set, events won't be available for data plan validation, as this validation is initiated in the SDK service.
+* You can set this Boolean flag in the same manner for Commerce Events.
 
 :::code-selector-block
 ```java
