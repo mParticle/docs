@@ -53,7 +53,7 @@ Audiences are separated into **Single Workspace**, **Multi Workspace**, and **Sh
 
 Each audience that you create provides an estimated audience size immediately, so that you don't have to wait for the audience calculation to complete. Once an audience has at least one active connection, mParticle begins calculating the real size, and shows an estimate until the calculation is complete.
 
-![Audience details showing estimator](/images/audiences-estimator.png)
+![Audience details showing estimator](/images/audiences/estimator.png)
 
 To estimate the audience size quickly, mParticle samples the total number of users. 
 
@@ -470,6 +470,7 @@ The Manifest file will be in JSON format. See the following example for included
 ~~~
 
 ## Delete an audience
+
 An audience can be deleted in the UI in a few ways, described as follows.
 
 In the Audience Overview:
@@ -478,13 +479,13 @@ In the Audience Overview:
 
 In the Audience itself:
 
-![Audience Delete -- Audience](/images/nestedaudiencedeletemodal.png)
+![Audience Delete -- Audience](/images/audiences/delete-from-audience.png)
 
-An audience can also be deleted with the [Platform API](https://docs.mparticle.com/developers/platform/#delete-an-audience) using the `/audiences` endpoint.
+An audience can also be deleted with the [Platform API](/developers/platform/#delete-an-audience) using the `/audiences` endpoint.
 
-<aside class="notice">
-An audience that is nested in another audience for exclusion or inclusion criteria cannot be deleted.  It must be removed as nesting criteria for all audiences before being deleted.  If attempting to delete an audience that's nested in other audiences, a modal will pop up notifying the user of what audiences it's nested in and who created them with the option to notify the creators.
-</aside>
+Note that if an audience is nested in another audience for exclusion or inclusion criteria, it can't be deleted.  It must be removed as nesting criteria for all audiences before being deleted.  If attempting to delete an audience nested in other audiences, the following message displays:
+
+![Audience Delete -- Nested](/images/audiences/nested-audience-delete-modal.png)
 
 Integrations behave differently downstream after an audience is deleted:
 
