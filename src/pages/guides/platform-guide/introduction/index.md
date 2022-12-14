@@ -11,15 +11,62 @@ The primary task accomplished in the mParticle dashboard is creating Connections
 
 * **Audience** data captures groups of users that meet a given set of criteria. For example, you might create an audience of users who have purchased icecream from your app and forward that audience to a marketing automation platform, to target messages to those users when new dairy products become available.
 
-## Workspaces
+## Accounts, Organizations, and Workspaces
 
-A workspace is the basic container for data in an mParticle account.  When you first start using mParticle, your first workspace has been created for you, but you can add more at any time.
+mParticle creates a unique organization for you. It's the container for all data and metadata related to your mParticle. Within an organization, mParticle will create one or more accounts for you, and within each account, you can create one or more workspaces. Your choices for account and workspace setup are important because these choices affect identity and feature provisioning. 
 
-For most use cases, each Workspace is its own domain, separate from other workspaces. The major exception is the [Audiences](/platform-guide/audiences/) feature, which allows you to build an audience using data from more than one workspace.
+![flowchart of org to account to workspace](/images/platform-basics/org-acct-workspace.png)
 
-There are no hard and fast rules for using workspaces. Some mParticle accounts have over a dozen workspaces, while others have only one. How you organize data from your app ecosystem is entirely up to you.
+These three nested containers provide scoping and functionality for multi-brand and multi-geo use cases, as well as edge use cases. The scope and advantages of each are explained in the following sections.
 
-### Managing Workspaces
+* **Organization**
+
+    Most mParticle customers have one organization which contains one or more accounts. However, some large companies have multiple organizations. No information is shared across organization boundaries. mParticle creates the organization(s) for you.
+
+    A few features apply at the organization level, including [profile strategies](/guides/idsync/).
+
+    You can think of the organization as representing your company.
+
+* **Account**
+
+    Each organization has one or more accounts. Accounts often represent different functional groups or goals within an organization, for example regional divisions, or Sales, Marketing, and Customer Support. mParticle creates the account(s) for you.
+
+    Some information is shared across accounts either by default or by enablement:
+    
+    * Audiences can be shared across account boundaries with [cross-account sharing](/guides/cross-account-audience-sharing) enabled. 
+    * mParticle users (people authorized to access your mParticle organization) are shared across accounts and workspaces. 
+    * User data is shared [across workspaces by default](https://docs.mparticle.com/guides/idsync/default-strategy/#identity-scope), but you can request it be shared across accounts.
+
+* **Workspace**
+
+    Each account contains one or more workspaces. A workspace is the basic container for data in an mParticle account.  mParticle creates your first workspace, but you can add more at any time.
+
+    For most use cases, each workspace is its own domain, separate from other workspaces. Some information is shared across workspace boundaries:
+    
+    *  [Audiences](/platform-guide/audiences/) are shared, allowing you to build an audience using data from more than one workspace.
+    *  mParticle users (people authorized to access your mParticle organization) are shared across accounts and workspaces. 
+
+    Some mParticle accounts have over a dozen workspaces, while others have only one. How you organize data from your app ecosystem is entirely up to you.
+
+### Using organizations, accounts, and workspaces
+
+Use organizations, accounts, and workspaces to manage multiple brands, regions, and to manage custom identity configurations and unique input/output requirements.  You can also use mParticle features like [cross-account audience sharing](/guides/cross-account-audience-sharing) or [mulitworkspace real-time audiences](/guides/platform-guide/audiences/#real-time-audience-page).
+
+To see which accounts and organizations are available:
+
+* To display your current organization and account, log into mParticle and in the left navigation bar toward the bottom, click the buildings icon. If more than one organization or account has been created, you'll be able to search for it.  
+* To see your current workspace name, log into mParticle and in the left navigation bar, the square in the upper left corner displays your current workspace name. Click anywhere in the square to search for other workspaces or see the settings for this workspace.
+
+#### Example: Multiple brands, multiple locations
+
+The Best Bags company sells handbags under several different names, and in several regions of the globe. They can use organizations and workspaces to provide differentiation when needed:
+
+* Best Bags created workspaces that correspond to three regions: North America, APAC, and Europe. Each brand defines their own audiences and users within a separate organization, since most customers purchase from only one region. 
+* Best Bags created accounts that correspond to their different brands: BestieBags, BlingBags, and CarriageBest. In this way, they can create unique inputs and outputs for the same data sources and forwarding destinations, address different governance and compliance requirements, while still being able to share audience membership, since their customers may buy different brands at different times. 
+
+You can also use [identity scope](/guies/idsync/user-data/#identity-scope) to manage how user data is shared between workspaces and accounts. And if you need to share audiences across accounts, you can request that mParticle enable [cross-account audience sharing](/guides/cross-account-audience-sharing/) for your organization. 
+
+## Managing Workspaces
 
 Click on the name of your current workspace in the top-left corner of the dashboard to open the workspaces menu. From here you can switch into any of your current workspaces, or click **Settings** to open the Workspace Settings page.
 
