@@ -157,39 +157,41 @@ mParticle's Facebook integration supports [custom mappings](/guides/platform-gui
 
 <aside> For web connections, custom mappings are only available for Pixel server-side forwarding.</aside>
 
-* Achieved Level
-* Ad Click
-* Ad Impression
-* Added Payment Info
-* Added to Cart
-* Added to Wishlist
-* Added to Wishlist - Automotive
-* Completed Registration
-* Completed Tutorial
-* Contact
-* Customize Product
-* Donate
-* Find Location
-* Initiated Checkout
-* Initiated Checkout - Travel
-* Lead
-* Lead - Automotive
-* Page View
-* Purchased
-* Purchased - Travel
-* Rated
-* Schedule
-* Searched
-* Searched - Automotive
-* Searched - Travel
-* Spent Credits
-* Start Trial
-* Submit Application
-* Subscribe
-* Unlocked Achievement
-* Viewed Content
-* Viewed Content - Automotive
-* Viewed Content - Travel
+| Event Name | Standard Mapping | Pixel Mapping |
+| --- | --- | --- |
+| Achieved Level | fb_mobile_level_achieved | N/A |
+| Ad Click | AdClick | N/A |
+| Ad Impression | AdImpression | N/A |
+| Added Payment Info | fb_mobile_add_payment_info | AddPaymentInfo |
+| Added to Cart | fb_mobile_add_to_cart | AddToCart |
+| Added to Wishlist | fb_mobile_add_to_wishlist | AddToWishlist |
+| Added to Wishlist - Automotive | fb_mobile_add_to_wishlist | AddToWishlist |
+| Completed Registration | fb_mobile_complete_registration | CompleteRegistration |
+| Completed Tutorial | fb_mobile_tutorial_completion | N/A |
+| Contact | Contact | Contact |
+| Customize Product | CustomizeProduct | CustomizeProduct |
+| Donate | Donate | Donate |
+| Find Location | FindLocation | FindLocation |
+| Initiated Checkout | fb_mobile_initiated_checkout | InitiateCheckout |
+| Initiated Checkout - Travel | fb_mobile_initiated_checkout | InitiateCheckout |
+| Lead | N/A | Lead |
+| Lead - Automotive | N/A | Lead |
+| Page View | PageView | PageView |
+| Purchased | fb_mobile_purchase | Purchase |
+| Purchased - Travel | fb_mobile_purchase | Purchase |
+| Rated | fb_mobile_rate | N/A |
+| Schedule | Schedule | Schedule |
+| Searched | fb_mobile_search | Search |
+| Searched - Automotive | fb_mobile_search | Search |
+| Searched - Travel | fb_mobile_search | Search |
+| Spent Credits | fb_mobile_spent_credits | N/A |
+| Start Trial | StartTrial | StartTrial |
+| Submit Application | N/A | SubmitApplication |
+| Subscribe | Subscribe | Subscribe |
+| Unlocked Achievement | fb_mobile_achievement_unlocked | N/A |
+| Viewed Content | fb_mobile_content_view | ViewContent |
+| Viewed Content - Automotive | fb_mobile_content_view | ViewContent |
+| Viewed Content - Travel | fb_mobile_content_view | ViewContent |
 
 #### fb_content_type
 
