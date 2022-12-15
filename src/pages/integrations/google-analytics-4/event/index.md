@@ -16,6 +16,8 @@ On mParticle you need to create a new Configuration.  To do so, find Google Anal
 
 ### Web
 
+Data can be sent to GA4 via Web both client and server side. If you are self hosting, you can import either [@mparticle/web-google-analytics-4-client-kit](https://www.npmjs.com/package/@mparticle/web-google-analytics-4-client-kit) or [@mparticle/web-google-analytics-4-server-kit](https://www.npmjs.com/package/@mparticle/web-google-analytics-4-server-kit) depending on your use case.  Note that if you want to send data server side, you must import the server kit AND enable [Forward Web Requests Server Side](#connection-settings).  Enabling this setting and importing the client side kit will not work.
+
 A GA4 `Measurement ID` is automatically generated when a web data stream is added.  To find your Measurement ID, see [here](https://support.google.com/analytics/answer/9539598?hl=en&ref_topic=9303319). Our GA4 web integration allows you to send your web data both client and server side.
 
 #### Sending Data via Web Client Side
@@ -24,9 +26,7 @@ To send data client side on web, simply create a new Google Analytics 4 output i
 
 #### Sending Data via Web Server Side
 
-<aside>
 As required by the Google API, you must use the GA4 SDK for server-side integration.  mParticle supports forwarding with both a client-side kit to forward to GA4 as well as S2S to the GA4 Measurement Protocol API.  However, both have requirements that require the GA4 SDK be integrated natively.  If you turn on the GA4 integration in our UI AND are using the mParticle web SDK, mParticle does this for you. If you want to forego the web SDK altogether, you must include the GA4 SDK yourself ([GA4 docs](https://support.google.com/analytics/answer/9304153)).  If you are currently forwarding data S2S to mParticle's Events API, you must update the payloads to support forwarding to GA4, which requires the GA4 SDK to grab the relevant `client_id`.
-</aside>
 
 You may prefer to send web data server side in order to reduce both the the number of calls the browser makes, and the size of your web site.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.  
 
