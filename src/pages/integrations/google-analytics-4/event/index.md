@@ -418,6 +418,39 @@ mParticle.eCommerce.logProductAction(
 ~~~
 :::
 
+### Custom Mappings
+mParticle's Google Analytics 4 integration supports [custom mappings](/guides/platform-guide/connections/#custom-mappings) which allows you to map your events and attributes for Google Analytics 4. mParticle provides mappings for the following event types:
+
+* add_payment_info
+* add_shipping_info
+* add_to_cart
+* add_to_wishlist
+* begin_checkout
+* earn_virtual_currency
+* generate_lead
+* join_group
+* level_up
+* login
+* post_score
+* purchase
+* refund
+* remove_from_cart
+* search
+* select_content
+* select_item
+* select_promotion
+* share
+* sign_up
+* spend_virtual_currency
+* tutorial_begin
+* tutorial_complete
+* unlock_achievement
+* view_cart
+* view_item
+* view_item_list
+* view_promotion
+* view_search_results
+
 ## Custom Metrics and Custom Dimensions
 Google has revamped how custom dimensions and metrics work and are implemented in GA4.  From a code perspective, no more mappings between attributes and dimensions/metrics are required as with Universal Analytics.  From mParticle, send events with any event attributes as normal.  In Google's UI, you can then pick the parameter and associated it with a specific custom dimension or metric.  See [here](https://support.google.com/analytics/answer/10075209?hl=en&ref_topic=11151952) for how to create custom dimensions and metrics in Google's UI.
 
