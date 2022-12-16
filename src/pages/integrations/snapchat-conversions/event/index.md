@@ -139,7 +139,23 @@ mParticle looks for this value to include in outgoing events to Snapchat.
 
 ##### Deduplication
 
-The Snapchat Conversions API includes [Deduplication Support](https://marketingapi.snapchat.com/docs/conversion.html#deduplication) through the `client_dedup_id` field, based on a 48 hour window as per Snapchat. While this field can be used to account for both single and multi source redundancy, mParticle only supports single source redundancy. To facilitate this, this field is set according to the given event's unique ID field.
+The Snapchat Conversions API includes [Deduplication Support](https://marketingapi.snapchat.com/docs/conversion.html#deduplication) through the `client_dedup_id` field, based on a 48 hour window as per Snapchat. This field can be used to account for both single source and multisource redundancy.
+
+###### Multichannel Deduplication
+
+As per their docs, Snapchat recommends that customers send in redundant event data from multiple locations or integrations (e.g. mParticle and another means of uploading to Snapchat Conversions). This introduces the problem of multichannel redundancy, where you don't want duplicate events sent from different integrations to be counted as distinct events.
+
+To accommodate that, Snapchat supports multichannel deduplication. If two events, regardless of where they were uploaded from, have the same `client_dedup_id`, Snapchat will know to only count one of them.
+
+To that end, mParticle allows customers to specify this value on incoming events which we'll then forward along to Snapchat. To do so, the field can be specified like so:
+- For all supported event types _except_ `CommerceEvents`, an optional [Custom Flag](/developers/server/json-reference/#custom_flags) can be specified: `SnapchatConversions.ClientDedupId`.
+- For `CommerceEvents`, each constituent `product` is forwarded as a distinct event to Snapchat. As such, any value for `SnapchatConversions.ClientDedupId` needs to be specified at the product-level as a [product attribute](/server/json-reference/#product).
+
+###### Single Channel Deduplication
+
+If the `client_dedup_id` isn't specified by the customer for multichannel redundancy, mParticle will set the field on outgoing events to facilitate single-channel deduplication.
+If so, the `client_dedup_id` field is set according to the given event's unique ID field.
+- NOTE: For `CommerceEvents` that include multiple products, a unique index is appended onto the event's ID such that each outgoing product event includes a unique, deterministic value for `client_dedup_id`.
 
 ##### Historical Events
 
