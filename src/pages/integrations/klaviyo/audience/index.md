@@ -8,7 +8,7 @@ The Klaviyo [List API](https://developers.klaviyo.com/en/reference/api-overview)
 
 ## Prerequisites
 
-In order use the mParticle integration with Klaviyo, you will need the [Klaviyo private API key.](https://help.klaviyo.com/hc/en-us/articles/115005062267-How-to-Manage-Your-Account-s-API-Keys)
+In order to enable the mParticle integration with Klaviyo, you will need a [Private API Key](https://help.klaviyo.com/hc/en-us/articles/115005062267-How-to-Manage-Your-Account-s-API-Keys) from your Klaviyo account.
 
 ## User Identity Mapping
 
