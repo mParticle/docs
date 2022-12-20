@@ -16,7 +16,7 @@ The mParticle integration with Salesforce Marketing Cloud uses the Subscriber da
 
 ## Data Format
 
-mParticle will create a Data Extension table in Salesforce for each audience you forward. You can find you audiences directly under **Data Extensions** in the Salesforce Marketing Cloud dashboard. Data extensions will be named based on the Audience Name, or the External Audience Name if one is set. Each record in the data extension table will have the following attributes
+mParticle will create a Data Extension table in Salesforce for each audience you forward. You can find your audiences directly under **Data Extensions** in the Salesforce Marketing Cloud dashboard. Data extensions will be named based on the Audience Name, or the External Audience Name if one is set. Each record in the data extension table will have the following attributes
 
 | Salesforce Attribute Name | Notes |
 | --- | --- |
