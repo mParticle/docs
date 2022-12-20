@@ -204,7 +204,7 @@ If your workspace is in a pod other than US1, make sure to set the host to the [
 
 ```python
 # Example for the EU1 pod, replace eu1 with the pod's name
-configuration.host = 'https://s2s.eu1.mparticle.com'
+configuration.host = 'https://s2s.eu1.mparticle.com/v2'
 ```
 
 Finally, initialize the SDK with the configuration.
