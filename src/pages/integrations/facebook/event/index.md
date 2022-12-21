@@ -26,6 +26,7 @@ Event data from mParticle to Facebook is typically sent server side.  However, W
 * Data Feeds - data is sent S2S, and you'll need your Facebook Pixel ID
 * Web - for client side kit, you'll need your Facebook Pixel ID
 * Web - for S2S, you'll need your Facebook Pixel ID and Facebook Marketing API Access Token. You also need to enable both the `Use Pixel Server-Side Forwarding` and `Forward Web Requests Server Side` settings.
+* Roku, Xbox, SmartTV, FireTV, Alexa - you'll need your Facebook Pixel ID and Facebook Marketing API Access Token.
 * `os_version` is required for iOS/tvOS events. If `os_version` is not present, the event will be rejected and an error message will be shown in [System Alerts](/guides/platform-guide/activity/#system-alerts).
 
 ### Configuring Facebook Pixel Server-to-Server
