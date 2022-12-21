@@ -149,7 +149,7 @@ To accommodate that, Snapchat supports multichannel deduplication. If two events
 
 To that end, mParticle allows customers to specify this value on incoming events which we'll then forward along to Snapchat. To do so, the field can be specified like so:
 - For all supported event types _except_ `CommerceEvents`, an optional [Custom Flag](/developers/server/json-reference/#custom_flags) can be specified: `SnapchatConversions.ClientDedupId`.
-- For `CommerceEvents`, each constituent `product` is forwarded as a distinct event to Snapchat. As such, any value for `SnapchatConversions.ClientDedupId` needs to be specified at the product-level as a [product attribute](/server/json-reference/#product).
+- For `CommerceEvents`, each constituent `product` is forwarded as a distinct event to Snapchat. As such, any value for `SnapchatConversions.ClientDedupId` needs to be specified at the product-level as a [product attribute](/developers/server/json-reference/#product).
 
 ###### Single Channel Deduplication
 
