@@ -239,7 +239,7 @@ Modify must be performed on an existing mParticle ID. It will mutate an existing
 |---|---|
 | 400 Bad Request | See the response body for detailed error message. |
 | 401 Unauthorized | Request failed authentication. |
-| 429 Too Many Requests | Too many requests have been submitted. To correct, perform an exponential backoff. |
+| 429 Too Many Requests | Too many requests have been submitted. To correct, perform an exponential backoff. Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling). |
 | 5xx Server Error | A server-side error has occured. Try your request again. |
 
 ### Error Body

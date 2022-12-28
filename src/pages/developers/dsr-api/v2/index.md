@@ -410,5 +410,5 @@ The following errors may be returned by the API with additional details as shown
 | 401  | No  | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication). |
 | 404  | No  | The specified subject request id could not be found. |
 | 409  | No  | There is an in progress request with the same identities, extensions and type. |
-| 429  | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again. |
+| 429  | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again. Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling). |
 | 5xx  | Yes | A server-side error has occured, please try your request again. |

@@ -312,6 +312,6 @@ The following table lists the status codes that are returned by the API requests
 | 400 | Bad Request | The request syntax is invalid or the requested profile is invalid. |
 | 401 | Unauthorized | The credentials are missing or authentication failed. |
 | 403 | Forbidden | Not authorized to access the specified method or resource. |
-| 429 | Too Many Requests | You have exceeded your provisioned limit. The endpoints may return a Retry-After response header with a value containing a non-negative decimal integer indicating the number of seconds to delay. If the header is not present, we recommend retrying your request in an exponential backoff pattern.  |
+| 429 | Too Many Requests | You have exceeded your provisioned limit. The endpoints may return a Retry-After response header with a value containing a non-negative decimal integer indicating the number of seconds to delay. If the header is not present, we recommend retrying your request in an exponential backoff pattern. Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling).|
 | 503 | Service Unavailable | The service is unavailable, we recommend retrying your request in an exponential backoff pattern |
 | 5xx | Server Error | A server-side error has occured, please try your request again. |

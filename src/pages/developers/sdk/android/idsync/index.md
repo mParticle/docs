@@ -251,6 +251,8 @@ The SDK will always return the HTTP status and HTTP body of the underlying HTTP 
 - Invalid identity requests
 - Performing a modify request prior to the first successful identify request
 
+For more information about 429 responses and API throttling, see [Default Service Limits](/guides/default-service-limits/#api-throttling).
+
 :::code-selector-block
 ```java
 MParticle.getInstance().Identity().login(identityRequest)

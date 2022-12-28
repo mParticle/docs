@@ -172,7 +172,7 @@ You should inspect the status code of the response to determine if the POST has 
 |400| Bad Request|              The request JSON was malformed JSON or had missing fields. |
 |401| Unauthorized|             The authentication header is missing. |
 |403| Forbidden|                The authentication header is present, but invalid.|
-|429| Too Many Requests|        You have exceeded your provisioned limit. The v2/events and v2/bulkevents endpoints may return a Retry-After response header with a value containing a non-negative decimal integer indicating the number of seconds to delay. If the header is not present, we recommend retrying your request with [exponential backoff and random jitter.](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/)  |
+|429| Too Many Requests|        You have exceeded your provisioned limit. The v2/events and v2/bulkevents endpoints may return a Retry-After response header with a value containing a non-negative decimal integer indicating the number of seconds to delay. If the header is not present, we recommend retrying your request with [exponential backoff and random jitter.](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/). Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling).  |
 |503| Service Unavailable|      We recommend retrying your request in an exponential backoff pattern |
 |5xx| Server Error | A server-side error has occured, please try your request again.
 

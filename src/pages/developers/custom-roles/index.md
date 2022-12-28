@@ -547,3 +547,4 @@ The following errors sometimes occur when uploading or modifying a custom role m
 | 400 | Name or Description is empty, has too many characters length, or has restricted characters | Both the name and role ID of a custom role are required, and there are limits on their length. The error message includes details about the missing value or limit exceeded. |
 | 400 | Tasks not found | The tasks listed in your manifest don't exist or don't match the expected task IDs. Verify your task IDs are correct. |
 | 400 | Miswritten JSON syntax | Your custom role is formatted incorrectly. Use a JSON linter to make sure your manifest includes all necessary characters. |
+| 429 | Too Many Requests | You have either exceeded the speed or acceleration limit for the Custom Roles API. Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling). |

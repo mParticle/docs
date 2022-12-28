@@ -313,7 +313,7 @@ The NSError code property may contain the following server generated HTTP status
 | 400 | The IDSync HTTP call failed due to an invalid request body. Inspect the `error.userInfo` object for more information. |
 | 401 | The IDSync HTTP call failed due to an authentication error. Verify that your API key is correct. |
 | 403 Forbidden | Aliasing is not provisioned for your mParticle workspace. Contact your mParticle account representative to have aliasing provisioned. |
-| 429 | The IDSync HTTP call was throttled and should be retried. This may indicate a user "hotkey" or an incorrect implementation resulting in a higher than expected volume of IDSync requests. |
+| 429 | The IDSync HTTP call was throttled and should be retried. This may indicate a user "hotkey" or an incorrect implementation resulting in a higher than expected volume of IDSync requests. Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling). |
 | 5xx | The IDSync HTTP call failed due to an mParticle server-side issue. This should never happen under typical circumstances. Check the mParticle status page if this is occuring. |
 
 ## User Aliasing

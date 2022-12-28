@@ -114,6 +114,8 @@ Endpoint Requirements:
       * 504 - Gateway Timeout
     * All other error codes will not be retried.
 
+For more information about API throttling in response to a 429 response see [Default Service Limits](/guides/default-service-limits/#api-throttling).
+
 The endpoint must accept the same JSON format as the Lambda API.   Samples of the JSON requests can be found [here](https://github.com/mParticle/mparticle-firehose-java-sdk/tree/master/examples/json).  The following methods should be supported:
 
 1. Registration

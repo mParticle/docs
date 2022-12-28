@@ -87,3 +87,49 @@ mParticle reserves the right to restrict average events per user within 30 days 
 | Max Users | 200 | Admins are prevented from creating additional users. This limit can be raised by arrangement.
 | Audience Name Length| 100 | Audience name and external name fields are limited to 100 characters.
 | Tag length | 18 | Tag names are limited to 18 characters.
+
+## API Throttling
+
+mParticle APIs have two types of rate limits in place to protect mParticle’s servers from high demand:
+
+* Speed: limits the rate of traffic.
+* Acceleration: limits the rate of increase of traffic.
+
+You can configure your mParticle integration to respond programmatically to prevent data loss according to the 429 response header you receive.
+
+Throttled resources include a percentage representation of your current total usage in 2xx response headers. These percentage-used headers allow you to modify your request speed or acceleration to prevent exceeding a rate limit.
+
+### 429 rate limit exceeded
+
+An API request that exceeds the rate (speed) limit of a resource will receive a 429 response and a header with the format:
+
+`X-mp-rate-limit-exceeded: "LIMIT"`
+
+where `"LIMIT"` is the ID of the source of the limit as described in the table below:
+
+| Value | Description |
+| --- | --- |
+| `"org"` | A limit applied to an entire organization. |
+| `"account"` | A limit applied to an account ID within a parent organization. |
+| `"app"` | A limit applied to an app ID within a parent organization. |
+| `"feed"` | A limit applied to a feed ID within a parent organization. |
+| `"workspace"` | A limit applied to a workspace ID within a parent organization. |
+| `"acceleration"` | An acceleration limit that can be applied to any of the speed limits listed above. |
+
+An API request that exceeds any applicable acceleration limit will receive a 429 response and a header with the format:
+
+`X-mp-rate-limit-exceeded: “acceleration”`
+
+### 2xx percentage used
+
+Rate limited endpoints return an `X-mp-rate-limit-percentage-used` header with 2xx responses including the percentage of the limit used. If a resource has multiple limits, the response header includes the greatest consumption percentage of all applicable speed and acceleration limits, omitting any user-based limits.
+
+For example, if a request is not throttled and is subject to both a speed and acceleration limit, and the current consumption is 92% of the speed limit and 50% of the acceleration limit then the header will list the consumption of the speed limit because it is higher than the current acceleration limit usage:
+
+`X-mp-rate-limit-percentage-used: 92`
+
+### Recommended actions
+
+If you receive a 429 response for exceeding a speed limit, reduce the frequency of your requests. Use exponential back-off with jitter and respect the `RetryAfter` value which is a non-negative decimal integer indicating the number of seconds to delay your request.
+
+If you receive a 429 response for exceeding an acceleration limit, you can still submit requests but you should slow the increase of your request speed. Use exponential back-off with jitter when determining the new frequency of your requests.
