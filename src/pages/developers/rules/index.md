@@ -2,7 +2,7 @@
 title: Rules Developer Guide
 ---
  
-mParticle's Rules are JavaScript functions that manipulate an incoming batch object from an mParticle input. See mParticle's [Platform Guide](/platform-guide/rules/) for help setting up rules in the mParticle dashboard.
+mParticle's Rules are JavaScript functions that manipulate an incoming batch object from an mParticle input. See mParticle's [Platform Guide](/guides/platform-guide/rules/) for help setting up rules in the mParticle dashboard.
 
 ## General format
 
