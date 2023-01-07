@@ -53,3 +53,5 @@ If you'd like to add more workspaces to a project, simply log into mParticle and
    ![Add more workspaces screenshot](/images/indicative/workspace-creation.png)
 
 Add workspaces one at a time. Your trial begins when the setup for the first workspace is completed.  To learn about the Indicative analytics platform, go to the [Indicative Help Center](https://support.indicative.com).
+
+Note: Indicative does not support DSR forwarding from mParticle. See [Indicative's Privacy & Security] (https://support.mparticle.com/hc/en-us/articles/11368203939341-Privacy-Data-Security) docs for information on deletion, rectification, and suppression APIs.

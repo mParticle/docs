@@ -77,6 +77,7 @@ Indicative supports the following event types:
 
 * Indicative accepts data from any timeframe.
 * In addition to the user IDs, device IDs, and event types listed previously, mParticle forwards location, IP address, Device Application Stamp, and user agent data to Indicative.
+* Indicative does not support DSR forwarding from mParticle. See [Indicative's Privacy & Security] (https://support.mparticle.com/hc/en-us/articles/11368203939341-Privacy-Data-Security) docs for information on deletion, rectification, and suppression APIs.
 
 ## User Identity Options
 
