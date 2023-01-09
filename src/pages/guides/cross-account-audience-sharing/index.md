@@ -2,7 +2,7 @@
 title: Cross-account audience sharing
 ---
 
-The cross-account audience sharing feature allows you to share audience data between accounts within your organization and offers detailed control over exactly what data is shared.
+The cross-account audience sharing feature allows you to share real-time or standard audience data between accounts within your organization and offers detailed control over exactly what data is shared.
 
 You can choose to share audience data broadly within your organization, or to provide access to only as much data as is needed for a campaign. This feature does not share any data outside your organization, except where explicitly connected to a downstream audience integration.
 

@@ -7,7 +7,7 @@ Liftoff is a full-service mobile app marketing and retargeting platform that use
 ## Prerequisites 
 
 * In order to enable our integration with Liftoff, you'll need to work with your Liftoff account executive to obtain your Liftoff App ID and API Key.
-* Prior to enabling an audience connection for [user attribute sharing](/guides/platform-guide/audiences/#user-attribute-sharing), you must share the user attribute names with your Liftoff Account Manager so they can be setup for use in Liftoff models.  
+* Prior to enabling an audience connection for [user attribute sharing](/guides/platform-guide/audiences/real-time/#user-attribute-sharing), you must share the user attribute names with your Liftoff Account Manager so they can be setup for use in Liftoff models.  
 
 ## User Identity Mapping
 
@@ -24,4 +24,4 @@ Liftoff API Key| `string` | | API key for your Liftoff account. Your Liftoff acc
 
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
-Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection.
+Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/real-time/#user-attribute-sharing) for this audience connection.

@@ -43,14 +43,14 @@ These three nested containers provide scoping and functionality for multi-brand 
 
     For most use cases, each workspace is its own domain, separate from other workspaces. Some information is shared across workspace boundaries:
     
-    *  [Audiences](/platform-guide/audiences/) are shared, allowing you to build an audience using data from more than one workspace.
+    *  [Audiences](/guides/platform-guide/audiences/overview/) are shared, allowing you to build an audience using data from more than one workspace.
     *  mParticle users (people authorized to access your mParticle organization) are shared across accounts and workspaces. 
 
     Some mParticle accounts have over a dozen workspaces, while others have only one. How you organize data from your app ecosystem is entirely up to you.
 
 ### Using organizations, accounts, and workspaces
 
-Use organizations, accounts, and workspaces to manage multiple brands, regions, and to manage custom identity configurations and unique input/output requirements.  You can also use mParticle features like [cross-account audience sharing](/guides/cross-account-audience-sharing) or [mulitworkspace real-time audiences](/guides/platform-guide/audiences/#real-time-audience-page).
+Use organizations, accounts, and workspaces to manage multiple brands, regions, and to manage custom identity configurations and unique input/output requirements.  You can also use mParticle features like [cross-account audience sharing](/guides/cross-account-audience-sharing) or [multiple workspace real-time audiences](/guides/platform-guide/audiences/real-time/).
 
 To see which accounts and organizations are available:
 
@@ -80,7 +80,7 @@ From the Workspace Settings page, you can:
 * Delete a workspace - this will also delete all the workspace data and connection settings. This action cannot be undone, so proceed with caution.
 * Edit a workspace - view the [Apple App Transparency Tracking (ATT) Defaults](/developers/sdk/ios/ios14/), enable GDPR and CCPA [regulations](/guides/data-privacy-controls/), and retrieve the workspace Key/Secret to use with the [OpenDSR API](/developers/dsr-api).
 
-Note that you can't delete a workspace that is part of a [Multi Workspace Audience](/guides/platform-guide/audiences/#create-audience). First delete or modify the multiworkspace audience, then you can delete the workspace.
+Note that you can't delete a workspace that is part of a [Multi Workspace Audience](/guides/platform-guide/audiences/real-time/). First delete or modify the multiworkspace audience, then you can delete the workspace.
 
 ## Working with Web Data
 

@@ -1,6 +1,6 @@
 ---
 title: Profiles
-order: 9
+order: 7
 ---
 
 Although processing and forwarding event data is a core function of mParticle, we are not just an integration platform. Our goal is to help you develop a complete view of your users, across all of your data sources, and make that view available wherever it is needed. The user profile is central to this goal.
@@ -50,8 +50,7 @@ Audiences allow you to define segments of users based on rule based criteria of 
 
 Audiences and Calculated attributes are built from all your profile data, including calculated attributes, and events that have been collected across all your data sources. For real-time audiences, these are within the audience look back window. Standard audiences utilize your extended Data Retention policy. For more information about data retention, see [Data Retention](#data-retention). 
 
-For more information, see [Audiences](/guides/platform-guide/audiences/) and [Calculated Attributes](/guides/platform-guide/calculated-attributes/overview/).
-
+For more information, see [Audiences](/guides/platform-guide/audiences/overview/) and [Calculated Attributes](/guides/platform-guide/calculated-attributes/overview/).
 
 ## Understanding Profile Data
 

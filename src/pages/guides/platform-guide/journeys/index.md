@@ -122,7 +122,7 @@ To create a journey:
 3. After selecting all the inputs in all the relevant workspaces, click **Create**.
 4. The Journey canvas displays your selected journey inputs.
 5. Click the plus sign to add a milestone, and then click **Milestone**.
-6. Add a name, and then click the plus sign to define the criteria. You are now in the real-time audience builder, and can [define criteria](/guides/platform-guide/audiences/#audience-criteria).
+6. Add a name, and then click the plus sign to define the criteria. You are now in the real-time audience builder, and can [define criteria](/guides/platform-guide/audiences/real-time/#audience-criteria).
 7.  Click **Save**. The canvas displays the milestone you just created and the audience for that milestone. The audience can be activated using any mParticle audience [integration partner](/integrations/) as described in the last step. 
 8.  Optionally, you can create a remaining user milestone by clicking the split icon above the milestone you just created. The icon isn't visible until a milestone is created.
 
@@ -131,7 +131,7 @@ To create a journey:
     Then, select **Add > Remaining Users Split**. You'll see a new branch is created. Note that the criteria is read only, since this is a milestone for all the users who did not fit the criteria of the milestone you created in step 7. 
     
     You can add more milestones to a remaining users milestone.
-9.  Using the plus sign under any audience, you can either add a new milestone (repeat steps 6 and 7) or select an output for the audience you just created. For more information about output connections, see [Connections](/guides/platform-guide/audiences/#connect-an-audience). You can add none, one, or more output to each audience. 
+9.  Using the plus sign under any audience, you can either add a new milestone (repeat steps 6 and 7) or select an output for the audience you just created. For more information about output connections, see [Connections](/guides/platform-guide/audiences/real-time/#connect-an-audience). You can add none, one, or more output to each audience. 
 
 After an audience is activated (by adding an output set to **Active**), the audience is updated to **Activated**. All parent audiences in that branch are set to "Calculating." Audience size estimates are updated to the actual audience size. 
 

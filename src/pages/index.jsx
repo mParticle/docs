@@ -26,7 +26,7 @@ const DOMORETILESROW = [
             title: 'Audiences',
             icon: 'icon-audience',
             text: 'Engage customer cohorts',
-            url: 'guides/platform-guide/audiences/'
+            url: 'guides/platform-guide/audiences/overview/'
         }
     ],
     [

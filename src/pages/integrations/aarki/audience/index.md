@@ -29,4 +29,4 @@ API Key | `string`| | API key used to connect to the Aarki API.
 
 Setting Name | Data Type | Default Value | Description
 |---|---|---|---
-Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection.
+Configure User Attribute Forwarding | `bool` | False| If enabled, you can configure [user attributes to share](/guides/platform-guide/audiences/real-time/#user-attribute-sharing) for this audience connection.

@@ -18,7 +18,7 @@ This location data serves two main purposes
    * Zip Code
    * DMA -- Nielson’s Designated Market Areas. Only for USA locations.
   
-   If you have not logged location information, mParticle will still attempt a reverse geo-lookup based on the IP Address of the batch. The last 30 days of location information are available in the [Audience tool](/guides/platform-guide/audiences) and can be used to define audiences.
+   If you have not logged location information, mParticle will still attempt a reverse geo-lookup based on the IP Address of the batch. The last 30 days of location information are available in [Audiences](/guides/platform-guide/audiences/real-time/#real-time-audience-page) and can be used to define audiences.
 
 There are two ways to approach location tracking:
 1. You can call the `beginLocationTracking` method and let the mParticle SDK collect and update location information for you. Remember to call `endLocationTracking` when you no longer need to track location

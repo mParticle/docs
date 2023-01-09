@@ -18,7 +18,7 @@ This location data serves two main purposes
    * Zip Code
    * DMA -- Nielson’s Designated Market Areas. Only for USA locations.
   
-   If you have not logged location information, mParticle will still attempt a reverse geo-lookup based on the IP Address of the batch. The last 30 days of location information are available in the [Audience tool](/guides/platform-guide/audiences) and can be used to define audiences.
+   If you have not logged location information, mParticle will still attempt a reverse geo-lookup based on the IP Address of the batch. The last 30 days of location information are available in [Audiences](/guides/platform-guide/audiences/real-time/#real-time-audience-page) and can be used to define audiences.
 
 It's common to share the same code between a Unity app for iOS and a Unity app for Android. When tracking location in Unity, the `LocationRange` enumeration can be set once. The SDK will automatically translate it to its closest meaning for iOS or Android.	
 

@@ -41,4 +41,4 @@ Setting Name | Data Type | Default Value | Description
 AdMedia Audience Specific setting for Suppression | `bool` | False | If this setting is enabled, this audience will be used for suppression.
 AdMedia Audience Specific setting for Inclusion | `bool` | False | If this setting is enabled, this audience will be used for inclusion.
 AdMedia Audience Level Setting | `bool` | False | If this setting is enabled, this audience will be recorded for future use regardless of suppression or inclusion type.
-Configure User Attribute Forwarding | `bool` | False| If enabled, mParticle users can configure [user attributes to share](/guides/platform-guide/audiences/#user-attribute-sharing) for this audience connection.
+Configure User Attribute Forwarding | `bool` | False| If enabled, mParticle users can configure [user attributes to share](/guides/platform-guide/audiences/real-time/#user-attribute-sharing) for this audience connection.

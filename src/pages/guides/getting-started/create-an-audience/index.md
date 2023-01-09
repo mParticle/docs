@@ -77,7 +77,7 @@ If the audience is 100% calculated, and your size is still zero, there may be an
 
 ### Download to verify individual memberships
 
-In some cases, it might be enough just to know that your audience is matching users. However, if you know specific identities of users who should match your criteria, you can check that they matched by downloading your entire audience in CSV form. Follow the instructions [here](/guides/platform-guide/audiences/#download-an-audience) to download your audience.
+In some cases, it might be enough just to know that your audience is matching users. However, if you know specific identities of users who should match your criteria, you can check that they matched by downloading your entire audience in CSV form. Follow the instructions [here](/guides/platform-guide/audiences/real-time/#download-an-audience) to download your audience.
 
 ## Troubleshoot
 
@@ -99,7 +99,7 @@ Congratulations on making your first audience in mParticle! You will have notice
 
 A few things to read or think about:
 
-* Check out the [full Audience docs in the Platform Guide](/guides/platform-guide/audiences/) for more detail about building criteria and to learn about advanced features like A/B Testing, and Audience Sharing.
+* The [Audience docs in the Platform Guide](/guides/platform-guide/audiences/overview/) provide more detail about building criteria and advanced features like A/B Testing, and Audience Sharing.
 * Audiences are a part of mParticle where the quality and consistency of your data plan become apparent. If your developers name an attribute `favorite_color` in your Web implementation, and `favoriteColor` in your Android implementation, it's going to be much harder to build a cross-platform audience to capture your users who love `green`. Check out some docs about the importance of names [here](/developers/sdk/android/users/#attribute-key-limitations).
 
 Next up, you will learn how to [connect an audience](/guides/getting-started/connect-an-audience-output/) to one of mParticle's Audience partners.

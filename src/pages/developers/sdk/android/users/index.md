@@ -179,7 +179,7 @@ The Android SDK surfaces an interface such that you can use these more easily - 
 
 ## Attribute Key Limitations
 
-Always refer to your organization's data plan when instrumenting user or event attributes. Each unique attribute key becomes a data point in the mParticle user interface that can be [filtered](/guides/platform-guide/data-filter) for each output, used to drive the calculation of an [audience](/guides/platform-guide/audiences#specify-audience-criteria) or become part of a [custom mapping](/guides/platform-guide/connections#custom-mappings). This means that your choice of attribute keys can have a system-wide impact. For example, if you have a single attribute key per device that represents a unique user ID or a unique URL, and you have thousands of users, mParticle will see thousands of unique keys, even though you only create one per device.
+Always refer to your organization's data plan when instrumenting user or event attributes. Each unique attribute key becomes a data point in the mParticle user interface that can be [filtered](/guides/platform-guide/data-filter) for each output, used to drive the calculation of an [audience](/guides/platform-guide/audiences/real-time/#specify-audience-criteria) or become part of a [custom mapping](/guides/platform-guide/connections#custom-mappings). This means that your choice of attribute keys can have a system-wide impact. For example, if you have a single attribute key per device that represents a unique user ID or a unique URL, and you have thousands of users, mParticle will see thousands of unique keys, even though you only create one per device.
 
 Creating too many unique attribute keys can have several adverse effects:
 

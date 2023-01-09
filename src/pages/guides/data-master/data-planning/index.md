@@ -689,7 +689,7 @@ Blocked data is dropped from your data stream before it is consumed by other mPa
 - **User Profiles**, as viewed in [User Activity View](/guides/platform-guide/activity/#user-activity) and accessed through the [Profile API](/developers/profile-api)
 - [Filters](/guides/platform-guide/data-filter)
 - [Catalog](#catalog)
-- [Audiences](/guides/platform-guide/audiences)
+- [Audiences](/guides/platform-guide/audiences/overview)
 
 For debugging and reporting purposes, blocked data is shown in [Live Stream](/guides/platform-guide/live-stream) and the [Data Plan Report](#step-4-monitor-your-plan). Unless you create a [Quarantine Connection](#quarantine-connections), you won't be able to recover blocked data.
 

@@ -1,6 +1,6 @@
 ---
 title: Tiered Events
-order: 8
+order: 11
 ---
 
 <aside>The Tiered Events feature is a beta release, available only upon request. If you're interested in using it prior to general availability, please contact your mParticle success manager.</aside>
@@ -12,7 +12,7 @@ mParticle collects data from all your platforms and data connections and connect
 mParticle provides two event tiers: 
 
 * **Store and Evaluate**: This is the default for all events and related data collected as part of an mParticle ingestion. Events are ingested, available for evaluation in audiences and calculated attributes, stored, and forwarded.
-* **Store Only**: Events marked as Store Only are ingested, stored, and forwarded but are not used in real-time evaluations for audiences or calculated attributes. The data is still available for replaying to third party tools, and for [backfills](/developers/server/http/#v2bulkeventshistorical) of [calculated attributes](/guides/platform-guide/calculated-attributes/overview/) and [standard audience creation](/guides/platform-guide/audiences/#standard-audiences).
+* **Store Only**: Events marked as Store Only are ingested, stored, and forwarded but are not used in real-time evaluations for audiences or calculated attributes. The data is still available for replaying to third party tools, and for [backfills](/developers/server/http/#v2bulkeventshistorical) of [calculated attributes](/guides/platform-guide/calculated-attributes/overview/) and [standard audience creation](/guides/platform-guide/audiences/standard/).
 
 ## Workflow
 

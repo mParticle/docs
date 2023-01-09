@@ -21,8 +21,8 @@ For most mParticle clients, the primary sources of data are native and web apps,
 
 ## Explore advanced Audience features
 
-* If you want to compare different messaging platforms or strategies, you can use mParticle to conduct an [A/B Test](/guides/platform-guide/audiences/#audience-ab-testing) by splitting an audience into two or more variations and connecting each to different outputs.
-* The more specific your audiences, the more you are likely to need to create. If you have a large number of audiences to forward, you can use our [Bulk Audience Connections](/guides/platform-guide/audiences/#bulk-audience-connections) workflow to speed things up.
+* If you want to compare different messaging platforms or strategies, you can use mParticle to conduct an [A/B Test](/guides/platform-guide/audiences/real-time/#audience-ab-testing) by splitting an audience into two or more variations and connecting each to different outputs.
+* The more specific your audiences, the more you are likely to need to create. If you have a large number of audiences to forward, use [Bulk Audience Connections](/guides/platform-guide/audiences/real-time/#bulk-audience-connections) workflow to speed things up.
 
 ## Transform your Data
 

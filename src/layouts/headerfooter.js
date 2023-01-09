@@ -47,7 +47,7 @@ const legacyRedirects = {
     '#activity': '/platform-guide/activity/',
     '#activity-overview': '/platform-guide/activity/#overview',
     '#alert-report': '/platform-guide/activity/#system-alerts',
-    '#audience-sharing': '/platform-guide/audiences/#audience-sharing',
+    '#audience-sharing': '/platform-guide/audiences/real-time/#audience-sharing',
     '#audiences': '/platform-guide/audiences/',
     '#connect': '/platform-guide/connections/#connections-workflow',
     '#connections': '/platform-guide/connections/',
