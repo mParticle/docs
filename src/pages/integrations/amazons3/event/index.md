@@ -218,7 +218,6 @@ If you see an option for <code>Unselected</code> displayed in the drop-down (or 
 | Send as Batch | `bool` | True | All| If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
 | Wait for Complete Batch | `bool` | False | Android| If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
-| Send Profile Change Events | `bool` | True | All| Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |
 | Use Compression | `bool` | False | All| If enabled, your data will be compressed in gzip format. |
 | Include Consent State | `bool` | False | All| If enabled, Consent State will be forwarded. See the JSON API reference [here](/developers/server/json-reference/#consent_state) for more detail. |

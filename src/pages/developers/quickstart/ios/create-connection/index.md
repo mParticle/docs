@@ -27,8 +27,7 @@ You won’t be able to see data flow from your input (iOS) to your output (webho
 | Metadata Field Exclusion | Click the X to remove. | This setting allows you to exclude a specific metadata field from the data you send to your output. |
 | Send as Batch | Disabled | If enabled, the SDK will not forward data in realtime. |
 | Send Custom Events | Enabled | Custom events include any events defined manually using the SDK. |
-| Send Lifecycle Events | Enabled | Lifecycle events include events created when a user starts or exits your app. | 
-| Send Profile Change Events | Enabled | Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
+| Send Lifecycle Events | Enabled | Lifecycle events include events created when a user starts or exits your app. |
 | Send Screen Views | Enabled | Screen view events include events created when a user opens or navigates to a different page in your app. |
 | Send Commerce Events | Enabled | Commerce events include events created when a user adds an item to their cart or when a user makes a purchase. |
 | Include Metadata | Enabled | Metadata includes information about the application or users' devices. | 

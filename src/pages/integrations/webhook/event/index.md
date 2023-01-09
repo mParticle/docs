@@ -51,7 +51,6 @@ The [JSON](/developers/server/json-reference/) documentation describes the forma
 | Send Lifecycle Events | `bool` | True | All| If enabled, lifecycle events (application start/stop, session start/end) will be forwarded. |
 | Include Location Information | `bool` | True | All| If enabled, location data will be forwarded with event data whenever possible. |
 | Send Network Performance Events | `bool` | True | All| If enabled, network performance events will be forwarded. |
-| Send Profile Change Events | `bool` | True | All| Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
 | Send Push Registrations and Receipts | `bool` | True | All| If enabled, push registration and receipt notifications will be forwarded. |
 | Send Screen Views | `bool` | True | All| If enabled, screen view events will be forwarded. |
 | Send Commerce Events | `bool` | True | All| If enabled, commerce events will be forwarded. |

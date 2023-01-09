@@ -27,8 +27,7 @@ You won’t be able to see data flow from your input (web) to your output (webho
 | Metadata Field Exclusion | Click the X to remove. | This setting allows you to exclude a specific metadata field from that data you send to your output. |
 | Send as Batch | Disabled | This is checked by default. Since we want to see our data forwarded as soon as possible, uncheck this so that events are forwarded in real time. |
 | Send Custom Events | Check | The Higgs Shop does use custom events, so to ensure these are sent to our webhooks this must be enabled. |
-| Send Lifecycle Events | Check | Lifecycle events include events when a user starts or exits your app. | 
-| Send Profile Change Events | Check | Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
+| Send Lifecycle Events | Check | Lifecycle events include events when a user starts or exits your app. |
 | Send Screen Views | Check | We do want to forward screenview events from The Higgs Shop. |
 | Send Commerce Events | Check | The Higgs Shop is an ecommerce app, so we want to forward commerce events like product purchases. |
 | Include Metadata | Check | Metadata includes information about the application or users' devices. | 

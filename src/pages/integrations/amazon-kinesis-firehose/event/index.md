@@ -93,7 +93,6 @@ Setting Name | Data Type | Default Value | Description
 | Send as Batch | `bool` | True | If enabled, this setting will cause your app's events to be sent in (roughly) 10-minute batches per device.  If disabled, mParticle will POST each event to you individually, as its received.  This setting is ignored if "Wait for Complete Batch" is enabled. |
 | Wait for Complete Batch | `bool` | False | If enabled, mParticle will POST events to you in batches only after a user session has ended, so that each event batch you receive will represent a full session of user activity within your app. |
 | Include Location Information | `bool` | True | If enabled, location data will be forwarded with event data whenever possible. |
-| Send Profile Change Events | `bool` | True | Deprecated, do not use. Instead, log a custom event at `login`, `logout`, and `modify`. |
 | Send Commerce Events | `bool` | True | If enabled, commerce events will be forwarded. |
 | Include Metadata | `bool` | True | If enabled, the following metadata - application_info, device_info and source_info will be forwarded. |
 | Include User Attribute Change Events | `bool` | False | If enabled, User Attribute Change Events will be forwarded. |
