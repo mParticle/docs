@@ -4,15 +4,13 @@ title: Event
 
 [Kafka](https://kafka.apache.org/) is used for building real-time data pipelines and streaming apps. It is horizontally scalable, fault-tolerant, wicked fast, and runs in production in thousands of companies.
 
-The Kafka integration is in Beta.  Please reach out to your customer success manager for assistance in setting up the integration.
-
 ## Prerequisites
 
 To enable the Kafka integration, you will need a list of comma-separated bootstrap servers that identify an initial subset of servers, "brokers," in the Kafka cluster. You will also need to provide the name of the Kafka topic stream to publish to.
 
 Each broker is a host and port pair, separated by a colon:
 
-```
+```http
 localhost:9092
 localhost:9092,anotherhost:9092
 ```
@@ -23,21 +21,38 @@ The cluster of brokers is managed by an additional Zookeeper server that handles
 
 ## Authentication
 
-mParticle will only transmit data to Kafka encrypted over TLS. Brokers must use a certificate issued by a globally trusted certificate authority and containing a CN (common name) or SAN (subject alternative name) that matches the hostname.
+mParticle will only transmit data to a Kafka cluster encrypted over TLS. This integration supports 2 types of authentication methods. All of them require the following [Configuration Settings](#configuration-settings) as a base configuration:
 
-Username and password authentication is optional.
+* `Apache Kafka Bootstrap Servers`
+* `Topic Name`
 
-If no username is provided, the Kafka security protocol used is SSL.
+<aside class="notice">SSL is always enabled for traffic encryption, regardless of the selected authentication method.</aside>
 
-If a username is provided, the Kafka security protocol used is SASL_SSL. Note that it is not possible to have a password without a username. The SASL-enabled mechanisms supported are PLAIN (default), SCRAM-SHA-256, SCRAM-SHA-512.
+Reference the [Kafka documentation](http://kafka.apache.org/documentation/#configuration) for more information about configuring your streams on your Kafka cluster.
 
-Reference the [Kafka documentation](http://kafka.apache.org/documentation/#configuration) for more information about configuring your streams.
+### Authentication using SASL
 
-### With username and password
+For production environments we only support SASL using `SASL_SSL` security protocol. This method uses a `User Name` and a `Password` in order to authenticate against a Kafka cluster. The followings [Configuration Settings](#configuration-settings) are required in order to use this authentication method:
 
-Below is an example configuration using the `PLAIN` SASL mechanism. The configuration settings are contained within the `.properties` file for your broker:
+* `Authentication Mechanism`
+* `User Name`
+* `Password`
 
-~~~
+<aside class="warning">If no `User Name` is provided, the security protocol used will default to SSL instead of SASL_SSL.</aside>
+
+<aside class="notice">Note that it is not possible to have a password without a username.</aside>
+
+Supported SASL-enabled mechanism for authentication:
+
+* PLAIN (default)
+* SCRAM-SHA-256
+* SCRAM-SHA-512
+
+#### SASL_SSL configuration example
+
+Below is a configuration example using `SASL_SSL` security protocol and `PLAIN` SASL mechanism for authentication. The configuration settings are contained within the `.properties` file for your broker:
+
+~~~http
 ssl.client.auth=none
 sasl.enabled.mechanisms=PLAIN
 security.inter.broker.protocol=SASL_SSL
@@ -58,7 +73,7 @@ The keystore may be in PKCS12 or JKS format.
 
 In your `jaas.conf`, create a username and password for mParticle:
 
-~~~
+~~~http
 KafkaServer {
   org.apache.kafka.common.security.plain.PlainLoginModule required
   username="admin"
@@ -76,27 +91,18 @@ The `user_xxxxxx` keys identifies valid accounts and passwords pairs for logging
 
 To avoid placing username and password information in configuration files, you can write a custom login module or use the SCRAM mechanisms to store credentials within the Zookeeper server.
 
-### Without username and password
+For more information on how to set SASL in your kafka cluster, see https://kafka.apache.org/documentation/#security_sasl
 
-In the `.properties` file for your broker, set the following
+### Authentication using SSL
 
-~~~
-ssl.client.auth=none
-security.inter.broker.protocol=SSL
+To use this method just fill the `Apache Kafka Bootstrap Servers` and `Topic Name` base configuration settings, and leave the others empty. Brokers in the Kafka cluster must use a certificate issued by a globally trusted certificate authority and must contain a CN (common name) or SAN (subject alternative name) that matches the hostname.
 
-# The following settings are needed to allow mParticle to verify your certificate
-ssl.keystore.location=your-keystore-location
-ssl.keystore.password=your-keystore-password
-ssl.keystore.type=JKS
-ssl.key.password=your-key-password
-
-# Replace with your specific host name and port
-listeners=SSL://your-host.name:port
-~~~
+If you require a more personalized approach to SSL configuration, please reach out to your customer success manager for assistance in setting up the integration.
 
 ### Further information
 
 For more information on Apache Kafka security configuration, see https://kafka.apache.org/documentation/#security.
+
 More information about the general structure of the `jaas.conf` file can be found here: https://docs.oracle.com/javase/7/docs/technotes/guides/security/jgss/tutorials/LoginConfigFile.html.
 
 ## Data processing notes
@@ -135,11 +141,9 @@ Setting Name | Data Type | Default Value | Description
 |---|---|---|---
 | Apache Kafka Bootstrap Servers | `string` | <unset> | This is a comma-separated list of Kafka bootstrap servers. |
 | Topic Name | `string` | <unset> | This is your Kafka topic.	 |
+| Authentication Method | `enum` | `PLAIN` | SASL mechanism to use for Authentication. Supported types: `PLAIN`, `SCRAM-SHA-256`, `SCRAM-SHA-512`|
 | User Name| `string` | <unset> | User Name for your Kafka account |
 | Password | `string` | <unset> | Password for your Kafka account |
-| SSL Private Key | `string` | <unset> | Client's private key string (PEM format) used for authentication. |
-| SSL Certificate | `string` | <unset> | Client's public key string (PEM format) used for authentication. |
-| SSL CA Certificate | `string` | <unset> | CA certificate(s) for verifying the broker's key. |
 
 ## Connection Settings
 
