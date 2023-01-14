@@ -23,7 +23,7 @@ export default () => (
                 )}
                 <br />
                 <span>
-                    © 2022 mParticle, Inc.
+                    © 2023 mParticle, Inc.
                     <br />
                     All rights reserved.
                     <br />
