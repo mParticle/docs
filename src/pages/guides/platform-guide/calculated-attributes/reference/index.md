@@ -19,7 +19,7 @@ Aggregation | Average | Numeric | `123.123` | asynchronous
 Aggregation | Most frequent  | Dynamic | `romance` | asynchronous
 Aggregation | Unique values count | Numeric | `34` | asynchronous
 Occurrence | First value | Dynamic | `comedy` | asynchronous (until observed)
-Occurrence | Last value  | Dynamic | `action`| synchronous
+Occurrence | Last value  | Dynamic | `action`| asynchronous
 Occurrence | First timestamp | Timestamp | `2020-01-01T22:14:47.1051728Z` | asynchronous (until observed)
 Occurrence | Last timestamp  | Timestamp | `2020-01-10T22:14:47.1051728Z` | synchronous
 List | Unique list | Comma separated list of dynamic values; maximum of 100. | `"Item 1","Item 2","Item 3"` | synchronous
