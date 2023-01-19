@@ -123,6 +123,10 @@ Before you can begin sending data from your app to mParticle, you must add your 
 
 3. In the `defaultConfig` Replace `\"${System.getenv("HIGGS_SHOP_SAMPLE_APP_SECRET")}` with the API secret generated in step 1.1.
 
+<aside>
+    Including your API key and secret in your app does not create a security risk because these credentials can only be used to send data to mParticle. They cannot be used to retrieve data from mParticle.
+</aside>
+
 4. Save the file and re-sync your gradle files.
 
 <a href="/developers/quickstart/android/overview/" style="position:relative; float:left"><< Previous</a>
