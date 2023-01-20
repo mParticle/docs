@@ -82,9 +82,9 @@ All DSR requests are scoped to a single workspace by API authentication. If you 
 ## Data Subject Request Settings
 To get started, enable GDPR and/or CCPA compliance features on your workspace from **Workspace Settings** > **Workspace** > **Regulation**. This will allow you to see the DSR UI. mParticle will honor all requests received via API even with these features disabled.
 
-You have the option to include a copy of the live user profile in access/portability requests. Navigate to **Privacy** > **Settings** to include a copy of the users profile with GDPR and/or CCPA DSRs. This is for clients whose privacy teams determine that this is required for compliance. The profiles will include: devices, identities, audience memberships, user attributes and calculated attributes. By default, profiles are not included.
+You have the option to include a copy of the live user profile in access/portability requests. Navigate to **Privacy** > **Privacy Settings** to include a copy of the users profile with GDPR and/or CCPA DSRs. This is for clients whose privacy teams determine that this is required for compliance. The profiles will include: devices, identities, audience memberships, user attributes and calculated attributes. By default, profiles are not included.
 
-<aside>To see these privacy pages you must be in a user role of "Compliance Admin" or "Compliance".</aside>
+<aside>To see the pages under the Privacy tab, you must be in the Support role. To see or make changes in the pages under the Privacy tab, you must be in the Admin & Compliance or Compliance role.</aside>
 
 ![](/images/privacy-settings.png)
 
@@ -159,9 +159,9 @@ A sample portability response can be downloaded [here](/downloads/portability-re
 
 ## Managing Data Subject Requests in the mParticle Dashboard
 
-In addition to the OpenDSR API, users with the [Compliance role](/guides/platform-guide/users#roles) can create, delete and monitor DSRs directly in the mParticle Dashboard.
+In addition to the OpenDSR API, users with the [Compliance or Admin and Compliance role](/guides/platform-guide/users#roles) can create, delete and monitor DSRs directly in the mParticle Dashboard.
 
-<aside>To see these privacy pages you must be in the role of "Compliance Admin" or "Compliance".</aside>
+<aside>To see the pages under the Privacy tab, you must have be in the Support role. To see or make changes in the pages under the Privacy tab, you must be in the Admin & Compliance or Compliance role.</aside>
 
 ![image of the data subject request UI](/images/dsr/dsr-ui.png)
 
