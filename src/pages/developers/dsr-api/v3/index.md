@@ -231,7 +231,7 @@ X-OpenDSR-Signature:
 | Field Name | Data Type | Description |
 | ---------- | --------- | ----------- |
 | `controller_id` | string | A unique ID representing the data controller.  mParticles sets this to the workspace ID. |
-| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed in UTC. |
+| `expected_completion_time` | ISO 8601 date string | The estimated time by which the request will be fulfilled, in UTC. |
 | `subject_request_id` | UUID v4 string | The controller-provided identifier of the request in a GUID v4 format. |
 | `group_id` | string  | The `group_id` can be used to relate different subject requests together. | 
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
@@ -311,7 +311,7 @@ Cancels a request. This can only be done if the status of the request is `pendin
 
 | Field Name | Data Type | Description |
 | ---------- | --------- | ----------- |
-| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed in UTC. For a canceled request, the value is `null`. |
+| `expected_completion_time` | ISO 8601 date string | An estimate of the time at which the request is expected to be fulfilled, in UTC. For a cancelled request, the value is `null`. |
 | `received_time` | ISO 8601 date string | The time at which the cancellation request was received. |
 | `subject_request_id` | string | The controller-provided identifier of the request. |
 | `controller_id` | string | A unique ID representing the data controller.  mParticles sets this to the workspace ID. |

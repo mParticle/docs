@@ -216,7 +216,7 @@ KD/4Axmo9DISib5/7A6uczJxQG2Bcrdj++vQqK2succ=
 | Field Name | Data Type | Description |
 | ---------- | --------- | ----------- |
 | `controller_id` | string | A unique ID representing the data controller.  |
-| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed. |
+| `expected_completion_time` | ISO 8601 date string | The estimated time by which the request will be fulfilled. |
 | `subject_request_id` | UUID v4 string | The controller-provided identifier of the request in a GUID v4 format. |
 | `group_id` | string  | The group_id can be used to relate different subject requests together. | 
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
@@ -274,7 +274,7 @@ Cancels a request. This can only be done if the status of the request is `pendin
 
 | Field Name | Data Type | Description |
 | ---------- | --------- | ----------- |
-| `expected_completion_time` | ISO 8601 date string | The time at which the request is expected to be completed. For a canceled request, this will be `null`. |
+| `expected_completion_time` | ISO 8601 date string | The estimated time by which the request will be fulfilled. For a cancelled request, this will be `null`. |
 | `received_time` | ISO 8601 date string | The time at which the cancellation request was received. |
 | `subject_request_id` | string | The controller-provided identifier of the request. |
 | `controller_id` | string | A unique ID representing the data controller.  |
