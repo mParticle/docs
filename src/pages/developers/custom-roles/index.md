@@ -102,6 +102,12 @@ Custom roles are visible across an entire mParticle organization, even though th
 
 When creating a new role, a new role ID is generated and assigned to a role after a successful upload. If you are modifying an existing role, make sure the `role_id` in the new manifests matches the `role_id` of the corresponding role in the old manifest. Otherwise a new `role_id` will create a new role.
 
+<aside class="warning">
+Your custom role manifest must contain the full JSON object for every role you want included for your organization. When adding or modifying a single role, the manifest you upload should contain every preexisting role even though they are not being changed.
+
+Remember that by uploading a new manifest, you are completely replacing the previous version. Omitting a preexisting role from the new manifest will result in an error if the role is actively assigned to a user or deleting the role if it's unassigned.
+</aside>
+
 The `user:core` permission is included with every custom role object in your manifest. This permission is necessary for users to be able to log in and view the mParticle dashboard in addition to other basic tasks.
 
 ## View tasks
