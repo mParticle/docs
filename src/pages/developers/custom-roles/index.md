@@ -408,6 +408,7 @@ The following permissions are included with every custom role by default.
 | View only | View the [Event Forwarding](/guides/platform-guide/activity/#event-forwarding) report for details about inbound and outbound data.  |
 | View only | View the [Data Master Catalog](/guides/data-master/catalog/) and annotate data points. |
 | View only | View available integrations in the [Integrations Directory](/integrations/). |
+| View only | View and access different [Workspaces](/guides/platform-guide/introduction/#workspaces). |
 | Log in and view dashboard | The `user:core` permission is mandatory for users to log in to mParticle and to view the main dashboard. It is required for **all** custom roles and is automatically included with each custom role definition you create. |
 
 ### User Activity View (UAV)
@@ -505,7 +506,6 @@ The [Data Master Catalog](/guides/data-master/catalog/) provides a view of every
 
 | Permission | Task ID | Description |
 | - | - | - |
-| View only | `workspaces:view` | View and access different workspaces. **Included by default.** |
 | Full access | `workspaces:*` | View, create, and delete workspaces |
 
 ### mParticle User Management
