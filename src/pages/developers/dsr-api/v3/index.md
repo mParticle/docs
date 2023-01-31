@@ -133,7 +133,7 @@ Authorization: Basic <your-token-here>
 
 #### The `subject_identities` Object
 
-The `subject_identities` are sent as a dictionary where the keys are identity types, and the value fields are `value` and `encoding`. 
+The `subject_identities` are sent as a dictionary where the keys are identity types, and the value fields are `value` and `encoding`. You can specify up to 50 identities in a single request. The number of identities in a request is also limited by the number of different unique identity types.
 
 ~~~http
  "identity_type": {
