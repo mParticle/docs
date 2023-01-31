@@ -218,15 +218,21 @@ As mentioned in the overview above, the IDSync API is meant to transition the SD
 
 If your organization uses [Profile Link](/guides/idsync/profile-link-strategy/) or [Profile Conversion](/guides/idsync/profile-conversion-strategy/) strategies, you can also create a request to alias the previous user to the current user. See our [main documentation on aliasing](/guides/idsync/aliasing/) for more information.
 
+Note that mParticle does not prevent aliasing a known user to another known user, as there may be use cases for this depending on your business.  If you don't want to alias known users to each other, ensure that the previous user is anonymous before aliasing to a known user.  This can be checked by determining that there are no identities on the user.
+
 ```javascript
 // Basic - Call alias as the result of a successful login
 var identityCallback = function(result) { 
     // Copy attributes from previous user to current user
     result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
 
-    // Create and send the alias request
-    var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
-    mParticle.Identity.aliasUsers(aliasRequest);
+    var previousUser = result.getPreviousUser();
+
+    // If the user is anonymous, create and send the alias request
+    if (previousUser && Object.keys(previousUser.getUserIdentities().userIdentities).length === 0) {      
+      var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
+      mParticle.Identity.aliasUsers(aliasRequest);
+    }
 };
 mParticle.Identity.login(identityRequest, identityCallback);
 
@@ -238,6 +244,8 @@ mParticle.Identity.aliasUsers({
     endTime: 10001231123
 });
 ```
+
+Sometimes web sites log a user out if they have not returned for a period of time. To keep mParticle's user state in sync with the state of your website, be sure to call `logout` appropriately to avoid associating anonymous events with the wrong user.  You can then perform a `login` with an alias request in the callback if necessary.
 
 ## Supported Identity Types
 
