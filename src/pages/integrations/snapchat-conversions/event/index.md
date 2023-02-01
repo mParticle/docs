@@ -196,11 +196,10 @@ The following settings are all required, and all `string` data type.
 
 ### Connection Settings
 
-The following settings are all `string` data type.
-
-| Setting Name    | Platform        | Description                                                                                                                                |
-|-----------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Apple App Id    | iOS             | Required. The unique iOS App Id assigned to a given Snap App. It should be numeric. Example: `447188370`                                             |
-| Android App URL | Android         | Required. The unique Android App URL assigned to a given Snap App. It should be a human interpretable string.  Example: `com.snapchat.android`       |
-| App Id          | Data feeds      | Optional. The iOS App ID or Android App URL assigned to a given Snap app. If set, don't set Pixel ID. Example: `447188370` or `com.snapchat.android` |
-| Pixel Id        | Web, data feeds | Optional for data feeds, required for Web. The Pixel ID for the Ad Account in question. Example: `f5932083-b4da-436e-b63c-94b659dde332`              |
+| Setting Name    |  Data Type  | Platform        | Description                                                                                                                                |
+|-----------------|-------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Apple App Id    | `string`    | iOS             | Required. The unique iOS App Id assigned to a given Snap App. It should be numeric. Example: `447188370`                                             |
+| Android App URL | `string`    | Android         | Required. The unique Android App URL assigned to a given Snap App. It should be a human interpretable string.  Example: `com.snapchat.android`       |
+| App Id          | `string`    | Data feeds      | Optional. The iOS App ID or Android App URL assigned to a given Snap app. If set, don't set Pixel ID. Example: `447188370` or `com.snapchat.android` |
+| Pixel Id        | `string`    | Web, data feeds | Optional for data feeds, required for Web. The Pixel ID for the Ad Account in question. Example: `f5932083-b4da-436e-b63c-94b659dde332`              |
+| Email Type      | `enum`      | Web, data feeds | Required. The mParticle User Identity type to forward as an Email to Snap App. The email user identity will be hashed before forwarding to Snapchat, other user identities selected from this dropdown will not be hashed prior to forwarding.                                                                      |
