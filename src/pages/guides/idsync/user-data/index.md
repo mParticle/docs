@@ -32,7 +32,7 @@ The complete list of supported identifiers are:
 * `other`
 * `other_id_2`
 * `other_id_3`
-* `other_id_5`
+* `other_id_4`
 * `other_id_5`
 * `other_id_6`
 * `other_id_7`
