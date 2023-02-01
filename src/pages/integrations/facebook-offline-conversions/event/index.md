@@ -67,3 +67,4 @@ Hashes of the following [reserved user attributes](/developers/server/json-refer
 |---|---|---|---|
 | Offline Event Set Id | `string` | <unset> | ID of the offline event set |
 | Send CCPA Limited Data Use | `enum` | Never | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with country and state user attributes defined. |
+| Email Type      | `enum`      | Email | Required. The mParticle User Identity type to forward as an Email to Facebook. The email user identity will be hashed before forwarding to Facebook, other user identities selected from this dropdown will not be hashed prior to forwarding.                                                                      |
