@@ -179,7 +179,7 @@ You can further organize files into date-based folders, with the name format:<br
 Files can be sorted into folders in several ways according to how you set **Store Data in Folders By Date** in the mParticle's Amazon S3 Integration [Connection Settings](#connection-settings):
 
 * **None** - files will not be stored in date folders
-* **Store data in folders by the event time** - each file will be sorted into a folder according to the timestamp of the first event in the batch
+* **Store data in folders by the event time** - each file will be sorted into a folder according to the timestamp of the first event in the batch.  However, if the batch has no event or event timestamp, the text file will be stored at the base folder, not in a date-labeled folder.
 * **Store data in folders by upload time** - each file will be sorted into a folder according to the upload time of the batch
 * **Store data in folders by first event time or upload time if no events** - each file will be sorted into a folder according to the timestamp of the first event in the batch, or the upload time of the batch if there are no events
 
