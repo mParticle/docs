@@ -121,7 +121,7 @@ mParticle will hash and send the following fields to Facebook when they are set 
 
 | mParticle Field | Facebook Field | Description |
 | --- | --- | --- |
-| `email` User Identity | `em` | |
+| `email` User Identity | `em` | mParticle will send the email identity based on the value of the `Email Type` setting. The email user identity will be hashed before forwarding to Facebook, other user identities will not be hashed prior to forwarding. |
 | Identity as defined by `External User Identity Type` setting | `external_id` | mParticle will hash and send a single identity based on the value of the `External User Identity Type` setting. |
 | Phone Number User Identity | `ph` | mParticle will hash and send a single phone number identity. mParticle will use the `mobile_number` identity if it is provided. If not, mParticle will use `phone_number_2` if it is provided. If neither of those are provided, mParticle will use `phone_number_3` if it is provided. If none of those are provided, mParticle will use the `$mobile` user attribute if it is provided. |
 | `$gender` User Attribute | `ge` | |
@@ -136,7 +136,7 @@ mParticle will hash and send the following fields to Facebook when they are set 
 
 | mParticle Field | Facebook Field Name | Hashed? | Description |
 | --- | --- | --- | --- |
-| `email` User Identity | `em` | Yes | |
+| `email` User Identity | `em` | Yes | mParticle will send the email identity based on the value of the `Email Type` setting. The email user identity will be hashed before forwarding to Facebook, other user identities will not be hashed prior to forwarding. |
 | `Facebook.BrowserId` [Custom Flag](/developers/server/json-reference/#custom_flags) | `fbp` | No | Facebook Browser ID |
 | `Facebook.ClickId` [Custom Flag](/developers/server/json-reference/#custom_flags) | `fbc` | No | Facebook Click ID |
 | `Facebook.ActionSource` [Custom Flag](/developers/server/json-reference/#custom_flags) | `action_source` | No | This field allows you to specify where your conversions occurred. Knowing where your events took place helps ensure your ads go to the right people. The accepted values are `email`, `website`, `app`, `phone_call`, `chat`, `physical_store`, `system_generated` and `other`. The `website` action source requires that the Facebook.EventSourceUrl custom flag is set on the event. Please see [Facebook's documentation](https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event#action-source) for details. |
@@ -323,7 +323,7 @@ There are several fields only accepted by server-to-server Web connections. Thes
 | Pixel ID | `string` | <unset> | Web | Facebook Pixel ID |
 | Default Action Source | `string` | other | Web, Out of Band | The default value for a conversion's action source. This value will be used if the Facebook.ActionSource custom flag is not set on the event. Please see the documentation for information on setting the custom flag.
 | Forward Web Requests Server Side | `bool` | False | Web | If enabled, requests will only be forwarded server-side |
-| Disable Automatic Page Logging | `bool` | False | Web | **Single Page Applications Only** - By default, the Facebook Pixel has an HTML5 History State API listener activated. Whenever a new state is pushed into History, it will automatically fire a PageView event (outside of mParticle). This could lead to duplicate PageViews in Facebook. If you want all PageViews to be tracked via mParticle instead, check this box to disable this listener.  
- |
+| Disable Automatic Page Logging | `bool` | False | Web | **Single Page Applications Only** - By default, the Facebook Pixel has an HTML5 History State API listener activated. Whenever a new state is pushed into History, it will automatically fire a PageView event (outside of mParticle). This could lead to duplicate PageViews in Facebook. If you want all PageViews to be tracked via mParticle instead, check this box to disable this listener. |
 | External User Identity Type | `string` | Customer ID | All | Hash of the User Identity to send to Facebook as External ID |
 | Send CCPA Limited Data Use | `enum` | Never | All | When should mParticle send [the CCPA limited data use flag](https://developers.facebook.com/docs/marketing-apis/data-processing-options) to Facebook. Note: the flag can only be sent for batches with country and state user attributes defined or for Pixel connections with client IP defined. |
+| Email Type | `enum` | Email | All | The mParticle User Identity type to forward as an Email to Facebook. The email user identity will be hashed before forwarding to Facebook, other user identities selected from this dropdown will not be hashed prior to forwarding. |
