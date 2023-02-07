@@ -223,7 +223,7 @@ const customFlags = {
   'GA4.CommerceEventType': 'add_shipping_info',
   'GA4.ShippingTier': 'overnight'
 }
-event.customFlags = customFlags
+commerceEvent.customFlags = customFlags
 MParticle.logCommerceEvent(commerceEvent)
 ```
 
