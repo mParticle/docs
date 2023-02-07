@@ -103,11 +103,18 @@ Prepare the CSV files for import. Files must follow the guidelines in this secti
   * Screen view events: use a column named `events.data.screen_name` if you want to include the screen name.
   * Custom events: use columns named `events.data.event_name` and `events.data.custom_event_type` to include custom events.
   * Commerce events: use columns with the following names for commerce events.  
-    * `events.data.product_action`
-    * `events.data.product_quantity`
-    * `events.data.product.name`
-    * `events.data.product.id`
-    * `events.data.product.category`
+  
+    * `events.data.product_action.action` [Example: 'purchase', 'add_to_cart', etc]
+    * `events.data.product_action.shipping_amount` [Shipping Amount]
+    * `events.data.product_action.tax_amount` [Tax Amount]
+    * `events.data.product_action.total_amount` [Total Amount]
+    * `events.data.product_action.transaction_id` [Transaction Id]
+    * `events.data.custom_attributes.KEY` [For any commerce event custom attributes]
+    * `events.data.product_action.products.name` [Product Name]
+    * `events.data.product_action.products.id` [Product Id]
+    * `events.data.product_action.products.product_quantity` [Product Quantity]
+    * `events.data.product_action.products.category` [Product Category]
+    * `events.data.product_action.products.custom_attributes.KEY` [for any Product custom attributes]
 
     Only one product per event can be included for commerce events uploaded via CSV.
 
