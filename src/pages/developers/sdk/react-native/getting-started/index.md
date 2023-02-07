@@ -219,6 +219,11 @@ const product = new MParticle.Product('Test product for cart', '1234', 19.99)
 const transactionAttributes = new MParticle.TransactionAttributes('Test transaction id')
 var commerceEvent = MParticle.CommerceEvent.createProductActionEvent(MParticle.ProductActionType.AddToCart, [product], transactionAttributes)
 commerceEvent.setShouldUploadEvent(false) // Set false to prevent uploading, true or omit to upload
+const customFlags = {
+  'GA4.CommerceEventType': 'add_shipping_info',
+  'GA4.ShippingTier': 'overnight'
+}
+event.customFlags = customFlags
 MParticle.logCommerceEvent(commerceEvent)
 ```
 
