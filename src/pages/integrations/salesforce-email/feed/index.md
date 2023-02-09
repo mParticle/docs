@@ -27,8 +27,10 @@ Share the encrypted file with mParticle. mParticle will notify you when the setu
 ### Configure the Feed in mParticle
 
 1.  From the **Directory**, select the **SFDC - Email** tile and add the **Feed** integration
-1.  Name the configuration and select which mParticle User Identity type your Salesforce **Subscriber Key** should be mapped to.
-1.  Click **Create** and Copy the SFTP **Hostname** and **Path**. You will need these values in Salesforce.
+2.  Name the configuration.
+3.  In **Subscriber Key**, select the mParticle user identity type will be mapped to the Salesforce Subscriber Key.
+4.  Select **Expect Encrypted Files** if appropriate.
+5.  Click **Create** and Copy the SFTP **Hostname** and **Path**. You will need these values in Salesforce.
 
 ### Configure the Feed in Salesforce
 
@@ -110,4 +112,4 @@ EventType | Custom Event Attribute named "Extract Type"
 
 Setting Name | Data Type | Default Value | Description 
 |---|---|---|---
-Subscriber Key | `string`| | The Primary Key in the Data Extension used to store subscriber information which indicates the Subscriber Key
+Subscriber Key | `string`| Customer ID | The Primary Key in the Data Extension used to store subscriber information which indicates the Subscriber Key.
