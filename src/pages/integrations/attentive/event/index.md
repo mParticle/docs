@@ -28,18 +28,10 @@ mParticle’s integration forwards the following event types to Attentive:
 
 ### User IDs
 * mParticle ID (MPID)
-* Customer ID
 * Email Address
-* Facebook
-* Google
-* Microsoft
-* Twitter
-* Yahoo
 * Mobile Number
 * Phone Number 2
 * Phone Number 3
-* Other
-* Other(2-10)
 
 ### Device IDs
 * iOS Advertising ID (IDFA)
@@ -53,5 +45,5 @@ Attentive will receive GDPR and CCPA consent states and user attributes with for
 
 | Setting Name| Data Type | Default Value | Description |
 |---|---|---|---|
-| API Key | `string` | | Your API Key issued by Attentive. |
-| Customer ID | `string` | | Internal customer ID, provided by your account manager. |
+| API Key | `string` | | Your API Key issued by Attentive. You can find this on the Integrations Settings page. |
+| Attentive External ID | `string` | | Attentive External ID provided by Attentive's CS White Glove. |
