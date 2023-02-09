@@ -441,8 +441,8 @@ The following errors may be returned by the API.
 | --- | --- | --- |
 | 400 | No | Invalid data was detected |
 | 400 | No | If an mpid is provided, it must be the only identity in the request. |
-| 400 | No | Subject request already exists |
+| 400 | No | Subject request already exists: `subject_request_id` is not unique. |
 | 401 | No | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication). |
 | 404 | No | The specified subject request id could not be found. |
-| 409 | No | There is an in progress request with the same identities, extensions and type. |
+| 409 | No | There is an in-progress request with the same identities, extensions and type. |
 | 429 | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again. Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling). |
