@@ -155,7 +155,7 @@ Data privacy is configured in the dashboard and is attached via a batch's `conse
 ccpa_consent_state = mparticle.CCPAConsentState()
 ccpa_consent_state.document = 'document_agreement.v3'
 ccpa_consent_state.consented = True
-ccpa_consent_state.timestamp_unixtime_ms = calendar.timegm(time.gmtime())
+ccpa_consent_state.timestamp_unixtime_ms = time.time_ns() // 1000000
 ccpa_consent_state.location = 'mparticle.test/signup'
 ccpa_consent_state.hardware_id = 'IDFA:a5d96n32-224a-3b11-1088-a202695bc710'
 
@@ -171,7 +171,7 @@ batch.consent_state = consent_state
 gdpr_consent_state = mparticle.GDPRConsentState()
 gdpr_consent_state.document = 'document_agreement.v2'
 gdpr_consent_state.consented = True
-gdpr_consent_state.timestamp_unixtime_ms = calendar.timegm(time.gmtime())
+gdpr_consent_state.timestamp_unixtime_ms = time.time_ns() // 1000000
 gdpr_consent_state.location = 'dtmgbank.com/signup'
 gdpr_consent_state.hardware_id = 'IDFA:a5d934n0-232f-4afc-2e9a-3832d95zc702'
 
