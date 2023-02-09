@@ -4,7 +4,11 @@ title: Event
 
 <aside className='warning'>
 <b>Google Analytics (Universal Analytics) Sunset Notice<br></b>
-On 7/1/2023, Google will sunset its Universal Analytics product which means all standard Universal Analytics properties will stop processing new hits starting that day.  If you have a Google Analytics 360 property, your data will stop processing new hits on 10/1/2023.  See <a href="https://support.google.com/analytics/answer/11583528?hl=en">Google's official notice</a> about their plans to sunset Universal Analytics for all details.
+On 7/1/2023, Google will sunset its Universal Analytics product which means all standard Universal Analytics properties will stop processing new hits starting that day.
+
+<em>If you have a Google Analytics 360 property, your data will stop processing new hits on 7/1/2024.</em>
+
+See <a href="https://support.google.com/analytics/answer/11583528?hl=en">Google's official notice</a> about their plans to sunset Universal Analytics for all details.
 
 Google recommends moving from UA to Google Analytics 4 (GA4).  Fortunately, mParticle makes this transition easy for you.  Please see our <a href="https://docs.mparticle.com/integrations/google-analytics-4/event/">GA4 documentation</a> for full setup instructions.  Additionally, Google has <a href="https://support.google.com/analytics/answer/10759417">migration documentation</a> which may help in your migration to GA4.
 
