@@ -36,6 +36,7 @@ Page tracking allows you to measure the number of views you had for a particular
 {
   "vars": {
     "apiKey": "Your mParticle API Key"
+    "pageName": "Your custom page name"
   },
   "triggers": {
     "trackPageview": {
@@ -55,7 +56,8 @@ You can set key-value pairs for the following pageview fields in the vars attrib
 Value| Default Value | Required | Description
 |---|---|---|---
 title | Defaults to [title](https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/analytics-vars.md#title) | no | The title of the page.  
-ampdocUrl | Defaults to [ampdocUrl](https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/analytics-vars.md#ampdocurl) | no | URL of the page being tracked.   
+ampdocUrl | Defaults to [ampdocUrl](https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/analytics-vars.md#ampdocurl) | no | URL of the page being tracked.
+| pageName |  | no | Allows you to set up a custom name for your page, separate from that of title.
 
 The following example overrides the default pageview values for title and ampdocUrl:
 
