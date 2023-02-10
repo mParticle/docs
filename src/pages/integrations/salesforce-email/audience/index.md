@@ -62,11 +62,11 @@ Upload frequency can sometimes be adjusted. Reach out to your mParticle Customer
 
 ## Configuration Settings
 
-| Setting Name |  Data Type    | Default Value  | Description |
-| ---|---|---|---|
-| Client ID | `string` | <unset> | Your Client ID from Salesforce Marketing Cloud App Center |
-| Client Secret | `string` | <unset> | Your Client Secret from Salesforce Marketing Cloud App Center |
-
+| Setting Name |  Data Type    | Description |
+| ---|---|---|
+| Client ID | `string` | Your Client ID from Salesforce Marketing Cloud App Center |
+| Client Secret | `string` | Your Client Secret from Salesforce Marketing Cloud App Center |
+| Client Subdomain | `string` | The subdomain, part of your **Authentication Base URI**.  For example if your Authentication Base URI is `https://mc5jy4nwsrslmfnb4c274lnhns2m.auth.marketingcloudapis.com`, then your Client Subdomain is `mc5jy4nwsrslmfnb4c274lnhns2m`.
 
 ## Connection Settings
 
