@@ -228,7 +228,6 @@ If you see an option for <code>Unselected</code> displayed in the drop-down (or 
 | Include Event Batch Location | `bool` | False | All| If enabled, event batch location data will be set on `context.location` whenever possible. See the JSON API reference [here](/developers/server/json-reference/#context) for more detail. |
 | Send Alias Requests | `bool` | False | All | If enabled, alias request events will be forwarded. |  
 | Include MP DeviceId | `bool` | False | All| If enabled, MP DeviceId will be forwarded with event batches. |
-| Send Validation Results | `bool` | False | All| Determines if we should send data planning validation result events. |
 | Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
 
 <aside>

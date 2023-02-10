@@ -105,5 +105,4 @@ mParticle will forward data to [Qualtrics' JSON Event](https://www.qualtrics.com
 | Send Batches without Events | `bool` | True | All | If enabled, an event batch that contains no events will be forwarded. |
 | Include Event Batch Location | `bool` | False | All | If enabled, event batch context.location data will be forwarded with event data. |
 | Send Alias Requests | `bool` | False | All | If enabled, alias request events will be forwarded. |
-| Send Validation Results | `bool` | False | All| Determines if we should send data planning validation result events. |
 | Raw Data Feed | `bool` | False | All| Identifies this input as a source of raw event data, such as a quarantine feed. Events will be output using the inbound DTO. |
