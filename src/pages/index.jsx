@@ -264,9 +264,9 @@ const Home = (props) => (
                                     <p>
                                         {'Send your first event to mParticle'}
                                     </p>
-                                    <Link to='developers/quickstart/senddata'>
+                                    <Link to='guides/getting-started/create-an-input/'>
                                         <span className='view-all'>
-                                            Go to Step 1
+                                            Go to 'Create an input'
                                         </span>
                                     </Link>
                                 </div>
@@ -276,9 +276,9 @@ const Home = (props) => (
                                 <div className='body'>
                                     <h3>2. Validate</h3>
                                     <p>{'Ensure data quality'}</p>
-                                    <Link to='developers/quickstart/validate'>
+                                    <Link to='guides/getting-started/start-capturing-data/#verify-look-for-incoming-data-in-the-live-stream'>
                                         <span className='view-all'>
-                                            Go to Step 2
+                                            Go to 'Verify'
                                         </span>
                                     </Link>
                                 </div>
@@ -292,9 +292,9 @@ const Home = (props) => (
                                             'Forward data to a downstream services'
                                         }
                                     </p>
-                                    <Link to='developers/quickstart/connect-an-event-output/'>
+                                    <Link to='guides/getting-started/connect-an-event-output/'>
                                         <span className='view-all'>
-                                            Go to Step 3
+                                            Go to 'Connect an event output'
                                         </span>
                                     </Link>
                                 </div>
