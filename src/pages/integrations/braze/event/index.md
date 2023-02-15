@@ -3,10 +3,13 @@ title: Event
 ---
 
 <aside className='warning'>
-<b>10/15/2022 - 2/15/2023 - Temporary Notice!<br></b>
-Customers who use mParticle and Braze on their websites may require some code changes due to an update we are making to the mParticle Braze web kit.  The web kit, which previously used v3.5.0 of the Braze web SDK, will use Braze SDK 4.2.1 starting on 2/15/2023 on our CDN.
+<b>2/14/2023 Notice! Opt in for Breaking Changes to mParticle Web Braze Kit coming soon!<br></b>
 
-<b>The Braze web SDK has several breaking changes and if you load mParticle via snippet/CDN, you should <a href="#update-to-braze-sdk-version-4-from-version-3---10152022---2152023">follow these instructions to ensure your code continues to work when our changes go live to the CDN on 2/15/2023</a>.  If you self-host mParticle and the Braze Web Kit via npm, you can update sooner. Follow the instructions below whether you self-host or load mParticle via snippet/CDN.</b>.<br/>
+mParticle's Braze Kit currently uses Braze's V3 web SDK, and Braze has made significant changes to their newest V4 web SDK.  Previously, mParticle planned to release an update on 2/15/2023 for all of our CDN users which upgraded to the Brave V4 web SDK.  Now, rather than migrate all CDN users to V4 at the same time, you must opt in to get the latest update.  This will allow you to decide when you want to upgrade to V4 and make the appropriate code changes. Opting in to V4 will be done via a connection setting in the mParticle UI that will be available shortly.
+
+For now, no code changes are needed, but if you implemented the code examples outlined in our docs and earlier communications, you can continue to use the V3 code until you opt in to V4 manually.  More details on that are coming soon.
+
+<b>For more details, <a href="#opt-in-to-braze-sdk-version-4-from-version-3">follow these instructions</a>.  If you self-host mParticle and the Braze Web Kit via npm, you can update sooner. Follow the instructions below whether you self-host or load mParticle via snippet/CDN.</b>.<br/>
 
 If you are using version 2 of the @mparticle/web-appboy-kit, you will need to <a href="#transition-from-mparticleweb-appboy-kit-to-mparticleweb-braze-kit">transition to @mparticle/web-braze-kit per the instructions here</a> before following the above instructions as well.
 </aside>
@@ -317,7 +320,7 @@ By default, mParticle forwards all available user attributes and user identities
 
 ## Braze Web Kit Citical Updates and Timelines
 
-Braze occasionally makes breaking changes to their SDK, so if you call Braze directly in your code, you may have to update your code to ensure your website performs as expected after mParticle updates to the latest Braze SDKs.  This section communicates migration steps for customers to make to their codebase to ensure compatibility.
+Braze occasionally makes breaking changes to their SDK, so if you call Braze directly in your code, you will have to update your code to ensure your website performs as expected when updating versions of Braze.
 
 Customers who implement mParticle via NPM and self-host our SDK can choose when they want to update their code and [@mParticle/web-braze-kit version](https://www.npmjs.com/package/@mparticle/web-braze-kit), but customers who implement mParticle via our snippet/CDN must pay close attention to the following timelines and instructions.
 
@@ -326,34 +329,30 @@ Customers who implement mParticle via NPM and self-host our SDK can choose when 
 | v4.0.0 | v4.2.1 | 2/15/2023 | [Link](#update-to-braze-sdk-version-4-from-version-3---10152022---2152023) |
 | v3.0.4 | v3.5.0 | NA | [Link](#transition-from-mparticleweb-appboy-kit-to-mparticleweb-braze-kit) |
 
-### Update to Braze SDK Version 4 from Version 3 - 10/15/2022 - 2/15/2023
+### Opt In to Braze SDK Version 4 from Version 3
 
 Please review [Braze’s Changelog notes](https://www.braze.com/docs/developer_guide/platform_integration_guides/web/changelog#400) as well as Braze’s [migration guide](https://github.com/braze-inc/braze-web-sdk/blob/master/UPGRADE_GUIDE.md) between version 3 and 4 to understand these changes and what code updates are needed from your side.  The largest change is the move from class name `appboy` to `braze`. Braze also removed and renamed some APIs.  As a result, we are also updating our mParticle Braze web kit from 3.0.X to 4.0.X in order to support Braze’s Web SDK version 4.2.1.
 
-We plan to release the updated mParticle Braze Kit on two different time frames depending on how you load mParticle:
-* Customers who self-host mParticle via npm - You will be able to update manually from npm on 10/15/2022
-* Customers who load mParticle via snippet/CDN - We will push an update to the CDN on 2/15/2023 to make it automatically available.
+Customers will be able to opt in to using the latest version of Braze's Web SDK both via npm and via snippet/CDN
+* Customers who self-host mParticle via npm - You can use @mparticle/web-braze-kit version 4.0.0 in your package.json now! This has been available since 10/15/2022.
+* Customers who load mParticle via snippet/CDN - Opting in will be available soon via the mParticle UI in your Braze connection settings.
 
-We want to allow our customers to take advantage of the latest from Braze, so we are releasing the kit update via npm earlier.  However, due to the sensitive nature of the breaking changes in Braze’s latest version, we want to give ample notice to all of our customers who are on the CDN since these customers will get the update automatically.  We want to respect the end-of-year code freezes that a lot of our customers have and allow plenty of time to make the required code changes.  Striking this balance is important for us, so if you are on the CDN but need the update sooner, you can [switch to self-hosting on npm](https://docs.mparticle.com/developers/sdk/web/self-hosting/).
-
-If you load mParticle via snippet/CDN, you will have to make changes to your codebase before February 15, 2023 to be compatible with both version 3 and version 4 of the Braze SDK to ensure your code continues to work. We recommend a three-step approach. Here are some code samples of what this code could look like today (step 1), preparing for the update (step 2) and after the change is live (step 3). 
-
-The following recommendations apply only to customers who load mParticle via snippet. Customers who self-host via npm can ignore step 1 and jump straight to step 3 after updating their mParticle Braze kit.  Note that this is only one example.  Everywhere you manually call `appboy` needs to be updated similar to the below, and please refer to the Braze Changelog and migration guide as referenced earlier:
+Note that the following is only one example.  Everywhere you manually call `appboy` needs to be updated similar to the below.
 
 * Step 1: Legacy code sample. Find all the places where your code references the `appboy.display` namespace.  Braze has removed all instances of the `display` namespace:
 ```javascript
 window.appboy.display.destroyFeed();
 ```
 
-Step 2: Roll out code changes to be used before February 15, 2023:
+Step 2: Roll out code changes to be used before you opt in to using Version 4 of the Braze Web SDK so that it works under both versions:
 ```javascript
-	if (window.appboy) {
-window.appboy.display.destroyFeed();
+if (window.appboy) {
+    window.appboy.display.destroyFeed();
 } else if (window.braze) {
-	window.braze.destroyFeed();
+    window.braze.destroyFeed();
 }
 ```
-Step 3: After February 1, 2023, you can simplify your code after the mParticle Braze Web kit, which includes Braze SDK V4, has been released to our CDN:
+Step 3: After opting in to Version 4 of the Braze Web SDK, you can simplify your code:
 ```javascript
 window.braze.destroyFeed();
 ```
