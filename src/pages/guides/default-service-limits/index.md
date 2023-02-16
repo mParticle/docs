@@ -42,7 +42,7 @@ mParticle reserves the right to restrict average events per user within 30 days 
 
 | Resource | Limits | Details |
 | -------- | ------ | --- |
-| Batches per second | Variable but defaults to 270 batches per second | If exceeded, the Events API returns a 429 HTTP response code. Learn more about how the Events API is throttled in [Default Service Limits](/guides/default-service-limits/#api-throttling).
+| Batches per second | Variable but defaults to 270 batches per second | If exceeded, the Events API returns a 429 HTTP response code. Learn more about how the Events API is throttled in [API Throttling](/guides/default-service-limits/#api-throttling).
 | Total Request Size | 256kb | Whether using the `/events` or `/bulkevents` endpoint, the total request size must be under 256kb regardless of how many batches are included in the request.
 
 ## Profile API
