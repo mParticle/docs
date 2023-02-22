@@ -50,10 +50,10 @@ mParticle will forward the following device IDs to Epsilon if available:
 
 * Epsilon will not accept data more than 24 hours old.
 * Epsilon will receive location, user agent, and IP address data with forwarded events.
-* Epsilon will receive user attributes with forwarded events. 
+* Epsilon will receive user attributes with forwarded events.
+* Data from mParticle is sent to Epsilon's CoreID product. Per Epsilon's documentation, once forwarded data is processed by CoreID, it is then accessible from other Epsilon products. 
 
 ## Configuration Settings
-
 
 | Setting Name| Data Type | Default Value | Description |
 |---|---|---|---|
