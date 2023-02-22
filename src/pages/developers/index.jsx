@@ -123,6 +123,11 @@ const EVENTS = [{
 
 const TILES = [
     {
+        title: 'Warehouse Sync API',
+        content: 'The Warehouse Sync API lets you programmatically enrich profile data from data in Snowflake',
+        route: 'warehouse-sync-api/overview',
+    },
+    {
         title: 'Data Planning API',
         content: 'The Data Planning API lets you programmatically define your data schema with Data Master',
         route: 'dataplanning-api',

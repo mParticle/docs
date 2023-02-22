@@ -79,6 +79,24 @@ mParticle reserves the right to restrict average events per user within 30 days 
 | Requests per minute per account | 3000 requests per minute | This limit applies to all GET, POST, and PATCH API actions. |
 | Requests per minute per organization | 6000 requests per minute | This limit applies to all GET, POST, and PATCH API actions.
 
+## Warehouse Sync API
+
+Warehouse Sync API limits apply to all resources:
+
+| Limit                                    | Value       |  Notes |
+|------------------------------------------|-------------|--------|
+| Max number of Active Pipelines           | 5           |        |
+| Catchup limit for new hourly pipeline    | 7 days      |        |
+| Catchup limit for new daily pipeline     | 6 months    |        |
+| Catchup limit for new weekly pipeline    | 3 years     |        |
+| Catchup limit for new monthly pipeline   | 5 years     |        |
+| Record count limit per hourly interval   | 1 million   |        |
+| Record count limit per daily interval    | 24 million  |        |
+| Record count limit per weekly interval   | 40 million  |        |
+| Record count limit per monthly interval  | 40 million  |        |
+| Record count limit per once request      | 40 million  |        |
+| Record count limit per on-demand request | 24 million  |  This request must be used with an [on-demand trigger](/developers/warehouse-sync-api/reference/#trigger-an-on-demand-pipeline).      |
+
 ## Dashboard
 
 | Resource | Limits | Details |
