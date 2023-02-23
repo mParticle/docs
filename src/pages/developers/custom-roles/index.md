@@ -394,6 +394,358 @@ To assign a custom access role that you have already created and uploaded to you
 
 5. Click **Save**.
 
+## Standard role templates
+
+If you need to modify one of the pre-defined roles accessible from the mParticle UI in [User Roles](https://docs.mparticle.com/guides/platform-guide/users/), refer to the templates provided below. These templates include the JSON needed to reproduce the standard roles within a custom role manifest.
+
+To add to or modify one of the standard roles, copy the JSON for the role from one of the templates below into your manifest. Make any additions or changes, ensuring to follow the guidelines presented in the [Default Permissions](/developers/custom-roles/#permissions-reference-by-mparticle-feature) table.
+
+<aside>
+    The role templates approximate the standard roles found in the mParticle UI, but there are certain standard role permissions that don't have corresponding task IDs in the Custom Acccess Role API.
+</aside>
+
+### User role
+
+```json
+{
+  "roles": [
+      {
+          "name": "User",
+          "description": "Provides common permissions needed for general users",
+          "tasks": [
+              {
+                  "task_id": "audiences:*"
+              },
+              {
+                  "task_id": "calculated_attributes:*"
+              },
+              {
+                  "task_id": "connections:configure_inputs"
+              },
+              {
+                  "task_id": "connections:configure_outputs"
+              },
+              {
+                  "task_id": "connections:connect_integration"
+              },
+              {
+                  "task_id": "data_filter:all"
+              },
+              {
+                  "task_id": "data_plans:*all"
+              },
+              {
+                  "task_id": "live_stream:view"
+              },
+              {
+                  "task_id": "rules:*"
+              },
+              {
+                  "task_id": "workspaces:*"
+              }
+          ],
+          "role_id": "user-role"
+      }
+  ]
+}
+```
+
+### Admin role
+
+```json
+{
+  "roles": [
+      {
+          "name": "Admin",
+          "description": "Provides necessary permissions for admin users",
+          "tasks": [
+              {
+                  "task_id": "api_credentials:*"
+              },
+              {
+                  "task_id": "audiences:*"
+              },
+              {
+                  "task_id": "calculated_attributes:*"
+              },
+              {
+                  "task_id": "catalog:*"
+              },
+              {
+                  "task_id": "connections:configure_inputs"
+              },
+              {
+                  "task_id": "connections:configure_outputs"
+              },
+              {
+                  "task_id": "connections:connect_integration"
+              },
+              {
+                  "task_id": "data_filter:*"
+              },
+              {
+                  "task_id": "data_plans:*"
+              },
+              {
+                  "task_id": "identity_settings:*"
+              },
+              {
+                  "task_id": "live_stream:view"
+              },
+              {
+                  "task_id": "rules:*"
+              },
+              {
+                  "task_id": "user_activity:view"
+              },
+              {
+                  "task_id": "user_management:*"
+              },
+              {
+                  "task_id": "workspaces:*"
+              }
+          ],
+          "role_id": "admin-role"
+      }
+  ]
+}
+```
+
+### Compliance role
+
+```json
+{
+  "roles": [
+      {
+          "name": "Compliance",
+          "description": "Provides necessary permissions for compliance users",
+          "tasks": [
+              {
+                  "task_id": "audiences:view"
+              },
+              {
+                  "task_id": "connections:connect_integration"
+              },
+              {
+                  "task_id": "data_filter:view"
+              },
+              {
+                  "task_id": "data_plans:view"
+              },
+              {
+                  "task_id": "identity_settings:*"
+              },
+              {
+                  "task_id": "live_stream:view"
+              },
+              {
+                  "task_id": "privacy_settings:*"
+              },
+              {
+                  "task_id": "rules:view"
+              },
+              {
+                  "task_id": "user_management:view"
+              },
+              {
+                  "task_id": "workspaces:*"
+              }
+          ],
+          "role_id": "compliance-role"
+      }
+  ]
+}
+```
+
+## Admin and Compliance role
+
+```json
+{
+  "roles": [
+      {
+          "name": "Admin & Compliance",
+          "description": "Provides necessary permissions for admin and compliance users",
+          "tasks": [
+              {
+                  "task_id": "api_credentials:*"
+              },
+              {
+                  "task_id": "audiences:*"
+              },
+              {
+                  "task_id": "calculated_attributes:*"
+              },
+              {
+                  "task_id": "catalog:*"
+              },
+              {
+                  "task_id": "connections:configure_inputs"
+              },
+              {
+                  "task_id": "connections:configure_outputs"
+              },
+              {
+                  "task_id": "connections:connect_integration"
+              },
+              {
+                  "task_id": "data_filter:*"
+              },
+              {
+                  "task_id": "data_plans:*"
+              },
+              {
+                  "task_id": "identity_settings:*"
+              },
+              {
+                  "task_id": "live_stream:view"
+              },
+              {
+                  "task_id": "privacy:*"
+              },
+              {
+                  "task_id": "rules:*"
+              },
+              {
+                  "task_id": "user_activity:view"
+              },
+              {
+                  "task_id": "user_management:*"
+              },
+              {
+                  "task_id": "workspaces:*"
+              }
+          ],
+          "role_id": "admin-compliance-role"
+      }
+  ]
+}
+```
+
+### Audiences-only role
+
+```json
+{
+  "roles": [
+      {
+          "name": "Audiences Only",
+          "description": "Provides all access to users who only use Audiences",
+          "tasks": [
+              {
+                  "task_id": "audiences:*"
+              }
+          ],
+          "role_id": "audiences-only-role"
+      }
+  ]
+}
+```
+
+### Read-only role
+
+```json
+{
+  "roles": [
+      {
+          "name": "Read Only",
+          "description": "Provides read only access to mParticle features",
+          "tasks": [
+              {
+                  "task_id": "audiences:view"
+              },
+              {
+                  "task_id": "calculated_attributes:view"
+              },
+              {
+                  "task_id": "data_filter:view"
+              },
+              {
+                  "task_id": "data_plans:view"
+              },
+              {
+                  "task_id": "identity_settings:*"
+              },
+              {
+                  "task_id": "live_stream:view"
+              },
+              {
+                  "task_id": "rules:view"
+              },
+              {
+                  "task_id": "workspaces:*"
+              }
+          ],
+          "role_id": "read-only-role"
+      }
+  ]
+}
+```
+
+### Support role
+
+```json
+{
+  "roles": [
+      {
+          "name": "Support",
+          "description": "Provides necessary access for technical support",
+          "tasks": [
+              {
+                  "task_id": "api_credentials:*"
+              },
+              {
+                  "task_id": "audiences:*"
+              },
+              {
+                  "task_id": "calculated_attributes:*"
+              },
+              {
+                  "task_id": "catalog:*"
+              },
+              {
+                  "task_id": "connections:configure_inputs"
+              },
+              {
+                  "task_id": "connections:configure_outputs"
+              },
+              {
+                  "task_id": "connections:connect_integration"
+              },
+              {
+                  "task_id": "data_filter:*"
+              },
+              {
+                  "task_id": "data_plans:*"
+              },
+              {
+                  "task_id": "identity_settings:*"
+              }
+              ,
+              {
+                  "task_id": "live_stream:view"
+              }
+              ,
+              {
+                  "task_id": "privacy_settings"
+              }
+              ,
+              {
+                  "task_id": "rules:*"
+              }
+              ,
+              {
+                  "task_id": "user_activity:view"
+              }
+              ,
+              {
+                  "task_id": "workspaces:*"
+              }
+          ],
+          "role_id": "support-role"
+      }
+  ]
+}
+```
+
 ## Permissions reference by mParticle feature
 
 Below is a list of the mParticle features with all available permissions and corresponding task IDs for each feature. Use this reference when creating or modifying a custom role.
