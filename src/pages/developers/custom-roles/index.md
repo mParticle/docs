@@ -557,7 +557,7 @@ To add to or modify one of the standard roles, copy the JSON for the role from o
 }
 ```
 
-## Admin and Compliance role
+### Admin and Compliance role
 
 ```json
 {
@@ -628,7 +628,7 @@ To add to or modify one of the standard roles, copy the JSON for the role from o
   "roles": [
       {
           "name": "Audiences Only",
-          "description": "Provides all access to users who only use Audiences",
+          "description": "Provides Audiences-only access",
           "tasks": [
               {
                   "task_id": "audiences:*"
