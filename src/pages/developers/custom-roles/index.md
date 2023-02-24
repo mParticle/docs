@@ -429,10 +429,10 @@ To add to or modify one of the standard roles, copy the JSON for the role from o
                   "task_id": "connections:connect_integration"
               },
               {
-                  "task_id": "data_filter:all"
+                  "task_id": "data_filter:*"
               },
               {
-                  "task_id": "data_plans:*all"
+                  "task_id": "data_plans:*"
               },
               {
                   "task_id": "live_stream:view"
@@ -539,7 +539,7 @@ To add to or modify one of the standard roles, copy the JSON for the role from o
                   "task_id": "live_stream:view"
               },
               {
-                  "task_id": "privacy_settings:*"
+                  "task_id": "privacy:*"
               },
               {
                   "task_id": "rules:view"
@@ -718,24 +718,19 @@ To add to or modify one of the standard roles, copy the JSON for the role from o
               },
               {
                   "task_id": "identity_settings:*"
-              }
-              ,
+              },
               {
                   "task_id": "live_stream:view"
-              }
-              ,
+              },
               {
-                  "task_id": "privacy_settings"
-              }
-              ,
+                  "task_id": "privacy:settings"
+              },
               {
                   "task_id": "rules:*"
-              }
-              ,
+              },
               {
                   "task_id": "user_activity:view"
-              }
-              ,
+              },
               {
                   "task_id": "workspaces:*"
               }
