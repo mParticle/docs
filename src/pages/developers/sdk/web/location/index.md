@@ -25,7 +25,7 @@ There are two ways to approach location tracking:
 1. You can call the `startTrackingLocation` method and let the mParticle SDK collect and update location information for you. Remember to call `stopTrackingLocation` when you no longer need to track location
 2. Set the `location` property directly. In this case you are responsible for maintaining `location` updated and setting it to `nil/null` when no longer needed
 
-The `startTrackingLocation()` initializes HTML 5 Location Tracking. The user will be prompted to allow access to location. The mParticle SDK will then start listening to the location events. Thereafter, the location will be appended to events are sent to the mParticle servers.
+The `startTrackingLocation()` initializes HTML 5 Location Tracking. The user will be prompted to allow access to location. The mParticle SDK will then start listening to the location events. Thereafter, the location will be appended to events sent to the mParticle servers.
 
 ~~~javascript
 //start tracking location
