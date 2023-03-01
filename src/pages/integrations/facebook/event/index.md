@@ -296,8 +296,9 @@ For the **iOS/tvOS** and **Android** platforms, screen views are supported by cu
 
 There are several fields only accepted by server-to-server Web connections. These fields and the mParticle fields they are set from are listed below:
 
-| Facebook Field Name | Description | mParticle Field |
+| Facebook Field Name | <div style="width:350px">Description</div> | mParticle Field |
 | --- | --- | --- |
+| `client_user_agent` | The user agent for the browser corresponding to the event. This flag is **required** if the Default Action Source is set to Website in the connection configuration. | `Facebook.ClientUserAgent` [custom flag](/developers/server/json-reference/#custom_flags)
 | `event_source_url` | The browser URL where the event happened. This flag is **required** if the Default Action Source is set to Website in the connection configuration. | `Facebook.EventSourceUrl` [custom flag](/developers/server/json-reference/#custom_flags) |
 | `opt_out` | A flag that indicates Facebook should not use this event for ads delivery optimization. | [CCPA Opt Out Status](https://docs.mparticle.com/guides/data-privacy-controls/) |
 | Custom Data Fields | Additional data used for ads delivery optimization. | [Custom attributes](https://docs.mparticle.com/developers/server/json-reference/#common-event-data-node-properties)* |
