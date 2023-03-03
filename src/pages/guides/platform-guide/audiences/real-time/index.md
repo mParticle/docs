@@ -183,6 +183,9 @@ When building audiences based on string attributes, several matching rules can b
 
 * **Pattern** - Wildcard style matching. `*` represents any number of characters, `?` represents any single character. For example, "bl?e" or "b\*e" would both match "blue".
 
+* **Includes / Does Not Include** - The specified list includes an attribute you will specify. If you select this operator, an additional field appears for the attribute value. The full attribute value must be specified. For example, if the list is movies and you specify "Chicago," the movies "Chicago" (2002, 1927) are returned, but not "Chicago Cubs."
+
+* **Partial Match** - The inverse of Includes/Does Not Include, the specified list includes an attribute you will specify. If you select this operator, an additional field appears for the attribute value. For example, if the list is movies and you specify "Chicago," all movies with Chicago in the title are returned.
 
 #### Date and time matching criteria
 
