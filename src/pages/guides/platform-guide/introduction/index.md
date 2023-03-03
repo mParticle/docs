@@ -134,6 +134,15 @@ A quick summary of some of the most important limits is below. For more informat
 
 Note that Output Services often have their own limits, which can differ from mParticle's. When planning your implementation, check the documentation for your Output Services in the [Integration Center](/integrations/) to make sure you are complying with their limits.
 
+## Tracking Protection
+
+Browsers add third-party tracking protection for end users. The protections affect third-party trackers and their cookies and work in different ways. For example, Firefox Enhanced Tracking Protection (ETP) relies on a list of known trackers to decide what to block. Safari, Chrome for iOS and other browsers with the Apple WebKit engine use Intelligent Tracking Protection (ITP). ITP prevents the browser from loading cookies from a third-party domain.
+
+mParticle aligns with this privacy stance.
+
+* [Firefox Enhanced Tracking Protection (ETP)](https://developer.mozilla.org/en-US/docs/Web/Privacy/Redirect_tracking_protection)
+* [Apple WebKit engine and ITP](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/)
+
 ## Next Steps
 
 To get started with mParticle, set up some data inputs and integrate with at least one output service. See [Web End-to-End Tutorial](/developers/quickstart/web/overview) for instructions on how to set up connections, and see your first data flow from input to output. If you aren't working with Web apps or services, visit [Getting Started](/guides/getting-started/) for more generic instructions.
