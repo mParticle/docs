@@ -16,6 +16,3 @@ Connecting your Web input to The Trade Desk Cookie Sync output allows mParticle 
  
  mParticle will only perform a sync for a given mParticle ID if a sync has not already been performed in the previous 14 days.
  
- The Trade Desk Cookie Sync integration is only available in the US1 Pod - see [Data Localization.](/developers/data-localization)
-
- 
