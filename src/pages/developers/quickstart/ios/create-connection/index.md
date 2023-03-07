@@ -35,6 +35,10 @@ You won’t be able to see data flow from your input (iOS) to your output (webho
 
 ![](/images/ios-e2e-screenshots/4-create-a-connection/create-a-connection-3.png)
 
+<aside class="warning">
+    <strong>Wait for Complete Batch</strong> is a legacy setting that is no longer supported since the release of the mParticle iOS SDK version 8.0. Enable <strong>Send as Batch</strong> if you are using version 8.0 or later of the mParticle iOS SDK.
+</aside>
+
 6. Click **Add Connection**.
 
 <aside>
