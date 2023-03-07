@@ -11,8 +11,9 @@ different parameters.
 
 ## Data Models and SQL Queries 
 
-The data in your warehouse is mapped to the user profile according to the column names in the SQL you provide in the data model request following these rules
+The data in your warehouse is mapped to the user profile in mParticle according to the column names in the SQL you provide in the data model request following these rules:
 
+* The provided SQL query supports being wrapped in an outer SELECT statement
 * Column name casing follows the default identifier naming conventions for your specific warehouse, wrap column names in `""` or `[]` to preserve casing.
 * Every column is mapped to a user attribute except:
   * The column matches the `load_timestamp_field_type` field (case-insensitive) in the data model request
@@ -124,4 +125,56 @@ FROM mp.demo_service.tickets t
 JOIN mp.demo_service.users u
 ON u.id = t.requester_user_id
 WHERE t.status = 'open'
+```
+
+## Troubleshooting SQL Queries
+mParticle materializes your query by wrapping it in an outer SELECT statement to build more complex statements to execute against your data warehouse. These are the queries you will see looking at the history/audit logs in your data warehouse. For example, assume that a data model has the following query:
+
+```sql
+SELECT 
+    a.scanned_timestamp_ms,
+    c.propensity_to_buy
+FROM demodw.demo.mp_dw_demo_attr a
+JOIN demodw.demo.mp_dw_demo_calc c ON a.customer_id = c.customer_id
+```
+
+The query will be wrapped into (but not limited to) queries such as:
+
+Query the number of rows in your provided data model. The values in the filter predicate are available as `data_interval_start` and `data_interval_end` in the pipeline run status API:
+
+```sql
+SELECT COUNT(*)
+FROM
+(
+SELECT a.scanned_timestamp_ms, c.propensity_to_buy
+FROM demodw.demo.mp_dw_demo_attr a
+JOIN demodw.demo.mp_dw_demo_calc c ON a.customer_id = c.customer_id
+)
+WHERE SCANNED_TIMESTAMP_MS BETWEEN '2023-03-01 14:28:55+0000' AND '2023-03-01 14:41:17+0000'
+```
+
+Query the number of columns in your provided data model:
+
+```sql
+SELECT *
+FROM
+(
+SELECT a.scanned_timestamp_ms, c.propensity_to_buy
+FROM demodw.demo.mp_dw_demo_attr a
+JOIN demodw.demo.mp_dw_demo_calc c ON a.customer_id = c.customer_id
+)
+LIMIT 0
+```
+
+Query generated from a scheduled sync run. The values in the filter predicate are available as `data_interval_start` and `data_interval_end` in the pipeline run status API.
+
+```sql
+SELECT OBJECT_CONSTRUCT_KEEP_NULL(*) 
+FROM
+(
+SELECT a.scanned_timestamp_ms, c.propensity_to_buy
+FROM demodw.demo.mp_dw_demo_attr a
+JOIN demodw.demo.mp_dw_demo_calc c ON a.customer_id = c.customer_id
+)
+WHERE SCANNED_TIMESTAMP_MS BETWEEN '2023-03-01 14:28:55+0000' AND '2023-03-01 14:41:17+0000'
 ```
