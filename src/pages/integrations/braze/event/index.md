@@ -56,10 +56,17 @@ The following event types can be forwarded to Braze via S2S:
 
 ### Kit Integration
 
-The Braze solution offers features that involve Braze-proprietary user interaction components including Newsfeed, In-App Messaging, and Feedback.  In order to properly incorporate Braze with the mParticle SDK, please review the [Kits](/developers/sdk/android/kits/) section of the mParticle SDK Guide.  To enable Newsfeed, In-App Messaging, and Feedback features you will need to [call the Appboy embedded kit directly](/developers/sdk/android/kits/#making-direct-calls-to-kits).
+The Braze solution offers features that involve Braze-proprietary user interaction components including Newsfeed, In-App Messaging, and Feedback. 
+
+To use Braze with one of the mParticle mobile SDKs, please review the kit documentation for the [Android SDK](/developers/sdk/android/kits/) or the [iOS SDK](/developers/sdk/ios/kits/).
+
+You must directly call the Braze kit to use the Newsfeed, In-App Messaging, and Feedback features. Examples of directly calling a kit are provided for both [Android](/developers/sdk/android/kits/#making-direct-calls-to-kits) and [iOS](/developers/sdk/ios/kits/#making-direct-calls-to-kits).
+
+To use Braze with the mParticle web SDK, continue reading below. 
+
 #### Push Notifications
 
-Push notifications work a bit differently for web and for mobile.
+Push notifications work differently for web and for mobile.
 
 ##### Web
 
