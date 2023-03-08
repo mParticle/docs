@@ -34,6 +34,18 @@ Depending on the [Connection Settings](#connection-settings), mParticle will for
 * IDFA (iOS Advertising ID)
 * GAID (Google Advertising ID)
 
+## Specifying GDPR Protections
+All users will be subjected to GDPR protections by default.  
+To set GDPR protection on a per-user basis, the `GDPR Protected User Attribute` setting can be used.
+To enable the setting, provide it as an attribute key and save the connection.
+This key should point to an attribute present for many users. The mParticle integration will attempt to parse the value as a Boolean and send the result to Yahoo for processing, here are some examples:
+
+| GDPR Protected User Attribute Value | Effect on User                                |
+|-------------------------------------|-----------------------------------------------|
+| unset or failed to parse as Boolean | GDPR restrictions will apply to this user     |
+| `"true"`, `"True"`                  | GDPR restrictions will apply to this user     |
+| `"false"`, `"False"`                | GDPR restrictions will not apply to this user |
+
 ## Data Expiration
 
 User identity data sent to Yahoo expires after a period of 45 days.
@@ -55,15 +67,16 @@ mParticle doesn't delete the downstream audience when you delete an audience fro
 
 ## Configuration Settings
 
-Setting Name | Data Type | Default Value | Description 
-|---|---|---|---
-Master Data Management ID | `int` | | Your Master Data Management (MDM) ID obtained from your Yahoo account. Note that the MDM ID cannot be modified without recreating the configuration
-Folder Name | `string` | | The name of the folder under which your Audience data will appear on your Yahoo dashboard. Note that the Folder Name cannot be modified without recreating the configuration
+| Setting Name              | Data Type | Default Value | Description                                                                                                                                                               |
+|---------------------------|-----------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Master Data Management ID | `int`     |               | The Master Data Management (MDM) ID obtained from your Yahoo account. Note that the MDM ID cannot be modified without recreating the configuration.                       |
+| Folder Name               | `string`  |               | The name of the folder under which your Audience data will appear on your Yahoo dashboard. Note that Folder Name cannot be modified without recreating the configuration. |
 
 ## Connection Settings
 
-Setting Name | Data Type | Default Value | Description 
-|---|---|---|---
-Forward Emails | `bool` | `true` | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience
-Forward IDFAs | `bool` | `true` | If enabled, and the user's IDFA is available, it will be added to the audience
-Forward GAIDs | `bool` | `true` | If enabled, and the user's Google Advertising ID is available, it will be added to the audience
+| Setting Name                  | Data Type | Default Value | Description                                                                                                                                                                                                   |
+|-------------------------------|-----------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Forward Emails                | `bool`    | `true`        | If enabled, and the user's e-mail address is available, the SHA-256 hash of that e-mail address will be added to the audience                                                                                 |
+| Forward IDFAs                 | `bool`    | `true`        | If enabled, and the user's IDFA is available, it will be added to the audience                                                                                                                                |
+| Forward GAIDs                 | `bool`    | `true`        | If enabled, and the user's Google Advertising ID is available, it will be added to the audience                                                                                                               |
+| GDPR Protected User Attribute | `string`  | <unset>       | Specify the key of the user attribute that determines if a user is subject to protection under the GDPR. The value will be parsed as a Boolean to allow Yahoo to apply GDPR restrictions on a per-user basis. |
