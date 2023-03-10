@@ -143,6 +143,9 @@ When the payload is sent to our endpoint, it will require the `app_instance_id` 
 },
 ```
 
+##### Feeds
+When connecting a feed, you'll need to specify an `app_instance_id` or `client_id` value in the `Firebase App ID/Measurement ID` setting, and select which ID it corresponds to in the `ID Type` setting.
+
 ##### Other Platforms
 Because Google has the requirement for either the `app_instance_id` or the `client_id` property in all requests, which come from Google's SDKs, we are not supporting any other platforms at the time.  We are working closely with Google to support other platforms when they provide a strategy that doesn't require an SDK.
 
@@ -618,3 +621,5 @@ $gclid| gclid | Google AdWords ID | -->
 | Enable Configuration Page View | `bool` | `false` | Web | If enabled, GA4 will automatically send a page view when loaded. This results in an extra page view on GA4 which will not appear in mParticle. By default this is disabled to keep mParticle and GA4 page views more in line. |
 | Hash User ID | `bool` | `true` | All | If enabled, mParticle will hash the selected user ID (uid) before forwarding to Google. |
 | Forward Web Requests Server Side |  `bool` | `false` | All | If enabled, requests will only be forwarded server-side. |
+| Firebase App ID/Measurement ID |  `string` | | Feed | The Firebase project ID or Measurement ID being used for this connection |
+| ID Type |  `string` | Firebase App ID | Feed | Specifies whether your feed is associated with a Firebase App ID or a Measurement ID |
