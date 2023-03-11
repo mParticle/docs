@@ -104,7 +104,7 @@ The scope of data that is evaluated by your audience criteria is dependent upon:
 * The configurations you have selected
 * The amount of data the mParticle platform has available for the configurations
 * The data storage limit of your current subscription plan
-* The tier setting for events, if your org has the Beta feature Tiered Events enabled. If set to any tier except [**Store and Evaluate**](/guides/platform-guide/tiered-events), an event can't be used as criteria in a real-time audience and won't be evaluated. After being set to **Store Only**, the event is grayed out in real-time audience selection drop-downs.
+* The tier setting for events, if your org has the Beta feature Tiered Events enabled. If set to any tier except [**Personalize**](/guides/platform-guide/tiered-events), an event can't be used as criteria in a real-time audience and won't be evaluated. After being set to any other tier, the event is grayed out in real-time audience selection drop-downs.
 
 To add criteria to the audience definition:
 
@@ -149,8 +149,7 @@ The audience builder allows you to build criteria based on two sources of data:
 - `Users`: access user profile information such as user attributes, calculated attributes, current audience memberships, consent state, location, etc.
 - `Attribution`: access user install and uninstall information to build criteria based on the attributed `campaign` and `publisher`.
 
-<aside>If you participate in the <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> beta release, you won't be able to select an event in real-time audiences or calculated attributes if the tier is other than <b>Store & Evaluate</b>. To select such an event for real-time audiences or calculated attributes, it must be in the <b>Store & Evaluate</b> tier.</aside>
-<!-- Update this note for GA, and for additional tiers if they become available. -->
+<aside>If you participate in the <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> beta release, you won't be able to select an event in real-time audiences or calculated attributes if the tier is other than <b>Personalize</b>. To select such an event for real-time audiences or calculated attributes, it must be in the <b>Personalize</b> tier.</aside>
 
 #### User profile criteria
 As mentioned above, you can build audience criteria based on user attributes from the user profiles. These attributes can be of any data type including: numbers, strings, dates, lists, booleans, etc. All user profile data is scoped and maintained within a single workspace; In multiworkspace audiences, you can select which workspace to use by pressing the number in the top right of the criteria in the audience builder.
