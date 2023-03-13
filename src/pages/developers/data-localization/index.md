@@ -25,6 +25,8 @@ You can log in to your localized mParticle pod using the following URLs:
 | Europe | EU1 | [https://app.eu1.mparticle.com](https://app.eu1.mparticle.com) |
 | Australia | AU1 | [https://app.au1.mparticle.com](https://app.au1.mparticle.com) |
 
+For all API endpoints, mParticle routes the request to the appropriate region based on the authorization token. 
+
 ## Sending Data into mParticle
 
 Most mParticle SDKs route data to your mParticle pod automatically based on your API keys. The following SDKs require that you configure your pod name:
