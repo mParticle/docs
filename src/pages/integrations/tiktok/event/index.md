@@ -43,7 +43,7 @@ The following event information will be included for all outgoing events, regard
 
 #### Custom Flags
 
-Optional [Custom Flags](/developers/server/json-reference/#custom_flags) can be specified on each valid incoming event to support specific fields within each outgoing TikTok event's `context` property.
+[Custom Flags](/developers/server/json-reference/#custom_flags) must be specified on each valid incoming event to support specific fields within each outgoing TikTok event's `context` property.
 
 | mParticle Custom Flag | TikTok Event Field    | Is Required | Description                                                                                                                                                                                                                    | Example                                                              |
 |-----------------------|-----------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
