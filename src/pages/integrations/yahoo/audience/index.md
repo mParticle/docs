@@ -34,17 +34,13 @@ Depending on the [Connection Settings](#connection-settings), mParticle will for
 * IDFA (iOS Advertising ID)
 * GAID (Google Advertising ID)
 
-## Specifying GDPR Protections
-All users will be subjected to GDPR protections by default.  
-To set GDPR protection on a per-user basis, the `GDPR Protected User Attribute` setting can be used.
-To enable the setting, provide it as an attribute key and save the connection.
-This key should point to an attribute present for many users. The mParticle integration will attempt to parse the value as a Boolean and send the result to Yahoo for processing, here are some examples:
+## Specifying GDPR Protected User Attribute
+mParticle uses the GDPR Protected User Attribute to group users, informing Yahoo of which users are EU residents and which are not.
+When this setting is not enabled, or when the value is absent for a user, or when the value cannot be parsed as boolean, or when the value parses as `true`, Yahoo will apply GDPR restrictions to the user.
+When the setting is enabled, and the value is present for the user, and the value parses as `false`, the user is recognized as a non-EU resident and is exempt from GDPR regulations.
 
-| GDPR Protected User Attribute Value | Effect on User                                |
-|-------------------------------------|-----------------------------------------------|
-| unset or failed to parse as Boolean | GDPR restrictions will apply to this user     |
-| `"true"`, `"True"`                  | GDPR restrictions will apply to this user     |
-| `"false"`, `"False"`                | GDPR restrictions will not apply to this user |
+Note that this setting is not associated with or dependent on any consent features or functionality native to mParticle.
+Before enabling this setting, it is recommended that you refer to Yahoo documentation to verify that the described behavior is still valid.
 
 ## Data Expiration
 
