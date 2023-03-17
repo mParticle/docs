@@ -205,7 +205,7 @@ You can further reduce the number of HTTP requests by grouping together up to 10
 When creating event batches remember the following:
 
 * Each batch should contain data for only one user.
-* Each batch should not exceed 128kb in size.
+* Each batch should not exceed 128kB in size.
 * A request to `/bulkevents` should contain no more than 100 batches.
 
 <aside class="warning">
