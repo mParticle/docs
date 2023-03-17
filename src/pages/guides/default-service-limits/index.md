@@ -28,7 +28,7 @@ mParticle can recieve data across many channels, and limits are not always enfor
 
 | Resource | Limits | Details |
 | -------- | ------ | --- |
-| Total batch size | 128KB | If this limit is exceeded, the SDK will automatically attempt to break up the batch into multiple smaller batches. |
+| Total batch size | 128kB | If this limit is exceeded, the SDK will automatically attempt to break up the batch into multiple smaller batches. |
 
 ## Events per Workspace and User
 
