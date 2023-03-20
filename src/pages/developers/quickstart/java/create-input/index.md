@@ -69,8 +69,8 @@ CustomEvent customEvent = new CustomEvent().data(
 );
 
 // create attributes
-Map customAttributes = new HashMap<>();
-customAttributes.put("price", 33);
+Map<String, String> customAttributes = new HashMap<>();
+customAttributes.put("price", "33");
 
 // add them to an event
 customEvent.getData().customAttributes(customAttributes);
