@@ -138,6 +138,10 @@ mParticle will always forward events if sent via the mParticle SDK, provided you
 2. Either your set External Identity Type, or a push token is specified.
 3. Braze has [limits on the number of characters in a property key](https://www.braze.com/docs/api/objects_filters/event_object/#event-properties-object) - they must be less than or equal to 255 characters, with no leading dollar signs.  mParticle will remove the dollar sign ($) when forwarding property keys for user attributes, custom and e-commerce events.
 
+<aside>
+Braze doesn't currently support timestamps before year 0 or after year 3000 in Time type custom attributes. Braze will ingest these values when they are sent by mParticle but the value will be stored as a String.
+</aside>
+
 ## Braze Instance
 
 Braze maintains several instances.   As part of the [Configuration Settings](#configuration-settings), you need to specify which one your data should be forwarded to.  You can tell your [Braze Instance](https://www.braze.com/docs/user_guide/administrative/access_braze/braze_instances/) from the URL of your Braze Dashboard.
