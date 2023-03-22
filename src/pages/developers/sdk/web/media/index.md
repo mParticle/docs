@@ -52,6 +52,12 @@ mParticle.init('your-api-key', mParticleConfig);
 
 The Web Media SDK provides a `MediaSession` object. Each `MediaSession` object represents a single media experience and relates one-to-one to a piece of content. For example, if a customer is watching a video, pausing, seeking and scrubbing, that is considered a single session. If a customer stops the video, and plays another piece of content, that is a new session.
 
+When creating a new `MediaSession` object, the `pageEventToggle` and `mediaEventToggle` fields are optional. Both fields default to `false` if no value is provided.
+
+* If `pageEventToggle` is set as `true`, a `PageEvent` is logged when the session starts.
+* If `mediaEventToggle` is set as `true`, a `Media` event is logged when the session starts.
+* If both fields are set as `true`, both event types are logged.
+
 ```javascript
 const mediaSession = new MediaSession(
     mParticle,                    // mParticle SDK Instance
@@ -59,7 +65,9 @@ const mediaSession = new MediaSession(
     'Funny Internet cat video',   // Custom media Title, added as content_title for media events
     120000,                       // Duration in milliseconds, added as content_duration for media events
     'Video',                      // Content Type (Video or Audio), added as content_type for media events
-    'OnDemand'                    // Stream Type (OnDemand or LiveStream), added as stream_type for media events
+    'OnDemand',                   // Stream Type (OnDemand or LiveStream), added as stream_type for media events
+    true,                         // pageEventToggle, logs a `PageEvent` event if set to true
+    false                         // mediaEventToggle, logs a `Media` event if set to true   
 );
 
 // optionally set percentage at which you consider content completed
@@ -76,8 +84,8 @@ mediaSession.mediaContentCompleteLimit = 90;
 | duration         | integer | Length of time for the Media Content |
 | contentType      | enum    | Type of content (`Video` or `Audio`)     |
 | streamType       | enum    | Type of Stream (`OnDemand`, `Live`, `Linear`, `Podcast`, `Audiobook`) |
-| pageEventToggle  | boolean | Should this log a page event?        |
-| mediaEventToggle | boolean | Should this log a media event?       |
+| pageEventToggle  | boolean | Optional. Defaults to `false`. If set to `true`, a `PageEvent` event is logged when the session starts |
+| mediaEventToggle | boolean | Optional. Defaults to `false`. If set to `true`, a `Media` event is logged when the session starts |
 
 Now that you have an instance of a media session, you can process the session summary events: segment summary events, and ad events. Summary events are automated events that contain an accumulated record of what occured during a session, individual segments, and individual ads.
 
