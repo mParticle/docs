@@ -122,7 +122,7 @@ By default, the Java SDK will upload to the US1 Data Center URL.  If the API key
                 
 ```java
 // include this if your API keys are from a non-US1 mParticle data center, by default the Java SDK sends to US1
-Retrofit.Builder mybuilder = new Retrofit.Builder().baseUrl("https://s2s.eu1.mparticle.com/v2/").build(); 
+Retrofit.Builder mybuilder = new Retrofit.Builder().baseUrl("https://s2s.eu1.mparticle.com/v2/"); 
 
 // configure API
 EventsApi api = new ApiClient(
