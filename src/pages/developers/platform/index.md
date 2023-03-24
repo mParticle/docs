@@ -1033,8 +1033,6 @@ curl \
   "https://api.mparticle.com/v1/audiences/7239?accountId=1"
 ~~~
 
-
-
 ### Calculated Attributes
 
 A Calculated Attribute is a read-only value about a single user, providing granular insight into user behavior. These attributes are defined in mParticle and are computed automatically over time by using the raw data stream of events and user information.
@@ -1208,6 +1206,10 @@ Name | Data Type | Required | Description
 |--|--|--|--
 `recipe_type` | string | Required | Currently only "event" is supported.
 `data_point` | object | Required | A unique datapoint in the system. This could be an event, event attribute or user attribute, but currently only events are supported.
+`conditions` | object array | Optional | An array of conditions that must be met for the datapoint to qualify for the recipe.
+`calculation_type` | string | Required | The calculation type to be performed on the datapoint that will result in the value of the calculated attribute.<br><br>One of:<ul><li>count</li> <li>first_occurrence_timestamp</li> <li>last_occurrence_timestamp</li> <li>first_occurrence</li> <li>last_occurrence</li> <li>sum</li> <li>min</li> <li>max</li> <li>average</li> <li>unique_list</li> <li>unique_values_count</li> <li>most_frequent</li></ul>
+`time_period` | object | Required | The time period to which the calculation should be applied.
+`seeding` | object | Optional | Settings for seeding the calculated attribute.
 
 ##### Data Point Object Properties
 `draft_definition.data_point`
@@ -1221,13 +1223,10 @@ Name | Data Type | Required | Description
 `custom_event_type` | string | Optional | Only applicable to app (custom) events. See `custom_event_type` field in [Events API](/developers/server/json-reference/#events) for supported values.
 `attribute_category` | string | Optional | Only applicable when `attribute_name` is provided. Value can be one of "event_attribute", "product_attribute", or "promotion_attribute". If nothing is set the default value will be set as "event_attribute".
 `use_product_quantity` | bool | Optional | Indicates that the product quantity should be used when calculating Average or Most Frequent calculations with e-commerce event types. Only applies when attribute_category is one of "product_attribute" or "promotion_attribute".
-`conditions` | object array | Optional | An array of conditions that must be met for the datapoint to qualify for the recipe.
-`calculation_type` | string | Required | The calculation type to be performed on the datapoint that will result in the value of the calculated attribute.<br><br>One of:<ul><li>count</li> <li>first_occurrence_timestamp</li> <li>last_occurrence_timestamp</li> <li>first_occurrence</li> <li>last_occurrence</li> <li>sum</li> <li>min</li> <li>max</li> <li>average</li> <li>unique_list</li> <li>unique_values_count</li> <li>most_frequent</li></ul>
-`time_period` | object | Required | The time period to which the calculation should be applied.
-`seeding` | object | Optional | Settings for seeding the calculated attribute.
+
 
 ##### Condition Object Properties
-`draft_definition.data_point.conditions`
+`draft_definition.conditions`
 
 Name | Data Type | Required | Description
 |--|--|--|--
@@ -1261,7 +1260,7 @@ between | No | Yes | No | No
 between_dates | No | No | No | Yes
 
 ##### Time Period Object Properties
-`draft_definition.data_point.time_period`
+`draft_definition.time_period`
 
 Name | Data Type | Required | Description
 |--|--|--|--
@@ -1271,7 +1270,7 @@ Name | Data Type | Required | Description
 `within` | integer | Conditionally Required | Required if type is `within`. Value corresponds to the unit chosen in `within_unit`.
 
 ##### Seeding Object Properties
-`draft_definition.data_point.seeding`
+`draft_definition.seeding`
 
 Name | Data Type | Required | Description
 |--|--|--|--
@@ -1281,7 +1280,7 @@ Name | Data Type | Required | Description
 The response will be an integer identifier for the new Calculated Attribute.
 
 ##### Validation Error Responses
-| Message | Description |
+| <div style="width:300px">Message</div> | <div style="width:150px">Description</div> |
 | --- | --- |
 | Field 'name' is required. | The calculate attribute's name is missing. |
 | Field 'name' must be unique. | A calculated attribute with that name already exists in the workspace. |
@@ -1349,27 +1348,27 @@ curl \
       "event_name": "string",
       "attribute_name": "string",
       "event_type": "unknown",
-      "custom_event_type": "unknown",
-      "conditions": [
-        {
-          "type": "string",
-          "operator": "exists",
-          "attribute_name": "string",
-          "value": "string",
-          "values": [
-            "string"
-          ],
-          "min_value": "string",
-          "max_value": "string"
-        }
-      ],
-      "operator": "count",
-      "time_period": {
-        "type": "all",
-        "date": "2020-01-30",
-        "within": 0,
-        "within_unit": "days"
+      "custom_event_type": "unknown"
+    }
+    "conditions": [
+      {
+        "type": "string",
+        "operator": "exists",
+        "attribute_name": "string",
+        "value": "string",
+        "values": [
+          "string"
+        ],
+        "min_value": "string",
+        "max_value": "string"
       }
+    ],
+    "calculation_type": "count",
+    "time_period": {
+      "type": "all",
+      "date": "2020-01-30",
+      "within": 0,
+      "within_unit": "days"
     }
   },
   "draft_definition": {
@@ -1379,27 +1378,27 @@ curl \
       "event_name": "string",
       "attribute_name": "string",
       "event_type": "unknown",
-      "custom_event_type": "unknown",
-      "conditions": [
-        {
-          "type": "string",
-          "operator": "exists",
-          "attribute_name": "string",
-          "value": "string",
-          "values": [
-            "string"
-          ],
-          "min_value": "string",
-          "max_value": "string"
-        }
-      ],
-      "operator": "count",
-      "time_period": {
-        "type": "all",
-        "date": "2020-01-30",
-        "within": 0,
-        "within_unit": "days"
+      "custom_event_type": "unknown"
+    }
+    "conditions": [
+      {
+        "type": "string",
+        "operator": "exists",
+        "attribute_name": "string",
+        "value": "string",
+        "values": [
+          "string"
+        ],
+        "min_value": "string",
+        "max_value": "string"
       }
+    ],
+    "calculation_type": "count",
+    "time_period": {
+      "type": "all",
+      "date": "2020-01-30",
+      "within": 0,
+      "within_unit": "days"
     }
   },
   "audience_count": 0,
