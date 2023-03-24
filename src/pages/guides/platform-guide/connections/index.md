@@ -11,7 +11,7 @@ Data about an event, including individual attributes, may be forwarded from the 
 
 ![diagram of data flowing from input to output](/images/connections/data-flows.png)
 
-* Server-side: Data is forwarded from the web or client app to mParticle servers, stored there, and from there is forwarded on to an output or destination such as Amplitude or Braze. For these types of forwarding, no client setup is needed, because the client communicates directly with mParticle.
+* Server-side: Data is forwarded from the web or client app to mParticle servers, stored there, and from there is forwarded on to an output or destination such as Braze. For these types of forwarding, no client setup is needed, because the client communicates directly with mParticle.
 * Client-side: Data is forwarded from the web or client app directly to the output, unseen by mParticle servers. For this type of forwarding, you must set up your client, usually by adding a kit to the platform SDK of the client app.
  
 Some integrations allow you to choose either server-side or client-side when you configure a connection.

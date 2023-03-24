@@ -11,18 +11,18 @@ After initializing each instance, all methods that were previously invoked via `
 
 ## Code Samples for Multiple Instances
 
-In this example, we will initiate 2 instances, one named `starWarsInstance`, and another named `starTrekInstance` with our Amplitude integration. 
+In this example, we will initiate two instances, one named `starWarsInstance`, and another named `starTrekInstance` with our Braze integration. 
 
 First, in your terminal window:
 ```sh
 npm i @mparticle/web-sdk
-npm i @mparticle/web-amplitude-kit
+npm i @mparticle/web-braze-kit
 ```
 
 ~~~javascript
 // your main index.js file
 import mParticle from "@mparticle/web-sdk";
-import amplitudeKit from "@mparticle/web-amplitude-kit";
+import brazeKit from "@mparticle/web-braze-kit";
 
 function myIdentityCallback(result) {
     console.log(result);
@@ -48,8 +48,8 @@ var mParticleConfig2 = {
     identityCallback: myIdentityCallback
 };
 
-amplitudeKit.register(mParticleConfig1);
-amplitudeKit.register(mParticleConfig2);
+brazeKit.register(mParticleConfig1);
+brazeKit.register(mParticleConfig2);
 
 mParticle.init("apiKey1", mParticleConfig1, 'starWarsInstance');
 mParticle.init("apiKey2", mParticleConfig2, 'starTrekInstance');
@@ -153,4 +153,4 @@ user.setConsentState(consentState);
 
 Only a few partners allow forwarding data to multiple instances. If more SDKs support this feature, we will update our integrations accordingly. 
 
-We are working to make sure that any partner SDK that supports multiple instances will work with mParticle as well. Currently, we support sending data to multiple instances of Amplitude. We will soon update our Mixpanel, Localytics, and other integrations to support multiple instances as well.
+mParticle is working to make sure that any partner SDK that supports multiple instances will work with mParticle as well. Currently, we support sending data to multiple instances of Amplitude. We expect to update our Mixpanel, Localytics, and other integrations to support multiple instances as well.

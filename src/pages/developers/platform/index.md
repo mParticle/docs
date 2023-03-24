@@ -2186,7 +2186,7 @@ List all available configurations for a particular module
 curl \
   -X GET \
   -H "Authorization: Bearer YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/workspace/3999/amplitude/serviceconfigurations?accountId=1`"
+  "https://api.mparticle.com/v1/workspace/3999/indicative/serviceconfigurations?accountId=1`"
 ~~~
 
 ##### Example Response
@@ -2196,13 +2196,13 @@ curl \
     "data": [
         {
             "id": 24020,
-            "name": "Amplitude Main Project",
+            "name": "Indicative Main Project",
             "data_type": "Service Configuration",
             "created_on": "2018-02-09T20:54:25.52"
         },
         {
             "id": 24022,
-            "name": "Amplitude Development",
+            "name": "Indicative Development",
             "data_type": "Service Configuration",
             "created_on": "2018-02-12T21:02:11.317"
         }
@@ -2345,13 +2345,13 @@ curl \
 
 #### Get a specific service with settings
 
-`GET /services/Amplitude?accountId=1`
+`GET /services/Indicative?accountId=1`
 
 ~~~bash
 curl \
   -X GET \
   -H "Authorization: Bearer YWIxMjdi883GHBBDnjsdKAJQxNjdjYUUJABbg6hdI.8V6HhxW-" \
-  "https://api.mparticle.com/v1/services/Amplitude?accountId=1"
+  "https://api.mparticle.com/v1/services/Indicative?accountId=1"
 ~~~
 
 
@@ -2362,12 +2362,12 @@ curl \
 {
   "data": [
     {
-      "name": "Amplitude",
+      "name": "Indicative",
       "settings": [
         {
           "is_required": true,
           "name": "apiKey",
-          "description": "Your app's Amplitude API Key.  You can find this on the \"My Account\" page of Amplitude's dashboard.",
+          "description": "Your app's Indicative API Key.  You can find this in the Indicative project settings.",
           "type": "String"
         },
         {

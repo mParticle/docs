@@ -13,7 +13,7 @@ Now that you're sending data to mParticle, you can accomplish with a few clicks 
   </tr>
   <tr>
     <td>Measure product performance</td>
-    <td><ul><li><a href="https://www.amplitude.com" target="_blank">Amplitude</a></li><li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li><li><a href="https://mixpanel.com" target="_blank">Mixpanel</a></li></ul></td>
+    <td><ul><li><a href="https://www.Indicative.com" target="_blank">Indicative</a></li><li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li><li><a href="https://mixpanel.com" target="_blank">Mixpanel</a></li></ul></td>
     <td></td>
   </tr>
   <tr>
@@ -30,9 +30,15 @@ Now that you're sending data to mParticle, you can accomplish with a few clicks 
 
 ## How to connect an output
 
-Go to the [Directory](https://app.mparticle.com/directory) page and search for the integration you'd like to connect. We've summarized the steps you can follow to connect an output below. Note that you'll need the output service's API key to make the connection.
+1. Go to the [Directory](https://app.mparticle.com/directory) page and search for the integration you'd like to connect. 
+2. Hover over the tile with the integration name, and then click **Setup**.
+3. Choosse an integration type from the types presented, such as **Event**.
+4. Click **Go to Setup**.
+5. In the Setup/Outputs page, find your integration name and open it.
+6. In the Output: Event Configuration page, add a descriptive configuration name and the output service's API key or other token as indicated to make the connection.
+7. Click **Save**.
 
-   ![](/images/add_amplitude_output.gif)
+If an integration output has already been added, you can skip steps 1-4 and instead, navigate to **Setup > Outputs**, and continue with step 5.
 
 ## Next steps 🙌
 
