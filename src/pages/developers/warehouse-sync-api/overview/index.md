@@ -99,7 +99,7 @@ All POST/PUT requests should send JSON as the Request Payload, with `Content-Typ
 
 ## Limits
 
-In addition to the standard [default service limits](/guides/default-service-limits/), note the following limits specific to the Warehouse Sync API:
+In addition to the standard [default service limits](/guides/default-service-limits/), note the following limits specific to the Warehouse Sync API during the Early Access program:
 
 | Limit                                    | Value      | Notes                                                                                                              |
 |------------------------------------------|------------|--------------------------------------------------------------------------------------------------------------------|
@@ -115,3 +115,5 @@ In addition to the standard [default service limits](/guides/default-service-lim
 | Record count limit per monthly interval  | 40 million |                                                                                                                    |
 | Record count limit per once request      | 40 million |                                                                                                                    |
 | Record count limit per on-demand request | 24 million | Applicable when the [trigger API](/developers/warehouse-sync-api/reference/#trigger-an-on-demand-pipeline) is used |
+
+mParticle expects that several of these limits will be relaxed by the time the feature is a General Availability release.
