@@ -61,9 +61,9 @@ You can set up your native app to process GA4 data client side from your users' 
 
 #### Add the Kit
 
-mParticle's GA4 integration requires that you add the mParticle GA4 Kit to your iOS or Android app.
+mParticle's GA4 integration requires that you add the mParticle GA4 Kit to your iOS/tvOS or Android app.
 
-mParticle publishes the GA4 kit as separate iOS and Android libraries which have a transitive dependency on the mParticle core libraries. You can add them to your app via Carthage, Cocoapods, or Gradle:
+mParticle publishes the GA4 kit as separate iOS/tvOS and Android libraries which have a transitive dependency on the mParticle core libraries. You can add them to your app via Carthage, Cocoapods, or Gradle:
 
 :::code-selector-block
 ~~~ruby
@@ -90,9 +90,9 @@ Firebase is still used to send data client side to GA4.  As a result, there are 
 Before GA4, mobile data was analyzed within the [Firebase Console](https://console.firebase.google.com/).  If you have a legacy Firebase property, Google provides [step by step instructions](https://support.google.com/analytics/answer/9379599) to upgrade a Firebase instance so that data will also flow to GA4.  After upgrading, your mobile data will be available for analyzing within the GA4 dashboard alongside web data.  Once your Firebase properties are upgraded to GA4, the data will show up in both the Firebase Console as well as the GA4 console. 
 
 To send data to GA4 client side in an app, first add a platform-specific data stream`
-  1. Follow the steps [here](https://support.google.com/analytics/answer/9304153?hl=en#zippy=%2Cweb%2Cios-app-or-android-app) under "Add a data stream" to create a data stream for Android or iOS.  These instructions include downloading either the `google-services.json` for Android, or the `GoogleService-Info.plist` for iOS.
-  2.  Set up Google Analytics for Firebase as an output and connect it to iOS or Android in the mParticle UI.
-  3.  Add the mParticle Firebase kit to your app (see platform-specific docs for adding kits for [iOS](/developers/sdk/ios/kits) and [Android](/developers/sdk/android/kits/)).
+  1. Follow the steps [here](https://support.google.com/analytics/answer/9304153?hl=en#zippy=%2Cweb%2Cios-app-or-android-app) under "Add a data stream" to create a data stream for Android or iOS/tvOS.  These instructions include downloading either the `google-services.json` for Android, or the `GoogleService-Info.plist` for iOS/tvOS.
+  2.  Set up Google Analytics for Firebase as an output and connect it to iOS, tvOS or Android in the mParticle UI.
+  3.  Add the mParticle Firebase kit to your app (see platform-specific docs for adding kits for [iOS/tvOS](/developers/sdk/ios/kits) and [Android](/developers/sdk/android/kits/)).
 
 ##### Android
 
@@ -102,13 +102,13 @@ The Firebase-GA4 kit will detect if you have initialized Firebase, and use the e
 
 [Please see Firebase's Android setup guide here](https://firebase.google.com/docs/android/setup).
 
-##### iOS
+##### iOS/tvOS
 
-Our iOS implementation also requires you to manually instrument and initialize the Firebase SDK.  Data will be automatically forwarded to that instance - mParticle will not create an additional instance.
+Our iOS/tvOS implementation also requires you to manually instrument and initialize the Firebase SDK.  Data will be automatically forwarded to that instance - mParticle will not create an additional instance.
 
 You must follow the Firebase docs to create a Firebase project and download your `GoogleService-Info.plist` configuration file. You must then include the plist directly in your app.
 
-[Please see Firebase's iOS setup guide here](https://firebase.google.com/docs/ios/setup).
+[Please see Firebase's iOS/tvOS setup guide here](https://firebase.google.com/docs/ios/setup).
 
 #### Sending Data via Native Apps Server Side
 
@@ -194,7 +194,7 @@ Google specifies in their [documentation](https://support.google.com/analytics/a
 Google's UI does not support modifications to their server.  However, our [Custom Mappings](https://docs.mparticle.com/guides/platform-guide/connections/#custom-mappings) feature does support mapping event names and parameters server-side.
 
 <aside>
-Note that our Custom Mappings feature also supports Android and iOS client-side, but does not currently support web. For Web client-side mappings, you must use Google's UI.  The Custom Mapping is available in the Web UI, but it will only work if `Forward Requests Server Side` is checked.
+Note that our Custom Mappings feature also supports Android and iOS/tvOS client-side, but does not currently support web. For Web client-side mappings, you must use Google's UI.  The Custom Mapping is available in the Web UI, but it will only work if `Forward Requests Server Side` is checked.
 </aside>
 
 ## Troubleshooting
@@ -254,7 +254,7 @@ The following Firebase attributes are automatically be mapped to the equivalent 
 mParticle automatically maps commerce events to Firebase event names based on the product action.
 
 
-| GA4 Event | Android | iOS | Web | Notes
+| GA4 Event | Android | iOS/tvOS | Web | Notes
 | -------------  | ------------- | ------------- | ------------- | ------------- |
 | `add_payment_info` | `Product.CHECKOUT_OPTION` | `MPCommerceEventActionCheckoutOptions` | `ProductActionType.CheckoutOption` | Requires custom flags (See below for more details)
 | `add_shipping_info` | `Product.CHECKOUT_OPTION` | `MPCommerceEventActionCheckoutOptions` | `ProductActionType.CheckoutOption` | Requires custom flags (See below for more details)
@@ -275,15 +275,15 @@ Custom flags are used to send partner-specific data points:
 
 | Custom Flag |  Data Type |  Platform | Description |
 | --- | --- | --- | --- |
-| `GA4.CommerceEventType` | `string` | All | One of `add_shipping_info` or `add_payment_info`. Constants are available on Android and iOS.
-| `GA4.PaymentType` | `string` | All | To be used with `GA4.CommerceEventType` of `add_payment_info`. Constants are available on Android and iOS.
-| `GA4.ShippingTier` | `string` | All | To be used with `GA4.CommerceEventType` of `add_shipping_info`. Constants are available on Android and iOS.
+| `GA4.CommerceEventType` | `string` | All | One of `add_shipping_info` or `add_payment_info`. Constants are available on Android and iOS/tvOS.
+| `GA4.PaymentType` | `string` | All | To be used with `GA4.CommerceEventType` of `add_payment_info`. Constants are available on Android and iOS/tvOS.
+| `GA4.ShippingTier` | `string` | All | To be used with `GA4.CommerceEventType` of `add_shipping_info`. Constants are available on Android and iOS/tvOS.
 | `GA4.Title` | `string` | Web | The title of the page
 | `GA4.Location` | `string` | Web | The full URL (document location) of the page on which content resides. Example: `http://example.com/example`
 
 ##### Add Shipping Info Custom Flag Example
 
-To map to a Firebase `add_shipping_info` event, pass a custom flag of `GA4.CommerceEventType` equal to `add_shippping_info` and an optional custom flag of `GA4.ShippingTier` with a string value. The following examples show constants being used for iOS and Android:
+To map to a Firebase `add_shipping_info` event, pass a custom flag of `GA4.CommerceEventType` equal to `add_shippping_info` and an optional custom flag of `GA4.ShippingTier` with a string value. The following examples show constants being used for iOS/tvOS and Android:
 
 :::code-selector-block
 ~~~java
@@ -510,7 +510,7 @@ ProductQuantity | iq |Yes | The quantity of a product. If missing, mParticle wil
 <!-- ### Event Tracking
 You can associate Google Analytics custom flags with an event via the [Custom Flags APIs](/developers/sdk/android/event-tracking/#custom-flags) provided by the mParticle SDKs. See the table below to determine the correct Custom Flag to append to an event for your desired Google Analytics category, label, and value. The name of the event is passed as the Event Action (Google Analytics ea parameter).
 For `pageview` hits to be valid, either `dl` or both `dh` and `dp` must be set. When `dl` is set, its hostname and page can be overwritten using the `dh` and `dp` parameters respectively.
-See the code samples below and the SDK docs for help setting custom flags with the mParticle iOS and Android SDKs.
+See the code samples below and the SDK docs for help setting custom flags with the mParticle iOS/tvOS and Android SDKs.
 :::code-selector-block
 ~~~objectivec
 MPEvent *event = [[MPEvent alloc] initWithName:@"Set Category"
@@ -613,7 +613,7 @@ $gclid| gclid | Google AdWords ID | -->
 ## Connection Settings
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
-| Firebase App ID | `string` | | iOS, Android | The Firebase project ID |
+| Firebase App ID | `string` | | iOS, Android, tvOS | The Firebase project ID |
 | Measurement ID | `string` | | Web | The Measurement ID for a Data Stream. The format is G-XXXXXXXXXX. |
 | Measurement Protocol API secret| `string` | | All | Your Google Analytics 4 Measurement Protocol API secret value |
 | External User Identity Type | `string` | None | All | The mParticle user identity type to forward as a user ID (uid) to Google Analytics. |
