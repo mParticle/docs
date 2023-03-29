@@ -15,6 +15,8 @@ mParticle provides two methods of integrating with Singular: [embedded kit](#emb
 
 ## Embedded Kit Integration
 
+### Mobile
+
 By including the Singular kit in your mParticle SDK, every Singular feature represented in the mParticle SDK is supported, including deep linking/deferred deep linking.
 
 * [Android](https://github.com/mparticle-integrations/mparticle-android-integration-singular)
@@ -49,6 +51,12 @@ MParticle.getInstance().checkForDeepLink(new DeepLinkListener() {
 });
 ~~~
 :::
+
+### Web
+
+The [mParticle-Singular Web Kit](https://github.com/singular-labs/mparticle-javascript-integration-singular) enables event forwarding from the mParticle SDK to the Singular SDK.
+
+When this connection is enabled in the mParticle platform, the mParticle SDK will initialize the Singular SDK and forward events.
 
 ## Server to Server Integration
 
@@ -128,3 +136,8 @@ Any additional attributes for each event will be forwarded as a JSON object. For
 | Secret | `string` |  | Your app's Singular API Secret can be found in your dashboard's SDK page. |
 | Deferred Deeplink Handler Timeout | `int` | 60 | Deferred deeplink timeout in seconds. If a deferred deeplink is not received within the configured timeout duration, the SDK will not be calling the deferred deeplink handler.
 
+## Connection Settings
+
+| Setting Name    | Data Type | Description                                                                 |
+| --------------- | --------- | --------------------------------------------------------------------------- |
+| Product ID  | `string`  | Required for Web data - A name for your website e.g. com.example.site |
