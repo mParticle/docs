@@ -75,7 +75,7 @@ Assume that you drop the following manifest on the SFTP server:
     {
       "column": "Time",
       "action": "keep",
-      "field": "events.timestamp_unixtime_ms"
+      "field": "events.data.timestamp_unixtime_ms"
     },
     {
       "column": "Environment",
