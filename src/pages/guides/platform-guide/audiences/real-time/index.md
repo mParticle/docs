@@ -29,7 +29,7 @@ Audiences are separated into **Single Workspace**, **Multi Workspace**, and **Sh
 
 Each audience that you create provides an estimated audience size immediately, so that you don't have to wait for the audience calculation to complete. Once an audience has at least one active connection, mParticle begins calculating the real size, and shows an estimate until the calculation is complete.
 
-![Audience details showing estimator](/images/audiences/estimator.png)
+<img src="/images/audiences/estimator.png" alt="audience detail panel showing estimator" width="250"> 
 
 To estimate the audience size quickly, mParticle samples the total number of users. 
 
@@ -43,6 +43,25 @@ In some cases, you may see different symbols instead of an estimated size:
 
 * The symbol **~** indicates that the population is too small relative to the overall user base, which prevents a meaningful calculation. For example, imagine a company that has 100 million users. If you create an audience that will have 13,000 members when fully calculated, it's likely that the random sample won't encounter enough members to be represented in the estimate. This symbol doesn't mean your audience will have no members, just that it will have so few members relative to the total number of users that estimation isn't possible. 
 * If an audience can't be estimated for a technical reason, you'll see a red triangle with an exclamation point instead of an estimated size. For example, if the input is not configured correctly, you'll see this warning sign.
+
+## Workspaces, inputs, and audience criteria
+
+Every audience is populated from data sources that you specify when you create the audience:
+
+* The workspaces that you select become the data sources for user-based criteria types.
+* The inputs you select become the data sources for event-based criteria types.
+
+| Criteria      | Criteria Type | Data Source |
+| :------------ | :------------ | :---------- |
+| Users         |  User Based   | Workspace   |
+| Crashes       |  User Based   | Workspace   |
+| Installs      |  User Based   | Workspace   |
+| Uninstalls    |  User Based   | Workspace   |
+| Upgrades      |  User Based   | Workspace   |
+| Events        |  Event Based  | Input       |
+| Ecommerce     |  Event Based  | Input       |
+| Sessions      |  Event Based  | Input       |
+| Screen views  |  Event Based  | Input       |
 
 ## Create a real-time audience
 
@@ -82,7 +101,7 @@ To create an audience:
     If no <b>External Name</b> is entered, the <b>External Name</b> will be the same as the <b>Audience Name</b>.
     </aside>
 
-    ![screenshot of create new audience dialog](/images/Platform-Update-Audiences-Create-New-Audience-042019.png)
+    ![screenshot of create new audience dialog](/images/audiences/new-audience.png)
 
 3. Under **Inputs**, check all the Platforms and Feeds whose data you want to use to define the audience.
 4. Click the **Create** button. The screen refreshes with the new Audience added to the list of audiences and the **Audience Details** screen shown. If you are ready to define the audience, continue in the next section. Otherwise, click **Save as Draft**.
@@ -108,7 +127,7 @@ The scope of data that is evaluated by your audience criteria is dependent upon:
 
 To add criteria to the audience definition:
 
-![audience definition](/images/audience-definition.png)
+![audience definition](/images/audiences/audience-definition.png)
 
 * You can add one or more criteria and logic either between two different criteria (and, or) or you can exclude users from an audience with criteria (exclude).
 * After you define a criteria with the real-time audience builder a number displays that represents the estimated audience size:

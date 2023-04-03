@@ -32,7 +32,7 @@ The following diagram shows a simple journey with two milestones:
 
 <img alt="journey with one milestone" src="/images/journeys/one-path.png" width="250">
 
-In this journey, all high-value customers are sent an email, and then all of the high-value customers who are also long-term customers are sent an SMS.
+In this journey, all high-value customers are sent an email, and then all of the high-value customers who are also long-term customers are sent to Google BigQuery.
 
 Notice the following:
 
@@ -91,21 +91,17 @@ In this example, retailers trigger the next best step based on a user’s lifeti
 
 Each audience that you create in a journey provides an estimated audience size immediately, so that you don't have to wait for the audience calculation to complete. Once an audience has at least one active connection, audiences and all parent audiences in same path begin calculating the real size. When an audience begins calculating it no longer shows the estimated size.
 
+![image of an estimated audience from the milestone](/images/journeys/est-milestone.png)
+
 To estimate the audience size quickly, mParticle samples the total number of users. 
 
-You see the estimated size of the audience with all criteria applied (as shown in the previous image). Estimated audience size per criteria is also displayed on the milestone:
-
-![image of an estimated audience from the milestone](/images/journeys/est-milestone.jpg)
+You see the estimated size of the audience with all criteria applied (as shown in the previous image). Estimated audience size per criteria is also displayed on the milestone.
 
 Use the audience estimator's immediate feedback to adjust criteria definitions and parameters if needed:
 
 * The audience size is much bigger or much smaller than expected.
 * Your team wants to explore different ways to target your customers.
-* You see a big drop-off of users between milestones and want to target an intermediary moment in the journey, to nudge more users toward your conversion goal. For example, in the following journey, each successive audience has a very large drop-off that you might want to target:
-
-    ![image of a journey with large drop-off](/images/journeys/est-overall.jpg)
-
-After the audience has been calculated, the display changes to show the actual audience size.
+* You see a big drop-off of users between milestones and want to target an intermediary moment in the journey, to nudge more users toward your conversion goal. 
 
 In some cases, you may see different symbols instead of an estimated size:
 
@@ -119,6 +115,6 @@ In some cases, you may see different symbols instead of an estimated size:
  * Activated audiences count toward your account limit. 
  * Parent audiences are calculated, but do not consume additional real-time audience credits.
 
-To view the number of audiences available to you, in mParticle go to **Audiences > Journeys > Settings**:
+To view the number of audiences available to you, in mParticle go to **Audiences > Journeys** to display the list of journeys. The number of activated and available audiences is displayed under the New Journey button:
 
-<img alt="journey audience counter" src="/images/journeys/journeys-audience-count.png" width="250">
+<img alt="journey audience counter" src="/images/journeys/journeys-audience-count.png">
