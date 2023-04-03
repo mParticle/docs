@@ -35,8 +35,10 @@ mParticle can recieve data across many channels, and limits are not always enfor
 | Resource | Limits | Details |
 | -------- | ------ | ---|
 | Unique event names and Screen Names per workspace | 1000 | New unique event names over the limit are dropped from incoming data. This limit is configurable, but proliferating unique event names usually indicate problems with your data and can impact performance of both the mParticle dashboard and your apps, therefore it will not be raised except where absolutely necessary. |
+| Average events per user within 24 hours | 150 | This limit can be raised by arrangement. |
+| Average events per user within 30 days  | 175 | This limit can be raised by arrangement. |
 
-mParticle reserves the right to restrict average events per user within 30 days or 24 hours to ensure platform quality of service.
+mParticle reserves the right to restrict average events per user to ensure platform quality of service.
 
 ## Events API
 
