@@ -30,7 +30,7 @@ In your fork you will find a repository with a directory structure as follows. A
 ```sh
 mparticle-javascript-integration-example
 |
-|-- build/
+|-- dist/
 |–– src/
 |   |–– *commerce-handler.js
 |   |–– *event-handler.js
@@ -66,7 +66,7 @@ We use [Browserify](http://browserify.org/), which follows a node-like `require`
 Once you have the code downloaded to your computer, open the directory in a command line window, then:
 1. `npm install` to install dependencies
 2. `KIT=NameOfYourKit npm run watch`, which watches all files in `src/` and builds a file at `dist/NameOfYourKit-Kit.js`.
-3. In `test/index.html`, change `build/XYZ-Kit.js` to `build/NameOfYourKit-Kit.js` where noted.
+3. In `test/index.html`, change `dist/XYZ-Kit.js` to `dist/NameOfYourKit-Kit.js` where noted.
 4. In `src/initialization.js`, change `name: 'insertSDKNameHere'` to `name: 'XYZ'` and fill out initForwarder to load your SDK.
 
 Please email partner-integrations@mparticle.com for your `kit name` and `kit ID`.
@@ -96,7 +96,7 @@ We use the popular frameworks [Mocha](https://mochajs.org/)/[Should](https://sho
 
 * Inside of `test/tests.js`, you should stub all methods on your SDK that are called in your integration in the `MockXYZForwarder` section.
 * We recommend that you have a test for every method you stub above, and test for if the method was called, in addition to ensuring the event data is properly being processed.
-* Open `test/boilerplate/index.html` to run your tests and debug.
+* Open `test/index.html` to run your tests and debug.
 
 ## End-to-End Testing
 Included in the dependencies of the example repo that you cloned is a framework that allows you to test the mappings you've made to your SDK. With this, you can confirm the proper network events are triggered when you log mParticle methods that you mapped. Follow the steps below to properly set up your test app to perform end-to-end testing of your integration before submitting it to mParticle for review and next steps.
