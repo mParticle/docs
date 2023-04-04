@@ -65,8 +65,8 @@ We use [Browserify](http://browserify.org/), which follows a node-like `require`
 
 Once you have the code downloaded to your computer, open the directory in a command line window, then:
 1. `npm install` to install dependencies
-2. `KIT=NameOfYourKit npm run watch`, which watches all files in `src/` and builds a file at `dist/NameOfYourKit-Kit.js`.
-3. In `test/index.html`, change `dist/XYZ-Kit.js` to `dist/NameOfYourKit-Kit.js` where noted.
+2. `KIT=NameOfYourKit npm run watch`, which watches all files in `src/` and builds a file at `dist/NameOfYourKit-Kit.iife.js`.
+3. In `test/index.html`, change `dist/XYZ-Kit.iife.js` to `dist/NameOfYourKit-Kit.iife.js` where noted.
 4. In `src/initialization.js`, change `name: 'insertSDKNameHere'` to `name: 'XYZ'` and fill out initForwarder to load your SDK.
 
 Please email partner-integrations@mparticle.com for your `kit name` and `kit ID`.
