@@ -258,6 +258,7 @@ mParticle automatically maps commerce events to Firebase event names based on th
 | -------------  | ------------- | ------------- | ------------- | ------------- |
 | `add_payment_info` | `Product.CHECKOUT_OPTION` | `MPCommerceEventActionCheckoutOptions` | `ProductActionType.CheckoutOption` | Requires custom flags (See below for more details)
 | `add_shipping_info` | `Product.CHECKOUT_OPTION` | `MPCommerceEventActionCheckoutOptions` | `ProductActionType.CheckoutOption` | Requires custom flags (See below for more details)
+| `view_cart` | Support Coming Soon | Support Coming Soon | `ProductActionType.Unknown` | Requires custom flags (See below for more details)
 | `add_to_cart` | `Product.ADD_TO_CART` | `MPCommerceEventActionAddToCart` | `ProductActionType.AddToCart` | 
 | `add_to_wishlist` | `Product.ADD_TO_WISHLIST` | `MPCommerceEventActionAddToWishList` | `ProductActionType.AddToWishlist` | 
 | `begin_checkout` | `Product.CHECKOUT` | `MPCommerceEventActionCheckout` | `ProductActionType.Checkout` | 
@@ -275,7 +276,7 @@ Custom flags are used to send partner-specific data points:
 
 | Custom Flag |  Data Type |  Platform | Description |
 | --- | --- | --- | --- |
-| `GA4.CommerceEventType` | `string` | All | One of `add_shipping_info` or `add_payment_info`. Constants are available on Android and iOS/tvOS.
+| `GA4.CommerceEventType` | `string` | All | One of `add_shipping_info` or `add_payment_info` or `view_cart`. Constants are available on Android and iOS/tvOS.
 | `GA4.PaymentType` | `string` | All | To be used with `GA4.CommerceEventType` of `add_payment_info`. Constants are available on Android and iOS/tvOS.
 | `GA4.ShippingTier` | `string` | All | To be used with `GA4.CommerceEventType` of `add_shipping_info`. Constants are available on Android and iOS/tvOS.
 | `GA4.Title` | `string` | Web | The title of the page
