@@ -211,6 +211,7 @@ This allows you to send an array of users, each user with its CA seeds and user 
 The structure of each object in the array is the same as defined above for single user requests: [calculated attributes object](#ca-object).
 
 ## Sample Requests
+
 ### Single User Updates
 
 ~~~http
@@ -407,6 +408,12 @@ Authorization: Basic <your-token-here>
   }
 ]
 ~~~
+
+## Rate Limits
+
+Requests sent to the Calculated Attributes Seeding API contribute to the request rate of the [Events API](/developers/server/http).
+
+For more information about default service limits related to event batches, see [Default Service Limits](/guides/default-service-limits/#incoming-event-batches).
 
 ## Response
 

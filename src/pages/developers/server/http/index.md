@@ -162,6 +162,12 @@ You can authenticate in 2 ways:
 
 You must POST a JSON Document to the endpoint.  Reference the JSON documentation for details.
 
+## Rate Limits
+
+mParticle recieves data across many channels, and limits are not always enforced in the same way for each channel. Default service limits affect S2S or ‘server-to-server’ data. S2S data includes data received via the Events API, Calculated Attributes Seeding API, and from partner feeds.
+
+For more information about default service limits related to event batches, see [Default Service Limits](/guides/default-service-limits/#incoming-event-batches).
+
 ## Response
 
 You should inspect the status code of the response to determine if the POST has been accepted or if an error occurred.
