@@ -42,7 +42,7 @@ You can filter the list view to display specific data points:
   * **Input/App Version**: show data points that have been seen for the selected inputs/app versions.
 
   * **Environment**: show data points that have been seen in the `dev` or `prod` environments.
-  * **Channel**: show data points that have been seen for the selected channel. Channel is distinct from input and describes how a data point arrived at mParticle. For example, a data point may arrive fron the client side, server side, or from a partner feed. Valid channels include:
+  * **Channel**: show data points that have been seen for the selected channel. Channel is distinct from input and describes how a data point arrived at mParticle. For example, a data point may arrive from the client side, server side, or from a partner feed. Valid channels include:
     * SDK
     * Feed
     * Server to Server
@@ -82,6 +82,6 @@ Your event data points may include attributes, and the details view shows every 
 For data points, the stats view shows two important groups of statistics for a selected date:
 
 * **Input** stats show how many instances of the event have been received, by platform and channel.
-* **Output** stats show the volume sent to each output, as well as the delta between the number of events received and outgoing messages sent. This delta can be useful for troubleshooting, but note that the difference between volume sent and received usually doesn’t indicate a problem. Expansion of eCommerce events can cause multiple messages to be sent to an output for a single event. Likewise, filtering or an output partners minimum requirements can cause mParticle not to forward every event we receive.
+* **Output** stats show the volume sent to each output, as well as the delta between the number of events received and outgoing messages sent. This delta can be useful for troubleshooting, but note that the difference between volume sent and received usually doesn't indicate a problem. Expansion of eCommerce events can cause multiple messages to be sent to an output for a single event. Likewise, filtering or an output partners minimum requirements can cause mParticle not to forward every event we receive.
 
 ![](/images/data-master-stats-1.png)

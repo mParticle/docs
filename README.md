@@ -17,7 +17,7 @@ This is the repo for the [mParticle doc site](https://docs.mparticle.com/). You 
 
 ## CLAs
 
-mParticle requires that all contributers outside mParticle fill out mParticle's Contributor License Agreement (CLA). Before we accept your pull request, you will need to submit a completed CLA. If this is your first PR, a bot will comment sending you to the CLA to sign. The mParticle CLA is available for review [here](https://docs.mparticle.com/cla). You will not be asked to re-sign the CLA unless we revise our CLA.
+mParticle requires that all contributors outside mParticle fill out mParticle's Contributor License Agreement (CLA). Before we accept your pull request, you will need to submit a completed CLA. If this is your first PR, a bot will comment sending you to the CLA to sign. The mParticle CLA is available for review [here](https://docs.mparticle.com/cla). You will not be asked to re-sign the CLA unless we revise our CLA.
 
 <a name="contributinggeneral"></a>
 
@@ -166,4 +166,4 @@ Please make sure that you provide a `group` for your collection as this may brea
 
 #### Tabs Demo
 
-![Tabs Custom Markdonw](./static/images/custom-markdown-tabs.gif)
+![Tabs Custom Markdown](./static/images/custom-markdown-tabs.gif)

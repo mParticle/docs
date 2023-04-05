@@ -123,7 +123,7 @@ Prepare the CSV files for import. Files must follow the guidelines in this secti
   
   All data in the CSV is converted to a string. The only exceptions to this are values that require a particular data type, such as MPID or IDFA.
 
-  * Only standard custom events and screen views, and eventless batches (eventless drops of user identity and attriubtes), have been tested.
+  * Only standard custom events and screen views, and eventless batches (eventless drops of user identity and attributes), have been tested.
   * Attributes sent as arrays are not fully supported. When the entire array is present in a single cell of the CSV file, it is supported and is converted to string. Because there is no way of specifying anything but the first item in an array, repeated header columns, each subsequent column overwrites the previous one. Multiple columns don't append to the array. This is why you can only include one product for ecommerce events. Commerce events in the Events API support arrays in multiple places, but with CSV files, you can only populate a single item in each of these arrays.
 
 * Custom manifest: You can use a custom manifest to drop files created in another system without transforming them. For details, see [Use a custom manifest](/guides/csv/reference/#use-a-custom-manifest).
@@ -156,7 +156,7 @@ To configure the Custom CSV Feed:
     * **Custom Event Name**: if you are importing a custom event, enter the name that will be used for the custom event.
     * **Custom Event Type**: if you entered a custom event name, select the event type.
     * **Custom Manifest**: if you are using a [custom manifest](/guides/csv/reference/#use-a-custom-manifest), paste it in the text box provided.
-    * ** Excpect Encrypted Files**: if you will import a PGP/GPG-encrypted file, select this option.
+    * ** Expect Encrypted Files**: if you will import a PGP/GPG-encrypted file, select this option.
     ![screenshot of feeds input connection dialog](/images/csv/csv-feed2.png)
 3. After you complete the connection configuration, click **Issue SFTP Details**. mParticle displays your hostname and path for mParticle's SFTP server.
     ![screenshot of feeds input connection completed](/images/csv/hostname.png)
@@ -165,7 +165,7 @@ To configure the Custom CSV Feed:
 
 1. Connect to the mParticle SFTP server using the credentials provided. Once you have connected, the mParticle creates the `drop` folder. If you don't see one, create a folder named `drop`.
 2. Create a new folder inside the `drop` folder, and name it using the pathname provided in the mParticle UI as shown in the previous section. For example, based on the previous example, the folder path and name is `sftp.mparticle.com:4422:drop/us1-123456789123456789/`. **Hint:** Verify that there are no trailing spaces in the name.
-3. Use your credentials to upload your CSV files to mParticle's SFTP server, using the correct path and foldername from the previous step.
+3. Use your credentials to upload your CSV files to mParticle's SFTP server, using the correct path and folder name from the previous step.
 
 Files on the SFTP location are added to the processing queue nearly immediately.  Depending on file count and file size, a backlog may develop. You can observe how much data has been processed using Data Master and your outbound connections. There is no notification of processing progress or completion.
 

@@ -35,7 +35,7 @@ Assume that you drop the following manifest on the SFTP server:
 
 ```json
 {
-  "hasHeaderRow": true, // required
+  "hasHeaderRow": true, // REQUIRED
   "columns": [
     {
       "column": "Event Name",
@@ -102,7 +102,7 @@ The resulting batch will be:
                 "event_name": "Viewed Video",
                 "custom_event_type": "other",
                 "custom_attributes": {
-                    "category": "Destination Intro"
+                    "category": "Destination Intro",
                     "destination": "Paris"                   
                 },
                 "timestamp_unixtime_ms": "1466456299032"
@@ -130,7 +130,7 @@ The following is an example of the same custom manifest as the previous example,
 
 ```json
 {
-    "hasHeaderRow": false, //THIS IS REQUIRED 
+    "hasHeaderRow": false, // REQUIRED
     "columns": [{
    		 "action": "keep",
    		 "field": "events.data.event_name"

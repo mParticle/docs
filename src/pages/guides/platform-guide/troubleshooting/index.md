@@ -40,7 +40,7 @@ You can also view [uptimes](https://mparticle.statuspage.io/uptime) for the last
 
 ### System Metrics
 
-The status page's second setion displays average latency for mParticle's key API endpoints, updated every five minutes. On this page, Latency means the average time, in milliseconds, between mParticle receiving a request at an API endpoint and sending a response. You can view the metrics by day, week, or month.
+The status page's second section displays average latency for mParticle's key API endpoints, updated every five minutes. On this page, Latency means the average time, in milliseconds, between mParticle receiving a request at an API endpoint and sending a response. You can view the metrics by day, week, or month.
 
 ### Past Incidents
 
@@ -65,7 +65,7 @@ Many configuration settings or other circumstances may cause event data to not b
 * Server-to-server
   If server-to-server data is being sent in with a duplicate, batch, or source request ID, that data won't be forwarded.
 
-Use the following techniques to find the cause of the data discrepency.
+Use the following techniques to find the cause of the data discrepancy.
 
 ### Events Fail to Arrive in mParticle (Input)
 

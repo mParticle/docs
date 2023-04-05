@@ -127,13 +127,13 @@ const Links = [
         links: [{}],
     },
     {
-        route: 'feeds/',
+        route: 'feeds',
         title: 'Feeds',
         content: 'Learn how to harness third party data sources with Feeds.',
         links: [{}],
     },
     {
-        route: 'cross-account-audience-sharing/',
+        route: 'cross-account-audience-sharing',
         title: 'Cross-Account Audience Sharing',
         content:
             'Share audience data with other accounts within your organization.',

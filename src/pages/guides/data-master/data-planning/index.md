@@ -19,7 +19,7 @@ A data plan is a codified set of expectations about the extent and shape of your
 - **ID**: a URL-safe slug. **This value never changes** and is automatically generated based on the original plan name. The ID is used by your teams to refer to the plan in their code when they send data into mParticle.
 - **Version (Optional)**: an integer value. You can create new versions of a plan as you evolve your schema. When the version is omitted the latest active version in an environment is chosen.
 - **Description (Optional)**: an optional freeform field to describe the plan.
-- **Data Points**: each data point contains an event, user attributes, or user identites. You define these for each type of data you expect to receive.
+- **Data Points**: each data point contains an event, user attributes, or user identities. You define these for each type of data you expect to receive.
 
 ![image of Data Plan user interface](/images/dataplanning/data-plan-overview.png)
 
@@ -41,7 +41,7 @@ Depending on your goals, create a single plan or multiple plans. You decide whet
 ## Limits
 
 * Similar to our event limit for workspaces, data plans support up to 1,000 data points.
-* Managing plans with more than 400 data points in the UI can become unwieldy. Manage larger plans outside of the UI, either via a [Data Plan Builder](#more-about-data-plan-builder-and-templates) or the [Data Planning API](/developers/dataplanning-api).
+* Managing plans with more than 400 data points in the UI can become unwieldy. Manage larger plans outside the UI, either via a [Data Plan Builder](#more-about-data-plan-builder-and-templates) or the [Data Planning API](/developers/dataplanning-api).
 * You can block data only for unplanned violations: events or attributes with names that diverge from the schema defined in a data plan.
 
 ## Prerequisites
@@ -94,7 +94,7 @@ To create and implement a data plan:
 
 1. [Create](#step-1-create-your-plan) a data plan that defines your expectations for incoming data. You can choose one of four different ways to create your plan:
 
-   * **If this is your first time experimenting with data plans** and you are unfamiliar with your data structure, start with a template to explore the basics of data points (events and attributes) and data validation.
+   * **If this is your first time experimenting with data plans**, and you are unfamiliar with your data structure, start with a template to explore the basics of data points (events and attributes) and data validation.
    * **If you don't have any data in mParticle yet, but understand your data structure** and are ready to implement your first data plan, use [Data Plan Builder](#more-about-data-plan-builder-and-templates). This tool is a Google Sheet that provides step-by-step guidance to create a data plan and convert it into JSON in order to upload it to mParticle. Data Plan Builder uses either a generic template or an industry-specific template.
    * **If you already have data in mParticle**, import data from the mParticle Catalog, or from another data plan or a JSON file. 
    * **Want to start from scratch?** You can start with a completely empty plan and import your data later.
@@ -107,10 +107,10 @@ To create and implement a data plan:
  
    ---
 
-2. [Activate](#step-2-activate-your-plan) your plan so it is ready to validate incoming data.
+2. [Activate](#step-2-activate-your-plan) your plan, so it is ready to validate incoming data.
   
 3. [Tag](#step-3-validate-incoming-data-with-your-plan) your incoming data so that it is validated against the plan. You'll need a developer to complete this step.   
-4. [Monitor](#step-4-monitor-your-plan) your event stream to measure and continuously improve the quality of your data. To monitor data, review violations reports, and then fix your implmentation or adjust your data plan. 
+4. [Monitor](#step-4-monitor-your-plan) your event stream to measure and continuously improve the quality of your data. To monitor data, review violations reports, and then fix your implementation or adjust your data plan. 
 5. [Update](#step-5-update-your-plan) your data plan as you learn more about the data you collect, or as it changes over time. You can also move plans from one environment to another.
 6. [Block](#step-6-block-unplanned-data-from-being-forwarded-to-downstream-systems) unplanned data from being stored in mParticle and forwarded to downstream systems.
 
@@ -248,7 +248,7 @@ Before mParticle validates incoming data against the plan, the data must be tagg
 - **Plan Version (optional)**: The plan version that the data should conform to. If omitted, mParticle uses the latest active version for your environment.
 - **Environment** (`development` or `production`): The environment of your data. mParticle uses this value to look for plans that are activated in the given environment.
 
-To find your plan ID, navigate to the your [plan listing page](https://app.mparticle.com/dm/plans). In the following image, `mobile_data_plan` is the plan ID and should be used in the code snippets below:
+To find your plan ID, navigate to the [plan listing page](https://app.mparticle.com/dm/plans). In the following image, `mobile_data_plan` is the plan ID and should be used in the code snippets below:
 
 ![](/images/dataplanning/planlist.png)
 
@@ -275,7 +275,7 @@ You can cut and paste the following example code in either JSON, Swift, Kotlin, 
         }
     },
     "environment": "development",
-    "user_identities":{...},
+    "user_identities": {...},
     "events": [...]
 }
 ```
@@ -476,7 +476,7 @@ Contact your mParticle representative if you need more memory provisioned for yo
 ### How do I enable validation?
 To enable validation, you need to point your code to a **data plan id** with **at least one active version**. For a version to be considered active, its status has to be set to `dev` or `dev & prod`.
 
-You can either pin your code to a specific data plan version or omit the version, in which case mParticle will match the data you send with the latest plan version that is active in a given envronment (`dev` or `prod`). Learn more about how to implement a data plan with [Getting Started](/guides/data-master/data-planning/#getting-started).
+You can either pin your code to a specific data plan version or omit the version, in which case mParticle will match the data you send with the latest plan version that is active in a given environment (`dev` or `prod`). Learn more about how to implement a data plan with [Getting Started](/guides/data-master/data-planning/#getting-started).
 
 ![](/images/dataplanning/anatomy_of_data_plan_version.png)
 
@@ -539,8 +539,8 @@ Here's an example schema configuration for a screen event called "Sandbox Page V
 
 This configuration states the following:
 1. The `custom_attributes` object is required and any additional attributes that are not listed below should be flagged – the behavior for additional attributes is implied by the validation dropdown for the `custom_attributes` object.
-1. An attribute called `anchor` is a string and it's required.
-1. An attribute called `name` is a string and it's optional.
+2. An attribute called `anchor` is a string, and it's required.
+3. An attribute called `name` is a string, and it's optional.
 
 Let's look at a couple examples to see this schema validation in action.
 
@@ -583,8 +583,8 @@ This event **passes** validation: The `name` attribute is excluded but optional.
 window.mParticle.logPageView(
     'Sandbox Page View',
     {
-        'anchor': '/home', 
-        `label`: `Home`
+        'anchor': '/home',
+        'label': 'Home'
     }
 )
 ~~~
@@ -605,8 +605,8 @@ You can validate specific attributes differently depending on *detected* type. L
 
 Number can be validated in two ways:
 
-1. An inclusive numeric range as implemented by JSON Schema's `minimum` and `maximun` keywords. Learn more [here](https://json-schema.org/understanding-json-schema/reference/numeric.html#range).
-2. A fixed list of integers as implemented by JSON Schemas's `enum` keyword. Learn more [here](https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values).
+1. An inclusive numeric range as implemented by the JSON Schema's `minimum` and `maximun` keywords. Learn more [here](https://json-schema.org/understanding-json-schema/reference/numeric.html#range).
+2. A fixed list of integers as implemented by the JSON Schema's `enum` keyword. Learn more [here](https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values).
 
 ![](/images/dataplanning/number_validation.png)
 
@@ -616,8 +616,8 @@ Number can be validated in two ways:
 String can be validated in three ways:
 
 1. A fixed list of allowed strings as implemented by JSON Schema's `enum` keyword. Learn more [here](https://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values).
-1. A regex pattern.
-1. A list of pre-defined formats defined by the [JSON Schema standard](https://json-schema.org/understanding-json-schema/reference/type.html), including email, URI, date, time, datetime and others.
+2. A regex pattern.
+3. A list of pre-defined formats defined by the [JSON Schema standard](https://json-schema.org/understanding-json-schema/reference/type.html), including email, URI, date, time, datetime and others.
 
 ![](/images/dataplanning/string_validation.png)
 
@@ -631,7 +631,7 @@ Ingestion, plan validation (and blocking), and event forwarding occur in the fol
 
 Use any API client or SDK to send data to the Events API, and tag the data with your plan ID and, optionally, a plan version. For instructions, see Step 1 in [Getting Started](#step-1-create-your-plan).
 
-If you are using an mParticle kit to forward data to a destination and you have enabled blocking of bad data, you can configure popular client SDKs to block bad data before it is forwarded to a kit. Learn more about blocking bad data before it is sent to kits [here](/guides/data-master/data-planning/#blocking-data-sent-to-mparticle-kits).
+If you are using an mParticle kit to forward data to a destination, and you have enabled blocking of bad data, you can configure popular client SDKs to block bad data before it is forwarded to a kit. Learn more about blocking bad data before it is sent to kits [here](/guides/data-master/data-planning/#blocking-data-sent-to-mparticle-kits).
 
 #### Step 2: Rules Are Applied
 
@@ -670,7 +670,7 @@ The user attribute or identity is not expected.
 
 #### Invalid Attribute
 
-This means the attribute is expected but it has one or more data quality violations such as:
+This means the attribute is expected, but it has one or more data quality violations such as:
 
 - Invalid Data Type: The data type of an attribute's value does not match expectations. Learn more about type validation [here](#how-are-attribute-types-validated).
 - Invalid Expected Value: The value associated with an attribute does not match expectations. Learn more about attribute validation [here](#how-can-i-validate-specific-event-user-and-identity-attributes).
@@ -703,7 +703,7 @@ To prevent blocked data from being lost, you can opt for blocked data to be forw
 
 ![](/images/dataplanning/block/block_settings_page.png)
 
-Anytime a data point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configure Amazon S3 bucket. You will then be able to:
+Anytime a data point is blocked, the Quarantine Connection will forward the original batch and metadata about what was blocked to the configured Amazon S3 bucket. You will then be able to:
 
 - Examine the blocked data in greater detail.
 - Backfill data that was mistakenly blocked.
@@ -754,4 +754,4 @@ To log the event, your app must call the `mParticle.eCommerce.logProductAction()
 
 Visit the [mParticle developer documentation](https://docs.mparticle.com/developers/) to learn more about integrating the SDKs into your application.
 
-For more information about the Snippets Tool, visit the [Github repo](https://github.com/mParticle/data-planning-snippets).
+For more information about the Snippets Tool, visit the [GitHub repo](https://github.com/mParticle/data-planning-snippets).

@@ -13,23 +13,23 @@ Read more about our Blocking feature [here](/guides/data-master/data-planning/#s
     
     Replaying event attributes is not possible without replaying their associated events, which can lead to event duplication.
 
-1. **Avoid additional MTU charges**
+2. **Avoid additional MTU charges**
 
     If the backfilled MPID and the original MPID do not match, the user will be counted twice and the number of unique MPIDs that determines your mParticle bill will be impacted.  
 
-1. **Sooner is better than later**
+3. **Sooner is better than later**
 
     We advise replaying data no longer than 2 weeks from the date it was quarantined. Many downstream tools will not accept data over a certain age. The sooner you replay data, the better.
 
-1. **Batch and event timestamps**
+4. **Batch and event timestamps**
 
     To send data to mParticle via our Events API, events are stored in a batch (see our Events API [docs pages](/developers/server/http/#v2events) for additional detail). Both mParticle batches and events have a timestamp attached to them. To ensure that events are backfilled with the original timestamp, it's essential to preserve the value stored in the `timestamp_unixtime_ms` field that each event object contains (the timestamp attached at the batch level can be ignored).
 
-1. **Avoid batch deduplication**
+5. **Avoid batch deduplication**
 
     To avoid batches from being deduplicated in mParticle's internal data pipeline, make sure to remove the `batch_id` from the blocked batch before backfilling it to mParticle.
 
-1. **Backfilling data requires some coding skills**
+6. **Backfilling data requires some coding skills**
 
     To fix and replay data, you need to know how to code.
 
@@ -44,11 +44,11 @@ Based on your unique set of target event integrations, you should devise a strat
 
     Different integrations have different limitations when it comes to receiving historical data. Establish the limitation of a target integration by reading their developer docs or by sending a small amount of test data through an mParticle connection.
 
-1. <strong>Do I need to backfill unplanned event attributes?</strong>
+2. <strong>Do I need to backfill unplanned event attributes?</strong>
 
     Event attributes cannot be replayed without their associated events. You'll need a strategy (e.g. deleting previously sent yet incomplete events) to avoid event duplication if you want to replay blocked event attributes.
 
-1. <strong>Which mParticle Input should I use to backfill my data?</strong>
+3. <strong>Which mParticle Input should I use to backfill my data?</strong>
 
     The cleanest solution is typically to create a new [Custom Feed](/integrations/custom-feed/feed/) for the purpose of your backfill. You can connect only the integrations that you want to backfill to that feed and then tear it down again once the backfill is complete. 
     
@@ -70,7 +70,7 @@ Once you have a strategy for your backfill, here are the steps to backfill your 
 
 5. Using the JSON data file containing blocked events, get the `block_metadata` node.  
 
-6. Create a new events array and user atribute object containing only the data you would like to backfill.
+6. Create a new events array and user attribute object containing only the data you would like to backfill.
 
 7. Perform any data fixes.
 
