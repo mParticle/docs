@@ -144,7 +144,8 @@ When the payload is sent to our endpoint, it will require the `app_instance_id` 
 ```
 
 ##### Feeds
-When connecting a feed, you'll need to specify an `app_instance_id` or `client_id` value in the `Firebase App ID/Measurement ID` setting, and select which ID it corresponds to in the `ID Type` setting.
+To connect a feed, you must provide at least a `Firebase App ID` or a `Measurement ID`, and select your `Preferred Platform ID` that it's only available for this type of output. 
+If your preferred platform has an associated instance ID in the processed batch, it will be automatically selected to forward the information. If not, the system will attempt to fallback to the other platform if it's set up and the corresponding instance id is present in the batch. 
 
 ##### Other Platforms
 Because Google has the requirement for either the `app_instance_id` or the `client_id` property in all requests, which come from Google's SDKs, we are not supporting any other platforms at the time.  We are working closely with Google to support other platforms when they provide a strategy that doesn't require an SDK.
@@ -614,13 +615,12 @@ $gclid| gclid | Google AdWords ID | -->
 ## Connection Settings
 | Setting Name |  Data Type    | Default Value | Platform | Description |
 | ---|---|---|---|---
-| Firebase App ID | `string` | | iOS, Android, tvOS | The Firebase project ID |
-| Measurement ID | `string` | | Web | The Measurement ID for a Data Stream. The format is G-XXXXXXXXXX. |
+| Firebase App ID | `string` | | iOS, Android, tvOS, Feed | The Firebase project ID |
+| Measurement ID | `string` | | Web, Feed | The Measurement ID for a Data Stream. The format is G-XXXXXXXXXX. |
 | Measurement Protocol API secret| `string` | | All | Your Google Analytics 4 Measurement Protocol API secret value |
 | External User Identity Type | `string` | None | All | The mParticle user identity type to forward as a user ID (uid) to Google Analytics. |
 | Late Event Action | `string` | Send | All | Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |
 | Enable Configuration Page View | `bool` | `false` | Web | If enabled, GA4 will automatically send a page view when loaded. This results in an extra page view on GA4 which will not appear in mParticle. By default this is disabled to keep mParticle and GA4 page views more in line. |
 | Hash User ID | `bool` | `true` | All | If enabled, mParticle will hash the selected user ID (uid) before forwarding to Google. |
 | Forward Web Requests Server Side |  `bool` | `false` | All | If enabled, requests will only be forwarded server-side. |
-| Firebase App ID/Measurement ID |  `string` | | Feed | The Firebase project ID or Measurement ID being used for this connection |
-| ID Type |  `string` | Firebase App ID | Feed | Specifies whether your feed is associated with a Firebase App ID or a Measurement ID |
+| Preferred Platform ID |  `string` | Firebase App ID | Feed | Specifies whether your preferred feed is Firebase App ID or a Measurement ID when both are present. Feed only setting. |
