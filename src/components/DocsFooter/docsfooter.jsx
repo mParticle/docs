@@ -89,6 +89,10 @@ export default () => (
                         <p>Support</p>
                     </a>
                     <a
+                        href='https://www.reddit.com/r/mparticle'>
+                        <p>Community</p>
+                    </a>
+                    <a
                         href='https://changelog.mparticle.com'>
                         <p>Changelog</p>
                     </a>
