@@ -682,6 +682,8 @@ This means the attribute is expected, but it has one or more data quality violat
 #### Limitations
 
 - You cannot replay blocked data through the UI. If you have set up a [Quarantine Connection](#quarantine-connections), we offer instructions and sample scripts for replaying blocked data in our [backfill guide](/guides/data-master/blocked-data-backfill-guide).
+- You cannot block unplanned identities.
+- You cannot block invalid data.
 
 #### What happens to blocked data?
 
@@ -710,9 +712,7 @@ Anytime a data point is blocked, the Quarantine Connection will forward the orig
 
 Learn more about how to use quarantined data [here](/guides/data-master/blocked-data-backfill-guide).
 
-## Linting (beta)
-
-<aside>Linting is in Beta. Submit your feedback <a href="https://docs.google.com/forms/d/1KAJv3yTSG7Ue5CjCU7bHDwemA6t4yUpDGxO2mCGqgQw/prefill">here</a>.</aside>
+## Linting
 
 We've developed tools for you to be able to lint your Swift, Kotlin/Java, and JavaScript/TypeScript code. For more details, click [here](/developers/linting/).
 
