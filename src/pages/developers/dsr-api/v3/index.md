@@ -236,7 +236,7 @@ X-OpenDSR-Signature:
 | `group_id` | string  | The `group_id` can be used to relate different subject requests together. | 
 | `request_status` | string | The status of the request. Possible values are `pending`, `in_progress`, `completed` and `cancelled`. |
 | `api_version` | string | The API version for this request. The current version is `3.0`. |
-| `results_url` | string | For Access/Portability requests, a download link to the request results data. This field contains `null` unless the request is complete. After a request completes, the `results_url` is valid for 7 days. After that time, attempting to access this URL results in a `410 Gone` HTTP response. |
+| `results_url` | string | For Access/Portability requests, a download link to the request results data. This field contains `null` unless the request is complete. After a request completes, the `results_url` is valid for 7 days. After that time, attempting to access this URL results in a `410 Gone` HTTP response. If no records can be found matching the identities in the request, a request returns a `404` error. |
 | `extensions` | array |  Extensions related to DSR forwarding. |
 
 #### Extensions 
@@ -443,6 +443,6 @@ The following errors may be returned by the API.
 | 400 | No | If an mpid is provided, it must be the only identity in the request. |
 | 400 | No | Subject request already exists: `subject_request_id` is not unique. |
 | 401 | No | The credentials provided in the request are not valid.  Check the credentials used to [authenticate.](#authentication). |
-| 404 | No | The specified subject request id could not be found. |
+| 404 | No | The specified subject request id could not be found. For Portability/Access requests, if no records can be found matching the identities in the request, a request to the download link to the request results will also return this error. |
 | 409 | No | There is an in-progress request with the same identities, extensions and type. |
 | 429 | Yes | Too many requests have been submitted. The `Retry-After` header indicates how long to wait before retrying again. Learn more about API throttling in [Default Service Limits](/guides/default-service-limits/#api-throttling). |

@@ -138,7 +138,7 @@ Access and Portability requests are treated exactly the same way, as follows:
 3. mParticle compiles the data into a single text file. This data includes device identities, user identities, user attributes (including calculated attributes), as well as current audience memberships.
 4. mParticle sends a callback to any specified Callback URLs indicating that the request has been completed. The callback will contain a secure download link to the text file containing the Subject's data.
 
-If you submit an access and portabilitiy request for more than one profile using multiple MPIDs, the data for every profile returned will be included in a single file. Since the resolution process for DSRs is the same as the process for IDSync, an access and portability request that includes only a device ID will not return any profiles that are protected by a login ID.
+If you submit an access and portability request for more than one profile using multiple MPIDs, the data for every profile returned will be included in a single file. Since the resolution process for DSRs is the same as the process for IDSync, an access and portability request that includes only a device ID will not return any profiles that are protected by a login ID.
 
 For example, imagine that a user opens your app and is tracked with an anonymous profile, but they do not create an account with a login ID. Later, a different user on the same device opens your app and logs in with a login ID. If you submit an access and portability request but only supply the device ID, then only the data for the anonymous user will be returned.
 
@@ -148,12 +148,13 @@ Access / Portability requests are processed every three days on the start of Mon
 
 #### Access / Portability Response Format
 
-The data gathered in response to an access or portability request will be delivered in a `.zip` folder containing many `.jsonl` files ([JSON Lines](http://jsonlines.org/) format).  The zip contains:
+The data gathered in response to an access or portability request will be delivered in a `.zip` folder containing many `.jsonl` files ([JSON Lines](http://jsonlines.org/) format).  The zip may contain:
 
 * `profile.jsonl`: A file that contains the live profile at the time of the request. This includes: device identities, user identities, current audience memberships and user attributes (including calculated attributes).
 * one or more additional `.jsonl` files: These results are split into many files to avoid a single, large file to make them easier to transmit and process. Controllers are encouraged to re-process the files as they see fit. These files contain the event batches sent to mParticle. Each line of the data files represents a complete mParticle event batch. See our [JSON Reference](/developers/server/json-reference) for a guide to the event batch format.
+* `empty.txt`:  A file which indicates that mParticle found one or more MPIDs associated with the identities in the request, but that there is no data available for them.
 
-Note that if no records can be found matching the identities in the request, the request for the zip file will intentionally return a `404` error.
+Note that if no records can be found matching the identities in the request, the request for the zip file returns a `404` error.
 
 A sample portability response can be downloaded [here](/downloads/portability-response-sample.zip).
 
