@@ -45,7 +45,12 @@ https://opendsr.mparticle.com/v3
 
 The HTTP APIs are secured via basic authentication. Credentials are issued at the level of an mParticle Workspace. You can obtain credentials for your Workspace from the Workspace Settings screen. Note that this authentication is for a single workspace and scopes the DSR to this workspace only.
 
-![](/images/workspace-credentials.png)
+To workspace view credentials:
+
+1. Click on the current workspace name in the upper left corner.
+2. Click **Settings**.
+3. Click on the name of a workspace to display the Edit Workspace settings page.
+    <img src="/images/workspace-credentials.png" alt="Edit workspace settings" width="400">
 
 You can authenticate in two ways:
 

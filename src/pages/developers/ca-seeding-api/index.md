@@ -8,11 +8,16 @@ The Calculated Attributes (CA) Seeding API allows you to programmatically set ca
 
 The CA Seeding API is secured via basic authentication. Credentials are issued at the level of an mParticle Workspace. You can obtain credentials for your Workspace from the Workspace Settings screen.
 
-![](/images/workspace-credentials.png)
+To view workspace credentials:
+
+1. Click on the current workspace name in the upper left corner.
+2. Click **Settings**.
+3. Click on the name of a workspace to display the Edit Workspace settings page.
+    <img src="/images/workspace-credentials.png" alt="Edit workspace settings" width="400">
 
 You can authenticate in 2 ways:
 1. Many HTTP clients support basic authentication out of the box. Use your API key for the “username” and your API secret for “password”.
-1. Manually set the authentication header by encoding your key and secret together:
+2. Manually set the authentication header by encoding your key and secret together:
    - Concatenate your application key and secret together with a colon (:) separating the two:
 `example-api-key:example-api-secret`
    - Base64 with UTF-8 encode the result:
