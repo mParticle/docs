@@ -571,7 +571,7 @@ Set up user attribute sharing in three steps.
 
 Create the Audience Connection in the usual way. For affected partners, you will see the following notification:
 
-![medium](/images/attribute-sharing-notice.png)
+![medium](/images/audiences/attribute-sharing-notice.png)
 
 If you want to forward User Attributes to this partner, make sure you set the Status to Inactive as you create the connection. This will make sure you do not begin forwarding data until you have selected the user attributes to forward.
 
