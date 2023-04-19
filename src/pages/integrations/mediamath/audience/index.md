@@ -4,7 +4,7 @@ title: Audience
 
 [MediaMath](https://www.mediamath.com) unites audience, media and intelligence in a single omnichannel platform. MediaMath gives marketers the tools to execute smart marketing at scale and to drive truly incremental business value.
 
-<aside>The MediaMath integration is in [a Beta release](https://docs.mparticle.com/guides/glossary#releases).  Please reach out to your customer success manager for assistance in setting up the integration.</aside>
+<aside>The MediaMath integration is in <a href="https://docs.mparticle.com/guides/glossary#releases">a Beta Release</a>.  Please reach out to your customer success manager for assistance in setting up the integration.</aside>
 
 ## Prerequisites 
 
