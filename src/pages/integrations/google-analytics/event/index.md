@@ -58,7 +58,7 @@ Dry Run | No | You can disable forwarding in the mParticle console to stop sendi
 eCommerce Tracking | Yes | Supported
 Enhanced eCommerce Tracking | Yes | Supported
 Event Tracking | Yes | Note that Google Analytics requires that Event Value (ev) be an integer
-Goals reporting | No – future release | Planned for future mParticle release by passing $amount attribute as event label and $value as event value
+Goals reporting | No – future release | mParticle expects to support goals reporting [in a future release](/guides/platform-guide/introduction#forward-looking-statements) by passing $amount attribute as the event label and $value as the event value
 Screen Tracking | Yes | Supported
 Session Management | Yes | mParticle forwards session start / end events according to Google’s protocol
 Social Interactions | Yes | Set mParticle event type to Social and pass required attributes

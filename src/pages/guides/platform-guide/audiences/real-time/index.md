@@ -123,7 +123,7 @@ The scope of data that is evaluated by your audience criteria is dependent upon:
 * The configurations you have selected
 * The amount of data the mParticle platform has available for the configurations
 * The data storage limit of your current subscription plan
-* The tier setting for events, if your org has the Beta feature Tiered Events enabled. If set to any tier except [**Personalize**](/guides/platform-guide/tiered-events), an event can't be used as criteria in a real-time audience and won't be evaluated. After being set to any other tier, the event is grayed out in real-time audience selection drop-downs.
+* The tier setting for events, if your org has the feature Tiered Events (Beta release) enabled. If set to any tier except [**Personalize**](/guides/platform-guide/tiered-events), an event can't be used as criteria in a real-time audience and won't be evaluated. After being set to any other tier, the event is grayed out in real-time audience selection drop-downs.
 
 To add criteria to the audience definition:
 

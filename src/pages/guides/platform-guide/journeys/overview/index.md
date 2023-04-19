@@ -16,7 +16,7 @@ You want to design a multistep journey: starting with the users available with t
 
 You can create as many journeys as you need (up to your active audience limit), and delete empty journeys when they are no longer useful. You can also delete milestones and their related audiences and connections from a journey and add new milestones.
 
-<aside>Contact <a href="https://www.mparticle.com/contact/journeys">mParticle</a> to request participation in the Beta version of Journeys.</aside>
+<aside>Contact <a href="https://www.mparticle.com/contact/journeys">mParticle</a> to request participation in [the Beta release](https://docs.mparticle.com/guides/glossary#releases) of Journeys.</aside>
 
 ## Journey workflow
 

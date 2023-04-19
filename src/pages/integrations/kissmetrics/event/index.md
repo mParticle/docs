@@ -25,7 +25,7 @@ For more info, see the Kissmetrics documentation
 
 Kissmetrics Feature Name | Feature Description | mParticle Supported? | Comments
 ------------------------ | ------------------- | ------------- | --------
-People & Event Tracking | Track mobile app events and users | Yes | Kissmetrics connects all of the historical data from an anonymous visitor to their customer profile as soon as they become a customer. This is done by aliasing login user name to the user's previous id.  mParticle doesn't currently support alias for now although this is possible for a future release.  As a result, it is important that app developers identify users with their respective login as soon as possible.
+People & Event Tracking | Track mobile app events and users | Yes | Kissmetrics connects all of the historical data from an anonymous visitor to their customer profile as soon as they become a customer. This is done by aliasing login user name to the user's previous id.  mParticle doesn't currently support alias.  As a result, it is important that app developers identify users with their respective login as soon as possible.
 User Attribution | Where user traffic originates from | No | Kissmetrics currently focuses more on web to web referrer, whereas mParticle focuses on mobile app / web attribution support.
 A/B Testing | | No |
 

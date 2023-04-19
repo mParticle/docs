@@ -45,7 +45,7 @@ Adobe Analytics Feature Name | Adobe Analytics Feature Category | Feature Descri
 Track App States | Analytics | Track the state of your application. | Yes
 Track App Actions | Analytics | Actions are the events that occur in your app that you want to measure.| Yes
 Track App Crashes | Analytics | Answers to questions about how crashes are tracked and best practices for avoiding false crashes.| Yes
-Timed Actions | Analytics | Measure how long an event takes | No | mParticle will add support in a future release. For now developers can time events themselves and pass timing via `eventLength` parameter
+Timed Actions | Analytics | Measure how long an event takes | No | mParticle expects to add support [in a future release](/guides/platform-guide/introduction#forward-looking-statements). For now developers can time events themselves and pass timing via `eventLength` parameter
 Visitor Lifetime Value | Analytics | Lifetime value lets you measure and target on a lifetime value for each user.| Yes
 Products Variable | Analytics | Product variable store Product details for which an action is taking place.| Yes
 Video Analytics | Analytics | Video Analtyics is the process of collecting and aggregating video metrics. | No

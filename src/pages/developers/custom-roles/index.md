@@ -7,7 +7,7 @@ The Custom Access Roles API allows account admins to create, modify, and delete 
 For example, there are only a few features a marketer would need to access, such as Audiences, Calculated Attributes, and the User Activity View.  By creating a custom role for marketers, you can remove their access to features that are beyond the scope of their job, such as API Credentials, Data Planning, or Filters. Compared to generic user roles, the Custom Access Roles API gives you granular control so you can create roles that best fit each member of your team.
 
 <aside class="warning">
-    Custom Access Roles is a closed beta feature. If you are interested in participating in the closed beta, contact your account manager to gain access.
+    Custom Access Roles is a closed <a href="https://docs.mparticle.com/guides/glossary#releases">Beta Release</a>. If you are interested in participating, contact your account manager to gain access.
 </aside>
 
 ## Endpoint

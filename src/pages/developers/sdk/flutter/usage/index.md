@@ -45,7 +45,7 @@ MPEvent event = MPEvent('Test event logged', EventType.Navigation)
 mpInstance?.logEvent(event);
 ```
 
-By default, all events upload to the mParticle server unless explicitly set not to.  This is also available on Commerce Events when calling `logCommerceEvent`.  Support for `logScreenEvent` will be coming in the future.
+By default, all events upload to the mParticle server unless explicitly set not to.  This is also available on Commerce Events when calling `logCommerceEvent`.  mParticle expects to support `logScreenEvent` in [a future release](/guides/platform-guide/introduction#forward-looking-statements).
 
 
 To log screen events, import mParticle `ScreenEvent`:

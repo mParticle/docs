@@ -16,7 +16,7 @@ The mParticle profile API is intended for debugging only and does not support pr
 
 User Profile endpoints begin with
 `https://api.mparticle.com/v1/`.
-Any future updates that introduce breaking changes will be published with a new version number in the URL.
+mParticle expects that [any future updates](/guides/platform-guide/introduction#forward-looking-statements) that introduce breaking changes will be published with a new version number in the URL.
 
 ## Authentication
 

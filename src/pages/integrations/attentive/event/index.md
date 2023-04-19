@@ -4,7 +4,7 @@ title: Event
 
 [Attentive](https://attentivemobile.com/?utm_source=mparticle&utm_medium=integrations&utm_campaign=mparticle-partnership) is a personalized mobile messaging platform that can quickly become a top 3 revenue channel. Using real-time behavioral data, Attentive automatically sends engaging text messages at every step of the customer lifecycle.
 
-<aside>The Attentive Event integration is in Beta.  Please reach out to your mParticle and Attentive customer success managers if interested in joining the testing period.</aside>
+<aside>The Attentive Event integration is in [a Beta release](https://docs.mparticle.com/guides/glossary#releases).  Please reach out to your mParticle and Attentive customer success managers if interested in joining the testing period.</aside>
 
 
 ## Prerequisites

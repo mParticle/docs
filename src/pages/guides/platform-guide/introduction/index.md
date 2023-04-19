@@ -11,7 +11,7 @@ The primary task accomplished in the mParticle dashboard is creating Connections
 
 * **Audience** data captures groups of users that meet a given set of criteria. For example, you might create an audience of users who have purchased icecream from your app and forward that audience to a marketing automation platform, to target messages to those users when new dairy products become available.
 
-## Accounts, Organizations, and Workspaces
+## Accounts, organizations, and workspaces
 
 mParticle creates a unique organization for you. It's the container for all data and metadata related to your mParticle. Within an organization, mParticle will create one or more accounts for you, and within each account, you can create one or more workspaces. Your choices for account and workspace setup are important because these choices affect identity and feature provisioning. 
 
@@ -66,7 +66,7 @@ The Best Bags company sells handbags under several different names, and in sever
 
 You can also use [identity scope](/guies/idsync/user-data/#identity-scope) to manage how user data is shared between workspaces and accounts. And if you need to share audiences across accounts, you can request that mParticle enable [cross-account audience sharing](/guides/cross-account-audience-sharing/) for your organization. 
 
-## Managing Workspaces
+## Managing workspaces
 
 Click on the name of your current workspace in the top-left corner of the dashboard to open the workspaces menu. From here you can switch into any of your current workspaces, or click **Settings** to open the Workspace Settings page.
 
@@ -82,7 +82,7 @@ From the Workspace Settings page, you can:
 
 Note that you can't delete a workspace that is part of a [Multi Workspace Audience](/guides/platform-guide/audiences/real-time/). First delete or modify the multiworkspace audience, then you can delete the workspace.
 
-## Working with Web Data
+## Working with web data
 
 mParticle handles Web data -- collected from a browser client -- a little differently from data collected from native apps.
 
@@ -111,7 +111,7 @@ function logPageView() {
 
 To make it easier to work with web integrations, we provide the source code in a public repository, so you can work with the Integration Partner's documentation and see exactly how we map mParticle methods onto the Partner code. See the [mparticle-integrations organization](https://github.com/mparticle-integrations?utf8=%E2%9C%93&q=javascript&type=&language=) for a complete list of client-side web integrations.
 
-## Platform Limits
+## Platform limits
 
 mParticle imposes limits on the number and length of attributes that can be associated with events and users.
 
@@ -134,7 +134,7 @@ A quick summary of some of the most important limits is below. For more informat
 
 Note that Output Services often have their own limits, which can differ from mParticle's. When planning your implementation, check the documentation for your Output Services in the [Integration Center](/integrations/) to make sure you are complying with their limits.
 
-## Tracking Protection
+## Tracking protection
 
 Browsers add third-party tracking protection for end users. The protections affect third-party trackers and their cookies and work in different ways. For example, Firefox Enhanced Tracking Protection (ETP) relies on a list of known trackers to decide what to block. Safari, Chrome for iOS and other browsers with the Apple WebKit engine use Intelligent Tracking Protection (ITP). ITP prevents the browser from loading cookies from a third-party domain.
 
@@ -143,7 +143,13 @@ mParticle aligns with this privacy stance.
 * [Firefox Enhanced Tracking Protection (ETP)](https://developer.mozilla.org/en-US/docs/Web/Privacy/Redirect_tracking_protection)
 * [Apple WebKit engine and ITP](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/)
 
-## Next Steps
+## Forward-looking statements
+
+mParticle strives to be as transparent as possible. Part of this transparency is to share information about products, features, or functionality that we expect to deliver in the future. 
+
+Forward-looking statements are as accurate as possible given the knowledge at the time of publication. However, no purchasing decisions should be made on the basis of any forward-looking statement, and mParticle may withdraw or change the products, features, or functionality mentioned in such statements.
+
+## Next steps
 
 To get started with mParticle, set up some data inputs and integrate with at least one output service. See [Web End-to-End Tutorial](/developers/quickstart/web/overview) for instructions on how to set up connections, and see your first data flow from input to output. If you aren't working with Web apps or services, visit [Getting Started](/guides/getting-started/) for more generic instructions.
 

@@ -335,4 +335,4 @@ api.send(message)
 
 ### Feedback and Questions
 
-Smartype is in active development as a beta product and we need your help to make it better. For any questions or feedback, please send a note to [developers@mparticle.com](mailto:developers@mparticle.com)
+Smartype is in [a Beta release](/guides/glossary#releases) and we need your help to make it better. For any questions or feedback, please send a note to [developers@mparticle.com](mailto:developers@mparticle.com)

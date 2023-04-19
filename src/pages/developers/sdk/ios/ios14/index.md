@@ -22,7 +22,7 @@ Please reference the following two Apple documents for the latest compliance req
 
 ### Events API
 
-You can now associate any iOS device data with an ATT status. mParticle has introduced a new `att_authorization_status` field in support of this, and all customers implementing the Apple SDK or sending iOS data server-to-server are encouraged to begin collecting and sending this field. At a future date, *this field will become required* when providing mParticle with an IDFA. Please see the implementation guides below for more information.
+You can now associate any iOS device data with an ATT status. mParticle has introduced a new `att_authorization_status` field in support of this, and all customers implementing the Apple SDK or sending iOS data server-to-server are encouraged to begin collecting and sending this field. mParticle expects to make this field required when providing mParticle with an IDFA <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>. Please see the implementation guides below for more information.
 
 ### Apple SDK
 
@@ -170,7 +170,7 @@ ATTrackingManager.requestTrackingAuthorization { status in
 
 ### Server-to-Server
 
-The ATT properties should be provided whenever available, when sending data for an iOS device. In the future, the ATT status will be *required* when providing the IDFA (`ios_advertising_id`) field.
+The ATT properties should be provided whenever available, when sending data for an iOS device. mParticle expects to make the ATT status required when providing the IDFA (`ios_advertising_id`) field <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.
 
 ```json
 {

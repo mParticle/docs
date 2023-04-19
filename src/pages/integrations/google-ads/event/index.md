@@ -179,14 +179,14 @@ NSString *buildId(void) {
 :::
 
 ## Enhanced Conversions
-When using the Google Ads web integration, you have the option of leveraging Google's Enhanced Conversions.  This allows you to send first-party customer data to Google in a secure way. Read more about Google's Enhanced Conversions and how to set it up on Google's side [here](https://support.google.com/google-ads/answer/9888656?hl=en-GB). Google's Enhanced Conversions product is currently in beta.  
+When using the Google Ads web integration, you have the option of leveraging Google's Enhanced Conversions.  This allows you to send first-party customer data to Google in a secure way. Read more about Google's Enhanced Conversions and how to set it up on Google's side [here](https://support.google.com/google-ads/answer/9888656?hl=en-GB). Google's Enhanced Conversions product is in a beta release.  
 
 ### Prerequisites
 * mParticle prequisites:
   * Your web workspace needs to be configured for event batching in order to leverage Enhanced Conversions.  If it is not configured for event batching, please contact your customer success manager. To determine if you are on web batching, follow the instructions [here](/developers/sdk/web/configuration).
   * Check both `Enable Google Site Tag` and `Enable Enhanced Conversions` in connection settings.
 * Google prequisites:
-  * Enhanced Conversion is currently a beta Google product.  As such, you must work with your Google Ads representative to whitelist your account.
+  * Enhanced Conversion is currently in a beta release.  As such, you must work with your Google Ads representative to whitelist your account.
 
 ### Creating a Conversion ID and Label
 

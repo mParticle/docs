@@ -5,7 +5,7 @@ order: 2
 
 Use this tutorial to configure your first Warehouse Sync pipeline with [the mParticle Postman collection], and activate the data in a downstream tool. Postman is an easy and friendly environment for developers and non-developers alike to use APIs. 
 
-<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. Future releases may add support for additional inputs and support event data.</aside>
+<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
 
 This tutorial is not a complete guide to all of the Warehouse Sync features and APIs. For more reference documentation, see the [Warehouse Sync API Reference](/developers/warehouse-sync-api/reference/).
 

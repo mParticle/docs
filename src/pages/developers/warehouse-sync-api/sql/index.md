@@ -7,7 +7,7 @@ A SQL query can be provided as part of the [Data Model request body](/developers
 so be sure to use valid syntax for your warehouse. For example, each warehouse has slightly different ways to utilize SQL functions with
 different parameters.
 
-<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. Future releases may add support for additional inputs and support event data.</aside>
+<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
 
 ## Data Models and SQL Queries 
 

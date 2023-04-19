@@ -173,7 +173,7 @@ Specifically, a few core changes Google made from UA to GA4 that impact our kits
 All of the associated custom flags related to the above are no longer relevant and should not be included when implementing mParticle's GA4 web kit.
 
 ### Migrating from mParticle's Legacy Native Firebase Kits
-Because the GA4 data model is driven by Firebase, no changes are needed to keep your current code working.  However, we did add additional support for new GA4 ecommerce events: `add_shipping_info` and `add_payment_info`.  See [Custom Flags](#custom-flags) for more information.
+Because the GA4 data model is driven by Firebase, no changes are needed to keep your current code working.  However, we do support the new GA4 ecommerce events: `add_shipping_info` and `add_payment_info`.  See [Custom Flags](#custom-flags) for more information.
 
 The Firebase event `select_content` is `select_item` in GA4.
 

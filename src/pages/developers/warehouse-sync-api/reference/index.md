@@ -5,7 +5,7 @@ order: 4
 
 The Warehouse Sync API enables you to create and manage data ingestion pipelines with your cloud data warehouses.
 
-<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. Future releases may add support for additional inputs and support event data.</aside>
+<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
 
 ## Base URI
 

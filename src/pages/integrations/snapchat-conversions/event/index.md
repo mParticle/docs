@@ -2,7 +2,7 @@
 title: Event
 ---
 
-<aside class="warning">This integration replaces the deprecated <a href="https://docs.mparticle.com/integrations/snapchat/event/">Snapchat Event</a> integration, which won't receive future updates. If you are creating a new integration, use this module.</aside>
+<aside class="warning">This integration replaces the deprecated <a href="https://docs.mparticle.com/integrations/snapchat/event/">Snapchat Event</a> integration. If you are creating a new integration, use this module.</aside>
 
 The [Snapchat Conversion API](https://marketingapi.snapchat.com/docs/conversion.html) integration is a server-to-server integration that allows advertisers to pass web, app, and offline events from mParticle directly to Snap. Data shared through the Snapchat Conversions API is processed similarly to events passed through the Snap Pixel or App Ads Kit (SDK). By passing events, advertisers can access post-view and post-swipe campaign reporting to measure performance and incrementality. Depending on the data shared and timeliness of integration, it’s also possible to use events passed through the Conversions API for campaign optimization, ad targeting and measurement of conversions that resulted from your Snapchat campaigns.
 
