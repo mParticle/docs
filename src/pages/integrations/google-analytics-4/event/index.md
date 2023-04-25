@@ -30,7 +30,7 @@ As required by the Google API, you must use the GA4 SDK for server-side integrat
 
 You may prefer to send web data server side in order to reduce both the the number of calls the browser makes, and the size of your web site.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.  
 
-To send data server side, check `Forward Requests Server Side` in the Connection Settings. Add the `Measurement ID` and you will also need to include a `Measurement Protocol API Secret`. On GA4, each data stream can have one or more `Measurement Protocol API Secrets`.  To create one:
+To send data server side, check `Forward Requests Server Side` in the Connection Settings. Add the `Measurement ID` and you will also need to include a `Measurement Protocol API Secret for Web Stream`. On GA4, each data stream can have one or more `Measurement Protocol API Secrets`.  To create one:
 1. Locate your data stream where you viewed your Measurement ID from above.
 2. Click on `Measurement Protocol API Secrets`
 3. Click `Create`.
@@ -118,7 +118,7 @@ The Firebase SDK is a requirement to use this integration server side per Google
 
 You may prefer to send this data server side in order to reduce both the the number of calls the device makes, and the size of your app.  In this scenario, events are sent to mParticle's servers, and then forwarded from mParticle's servers to GA4.
 
-To send data server side, check `Forward Requests Server Side` in the Connection Settings.  You will also need to include your `Firebase App ID` and a `Measurement Protocol API Secret` to forward web requests server side. Each data stream can have one or more `Measurement Protocol API Secret`.  To create one:
+To send data server side, check `Forward Requests Server Side` in the Connection Settings.  You will also need to include your `Firebase App ID` and a `Measurement Protocol API Secret for Firebase` to forward web requests server side. Each data stream can have one or more `Measurement Protocol API Secret`.  To create one:
 1. locate your data stream where you viewed your Firebase App ID and then: 
 2. Click on `Measurement Protocol API Secrets`
 3. Click `Create`.
@@ -617,7 +617,8 @@ $gclid| gclid | Google AdWords ID | -->
 | ---|---|---|---|---
 | Firebase App ID | `string` | | iOS, Android, tvOS, Feed | The Firebase project ID |
 | Measurement ID | `string` | | Web, Feed | The Measurement ID for a Data Stream. The format is G-XXXXXXXXXX. |
-| Measurement Protocol API secret| `string` | | All | Your Google Analytics 4 Measurement Protocol API secret value |
+| Measurement Protocol API secret for Firebase | `string` | | iOS, Android, tvOS, Feed | Your Google Analytics 4 Measurement Protocol API secret value for Firebase |
+| Measurement Protocol API secret for Web Stream | `string` | | Web, Feed | Your Google Analytics 4 Measurement Protocol API secret value for Web Stream |
 | External User Identity Type | `string` | None | All | The mParticle user identity type to forward as a user ID (uid) to Google Analytics. |
 | Late Event Action | `string` | Send | All | Choose what will happen when an event arrives too late for Google to handle the event.  Send - Send anyways. Drop - Do not send, Transform - Change the event date time to ensure event is accepted. |
 | Enable Configuration Page View | `bool` | `false` | Web | If enabled, GA4 will automatically send a page view when loaded. This results in an extra page view on GA4 which will not appear in mParticle. By default this is disabled to keep mParticle and GA4 page views more in line. |
