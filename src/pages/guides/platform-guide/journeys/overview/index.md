@@ -32,7 +32,7 @@ The following diagram shows a simple journey with two milestones:
 
 <img alt="journey with one milestone" src="/images/journeys/one-path.png" width="250">
 
-In this journey, all high-value customers are sent an email, and then all of the high-value customers who are also long-term customers are sent to Google BigQuery.
+In this journey, all high-value customers are sent an email, and then all of the high-value customers who are also long-term customers are sent to an internal Slack channel and two other outputs.
 
 Notice the following:
 
