@@ -34,7 +34,7 @@ Smartype supports the following SDKs and language environments today:
     - [mParticle Android SDK](/developers/quickstart/android/overview/)
     - [mParticle Java SDK](https://github.com/mParticle/mparticle-java-events-sdk)
 2. [mParticle Apple SDK](/developers/quickstart/ios/overview/)
-3. Web browsers via TypeScript and JavaScript
+3. Web browsers and React Native via TypeScript and JavaScript
 
 ## mParticle Data Plans
 
@@ -326,6 +326,37 @@ var message = smartypeApi.chooseItem(
 
 //the message object will now be sent to all receivers
 api.send(message)
+```
+
+#### React Native
+
+In order to enable React Native:
+- [Add mParticle's React Native plugin](/developers/sdk/react-native/getting-started/) to your React project if you haven't already
+- Inject the mParticle React Native plugin into your `mParticleReceiver`:
+
+```js
+import MParticle from 'react-native-mparticle'
+
+...
+
+var api = new smartype.SmartypeApi()
+var receiver = smartype.mParticleReceiver()
+receiver.react = MParticle
+api.addReceiver(receiver)
+```
+
+You will also want to exclude the generated `.smartype` directory from your React Project by configuring your `metro.config.js` file:
+
+```js
+const exclusionList = require('metro-config/src/defaults/exclusionList');
+
+... 
+
+module.exports = {
+  resolver: {
+      blockList: exclusionList([/\.smartype\/.*/])
+    },
+};
 ```
 
 ### Source Code and Example Projects
