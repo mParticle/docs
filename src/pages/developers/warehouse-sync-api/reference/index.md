@@ -5,7 +5,8 @@ order: 4
 
 The Warehouse Sync API enables you to create and manage data ingestion pipelines with your cloud data warehouses.
 
-<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
+
+<aside>This Early Access release of Warehouse Sync API is limited to user profile data, Snowflake, and Google BigQuery. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
 
 ## Base URI
 
@@ -15,7 +16,7 @@ To find your workspace `id`, follow the instructions in [Managing Workspaces](/g
 
 ## Resources
 
-Use the Warehouse Sync API resources (endpoints) to work with ingest connections, data models, and pipelines in order to ingest Snowflake data into mParticle.
+Use the Warehouse Sync API resources (endpoints) to work with ingest connections, data models, and pipelines in order to ingest data into mParticle from data warehouses.
 
 * A connection defines the location and credentials to allow mParticle to connect to your data warehouse
 * A data model defines the structure and key columns to understand your data
@@ -48,14 +49,12 @@ For the workspace specified in the base URI, get all the data warehouse ingest c
 
 Request: `GET {baseURI}/connections`
 
-<!--
-// TODO: Uncomment when we have more than one connectionType supported
-Query parameter: `{connectionType}` Optional
+Query parameter: `{type}` Optional
+
 Allowed Values:
 * snowflake
-* redshift
 * bigquery
--->
+<!-- * redshift -->
 
 Request body: None
 
@@ -88,16 +87,12 @@ Example response: two connections returned
         "name": "Example Connection 2",
         "workspace_id": 1234,
         "is_faulted": false,
-        "type": "snowflake",
-        "source_account_id": "gd1234",
-        "region": "us-central1.gcp",
-        "warehouse": "compute_wh",
-        "database": "mp",
-        "role": "mp_role",
-        "user": "mp_user",
-        "password": "************",
-        "snowflake_aws_iam_user_arn": null,
-        "snowflake_aws_external_id": null,
+        "type": "bigquery",
+        "region": "us-east4",
+        "service_account_id": "mp_us1_service",
+        "service_account_key": "************",
+        "project_id": "compute_wh",
+        "dataset_id": "mp",
         "created_on": "2022-12-05T17:10:53.987",
         "created_by": "developer@mparticle.com",
         "last_modified_on": null,
@@ -141,7 +136,11 @@ Example response:
 
 Request: `POST {baseURI}/connections`
 
-Parameters:
+<tabs>
+
+<tab label='Snowflake' group='warehouses'>
+
+Parameters for Snowflake connections:
 
 | Name                       | Type    | Description                                                                                                                                                                                                                                              |
 |:---------------------------|:--------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -203,6 +202,65 @@ Example response:
     "last_modified_by": null
 }
 ```
+
+</tab>
+
+<tab label='Google BigQuery' group='warehouses'>
+
+Parameters for Google BigQuery connections:
+
+| Name                       | Type    | Description                                                                                                                                                                                                                                              |
+|:---------------------------|:--------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                         | string  | Unique identifier in slug format. Valid characters include numbers, letters, _, and -                                                                                                                                                                    |
+| name                       | string  | Name of the connection                                                                                                                                                                                                                                   |
+| workspace_id               | integer | The mParticle workspace where this connection is created                                                                                                                                                                                                           |
+| type                       | string  | Valid value: `bigquery`                                                                                                                                                                                                                                 |
+| region                     | string  | Warehouse region name where data will be retrieved. Refer to your warehouse documentation to determine your region. BigQuery: [here](https://cloud.google.com/bigquery/docs/locations) |
+| project_id                 | string  | BigQuery project ID                                                                                                                                                                                             |
+| dataset_id                 | string  | BigQuery dataset ID                                                                                                                                                                           |
+| service_account_id | string  | BigQuery service account ID that was created in the [quickstart](/developers/warehouse-sync-api/quickstart/)                                                                                                                   |
+| service_account_key  | string  | BigQuery service account key that was created in the [quickstart](/developers/warehouse-sync-api/quickstart/)                                                                                                                       |
+
+Request body example:
+
+```json
+{
+    "id": "example-connection",
+    "name": "Example Connection",
+    "workspace_id": 1234,
+    "type": "bigquery",
+    "region": "us-east4",
+    "project_id": "mp-project",
+    "dataset_id": "mp-dataset",
+    "service_account_id": "mp_service",
+    "service_account_key": "BIGQUERY_SERVICE_ACCOUNT_KEY"
+}
+```
+
+Example response:
+
+```json
+{
+    "id": "example-connection",
+    "name": "Example Connection",
+    "workspace_id": 1234,
+    "is_faulted": false,
+    "type": "bigquery",
+    "region": "us-east4",
+    "service_account_id": "mp_service",
+    "service_account_key": "************",
+    "project_id": "mp-project",
+    "dataset_id": "mp-dataset",
+    "created_on": "2023-02-03T23:53:08.413",
+    "created_by": "developer@mparticle.com",
+    "last_modified_on": null,
+    "last_modified_by": null
+}
+```
+
+</tab>
+
+</tabs>
 
 ### Update an existing ingest connection
 
@@ -367,8 +425,8 @@ Parameters:
 | workspace_id                        | string | The workspace where this connection is created                                                                                                                                                                                                 |
 | type                                | string | Required. Valid value: `sql`                                                                                                                                                                                                                   |
 | sql_query                           | string | A valid SQL query that selects all the columns from Snowflake for this data model. See [SQL](/developers/warehouse-sync-api/sql/) for a list of supported SQL commands                                                                         |
-| load_timestamp_field_name           | string | Name of timestamp field in database mParticle should use to identify changed records                                                                                                                                                         |
-| load_timestamp_field_type           | string | Data type for load_timestamp field. [Snowflake values](https://docs.snowflake.com/en/sql-reference/data-types-datetime): `timestamp_ltz`, `timestamp_ntz`, `timestamp_tz`, `datetime`, `date`, `timestamp_unixtime_ms`, `timestamp_unixtime_s` |
+| load_timestamp_field_name           | string | Name of timestamp field in database mParticle should use to identify changed records                                                                                                                                                           |
+| load_timestamp_field_type           | string | Data type for load_timestamp field. [BigQuery values](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types): `datetime`, `date`, `timestamp`, `timestamp_unixtime_ms`, `timestamp_unixtime_s`. [Snowflake values](https://docs.snowflake.com/en/sql-reference/data-types-datetime): `timestamp_ltz`, `timestamp_ntz`, `timestamp_tz`, `datetime`, `date`, `timestamp_unixtime_ms`, `timestamp_unixtime_s` |
 | load_timestamp_field_tz             | string | Optional. IANA database timezone name to interpret load_timestamp_field values                                                                                                                                                                 |
 | load_timestamp_field_offset_seconds | string | Optional. Seconds to adjust the load timestamp field when querying data                                                                                                                                                                        |
 

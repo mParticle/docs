@@ -3,11 +3,11 @@ title: Warehouse Sync API overview
 order: 1
 ---
 
-Use the Warehouse Sync API to enrich user profiles in mParticle with insights derived from data in Snowflake. The process is similar to the existing integration with Snowflake. However, Warehouse Sync API allows you to build headless data infrastructure.
+Use the Warehouse Sync API to enrich user profiles in mParticle with insights derived from data in Snowflake or BigQuery. The process is similar to the existing integration with these warehouses. The Warehouse Sync API allows you to build a headless data infrastructure.
 
-<aside>This <a href="https://docs.mparticle.com/guides/glossary#releases">Early Access release</a> of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. mParticle expects to add support for additional inputs and event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
+<aside>This <a href="https://docs.mparticle.com/guides/glossary#releases">Early Access release</a> of Warehouse Sync API is limited to user profile data, Snowflake, and Google BigQuery. The API will change before it is generally available. mParticle expects to add support for additional inputs and event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
 
-To sync with Snowflake, use the API to:
+To sync with your data warehouse, use the API to:
 
 1. Define an ingest connection.
 2. Define an ingest data model. The data model defines the data structure and [important columns](/developers/warehouse-sync-api/sql/#data-models-and-sql-queries) including the SQL query to perform.

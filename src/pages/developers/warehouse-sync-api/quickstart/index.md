@@ -3,12 +3,11 @@ title: Warehouse Sync API tutorial
 order: 2
 ---
 
-Use this tutorial to configure your first Warehouse Sync pipeline with [the mParticle Postman collection], and activate the data in a downstream tool. Postman is an easy and friendly environment for developers and non-developers alike to use APIs. 
+Use this tutorial to configure your first Warehouse Sync pipeline with the mParticle Postman collection, and activate the data in a downstream tool. Postman is an easy and friendly environment for developers and non-developers alike to use APIs. 
 
-<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
+<aside>This Early Access release of Warehouse Sync API is limited to user profile data, Snowflake, and Google BigQuery. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
 
 This tutorial is not a complete guide to all of the Warehouse Sync features and APIs. For more reference documentation, see the [Warehouse Sync API Reference](/developers/warehouse-sync-api/reference/).
-
 
 ## Prerequisites
 
@@ -30,7 +29,7 @@ This tutorial is not a complete guide to all of the Warehouse Sync features and 
 1. Log into your mParticle account where the feature has been enabled with a user that has the Admin role.
 2. Go to **Setup** > **Inputs**.
 3. Select the **Feeds** tab.
-4. Click the green **Add** button in the top right corner and select the **Snowflake** option.
+4. Click the green **Add** button in the top right corner and select your data warehouse.
 5. Give the Feed a name. Ensure the **Active** toggle is selected and click **Save**.
 6. Copy the **Server to Server Key** for the Feed as you’ll need it in a future step.
 
@@ -58,21 +57,27 @@ To create a Platform API credential:
 6. Copy the **Client ID** and **Client Secret** values, as you’ll need these in a later step.
 7. Click **Done**.
 
-## Step 2. Snowflake setup
+## Step 2. Data warehouse setup
 
-Work with your Snowflake administrator or IT team to ensure Snowflake is reachable and accessible by the mParticle app.
+Work with your warehouse administrator or IT team to ensure your warehouse is reachable and accessible by the mParticle app.
 
-1. Whitelist the [mParticle IP address range](https://docs.mparticle.com/developers/data-localization/#ip-whitelisting) so that Snowflake will be able to accept inbound calls from mParticle.
-2. Ask your Snowflake DBA to run the following commands in Snowflake to create a new Role that the mParticle service will use to connect to and access the Snowflake database.
+1. Whitelist the [mParticle IP address range](https://docs.mparticle.com/developers/data-localization/#ip-whitelisting) so that your warehouse will be able to accept inbound calls from mParticle.
+2. Ask your database administrator to execute the following steps in your warehouse to create a new Role that the mParticle service will use to connect to and access your database. Make sure to select the correct tab for your warehouse (Snowflake or Google BigQuery).
 
-<aside class="note">Items in `{{Curly Braces}}` are placeholders and should be replaced with values based on your environment and/or determined by you.</aside>
+<tabs>
 
-<aside class="warning">Be very careful when filling out the values of your environment in these commands. Simple mistakes or typos may prevent the warehouse sync from working.</aside>
+<tab label='Snowflake' group='warehouses'>
+
+Run the following commands from your Snowflake instance:
+
+<aside class="note">Items in <code>{{Curly Braces}}</code> are placeholders and should be replaced with values based on your environment and/or determined by you.</aside>
+
+<aside class="warning">Be very careful when filling out the values of your environment in these commands. Simple mistakes, typos, or incorrect casing may prevent the warehouse sync from working.</aside>
 
 ```sql
 USE ROLE ACCOUNTADMIN;
 
-// Create a unique role for mParticle
+// Create a unique role for mParticle 
 CREATE ROLE IF NOT EXISTS {{role_name}};
 
 GRANT USAGE ON WAREHOUSE {{compute_wh}} TO ROLE {{role_name}};
@@ -111,6 +116,54 @@ DESCRIBE INTEGRATION mp_{{pod}}_{{org_id}}_{{acct_id}}_s3;
 
 The DESCRIBE command returns a number of different values. Copy the values for `STORAGE_AWS_IAM_USER_ARN` and `STORAGE_AWS_EXTERNAL_ID` as you will need to enter them in the next section.
 
+</tab>
+
+<tab label='Google BigQuery' group='warehouses'>
+
+### Create a new service account for mParticle
+
+  1. Go to console.cloud.google.com, log in, and navigate to **IAM & Admin > Service Accounts**.
+  2. Select **Create Service Account**.
+  3. Enter a new identifier for mParticle in **Service account ID**. In the example below, the email address is the service account ID. Save this value for your Postman setup.
+  
+  ![](/images/dwi/bq-dwi-setup-instructions/bq-setup-1.png)
+  
+
+  4. Under **Grant this service account access to project**, select BigQuery Job User under the Role dropdown menu, and click **DONE**.
+
+  ![](/images/dwi/bq-dwi-setup-instructions/bq-setup-2.png)
+  
+  
+  5. Select your new service account and navigate to the Keys tab.
+  6. Click **ADD KEY** and select **Create new key**. The value for `service_account_key` will be the contents of the generated JSON file. Save this value for your Postman setup.
+  
+  ![](/images/dwi/bq-dwi-setup-instructions/bq-setup-3.png)
+  
+  
+### Identify your BigQuery warehouse details
+
+  Navigate to your BigQuery instance from console.cloud.google.com.
+  
+  ![](/images/dwi/bq-dwi-setup-instructions/bq-setup-4.png)
+  
+  
+  * Your `project_id` is the first portion of **Dataset ID** (the portion before the `.`). In the example above, it is `mp-project`.
+  * Your `dataset_id` is the second portion of **Dataset ID** (the portion immediately after the `.`) In the example above, it is `mp-dataset`.
+  * Your `region` is the **Data location**. This is `us-east4` in the example above.
+  
+### Grant access to the dataset in BigQuery
+
+  1. From your BigQuery instance in console.cloud.google.com, click **Sharing** and select **Permissions**.
+  2. Click **Add Principle**.
+  3. Assign two Roles, one for BigQuery Data Viewer, and one for BigQuery User.
+  4. Click Save.
+
+  ![](/images/dwi/bq-dwi-setup-instructions/bq-setup-5.png)
+
+</tab>
+
+</tabs>
+
 ## Step 3. Postman setup
 
 Once you have installed Postman, configure the collection environment.
@@ -129,9 +182,11 @@ Once you have installed Postman, configure the collection environment.
         - To find your Org ID, log into the mParticle app. View the page source. For example, in Google Chrome, go to **View > Developer > View Page Source**. In the resulting source for the page, look for **"orgId":xxx**. This number is your Org ID.
         - Follow a similar process to find your Account ID (**"accountId":yyy**) and Workspace ID (**"workspaceId":zzz**).
     * Replace POD with the POD your mParticle account is deployed on. Look at the URL in your browser where you are signed into mParticle. The POD is one of the following values: US1, US2, EU1, AU1.
-    * Replace SNOWFLAKE_PASSWORD with the password of the Snowflake user account you defined in the Snowflake Setup section.
+    * Replace PASSWORD with the password of the warehouse user account you defined in the Data Warehouse Setup section.
 4. Replace PARTNER_FEED_KEY with the Server-to-Server Feed key you copied down in "Step 1. mParticle Setup."
-5. Replace SNOWFLAKE_AWS_IAM_USER_ARN and SNOWFLAKE_AWS_EXTERNAL_ID with the values you copied down in "Step 2. Snowflake Setup." 
+5. Enter the corresponding data warehouse username and password you copied down in "Step 2. Data Warehouse Setup." according to the data warehouse you are using.
+    * For Snowflake, replace SNOWFLAKE_AWS_IAM_USER_ARN and SNOWFLAKE_AWS_EXTERNAL_ID with the values you copied from step 2.
+    * For BigQuery, replace SERVICE_ACCOUNT_ID with the service account ID you used in BigQuery, and replace SERVICE_ACCOUNT_KEY with the key from the generated JSON file in step 2.  
 6. After updating all the values, click COMMAND-S (or CTRL-S) to save your changes.
 
 ### Update the Postman collection
@@ -144,14 +199,14 @@ Once you have installed Postman, configure the collection environment.
 
 4. Replace placeholder values (the ones indicated with “REPLACE_ME”)  for several variables with the values corresponding to your environment. Ensure you update the values in the CURRENT VALUE column.
     * Replace INGEST_PIPELINE_SLUG and INGEST_PIPELINE_NAME with values for what you’d like to call the pipeline you’ll be creating.
-    * Replace SQL_QUERY with the Snowflake query mParticle should use to retrieve the data from Snowflake. SQL is a powerful language and you can use advanced expressions to filter, aggregate, join, etc. your data. Work with your database administrator if you need help crafting the right SQL query:
+    * Replace SQL_QUERY with the database query mParticle should use to retrieve the data from your warehouse. SQL is a powerful language and you can use advanced expressions to filter, aggregate, join, etc. your data. Work with your database administrator if you need help crafting the right SQL query:
         - Your query should contain a timestamp column that mParticle will use to keep track of which rows need to be loaded.
         - Your query should contain one or more user identity columns that mParticle will use to perform identity resolution to ensure that data ends up on the correct user profile.
         - As part of the SQL query, you must specify how columns in the query will map to attributes on a user’s profile. You do this by using column aliasing in SQL. For example, in the following query, the column `cid` in Snowflake is being mapped to the mParticle attribute `customer_id`. 
      
           <img src="/images/dwi/sql-example-tutorial.png" alt="sql example" width="600">
      
-          If you don’t provide an alias, mParticle will use the name of the column in Snowflake. If an attribute of this name does not already exist on the user’s profile, mParticle will create a new attribute with this name.
+          If you don’t provide an alias, mParticle will use the name of the column in your database. If an attribute of this name does not already exist on the user’s profile, mParticle will create a new attribute with this name.
 
     * Before using the query in mParticle, test the query outside of mParticle to ensure it is returning the data you think it will.
     * To learn more checkout the [Warehouse Sync SQL reference](/developers/warehouse-sync-api/sql/)
@@ -170,7 +225,7 @@ Creating a warehouse sync pipeline takes four steps:
 
 ### Create the connection
 
-The first step is to create a connection. mParticle uses this information in order to establish a connection with your Snowflake database.
+The first step is to create a connection. mParticle uses this information in order to establish a connection with your data warehouse.
 
 1. In Postman, ensure the environment drop-down is pointed to the Environment configuration you recently imported.
 
@@ -182,7 +237,7 @@ The first step is to create a connection. mParticle uses this information in ord
 
     <img src="/images/dwi/tutorial8.png" alt="Postman page showing body of post request"> 
 
-    The values in `{{Sample Values}}` is taken from the environment variables you updated in earlier steps. Ensure the values for `source_account_id`, `region`, `warehouse`, and `database` reflect the correct values for your organization’s Snowflake data warehouse. You may need to work with your Snowflake DBA to ensure you have the correct values.
+    The values in `{{Sample Values}}` is taken from the environment variables you updated in earlier steps. Make sure these values match the values for your organization’s data warehouse. You may need to work with your database administrator to ensure you have the correct values.
 
 5. Once you are confident all values are correct, click the blue **Send** button to issue the API call to create the Connection configuration. If everything is correct, mParticle will return a success message with details about the configuration you just created. If it was not successful, you will get an error message with additional information pointing to what the issue might be.
 
@@ -190,7 +245,7 @@ The first step is to create a connection. mParticle uses this information in ord
 
 ### Create the data model
 
-The second step in the pipeline creation process is creating a data model. mParticle uses this information in order to determine what data should be extracted from your Snowflake database and how it will map to mParticle’s data model.
+The second step in the pipeline creation process is creating a data model. mParticle uses this information in order to determine what data should be extracted from your database and how it will map to mParticle’s data model.
 
 1. In Postman, expand **Warehouse Sync Early Access Collection** and open the **2) Data Models** folder.
 2. Click the **Create Data Model** request.
@@ -200,10 +255,11 @@ The second step in the pipeline creation process is creating a data model. mPart
 
 4. The values in `{{Sample Values}}` will be taken from the variables you updated in previous steps. Update the values for `load_timestamp_field_type`, `load_timestamp_field_name`, and `load_timestamp_field_time_zone`, to match the timestamp field you provided in your SQL Query in an earlier step.
 
-    * The first field is the Snowflake data type of your timestamp column [the choices are: `timestamp_ltz, timestamp_ntz, timestamp_tz, datetime, date, timestamp_unixtime_ms, timestamp_unixtime_s`].
-    * The second field is the column name in Snowflake.
+    * The first field is the warehouse data type of your timestamp column.
+      * The timestamp values for Snowflake are: `timestamp_ltz, timestamp_ntz, timestamp_tz, datetime, date, timestamp_unixtime_ms, timestamp_unixtime_s`.
+      * The timestamp values for Google BigQuery are `datetime`, `date`, `timestamp`, `timestamp_unixtime_ms`, `timestamp_unixtime_s`.
+    * The second field is the timestamp column name in your SQL query.
     * The third field indicates whether the field has an associated time zone. Specify a valid IANA timezone value here (ex: America/New_York).  -- [List of IANA values](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-
 
 5. Once you are confident all values are correct, click the blue **Send** button to issue the API request that creates the data model. If everything is correct, mParticle returns a success message with details about the data model you just created. If the request was not successful, mParticle returns an error message with additional information about what the issue might be.
 
@@ -259,7 +315,7 @@ Create an audience that uses one of the attributes we ingested as a qualifying c
 3. Give the audience a name.
 4. Select a date range, or choose “All available data.”
 5. Select the Warehouse Sync feed you created in [mParticle Setup](#step-1-mparticle-setup).
-6. Add an audience criteria that leverages one of the data points you ingested from Snowflake. In the example below, we only want to consider users who have a propensity-to-buy score that’s greater than 0.7.
+6. Add an audience criteria that leverages one of the data points you ingested from your warehouse. In the example below, we only want to consider users who have a propensity-to-buy score that’s greater than 0.7.
 
     <img src="/images/dwi/tutorial17.png" alt="mparticle page showing user attribute" width="600"> 
 

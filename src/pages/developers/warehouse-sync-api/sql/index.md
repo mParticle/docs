@@ -7,7 +7,7 @@ A SQL query can be provided as part of the [Data Model request body](/developers
 so be sure to use valid syntax for your warehouse. For example, each warehouse has slightly different ways to utilize SQL functions with
 different parameters.
 
-<aside>This Early Access release of Warehouse Sync API is limited to user profiles and Snowflake. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
+<aside>This Early Access release of Warehouse Sync API is limited to user profile data, Snowflake, and Google BigQuery. The API will change before it is generally available. mParticle expects to add support for additional inputs and support event data <a href="https://docs.mparticle.com/guides/platform-guide/introduction#forward-looking-statements">in a future release</a>.</aside>
 
 ## Data Models and SQL Queries 
 
@@ -92,7 +92,7 @@ The following SQL commands are not supported:
 
 ## Example SQL Queries
 
-### Example 1: Import user's propensity with a list of their favorite categories from Snowflake
+### Example 1: Import user's propensity with a list of their favorite categories from your warehouse
 
 mParticle's demo database has a few user attributes and alongside a prediction for the likelihood they may purchase. The following query will import this alongside their favorite categories as a simple list and apply it to the corresponding Profile according to their customer_id.
 
