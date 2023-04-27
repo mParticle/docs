@@ -3,8 +3,6 @@ title: Tiered Events
 order: 11
 ---
 
-<aside>Tiered Events is in <a href="https://docs.mparticle.com/guides/glossary#releases">Beta Release</a>, available only upon request. If you're interested in using it prior to general availability, please contact your mParticle success manager.</aside>
-
 mParticle collects data from all your platforms and data connections and connects it to all of your team’s tools and systems. All collected data is used to resolve identities and stitch together customer profiles and is available to be forwarded to downstream systems. Data can also be stored in mParticle, in case you need to run data replays (re-ingesting data with help from mParticle Support). Additionally, mParticle makes all data available for evaluation in Audiences and Calculated Attributes. However, many events and the data related to them may not be needed for running data replays or evaluations depending on how you use Audiences or Calculated Attributes. With Tiered Events, you can choose to collect data but not store it, or to collect and store data but not evaluate it. These configurations help improve performance.
 ![List of custom events showing tiered events](/images/tiered-events/tiered-events-overview.png)
 
@@ -13,8 +11,6 @@ mParticle provides three event tiers. All three tiers support ingestion and forw
 * **Personalize**: This tier is the default for all events and related data collected as part of an mParticle ingestion. Events are ingested, available for evaluation in audiences and calculated attributes, stored, and forwarded.
 * **Preserve**: Events marked as Preserve are ingested, stored, and forwarded but are not used in real-time evaluations for audiences or calculated attributes. The data is still available for replaying to third party tools, and for [backfills](/developers/server/http/#v2bulkeventshistorical) of [calculated attributes](/guides/platform-guide/calculated-attributes/overview/) and [standard audience creation](/guides/platform-guide/audiences/standard/).
 * **Connect**: Data is not stored in mParticle, but can be ingested and forwarded. The data is also used  for profile enrichment. Because Connect tier events aren't stored, they won’t be visible in the User Activity view.
-
-    <aside>For the Beta release, the Connect tier behaves the same as the Preserve tier. The behavior described in this topic is expected but not guaranteed to be available in the GA release.</aside>
 
 The following table can help you decide which tier to apply to data:
 

@@ -14,11 +14,11 @@ You can then view calculated attributes along with other user attributes in the 
 4. When applicable, select the **operation**.
 5. Click on the data criteria section to define the data used to run the calculation.
     1. From the dropdown, select the **event** to calculate on.
-        If not set to [Personalize](/guides/platform-guides/tiered-events), an event can't be used as criteria in a calculated attribute and won't be evaluated. It will be grayed out. Tiered events are in [a Beta release](https://docs.mparticle.com/guides/glossary#releases) and may not be enabled in your org.
+        If not set to [Personalize](/guides/platform-guides/tiered-events), an event can't be used as criteria in a calculated attribute and won't be evaluated. It will be grayed out.
     2. Certain calculations are based on an event attribute for the selected event. When applicable, select the **attribute**.
     3. Some operations requires a specific data type to run calculation. When selected attribute is not compatible with the operation a warning message will be displayed. If you want to force a specific event attribute to be used you can continue past the warning and activate the calculated attribute. For example, if you pass in purchase amount as a string you can force it to be a number for use in a sum calculation.
     4. **Save** your changes.
-    <aside>If you participate in the <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> Beta release, you won't be able to select an event in real-time audiences or calculated attributes if the tier is other than <b>Personalize</b>. To select such an event in real-time audiences or calculated attributes, move it to the <b>Personalize</b> tier.</aside>
+    <aside>If you have <a href="https://docs.mparticle.com/guides/platform-guide/tiered-events/">Tiered Events</a> functionality enabled, you won't be able to select an event in real-time audiences or calculated attributes if the tier is other than <b>Personalize</b>. To select such an event in real-time audiences or calculated attributes, move it to the <b>Personalize</b> tier.</aside>
 
 6. To adjust a date range for your calculation, click on **Date Range** criteria:
     * Select **Since** from the dropdown for calculations that must be made from a specific start date within the audience retention period defined in your subscription plan.
