@@ -3,10 +3,6 @@ title: Initialization
 order: 1
 ---
 
-<aside>
-<b>5/4/2022</b> - Note that all mParticle workspaces will be migrated to our batching events endpoint on 7/12/2022.  If your mParticle workspace was created before 5/6/2021 and you haven't already reached out to your customer support manager to enable event batching on your account, your account will automatically be migrated. See more info about event batching <a href="#upload-interval--batching">below</a>.
-</aside>
-
 There are two options for initializing the Web SDK:
 * [Snippet](/developers/sdk/web/initialization/)
 * [Self hosting](/developers/sdk/web/self-hosting/)
