@@ -210,7 +210,7 @@ Identifier for advertisers on iPhones. An Apple IDFA is similar to an advertisin
 
 A set of mParticle features for managing how you identify your users across devices: [**identity strategy**](#identity-strategy), [**identity priorities**](#identity-priorities), and the Identity API. 
 
-### input**
+### input
 
 The configuration that defines how a partner sends data to an output. Inputs may be one of several types:
 
@@ -347,6 +347,12 @@ A feed that can't be configured to behave as if it came from a specified platfor
 
 1. The person or system who caused an event to occur. Users may be anonymous or known.
 2. Someone who has access to the mParticle system is an mParticle user.
+
+### User attribute change (UAC)
+
+A user attribute change event: an `event_type : attribute_change_event`.
+
+An SDK uploads an event whenever a user attribute changes to denote new attributes, changing attributes, and removed attributes. This allows for calculation of the current user attribute state for each event within an mParticle upload.
 
 ### User Activity View (UAV)
 

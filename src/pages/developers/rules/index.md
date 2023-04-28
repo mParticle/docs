@@ -23,7 +23,7 @@ While all rules have the same basic syntax, there are two main use cases for rul
   * working with the events array of a batch
   * working with any other properties of the batch.
 
-## Non-events Rules
+## Non-events rules
 
 There are two basic kinds of non-event rules:
 
@@ -61,6 +61,32 @@ Our output platform expects a full name, so we can use a rule to create one.
 
 };
 ```
+If you want to update a user attribute via a rule and that rule is connected to a platform input (Android, iOS, Web, Roku, etc.), you must use user attribute update events in the rule.
+
+The following example of an inbound rule adds a new user attribute to the `user_attributes` JSON in the event batch. Because the data is sent via platform input (SDK), the example also includes a user attribute change (UAC) event in the event batch for the new user attributes being set.
+
+```javascript
+// User attribute added to user_attributes
+batch.user_attributes["foo"] = "this is the new value";
+
+// UAC event added to events 
+batch.events.push(
+{
+   "data":{
+      "user_attribute_name":"foo",
+      "new":"this is the new value",
+      "old":"this is an old value", //this is optional
+      "deleted":false,
+      "is_new_attribute":true
+   },
+   "event_type":"user_attribute_change"
+}
+);
+```
+
+If the UAC event isn’t present in SDK batches, the user attribute shows up in Live Stream, in event batches in the User Activity view, and possibly downstream, but it won’t be written to the user’s mParticle profile. Thus, it won’t be usable for audiences or journeys.
+
+UAC events aren’t required for server-to-server data. An SDK uploads an event whenever a user attribute changes to denote new attributes, changing attributes, and removed attributes. This allows for calculation of the current user attribute state for each event within an mParticle upload.
 
 ## Event-focused rules
 
@@ -95,7 +121,7 @@ We can create a rule to change it to 'subscribe', to tailor it to a specific Out
 };
 ```
 
-## All Output vs Specific Output Rules
+## All Output vs Specific Output rules
 
 Rules can be applied in two places. 'All Output' rules are applied first, and their output is passed along to all Output services connected to that input. 'Specific Output' Rules are applied as part of a particular Input/Output connection and affect only that Output service.
 
@@ -103,7 +129,7 @@ In most ways the two types of rules operate in the same way. Both take the same 
 
 <aside>Warning: If you specify a subtractive rule as All Outputs and apply it between <a href="https://docs.mparticle.com/guides/platform-guide/rules/#where-can-rules-be-executed">stages 1 and 2</a>, such as dropping events from a batch, you may remove data that you don't intend to remove and the data may not be recoverable because it's dropped before storage and processing.</aside>
 
-## Error Handling
+## Error handling
 
 When creating a rule in the mParticle dashboard, you must select a **Failure Action**. This determines what will happen if your rule throws an unhandled exception.
 
@@ -128,7 +154,7 @@ Limitations applying only to 'All Outputs' Rules:
 * The Application Info (`batch.application_info`) object cannot be accessed or altered.
 * Any changes made to the Deleted Attributes object (`batch.deleted_user_attributes`) will not be applied to the user profile.
 
-## Best Practices for Node JS Rules
+## Best practices for Node JS rules
 
 AWS supports multiple Node runtime versions. If using Node for your Rule, be sure to select a runtime that supports the Javascript features you want to use.
 
@@ -203,7 +229,7 @@ function event_handler(event) {
 
 ## Examples
 
-### Event Renamer
+### Event renamer
 
 Converts event names from an input platform still using an older version of those names.
 
