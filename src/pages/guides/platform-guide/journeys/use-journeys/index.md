@@ -27,15 +27,15 @@ To create a journey:
 6. Click the milestone to add a name, and define the criteria. You are now in the real-time audience builder, and can [define criteria](/guides/platform-guide/audiences/#audience-criteria).
 7.  Click **Save**. The canvas displays the milestone you just created and the audience for that milestone.
 
-    <img alt="journey with one milestone and one connection" src="/images/journeys/simple-journey.png" width="250">
+    <img alt="journey with one milestone and one connection" src="/images/journeys/simple-path.png" width="250">
 
     You can connect to an output now or wait until you've created all the milestones. See [Configure connections](#step-2-configure-connections) for details. 
 
-8. You can either define the next step in the existing path, or split the path and create one or more additional milestones:
+8. You can either define the next step in the existing path, or split the path by clicking the split icon, and create one or more additional milestones:
 
-    <img alt="branch and milestone controls" src="/images/journeys/path-vs-milestone.png" width="450">
+    <img alt="branch and milestone controls" src="/images/journeys/many-paths.png" width="450">
 
-    * Click the plus sign under the milestone you just created to continue the journey, and click **Milestone** from the ADD dropdown. The following image illustrates adding a second milestone to the same path as the first one.
+    * Click the plus sign under the **Journey Inputs** you just created to continue the journey, and click **Milestone** from the ADD dropdown. The following image shows  a second milestone in the same path as the first one.
     <img alt="journey with one milestone" src="/images/journeys/one-path.png" width="250">
     * Click the branch symbol above the milestone you just created to split the path into multiple journeys, and click **Path** to create a new path and milestone, or **Remaining User Path** to create a milestone for all audience members who do not meet criteria for any other milestone at this level. The following image illustrates splitting the path with a remaining user milestone.          
     <img alt="Remaining user milestone" src="/images/journeys/one-milestone-plus-ru.png" width="450">

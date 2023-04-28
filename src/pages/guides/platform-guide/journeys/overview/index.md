@@ -28,11 +28,11 @@ At the start of the journey, you have access to all the users available from all
 4. Verify that the data flow is behaving as you expect using the same tools and techniques you use for an integration.
 5. When a journey needs to be changed, you can modify or delete milestones. 
 
-The following diagram shows a simple journey with two milestones: 
+The following diagram shows a simple journey with one milestone: 
 
 <img alt="journey with one milestone" src="/images/journeys/one-path.png" width="250">
 
-In this journey, all high-value customers are sent an email, and then all of the high-value customers who are also long-term customers are sent to an internal Slack channel and two other outputs.
+In this journey, all high-value customers are sent an email. Next, all of the high-value customers who are also long-term customers are sent to an internal Slack channel, and the audiences are also sent to additional outputs for further actions.
 
 Notice the following:
 
