@@ -9,8 +9,6 @@ The Trade Desk provides a self-service platform that enables ad buyers to manage
 The `The Trade Desk Offline Measurement` integration provides an opportunity for advertisers and trusted providers to send offline
 conversion events to be used for attribution. Offline conversion events cover a range of use cases like attributing in-store sales or place visits.
 
-**Note:** This integration is intended _only_ to forward events occurring outside of your app, which have been uploaded to mParticle via a custom feed.
-
 ## Prerequisites
 
 To use this integration, you must be sending `Commerce` or `Custom` events to an "unbound" feed that you can then connect to The Trade Desk. Learn more about unbound vs. "act-as" feeds [here](/guides/feeds/#forwarding-data-from-feeds).
@@ -48,13 +46,13 @@ In order to forward information regarding location, several [reserved user attri
 An additional connection setting has also been exposed to convey The Trade Desk's notion of `Metro area`.
 * Please see [Connection Settings](#connection-settings) for more information.
 
-| mParticle Field | The Trade Desk Field | Data Type | Required | Description | Example |
-|---|---|---|---|---|---|
-| $Country | Country | `string` | No | Country. | USA |
-| $State | Region |  `string` | No | Region. | NY |
-| $City | City | `string` | No | City. | Brooklyn |
-| $Zip | PostalCode | `string` | No | PostalCode. | 10016 |
-| Metro Area Mapping | Metro | `string` | No | The user's metro area. | 501 |
+| mParticle Field    | The Trade Desk Field | Data Type | Required | Description            | Example  |
+|--------------------|----------------------|-----------|----------|------------------------|----------|
+| $Country           | Country              | `string`  | No       | Country.               | USA      |
+| $State             | Region               | `string`  | No       | Region.                | NY       |
+| $City              | City                 | `string`  | No       | City.                  | Brooklyn |
+| $Zip               | PostalCode           | `string`  | No       | PostalCode.            | 10016    |
+| Metro Area Mapping | Metro                | `string`  | No       | The user's metro area. | 501      |
 
 ### Custom Attributes
 
@@ -75,18 +73,18 @@ Once created, the same `Tracking Tag ID` can be used for connecting the same Out
 
 You can add the following Custom Flag to your events, which will be mapped to The Trade Desk as described below.
 
-| Custom Flag Name | Data Type | Required | Description |
-|---|---|---|---|
-| TheTradeDesk.ImpressionId | `string` | No | This is a valid 360-character GUID for the relevant impression. |
+| Custom Flag Name          | Data Type | Required | Description                                                     |
+|---------------------------|-----------|----------|-----------------------------------------------------------------|
+| TheTradeDesk.ImpressionId | `string`  | No       | This is a valid 360-character GUID for the relevant impression. |
 
 ### Additional Fields -- Commerce Events
 
 For incoming commerce events, the following additional information is extracted and forwarded to The Trade Desk:
 
-| mParticle Commerce Event Field | The Trade Desk Field | Data Type | Required | Description | Example |
-|---|---|---|---|---|---|
-| `ProductAction.TotalAmount` | Value | `string` | No | The monetary value associated with this event. | 0.02 |
-| `CurrencyCode` | ValueCurrency | `string` | No | The currency associated with the given value. | USD |
+| mParticle Commerce Event Field | The Trade Desk Field | Data Type | Required | Description                                    | Example |
+|--------------------------------|----------------------|-----------|----------|------------------------------------------------|---------|
+| `ProductAction.TotalAmount`    | Value                | `string`  | No       | The monetary value associated with this event. | 0.02    |
+| `CurrencyCode`                 | ValueCurrency        | `string`  | No       | The currency associated with the given value.  | USD     |
 
 ## Upload Frequency
 
@@ -101,15 +99,15 @@ Upload frequency can be adjusted. Reach out to your mParticle Customer Success M
 
 ## Configuration Settings
 
-| Setting Name | Data Type | Default Value | Required | Description |
-|---|---|---|---|---|
-| Advertiser ID | `string` | <unset> | Yes | The Trade Desk Advertiser ID available on your dashboard. |
+| Setting Name  | Data Type | Default Value | Required | Description                                               |
+|---------------|-----------|---------------|----------|-----------------------------------------------------------|
+| Advertiser ID | `string`  | <unset>       | Yes      | The Trade Desk Advertiser ID available on your dashboard. |
 
 ## Connection Settings
 
-| Setting Name | Data Type | Default Value | Platform | Required | Description |
-|---|---|---|---|---|---|
-| Metro Area Mapping | `string` | <unset> | All | No | Map a mParticle User attribute to the "Metro" area value in The Trade Desk. |
-| Custom Attribute Mapping | `string` | <unset> | All | No | Map mParticle Event or User attributes to attributes within The Trade Desk, with values from "TD1" to "TD10". |
-| Tracking Tag ID | `string` | <unset> | All | Yes | The Tracking Tag Id allows mParticle to upload data to the given advertiser. It can be generated by clicking on "Create Tracking Tag Id" and entering in a unique Tracking Tag Name. Note: the "mparticle" Data Provider Id must be granted appropriate access within TheTradeDesk. |
-| Tracking Tag Name | `string` | <unset> | All | Required when creating a new Tracking Tag ID. | A unique name which, together with the Advertiser ID and the "mparticle" Data Provider, is used to generate an associated Tracking Tag ID. |
+| Setting Name             | Data Type | Default Value | Platform | Required                                      | Description                                                                                                                                                                                                                                                                         |
+|--------------------------|-----------|---------------|----------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Metro Area Mapping       | `string`  | <unset>       | All      | No                                            | Map a mParticle User attribute to the "Metro" area value in The Trade Desk.                                                                                                                                                                                                         |
+| Custom Attribute Mapping | `string`  | <unset>       | All      | No                                            | Map mParticle Event or User attributes to attributes within The Trade Desk, with values from "TD1" to "TD10".                                                                                                                                                                       |
+| Tracking Tag ID          | `string`  | <unset>       | All      | Yes                                           | The Tracking Tag Id allows mParticle to upload data to the given advertiser. It can be generated by clicking on "Create Tracking Tag Id" and entering in a unique Tracking Tag Name. Note: the "mparticle" Data Provider Id must be granted appropriate access within TheTradeDesk. |
+| Tracking Tag Name        | `string`  | <unset>       | All      | Required when creating a new Tracking Tag ID. | A unique name which, together with the Advertiser ID and the "mparticle" Data Provider, is used to generate an associated Tracking Tag ID.                                                                                                                                          |
