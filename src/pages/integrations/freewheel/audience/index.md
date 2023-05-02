@@ -4,6 +4,10 @@ title: Audience
 
 [FreeWheel:](https://ds.freewheel.tv/) Unify linear & digital TV. Automate planning, buying & selling. Get transparency & control.
 
+<aside>
+Note: In order to focus attention on developing an update to the integration, this integration is not accepting new activations. Please contact your FreeWheel account manager for more details.
+</aside>
+
 ## Prerequisites
 
 1. Obtain your FreeWheel Network Id from your FreeWheel account manager.
