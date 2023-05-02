@@ -207,6 +207,10 @@ Example response:
 
 <tab label='Google BigQuery' group='warehouses'>
 
+<aside>
+    The Google BigQuery connector uses the enterprise grade Google Cloud Platform infrastructure. Safeguarding customer data is our highest priority, and Data Warehouse Sync employs the same SOC2 best practices as the rest of the mParticle platform. mParticle <a href="/guides/platform-guide/introduction#forward-looking-statements">expects to include</a> Data Warehouse Sync in the upcoming annual SOC2 audit, which typically completes in July.
+</aside>
+
 Parameters for Google BigQuery connections:
 
 | Name                       | Type    | Description                                                                                                                                                                                                                                              |

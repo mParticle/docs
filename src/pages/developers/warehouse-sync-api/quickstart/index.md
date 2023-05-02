@@ -120,6 +120,10 @@ The DESCRIBE command returns a number of different values. Copy the values for `
 
 <tab label='Google BigQuery' group='warehouses'>
 
+<aside>
+    The Google BigQuery connector uses the enterprise grade Google Cloud Platform infrastructure. Safeguarding customer data is our highest priority, and Data Warehouse Sync employs the same SOC2 best practices as the rest of the mParticle platform. mParticle <a href="/guides/platform-guide/introduction#forward-looking-statements">expects to include</a> Data Warehouse Sync in the upcoming annual SOC2 audit, which typically completes in July.
+</aside>
+
 ### Create a new service account for mParticle
 
   1. Go to console.cloud.google.com, log in, and navigate to **IAM & Admin > Service Accounts**.
