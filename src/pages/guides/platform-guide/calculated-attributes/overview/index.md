@@ -19,7 +19,7 @@ The following video explains how calculated attributes help you quickly generate
 
 <p><iframe src="//fast.wistia.com/embed/iframe/2qrvmnr13p" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
 
-## Calculated Attributes Basics
+## Calculated attributes basics
 
 A calculated attribute contains the following elements that you define:
 
@@ -38,7 +38,7 @@ Calculated attributes are defined and calculated per workspace; calculations use
 
 After you activate a calculated attribute, calculating existing data can take several hours or more, depending on the date range selected and the amount of data to be processed.
 
-### Calculation Speed
+### Calculation speed
 
 ![](/images/ca-delayed-flow.png)
 
@@ -50,7 +50,7 @@ Calculations are either **synchronous** (sent with the batch of data being proce
   
 For more information about calculation types, see [Calculated Attributes Reference](/guides/platform-guide/calculated-attributes/reference/#calculations).
 
-### Calculation Types
+### Calculation types
 
 We currently support 13 calculations organized into four groups:
 
@@ -65,7 +65,7 @@ For an overview of how to use calculation types, view the following video:
 
 <p><iframe src="//fast.wistia.com/embed/iframe/eyyuf9s3r4" width="640" height="360" frameborder="0" allowfullscreen=""></iframe></p>
 
-### Calculation Date Range
+### Calculation date range
 
 Calculated attributes can apply to a date range that you define, but is limited by the audience real-time lookback period defined in your current subscription plan. You can specify two types of date ranges:
 
@@ -73,9 +73,13 @@ Calculated attributes can apply to a date range that you define, but is limited 
 
 * **Since**: limit calculations to the period of a specified start date to now.
 
-The audience real-time lookback period only affects the available data when initializing a calculated attribute. After initialization, calculated attributes continue to recalculate with new data. When an event drops out of the lookback period, it doesn't change the calculated attribute. 
+The audience real-time lookback period only affects the available data when initializing a calculated attribute. After initialization, calculated attributes continue to recalculate with new data. When an event drops out of the lookback period, it doesn't change the calculated attribute.
 
-## Calculation Attribute Seeding
+### Conditional logic
+
+After selecting an event, you can add conditions to the attribute in order to more precisely define results. For example, a retailer creating a calculated attribute might use the Contains operator with a Count attribute to count only the purchases that contain "Sock" in the product name. For a complete list of operators for the four types of attributes (Count, Aggregation, Occurrence, and List), see [Conditions](/guides/platform-guide/calculated-attributes/reference/#conditions).
+
+## Calculation attribute seeding
 
 Seeding allows you to pass in historic values for calculated attributes that mParticle builds on as new data arrives, without passing in all the raw events. Seeding allows you to transition from your own calculations to mParticle calculation. For example, you may have data from outside mParticle about the last four months' bookings. You can create a calculated attribute, then send the seed data to mParticle using the Calculated Attributes Seeding API. mParticle then combines your seed data and live data so there's no interruption.
 
@@ -91,12 +95,12 @@ Note the following calculated attribute behavior:
 * After a calculated attribute is already in use, receiving data via historical API doesn't automatically trigger a recalculation. You must either create a new calculated attribute or update the definition to trigger a recalculation.
 * Seeding of a rolling time window is not supported. Thus, seeded values don't decrement when they pass out of the calculated attribute window, for example a calculated attribute date range of "within the last 4 weeks."
 
-## Forwarding Calculated Attributes in an Audience Integration
+## Forwarding calculated attributes in an audience integration
 
 If a partner supports user attribute forwarding, you can forward calculated attributes in an audience integration alongside user attributes. Different partners have implemented user attribute forwarding in different ways. 
 
 For example, [Salesforce](/integrations/salesforce-email/audience/#forward-additional-subscriber-data) uses a separate data extension while [Google BigQuery](/integrations/google-bigquery/audience/#configuration-settings) uses the configuration setting Send User Attributes.
 
-## More Examples
+## More examples
 
 To walk through several different scenarios for using calculated attributes, download the [Calculated Attributes Use Case Guide](https://go.pardot.com/l/398262/2021-11-29/bt6yd4/398262/1638185505S5gEJYOk/Calculated_Attributes_Use_Case_Book.pdf).
