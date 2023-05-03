@@ -70,6 +70,9 @@ You can upload your own JSON BigQuery service account credentials using the **Go
 
  ![](/images/bigquery-settings-custom-configuration052019.png)
 
+<aside class= "warning">
+Note: The `projectId` referenced in the **Google Service Account Key JSON** configuration file should match the `projectId` created in step 3.
+</aside>
 
 
 After successfully saving the configurations, data loading should start within a few minutes, and you can view the data load status on the mParticle BigQuery page.
