@@ -64,13 +64,17 @@ Example [SDK initialization code (step 1.2)](/developers/tutorials/ios/create-in
 ```swift
 let options = MParticleOptions(key: "API-KEY", secret: "API-SECRET")
 options.environment = MPEnvironment.development
-options.networkOptions.pinningDisabledInDevelopment = true
+let networkOptions = MPNetworkOptions()
+networkOptions.pinningDisabledInDevelopment = true
+options.networkOptions = networkOptions
 MParticle.sharedInstance().start(with: options)
 ```
 ```objectivec
 MParticleOptions *options = [MParticleOptions optionsWithKey:@"API-KEY" secret:@"API-SECRET"];
 options.environment = MPEnvironmentDevelopment;
-options.networkOptions.pinningDisabledInDevelopment = YES;
+MPNetworkOptions *networkOptions = [[MPNetworkOptions alloc] init];
+networkOptions.pinningDisabledInDevelopment = YES;
+options.networkOptions = networkOptions;
 [MParticle.sharedInstance startWithOptions:options];
 ```
 :::
