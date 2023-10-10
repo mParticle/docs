@@ -86,7 +86,7 @@ Tokens cannot be revoked, but will expire every 8 hours. The initial token reque
 
 Allows you to retrieve the Profile
 
-`GET /userprofile/v1/<orgId>/<accountId>/<workspaceId>/<mpid>`
+`POST /userprofile/v1/<orgId>/<accountId>/<workspaceId>/<mpid>`
 
 #### Querystring Parameters
 
